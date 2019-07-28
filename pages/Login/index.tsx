@@ -4,7 +4,7 @@ import { LoginForm } from './components/Form'
 const LoginPage: NextPage<{}> = () => {
     return (
         <div>
-            <head>Login Page</head>
+            <header>Login Page</header>
             <LoginForm />
         </div>
     )
