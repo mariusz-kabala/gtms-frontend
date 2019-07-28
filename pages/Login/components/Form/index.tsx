@@ -70,8 +70,8 @@ export const LoginForm = memo(() => {
                 validate={useMemo(() => getValidate(t), [t])}
                 onSubmit={useMemo(() => getOnSubmit(t), [t])}
             >
-                {({ isSubmitting, handleSubmit }) => (
-                    <Form onSubmit={handleSubmit}>
+                {({ isSubmitting }) => (
+                    <Form>
                         <div className={css.item}>
                             <Field type='email' placeholder={t('Email')} name='email' />
                             <ErrorMessage
@@ -91,7 +91,6 @@ export const LoginForm = memo(() => {
                         <div>
                             <button
                                 type='submit'
-                                onClick={handleSubmit}
                                 disabled={isSubmitting}
                                 className={css.button}
                             >

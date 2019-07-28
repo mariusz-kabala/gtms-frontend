@@ -1,8 +1,12 @@
 import { NextPage } from 'next';
+import { LoginForm } from './components/Form'
 
 const LoginPage: NextPage<{}> = () => {
     return (
-        <div>Login Page</div>
+        <div>
+            <head>Login Page</head>
+            <LoginForm />
+        </div>
     )
 }
 

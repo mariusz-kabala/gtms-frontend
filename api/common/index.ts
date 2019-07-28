@@ -1,10 +1,12 @@
 interface IParams<T> {
     values: T
-    headers?: HeadersInit
+    headers?: {
+        [key: string]: string
+    }
 }
 
 export const fetchJSON = <T>(url: string, params?: IParams<T> ) => {
-    const { values, headers = {} } = params
+    const { values = {}, headers = {} } = params || {}
     const options: RequestInit = {}
 
     if (values instanceof Object && Object.keys(values).length > 0) {
@@ -15,7 +17,7 @@ export const fetchJSON = <T>(url: string, params?: IParams<T> ) => {
         options.cache = 'no-cache'
     }
 
-    options.headers = headers
+    options.headers = new Headers(headers)
 
     return fetch(url, options)
         .then((response) => {

@@ -3,6 +3,7 @@ import { Component, createContext } from 'react'
 const DEFAULT_LANGUAGE = 'en'
 
 export type TranslateFunc = (t: string) => string
+export type TranslationsList = {[key: string]: string}
 
 export interface ITranslationsContext {
     t: TranslateFunc
@@ -13,7 +14,13 @@ export interface ITranslationsContext {
 interface ITranslationsState {
     isLoading: boolean,
     language: string,
-    translations: {[key: string]: string}
+    translations: TranslationsList
+}
+
+interface ITranslationsProps {
+    lang?: string
+    translations: TranslationsList
+    children: React.ReactChild
 }
 
 export const TranslationsContext = createContext<ITranslationsContext>({
@@ -22,8 +29,8 @@ export const TranslationsContext = createContext<ITranslationsContext>({
     isLoading: false
 })
 
-export default class TranslationsProvider extends Component<{}, ITranslationsState> {
-    constructor(props) {
+export default class TranslationsProvider extends Component<ITranslationsProps, ITranslationsState> {
+    constructor(props: ITranslationsProps) {
         super(props)
 
         this.state = {
@@ -39,7 +46,7 @@ export default class TranslationsProvider extends Component<{}, ITranslationsSta
         }
     }
 
-    getInitialLanguage(props) {
+    getInitialLanguage(props: ITranslationsProps) {
         if (props.lang) {
             return props.lang
         }
@@ -51,7 +58,7 @@ export default class TranslationsProvider extends Component<{}, ITranslationsSta
         return DEFAULT_LANGUAGE
     }
 
-    getInitialTranslations(props) {
+    getInitialTranslations(props: ITranslationsProps) {
         if (props.translations) {
             return props.translations
         }
@@ -83,7 +90,7 @@ export default class TranslationsProvider extends Component<{}, ITranslationsSta
         //     )
     }
 
-    translate = (key) => {
+    translate = (key: string): string => {
         const { translations } = this.state
 
         return translations && translations[key] ? translations[key] : key
@@ -107,7 +114,7 @@ export default class TranslationsProvider extends Component<{}, ITranslationsSta
     }
 }
 
-export const withTranslations = (Component) => (props) => (
+export const withTranslations =  <P extends object>(Component: React.ComponentType<P>) => (props: P) => (
     <TranslationsContext.Consumer>
         {(componentProps) => <Component {...componentProps} {...props} />}
     </TranslationsContext.Consumer>
