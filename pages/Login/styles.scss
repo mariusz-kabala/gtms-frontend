@@ -1,0 +1,14 @@
+.header {
+    margin-top: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    > h1 {
+        font-weight: 700;
+        font-size: 38px;
+        letter-spacing: 3px;
+    }
+    > p {
+        font-size: 18px;
+        margin: 0;
+    }
+}

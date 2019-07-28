@@ -3,6 +3,8 @@ import { fetchJSON, makeApiUrl } from 'api/common'
 export interface IRegisterUserReqPayload {
     email: string
     password: string
+    name?: string
+    confirmPassword: string
 }
 
 export interface ILoginUserReqPayload {
