@@ -25,7 +25,8 @@
     "isolatedModules": true,
     "paths": {
         "providers/*": ["providers/*"],
-        "api/*": ["api/*"]
+        "api/*": ["api/*"],
+        "helpers/*": ["helpers/*"]
     },
   },
   "exclude": [
