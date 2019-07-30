@@ -1,6 +1,6 @@
 {
     "header.subtitle": "Jedziemy bez focha",
-    "header.registration": "Zarejestruj się",
+    
     "header.login": "Zaloguj",
     "login.noAccount": "Nie masz konta?",
     "login.register": "Zarejestruj się",
@@ -22,6 +22,5 @@
     "Password": "Hasło",
     "ConfirmPassword": "Potwierdź hasło",
     "Fullname": "Twoje imię i nazwisko albo nickname",
-    "registrationForm.acceptRules": "Akceptuję warunki",
-    "registrationForm.submitButton": "Zarejestruj się"
+    
 }

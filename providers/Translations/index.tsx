@@ -1,6 +1,5 @@
 import { Component, createContext } from "react"
 import { NextPageContext } from "next"
-import dynamic from "next/dynamic"
 
 const DEFAULT_LANGUAGE = "en"
 
@@ -46,41 +45,24 @@ export default class TranslationsProvider extends Component<
   }
 
   static async getInitialProps({ req }: NextPageContext) {
-    return new Promise((resolve, reject) => {
+    console.log("getInitialProps")
+    return new Promise(resolve => {
+      if (!req) {
+        resolve({})
+      }
+
       const lang =
         (req && req.headers["x-render-locale"]) || process.env.LOCALE || "en"
-      const fs = require("fs")
-      const path = require("path")
-      const appDirectory = fs.readFile(
-        path.resolve(
-          fs.realpathSync(process.cwd()),
-          `./static/languages/${lang}.json`
-        ),
-        (error: Error, data: string) => {
-          if (error) {
-            return resolve({
-              lang,
-            })
-          }
+      console.log(process.env.TRANSLATIONS_URL)
 
-          const translations = JSON.parse(data)
-        }
-      )
+      resolve({
+        lang,
+      })
     })
-    console.log("getInitialProps")
-    const lang =
-      (req && req.headers["x-render-locale"]) || process.env.LOCALE || "en"
-    const translations = await dynamic(() =>
-      import(`../../static/languages/${lang}.json`)
-    )
-    console.log("translations", translations)
-    return {
-      lang,
-      translations,
-    }
   }
 
   componentDidMount() {
+    console.log("componentDidMount")
     if (Object.keys(this.state.translations).length === 0) {
       this.fetchTranslations()
     }

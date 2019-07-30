@@ -1,24 +1,29 @@
-import { useContext } from 'react'
-import { NextPage } from 'next'
-import { TranslationsContext } from 'providers/Translations'
-import { RegistrationForm } from './components/Form'
-import commonCss from '../styles.scss'
+import { NextPage } from "next"
+import RegistrationForm from "./components/Form"
+import commonCss from "../styles.scss"
+import { withTranslation } from "../../i18n"
 
-const RegistrationPage: NextPage<{}> = () => {
-    const { t } = useContext(TranslationsContext)
-
-    return (
-        <div className={commonCss.page}>
-            <section className={commonCss.header}>
-                <p>{t('header.subtitle')}</p>
-                <h1>{t('header.registration')}</h1>
-            </section>
-
-            <section>
-                <RegistrationForm />
-            </section>
-        </div>
-    )
+interface IRegistrationPageProps {
+  namespacesRequired?: string[]
+  t: (key: string) => string
 }
 
-export default RegistrationPage
+const RegistrationPage: NextPage<IRegistrationPageProps> = ({ t }) => {
+  return (
+    <div className={commonCss.page}>
+      <section className={commonCss.header}>
+        <p>{t("subtitle")}</p>
+        <h1>{t("header")}</h1>
+      </section>
+
+      <RegistrationForm />
+    </div>
+  )
+}
+
+RegistrationPage.getInitialProps = async () => ({
+  namespacesRequired: ["registration"],
+  t: (key: string) => key,
+})
+
+export default withTranslation("registration")(RegistrationPage)
