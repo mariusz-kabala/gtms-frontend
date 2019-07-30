@@ -46,7 +46,7 @@
     "format:fix": "pretty-quick --staged",
     "dev": "ts-node --files --project tsconfig.server.json server.ts",
     "build": "next build",
-    "start": "NODE_ENV=production ts-node index.js"
+    "start": "NODE_ENV=production ts-node --project tsconfig.server.json server.ts"
   },
   "author": "",
   "license": "ISC"

@@ -1,24 +1,12 @@
 {
+    "extends": "./tsconfig.json",
     "compilerOptions": {
         "module": "commonjs",
-        "esModuleInterop": true,
         "types": [ "node" ],
-        "target": "es6",
+        "target": "es2017",
         "lib": [
-            "es6",
             "es2017",
-            "es2015.iterable"
         ],
-        "noImplicitAny": true,
-        "moduleResolution": "node",
-        "sourceMap": false,
-        "baseUrl": ".",
-        "rootDirs": ["."]
-    },
-    "paths": {
-        "providers/*": ["providers/*"],
-        "api/*": ["api/*"],
-        "helpers/*": ["helpers/*"]
     },
     "files": [
         "next-sass.d.ts"
