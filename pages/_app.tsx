@@ -1,12 +1,12 @@
 import React from "react"
 import App, { Container, AppContext } from "next/app"
-import TranslationsProvider from "providers/Translations"
 import RulesProvider from "providers/Rules"
+import { appWithTranslation } from "../i18n"
 
 class GTMSApp extends App {
   static async getInitialProps({ Component, ctx }: AppContext) {
     let pageProps = {}
-    console.log("getInitialProps")
+
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
@@ -19,14 +19,12 @@ class GTMSApp extends App {
 
     return (
       <Container>
-        <TranslationsProvider>
-          <RulesProvider>
-            <Component {...pageProps} />
-          </RulesProvider>
-        </TranslationsProvider>
+        <RulesProvider>
+          <Component {...pageProps} />
+        </RulesProvider>
       </Container>
     )
   }
 }
 
-export default GTMSApp
+export default appWithTranslation(GTMSApp)
