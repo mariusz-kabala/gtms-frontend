@@ -1,15 +1,12 @@
-import { memo, useContext, useCallback } from "react"
-import { useRouter } from "next/router"
-import css from "./styles.scss"
-import { RulesContext, IRulesContext } from "providers/Rules"
-import {
-  TranslationsContext,
-  ITranslationsContext,
-} from "providers/Translations"
+import { memo, useCallback, useContext } from 'react'
+import { useRouter } from 'next/router'
+import { NFC } from 'types/nfc.d'
+import css from './styles.scss'
+import { RulesContext, IRulesContext } from 'providers/Rules'
+import { Trans } from 'i18n'
 
-export const AcceptRulesButton = memo(() => {
+export const AcceptRulesButton: NFC<{}> = memo(() => {
   const { acceptRules, callBackFunc } = useContext<IRulesContext>(RulesContext)
-  const { t } = useContext<ITranslationsContext>(TranslationsContext)
   const router = useRouter()
 
   return (
@@ -19,14 +16,14 @@ export const AcceptRulesButton = memo(() => {
       onClick={useCallback(() => {
         acceptRules()
 
-        if (typeof callBackFunc === "function") {
+        if (typeof callBackFunc === 'function') {
           callBackFunc()
         } else {
-          router.push("/")
+          router.push('/')
         }
       }, [])}
     >
-      {t("AcceptRulesButton.accept")}
+      <Trans i18nKey="rules:AcceptRulesButton.accept" />
     </button>
   )
 })

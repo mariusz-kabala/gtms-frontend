@@ -26,7 +26,9 @@
     "paths": {
         "providers/*": ["providers/*"],
         "api/*": ["api/*"],
-        "helpers/*": ["helpers/*"]
+        "helpers/*": ["helpers/*"],
+        "i18n": ["i18n.ts"],
+        "types": ["types/*"]
     },
   },
   "exclude": [
