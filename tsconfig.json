@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "allowJs": true,
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
     "lib": [
@@ -28,7 +29,8 @@
         "api/*": ["api/*"],
         "helpers/*": ["helpers/*"],
         "i18n": ["i18n.ts"],
-        "types": ["types/*"]
+        "types": ["types/*"],
+        "services": ["services/*"]
     },
   },
   "exclude": [
