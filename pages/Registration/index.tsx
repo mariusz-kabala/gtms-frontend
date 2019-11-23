@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import RegistrationForm from './components/Form'
+import { RegistrationForm } from './components/Form'
 import commonCss from '../styles.scss'
 import { withTranslation, IWithTranslations, fakeTranslateFunc } from 'i18n'
 

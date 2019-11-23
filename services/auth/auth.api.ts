@@ -13,7 +13,7 @@ export interface ILoginRequestPayload {
 }
 
 export interface IRefreshTokenRequestPayload {
-    token: string
+  token: string
 }
 
 export interface ILoginResponse {
@@ -32,6 +32,6 @@ export const loginUser = (payload: ILoginRequestPayload) =>
     { values: payload }
   )
 
-  export const refreshToken = (payload: IRefreshTokenRequestPayload) => fetchJSON<IRefreshTokenRequestPayload>(
-    makeApiUrl('auth/refresh-token'),
-  )
+// export const refreshToken = (payload: IRefreshTokenRequestPayload) => fetchJSON<IRefreshTokenRequestPayload>(
+//   makeApiUrl('auth/refresh-token'),
+// )

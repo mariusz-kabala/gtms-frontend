@@ -18,6 +18,7 @@ function Home() {
       <style global jsx>{`
         body {
           background: black;
+          margin: 0;
         }
       `}</style>
     </div>;

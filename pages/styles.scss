@@ -1,3 +1,14 @@
+:global(body) {
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
 .page {
     width: 90%;
     height: 100vh;
@@ -5,9 +16,7 @@
     overflow-y: auto;
     font-family: 'Lato,sans-serif';
     color: #FFF;
-    background-image: url('/static/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: 'cover';
+    
 }
 
 .header {

@@ -15,6 +15,7 @@
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-hook-form": "^3.28.3",
     "rxjs": "^6.5.2",
     "yup": "^0.27.0"
   },
@@ -27,8 +28,10 @@
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.5",
     "dyson": "^2.0.5",
+    "express-http-proxy": "^1.6.0",
     "husky": "^3.0.1",
     "lint-staged": "^9.2.1",
+    "nodemon": "^2.0.1",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
     "ts-node": "^8.3.0",
@@ -50,7 +53,9 @@
     "format:fix": "pretty-quick --staged",
     "dev": "ts-node --files --project tsconfig.server.json server.ts",
     "build": "next build",
-    "start": "NODE_ENV=production ts-node --project tsconfig.server.json server.ts"
+    "start": "NODE_ENV=development nodemon --watch . --exec ts-node --project tsconfig.server.json server.ts",
+    "fake-api": "dyson .fakeAPI",
+    "fake-api:watch": "nodemon --watch .fakeAPI --exec dyson .fakeAPI"
   },
   "author": "",
   "license": "ISC"

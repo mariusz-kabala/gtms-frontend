@@ -1,0 +1,5 @@
+{
+  "multiRequest": ",",
+  "port": 9000,
+  "proxyDelay": [200, 800]
+}

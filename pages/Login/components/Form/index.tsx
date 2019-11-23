@@ -1,6 +1,6 @@
 import { useMemo, memo } from 'react'
 import { Formik, Form, Field, ErrorMessage, FormikActions } from 'formik'
-import { loginUser } from 'api/anonymous'
+// import { loginUser } from 'api/anonymous'
 import Cookies from 'js-cookie'
 import { useTranslation, translateFunc } from 'i18n'
 import css from './styles.scss'
@@ -40,9 +40,12 @@ const getOnSubmit = (t: translateFunc) => async (
   { setSubmitting, setFieldError }: FormikActions<IFormValues>
 ) => {
   setSubmitting(true)
-
+  console.log(values)
   try {
-    const tokens = await loginUser(values)
+    const tokens = await Promise.resolve({
+      accessToken: '1',
+      refreshToken: '2',
+    }) //loginUser(values)
 
     Cookies.set('accessToken', tokens.accessToken)
     Cookies.set('refreshToken', tokens.refreshToken)

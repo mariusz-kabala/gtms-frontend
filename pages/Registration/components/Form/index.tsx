@@ -1,173 +1,66 @@
-import { useMemo, memo } from 'react'
-import { Formik, Form, Field, ErrorMessage, FormikActions } from 'formik'
-import { IRegisterUserReqPayload, registerUser } from 'api/anonymous'
-import Link from 'next/link'
-import cx from 'classnames'
-import { useTranslation, translateFunc } from 'i18n'
-import css from './styles.scss'
+import React from 'react'
+import useForm from 'react-hook-form'
 import { NFC } from 'types/nfc.d'
+import { useTranslation } from 'i18n'
+import classNames from './styles.scss'
 
-const getValidate = (t: translateFunc) => (values: {
-  name?: string
-  email?: string
-  password?: string
-  'confirm-password'?: string
-}) => {
-  const errors: {
-    name?: string
-    email?: string
-    password?: string
-    'confirm-password'?: string
-  } = {}
-  if (!values.email) {
-    errors.email = t('RequiredEmail')
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-    errors.email = t('InvalidEmail')
-  }
-
-  if (!values.password) {
-    errors.password = t('RequiredPassword')
-  }
-
-  if (!values['confirm-password']) {
-    errors['confirm-password'] = t('RequiredPassword')
-  }
-
-  if (
-    !errors.password &&
-    !errors['confirm-password'] &&
-    values.password !== values['confirm-password']
-  ) {
-    errors.password = t('PasswordsAreNotEqual')
-  }
-
-  return errors
-}
-
-const getOnSubmit = (t: translateFunc) => async (
-  values: IRegisterUserReqPayload,
-  { setSubmitting, setFieldError }: FormikActions<IRegisterUserReqPayload>
-) => {
-  setSubmitting(true)
-
-  try {
-    await registerUser(values)
-
-    window.location.replace('/')
-  } catch (err) {
-    if (err.status === 400) {
-      const errors = await err.json()
-      Object.keys(errors).forEach(field => {
-        setFieldError(field, t(`${field}-${errors[field].kind}-error`))
-      })
-    } else {
-      // general error here
-    }
-  }
-
-  setSubmitting(false)
-}
-
-export const RegistrationForm: NFC<{}> = memo(() => {
-  const { t } = useTranslation()
+export const RegistrationForm: NFC<{}> = () => {
+  const { t } = useTranslation('registration')
+  const { register, handleSubmit, errors } = useForm()
+  const onSubmit = (data: any) => console.log(data)
 
   return (
-    <Formik
-      initialValues={{ email: '', password: '', confirmPassword: '' }}
-      validate={useMemo(() => getValidate(t), [t])}
-      onSubmit={useMemo(() => getOnSubmit(t), [t])}
-    >
-      {({ isSubmitting, errors }) => (
-        <Form>
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={classNames.item}>
+          <label htmlFor="email">{t('form.email')}</label>
           <input
-            autoComplete="false"
-            name="hidden"
-            type="text"
-            style={{ display: 'none' }}
+            type="email"
+            name="email"
+            id="email"
+            ref={register({ required: true })}
           />
-          <div
-            className={cx({
-              [css.errorItem]: errors.name,
-              [css.item]: !errors.name,
-            })}
-          >
-            <Field type={'name'} placeholder={t('Fullname')} name={'name'} />
-            <ErrorMessage component="div" className={css.error} name="name" />
-          </div>
-          <div
-            className={cx({
-              [css.errorItem]: errors.email,
-              [css.item]: !errors.email,
-            })}
-          >
-            <Field type={'email'} name={'email'} placeholder={t('Email')} />
-            <ErrorMessage component="div" className={css.error} name="email" />
-          </div>
-          <div
-            className={cx({
-              [css.errorItem]: errors.password,
-              [css.item]: !errors.password,
-            })}
-          >
-            <Field
-              type={'password'}
-              name={'password'}
-              placeholder={t('Password')}
-            />
-            <ErrorMessage
-              component="div"
-              className={css.error}
-              name="password"
-            />
-          </div>
-          <div
-            className={cx({
-              [css.errorItem]: errors.confirmPassword,
-              [css.item]: !errors.confirmPassword,
-            })}
-          >
-            <Field
-              type={'password'}
-              name={'confirmPassword'}
-              placeholder={t('ConfirmPassword')}
-            />
-            <ErrorMessage
-              component="div"
-              className={css.error}
-              name="confirmPassword"
-            />
-          </div>
-          <div>
-            <label htmlFor="confirmRules">
-              <input
-                checked={false}
-                id="confirmRules"
-                type="checkbox"
-                name="confirmRules"
-                value="1"
-                style={{ display: 'inline-block' }}
-                onChange={() => null}
-              />
-              <Link href="/rules">
-                <a className={css.link} href="/rules">
-                  {t('registrationForm.acceptRules')}
-                </a>
-              </Link>
-            </label>
-          </div>
-          <div>
-            <button
-              className={css.button}
-              type="submit"
-              disabled={isSubmitting}
-            >
-              {t('registrationForm.submitButton')}
-            </button>
-          </div>
-        </Form>
-      )}
-    </Formik>
+          {errors.email && <span>{t('emailIsRequired')}</span>}
+        </div>
+        <div className={classNames.item}>
+          <label htmlFor="username">{t('form.username')}</label>
+          <input type="text" name="username" id="username" ref={register} />
+          {errors.email && <span>{t('emailIsRequired')}</span>}
+        </div>
+        <div className={classNames.item}>
+          <label htmlFor="password">{t('form.password')}</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            ref={register({ required: true })}
+          />
+          {errors.password && <span>{t('passwordIsRequired')}</span>}
+        </div>
+        <div className={classNames.item}>
+          <label htmlFor="passwordConfirmation">
+            {t('form.passwordConfirmation')}
+          </label>
+          <input
+            type="password"
+            name="passwordConfirmation"
+            id="passwordConfirmation"
+            ref={register({ required: true })}
+          />
+          {errors.passwordConfirmation && (
+            <span>{t('passwordConfirmationIsRequired')}</span>
+          )}
+        </div>
+        <div>
+          <button type="submit" disabled={false} className={classNames.button}>
+            {t('submitButton')}
+          </button>
+        </div>
+      </form>
+    </div>
   )
-})
+}
 
-export default RegistrationForm
+RegistrationForm.getInitialProps = async () => ({
+  namespacesRequired: ['registration'],
+})
