@@ -4,6 +4,24 @@
     "header": "Zarejestruj się",
     "subtitle": "Jedziemy bez focha",
     "form": {
-        "email": "Email address"
+        "labels": {
+            "email": "Email address",
+            "username": "Username",
+            "password": "Password",
+            "passwordConfirmation": "Confirm password"
+        },
+        "validation": {
+            "email": {
+                "isRequired": "Email address is required"
+            },
+            "password": {
+                "isRequired": "Password is required"
+            },
+            "passwordConfirmation": {
+                "isRequired": "Password confirmation is required",
+                "notMatch": "Passwords are not the same"
+            }
+        },
+        "submitButton": "Register a new account"
     }
 }
