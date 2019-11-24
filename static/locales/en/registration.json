@@ -23,5 +23,7 @@
             }
         },
         "submitButton": "Register a new account"
-    }
+    },
+    "registrationSuccessMessage": "You created a new account, check your email account, and follow the instructions that we just sent to you to activate your account.",
+    "goToLoginPage": "Go to login page"
 }

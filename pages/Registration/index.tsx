@@ -1,9 +1,23 @@
 import { NextPage } from 'next'
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'i18n'
+import { userQuery } from 'state/user'
 import { RegistrationForm } from './components/Form'
+import { SuccessConfirmation } from './components/SuccessConfirmation'
 import commonCss from '../styles.scss'
-import { withTranslation, IWithTranslations, fakeTranslateFunc } from 'i18n'
 
-const RegistrationPage: NextPage<IWithTranslations> = ({ t }) => {
+const RegistrationPage: NextPage<{}> = () => {
+  const { t } = useTranslation('registration')
+  const [hasUserData, setHasUserData] = useState<boolean>(false)
+
+  useEffect(() => {
+    const subscription = userQuery.hasData$.subscribe(hasData =>
+      setHasUserData(hasData)
+    )
+
+    return () => subscription.unsubscribe()
+  })
+
   return (
     <div className={commonCss.page}>
       <section className={commonCss.header}>
@@ -11,14 +25,10 @@ const RegistrationPage: NextPage<IWithTranslations> = ({ t }) => {
         <h1>{t('header')}</h1>
       </section>
 
-      <RegistrationForm />
+      {!hasUserData && <RegistrationForm />}
+      {hasUserData && <SuccessConfirmation />}
     </div>
   )
 }
 
-RegistrationPage.getInitialProps = async () => ({
-  namespacesRequired: ['registration'],
-  t: fakeTranslateFunc,
-})
-
-export default withTranslation('registration')(RegistrationPage)
+export default RegistrationPage
