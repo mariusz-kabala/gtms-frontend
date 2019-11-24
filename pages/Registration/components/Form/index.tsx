@@ -3,18 +3,14 @@ import useForm from 'react-hook-form'
 import { NFC } from 'types/nfc.d'
 import { useTranslation } from 'i18n'
 import classNames from './styles.scss'
-
-interface IRegistrationPayload {
-  email: string
-  username?: string
-  password: string
-  passwordConfirmation: string
-}
+import { IRegistrationData, registerUserAccount } from 'state/user'
 
 export const RegistrationForm: NFC<{}> = () => {
   const { t } = useTranslation('registration')
-  const { register, handleSubmit, errors, setError } = useForm()
-  const onSubmit = (data: any) => {
+  const { register, handleSubmit, errors, setError } = useForm<
+    IRegistrationData
+  >()
+  const onSubmit = async (data: IRegistrationData) => {
     const { password, passwordConfirmation } = data
 
     if (password !== passwordConfirmation) {
@@ -26,12 +22,16 @@ export const RegistrationForm: NFC<{}> = () => {
       return
     }
 
-    console.log(data)
+    try {
+      const registration = await registerUserAccount(data)
+
+      console.log(registration)
+    } catch (err) {}
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit()}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className={classNames.item}>
           <label htmlFor="email">{t('form.labels.email')}</label>
           <input
@@ -47,8 +47,8 @@ export const RegistrationForm: NFC<{}> = () => {
           )}
         </div>
         <div className={classNames.item}>
-          <label htmlFor="username">{t('form.labels.username')}</label>
-          <input type="text" name="username" id="username" ref={register} />
+          <label htmlFor="name">{t('form.labels.name')}</label>
+          <input type="text" name="name" id="name" ref={register} />
         </div>
         <div className={classNames.item}>
           <label htmlFor="password">{t('form.labels.password')}</label>

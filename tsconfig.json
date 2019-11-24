@@ -30,7 +30,7 @@
         "helpers/*": ["helpers/*"],
         "i18n": ["i18n.ts"],
         "types": ["types/*"],
-        "services": ["services/*"]
+        "state": ["state/*"]
     },
   },
   "exclude": [

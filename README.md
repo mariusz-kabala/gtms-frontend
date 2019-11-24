@@ -33,7 +33,7 @@ npm run fake-api:watch
 npm run build
 ```
 
-# Repository rules
+# Repository rules (Code Style)
 ### Code is auto-formatted by prettier, you can use any code style, your commit will be formatted before commiting to the repo
 ### Use mindful commit message
 ### Use only Conventional Commits format:
@@ -54,6 +54,32 @@ read more here: https://www.conventionalcommits.org/
 - other allowed: `build`, `chore`, `ci`, `docs`, `style`, `refactor`, `perf`, `test`
 
 ### Always `squash` your pull requests
+
+# Import aliases
+
+Please use do not use relative imports in case if folder has an alias, aliases are defined in `next.config.js` and `tsconfig.json` - REMEMBER: both files need to be updated in order to add a new alias
+
+### Current list of aliases:
+ - `providers` => `./providers`
+ - `api` => `./api`
+ - `helpers` => `./helpers`
+ - `state` => `./state`
+ - `i18n` => `./i18n`
+
+### Bad import example:
+
+```javascript
+import { fetchJSON } from '../../api'
+```
+
+### Good import example:
+
+```javascript
+import { fetchJSON } from 'api'
+```
+
+### Do not use default exports, only if it is required by next.js (like for pages for example)
+### Try to avoid optional props in your components - it makes app logic more complex, and TS likes to complain about it
 
 # FAKE API
 

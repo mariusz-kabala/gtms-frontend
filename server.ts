@@ -10,12 +10,13 @@ const handle = app.getRequestHandler()
 ;(async () => {
   await app.prepare()
   const server = express()
-  server.use(nextI18NextMiddleware(nextI18next))
 
   if (!isInProductionMode) {
     const proxy = require('express-http-proxy')
     server.use('/api', proxy('http://localhost:9000'))
   }
+
+  server.use(nextI18NextMiddleware(nextI18next))
 
   server.get('*', (req: Request, res: Response) => handle(req, res))
 

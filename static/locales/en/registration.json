@@ -6,7 +6,7 @@
     "form": {
         "labels": {
             "email": "Email address",
-            "username": "Username",
+            "name": "Name",
             "password": "Password",
             "passwordConfirmation": "Confirm password"
         },
