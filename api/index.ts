@@ -42,9 +42,5 @@ export const makeApiUrl = (url: string): string => {
   const API_URL =
     typeof window === 'undefined' ? process.env.API_URL : process.env.FE_API_URL
 
-  const result = `${API_URL}/v1/${url}`
-
-  console.log(result)
-
-  return result
+  return `${API_URL}/v1/${url}`
 }
