@@ -17,9 +17,15 @@ export const init = ({
   accessToken: string
   refreshToken: string
 }) => {
+  const storeValue = userStore.getValue()
+
+  if (storeValue.isInitialized) {
+    return storeValue
+  }
+
   const parsedToken = parseJwt<IJWT>(accessToken)
   const parsedRefreshToken = parseJwt<IJWT>(refreshToken)
-  console.log(parsedToken)
+
   const update = {
     isInitialized: true,
     id: parsedToken.id,

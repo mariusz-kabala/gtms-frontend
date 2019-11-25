@@ -7,12 +7,13 @@ import { init } from 'state/user'
 
 function redirectToLogin(ctx: NextPageContext) {
   if (ctx.res) {
-    console.log('redirect!!!')
-    ctx.res
-      .writeHead(302, {
-        Location: '/login',
-      })
-      .end()
+    setCookie(ctx, 'redirectTo', ctx.pathname, {})
+
+    ctx.res.writeHead(302, {
+      Location: '/login',
+    })
+
+    ctx.res.end()
   }
 
   return Promise.resolve({})
@@ -34,7 +35,6 @@ export async function authOrRedirectToLogin(ctx: NextPageContext): Promise<{}> {
         maxAge: new Date(parsedToken.exp * 1000).getTime(),
       })
     } catch (err) {
-      console.log('ERROR!', err)
       return redirectToLogin(ctx)
     }
   }

@@ -3,7 +3,8 @@ const withSass = require('@zeit/next-sass')
 
 module.exports = withSass({
   env: {
-    API_URL: process.env.API_URL
+    API_URL: process.env.API_URL,
+    FE_API_URL: process.env.FE_API_URL
   },
   cssModules: true,
   webpack(config, options) {

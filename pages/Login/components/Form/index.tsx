@@ -5,7 +5,7 @@ import { ILoginData } from 'api/auth'
 import classNames from './styles.scss'
 import { loginUser } from 'state/user'
 
-export const LoginForm: FC<{}> = ({}) => {
+export const LoginForm: FC<{ onSuccess: () => any }> = ({ onSuccess }) => {
   const { t } = useTranslation('login')
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
   const { register, handleSubmit, errors, setError } = useForm<ILoginData>()
@@ -14,6 +14,8 @@ export const LoginForm: FC<{}> = ({}) => {
 
     try {
       await loginUser(data)
+
+      onSuccess()
     } catch (err) {
       setError('email', 'invalid', t('loginFailed'))
     }

@@ -5,9 +5,8 @@ interface IParams<T> {
   }
 }
 
-//export const fetch = typeof window === 'undefined' ? require('node-fetch') : window.fetch
-
-const fetch = require('node-fetch')
+export const fetch =
+  typeof window === 'undefined' ? require('node-fetch') : window.fetch
 
 export const fetchJSON = <T, R>(
   url: string,
@@ -40,7 +39,10 @@ export const fetchJSON = <T, R>(
 }
 
 export const makeApiUrl = (url: string): string => {
-  const result = `${process.env.API_URL}/v1/${url}`
+  const API_URL =
+    typeof window === 'undefined' ? process.env.API_URL : process.env.FE_API_URL
+
+  const result = `${API_URL}/v1/${url}`
 
   console.log(result)
 
