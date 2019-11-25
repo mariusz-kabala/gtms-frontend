@@ -1,0 +1,16 @@
+import React, { FC } from 'react'
+import { useTranslation } from 'i18n'
+import Link from 'next/link'
+
+export const SuccessConfirmation: FC = () => {
+  const { t } = useTranslation('registration')
+
+  return (
+    <div>
+      <p>{t('registrationSuccessMessage')}</p>
+      <Link href={`login`}>
+        <a>{t('goToLoginPage')}</a>
+      </Link>
+    </div>
+  )
+}

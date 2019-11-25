@@ -1,27 +1,29 @@
 {
-    "acceptRules": "Akceptuję warunki",
-    "submitButton": "Zarejestruj się",
-    "header": "Zarejestruj się",
-    "subtitle": "Jedziemy bez focha",
-    "form": {
-        "labels": {
-            "email": "Email address",
-            "username": "Username",
-            "password": "Password",
-            "passwordConfirmation": "Confirm password"
-        },
-        "validation": {
-            "email": {
-                "isRequired": "Email address is required"
-            },
-            "password": {
-                "isRequired": "Password is required"
-            },
-            "passwordConfirmation": {
-                "isRequired": "Password confirmation is required",
-                "notMatch": "Passwords are not the same"
-            }
-        },
-        "submitButton": "Register a new account"
-    }
+  "acceptRules": "Akceptuję warunki",
+  "submitButton": "Zarejestruj się",
+  "header": "Zarejestruj się",
+  "subtitle": "Jedziemy bez focha",
+  "form": {
+    "labels": {
+      "email": "Email address",
+      "name": "Name",
+      "password": "Password",
+      "passwordConfirmation": "Confirm password"
+    },
+    "validation": {
+      "email": {
+        "isRequired": "Email address is required"
+      },
+      "password": {
+        "isRequired": "Password is required"
+      },
+      "passwordConfirmation": {
+        "isRequired": "Password confirmation is required",
+        "notMatch": "Passwords are not the same"
+      }
+    },
+    "submitButton": "Register a new account"
+  },
+  "registrationSuccessMessage": "You created a new account, check your email account, and follow the instructions that we just sent to you to activate your account.",
+  "goToLoginPage": "Go to login page"
 }

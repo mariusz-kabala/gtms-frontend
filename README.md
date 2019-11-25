@@ -1,41 +1,51 @@
 # Introduction
+
 Project is based on next.js (refer next.js documentation in case of issues - https://nextjs.org/docs)
 
 It is a React app with SSR support
 
 # Requirements
+
 - Use only `npm`, please do not use `yarn` or any other package manager. Do not commit `yarn.lock` into repo
 
 # Running the project
 
 ### Install dependencies
+
 ```bash
 npm i
 ```
 
 ### Start DEV Environment
+
 ```bash
 npm run start
 ```
 
 ### Start FAKE API server
+
 ```bash
 npm run fake-api
 ```
 
 ### Start FAKE API server in watch mode (auto-reload)
+
 ```bash
 npm run fake-api:watch
 ```
 
 ### Build production bundle
+
 ```bash
 npm run build
 ```
 
-# Repository rules
+# Repository rules (Code Style)
+
 ### Code is auto-formatted by prettier, you can use any code style, your commit will be formatted before commiting to the repo
+
 ### Use mindful commit message
+
 ### Use only Conventional Commits format:
 
 ```
@@ -49,15 +59,45 @@ npm run build
 read more here: https://www.conventionalcommits.org/
 
 #### Types:
+
 - `fix`: a commit of the type fix patches a bug in your codebase (this correlates with PATCH in semantic versioning).
 - `feat`: a commit of the type feat introduces a new feature to the codebase (this correlates with MINOR in semantic versioning).
 - other allowed: `build`, `chore`, `ci`, `docs`, `style`, `refactor`, `perf`, `test`
 
 ### Always `squash` your pull requests
 
+# Import aliases
+
+Please do not use relative imports in case if folder has an alias, aliases are defined in `next.config.js` and `tsconfig.json` - REMEMBER: both files need to be updated in order to add a new alias
+
+### Current list of aliases:
+
+- `providers` => `./providers`
+- `api` => `./api`
+- `helpers` => `./helpers`
+- `state` => `./state`
+- `i18n` => `./i18n`
+
+### Bad import example:
+
+```javascript
+import { fetchJSON } from '../../api'
+```
+
+### Good import example:
+
+```javascript
+import { fetchJSON } from 'api'
+```
+
+### Do not use default exports, only if it is required by next.js (like for pages for example)
+
+### Try to avoid optional props in your components - it makes app logic more complex, and TS likes to complain about it
+
 # FAKE API
 
 Endpoints definitions are located in `.fakeAPI` folder
+
 - Please follow the rule - one file per endpoint
 
 # TRANSLATIONS
@@ -77,25 +117,26 @@ Translations files are located in `static/locales/:language` folder
 Each file there is a translations namespace
 
 ### Rules
+
 - Use only hook, awoid usage of translations HOC
 - Always use a namespace, follow the rule - a namespace per page
 - Nest translations inside json file:
 
 ```json
 {
-    "acceptRules": "Akceptuję warunki",
-    "submitButton": "Zarejestruj się",
-    "header": "Zarejestruj się",
-    "subtitle": "Jedziemy bez focha",
-    "form": {
-        "email": "Email address"
-    }
+  "acceptRules": "Akceptuję warunki",
+  "submitButton": "Zarejestruj się",
+  "header": "Zarejestruj się",
+  "subtitle": "Jedziemy bez focha",
+  "form": {
+    "email": "Email address"
+  }
 }
 ```
 
 Later on you can use nested translation like this: `{t('form.email')}`
 
-- if its needed to repeat translation between pages - do it - try to avoid common translations, exceptions are allowed, but should be rare 
+- if its needed to repeat translation between pages - do it - try to avoid common translations, exceptions are allowed, but should be rare
 
 # Images / static files
 

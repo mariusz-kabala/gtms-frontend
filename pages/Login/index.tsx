@@ -1,9 +1,13 @@
-import { NextPage } from 'next'
-// import { LoginForm } from './components/Form'
+import { NextPage, NextPageContext } from 'next'
+import { LoginForm } from './components/Form'
+import { useTranslation } from 'i18n'
+import { parseCookies, destroyCookie } from 'nookies'
 import commonCss from '../styles.scss'
-import { withTranslation, IWithTranslations, fakeTranslateFunc } from 'i18n'
+import Router from 'next/router'
 
-const LoginPage: NextPage<IWithTranslations> = ({ t }) => {
+const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
+  const { t, i18n } = useTranslation('login')
+
   return (
     <div className={commonCss.page}>
       <section className={commonCss.header}>
@@ -11,14 +15,25 @@ const LoginPage: NextPage<IWithTranslations> = ({ t }) => {
         <h1>{t('title')}</h1>
       </section>
 
-      <section>{/* <LoginForm /> */}</section>
+      <section>
+        <LoginForm
+          onSuccess={() =>
+            Router.push({
+              pathname: `/${i18n.language}${redirectTo || '/'}`,
+            })
+          }
+        />
+      </section>
     </div>
   )
 }
 
-LoginPage.getInitialProps = async () => ({
-  namespacesRequired: ['login'],
-  t: fakeTranslateFunc,
-})
+LoginPage.getInitialProps = async (ctx: NextPageContext) => {
+  let { redirectTo } = parseCookies(ctx)
 
-export default withTranslation('login')(LoginPage)
+  destroyCookie(ctx, 'redirectTo')
+
+  return Promise.resolve({ redirectTo })
+}
+
+export default LoginPage
