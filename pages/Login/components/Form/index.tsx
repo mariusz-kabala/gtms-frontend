@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import useForm from 'react-hook-form'
 import { useTranslation } from 'i18n'
-import { ILoginData } from 'state/user'
+import { ILoginData } from 'api/auth'
 import classNames from './styles.scss'
 import { loginUser } from 'state/user'
 

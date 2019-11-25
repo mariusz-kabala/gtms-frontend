@@ -5,12 +5,16 @@ interface IParams<T> {
   }
 }
 
+//export const fetch = typeof window === 'undefined' ? require('node-fetch') : window.fetch
+
+const fetch = require('node-fetch')
+
 export const fetchJSON = <T, R>(
   url: string,
   params?: IParams<T>
 ): Promise<R> => {
   const { values = {}, headers = {} } = params || {}
-  const options: RequestInit = {}
+  const options: RequestInit & { timeout?: number } = {}
 
   if (values instanceof Object && Object.keys(values).length > 0) {
     headers['Content-Type'] = 'application/json'
@@ -20,10 +24,12 @@ export const fetchJSON = <T, R>(
     options.cache = 'no-cache'
   }
 
-  options.headers = new Headers(headers)
+  options.headers = headers
+
+  options.timeout = 5000
 
   return fetch(url, options)
-    .then(response => {
+    .then((response: Response) => {
       if (response.ok) {
         return response.json()
       }
@@ -33,4 +39,10 @@ export const fetchJSON = <T, R>(
     .then((data: R) => data)
 }
 
-export const makeApiUrl = (url: string): string => `/api/v1/${url}`
+export const makeApiUrl = (url: string): string => {
+  const result = `${process.env.API_URL}/v1/${url}`
+
+  console.log(result)
+
+  return result
+}

@@ -3,7 +3,8 @@ import useForm from 'react-hook-form'
 import { NFC } from 'types/nfc.d'
 import { useTranslation } from 'i18n'
 import classNames from './styles.scss'
-import { IRegistrationData, registerUserAccount } from 'state/user'
+import { registerUserAccount } from 'state/user'
+import { IRegistrationData } from 'api/auth'
 
 export const RegistrationForm: NFC<{}> = () => {
   const { t } = useTranslation('registration')

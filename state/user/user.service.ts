@@ -1,19 +1,57 @@
-import { fetchJSON, makeApiUrl } from 'api'
 import {
+  registerAccount,
+  login,
   IRegistrationData,
   IRegistrationResponse,
   ILoginData,
   ILoginResponse,
-} from './user.model'
+} from 'api/auth'
+import { IJWT } from 'api/auth'
 import { userStore } from './user.store'
+import { parseJwt } from './user.helpers'
+
+export const init = ({
+  accessToken,
+  refreshToken,
+}: {
+  accessToken: string
+  refreshToken: string
+}) => {
+  const parsedToken = parseJwt<IJWT>(accessToken)
+  const parsedRefreshToken = parseJwt<IJWT>(refreshToken)
+  console.log(parsedToken)
+  const update = {
+    isInitialized: true,
+    id: parsedToken.id,
+    name: parsedToken.name,
+    surname: parsedToken.surname,
+    email: parsedToken.email,
+    countryCode: parsedToken.countryCode,
+    languageCode: parsedToken.languageCode,
+    roles: parsedToken.roles,
+    isActive: parsedToken.isActive,
+    session: {
+      accessToken: {
+        value: accessToken,
+        expiresAt: new Date(parsedToken.exp * 1000).getTime(),
+      },
+      refreshToken: {
+        value: refreshToken,
+        expiresAt: new Date(parsedRefreshToken.exp * 1000).getTime(),
+      },
+      createdAt: new Date().getTime(),
+    },
+  }
+
+  userStore.update(update)
+
+  return update
+}
 
 export const registerUserAccount = async (
   payload: IRegistrationData
 ): Promise<IRegistrationResponse> => {
-  const response = await fetchJSON<IRegistrationData, IRegistrationResponse>(
-    makeApiUrl('auth/users'),
-    { values: payload }
-  )
+  const response = await registerAccount(payload)
 
   userStore.update({
     ...response,
@@ -28,20 +66,32 @@ export const registerUserAccount = async (
 export const loginUser = async (
   payload: ILoginData
 ): Promise<ILoginResponse> => {
-  const response = await fetchJSON<ILoginData, ILoginResponse>(
-    makeApiUrl('auth/authenticate'),
-    { values: payload }
-  )
+  const response = await login(payload)
+
+  const parsedToken = parseJwt<IJWT>(response.accessToken)
+  const parsedRefreshToken = parseJwt<IJWT>(response.refreshToken)
 
   userStore.update({
+    id: parsedToken.id,
+    name: parsedToken.name,
+    surname: parsedToken.surname,
+    email: parsedToken.email,
+    countryCode: parsedToken.countryCode,
+    languageCode: parsedToken.languageCode,
+    roles: parsedToken.roles,
+    isActive: parsedToken.isActive,
     session: {
-      ...response,
-      time: new Date(),
+      accessToken: {
+        value: response.accessToken,
+        expiresAt: new Date(parsedToken.exp * 1000).getTime(),
+      },
+      refreshToken: {
+        value: response.refreshToken,
+        expiresAt: new Date(parsedRefreshToken.exp * 1000).getTime(),
+      },
+      createdAt: new Date().getTime(),
     },
   })
 
   return response
 }
-
-export const fbLogin = (payload: any) =>
-  fetchJSON(makeApiUrl('auth/facebook'), { values: payload })

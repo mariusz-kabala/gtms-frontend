@@ -1,3 +1,8 @@
+interface IToken {
+  value: string
+  expiresAt: number
+}
+
 export interface IUser {
   id: string
   name?: string
@@ -10,32 +15,8 @@ export interface IUser {
   isActive: boolean
   roles: string[]
   session?: {
-    accessToken: string
-    refreshToken: string
-    time: Date
+    accessToken: IToken
+    refreshToken: IToken
+    createdAt: number
   }
-}
-
-export interface IRegistrationData {
-  email: string
-  username?: string
-  password: string
-  passwordConfirmation: string
-}
-
-export interface ILoginData {
-  email: string
-  password: string
-}
-
-export interface IRegistrationResponse {
-  countryCode: string
-  email: string
-  id: string
-  languageCode: string
-}
-
-export interface ILoginResponse {
-  accessToken: string
-  refreshToken: string
 }

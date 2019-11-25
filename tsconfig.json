@@ -27,7 +27,9 @@
       "helpers/*": ["helpers/*"],
       "i18n": ["i18n.ts"],
       "types": ["types/*"],
-      "state": ["state/*"]
+      "state": ["state/*"],
+      "hooks": ["hooks/*"],
+      "server": ["server/*"]
     }
   },
   "exclude": ["node_modules"],

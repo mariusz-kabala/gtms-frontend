@@ -16,7 +16,7 @@ const RegistrationPage: NextPage<{}> = () => {
     )
 
     return () => subscription.unsubscribe()
-  })
+  }, [])
 
   return (
     <div className={commonCss.page}>
