@@ -8,7 +8,7 @@ import {
 } from 'api/auth'
 import { IJWT } from 'api/auth'
 import { userStore } from './user.store'
-import { parseJwt } from './user.helpers'
+import { parseJwt } from 'helpers/jwt'
 
 export const init = ({
   accessToken,
