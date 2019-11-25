@@ -5,10 +5,7 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -25,21 +22,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {
-        "providers/*": ["providers/*"],
-        "api/*": ["api/*"],
-        "helpers/*": ["helpers/*"],
-        "i18n": ["i18n.ts"],
-        "types": ["types/*"],
-        "state": ["state/*"]
-    },
+      "providers/*": ["providers/*"],
+      "api/*": ["api/*"],
+      "helpers/*": ["helpers/*"],
+      "i18n": ["i18n.ts"],
+      "types": ["types/*"],
+      "state": ["state/*"]
+    }
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.tsx"]
 }

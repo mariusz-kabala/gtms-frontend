@@ -1,9 +1,25 @@
 import { NextPage } from 'next'
-// import { LoginForm } from './components/Form'
+import { useEffect } from 'react'
+import { LoginForm } from './components/Form'
+import { useTranslation } from 'i18n'
+import { userQuery } from 'state/user'
 import commonCss from '../styles.scss'
-import { withTranslation, IWithTranslations, fakeTranslateFunc } from 'i18n'
+import Router from 'next/router'
 
-const LoginPage: NextPage<IWithTranslations> = ({ t }) => {
+const LoginPage: NextPage<{}> = () => {
+  useEffect(() => {
+    const subscription = userQuery.hasSession$.subscribe(
+      hasSession =>
+        hasSession &&
+        Router.push({
+          pathname: '/',
+        })
+    )
+
+    return () => subscription.unsubscribe()
+  })
+  const { t } = useTranslation('login')
+
   return (
     <div className={commonCss.page}>
       <section className={commonCss.header}>
@@ -11,14 +27,11 @@ const LoginPage: NextPage<IWithTranslations> = ({ t }) => {
         <h1>{t('title')}</h1>
       </section>
 
-      <section>{/* <LoginForm /> */}</section>
+      <section>
+        <LoginForm />
+      </section>
     </div>
   )
 }
 
-LoginPage.getInitialProps = async () => ({
-  namespacesRequired: ['login'],
-  t: fakeTranslateFunc,
-})
-
-export default withTranslation('login')(LoginPage)
+export default LoginPage

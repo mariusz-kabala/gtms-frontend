@@ -11,6 +11,13 @@ export class UserQuery extends Query<IUser> {
       values.email !== ''
   )
 
+  hasSession$ = this.select(
+    values =>
+      values.session &&
+      values.session.accessToken !== '' &&
+      values.session.refreshToken !== ''
+  )
+
   constructor(protected store: UserStore) {
     super(store)
   }

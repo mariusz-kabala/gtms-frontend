@@ -89,7 +89,3 @@ export const RegistrationForm: NFC<{}> = () => {
     </div>
   )
 }
-
-RegistrationForm.getInitialProps = async () => ({
-  namespacesRequired: ['registration'],
-})

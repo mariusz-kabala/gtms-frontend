@@ -1,15 +1,11 @@
 {
-    "extends": "./tsconfig.json",
-    "compilerOptions": {
-        "experimentalDecorators": true,
-        "module": "commonjs",
-        "types": [ "node" ],
-        "target": "es2017",
-        "lib": [
-            "es2017"
-        ]
-    },
-    "files": [
-        "next-sass.d.ts"
-    ]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "types": ["node"],
+    "target": "es2017",
+    "lib": ["es2017"]
+  },
+  "files": ["next-sass.d.ts"]
 }

@@ -1,121 +1,67 @@
-import { useMemo, memo } from 'react'
-import { Formik, Form, Field, ErrorMessage, FormikActions } from 'formik'
-// import { loginUser } from 'api/anonymous'
-import Cookies from 'js-cookie'
-import { useTranslation, translateFunc } from 'i18n'
-import css from './styles.scss'
-import { NFC } from 'types/nfc.d'
+import React, { FC, useState } from 'react'
+import useForm from 'react-hook-form'
+import { useTranslation } from 'i18n'
+import { ILoginData } from 'state/user'
+import classNames from './styles.scss'
+import { loginUser } from 'state/user'
 
-interface IFormValues {
-  email: string
-  password: string
-}
+export const LoginForm: FC<{}> = ({}) => {
+  const { t } = useTranslation('login')
+  const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
+  const { register, handleSubmit, errors, setError } = useForm<ILoginData>()
+  const onSubmit = async (data: ILoginData) => {
+    setIsMakingRequest(true)
 
-const getValidate = (t: translateFunc) => (values: {
-  email?: string
-  password?: string
-}) => {
-  const errors: {
-    email?: string
-    password?: string
-  } = {}
-
-  if (!values.email) {
-    errors.email = t('RequiredEmail')
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-    errors.email = t('InvalidEmail')
-  }
-
-  if (!values.password) {
-    errors.password = t('RequiredPassword')
-  } else if (values.password.length < 8) {
-    errors.password = t('InvalidPassword')
-  }
-
-  return errors
-}
-
-const getOnSubmit = (t: translateFunc) => async (
-  values: { email: string; password: string },
-  { setSubmitting, setFieldError }: FormikActions<IFormValues>
-) => {
-  setSubmitting(true)
-  console.log(values)
-  try {
-    const tokens = await Promise.resolve({
-      accessToken: '1',
-      refreshToken: '2',
-    }) //loginUser(values)
-
-    Cookies.set('accessToken', tokens.accessToken)
-    Cookies.set('refreshToken', tokens.refreshToken)
-
-    window.location.replace('/')
-
-    // redirect to / in case of successs
-  } catch (err) {
-    if (err.status === 400) {
-      const errors = await err.json()
-      Object.keys(errors).forEach(field => {
-        setFieldError(field, t(`${field}-${errors[field].kind}-error`))
-      })
-    } else {
-      // general error here
+    try {
+      await loginUser(data)
+    } catch (err) {
+      setError('email', 'invalid', t('loginFailed'))
     }
+
+    setIsMakingRequest(false)
   }
 
-  setSubmitting(false)
-}
-
-export const LoginForm: NFC<{}> = memo(() => {
-  const { t } = useTranslation()
   return (
     <div>
-      <Formik
-        initialValues={{ email: '', password: '' }}
-        validate={useMemo(() => getValidate(t), [t])}
-        onSubmit={useMemo(() => getOnSubmit(t), [t])}
-      >
-        {({ isSubmitting }) => (
-          <Form>
-            <div className={css.item}>
-              <Field type="email" placeholder={t('Email')} name="email" />
-              <ErrorMessage
-                component="div"
-                className={css.error}
-                name="email"
-              />
-            </div>
-            <div className={css.item}>
-              <Field
-                type="password"
-                name="password"
-                placeholder={t('Password')}
-              />
-              <ErrorMessage
-                component="div"
-                className={css.error}
-                name="password"
-              />
-            </div>
-            <div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={css.button}
-              >
-                {t('loginForm.submitButton')}
-              </button>
-            </div>
-          </Form>
-        )}
-      </Formik>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={classNames.item}>
+          <label htmlFor="email">{t('form.labels.email')}</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            ref={register({ required: true })}
+          />
+          {errors.email && (
+            <span className={classNames.error}>
+              {t('form.validation.email.isRequired')}
+            </span>
+          )}
+        </div>
+        <div className={classNames.item}>
+          <label htmlFor="password">{t('form.labels.password')}</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            ref={register({ required: true })}
+          />
+          {errors.password && (
+            <span className={classNames.error}>
+              {t('form.validation.password.isRequired')}
+            </span>
+          )}
+        </div>
+        <div>
+          <button
+            type="submit"
+            disabled={isMakingRequest}
+            className={classNames.button}
+          >
+            {t('form.submitButton')}
+          </button>
+        </div>
+      </form>
     </div>
   )
-})
-
-LoginForm.getInitialProps = async () => ({
-  namespacesRequired: ['login'],
-})
-
-export default LoginForm
+}
