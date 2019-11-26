@@ -3,8 +3,8 @@ import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'i18n'
 import { userQuery } from 'state/user'
-import { RegistrationForm } from './components/Form'
-import { SuccessConfirmation } from './components/SuccessConfirmation'
+import { RegistrationForm } from 'components/registration/Form'
+import { SuccessConfirmation } from 'components/registration/SuccessConfirmation'
 import commonCss from '../styles.scss'
 
 const RegistrationPage: NextPage<{}> = () => {
