@@ -1,6 +1,6 @@
 import React from 'react'
 import { NextPage, NextPageContext } from 'next'
-import { LoginForm } from './components/Form'
+import { LoginForm } from 'components/login/Form'
 import { useTranslation } from 'i18n'
 import { parseCookies, destroyCookie } from 'nookies'
 import commonCss from '../styles.scss'
