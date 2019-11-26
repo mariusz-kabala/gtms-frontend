@@ -1,6 +1,6 @@
 import { useEffect, RefObject } from 'react'
 
-// // Usage
+// Usage
 // function App() {
 //   // Create a ref that we add to the element for which we want to detect outside clicks
 //   const ref = useRef();
@@ -48,9 +48,7 @@ export function useOnClickOutside(
       document.removeEventListener('mousedown', listener)
       document.removeEventListener('touchstart', listener)
     }
-  }, // Add ref and handler to effect dependencies
-  // It's worth noting that because passed in handler is a new ...
-  // ... function on every render that will cause this effect ...
+  }, // ... function on every render that will cause this effect ... // It's worth noting that because passed in handler is a new ... Add ref and handler to effect dependencies
   // ... callback/cleanup to run every render. It's not a big deal ...
   // ... but to optimize you can wrap handler in useCallback before ...
   // ... passing it into this hook.

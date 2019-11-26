@@ -1,3 +1,4 @@
+import React from 'react'
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'i18n'

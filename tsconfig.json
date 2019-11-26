@@ -31,7 +31,7 @@
       "hooks": ["hooks/*"],
       "server": ["server/*"],
       "scss": ["scss/*"],
-      "components": ["components/*"],
+      "components": ["components/*"]
     }
   },
   "exclude": ["node_modules"],

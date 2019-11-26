@@ -1,19 +1,19 @@
 {
-    "title": "Login",
-    "subtitle": "Fast and simple way to change something",
-    "form": {
-      "labels": {
-        "email": "Email address",
-        "password": "Password"
+  "title": "Login",
+  "subtitle": "Fast and simple way to change something",
+  "form": {
+    "labels": {
+      "email": "Email address",
+      "password": "Password"
+    },
+    "validation": {
+      "email": {
+        "isRequired": "Email address is required"
       },
-      "validation": {
-        "email": {
-          "isRequired": "Email address is required"
-        },
-        "password": {
-          "isRequired": "Password is required"
-        }
-      },
-      "submitButton": "Login"
-    }
+      "password": {
+        "isRequired": "Password is required"
+      }
+    },
+    "submitButton": "Login"
+  }
 }

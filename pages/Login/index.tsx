@@ -1,3 +1,4 @@
+import React from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { LoginForm } from './components/Form'
 import { useTranslation } from 'i18n'
@@ -29,7 +30,7 @@ const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
 }
 
 LoginPage.getInitialProps = async (ctx: NextPageContext) => {
-  let { redirectTo } = parseCookies(ctx)
+  const { redirectTo } = parseCookies(ctx)
 
   destroyCookie(ctx, 'redirectTo')
 

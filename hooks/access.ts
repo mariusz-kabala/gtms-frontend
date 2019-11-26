@@ -8,7 +8,7 @@ const redirectToLogin = () =>
     pathname: 'login',
   })
 
-export function checkAccess({
+export function useCheckAccess({
   roles,
   accessToken,
   refreshToken,
@@ -31,7 +31,7 @@ export function checkAccess({
     })
 
     return () => sub.unsubscribe()
-  }, [roles])
+  }, [roles, isInitialized])
 
   if (!isLogged && isInitialized) {
     redirectToLogin()

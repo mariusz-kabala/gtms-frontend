@@ -34,7 +34,7 @@ export const Flipcard: FC<{
     } else {
       didMountRef.current = true
     }
-  }, [isActive])
+  }, [isActive, state])
 
   return (
     <div

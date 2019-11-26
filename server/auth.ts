@@ -20,7 +20,9 @@ function redirectToLogin(ctx: NextPageContext) {
 }
 
 export async function authOrRedirectToLogin(ctx: NextPageContext): Promise<{}> {
-  let { accessToken, refreshToken } = parseCookies(ctx)
+  const cookies = parseCookies(ctx)
+  const refreshToken = cookies.refreshToken
+  let accessToken = cookies.accessToken
 
   if (!refreshToken) {
     return redirectToLogin(ctx)

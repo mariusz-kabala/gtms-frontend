@@ -5,7 +5,7 @@ import { ILoginData } from 'api/auth'
 import classNames from './styles.scss'
 import { loginUser } from 'state/user'
 
-export const LoginForm: FC<{ onSuccess: () => any }> = ({ onSuccess }) => {
+export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
   const { t } = useTranslation('login')
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
   const { register, handleSubmit, errors, setError } = useForm<ILoginData>()
