@@ -15,6 +15,8 @@ module.exports = withSass({
     config.resolve.alias['i18n'] = path.join(__dirname, 'i18n')
     config.resolve.alias['hooks'] = path.join(__dirname, 'hooks')
     config.resolve.alias['server'] = path.join(__dirname, 'server')
+    config.resolve.alias['scss'] = path.join(__dirname, 'scss')
+    config.resolve.alias['components'] = path.join(__dirname, 'components')
     return config
   },
 })
