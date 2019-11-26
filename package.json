@@ -23,40 +23,63 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.7.4",
+    "@testing-library/dom": "^6.10.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
     "@types/classnames": "^2.2.9",
     "@types/express": "^4.17.0",
+    "@types/jest": "^24.0.23",
     "@types/js-cookie": "^2.2.2",
     "@types/node": "^12.6.8",
     "@types/node-fetch": "^2.5.4",
     "@types/node-sass": "^4.11.0",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.5",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
     "cross-env": "^6.0.3",
     "dyson": "^2.0.5",
+    "eslint": "^6.7.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "express-http-proxy": "^1.6.0",
     "husky": "^3.0.1",
+    "install-deps-postmerge": "^1.0.5",
+    "jest": "^24.9.0",
     "jsonwebtoken": "^8.5.1",
     "lint-staged": "^9.2.1",
     "nodemon": "^2.0.1",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
+    "ts-jest": "^24.2.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run check:ts"
     }
   },
   "lint-staged": {
-    "**/*.ts*": [
+    "*.{js,jsx,ts,tsx}": [
+      "npm run eslint --fix"
+    ],
+    "*.{json,css,scss,md,js,jsx,ts,tsx}": [
       "prettier --write",
       "git add"
     ]
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format:fix": "pretty-quick --staged",
+    "test": "jest",
+    "test:coverage": "npm t --coverage --changedSince=origin/master",
+    "prettier:fix": "pretty-quick --staged",
+    "prettier": "prettier --write '**/*.{js,jsx,json,css,scss,less,md,ts,tsx}'",
+    "preversion": "npm run check:ts && npm run eslint",
+    "eslint": "eslint \"**/*.ts\" \"**/*.tsx\"",
+    "check:ts": "tsc --noEmit -p tsconfig.json",
     "build": "next build",
     "start": "cross-env NODE_ENV=development API_URL=http://localhost:9000 FE_API_URL=/api nodemon --watch . --exec ts-node --project tsconfig.server.json server.ts",
     "fake-api": "dyson .fakeAPI",

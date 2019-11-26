@@ -1,1 +1,1 @@
-declare module "@zeit/next-sass"
+declare module '@zeit/next-sass'

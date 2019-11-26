@@ -1,3 +1,4 @@
+import React from 'react'
 import { NextPage } from 'next'
 import { withTranslation, IWithTranslations, fakeTranslateFunc } from 'i18n'
 import { AcceptRulesButton } from './components/AcceptRulesButton'

@@ -1,4 +1,4 @@
-import { memo, useCallback, useContext } from 'react'
+import React, { memo, useCallback, useContext } from 'react'
 import { useRouter } from 'next/router'
 import { NFC } from 'types/nfc.d'
 import css from './styles.scss'
@@ -21,7 +21,7 @@ export const AcceptRulesButton: NFC<{}> = memo(() => {
         } else {
           router.push('/')
         }
-      }, [])}
+      }, [acceptRules, callBackFunc, router])}
     >
       <Trans i18nKey="rules:AcceptRulesButton.accept" />
     </button>

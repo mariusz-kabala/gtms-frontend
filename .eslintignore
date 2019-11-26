@@ -1,0 +1,6 @@
+/*.js
+dist
+*.d.ts
+node_modules
+.next
+.fakeAPI

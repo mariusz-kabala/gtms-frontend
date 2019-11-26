@@ -12,6 +12,7 @@ const handle = app.getRequestHandler()
   const server = express()
 
   if (!isInProductionMode) {
+    // eslint-disable-next-line
     const proxy = require('express-http-proxy')
     server.use('/api', proxy('http://localhost:9000'))
   }

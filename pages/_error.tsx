@@ -1,3 +1,4 @@
+import React from 'react'
 import { NextPage, NextPageContext } from 'next'
 
 export const ErrorPage: NextPage<{ statusCode: number | undefined }> = ({
