@@ -24,7 +24,7 @@ export const RegistrationForm: NFC<{}> = () => {
     }
 
     try {
-      const registration = await registerUserAccount(data)
+      await registerUserAccount(data)
     } catch (err) {}
   }
 

@@ -77,6 +77,10 @@ Please do not use relative imports in case if folder has an alias, aliases are d
 - `helpers` => `./helpers`
 - `state` => `./state`
 - `i18n` => `./i18n`
+- `hooks` => `./hooks`
+- `server` => `./server`
+- `scss` => `./scss`
+- `components` => `./components`
 
 ### Bad import example:
 

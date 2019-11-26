@@ -1,0 +1,50 @@
+@import './variables.scss';
+
+@mixin min-sm() {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+  
+  @mixin min-md() {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  }
+  
+  @mixin min-lg() {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+  
+  @mixin min-xl() {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+  
+  
+  @mixin max-sm() {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+  
+  @mixin max-md() {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  }
+  
+  @mixin max-lg() {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+  
+  @mixin max-xl() {
+    @media (max-width: $breakpoint-xl) {
+      @content;
+    }
+  }

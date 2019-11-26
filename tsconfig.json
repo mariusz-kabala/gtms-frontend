@@ -29,7 +29,9 @@
       "types": ["types/*"],
       "state": ["state/*"],
       "hooks": ["hooks/*"],
-      "server": ["server/*"]
+      "server": ["server/*"],
+      "scss": ["scss/*"],
+      "components": ["components/*"],
     }
   },
   "exclude": ["node_modules"],
