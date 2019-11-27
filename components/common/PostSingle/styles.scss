@@ -1,0 +1,29 @@
+@import 'scss/variables';
+
+$color1: $theme1;
+$color2: $theme4;
+$color3: $theme1;
+$fontSize: 0.75rem;
+
+.postSingle {
+  padding: 15px;
+  border: 1px solid $color1;
+  background: $color3;
+  cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    border-color: $color2;
+  }
+
+  .text {
+    font-weight: 200;
+    font-size: $fontSize;
+    line-height: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
