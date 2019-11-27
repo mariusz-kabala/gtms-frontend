@@ -1,10 +1,11 @@
 def branch = '';
 
 pipeline {
-    agent any
+    agent { docker { image 'node:12.13-alpine' }
 
     environment {
         // GH_TOKEN = credentials('github-api-token')
+        CI = 'true'
     }
 
     stages {
