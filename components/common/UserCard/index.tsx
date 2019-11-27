@@ -5,6 +5,7 @@ export const UserCard: FC<{
   image: string
 }> = ({ image }) => (
   <div className={styles.container}>
+    {/* @todo add translations when needed */}
     <img className={styles.avatar} src={image} alt="user avatar" />
     <div className={styles.content}>
       <span className={styles.nameSurname}>Johnny Silverhand</span>

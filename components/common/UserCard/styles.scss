@@ -1,16 +1,15 @@
 @import 'scss/variables';
 
 $color1: $theme4;
-$color2: $theme2;
-$color3: $theme6;
-$color4: $theme1;
+$color2: $theme6;
+$color3: $theme1;
 $fontSize1: 1.25rem;
 $fontSize2: 0.8rem;
 $padding1: 1rem;
 
 .container {
   display: flex;
-  background: $color4;
+  background: $color3;
 
   .avatar {
     height: 160px;
@@ -27,7 +26,7 @@ $padding1: 1rem;
     }
 
     .desc {
-      color: $color3;
+      color: $color2;
       font-size: $fontSize2;
       line-height: 1.2rem;
     }
