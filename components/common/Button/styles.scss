@@ -1,0 +1,40 @@
+@import 'scss/variables';
+
+$color1: $theme2;
+$color2: $theme4;
+
+.button {
+  // RESET BUTTON
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  padding: 20px;
+  border: none;
+  background: $color1;
+  color: white;
+  text-transform: uppercase;
+
+  &:hover {
+    background: $color2;
+  }
+
+  &:hover {
+    transition: 0.3s all;
+  }
+}
