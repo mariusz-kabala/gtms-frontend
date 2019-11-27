@@ -3,8 +3,8 @@ import styles from './styles.scss'
 import cx from 'classnames'
 
 export const Button: FC<{
-  children: ReactNode
   additionalStyles?: string
+  children: ReactNode
   onClick: () => unknown
 }> = ({ children, additionalStyles, onClick }) => {
   return (
