@@ -2,6 +2,7 @@ import React from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { LoginForm } from 'components/login/Form'
 import { ImageCover } from 'components/common/ImageCover'
+import { Navigation } from 'components/common/Navigation'
 import { useTranslation } from 'i18n'
 import { parseCookies, destroyCookie } from 'nookies'
 import commonCss from '../styles.scss'
@@ -33,6 +34,7 @@ const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
           }
         />
       </section>
+      <Navigation />
       <ImageCover />
     </div>
   )

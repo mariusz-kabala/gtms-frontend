@@ -1,0 +1,99 @@
+import React, { FC } from 'react'
+import styles from './styles.scss'
+import { FaList } from 'react-icons/fa'
+
+export const Navigation: FC<{}> = () => {
+  const links = [
+    {
+      id: 0,
+      label: 'Main Page',
+      icon: <FaList />,
+      url: '/',
+    },
+    {
+      id: 0,
+      label: 'Posts',
+      icon: <FaList />,
+      url: '/',
+    },
+    {
+      id: 0,
+      label: 'Users',
+      icon: <FaList />,
+      url: '/',
+    },
+    {
+      id: 0,
+      label: 'Settings',
+      icon: <FaList />,
+      url: '/',
+    },
+    {
+      id: 0,
+      label: 'Invite friends',
+      icon: <FaList />,
+      url: '/',
+    },
+    {
+      id: 0,
+      label: 'Sub Menu example',
+      icon: <FaList />,
+      url: '/',
+      subLinks: [
+        {
+          id: 0,
+          label: 'Invite friends',
+          icon: <FaList />,
+          url: '/',
+        },
+        {
+          id: 0,
+          label: 'Invite friends',
+          icon: <FaList />,
+          url: '/',
+        },
+      ],
+    },
+  ]
+
+  return (
+    <nav className={styles.navigation}>
+      <ul>
+        {links.map((value, index) => {
+          return (
+            // render first level
+            <li className={styles.link} key={index}>
+              <a>
+                <i>
+                  <FaList />
+                </i>
+                {value.label}
+                {value.subLinks && (
+                  // @todo add proper icon for sub menu
+                  <i>
+                    <FaList />
+                  </i>
+                )}
+              </a>
+              {/* render second level if exists */}
+              {value.subLinks && (
+                <ul className={styles.secondNav}>
+                  {value.subLinks.map((value2, index) => {
+                    return (
+                      <li className={styles.link} key={index}>
+                        <a>
+                          <i>{value2.icon}</i>
+                          {value2.label}
+                        </a>
+                      </li>
+                    )
+                  })}
+                </ul>
+              )}
+            </li>
+          )
+        })}
+      </ul>
+    </nav>
+  )
+}

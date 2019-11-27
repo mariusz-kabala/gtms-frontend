@@ -1,0 +1,127 @@
+@import 'scss/variables';
+
+$color1: $theme1;
+$color2: $theme6;
+$color3: $theme4;
+$fontSize1: 0.9em;
+$paddings: 2em 1.5em 0 1.5em;
+
+@mixin media-sm {
+  @media (min-width: 650px) {
+    @content;
+  }
+}
+
+.navigation {
+  min-width: 220px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  > ul {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    li {
+      position: relative;
+      color: $theme6;
+
+      a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        text-decoration: none;
+        color: $color2;
+        padding: $paddings;
+        &:last-child {
+          padding-bottom: 0;
+        }
+        font-size: $fontSize1;
+
+        i {
+          font-size: $fontSize1;
+          margin-right: 17px;
+          line-height: 0;
+        }
+      }
+
+      &:hover {
+        background: $color1;
+
+        a {
+          color: $color3;
+        }
+
+        > ul {
+          > li {
+            @include media-sm {
+              max-height: 100px;
+              transition: max-height 0s;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.secondNav {
+  padding-left: 20px !important;
+  overflow: hidden;
+
+  li {
+    max-height: 0px;
+    transition: max-height 1.25s;
+
+    a {
+      text-transform: initial;
+      color: inherit;
+    }
+  }
+}
+
+.opened {
+  width: 275px;
+
+  > * {
+    opacity: 1;
+    transition: opacity 1.25s;
+  }
+}
+
+.closed {
+  width: 0;
+
+  > * {
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+}
+
+.link {
+  a {
+    display: flex;
+
+    img {
+      margin-left: auto;
+    }
+  }
+
+  &:hover {
+    a {
+      img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.active {
+  > a {
+    background: $color1;
+  }
+}
