@@ -15,12 +15,11 @@ export const Input: FC<{
   name,
   placeholder,
   onClick,
-  reference,
+  // reference, @todo do it
 }) => (
   <input
     className={cx(styles.input, additionalStyles)}
     defaultValue={defaultValue}
-    // onChange={e => update(e.target.value)}
     name={name}
     placeholder={placeholder}
     ref={reference}
