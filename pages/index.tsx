@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useAuth } from 'hooks/auth'
 import { authOrRedirectToLogin } from 'server/auth'
 import { Logout } from 'components/common/Logout'
 import { ToggleCheckbox } from 'components/common/Forms/ToggleCheckbox'
+import { Sidebar } from 'components/common/Sidebar'
 
 export const HomePage: NextPage<{
   accessToken?: string
@@ -11,11 +12,15 @@ export const HomePage: NextPage<{
   namespacesRequired?: string[]
 }> = ({ accessToken, refreshToken }) => {
   const { isLogged } = useAuth(accessToken, refreshToken)
+  const [state, setState] = useState<boolean>(false)
 
   return (
     <div>
+      <Sidebar isActive={state} onClose={() => setState(false)}>
+        <p>scoped!</p>
+      </Sidebar>
+      <button onClick={() => setState(true)}>open sidebar</button>
       Welcome to Next.js!
-      <p>scoped!</p>
       {isLogged && <p>USER HAS A VALID SESSION!!!</p>}
       {isLogged && <Logout />}
       <style jsx>{`
