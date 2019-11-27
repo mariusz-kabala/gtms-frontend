@@ -33,16 +33,6 @@ pipeline {
 
                     println "GIT branch to process: ${branch}"
                     manager.addShortText(branch, "white", "navy", "1px", "navy")
-
-                    if (env.BUILD_USER_ID && env.BUILD_USER_EMAIL) {
-                        wrap([$class: 'BuildUser']) {
-                            sh "git config user.name '${BUILD_USER_ID}'"
-                            sh "git config user.email '${BUILD_USER_EMAIL}'"
-                        }
-                    } else {
-                        sh 'git config user.name "kabala.tech-jenkins"'
-                        sh 'git config user.email "jenkins@kabala.tech"'
-                    }
                 }
             }
         }
