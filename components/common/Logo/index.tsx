@@ -5,7 +5,7 @@ export const Logo: FC<{}> = () => (
   <div className={styles.logo}>
     <img
       src="/static/images/logo_bankpodrozy_rectangle.png"
-      alt="Logo Bank Podróży"
+      alt="Logo"
     />
   </div>
 )
