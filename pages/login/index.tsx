@@ -1,6 +1,7 @@
 import React from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { LoginForm } from 'components/login/Form'
+import { ImageCover } from 'components/common/ImageCover'
 import { useTranslation } from 'i18n'
 import { parseCookies, destroyCookie } from 'nookies'
 import commonCss from '../styles.scss'
@@ -11,12 +12,19 @@ const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
 
   return (
     <div className={commonCss.page}>
-      <section className={commonCss.header}>
-        <p>{t('subtitle')}</p>
-        <h1>{t('title')}</h1>
-      </section>
-
-      <section>
+      <section
+        style={{
+          // @todo remove it soon
+          position: 'relative',
+          background: 'black',
+          padding: '20px',
+          zIndex: 1,
+        }}
+      >
+        <div className={commonCss.header}>
+          <p>{t('subtitle')}</p>
+          <h1>{t('title')}</h1>
+        </div>
         <LoginForm
           onSuccess={() =>
             Router.push({
@@ -25,6 +33,7 @@ const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
           }
         />
       </section>
+      <ImageCover />
     </div>
   )
 }
