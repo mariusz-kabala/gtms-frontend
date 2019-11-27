@@ -4,7 +4,7 @@ import cx from 'classnames'
 import useKey from 'use-key-hook'
 import { useOnClickOutside } from 'hooks/onClickOutside'
 
-export const Flipcard: FC<{
+export const FlipCard: FC<{
   back: ReactNode
   children: ReactNode
   clickOutside: boolean
@@ -34,17 +34,23 @@ export const Flipcard: FC<{
     } else {
       didMountRef.current = true
     }
-  }, [isActive, state])
+    // eslint-disable-next-line
+  }, [isActive])
 
   return (
     <div
+      data-testid="flip-card"
       ref={ref}
       className={cx(styles.flipBox, {
         [styles.active]: state,
       })}
     >
-      <div className={styles.front}>{children}</div>
-      <div className={styles.back}>{back}</div>
+      <div data-testid="flip-card-front" className={styles.front}>
+        {children}
+      </div>
+      <div data-testid="flip-card-back" className={styles.back}>
+        {back}
+      </div>
     </div>
   )
 }

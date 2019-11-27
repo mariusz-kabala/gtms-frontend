@@ -8,7 +8,11 @@ export const Button: FC<{
   onClick: () => unknown
 }> = ({ children, additionalStyles, onClick }) => {
   return (
-    <button onClick={onClick} className={cx(styles.button, additionalStyles)}>
+    <button
+      data-testid={'action-button'}
+      onClick={onClick}
+      className={cx(styles.button, additionalStyles)}
+    >
       {children}
     </button>
   )
