@@ -4,6 +4,7 @@ import { useAuth } from 'hooks/auth'
 import { authOrRedirectToLogin } from 'server/auth'
 import { Logout } from 'components/common/Logout'
 import { ToggleCheckbox } from 'components/common/Forms/ToggleCheckbox'
+import { SearchBar } from 'components/common/SearchBar'
 
 export const HomePage: NextPage<{
   accessToken?: string
@@ -18,6 +19,7 @@ export const HomePage: NextPage<{
       <p>scoped!</p>
       {isLogged && <p>USER HAS A VALID SESSION!!!</p>}
       {isLogged && <Logout />}
+      <SearchBar />
       <style jsx>{`
         p {
           color: blue;
