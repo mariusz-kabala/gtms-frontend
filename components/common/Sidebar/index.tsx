@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import useKey from 'use-key-hook'
-import { Overlay } from 'components/Overlay'
+import { Overlay } from 'components/common/Overlay'
 
 export const Sidebar: FC<{
   back: ReactNode
