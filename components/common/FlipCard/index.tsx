@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import useKey from 'use-key-hook'
+import useKey from 'use-key-hook' // @todo this hook or the one below must be replaced
 import { useOnClickOutside } from 'hooks/onClickOutside'
 
 export const FlipCard: FC<{
