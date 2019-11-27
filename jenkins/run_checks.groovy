@@ -36,44 +36,43 @@ pipeline {
                 }
             }
         }
-        stage ('PR-title') {
-            when {
-                expression {
-                    env.ghprbPullTitle
-                }
-            }
-            steps {
-                script {
-                    def conventionalPrefixes = [
-                        'build',
-                        'fix',
-                        'ci',
-                        'perf',
-                        'feat',
-                        'chore',
-                        'revert',
-                        'test',
-                        'style',
-                        'refactor',
-                        'docs',
-                        'improvement',
-                    ]
+        // stage ('PR-title') {
+        //     when {
+        //         expression {
+        //             env.ghprbPullTitle
+        //         }
+        //     }
+        //     steps {
+        //         script {
+        //             def conventionalPrefixes = [
+        //                 'build',
+        //                 'fix',
+        //                 'ci',
+        //                 'perf',
+        //                 'feat',
+        //                 'chore',
+        //                 'revert',
+        //                 'test',
+        //                 'style',
+        //                 'refactor',
+        //                 'docs',
+        //                 'improvement',
+        //             ]
 
-                    def rxp = '^('+conventionalPrefixes.join('|')+')[!: ]{1,3}[a-z]{1,5}[0-9]?-[0-9]+([: ]{1,2}).*$'
+        //             def rxp = '^('+conventionalPrefixes.join('|')+')[!: ]{1,3}[a-z]{1,5}[0-9]?-[0-9]+([: ]{1,2}).*$'
 
-                    println "env.ghprbPullTitle = ${env.ghprbPullTitle}"
-                    if (!env.ghprbPullTitle.toLowerCase().trim().matches(rxp)) {
-                        manager.addShortText('PR title', "white", "red", "1px", "red")
-                        error "Conventional PR title error"
-                    }
-                }
-            }
-        }
+        //             println "env.ghprbPullTitle = ${env.ghprbPullTitle}"
+        //             if (!env.ghprbPullTitle.toLowerCase().trim().matches(rxp)) {
+        //                 manager.addShortText('PR title', "white", "red", "1px", "red")
+        //                 error "Conventional PR title error"
+        //             }
+        //         }
+        //     }
+        // }
         stage ('build') {
             steps {
                 script {
                     sh "npm i"
-                    sh "git status"
                 }
             }
         }
