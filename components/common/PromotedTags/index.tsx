@@ -6,6 +6,7 @@ import { TagGroup } from 'components/common/TagGroup'
 export const PromotedTags: FC<{}> = () => (
   <div className={styles.promotedTags}>
     <TagGroup additionalStyles={styles.promotedTags}>
+      {/* @todo remove mock data */}
       <Tag label="Mechanik" />
       <Tag label="Oddam" />
       <Tag label="SerwisRowerowy" />
