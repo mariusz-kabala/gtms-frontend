@@ -13,6 +13,7 @@ const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
   return (
     <div className={commonCss.page}>
       <section
+        {/* @todo remove it soon */}
         style={{
           position: 'relative',
           background: 'black',
