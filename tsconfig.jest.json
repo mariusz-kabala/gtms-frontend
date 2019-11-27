@@ -1,18 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "jsx": "react",
-    "paths": {
-      "providers/*": ["providers/*"],
-      "api/*": ["api/*"],
-      "helpers/*": ["helpers/*"],
-      "i18n": ["i18n.ts"],
-      "types": ["types/*"],
-      "state": ["state/*"],
-      "hooks": ["hooks/*"],
-      "server": ["server/*"],
-      "scss": ["scss/*"],
-      "components": ["components/*"]
-    }
+    "jsx": "react"
   }
 }

@@ -37,6 +37,7 @@ describe('<FlipCard />', () => {
   })
 
   it('Should register event listner on document', () => {
+    // eslint-disable-next-line
     const events: any = {}
     document.addEventListener = jest.fn((event, cb) => {
       events[event] = cb
