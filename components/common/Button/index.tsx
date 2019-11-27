@@ -5,13 +5,17 @@ import cx from 'classnames'
 export const Button: FC<{
   additionalStyles?: string
   children: ReactNode
-  onClick: () => unknown
-}> = ({ children, additionalStyles, onClick }) => {
+  disabled?: boolean
+  onClick?: () => unknown
+  type?: JSX.IntrinsicElements['button']['type']
+}> = ({ additionalStyles, children, disabled, onClick, type = 'button' }) => {
   return (
     <button
-      data-testid={'action-button'}
-      onClick={onClick}
       className={cx(styles.button, additionalStyles)}
+      data-testid={'action-button'}
+      disabled={disabled}
+      onClick={onClick}
+      type={type}
     >
       {children}
     </button>

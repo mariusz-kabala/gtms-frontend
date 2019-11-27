@@ -4,11 +4,11 @@ import cx from 'classnames'
 
 export const Input: FC<{
   additionalStyles?: string
-  defaultValue: string
-  name: string
-  placeholder: string
+  defaultValue?: string
+  name?: string
+  placeholder?: string
   // reference @todo
-  onClick: () => unknown
+  onClick?: () => unknown
 }> = ({
   additionalStyles,
   defaultValue,
@@ -22,7 +22,7 @@ export const Input: FC<{
     defaultValue={defaultValue}
     name={name}
     placeholder={placeholder}
-    ref={reference}
+    // ref={reference}
     onClick={onClick}
   />
 )

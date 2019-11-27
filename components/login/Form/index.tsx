@@ -4,6 +4,8 @@ import { useTranslation } from 'i18n'
 import { ILoginData } from 'api/auth'
 import classNames from './styles.scss'
 import { loginUser } from 'state/user'
+import { Input } from 'components/common/Forms/Input'
+import { Button } from 'components/common/Button'
 
 export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
   const { t } = useTranslation('login')
@@ -26,6 +28,9 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={classNames.item}>
+          <Input />
+        </div>
         <div className={classNames.item}>
           <label htmlFor="email">{t('form.labels.email')}</label>
           <input
@@ -55,13 +60,13 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
           )}
         </div>
         <div>
-          <button
+          <Button
+            additionalStyles={classNames.button}
             type="submit"
             disabled={isMakingRequest}
-            className={classNames.button}
           >
             {t('form.submitButton')}
-          </button>
+          </Button>
         </div>
       </form>
     </div>
