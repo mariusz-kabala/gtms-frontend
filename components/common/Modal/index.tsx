@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import Overlay from 'components/Overlay'
+import Overlay from 'components/common/Overlay'
 
 export const Modal: FC<{
   additionalStyles?: string
