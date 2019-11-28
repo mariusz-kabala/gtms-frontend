@@ -7,7 +7,7 @@ export const Button: FC<{
   children: ReactNode
   disabled?: boolean
   onClick?: () => unknown
-  type?: JSX.IntrinsicElements.button.type
+  type?: 'button' | 'submit' | 'reset'
 }> = ({ additionalStyles, children, disabled, onClick, type = 'button' }) => {
   return (
     <button

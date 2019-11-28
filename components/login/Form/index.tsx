@@ -29,7 +29,7 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={classNames.item}>
-          <Input />
+          <Input ref={register({ required: true })} />
         </div>
         <div className={classNames.item}>
           <label htmlFor="email">{t('form.labels.email')}</label>
