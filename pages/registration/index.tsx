@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'i18n'
 import { userQuery } from 'state/user'
 import { RegistrationForm } from 'components/registration/Form'
+import { FourHundredFour } from 'components/common/FourHundredFour'
 import { SuccessConfirmation } from 'components/registration/SuccessConfirmation'
 import commonCss from '../styles.scss'
 
@@ -25,7 +26,7 @@ const RegistrationPage: NextPage<{}> = () => {
         <p>{t('subtitle')}</p>
         <h1>{t('header')}</h1>
       </section>
-
+<FourHundredFour />
       {!hasUserData && <RegistrationForm />}
       {hasUserData && <SuccessConfirmation />}
     </div>
