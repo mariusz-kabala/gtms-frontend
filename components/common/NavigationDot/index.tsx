@@ -38,6 +38,7 @@ export const NavigationDot: FC<{ children: ReactNode }> = ({ children }) => (
     <div className={styles.navigationDot}>
       {children}
       <ul className={styles.row}>
+        {/* @todo remove key mock, apply normal key */}
         <li key={23423}>
           <a>
             <div
