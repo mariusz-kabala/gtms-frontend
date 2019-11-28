@@ -9,17 +9,18 @@ export const FourHundredFour: FC<{ additionalStyles?: string }> = ({
   const { t } = useTranslation('page404')
 
   return (
-    <div className={cx(styles.page404, additionalStyles)}>
+    <div
+      data-testid={'four-hundred-four'}
+      className={cx(styles.page404, additionalStyles)}
+    >
       <div className={styles.overlay} />
       <div className={styles.terminal}>
         <h1>
           <span className={styles.errorCode}>404</span>
         </h1>
+        <p className={styles.output}>{t('text1')}</p>
         <p className={styles.output}>
-          {t('text1')}
-        </p>
-        <p className={styles.output}>
-        {t('text2')}{' '}
+          {t('text2')}{' '}
           <a className={styles.link} href="#1">
             {t('text3')}
           </a>{' '}
@@ -28,17 +29,8 @@ export const FourHundredFour: FC<{ additionalStyles?: string }> = ({
             {t('text3')}
           </a>
         </p>
-        <p className={styles.output}>
-          {t('text5')}
-        </p>
+        <p className={styles.output}>{t('text5')}</p>
       </div>
     </div>
   )
 }
-
-FourHundredFour.getInitialProps = async () => ({
-  namespacesRequired: ['page404'],
-  t: fakeTranslateFunc,
-})
-
-export default withTranslation('rules')(RulesPage)
