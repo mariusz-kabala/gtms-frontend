@@ -66,9 +66,31 @@ read more here: https://www.conventionalcommits.org/
 
 ### Always `squash` your pull requests
 
+# Unit tests
+
+Unit tests are mandatory, tests are running with `jest` and `react-testing-library`. Required test coverage is `80%`, but please always try to reach `100%`. Pre-push git hook checks test coverage on modified files, and it's not allowed to push intro origin when required coverage level is not there
+
+You can always check current coverage by using this command:
+
+```bash
+npm run test:coverage
+```
+
+To run all the tests simple type:
+
+```bash
+npm t
+```
+
+To run test cases in watch mode (only on files that you changed, useful during dev process) use:
+
+```bash
+npm t -- --watch
+```
+
 # Import aliases
 
-Please do not use relative imports in case if folder has an alias, aliases are defined in `next.config.js` and `tsconfig.json` - REMEMBER: both files need to be updated in order to add a new alias
+Please do not use relative imports in case if folder has an alias, aliases are defined in `next.config.js`, `tsconfig.json` and `jest.config.js` - REMEMBER: those files need to be updated in order to add a new alias
 
 ### Current list of aliases:
 
