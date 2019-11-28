@@ -14,4 +14,50 @@ describe('Error page', () => {
 
     expect(getByTestId('four-hundred-four')).toBeInTheDocument()
   })
+
+  it('Should return proper response code from getInitialProps', async done => {
+    // eslint-disable-next-line
+    const ctx: any = Promise.resolve({
+      res: {
+        statusCode: 500,
+      },
+      err: {
+        statusCode: 500,
+      },
+    })
+
+    if (ErrorPage.getInitialProps) {
+      const results = await ErrorPage.getInitialProps(ctx)
+
+      expect(results.statusCode).toBe(500)
+      done()
+    }
+  })
+
+  it('Should return error 404 if no valid error returned from getInitialProps', async done => {
+    // eslint-disable-next-line
+    const ctx: any = Promise.resolve({})
+    if (ErrorPage.getInitialProps) {
+      const results = await ErrorPage.getInitialProps(ctx)
+
+      expect(results.statusCode).toBe(404)
+    }
+    done()
+  })
+
+  it('Should return proper error code from getInitialProps', async done => {
+    // eslint-disable-next-line
+    const ctx: any = Promise.resolve({
+      err: {
+        statusCode: 500,
+      },
+    })
+
+    if (ErrorPage.getInitialProps) {
+      const results = await ErrorPage.getInitialProps(ctx)
+
+      expect(results.statusCode).toBe(500)
+    }
+    done()
+  })
 })

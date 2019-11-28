@@ -20,6 +20,7 @@ export const ErrorPage: NextPage<{ statusCode: number | undefined }> = ({
 
 ErrorPage.getInitialProps = async (ctx: NextPageContext) => {
   const payload = await ctx
+
   const statusCode = payload.res
     ? payload.res.statusCode
     : payload.err
