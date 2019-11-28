@@ -1,6 +1,7 @@
 import React from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { LoginForm } from 'components/login/Form'
+import { Logo } from 'components/common/Logo'
 import { ImageCover } from 'components/common/ImageCover'
 import { useTranslation } from 'i18n'
 import { parseCookies, destroyCookie } from 'nookies'
@@ -25,6 +26,7 @@ const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
           <p>{t('subtitle')}</p>
           <h1>{t('title')}</h1>
         </div>
+        <Logo />
         <LoginForm
           onSuccess={() =>
             Router.push({
