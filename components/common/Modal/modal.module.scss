@@ -5,6 +5,7 @@ $color1: $theme6;
   position: fixed;
   left: 0;
   top: 0;
+  // @todo create z-index in one place
   z-index: 1502;
   display: flex;
   align-items: center;
