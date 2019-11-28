@@ -10,7 +10,7 @@ jest.mock('helpers/localStorage', () => {
   }
 })
 
-describe('<Button />', () => {
+describe('<CookiePolicy />', () => {
   it('Should render cookie rules info as policy was not accepted', () => {
     ;(getItem as jest.Mock).mockReturnValue('false')
 
