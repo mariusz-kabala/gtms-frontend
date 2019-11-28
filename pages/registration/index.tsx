@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'i18n'
 import { userQuery } from 'state/user'
 import { RegistrationForm } from 'components/registration/Form'
-import { FourHundredFour } from 'components/common/FourHundredFour'
 import { SuccessConfirmation } from 'components/registration/SuccessConfirmation'
 import commonCss from '../styles.scss'
 
