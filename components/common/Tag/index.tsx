@@ -3,4 +3,8 @@ import styles from './styles.scss'
 
 export const Tag: FC<{
   label: string
-}> = ({ label }) => <div className={styles.tag}>#{label}</div>
+}> = ({ label }) => (
+  <div data-testid="tag" className={styles.tag}>
+    #{label}
+  </div>
+)

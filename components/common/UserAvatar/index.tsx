@@ -8,8 +8,19 @@ export const UserAvatar: FC<{
   onClick: () => unknown
   userName: string
 }> = ({ additionalStyles, image, onClick, userName }) => (
-  <div onClick={onClick} className={cx(styles.container, additionalStyles)}>
-    <img className={styles.avatar} src={image} alt="user avatar" />
-    <span className={styles.nameSurname}>{userName}</span>
+  <div
+    data-testid="user-avatar"
+    onClick={onClick}
+    className={cx(styles.container, additionalStyles)}
+  >
+    <img
+      data-testid="user-avatar-image"
+      className={styles.avatar}
+      src={image}
+      alt="user avatar"
+    />
+    <span data-testid="user-avatar-label" className={styles.nameSurname}>
+      {userName}
+    </span>
   </div>
 )
