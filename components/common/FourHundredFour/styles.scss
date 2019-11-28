@@ -7,6 +7,10 @@ $color1: $theme1;
   background-color: $color1;
   margin: auto;
 
+  img {
+    max-width: 100%;
+  }  
+  
   .content {
     animation: sk-rotatePlane 1.8s ease-in-out;
     animation-iteration-count: 1;
@@ -29,9 +33,5 @@ $color1: $theme1;
         transform: perspective(600px) rotateX(0deg) rotateY(0deg);
       }
     }
-  }
-
-  img {
-    max-width: 100%;
   }
 }
