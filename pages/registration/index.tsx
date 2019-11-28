@@ -26,7 +26,6 @@ const RegistrationPage: NextPage<{}> = () => {
         <p>{t('subtitle')}</p>
         <h1>{t('header')}</h1>
       </section>
-<FourHundredFour />
       {!hasUserData && <RegistrationForm />}
       {hasUserData && <SuccessConfirmation />}
     </div>
