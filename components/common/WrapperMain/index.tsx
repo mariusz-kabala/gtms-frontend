@@ -7,6 +7,7 @@ export const WrapperMain: FC<{
   isActive: boolean
   children: ReactNode
 }> = ({ additionalStyles, children }) => {
+  // @todo uncomment when Sidebar and Navigation ready
   // const [state, setState] = useState<boolean>(isActive)
 
   // <Sidebar
