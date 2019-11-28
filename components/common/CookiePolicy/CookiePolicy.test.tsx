@@ -12,7 +12,7 @@ jest.mock('helpers/localStorage', () => {
 
 describe('<Button />', () => {
   it('Should render cookie rules info as policy was not accepted', () => {
-    getItem.mockReturnValue('false')
+    ;(getItem as jest.Mock).mockReturnValue('false')
 
     const { getByTestId } = render(
       <CookiePolicy>
@@ -26,7 +26,7 @@ describe('<Button />', () => {
   })
 
   it('Should render actual content when cookie is accepted', () => {
-    getItem.mockReturnValue('true')
+    ;(getItem as jest.Mock).mockReturnValue('true')
 
     const { queryByTestId } = render(
       <CookiePolicy>
@@ -38,9 +38,9 @@ describe('<Button />', () => {
   })
 
   it('Should set cookie when click on accept button', () => {
-    getItem.mockReturnValue('false')
+    ;(getItem as jest.Mock).mockReturnValue('false')
 
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId } = render(
       <CookiePolicy>
         <div>actual content</div>
       </CookiePolicy>
