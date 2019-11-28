@@ -6,5 +6,10 @@ export const TagGroup: FC<{
   additionalStyles?: string
   children: ReactNode
 }> = ({ additionalStyles, children }) => (
-  <div className={cx(styles.tagGroup, additionalStyles)}>{children}</div>
+  <div
+    data-testid="tag-group"
+    className={cx(styles.tagGroup, additionalStyles)}
+  >
+    {children}
+  </div>
 )
