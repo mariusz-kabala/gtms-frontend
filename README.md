@@ -90,7 +90,7 @@ npm t -- --watch
 
 # Import aliases
 
-Please do not use relative imports in case if folder has an alias, aliases are defined in `next.config.js` and `tsconfig.json` - REMEMBER: both files need to be updated in order to add a new alias
+Please do not use relative imports in case if folder has an alias, aliases are defined in `next.config.js`, `tsconfig.json` and `jest.config.js` - REMEMBER: those files need to be updated in order to add a new alias
 
 ### Current list of aliases:
 
