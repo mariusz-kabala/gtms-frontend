@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react'
 import styles from './styles.scss'
 
+/* @todo remove mock */
 const mockData = [
   {
     img: 'static/images/temp_images/logo-kreciolatv.png',
