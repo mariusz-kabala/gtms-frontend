@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import { FourHundredFour } from 'components/common/FourHundredFour'
 
 describe('<FourHundredFour />', () => {
   it('Should be on the page', () => {
