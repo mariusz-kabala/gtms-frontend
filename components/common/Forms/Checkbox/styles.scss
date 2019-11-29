@@ -63,6 +63,10 @@
   }
 }
 
+.input {
+  display: none;
+}
+
 .input:checked + label svg {
   stroke: $theme8;
 }
