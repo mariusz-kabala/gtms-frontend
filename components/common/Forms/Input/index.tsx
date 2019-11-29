@@ -8,16 +8,27 @@ export const Input: FC<{
   defaultValue?: string
   name?: string
   placeholder?: string
-  ref?: (ref: ElementLike | null) => void
+  type?: 'text' | 'email' | 'password'
+  reference?: (ref: ElementLike | null) => void
   onClick?: () => unknown
-}> = ({ additionalStyles, defaultValue, name, placeholder, onClick, ref }) => (
+}> = ({
+  additionalStyles,
+  defaultValue,
+  name,
+  placeholder,
+  onClick,
+  reference,
+  type = 'text',
+}) => (
   <input
+    type={type}
     data-testid="form-input"
     className={cx(styles.input, additionalStyles)}
     defaultValue={defaultValue}
     name={name}
+    id={name}
     placeholder={placeholder}
-    ref={ref}
+    ref={reference}
     onClick={onClick}
   />
 )

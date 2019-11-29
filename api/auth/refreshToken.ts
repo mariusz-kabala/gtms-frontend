@@ -1,4 +1,4 @@
-import { fetchJSON, makeApiUrl } from 'api'
+import { fetchJSON, makeApiUrl } from '../index'
 
 export interface IRefreshTokenData {
   token: string
