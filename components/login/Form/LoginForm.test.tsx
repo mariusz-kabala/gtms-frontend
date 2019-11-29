@@ -18,6 +18,10 @@ jest.mock('react-hook-form', () => {
 })
 
 describe('<LoginForm />', () => {
+  beforeEach(() => {
+    fetchMock.resetMocks()
+  })
+
   it('Should be on the page', () => {
     const { getByTestId } = render(<LoginForm onSuccess={jest.fn()} />)
 
@@ -95,7 +99,7 @@ describe('<LoginForm />', () => {
   })
 
   it('Should make an request to API to login the user', async done => {
-    fetchMock.mockResponse(
+    fetchMock.mockResponseOnce(
       JSON.stringify({
         accessToken:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6IlBMIiwiZW1haWwiOiJtYXJpdXN6QGthYmFsYS53YXcucGwiLCJpZCI6IjVjZGZiNmE2YmFkODhiYjVkYmYxZWNjZiIsImxhbmd1YWdlQ29kZSI6InBsLVBMIiwicm9sZXMiOltdLCJpYXQiOjE1NzUwMzA2OTgsImV4cCI6MTU3NTAzMTU5OH0.L7KVbpbzJSRo6xt1rqyYzdL7RLS_ZrwSV9R_sO5aZuA',
@@ -134,8 +138,42 @@ describe('<LoginForm />', () => {
     })
 
     expect(onSuccess).toBeCalledTimes(1)
-    done()
-
     expect(fetchMock.mock.calls.length).toEqual(1)
+    done()
+  })
+
+  it('Should set login failed error message when 401 from API response', async done => {
+    fetchMock.mockRejectOnce(new Error('fake error'))
+    // eslint-disable-next-line
+    let onSubmit: any
+    const setError = jest.fn()
+    ;(useForm as jest.Mock).mockImplementationOnce(() => {
+      return {
+        register: jest.fn(),
+        handleSubmit: (func: (data: ILoginData) => Promise<void>) => {
+          onSubmit = func
+        },
+        errors: {
+          email: {
+            type: 'required',
+          },
+          password: {
+            type: 'required',
+          },
+        },
+        setError,
+      }
+    })
+
+    render(<LoginForm onSuccess={jest.fn()} />)
+
+    await onSubmit({
+      email: 'tester@testing.jest',
+      password: 'loremIpsum',
+    })
+    expect(fetchMock.mock.calls.length).toEqual(1)
+    expect(setError).toBeCalledTimes(1)
+
+    done()
   })
 })
