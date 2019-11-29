@@ -23,7 +23,7 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
       hasErrors = true
     }
 
-    return hasErrors
+    return !hasErrors
   }
   const onSubmit = async (data: ILoginData) => {
     if (!validate(data)) {
