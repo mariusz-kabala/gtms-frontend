@@ -38,6 +38,7 @@
     "@types/react-test-renderer": "^16.9.1",
     "@typescript-eslint/eslint-plugin": "^2.9.0",
     "@typescript-eslint/parser": "^2.9.0",
+    "autoprefixer": "^9.7.2",
     "cross-env": "^6.0.3",
     "dyson": "^2.0.5",
     "eslint": "^6.7.1",
@@ -56,6 +57,7 @@
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
     "react-test-renderer": "^16.12.0",
+    "reset-css": "^5.0.1",
     "ts-jest": "^24.2.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
@@ -88,6 +90,10 @@
     "fake-api": "dyson .fakeAPI",
     "fake-api:watch": "nodemon --watch .fakeAPI --exec dyson .fakeAPI"
   },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%"
+  ],
   "author": "",
   "license": "ISC"
 }
