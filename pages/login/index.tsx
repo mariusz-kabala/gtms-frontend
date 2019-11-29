@@ -45,7 +45,7 @@ LoginPage.getInitialProps = async (ctx: NextPageContext) => {
 
   destroyCookie(ctx, 'redirectTo')
 
-  return Promise.resolve({ redirectTo })
+  return Promise.resolve({ redirectTo, namespacesRequired: ['login'] })
 }
 
 export default LoginPage

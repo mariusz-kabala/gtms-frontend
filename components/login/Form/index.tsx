@@ -4,12 +4,32 @@ import { useTranslation } from 'i18n'
 import { ILoginData } from 'api/auth'
 import classNames from './styles.scss'
 import { loginUser } from 'state/user'
+import { Input } from 'components/common/Forms/Input'
+import { Button } from 'components/common/Button'
 
 export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
   const { t } = useTranslation('login')
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
   const { register, handleSubmit, errors, setError } = useForm<ILoginData>()
+  const validate = (data: ILoginData): boolean => {
+    let hasErrors = false
+    if (!data.email) {
+      setError('email', 'required')
+      hasErrors = true
+    }
+
+    if (!data.password) {
+      setError('password', 'required')
+      hasErrors = true
+    }
+
+    return hasErrors
+  }
   const onSubmit = async (data: ILoginData) => {
+    if (!validate(data)) {
+      return
+    }
+
     setIsMakingRequest(true)
 
     try {
@@ -17,36 +37,37 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
 
       onSuccess()
     } catch (err) {
-      setError('email', 'invalid', t('loginFailed'))
+      setError('email', 'invalid')
     }
 
     setIsMakingRequest(false)
   }
 
   return (
-    <div>
+    <div data-testid="login-form">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={classNames.item}>
-          <label htmlFor="email">{t('form.labels.email')}</label>
-          <input
+          <Input
             type="email"
+            placeholder={t('form.labels.email')}
             name="email"
-            id="email"
-            ref={register({ required: true })}
+            reference={register({ required: true })}
           />
-          {errors.email && (
+          {errors.email && errors.email.type === 'required' && (
             <span className={classNames.error}>
               {t('form.validation.email.isRequired')}
             </span>
           )}
+          {errors.email && errors.email.type === 'invalid' && (
+            <span className={classNames.error}>{t('loginFailed')}</span>
+          )}
         </div>
         <div className={classNames.item}>
-          <label htmlFor="password">{t('form.labels.password')}</label>
-          <input
+          <Input
             type="password"
+            placeholder={t('form.labels.password')}
             name="password"
-            id="password"
-            ref={register({ required: true })}
+            reference={register({ required: true })}
           />
           {errors.password && (
             <span className={classNames.error}>
@@ -55,13 +76,13 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
           )}
         </div>
         <div>
-          <button
+          <Button
+            additionalStyles={classNames.button}
             type="submit"
             disabled={isMakingRequest}
-            className={classNames.button}
           >
             {t('form.submitButton')}
-          </button>
+          </Button>
         </div>
       </form>
     </div>
