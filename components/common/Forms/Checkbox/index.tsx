@@ -1,33 +1,35 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
+import { ElementLike } from 'react-hook-form/dist/types'
 
 export const Checkbox: FC<{
   additionalStyles?: string
   name?: string
+  checked?: boolean
   label?: string
-  value?: string
-  // reference @todo
+  reference?: (ref: ElementLike | null) => void
   onChange?: () => unknown
 }> = ({
   additionalStyles,
   name,
   label,
-  value,
-  // reference, @todo do it
+  checked = false,
+  reference,
   onChange,
 }) => (
-  <div className={cx(styles.checkboxWrapper, additionalStyles)}>
+  <div
+    onClick={onChange}
+    className={cx(styles.checkboxWrapper, additionalStyles)}
+    data-testid="form-checkbox"
+  >
     <input
       className={styles.input} /* @todo name it properly */
-      placeholder={label}
-      value={value}
-      // ref={reference}
+      defaultChecked={checked}
+      ref={reference}
       type="checkbox"
       name={name}
       id={name}
-      onChange={onChange}
-      style={{ display: 'none' }}
     />
     <label htmlFor={name} className={styles.check}>
       <svg width="18px" height="18px" viewBox="0 0 18 18">
@@ -35,6 +37,6 @@ export const Checkbox: FC<{
         <polyline points="1 9 7 14 15 4"></polyline>
       </svg>
     </label>
-    <span className={styles.label}>{name}</span>
+    <span className={styles.label}>{label}</span>
   </div>
 )
