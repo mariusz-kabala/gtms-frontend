@@ -17,6 +17,8 @@ const handle = app.getRequestHandler()
     server.use('/api', proxy('http://localhost:9000'))
   }
 
+  server.get('/logout', (req: Request, res: Response) => handle(req, res))
+
   server.use(nextI18NextMiddleware(nextI18next))
 
   server.get('*', (req: Request, res: Response) => handle(req, res))

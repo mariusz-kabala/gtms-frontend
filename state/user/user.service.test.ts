@@ -1,4 +1,9 @@
-import { init, registerUserAccount, loginUser } from './user.service'
+import {
+  init,
+  registerUserAccount,
+  loginUser,
+  logoutUser,
+} from './user.service'
 import { userStore } from './user.store'
 import { parseJwt } from 'helpers/jwt'
 import { registerAccount, login } from 'api/auth'
@@ -131,5 +136,14 @@ describe('User service', () => {
     expect(update.session).toHaveProperty('createdAt')
 
     done()
+  })
+
+  it('Should cleanup user store when logout', () => {
+    logoutUser()
+
+    expect(userStore.update).toBeCalledTimes(1)
+    expect(userStore.update).toBeCalledWith({
+      isInitialized: true,
+    })
   })
 })

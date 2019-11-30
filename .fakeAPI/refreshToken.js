@@ -21,7 +21,10 @@ module.exports = {
       }
     )
     res.status(200)
-    res.cookie('accessToken', JWT, { expires: new Date(Date.now() + 900000) })
+    res.cookie('accessToken', JWT, {
+      expires: new Date(Date.now() + 900000),
+      path: '/logout',
+    })
     next()
   },
   template: () => {
