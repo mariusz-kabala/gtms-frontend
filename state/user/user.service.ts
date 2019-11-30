@@ -101,3 +101,9 @@ export const loginUser = async (
 
   return response
 }
+
+export const logoutUser = () => {
+  userStore.update({
+    isInitialized: true,
+  })
+}

@@ -35,14 +35,23 @@ export function useAuth(
   )
 
   useEffect(() => {
+    const syncLogout = () => (event: { key: string }) => {
+      if (event.key === 'logout') {
+        window.location.reload()
+      }
+    }
+
     const initSub = userQuery.isInitialized$.subscribe(value =>
       setIsInitialized(value)
     )
     const authSub = userQuery.isLogged$.subscribe(value => setIsLogged(!!value))
 
+    window.addEventListener('storage', syncLogout)
+
     return () => {
       authSub.unsubscribe()
       initSub.unsubscribe()
+      window.removeEventListener('storage', syncLogout)
     }
   }, [])
 
