@@ -5,13 +5,13 @@ import { logoutUser } from 'state/user'
 import Router from 'next/router'
 import { useTranslation } from 'i18n'
 
-const LogoutPage: NextPage<{}> = () => {
+export const LogoutPage: NextPage<{}> = () => {
   const { i18n } = useTranslation('login')
 
   useEffect(() => {
     logoutUser()
     Router.push({
-      pathname: `/${i18n.language}/login`,
+      pathname: i18n.language ? `/${i18n.language}/login` : '/login',
     })
   }, [i18n])
 
@@ -25,4 +25,4 @@ LogoutPage.getInitialProps = async (ctx: NextPageContext) => {
   return Promise.resolve({ namespacesRequired: ['login'] })
 }
 
-export default LogoutPages
+export default LogoutPage

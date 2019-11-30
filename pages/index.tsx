@@ -2,7 +2,7 @@ import React from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useAuth } from 'hooks/auth'
 import { authOrRedirectToLogin } from 'server/auth'
-import { useTranslation } from 'i18n'
+import { Logout } from 'components/common/Logout'
 
 export const HomePage: NextPage<{
   accessToken?: string
@@ -10,14 +10,13 @@ export const HomePage: NextPage<{
   namespacesRequired?: string[]
 }> = ({ accessToken, refreshToken }) => {
   const { isLogged } = useAuth(accessToken, refreshToken)
-  const { t } = useTranslation('common')
 
   return (
     <div>
       Welcome to Next.js!
       <p>scoped!</p>
       {isLogged && <p>USER HAS A VALID SESSION!!!</p>}
-      {isLogged && <a href="/logout">{t('logout')}</a>}
+      {isLogged && <Logout />}
       <style jsx>{`
         p {
           color: blue;
