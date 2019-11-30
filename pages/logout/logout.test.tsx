@@ -3,6 +3,7 @@ import { render } from '@testing-library/react'
 import { LogoutPage } from './index'
 import { destroyCookie } from 'nookies'
 import Router from 'next/router'
+import { useTranslation } from 'i18n'
 
 jest.mock('nookies', () => ({
   destroyCookie: jest.fn(),
@@ -10,6 +11,12 @@ jest.mock('nookies', () => ({
 
 jest.mock('next/router', () => ({
   push: jest.fn(),
+}))
+
+jest.mock('i18n', () => ({
+  useTranslation: jest.fn().mockImplementation(() => ({
+    i18n: {},
+  })),
 }))
 
 describe('Logout Page', () => {
@@ -33,5 +40,18 @@ describe('Logout Page', () => {
 
     expect(Router.push).toBeCalled()
     expect(Router.push).toBeCalledWith({ pathname: '/login' })
+  })
+
+  it('Should redirect to login page with language', () => {
+    ;(useTranslation as jest.Mock).mockImplementation(() => ({
+      i18n: {
+        language: 'en',
+      },
+    }))
+
+    render(<LogoutPage />)
+
+    expect(Router.push).toBeCalled()
+    expect(Router.push).toBeCalledWith({ pathname: '/en/login' })
   })
 })
