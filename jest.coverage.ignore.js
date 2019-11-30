@@ -4,7 +4,6 @@ const TEMPORARY_IGNORE = [
   './components/common/FlipCard/index.tsx',
   './pages/registration/index.tsx',
   './pages/login/index.tsx',
-  './server.ts',
   './hooks/auth.ts',
   './pages/index.tsx',
 ]
