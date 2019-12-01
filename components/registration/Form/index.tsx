@@ -82,6 +82,7 @@ export const RegistrationForm: NFC<{}> = () => {
         </div>
         <div>
           <Button
+            type='submit'
             disabled={false}
             className={classNames.button}>
             {t('form.submitButton')}
