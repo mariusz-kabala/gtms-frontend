@@ -1,0 +1,63 @@
+@import 'scss/variables';
+
+.wrapper {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  // @todo below image is just a temporary it must be provided in other way (as a prop)
+
+  .section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 6em;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('https://images.pexels.com/photos/1114897/pexels-photo-1114897.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')
+      no-repeat center center;
+    background-size: cover;
+    height: 80vh;
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+    }
+
+    h2,
+    p {
+      z-index: 10;
+      color: $theme6;
+    }
+
+    h2 {
+      font-size: 3em;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: $theme6;
+      margin-bottom: 0.2em;
+    }
+
+    p {
+      line-height: 1.3em;
+      font-size: 1.7em;
+      font-weight: 200;
+    }
+  }
+
+  .about {
+    background: $theme1;
+    height: 70vh;
+  }
+}
