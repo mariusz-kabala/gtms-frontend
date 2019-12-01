@@ -5,14 +5,14 @@ import { Logo } from 'components/common/Logo'
 import { ImageCover } from 'components/common/ImageCover'
 import { useTranslation } from 'i18n'
 import { parseCookies, destroyCookie } from 'nookies'
-import commonCss from '../styles.scss'
+import styles from '../styles.scss'
 import Router from 'next/router'
 
 const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
   const { t, i18n } = useTranslation('login')
 
   return (
-    <div className={commonCss.page}>
+    <div className={styles.page}>
       <section
         style={{
           // @todo remove it soon
@@ -22,7 +22,7 @@ const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
           zIndex: 1,
         }}
       >
-        <div className={commonCss.header}>
+        <div className={styles.header}>
           <p>{t('subtitle')}</p>
           <h1>{t('title')}</h1>
         </div>
