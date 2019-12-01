@@ -6,7 +6,9 @@ import { useTranslation } from 'i18n'
 import { IRemindPasswordData, remindPaassReq } from 'api/auth'
 import classNames from './styles.scss'
 
-export const RemindPasswordForm: FC<{}> = () => {
+export const RemindPasswordForm: FC<{
+  onSuccess: () => void
+}> = ({ onSuccess }) => {
   const { t } = useTranslation('remindPassword')
   const { register, handleSubmit, errors, setError } = useForm<
     IRemindPasswordData
@@ -22,6 +24,7 @@ export const RemindPasswordForm: FC<{}> = () => {
 
     try {
       await remindPaassReq(data)
+      onSuccess()
     } catch (err) {
       setError('email', 'serverError')
     }
@@ -42,8 +45,8 @@ export const RemindPasswordForm: FC<{}> = () => {
               {t('form.validation.email.isRequired')}
             </span>
           )}
-          {errors.email && errors.email.type === 'invalid' && (
-            <span className={classNames.error}>{t('loginFailed')}</span>
+          {errors.email && errors.email.type === 'serverError' && (
+            <span className={classNames.error}>{t('serverError')}</span>
           )}
         </div>
         <div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NextPage } from 'next'
 import { Logo } from 'components/common/Logo'
 import commonCss from '../styles.scss'
@@ -9,9 +9,10 @@ import { RemindPasswordForm } from 'components/remind-password/Form'
 
 export const RemindPasswordPage: NextPage<{}> = () => {
   const { t } = useTranslation('remindPassword')
+  const [showConfirmation, setShowConfirmation] = useState<boolean>(false)
 
   return (
-    <div className={commonCss.page}>
+    <div data-testid="remind-password-page" className={commonCss.page}>
       <section
         style={{
           // @todo remove it soon
@@ -26,7 +27,12 @@ export const RemindPasswordPage: NextPage<{}> = () => {
           <h1>{t('title')}</h1>
         </div>
         <Logo />
-        <RemindPasswordForm />
+        {!showConfirmation && (
+          <RemindPasswordForm onSuccess={() => setShowConfirmation(true)} />
+        )}
+        {showConfirmation && (
+          <p data-testid="remind-password-success-confirmation">{t('info')}</p>
+        )}
         <Link href={`login`}>
           <a>{t('goToLoginPage')}</a>
         </Link>
