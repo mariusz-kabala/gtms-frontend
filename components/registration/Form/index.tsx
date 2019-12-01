@@ -84,7 +84,7 @@ export const RegistrationForm: NFC<{}> = () => {
           <Button
             type='submit'
             disabled={false}
-            className={classNames.button}>
+            additionalStyles={classNames.button}>
             {t('form.submitButton')}
           </Button>
         </div>
