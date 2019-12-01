@@ -5,6 +5,10 @@ import { useTranslation } from 'i18n'
 import classNames from './styles.scss'
 import { registerUserAccount } from 'state/user'
 import { IRegistrationData } from 'api/auth'
+import { Input } from 'components/common/Forms/Input'
+import { Error } from 'components/common/Forms/Error'
+import { Button } from 'components/common/Button'
+
 
 export const RegistrationForm: NFC<{}> = () => {
   const { t } = useTranslation('registration')
@@ -32,57 +36,56 @@ export const RegistrationForm: NFC<{}> = () => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={classNames.item}>
-          <label htmlFor="email">{t('form.labels.email')}</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
+          <label htmlFor='email'>{t('form.labels.email')}</label>
+          <Input
+            type='email'
+            name='email'
+            placeholder={t('form.labels.password')}
             ref={register({ required: true })}
           />
           {errors.email && (
-            <span className={classNames.error}>
-              {t('form.validation.email.isRequired')}
-            </span>
+            <Error text={t('form.validation.email.isRequired')} />
           )}
         </div>
         <div className={classNames.item}>
-          <label htmlFor="name">{t('form.labels.name')}</label>
-          <input type="text" name="name" id="name" ref={register} />
+          <Input
+            type='text'
+            name='name'
+            placeholder={t('form.labels.name')}
+            ref={register} />
         </div>
         <div className={classNames.item}>
-          <label htmlFor="password">{t('form.labels.password')}</label>
-          <input
+          <label htmlFor='password'>{t('form.labels.password')}</label>
+          <Input
             type="password"
-            name="password"
-            id="password"
-            ref={register({ required: true })}
+            placeholder={t('form.labels.password')}
+            name='password'
+            reference={register({ required: true })}
           />
           {errors.password && (
-            <span className={classNames.error}>
-              {t('form.validation.password.isRequired')}
-            </span>
+            <Error text={t('form.validation.password.isRequired')} />
           )}
         </div>
         <div className={classNames.item}>
-          <label htmlFor="passwordConfirmation">
+          <label htmlFor='passwordConfirmation'>
             {t('form.labels.passwordConfirmation')}
           </label>
-          <input
+          <Input
             type="password"
-            name="passwordConfirmation"
-            id="passwordConfirmation"
-            ref={register({ required: true })}
+            placeholder={t('form.labels.password')}
+            name='passwordConfirmation'
+            reference={register({ required: true })}
           />
           {errors.passwordConfirmation && (
-            <span className={classNames.error}>
-              {t('form.validation.passwordConfirmation.isRequired')}
-            </span>
+            <Error text={t('form.validation.passwordConfirmation.isRequired')} />
           )}
         </div>
         <div>
-          <button type="submit" disabled={false} className={classNames.button}>
+          <Button
+            disabled={false}
+            className={classNames.button}>
             {t('form.submitButton')}
-          </button>
+          </Button>
         </div>
       </form>
     </div>

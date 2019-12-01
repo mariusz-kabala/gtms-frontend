@@ -5,6 +5,7 @@ import { ILoginData } from 'api/auth'
 import classNames from './styles.scss'
 import { loginUser } from 'state/user'
 import { Input } from 'components/common/Forms/Input'
+import { Error } from 'components/common/Forms/Error'
 import { Button } from 'components/common/Button'
 
 export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
@@ -44,19 +45,17 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
   }
 
   return (
-    <div data-testid="login-form">
+    <div data-testid='login-form'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={classNames.item}>
           <Input
-            type="email"
+            type='email'
             placeholder={t('form.labels.email')}
-            name="email"
+            name='email'
             reference={register({ required: true })}
           />
           {errors.email && errors.email.type === 'required' && (
-            <span className={classNames.error}>
-              {t('form.validation.email.isRequired')}
-            </span>
+            <Error text={t('form.validation.email.isRequired')} />
           )}
           {errors.email && errors.email.type === 'invalid' && (
             <span className={classNames.error}>{t('loginFailed')}</span>
@@ -64,26 +63,22 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
         </div>
         <div className={classNames.item}>
           <Input
-            type="password"
+            type='password'
             placeholder={t('form.labels.password')}
-            name="password"
+            name='password'
             reference={register({ required: true })}
           />
           {errors.password && (
-            <span className={classNames.error}>
-              {t('form.validation.password.isRequired')}
-            </span>
+            <Error text={t('form.validation.password.isRequired')} />
           )}
         </div>
-        <div>
-          <Button
-            additionalStyles={classNames.button}
-            type="submit"
-            disabled={isMakingRequest}
-          >
-            {t('form.submitButton')}
-          </Button>
-        </div>
+        <Button
+          additionalStyles={classNames.button}
+          type='submit'
+          disabled={isMakingRequest}
+        >
+          {t('form.submitButton')}
+        </Button>
       </form>
     </div>
   )
