@@ -22,7 +22,7 @@ describe('<Textarea />', () => {
     const callback = jest.fn()
     const { getByTestId } = render(<Textarea onClick={callback} />)
 
-    fireEvent.click(getByTestId('form-Textarea'))
+    fireEvent.click(getByTestId('form-textarea'))
 
     expect(callback).toBeCalledTimes(1)
   })
