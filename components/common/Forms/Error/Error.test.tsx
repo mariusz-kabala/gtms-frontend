@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { Error } from './index'
 
-describe('<Checkbox />', () => {
+describe('<Error />', () => {
   it('Should be on the page', () => {
     const { getByTestId, container, getByText } = render(
       <Error text="Error" additionalStyles={'testingStyles'} />
