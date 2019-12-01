@@ -41,7 +41,7 @@ export const RegistrationForm: NFC<{}> = () => {
             type='email'
             name='email'
             placeholder={t('form.labels.password')}
-            ref={register({ required: true })}
+            reference={register({ required: true })}
           />
           {errors.email && (
             <Error text={t('form.validation.email.isRequired')} />
@@ -52,7 +52,7 @@ export const RegistrationForm: NFC<{}> = () => {
             type='text'
             name='name'
             placeholder={t('form.labels.name')}
-            ref={register} />
+            reference={register} />
         </div>
         <div className={classNames.item}>
           <label htmlFor='password'>{t('form.labels.password')}</label>
