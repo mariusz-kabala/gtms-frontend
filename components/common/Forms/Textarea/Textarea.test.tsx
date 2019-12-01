@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Textarea } from './index'
 
 describe('<Textarea />', () => {
@@ -18,14 +18,5 @@ describe('<Textarea />', () => {
     )
 
     expect(getByPlaceholderText('testing')).toBeInTheDocument()
-  })
-
-  it('Should trigger onClick callback when clicking on Textarea', () => {
-    const callback = jest.fn()
-    const { getByTestId } = render(<Textarea onClick={callback} />)
-
-    fireEvent.click(getByTestId('form-textarea'))
-
-    expect(callback).toBeCalledTimes(1)
   })
 })

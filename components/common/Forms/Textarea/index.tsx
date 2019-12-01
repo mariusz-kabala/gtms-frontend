@@ -8,14 +8,12 @@ export const Textarea: FC<{
   name?: string
   placeholder?: string
   reference?: (ref: ElementLike | null) => void
-  onClick?: () => unknown
-}> = ({ additionalStyles, name, placeholder, onClick, reference }) => (
+}> = ({ additionalStyles, name, placeholder, reference }) => (
   <textarea
     data-testid="form-textarea"
     className={cx(styles.input, additionalStyles)}
     name={name}
     placeholder={placeholder}
     ref={reference}
-    onClick={onClick}
   />
 )
