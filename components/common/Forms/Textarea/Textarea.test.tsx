@@ -4,7 +4,9 @@ import { Textarea } from './index'
 
 describe('<Textarea />', () => {
   it('Should be on the page', () => {
-    const { getByTestId, container } = render(<Textarea />)
+    const { getByTestId, container } = render(
+      <Textarea additionalStyles={'testingStyles'} />
+    )
 
     expect(getByTestId('form-textarea')).toBeInTheDocument()
     expect(container.querySelector('.testingStyles')).toBeInTheDocument()
