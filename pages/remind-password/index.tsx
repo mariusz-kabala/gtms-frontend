@@ -12,14 +12,25 @@ export const RemindPasswordPage: NextPage<{}> = () => {
 
   return (
     <div className={commonCss.page}>
-      <div className={commonCss.header}>
-        <h1>{t('title')}</h1>
-      </div>
-      <Logo />
-      <Link href={`login`}>
-        <a>{t('goToLoginPage')}</a>
-      </Link>
-      <RemindPasswordForm />
+      <section
+        style={{
+          // @todo remove it soon
+          position: 'relative',
+          background: 'black',
+          padding: '20px',
+          zIndex: 1,
+        }}
+      >
+        <div className={commonCss.header}>
+          <p>{t('subtitle')}</p>
+          <h1>{t('title')}</h1>
+        </div>
+        <Logo />
+        <RemindPasswordForm />
+        <Link href={`login`}>
+          <a>{t('goToLoginPage')}</a>
+        </Link>
+      </section>
       <ImageCover />
     </div>
   )
