@@ -1,5 +1,4 @@
 @import '../../assets/scss/globals/variables';
-$color1: $theme6;
 
 .modal {
   position: fixed;
@@ -15,8 +14,9 @@ $color1: $theme6;
 
   .content {
     position: relative;
+    // @todo fix zindex
     z-index: 9999;
-    background: $color1;
+    background: $theme6;
     padding: 20px;
     border-radius: 2px;
   }
