@@ -1,8 +1,14 @@
 $defaultFontFamily: 'Lato,sans-serif', 'Open Sans', 'Helvetica Neue', sans-serif;
 
-* {
-  font-family: $defaultFontFamily;
+html {
   box-sizing: border-box;
+  font-family: $defaultFontFamily;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 /*screen sizes*/

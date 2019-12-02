@@ -6,8 +6,18 @@
   width: 100%;
   // @todo below image is just a temporary it must be provided in other way (as a prop)
 
-  .intro {
+  .section {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 6em;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .intro {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,7 +26,6 @@
       no-repeat center center;
     background-size: cover;
     height: 80vh;
-    padding: 10em;
 
     &:after {
       position: absolute;
@@ -35,12 +44,15 @@
     h2 {
       font-size: 3em;
       font-weight: 600;
+      text-transform: uppercase;
       color: $theme6;
       margin-bottom: 0.2em;
     }
 
     p {
-      font-size: 1.35em;
+      line-height: 1.3em;
+      font-size: 1.7em;
+      font-weight: 200;
     }
   }
 

@@ -7,16 +7,16 @@ export const AndrewLandingPage: NextPage<IWithTranslations> = ({ t }) => {
   return (
     <div className={styles.wrapper}>
       <h1 style={{ display: 'none' }}>{t('header.header')}</h1>
-      <section className={styles.intro}>
+      <section className={`${styles.section} ${styles.intro}`}>
         <h2>Szukamy Andrzeja</h2>
-        <p>Tym razem się uda! Dzięki pomocy internetu odnajdziemy Andrzeja!</p>
-        <p>Stworzymy bazę wszystkich wiosek na Woodstocku.</p>
+        <p>Tym razem się uda! Dzięki pomocy internetu odnajdziemy go!</p>
+        <p>
+          Na początek... stworzymy{' '}
+          <span>wielką bazę wszystkich wiosek na Woodstocku.</span>
+        </p>
+        <p>Andrzej gdzieś tam jest... i czeka aż go znajdziemy!</p>
       </section>
-      <section className={styles.about}>
-        <h2>Szukamy Andrzeja</h2>
-        <p>Tym razem się uda! Dzięki pomocy internetu odnajdziemy Andrzeja!</p>
-        <p>Stworzymy bazę wszystkich wiosek na Woodstocku.</p>
-      </section>
+      <section className={styles.about}></section>
     </div>
   )
 }
