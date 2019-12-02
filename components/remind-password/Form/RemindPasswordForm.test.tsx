@@ -2,7 +2,6 @@ import React from 'react'
 import { render, act } from '@testing-library/react'
 import { RemindPasswordForm } from './index'
 import { FetchMock } from 'jest-fetch-mock'
-import classNames from './styles.scss'
 import useForm from 'react-hook-form'
 import { IRemindPasswordData } from 'api/auth'
 
@@ -38,9 +37,11 @@ describe('<RemindPasswordForm />', () => {
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { container } = render(<RemindPasswordForm onSuccess={jest.fn()} />)
+    const { queryByTestId } = render(
+      <RemindPasswordForm onSuccess={jest.fn()} />
+    )
 
-    expect(container.querySelector(`.${classNames.error}`)).toBeNull()
+    expect(queryByTestId('form-error')).toBeNull()
   })
 
   it('Should display validation errors for email field', () => {

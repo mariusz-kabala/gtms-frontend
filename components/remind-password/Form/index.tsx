@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react'
 import useForm from 'react-hook-form'
 import { Input } from 'components/common/Forms/Input'
+import { Error } from 'components/common/Forms/Error'
 import { Button } from 'components/common/Button'
 import { useTranslation } from 'i18n'
 import { IRemindPasswordData, remindPaassReq } from 'api/auth'
-import classNames from './styles.scss'
 
 export const RemindPasswordForm: FC<{
   onSuccess: () => void
@@ -31,34 +31,22 @@ export const RemindPasswordForm: FC<{
   }
 
   return (
-    <div data-testid="remind-password-form">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={classNames.item}>
-          <Input
-            type="email"
-            placeholder={t('form.labels.email')}
-            name="email"
-            reference={register({ required: true })}
-          />
-          {errors.email && errors.email.type === 'required' && (
-            <span className={classNames.error}>
-              {t('form.validation.email.isRequired')}
-            </span>
-          )}
-          {errors.email && errors.email.type === 'serverError' && (
-            <span className={classNames.error}>{t('serverError')}</span>
-          )}
-        </div>
-        <div>
-          <Button
-            additionalStyles={classNames.button}
-            type="submit"
-            disabled={isMakingRequest}
-          >
-            {t('form.submitButton')}
-          </Button>
-        </div>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit(onSubmit)} data-testid="remind-password-form">
+      <Input
+        type="email"
+        placeholder={t('form.labels.email')}
+        name="email"
+        reference={register({ required: true })}
+      />
+      {errors.email && errors.email.type === 'required' && (
+        <Error text={t('form.validation.email.isRequired')} />
+      )}
+      {errors.email && errors.email.type === 'serverError' && (
+        <Error text={t('serverError')} />
+      )}
+      <Button type="submit" disabled={isMakingRequest}>
+        {t('form.submitButton')}
+      </Button>
+    </form>
   )
 }
