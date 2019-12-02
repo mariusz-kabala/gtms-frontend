@@ -66,6 +66,12 @@ read more here: https://www.conventionalcommits.org/
 
 ### Always `squash` your pull requests
 
+### Put ticket number in your branch name
+
+Branch name has to start with JIRA ticket number, please use format `{ticket-namer}-{short-description}`, like for example `GEOT-1-use-ticket-number-in-branch-name`
+The ticket number will be taken later from the branch name and add to your commit messages. This will allow a bunch of automation on top of JIRA and github
+There is a pre-commit-message hook which will check the branch name format, and throw an error is the name is incorrect, so please follow the pattern
+
 # Unit tests
 
 Unit tests are mandatory, tests are running with `jest` and `react-testing-library`. Required test coverage is `80%`, but please always try to reach `100%`. Pre-push git hook checks test coverage on modified files, and it's not allowed to push intro origin when required coverage level is not there

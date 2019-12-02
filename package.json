@@ -67,6 +67,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "./scripts/prepareCommit.sh",
       "pre-commit": "lint-staged",
       "pre-push": "npm run preversion"
     }
