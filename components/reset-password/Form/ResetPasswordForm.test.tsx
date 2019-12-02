@@ -54,6 +54,9 @@ describe('<ResetPasswordForm />', () => {
           password: {
             type: 'required',
           },
+          confirmPassword: {
+            type: 'notEqual',
+          },
         },
         setError: jest.fn(),
       }
@@ -106,6 +109,34 @@ describe('<ResetPasswordForm />', () => {
     })
 
     expect(setError).toBeCalledTimes(2)
+  })
+
+  it('Should set errors when passwords are not equal', () => {
+    // eslint-disable-next-line
+    let onSubmit: any
+    const setError = jest.fn()
+    ;(useForm as jest.Mock).mockImplementationOnce(() => {
+      return {
+        register: jest.fn(),
+        handleSubmit: (
+          func: (data: IResetPasswordFormData) => Promise<void>
+        ) => {
+          onSubmit = func
+        },
+        errors: {},
+        setError,
+      }
+    })
+
+    act(() => {
+      renderComponent()
+      onSubmit({
+        password: 'passwordsAre',
+        confirmPassword: 'different',
+      })
+    })
+
+    expect(setError).toBeCalledTimes(1)
   })
 
   it('Should make an request to API to reset passwords', async done => {
