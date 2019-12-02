@@ -1,7 +1,6 @@
 import React from 'react'
 import { render, act } from '@testing-library/react'
 import { LoginForm } from './index'
-import classNames from './styles.scss'
 import useForm from 'react-hook-form'
 import { ILoginData } from 'api/auth'
 import { FetchMock } from 'jest-fetch-mock'
@@ -39,9 +38,9 @@ describe('<LoginForm />', () => {
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { container } = render(<LoginForm onSuccess={jest.fn()} />)
+    const { queryByTestId } = render(<LoginForm onSuccess={jest.fn()} />)
 
-    expect(container.querySelector(`.${classNames.error}`)).toBeNull()
+    expect(queryByTestId('form-error')).toBeNull()
   })
 
   it('Should display validation errors for email and password', () => {
