@@ -22,6 +22,18 @@ const mockData = [
     locations: ['poznań', 'kostrzyn'],
     groups: ['jedziemy na woodstock'],
   },
+  {
+    isActive: true,
+    tags: ['dojazdy', 'warszawa', 'kostrzyn'],
+    locations: ['warszawa', 'kostrzyn'],
+    groups: ['jedziemy na woodstock'],
+  },
+  {
+    isActive: false,
+    tags: ['dojazdy', 'poznań', 'kostrzyn'],
+    locations: ['poznań', 'kostrzyn'],
+    groups: ['jedziemy na woodstock'],
+  },
 ]
 
 export const SavedSearch: FC<{
