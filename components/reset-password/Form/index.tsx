@@ -20,21 +20,39 @@ export const ResetPasswordForm: FC<{
     IResetPasswordFormData
   >()
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
+  const validate = (data: IResetPasswordFormData): boolean => {
+    let hasErrors = false
 
-  const onSubmit = async (data: IResetPasswordFormData) => {
+    if (!data.password) {
+      setError('password', 'required')
+      hasErrors = true
+    }
+
+    if (!data.confirmPassword) {
+      setError('confirmPassword', 'required')
+      hasErrors = true
+    }
+
     if (data.password !== data.confirmPassword) {
       setError('confirmPassword', 'notEqual')
+      hasErrors = true
+    }
+
+    return !hasErrors
+  }
+
+  const onSubmit = async (data: IResetPasswordFormData) => {
+    if (!validate(data)) {
       return
     }
 
     setIsMakingRequest(true)
 
     try {
-      resetPasswordReq({
+      await resetPasswordReq({
         password: data.password,
         code,
       })
-
       onSuccess()
     } catch (err) {
       setError('password', 'serverError')
