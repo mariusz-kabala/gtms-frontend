@@ -10,7 +10,7 @@ export const SearchBar: FC<{
   const [tempState, setTempState] = useState<boolean>(false)
 
   return (
-    <div className={cx(styles.searchBar)}>
+    <div data-testid="searchBar" className={cx(styles.searchBar)}>
       <Input onClick={() => setTempState(true)} />
       {/* remove tempState */}
       {tempState && (

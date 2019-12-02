@@ -37,8 +37,9 @@ const movies = [
   },
 ]
 
-export const SearchResults: FC<{ tempActive: boolean }> = ({ tempActive }) => (
+export const SearchResults: FC<{ tempActive?: boolean }> = ({ tempActive }) => (
   <div
+    data-testid="searchResults"
     className={cx(styles.wrapper, {
       [styles.active]: tempActive,
     })}
