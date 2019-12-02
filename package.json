@@ -67,7 +67,7 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "./scripts/prepareCommit.sh",
+      "commit-msg": " sh scripts/prepareCommit.sh",
       "pre-commit": "lint-staged",
       "pre-push": "npm run preversion"
     }
@@ -92,7 +92,8 @@
     "build": "next build",
     "start": "cross-env NODE_ENV=development API_URL=http://localhost:9000 FE_API_URL=/api nodemon -w server.ts --exec ts-node --project tsconfig.server.json server.ts",
     "fake-api": "dyson .fakeAPI",
-    "fake-api:watch": "nodemon --watch .fakeAPI --exec dyson .fakeAPI"
+    "fake-api:watch": "nodemon --watch .fakeAPI --exec dyson .fakeAPI",
+    "postmerge": "install-deps-postmerge"
   },
   "browserslist": [
     "last 2 versions",
