@@ -32,11 +32,11 @@ export const ResetPassword: NextPage<{}> = () => {
         <div data-testid="remind-password-page" className={commonCss.page}>
             <section
                 style={{
-                    // @todo remove it soon
-                    position: 'relative',
-                    background: 'black',
-                    padding: '20px',
-                    zIndex: 1,
+                // @todo remove it soon
+                position: 'relative',
+                background: 'black',
+                padding: '20px',
+                zIndex: 1,
                 }}
             >
                 <div className={commonCss.header}>
