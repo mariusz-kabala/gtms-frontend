@@ -7,9 +7,14 @@ import { useTranslation } from 'i18n'
 import { parseCookies, destroyCookie } from 'nookies'
 import styles from '../styles.scss'
 import Router from 'next/router'
+import { SocialButtons } from 'components/login/SocialButtons'
 
 const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
   const { t, i18n } = useTranslation('login')
+  const onSuccess = () =>
+    Router.push({
+      pathname: `/${i18n.language}${redirectTo || '/'}`,
+    })
 
   return (
     <div className={styles.page}>
@@ -27,13 +32,8 @@ const LoginPage: NextPage<{ redirectTo?: string }> = ({ redirectTo }) => {
           <h1>{t('title')}</h1>
         </div>
         <Logo />
-        <LoginForm
-          onSuccess={() =>
-            Router.push({
-              pathname: `/${i18n.language}${redirectTo || '/'}`,
-            })
-          }
-        />
+        <LoginForm onSuccess={onSuccess} />
+        <SocialButtons onSuccess={onSuccess} />
       </section>
       <ImageCover />
     </div>
