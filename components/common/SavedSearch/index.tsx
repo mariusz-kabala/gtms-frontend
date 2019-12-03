@@ -5,69 +5,69 @@ import cx from 'classnames'
 /* @todo remove mock */
 const mockData = [
   {
-    id: 1,
+    _id: 1,
     isActive: false,
     tags: [
       {
-        id: 124443,
+        _id: 124443,
         label: 'dojazdy',
       },
       {
-        id: 144123,
+        _id: 144123,
         label: 'katowice',
       },
       {
-        id: 123423,
+        _id: 123423,
         label: 'kostrzyn',
       },
     ],
     locations: [
       {
-        id: 323123,
+        _id: 323123,
         label: 'katowice',
       },
       {
-        id: 12223,
+        _id: 12223,
         label: 'kostrzyn',
       },
     ],
     groups: [
       {
-        id: 123123,
+        _id: 123123,
         label: 'jedziemy na woodstock',
       },
     ],
   },
   {
-    id: 2,
+    _id: 2,
     isActive: true,
     tags: [
       {
-        id: 124443,
+        _id: 124443,
         label: 'dojazdy',
       },
       {
-        id: 144123,
+        _id: 144123,
         label: 'katowice',
       },
       {
-        id: 123423,
+        _id: 123423,
         label: 'kostrzyn',
       },
     ],
     locations: [
       {
-        id: 323123,
+        _id: 323123,
         label: 'katowice',
       },
       {
-        id: 12223,
+        _id: 12223,
         label: 'kostrzyn',
       },
     ],
     groups: [
       {
-        id: 123123,
+        _id: 123123,
         label: 'jedziemy na woodstock',
       },
     ],
@@ -85,13 +85,13 @@ export const SavedSearch: FC<{
           className={cx(styles.search, {
             [styles.active]: search.isActive,
           })}
-          key={search.id}
+          key={search._id}
         >
           {search && search.tags && (
             <ul className={styles.tags}>
               {search.tags.map(tag => {
                 return (
-                  <li className={styles.tag} key={tag.id}>
+                  <li className={styles.tag} key={tag._id}>
                     #{tag.label}
                   </li>
                 )
@@ -103,7 +103,7 @@ export const SavedSearch: FC<{
             <ul className={styles.locations}>
               {search.locations.map(location => {
                 return (
-                  <li className={styles.location} key={location.id}>
+                  <li className={styles.location} key={location._id}>
                     {location.label}
                   </li>
                 )
@@ -115,7 +115,7 @@ export const SavedSearch: FC<{
             <ul className={styles.groups}>
               {search.groups.map(group => {
                 return (
-                  <li className={styles.group} key={group.id}>
+                  <li className={styles.group} key={group._id}>
                     {group.label}
                   </li>
                 )
