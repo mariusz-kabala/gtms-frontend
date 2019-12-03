@@ -9,7 +9,7 @@ import { Spinner } from 'components/common/Spinner'
 import { checkCodeReq } from 'api/auth'
 import { ResetPasswordForm } from 'components/reset-password/Form'
 
-export const ResetPassword: NextPage<{}> = () => {
+export const ResetPasswordPage: NextPage<{}> = () => {
     const { t } = useTranslation('resetPassword')
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const router = useRouter()
@@ -54,8 +54,8 @@ export const ResetPassword: NextPage<{}> = () => {
     )
 }
 
-ResetPassword.getInitialProps = async () => {
+ResetPasswordPage.getInitialProps = async () => {
     return Promise.resolve({ namespacesRequired: ['resetPassword'] })
   }
 
-export default ResetPassword
+export default ResetPasswordPage
