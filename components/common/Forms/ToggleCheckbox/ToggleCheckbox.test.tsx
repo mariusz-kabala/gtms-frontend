@@ -20,7 +20,7 @@ describe('<ToggleCheckbox />', () => {
     expect(getByText('labelChecked')).toBeInTheDocument()
   })
 
-  it('Should render checkbox label - labelUnchecked', () => {
+  it('Should render label when checkbox is unchecked', () => {
     const { getByText } = render(
       <ToggleCheckbox labelUnchecked={'labelUnchecked'} />
     )
