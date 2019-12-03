@@ -5,34 +5,72 @@ import cx from 'classnames'
 /* @todo remove mock */
 const mockData = [
   {
+    id: 1,
     isActive: false,
-    tags: ['dojazdy', 'katowice', 'kostrzyn'],
-    locations: ['katowice', 'kostrzyn'],
-    groups: ['jedziemy na woodstock'],
+    tags: [
+      {
+        id: 124443,
+        label: 'dojazdy',
+      },
+      {
+        id: 144123,
+        label: 'katowice',
+      },
+      {
+        id: 123423,
+        label: 'kostrzyn',
+      },
+    ],
+    locations: [
+      {
+        id: 323123,
+        label: 'katowice',
+      },
+      {
+        id: 12223,
+        label: 'kostrzyn',
+      },
+    ],
+    groups: [
+      {
+        id: 123123,
+        label: 'jedziemy na woodstock',
+      },
+    ],
   },
   {
+    id: 2,
     isActive: true,
-    tags: ['dojazdy', 'warszawa', 'kostrzyn'],
-    locations: ['warszawa', 'kostrzyn'],
-    groups: ['jedziemy na woodstock'],
-  },
-  {
-    isActive: false,
-    tags: ['dojazdy', 'poznań', 'kostrzyn'],
-    locations: ['poznań', 'kostrzyn'],
-    groups: ['jedziemy na woodstock'],
-  },
-  {
-    isActive: true,
-    tags: ['dojazdy', 'warszawa', 'kostrzyn'],
-    locations: ['warszawa', 'kostrzyn'],
-    groups: ['jedziemy na woodstock'],
-  },
-  {
-    isActive: false,
-    tags: ['dojazdy', 'poznań', 'kostrzyn'],
-    locations: ['poznań', 'kostrzyn'],
-    groups: ['jedziemy na woodstock'],
+    tags: [
+      {
+        id: 124443,
+        label: 'dojazdy',
+      },
+      {
+        id: 144123,
+        label: 'katowice',
+      },
+      {
+        id: 123423,
+        label: 'kostrzyn',
+      },
+    ],
+    locations: [
+      {
+        id: 323123,
+        label: 'katowice',
+      },
+      {
+        id: 12223,
+        label: 'kostrzyn',
+      },
+    ],
+    groups: [
+      {
+        id: 123123,
+        label: 'jedziemy na woodstock',
+      },
+    ],
   },
 ]
 
@@ -42,19 +80,19 @@ export const SavedSearch: FC<{
   <ul className={additionalStyles}>
     {mockData &&
       mockData.length > 0 &&
-      mockData.map((search, index) => (
+      mockData.map(search => (
         <li
           className={cx(styles.search, {
             [styles.active]: search.isActive,
           })}
-          key={index}
+          key={search.id}
         >
           {search && search.tags && (
             <ul className={styles.tags}>
-              {search.tags.map((tag, tagIndex) => {
+              {search.tags.map(tag => {
                 return (
-                  <li className={styles.tag} key={tagIndex}>
-                    #{tag}
+                  <li className={styles.tag} key={tag.id}>
+                    #{tag.label}
                   </li>
                 )
               })}
@@ -63,10 +101,10 @@ export const SavedSearch: FC<{
 
           {search && search.locations && (
             <ul className={styles.locations}>
-              {search.locations.map((location, locationIndex) => {
+              {search.locations.map(location => {
                 return (
-                  <li className={styles.location} key={locationIndex}>
-                    {location}
+                  <li className={styles.location} key={location.id}>
+                    {location.label}
                   </li>
                 )
               })}
@@ -75,10 +113,10 @@ export const SavedSearch: FC<{
 
           {search && search.groups && (
             <ul className={styles.groups}>
-              {search.groups.map((group, groupIndex) => {
+              {search.groups.map(group => {
                 return (
-                  <li className={styles.group} key={groupIndex}>
-                    {group}
+                  <li className={styles.group} key={group.id}>
+                    {group.label}
                   </li>
                 )
               })}
