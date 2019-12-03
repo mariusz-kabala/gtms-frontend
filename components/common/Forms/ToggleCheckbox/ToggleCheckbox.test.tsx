@@ -12,7 +12,7 @@ describe('<ToggleCheckbox />', () => {
     expect(container.querySelector('.testingStyles')).toBeInTheDocument()
   })
 
-  it('Should render checkbox label - labelChecked', () => {
+  it('Should render label when checkbox is checked', () => {
     const { getByText } = render(
       <ToggleCheckbox labelChecked={'labelChecked'} />
     )
