@@ -192,7 +192,7 @@ this is how you can use static files in css
 :global(body) {
     margin: 0;
     padding: 0;
-    background-image: url('/public/images/bg.jpg');
+    background-image: url('/images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
