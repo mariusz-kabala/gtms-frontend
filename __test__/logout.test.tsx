@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { LogoutPage } from './index'
+import { LogoutPage } from 'pages/logout'
 import { destroyCookie } from 'nookies'
 import Router from 'next/router'
 import { useTranslation } from 'i18n'
