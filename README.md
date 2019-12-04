@@ -40,6 +40,11 @@ npm run fake-api:watch
 npm run build
 ```
 
+# ENVIRONMENT VARIABLES
+
+Some app functionalities like for example social login with Facebook or Google require configuration. In dev mode config is taken from `.env` file. That file is in `.gitignore` but example with list of needed varables can be found in `.env.example`.
+Please create your local version of `.env` file in order to have fully working application, running locally in dev mode
+
 # Repository rules (Code Style)
 
 ### Code is auto-formatted by prettier, you can use any code style, your commit will be formatted before commiting to the repo
