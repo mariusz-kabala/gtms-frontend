@@ -4,25 +4,25 @@ import styles from './styles.scss'
 /* @todo remove mock */
 const mockData = [
   {
-    img: 'static/images/temp_images/logo-kreciolatv.png',
+    img: '/images/temp_images/logo-kreciolatv.png',
   },
   {
-    img: 'static/images/temp_images/logo-patrol-1.png',
+    img: '/images/temp_images/logo-patrol-1.png',
   },
   {
-    img: 'static/images/temp_images/logo-patrol-2.png',
+    img: '/images/temp_images/logo-patrol-2.png',
   },
   {
-    img: 'static/images/temp_images/avatar-1.png',
+    img: '/images/temp_images/avatar-1.png',
   },
   {
-    img: 'static/images/temp_images/logo-kreciolatv.png',
+    img: '/images/temp_images/logo-kreciolatv.png',
   },
   {
-    img: 'static/images/temp_images/logo-patrol-1.png',
+    img: '/images/temp_images/logo-patrol-1.png',
   },
   {
-    img: 'static/images/temp_images/avatar-1.png',
+    img: '/images/temp_images/avatar-1.png',
   },
 ]
 

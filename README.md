@@ -149,9 +149,21 @@ const { t } = useTranslation('translationsNamespace')
 <label htmlFor="email">{t('form.email')}</label>
 ```
 
-Translations files are located in `static/locales/:language` folder
+Translations files are located in `public/locales/:language` folder
 
 Each file there is a translations namespace
+
+In order to have locale subpath added to any url on the page please import `Link` component from `i18n` not directly from `nextjs`
+
+```
+import { Link } from 'i18n'
+```
+
+The same rule goes for `Router`
+
+```
+import { Router } from 'i18n'
+```
 
 ### Rules
 
@@ -185,7 +197,7 @@ this is how you can use static files in css
 :global(body) {
     margin: 0;
     padding: 0;
-    background-image: url('/static/bg.jpg');
+    background-image: url('/images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
