@@ -4,7 +4,12 @@ import { useTranslation as originalUseTranslation } from 'react-i18next'
 const nextI18next = new NextI18Next({
   defaultLanguage: 'en',
   otherLanguages: ['pl', 'de'],
-  localeSubpaths: 'all',
+  localeSubpaths: {
+    en: 'en',
+    pl: 'pl',
+    de: 'de',
+  },
+  localePath: (process as any).browser ? 'locales' : 'public/locales',
 })
 
 nextI18next.i18n.languages = ['en', 'pl', 'de']
@@ -18,7 +23,13 @@ export interface IWithTranslations {
 
 export const fakeTranslateFunc: translateFunc = (key: string) => key
 
-export const { withTranslation, i18n, appWithTranslation } = nextI18next
+export const {
+  withTranslation,
+  i18n,
+  appWithTranslation,
+  Link,
+  Router,
+} = nextI18next
 
 export const Trans = nextI18next.Trans
 
