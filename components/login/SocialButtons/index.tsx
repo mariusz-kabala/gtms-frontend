@@ -8,7 +8,7 @@ export const SocialButtons: FC<{ onSuccess: () => unknown }> = ({
   onSuccess,
 }) => {
   return (
-    <div className={classNames.container}>
+    <div data-testid="social-buttons" className={classNames.container}>
       <div className={classNames.children}>
         <FacebookLogin
           appId={process.env.FB_APP_ID}
