@@ -3,63 +3,69 @@ import { render, wait, waitForElement } from '@testing-library/react'
 import { ActivateAccountPage } from 'pages/activate-account/[code]'
 
 jest.mock('next/router', () => {
-    return {
-        useRouter: jest.fn().mockImplementation(() => ({
-            query: {},
-            push: jest.fn()
-        }))
-    }
+  return {
+    useRouter: jest.fn().mockImplementation(() => ({
+      query: {},
+      push: jest.fn(),
+    })),
+  }
 })
 
 describe('<ActivateAccountPage />', () => {
-    it ('Should render the page', () => {
-        fetchMock.mockResponse('{}')
+  it('Should render the page', async done => {
+    fetchMock.mockResponse('{}')
 
-        const { getByTestId, queryByTestId } = render(<ActivateAccountPage />)
+    const { getByTestId, queryByTestId } = render(<ActivateAccountPage />)
 
-        expect(getByTestId('activate-account-page')).toBeInTheDocument()
-        expect(getByTestId('spinner')).toBeInTheDocument()
+    expect(getByTestId('activate-account-page')).toBeInTheDocument()
+    expect(getByTestId('spinner')).toBeInTheDocument()
 
-        expect(queryByTestId('activate-account-page-confirmation')).toBeNull()
-        expect(queryByTestId('activate-account-page-activation-failed')).toBeNull()
+    expect(queryByTestId('activate-account-page-confirmation')).toBeNull()
+    expect(queryByTestId('activate-account-page-activation-failed')).toBeNull()
 
-        wait(() => expect(fetchMock).toBeCalled())
-    })
+    await wait(() => expect(fetchMock).toBeCalled())
 
-    it ('Should display confirmation message, after activation the account', async (done) => {
-        fetchMock.mockResponse('{}')
+    done()
+  })
 
-        const { getByTestId, queryByTestId } = render(<ActivateAccountPage />)
+  it('Should display confirmation message, after activation the account', async done => {
+    fetchMock.mockResponse('{}')
 
-        await waitForElement(() => getByTestId('activate-account-page-confirmation'))
+    const { getByTestId, queryByTestId } = render(<ActivateAccountPage />)
 
-        expect(queryByTestId('spinner')).toBeNull()
-        expect(queryByTestId('activate-account-page-activation-failed')).toBeNull()
-        done()
-    })
+    await waitForElement(() =>
+      getByTestId('activate-account-page-confirmation')
+    )
 
-    it ('Should display error message when 404 in the response from the API', async (done) => {
-        fetchMock.mockRejectOnce(new Error('fake error'))
+    expect(queryByTestId('spinner')).toBeNull()
+    expect(queryByTestId('activate-account-page-activation-failed')).toBeNull()
+    done()
+  })
 
-        const { getByTestId, queryByTestId } = render(<ActivateAccountPage />)
+  it('Should display error message when 404 in the response from the API', async done => {
+    fetchMock.mockRejectOnce(new Error('fake error'))
 
-        await waitForElement(() => getByTestId('activate-account-page-activation-failed'))
+    const { getByTestId, queryByTestId } = render(<ActivateAccountPage />)
 
-        expect(queryByTestId('spinner')).toBeNull()
-        expect(queryByTestId('activate-account-page-confirmation')).toBeNull()
-        done()
-    })
+    await waitForElement(() =>
+      getByTestId('activate-account-page-activation-failed')
+    )
 
-    it('Should return translations namespace from initial func', async done => {
-        if (!ActivateAccountPage.getInitialProps) {
-          return done()
-        }
-        // eslint-disable-next-line
-        const ctx: any = null
-    
-        const props = await ActivateAccountPage.getInitialProps(ctx)
-    
-        expect(props).toHaveProperty('namespacesRequired')
-        done()
-      })
+    expect(queryByTestId('spinner')).toBeNull()
+    expect(queryByTestId('activate-account-page-confirmation')).toBeNull()
+    done()
+  })
+
+  it('Should return translations namespace from initial func', async done => {
+    if (!ActivateAccountPage.getInitialProps) {
+      return done()
+    }
+    // eslint-disable-next-line
+    const ctx: any = null
+
+    const props = await ActivateAccountPage.getInitialProps(ctx)
+
+    expect(props).toHaveProperty('namespacesRequired')
+    done()
+  })
 })

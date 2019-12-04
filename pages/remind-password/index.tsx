@@ -3,8 +3,7 @@ import { NextPage } from 'next'
 import { Logo } from 'components/common/Logo'
 import commonCss from '../styles.scss'
 import { ImageCover } from 'components/common/ImageCover'
-import Link from 'next/link'
-import { useTranslation } from 'i18n'
+import { useTranslation, Link } from 'i18n'
 import { RemindPasswordForm } from 'components/remind-password/Form'
 
 export const RemindPasswordPage: NextPage<{}> = () => {
@@ -33,7 +32,7 @@ export const RemindPasswordPage: NextPage<{}> = () => {
         {showConfirmation && (
           <p data-testid="remind-password-success-confirmation">{t('info')}</p>
         )}
-        <Link href={`login`}>
+        <Link href={`/login`}>
           <a>{t('goToLoginPage')}</a>
         </Link>
       </section>
