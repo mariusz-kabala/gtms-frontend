@@ -1,10 +1,14 @@
 const path = require('path')
 const withSass = require('@zeit/next-sass')
+const dotenv = require('dotenv')
+dotenv.config()
 
 module.exports = withSass({
   env: {
     API_URL: process.env.API_URL,
     FE_API_URL: process.env.FE_API_URL,
+    FB_APP_ID: process.env.FB_APP_ID,
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
   },
   cssModules: true,
   webpack(config, options) {

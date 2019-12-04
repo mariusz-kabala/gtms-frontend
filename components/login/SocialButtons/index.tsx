@@ -11,7 +11,7 @@ export const SocialButtons: FC<{ onSuccess: () => unknown }> = ({
     <div className={classNames.container}>
       <div className={classNames.children}>
         <FacebookLogin
-          appId="303620873893899"
+          appId={process.env.FB_APP_ID}
           fields="name, email, picture"
           callback={async response => {
             await fbLoginUser({
@@ -30,7 +30,7 @@ export const SocialButtons: FC<{ onSuccess: () => unknown }> = ({
       </div>
       <div className={classNames.children}>
         <GoogleLogin
-          clientId="852444040338-23tmailtvhcb2koltsra0bmjiu7f9ni7.apps.googleusercontent.com"
+          clientId={process.env.GOOGLE_CLIENT_ID}
           buttonText="LOGIN WITH GOOGLE"
           onSuccess={() => null}
           onFailure={() => null}
