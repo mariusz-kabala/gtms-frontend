@@ -1,7 +1,6 @@
 import React from 'react'
 import App, { Container } from 'next/app'
 import RulesProvider from 'providers/Rules'
-import { appWithTranslation } from '../i18n'
 import 'scss/reset.scss'
 
 class GTMSApp extends App {
@@ -18,4 +17,4 @@ class GTMSApp extends App {
   }
 }
 
-export default appWithTranslation(GTMSApp)
+export default GTMSApp

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { RemindPasswordPage } from './index'
+import { RemindPasswordPage } from 'pages/remind-password'
 import { RemindPasswordForm } from 'components/remind-password/Form'
 
 jest.mock('components/remind-password/Form', () => ({

@@ -1,5 +1,6 @@
 const path = require('path')
 const withSass = require('@zeit/next-sass')
+const FilterWarningsPlugin = require('webpack-filter-warnings-plugin')
 
 module.exports = withSass({
   env: {
@@ -7,6 +8,10 @@ module.exports = withSass({
     FE_API_URL: process.env.FE_API_URL,
   },
   cssModules: true,
+  cssLoaderOptions: {
+    importLoaders: 1,
+    localIdentName: '[local]___[hash:base64:5]',
+  },
   webpack(config, options) {
     config.resolve.alias['providers'] = path.join(__dirname, 'providers')
     config.resolve.alias['api'] = path.join(__dirname, 'api')
@@ -17,6 +22,18 @@ module.exports = withSass({
     config.resolve.alias['server'] = path.join(__dirname, 'server')
     config.resolve.alias['scss'] = path.join(__dirname, 'scss')
     config.resolve.alias['components'] = path.join(__dirname, 'components')
+
+    config.module.rules.push({
+      test: /\.test.*/,
+      loader: 'ignore-loader',
+    })
+
+    config.plugins.push(
+      new FilterWarningsPlugin({
+        exclude: /mini-css-extract-plugin[^]*Conflicting order between:/,
+      })
+    )
+
     return config
   },
 })

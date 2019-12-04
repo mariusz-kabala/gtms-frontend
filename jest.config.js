@@ -23,6 +23,7 @@ module.exports = {
     '^state/(.*)': '<rootDir>/state/$1',
     '^hooks/(.*)': '<rootDir>/hooks/$1',
     '^server/(.*)': '<rootDir>/server/$1',
+    '^pages/(.*)': '<rootDir>/pages/$1',
     '^scss/(.*)': '<rootDir>/scss/$1',
     '^components/(.*)': '<rootDir>/components/$1',
     '^i18n$': '<rootDir>/i18n.ts',
