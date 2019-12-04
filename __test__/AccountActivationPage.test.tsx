@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, wait, waitForElement } from '@testing-library/react'
-import { ActivateAccountPage } from './index'
+import { ActivateAccountPage } from 'pages/activate-account/[code]'
 
 jest.mock('next/router', () => {
     return {

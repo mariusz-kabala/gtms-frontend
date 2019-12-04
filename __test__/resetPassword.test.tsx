@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, wait, act } from '@testing-library/react'
-import { ResetPasswordPage } from './index'
+import { ResetPasswordPage } from 'pages/reset-password/[code]'
 import { useRouter } from 'next/router'
 import { ResetPasswordForm } from 'components/reset-password/Form'
 
