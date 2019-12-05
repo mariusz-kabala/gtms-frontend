@@ -13,18 +13,6 @@ export const SocialButtons: FC<{ onSuccess: () => unknown }> = ({
         <FacebookLogin
           appId={process.env.FB_APP_ID}
           fields="name, email, picture"
-          callback={async response => {
-            await fbLoginUser({
-              accessToken: response.accessToken,
-              id: response.id,
-            })
-            onSuccess()
-          }}
-          render={renderProps => (
-            <button onClick={renderProps.onClick}>
-              This is my custom FB button
-            </button>
-          )}
           size="small"
         />
       </div>
