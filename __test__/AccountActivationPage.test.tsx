@@ -1,6 +1,9 @@
 import React from 'react'
 import { render, wait, waitForElement } from '@testing-library/react'
 import { ActivateAccountPage } from 'pages/activate-account/[code]'
+import { FetchMock } from 'jest-fetch-mock'
+
+const fetchMock = fetch as FetchMock
 
 jest.mock('next/router', () => {
   return {

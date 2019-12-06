@@ -24,7 +24,7 @@ module.exports = {
     'react/prop-types': 'off',
     'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/exhaustive-deps': 'off',
     'prettier/prettier': 'warn',
   },
   settings: {

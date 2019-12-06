@@ -38,13 +38,17 @@ export const SocialButtons: FC<{
     <div data-testid="social-buttons" className={classNames.container}>
       <div className={classNames.children}>
         <a
+          data-testid="social-buttons-facebook-button"
           className={`${classNames.button} ${classNames.facebook}`}
           onClick={() => !isLoading && onClick()}
         >
           Facebook
         </a>
       </div>
-      <div className={classNames.children}>
+      <div
+        className={classNames.children}
+        data-testid="social-buttons-google-button"
+      >
         <GoogleLogin
           clientId={process.env.GOOGLE_CLIENT_ID}
           buttonText="LOGIN WITH GOOGLE"
@@ -53,7 +57,10 @@ export const SocialButtons: FC<{
         />
       </div>
       {(isProcessing || isLoading) && (
-        <div className={classNames.children}>
+        <div
+          className={classNames.children}
+          data-testid="social-buttons-loader"
+        >
           <Spinner />
         </div>
       )}

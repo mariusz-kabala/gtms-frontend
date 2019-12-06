@@ -26,7 +26,7 @@ export const ResetPasswordPage: NextPage<{}> = () => {
                     pathname: 'login',
                 })
             })
-    }, [code, router])
+    }, [code])
 
     return (
         <div data-testid="remind-password-page" className={commonCss.page}>
