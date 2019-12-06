@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.children {
+  margin-left: 20px;
+}
+
+.button {
+  display: block;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  &.facebook {
+    background-color: #485a8e;
+  }
+}

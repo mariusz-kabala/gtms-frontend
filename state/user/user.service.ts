@@ -5,6 +5,9 @@ import {
   IRegistrationResponse,
   ILoginData,
   ILoginResponse,
+  fbLogin,
+  IFbLoginData,
+  IFbLoginResponse,
 } from 'api/auth'
 import { IJWT } from 'api/auth'
 import { userStore } from './user.store'
@@ -69,13 +72,15 @@ export const registerUserAccount = async (
   return response
 }
 
-export const loginUser = async (
-  payload: ILoginData
-): Promise<ILoginResponse> => {
-  const response = await login(payload)
-
-  const parsedToken = parseJwt<IJWT>(response.accessToken)
-  const parsedRefreshToken = parseJwt<IJWT>(response.refreshToken)
+const updateStoreWithJWT = ({
+  accessToken,
+  refreshToken,
+}: {
+  accessToken: string
+  refreshToken: string
+}) => {
+  const parsedToken = parseJwt<IJWT>(accessToken)
+  const parsedRefreshToken = parseJwt<IJWT>(refreshToken)
 
   userStore.update({
     id: parsedToken.id,
@@ -88,16 +93,34 @@ export const loginUser = async (
     isActive: parsedToken.isActive,
     session: {
       accessToken: {
-        value: response.accessToken,
+        value: accessToken,
         expiresAt: new Date(parsedToken.exp * 1000).getTime(),
       },
       refreshToken: {
-        value: response.refreshToken,
+        value: refreshToken,
         expiresAt: new Date(parsedRefreshToken.exp * 1000).getTime(),
       },
       createdAt: new Date().getTime(),
     },
   })
+}
+
+export const fbLoginUser = async (
+  payload: IFbLoginData
+): Promise<IFbLoginResponse> => {
+  const response = await fbLogin(payload)
+
+  updateStoreWithJWT(response)
+
+  return response
+}
+
+export const loginUser = async (
+  payload: ILoginData
+): Promise<ILoginResponse> => {
+  const response = await login(payload)
+
+  updateStoreWithJWT(response)
 
   return response
 }

@@ -126,8 +126,10 @@ describe('<RemindPasswordForm />', () => {
       render(<RemindPasswordForm onSuccess={onSuccess} />)
     })
 
-    await onSubmit({
-      email: 'tester@testing.jest',
+    await act(async () => {
+      await onSubmit({
+        email: 'tester@testing.jest',
+      })
     })
 
     expect(onSuccess).toBeCalledTimes(1)
@@ -153,9 +155,12 @@ describe('<RemindPasswordForm />', () => {
 
     render(<RemindPasswordForm onSuccess={jest.fn()} />)
 
-    await onSubmit({
-      email: 'tester@testing.jest',
+    await act(async () => {
+      await onSubmit({
+        email: 'tester@testing.jest',
+      })
     })
+
     expect(fetchMock.mock.calls.length).toEqual(1)
     expect(setError).toBeCalledTimes(1)
 

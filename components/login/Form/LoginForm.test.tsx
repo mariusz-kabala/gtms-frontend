@@ -131,9 +131,11 @@ describe('<LoginForm />', () => {
       render(<LoginForm onSuccess={onSuccess} />)
     })
 
-    await onSubmit({
-      email: 'tester@testing.jest',
-      password: 'loremIpsum',
+    await act(async () => {
+      await onSubmit({
+        email: 'tester@testing.jest',
+        password: 'loremIpsum',
+      })
     })
 
     expect(onSuccess).toBeCalledTimes(1)
@@ -166,10 +168,13 @@ describe('<LoginForm />', () => {
 
     render(<LoginForm onSuccess={jest.fn()} />)
 
-    await onSubmit({
-      email: 'tester@testing.jest',
-      password: 'loremIpsum',
+    await act(async () => {
+      await onSubmit({
+        email: 'tester@testing.jest',
+        password: 'loremIpsum',
+      })
     })
+
     expect(fetchMock.mock.calls.length).toEqual(1)
     expect(setError).toBeCalledTimes(1)
 
