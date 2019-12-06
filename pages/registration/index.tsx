@@ -4,10 +4,11 @@ import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'i18n'
 import { userQuery } from 'state/user'
+import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { RegistrationForm } from 'components/registration/Form'
 import { SuccessConfirmation } from 'components/registration/SuccessConfirmation'
 import { ImageCover } from 'components/common/ImageCover'
-import styles from '../styles.scss'
+import styles from '../../components/common/Forms/styles.scss'
 
 const RegistrationPage: NextPage<{}> = () => {
   const { t } = useTranslation('registration')
@@ -22,27 +23,20 @@ const RegistrationPage: NextPage<{}> = () => {
   }, [])
 
   return (
-    <>
-      <div className={styles.page}>
-        <div
-          style={{
-            position: 'relative',
-            zIndex: 1000,
-            background: '#000',
-            padding: '20px',
-          }}
-        >
-          {' '}
-          {/* @todo move it to global component */}
-          <p>{t('subtitle')}</p>
-          <h1>{t('header')}</h1>
+    <div className={styles.wrapper}>
+      <div className={styles.formWrapper}>
+        <AnimatedComponent>
           <Logo />
-          {!hasUserData && <RegistrationForm />}
-          {hasUserData && <SuccessConfirmation />}
-        </div>
+        </AnimatedComponent>
+        {!hasUserData && <RegistrationForm />}
+        {hasUserData && <SuccessConfirmation />}
       </div>
       <ImageCover />
-    </>
+      <span>
+        {/* @todo remove temporary code */}
+        {t('subtitle')}
+      </span>
+    </div>
   )
 }
 

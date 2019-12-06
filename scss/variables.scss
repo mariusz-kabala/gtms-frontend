@@ -1,11 +1,5 @@
 $defaultFontFamily: 'Lato,sans-serif', 'Open Sans', 'Helvetica Neue', sans-serif;
 
-* {
-  font-family: $defaultFontFamily;
-  box-sizing: border-box;
-}
-
-/*screen sizes*/
 $breakpoint-sm: 500px !default;
 $breakpoint-md: 769px !default;
 $breakpoint-lg: 1025px !default;

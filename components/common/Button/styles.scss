@@ -13,7 +13,6 @@ $color2: $theme4;
   background: transparent;
   /* inherit font & color from ancestor */
   color: inherit;
-  font: inherit;
   /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
   line-height: normal;
   /* Corrects font smoothing for webkit */
@@ -21,6 +20,7 @@ $color2: $theme4;
   -moz-osx-font-smoothing: inherit;
   /* Corrects inability to style clickable `input` types in iOS */
   -webkit-appearance: none;
+
   display: flex;
   cursor: pointer;
   width: 100%;

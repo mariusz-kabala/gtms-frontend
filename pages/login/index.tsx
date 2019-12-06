@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+import styles from 'components/common/Forms/styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { LoginForm } from 'components/login/Form'
+import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { Logo } from 'components/common/Logo'
 import { ImageCover } from 'components/common/ImageCover'
 import { useTranslation, Router } from 'i18n'
 import { parseCookies, destroyCookie } from 'nookies'
-import styles from '../styles.scss'
 import { SocialButtons } from 'components/login/SocialButtons'
 
 export const LoginPage: NextPage<{ redirectTo?: string }> = ({
@@ -19,30 +20,24 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
     })
 
   return (
-    <div className={styles.page} data-testid="login-page">
-      <section
-        style={{
-          // @todo remove it soon
-          position: 'relative',
-          background: 'black',
-          padding: '20px',
-          zIndex: 1,
-        }}
-      >
-        <div className={styles.header}>
-          <p>{t('subtitle')}</p>
-          <h1>{t('title')}</h1>
-        </div>
+    <div className={styles.wrapper} data-testid="login-page">
+      <div className={styles.formWrapper}>
         {error && <div data-testid="login-page-error">{t(error)}</div>}
-        <Logo />
+        <AnimatedComponent>
+          <Logo />
+        </AnimatedComponent>
         <LoginForm onSuccess={onSuccess} />
         <SocialButtons
           onSuccess={onSuccess}
           onFailure={() => setError('SocialMediaLoginFailed')}
         />
-      </section>
+      </div>
       <ImageCover />
-    </div>
+      <span>
+        {/* @todo remove temporary code */}
+        {t('subtitle')}
+      </span>
+    </div>    
   )
 }
 

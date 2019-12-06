@@ -5,8 +5,8 @@ import cx from 'classnames'
 export const AnimatedComponent: FC<{
   additionalStyles?: string
   children: ReactNode
-  infinite: boolean
-  onClick: () => unknown
+  infinite?: boolean
+  onClick?: () => unknown
 }> = ({ additionalStyles, infinite, children }) => (
   <div className={styles.animated}>
     <div

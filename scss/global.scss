@@ -1,0 +1,12 @@
+@import './variables.scss';
+
+* {
+  font-family: $defaultFontFamily;
+  box-sizing: border-box;
+}
+
+html,
+body,
+body > div {
+  height: 100%;
+}
