@@ -23,7 +23,7 @@ describe('<ResetPasswordForm />', () => {
   const renderComponent = (onSuccess = jest.fn()) =>
     render(<ResetPasswordForm code={'testing'} onSuccess={onSuccess} />)
 
-  it.only('Should be on the page', () => {
+  it('Should be on the page', () => {
     const { getByTestId } = renderComponent()
 
     expect(getByTestId('reset-password-form')).toBeInTheDocument()
@@ -161,10 +161,13 @@ describe('<ResetPasswordForm />', () => {
       renderComponent(onSuccess)
     })
 
-    await onSubmit({
-      password: 'testing1234',
-      confirmPassword: 'testing1234',
-    })
+    await act(
+      async () =>
+        await onSubmit({
+          password: 'testing1234',
+          confirmPassword: 'testing1234',
+        })
+    )
 
     expect(onSuccess).toBeCalledTimes(1)
     expect(fetchMock.mock.calls.length).toEqual(1)
@@ -191,10 +194,13 @@ describe('<ResetPasswordForm />', () => {
 
     renderComponent()
 
-    await onSubmit({
-      password: 'testing1234',
-      confirmPassword: 'testing1234',
-    })
+    await act(
+      async () =>
+        await onSubmit({
+          password: 'testing1234',
+          confirmPassword: 'testing1234',
+        })
+    )
     expect(fetchMock.mock.calls.length).toEqual(1)
     expect(setError).toBeCalledTimes(1)
 
