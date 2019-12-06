@@ -23,7 +23,7 @@ describe('<ResetPasswordForm />', () => {
   const renderComponent = (onSuccess = jest.fn()) =>
     render(<ResetPasswordForm code={'testing'} onSuccess={onSuccess} />)
 
-  it('Should be on the page', () => {
+  it.only('Should be on the page', () => {
     const { getByTestId } = renderComponent()
 
     expect(getByTestId('reset-password-form')).toBeInTheDocument()
