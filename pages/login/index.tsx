@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from 'components/common/Forms/styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { LoginForm } from 'components/login/Form'

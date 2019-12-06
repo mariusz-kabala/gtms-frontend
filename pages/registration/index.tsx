@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from 'components/common/Forms/styles.scss'
 import { Logo } from 'components/common/Logo'
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
@@ -8,7 +9,6 @@ import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { RegistrationForm } from 'components/registration/Form'
 import { SuccessConfirmation } from 'components/registration/SuccessConfirmation'
 import { ImageCover } from 'components/common/ImageCover'
-import styles from '../../components/common/Forms/styles.scss'
 
 const RegistrationPage: NextPage<{}> = () => {
   const { t } = useTranslation('registration')

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import styles from './styles.scss'
 import { NextPage } from 'next'
 import { activateAccount } from 'api/auth'
 import { useRouter } from 'next/router'
@@ -26,6 +27,7 @@ export const ActivateAccountPage: NextPage<{}> = () => {
   return (
     <div data-testid="activate-account-page">
       <section
+        className={styles.wrapper}
         style={{
           // @todo remove it soon
           position: 'relative',
