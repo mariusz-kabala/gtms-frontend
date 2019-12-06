@@ -1,59 +1,9 @@
 import { useEffect, useState } from 'react'
 import { isMobile } from 'react-device-detect'
+import { IFBAuthResponse } from './types.d'
+import { decodeParam, getParamsFromObject } from './helpers'
 
 const FB_SDK_ID = 'facebook-jssdk'
-
-declare global {
-  interface Window {
-    fbAsyncInit?: () => void
-    FB: {
-      init: (params: {
-        version: string
-        appId: string
-        xfbml: boolean
-        cookie: boolean
-      }) => void
-      api: (
-        endpoint: string,
-        params: {
-          locale: string
-          fields: string
-        },
-        callback: (me: any) => unknown
-      ) => void
-      login: (
-        callback: (params: any) => unknown,
-        payload: boolean | any
-      ) => void
-      getLoginStatus: (callback: (response: any) => unknown) => void
-    }
-  }
-}
-
-function decodeParam(paramString: string, key: string) {
-  return decodeURIComponent(
-    paramString.replace(
-      new RegExp(
-        '^(?:.*[&\\?]' +
-          encodeURIComponent(key).replace(/[\.\+\*]/g, '\\$&') +
-          '(?:\\=([^&]*))?)?.*$',
-        'i'
-      ),
-      '$1'
-    )
-  )
-}
-
-function getParamsFromObject(params: {
-  [key: string]: string | boolean | number
-}) {
-  return (
-    '?' +
-    Object.keys(params)
-      .map(param => `${param}=${encodeURIComponent(params[param])}`)
-      .join('&')
-  )
-}
 
 function isRedirectedFromFb(): boolean {
   const params = window.location.search
@@ -64,7 +14,7 @@ function isRedirectedFromFb(): boolean {
 }
 
 function checkIfSDKIsLoaded(): boolean {
-  return !!document.getElementById(FB_SDK_ID)
+  return process.browser && !!document.getElementById(FB_SDK_ID)
 }
 
 function setFbAsyncInit({
@@ -97,6 +47,10 @@ function setFbAsyncInit({
 }
 
 function loadSDK(language: string) {
+  if (!process.browser) {
+    return
+  }
+
   const fbScript = document.createElement('script')
   fbScript.id = FB_SDK_ID
   fbScript.src = `https://connect.facebook.net/${language}/sdk.js`
@@ -120,7 +74,6 @@ function createFBRoot() {
 }
 
 export function useFacebookLogin({
-  appId,
   language = 'en_US',
   xfbml = false,
   cookie = false,
@@ -129,12 +82,13 @@ export function useFacebookLogin({
   state = 'facebookdirect',
   responseType = 'code',
   fields = 'name',
-  version = '3.1',
+  version = 'v3.1',
   returnScopes = false,
   autoLoad = false,
   redirectUrl = typeof window !== 'undefined' ? window.location.href : '/',
   onFailure,
-  callback,
+  onSuccess,
+  appId,
 }: {
   appId: string
   language?: string
@@ -150,7 +104,7 @@ export function useFacebookLogin({
   returnScopes?: boolean
   redirectUrl?: string
   onFailure?: (params: { status: string }) => unknown
-  callback: (params: { status: string }) => unknown
+  onSuccess: (params: IFBAuthResponse & {status: string}) => unknown
 }) {
   const [isSDKLoaded, setIsSDKLoaded] = useState<boolean>(checkIfSDKIsLoaded())
   const [isProcessing, setIsProcessing] = useState<boolean>(false)
@@ -166,7 +120,7 @@ export function useFacebookLogin({
           fields,
         },
         me =>
-          callback({
+        onSuccess({
             ...me,
             ...response.authResponse,
           })
@@ -179,8 +133,9 @@ export function useFacebookLogin({
       })
     }
 
-    callback({
+    onSuccess({
       status: response.status,
+      ...response.authResponse
     })
   }
 
