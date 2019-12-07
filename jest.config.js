@@ -11,6 +11,7 @@ module.exports = {
       tsConfig: '<rootDir>/tsconfig.jest.json',
     },
   },
+  testURL: 'http://localhost',
   testMatch: ['<rootDir>/**/*.test.ts?(x)'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/', '/tools/'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'd.ts', 'json', 'node'],

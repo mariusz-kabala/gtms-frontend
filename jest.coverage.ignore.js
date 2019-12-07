@@ -6,7 +6,6 @@ const TEMPORARY_IGNORE = [
   './pages/login/index.tsx',
   './hooks/auth.ts',
   './pages/index.tsx',
-  './hooks/fbLogin',
   './api/auth/googleLogin.ts',
   './components/login/SocialButtons/index.tsx',
 ]
