@@ -7,16 +7,16 @@ import { Overlay } from 'components/common/Overlay'
 export const Sidebar: FC<{
   additionalStyles?: string
   children: ReactNode
-  leftSide?: boolean
-  rightSide?: boolean
   isActive: boolean
+  leftSide?: boolean
   onClose: () => unknown
+  rightSide?: boolean
 }> = ({
   additionalStyles,
   children,
   isActive,
-  onClose,
   leftSide,
+  onClose,
   rightSide,
 }) => {
   const closeSidebar = () => {
