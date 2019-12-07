@@ -2,6 +2,7 @@ import React from 'react'
 import { render, wait, waitForElement } from '@testing-library/react'
 import { ActivateAccountPage } from 'pages/activate-account/[code]'
 import { FetchMock } from 'jest-fetch-mock'
+import { useTranslation } from 'i18n'
 
 const fetchMock = fetch as FetchMock
 
@@ -25,6 +26,8 @@ describe('<ActivateAccountPage />', () => {
 
     expect(queryByTestId('activate-account-page-confirmation')).toBeNull()
     expect(queryByTestId('activate-account-page-activation-failed')).toBeNull()
+
+    expect(useTranslation).toBeCalledWith('accountActivation')
 
     await wait(() => expect(fetchMock).toBeCalled())
 

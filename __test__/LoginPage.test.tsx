@@ -4,6 +4,14 @@ import { LoginPage } from 'pages/login'
 import { LoginForm } from 'components/login/Form'
 import { SocialButtons } from 'components/login/SocialButtons'
 import { Router, useTranslation } from 'i18n'
+import { parseCookies, destroyCookie } from 'nookies'
+
+jest.mock('nookies', () => ({
+  destroyCookie: jest.fn(),
+  parseCookies: jest.fn().mockImplementation(() => ({
+    redirectTo: '/fake/redirect',
+  })),
+}))
 
 jest.mock('components/login/Form', () => ({
   LoginForm: jest.fn().mockImplementation(() => <></>),
@@ -19,6 +27,8 @@ describe('<LoginPage />', () => {
     ;(SocialButtons as jest.Mock).mockClear()
     ;(useTranslation as jest.Mock).mockClear()
     ;(Router.push as jest.Mock).mockClear()
+    ;(destroyCookie as jest.Mock).mockClear()
+    ;(parseCookies as jest.Mock).mockClear()
   })
 
   it('Should render the page', () => {
@@ -91,5 +101,46 @@ describe('<LoginPage />', () => {
     expect(Router.push).toBeCalledWith({
       pathname: '/',
     })
+  })
+
+  it('Should return translations namespace and redirectTo from getInitialProps', async done => {
+    if (!LoginPage.getInitialProps) {
+      return done()
+    }
+    // eslint-disable-next-line
+    const ctx: any = null
+
+    const props: {
+      namespacesRequired?: string[]
+      redirectTo?: string
+    } = await LoginPage.getInitialProps(ctx)
+
+    expect(props).toHaveProperty('namespacesRequired')
+    expect(props.namespacesRequired).toEqual(['login'])
+    expect(props).toHaveProperty('redirectTo')
+    done()
+  })
+
+  it('Should parse cookies to return proper redirection after login URL from getInitialProps', async done => {
+    if (!LoginPage.getInitialProps) {
+      return done()
+    }
+
+    // eslint-disable-next-line
+    const ctx: any = null
+
+    const props: {
+      namespacesRequired?: string[]
+      redirectTo?: string
+    } = await LoginPage.getInitialProps(ctx)
+
+    expect(props).toHaveProperty('redirectTo')
+    expect(props.redirectTo).toEqual('/fake/redirect')
+
+    expect(destroyCookie).toBeCalledTimes(1)
+    expect(parseCookies).toBeCalledTimes(1)
+
+    expect(destroyCookie).toBeCalledWith(null, 'redirectTo')
+    done()
   })
 })

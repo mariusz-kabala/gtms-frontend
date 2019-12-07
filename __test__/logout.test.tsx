@@ -2,21 +2,10 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { LogoutPage } from 'pages/logout'
 import { destroyCookie } from 'nookies'
-import Router from 'next/router'
-import { useTranslation } from 'i18n'
+import { Router } from 'i18n'
 
 jest.mock('nookies', () => ({
   destroyCookie: jest.fn(),
-}))
-
-jest.mock('next/router', () => ({
-  push: jest.fn(),
-}))
-
-jest.mock('i18n', () => ({
-  useTranslation: jest.fn().mockImplementation(() => ({
-    i18n: {},
-  })),
 }))
 
 describe('Logout Page', () => {
@@ -42,16 +31,21 @@ describe('Logout Page', () => {
     expect(Router.push).toBeCalledWith({ pathname: '/login' })
   })
 
-  it('Should redirect to login page with language', () => {
-    ;(useTranslation as jest.Mock).mockImplementation(() => ({
-      i18n: {
-        language: 'en',
-      },
-    }))
+  it('Should return proper translations namespace from initial func', async done => {
+    if (!LogoutPage.getInitialProps) {
+      return done()
+    }
 
-    render(<LogoutPage />)
+    // eslint-disable-next-line
+    const ctx: any = null
 
-    expect(Router.push).toBeCalled()
-    expect(Router.push).toBeCalledWith({ pathname: '/en/login' })
+    const props: {
+      namespacesRequired?: string[]
+    } = await LogoutPage.getInitialProps(ctx)
+
+    expect(props).toHaveProperty('namespacesRequired')
+    expect(props.namespacesRequired).toEqual(['logout'])
+
+    done()
   })
 })

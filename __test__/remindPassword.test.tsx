@@ -2,6 +2,7 @@ import React from 'react'
 import { render, act } from '@testing-library/react'
 import { RemindPasswordPage } from 'pages/remind-password'
 import { RemindPasswordForm } from 'components/remind-password/Form'
+import { useTranslation } from 'i18n'
 
 jest.mock('components/remind-password/Form', () => ({
   RemindPasswordForm: jest.fn().mockImplementation(() => <></>),
@@ -12,6 +13,8 @@ describe('<RemindPasswordPage />', () => {
     const { getByTestId } = render(<RemindPasswordPage />)
 
     expect(getByTestId('remind-password-page')).toBeInTheDocument()
+
+    expect(useTranslation).toBeCalledWith('remindPassword')
   })
 
   it('Should render reset password form', () => {
