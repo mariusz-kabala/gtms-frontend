@@ -19,7 +19,6 @@ export const HomePage: NextPage<{
   refreshToken?: string
 }> = ({ accessToken, refreshToken }) => {
   const { isLogged } = useAuth(accessToken, refreshToken)
-  console.log(isLogged)
 
   return (
     <div style={{ display: 'flex' }}>
@@ -30,6 +29,8 @@ export const HomePage: NextPage<{
           <Spinner />
         </AnimatedComponent>
         <div>
+          {/* @todo remove it soon */}
+          <h2 className={styles.header}>{isLogged ? 'hello' : 'hello'}</h2>
           <h2 className={styles.header}>Ostatnio dodane wioski</h2>
           <GroupList />
         </div>
