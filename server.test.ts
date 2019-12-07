@@ -8,6 +8,8 @@ jest.mock('next', () =>
   }))
 )
 
+jest.mock('next-i18next/middleware')
+
 jest.mock('express')
 
 describe('Server', () => {
