@@ -1,0 +1,38 @@
+@import 'scss/variables';
+
+.header {
+  // @todo make it global - header component
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  overflow: hidden;
+  background: $theme1;
+  padding: 10px;
+
+  ul {
+    li {
+      .item {
+        display: flex;
+        align-items: center;
+
+        span {
+          margin-left: 8px;
+          font-weight: 600;
+          font-size: 0.8em;
+        }
+
+        &:hover {
+          color: $theme4;
+        }
+      }
+    }
+  }
+
+  p {
+    padding: 0.5em;
+    font-size: 0.85em;
+  }
+}
