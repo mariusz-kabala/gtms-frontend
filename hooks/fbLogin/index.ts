@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { IFBAuthResponse } from './types.d'
 import { decodeParam, getParamsFromObject } from './helpers'
+import { refirectToFB } from './redirectToFB'
 
 const FB_SDK_ID = 'facebook-jssdk'
 
@@ -103,8 +104,8 @@ export function useFacebookLogin({
   state?: string
   returnScopes?: boolean
   redirectUrl?: string
-  onFailure?: (params: { status: string }) => unknown
-  onSuccess: (params: IFBAuthResponse & {status: string}) => unknown
+  onFailure: (params: { status: string }) => unknown
+  onSuccess: (params: IFBAuthResponse & { status: string }) => unknown
 }) {
   const [isSDKLoaded, setIsSDKLoaded] = useState<boolean>(checkIfSDKIsLoaded())
   const [isProcessing, setIsProcessing] = useState<boolean>(false)
@@ -120,22 +121,15 @@ export function useFacebookLogin({
           fields,
         },
         me =>
-        onSuccess({
+          onSuccess({
             ...me,
             ...response.authResponse,
           })
       )
     }
 
-    if (onFailure) {
-      return onFailure({
-        status: response.status,
-      })
-    }
-
-    onSuccess({
+    return onFailure({
       status: response.status,
-      ...response.authResponse
     })
   }
 
@@ -144,10 +138,7 @@ export function useFacebookLogin({
       return checkLoginStatus(response)
     }
 
-    window.FB.login(
-      (loginResponse: any) => checkLoginStatus(loginResponse),
-      true
-    )
+    window.FB.login(checkLoginStatus, true)
   }
 
   const onInit = () => {
@@ -174,13 +165,11 @@ export function useFacebookLogin({
     /* eslint-enable */
 
     if (isMobile) {
-      window.location.href = `https://www.facebook.com/dialog/oauth${getParamsFromObject(
-        params
-      )}`
-      return
+      return refirectToFB(getParamsFromObject(params))
     }
 
     if (!window.FB && onFailure) {
+      setIsProcessing(true)
       return onFailure({ status: 'FBNotLoaded' })
     }
 

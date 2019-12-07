@@ -7,6 +7,8 @@ const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock
 customGlobal.fetch = require('jest-fetch-mock')
 customGlobal.fetchMock = customGlobal.fetch
 
+// eslint-disable-next-line
+window.FB = {} as any
 jest.mock('i18n', () => ({
   useTranslation: jest.fn().mockImplementation(() => ({
     t: (key: string) => key,
