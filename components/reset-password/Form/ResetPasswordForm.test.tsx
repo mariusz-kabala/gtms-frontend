@@ -3,6 +3,7 @@ import { render, act } from '@testing-library/react'
 import { ResetPasswordForm, IResetPasswordFormData } from './index'
 import { FetchMock } from 'jest-fetch-mock'
 import useForm from 'react-hook-form'
+import { useTranslation } from 'i18n'
 
 const fetchMock = fetch as FetchMock
 
@@ -27,6 +28,8 @@ describe('<ResetPasswordForm />', () => {
     const { getByTestId } = renderComponent()
 
     expect(getByTestId('reset-password-form')).toBeInTheDocument()
+
+    expect(useTranslation).toBeCalledWith('resetPassword')
   })
 
   it('Should have password, confirmPassword fields and submit button', () => {

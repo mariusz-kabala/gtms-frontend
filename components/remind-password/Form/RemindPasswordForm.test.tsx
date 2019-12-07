@@ -4,6 +4,7 @@ import { RemindPasswordForm } from './index'
 import { FetchMock } from 'jest-fetch-mock'
 import useForm from 'react-hook-form'
 import { IRemindPasswordData } from 'api/auth'
+import { useTranslation } from 'i18n'
 
 const fetchMock = fetch as FetchMock
 
@@ -25,6 +26,7 @@ describe('<RemindPasswordForm />', () => {
     const { getByTestId } = render(<RemindPasswordForm onSuccess={jest.fn()} />)
 
     expect(getByTestId('remind-password-form')).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('remindPassword')
   })
 
   it('Should have email field and submit button', () => {
