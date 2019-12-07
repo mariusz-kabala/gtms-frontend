@@ -5,8 +5,8 @@ import cx from 'classnames'
 export const UserAvatar: FC<{
   additionalStyles?: string
   image: string
-  onClick: () => unknown
-  userName: string
+  onClick?: () => unknown
+  userName?: string
 }> = ({ additionalStyles, image, onClick, userName }) => (
   <div
     data-testid="user-avatar"
@@ -20,7 +20,7 @@ export const UserAvatar: FC<{
       alt="user avatar"
     />
     <span data-testid="user-avatar-label" className={styles.nameSurname}>
-      {userName}
+      {userName && userName}
     </span>
   </div>
 )

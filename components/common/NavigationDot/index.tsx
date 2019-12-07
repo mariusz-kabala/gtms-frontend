@@ -26,7 +26,7 @@ const mockData = [
   },
 ]
 
-export const NavigationDot: FC<{ children: ReactNode }> = ({ children }) => (
+export const NavigationDot: FC<{ children?: ReactNode }> = ({ children }) => (
   <>
     <style
       dangerouslySetInnerHTML={{

@@ -1,14 +1,57 @@
+@import 'scss/variables';
+
+// @todo these global styles should be moved somewhere else?
 :global(body) {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0;
+  background: $theme7;
+  color: #fff;
 }
 
-.page {
-  width: 90%;
-  height: 100vh;
-  padding: 5%;
-  overflow-y: auto;
-  color: #fff;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 40px; // @todo create global wrapper for pages components
+  overflow: hidden;
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0;
+    max-width: 250px;
+  }
+
+  > div {
+    margin-bottom: 40px;
+  }
+}
+
+.columns {
+  display: flex;
+
+  > li {
+    cursor: pointer;
+    width: 100%;
+    margin-left: 20px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.header {
+  // @todo create global header
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-bottom: 20px;
 }

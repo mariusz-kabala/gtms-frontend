@@ -50,7 +50,7 @@ export const UsersList: FC<{}> = () => (
     <ul>
       {mockData.map((value, index) => (
         <li key={index}>
-          <UserAvatar image={value.image} sizeSmall />
+          <UserAvatar image={value.image} />
           <span>{value.userName}</span>
         </li>
       ))}

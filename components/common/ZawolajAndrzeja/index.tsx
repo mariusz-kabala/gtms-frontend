@@ -36,7 +36,7 @@ export const ZawolajAdnrzeja: FC<{}> = () => (
       {mockData.map((value, index) => (
         <li key={index}>
           <div className={styles.item}>
-            <UserAvatar image={value.image} sizeSmall />
+            <UserAvatar image={value.image} />
             <span>{value.userName}</span>
           </div>
           <p>{value.message}</p>
