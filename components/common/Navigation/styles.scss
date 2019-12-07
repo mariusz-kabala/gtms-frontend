@@ -1,30 +1,19 @@
 @import 'scss/variables';
 
 .wrapper {
-  width: 100%;
-  height: 100%;
-  padding: 1em;
+  min-height: 100%;
   background: $theme1;
-  color: $theme6;
   cursor: pointer;
+  font-size: 0.8em;
+  display: flex;
 
   li {
     position: relative;
-    margin-bottom: 1em;
-    color: $theme6;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin-top: 1em;
+    padding: 0 1em;
 
     a {
-      position: relative;
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-
       i {
-        margin-right: 0.75em;
         line-height: 0;
 
         > svg {
@@ -33,12 +22,14 @@
       }
     }
 
+    span {
+      // @todo temporary
+      display: none;
+    }
+
     &:hover {
       background: $theme1;
-
-      a {
-        color: $theme4;
-      }
+      color: $theme4;
     }
   }
 }

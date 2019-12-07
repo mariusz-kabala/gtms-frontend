@@ -1,0 +1,40 @@
+@import 'scss/variables';
+
+.wrapper {
+  display: flex;
+  min-height: 100%;
+
+  > div {
+    padding: 0 40px;
+
+    .columns {
+      display: flex;
+
+      > li {
+        cursor: pointer;
+        width: 100%;
+        margin-left: 20px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        li {
+          margin-bottom: 10px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    // @todo create global header
+    .header {
+      // @todo handle it in GEOT-72 and GEOT-73
+      font-size: 1.2em;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+  }
+}
