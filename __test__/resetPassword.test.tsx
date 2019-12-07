@@ -4,6 +4,7 @@ import { ResetPasswordPage } from 'pages/reset-password/[code]'
 import { useRouter } from 'next/router'
 import { ResetPasswordForm } from 'components/reset-password/Form'
 import { FetchMock } from 'jest-fetch-mock'
+import { useTranslation } from 'i18n'
 
 const fetchMock = fetch as FetchMock
 
@@ -40,6 +41,8 @@ describe('<ResetPasswordPage />', () => {
     expect(getByTestId('spinner')).toBeInTheDocument()
     expect(queryByTestId('reset-password-changed-confirmation')).toBeNull()
     expect(queryByTestId('reset-password-form')).toBeNull()
+
+    expect(useTranslation).toBeCalledWith('resetPassword')
 
     expect(ResetPasswordForm).not.toBeCalled()
 
