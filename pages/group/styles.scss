@@ -1,0 +1,47 @@
+@import 'scss/variables';
+
+.wrapper {
+  display: flex;
+  color: #979797;
+  min-height: 100%;
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 250px;
+  }
+
+  > div {
+    padding: 0 40px;
+
+    .columns {
+      display: flex;
+
+      > li {
+        cursor: pointer;
+        width: 100%;
+        margin-left: 20px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        li {
+          margin-bottom: 10px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .header {
+      // @todo create global header
+      font-size: 1.2em;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+  }
+}
