@@ -4,6 +4,7 @@ import { LoginForm } from './index'
 import useForm from 'react-hook-form'
 import { ILoginData } from 'api/auth'
 import { FetchMock } from 'jest-fetch-mock'
+import { useTranslation } from 'i18n'
 
 const fetchMock = fetch as FetchMock
 
@@ -25,6 +26,7 @@ describe('<LoginForm />', () => {
     const { getByTestId } = render(<LoginForm onSuccess={jest.fn()} />)
 
     expect(getByTestId('login-form')).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('login')
   })
 
   it('Should have all required fields', () => {

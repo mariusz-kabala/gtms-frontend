@@ -2,6 +2,7 @@ import React from 'react'
 import { Logout } from './index'
 import { render, fireEvent } from '@testing-library/react'
 import { setItem } from 'helpers/localStorage'
+import { useTranslation } from 'i18n'
 
 jest.mock('helpers/localStorage', () => ({
   setItem: jest.fn(),
@@ -12,6 +13,7 @@ describe('<Logout />', () => {
     const { getByTestId } = render(<Logout />)
 
     expect(getByTestId('logout-button')).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('common')
   })
 
   it('Should set logout LC item when clicking', () => {
