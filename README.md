@@ -99,6 +99,8 @@ To run test cases in watch mode (only on files that you changed, useful during d
 npm t -- --watch
 ```
 
+Keep the test file next to the file with code. The only exception are pages - as `nextjs` requires to have only pages code in `pages` dir. Tests for pages should be located in `./__test__` - use this folder only for that
+
 # Import aliases
 
 Please do not use relative imports in case if folder has an alias, aliases are defined in `next.config.js`, `tsconfig.json` and `jest.config.js` - REMEMBER: those files need to be updated in order to add a new alias
