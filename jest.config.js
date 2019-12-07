@@ -30,7 +30,7 @@ module.exports = {
     '^i18n$': '<rootDir>/i18n.ts',
   },
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-  setupFiles: ['<rootDir>/setupTests.ts'],
+  setupFiles: ['<rootDir>/setupTests.tsx'],
   collectCoverageFrom: ['**/*.{ts,tsx}', '!**/node_modules/**'],
   coverageThreshold: {
     global: {
