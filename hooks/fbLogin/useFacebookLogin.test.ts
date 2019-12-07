@@ -1,6 +1,7 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import { useFacebookLogin } from './index'
 // eslint-disable-next-line
+// @ts-ignore
 import { isMobile } from 'react-device-detect'
 import { refirectToFB } from './redirectToFB'
 
@@ -257,6 +258,7 @@ describe('useFacebookLogin', () => {
     )
 
     // eslint-disable-next-line
+    // @ts-ignore
     isMobile = true
 
     act(() => {
@@ -271,6 +273,7 @@ describe('useFacebookLogin', () => {
     ;(document.getElementById as jest.Mock).mockImplementation(() => true)
 
     // eslint-disable-next-line
+    // @ts-ignore
     isMobile = false
     const onFailure = jest.fn()
 
