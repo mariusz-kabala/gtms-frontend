@@ -4,7 +4,7 @@ import { NFC } from 'types/nfc.d'
 import { useTranslation } from 'i18n'
 // @todo create method like that
 // import { nameSurnameChange } from 'state/user'
-import { IRegistrationData } from 'api/auth'
+import { IAccountNameSurnameData } from 'api/auth'
 import { Input } from 'components/common/Forms/Input'
 import { Error } from 'components/common/Forms/Error'
 import { Button } from 'components/common/Button'
@@ -12,9 +12,9 @@ import { Button } from 'components/common/Button'
 export const NameSurnameForm: NFC<{}> = () => {
   const { t } = useTranslation('registration')
   const { register, handleSubmit, errors, setError } = useForm<
-    IRegistrationData
+    IAccountNameSurnameData
   >()
-  const onSubmit = async (data: IRegistrationData) => {
+  const onSubmit = async (data: IAccountNameSurnameData) => {
     const { password, passwordConfirmation } = data
 
     if (password !== passwordConfirmation) {
