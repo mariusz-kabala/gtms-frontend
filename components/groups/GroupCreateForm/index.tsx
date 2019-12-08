@@ -39,16 +39,14 @@ export const GroupCreateForm: NFC<{}> = () => {
           color: '#fff',
         }}
       >
-        <label htmlFor="groupName">{t('form.labels.groupName')}</label>
+        <label htmlFor="name">{t('form.labels.name')}</label>
         <Input
           type="text"
-          name="groupName"
-          placeholder={t('form.labels.groupName')}
+          name="name"
+          placeholder={t('form.labels.name')}
           reference={register({ required: true })}
         />
-        {errors.groupName && (
-          <Error text={t('form.validation.groupName.isRequired')} />
-        )}
+        {errors.name && <Error text={t('form.validation.name.isRequired')} />}
       </div>
 
       <br />
@@ -62,10 +60,7 @@ export const GroupCreateForm: NFC<{}> = () => {
       >
         group description
         <br />
-        <Textarea
-          name="groupDescription"
-          reference={register({ required: true })}
-        />
+        <Textarea name="description" reference={register({ required: true })} />
       </div>
       <br />
       <br />
