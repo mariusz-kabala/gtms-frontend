@@ -10,10 +10,8 @@ import { Button } from 'components/common/Button'
 
 export const GroupCreateForm: NFC<{}> = () => {
   const { t } = useTranslation('groupCreate')
-  const { register, handleSubmit, errors } = useForm<
-    // const { register, handleSubmit, errors, setError } = useForm<
-    IGroupCreateData
-  >()
+  // const { register, handleSubmit, errors, setError } = useForm<
+  const { register, errors } = useForm<IGroupCreateData>()
 
   // const onSubmit = async () => {
   //   // @todo create proper validation
@@ -32,7 +30,7 @@ export const GroupCreateForm: NFC<{}> = () => {
   // }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       {/* @todo remove temporary <br /> elements everywhere in this file */}
 
       <div
@@ -41,16 +39,14 @@ export const GroupCreateForm: NFC<{}> = () => {
           color: '#fff',
         }}
       >
-        <label htmlFor="groupName">{t('form.labels.name')}</label>
+        <label htmlFor="name">{t('form.labels.name')}</label>
         <Input
           type="text"
           name="name"
           placeholder={t('form.labels.name')}
           reference={register({ required: true })}
         />
-        {errors.groupName && (
-          <Error text={t('form.validation.groupName.isRequired')} />
-        )}
+        {errors.name && <Error text={t('form.validation.name.isRequired')} />}
       </div>
 
       <br />
