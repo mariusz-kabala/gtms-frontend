@@ -15,17 +15,15 @@ export const NameSurnameForm: NFC<{}> = () => {
     IAccountNameSurnameData
   >()
   const onSubmit = async (data: IAccountNameSurnameData) => {
-    const { password, passwordConfirmation } = data
-
-    if (password !== passwordConfirmation) {
-      setError(
-        'passwordConfirmation',
-        'notMatch',
-        t('form.validation.passwordConfirmation.notMatch')
-      )
-      return
-    }
-
+    // const { password, passwordConfirmation } = data
+    // if (password !== passwordConfirmation) {
+    //   setError(
+    //     'passwordConfirmation',
+    //     'notMatch',
+    //     t('form.validation.passwordConfirmation.notMatch')
+    //   )
+    //   return
+    // }
     // try {
     //  @todo put here sth like
     // await changePasswordUserAccount(data)
