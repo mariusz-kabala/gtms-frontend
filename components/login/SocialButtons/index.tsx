@@ -37,13 +37,13 @@ export const SocialButtons: FC<{
   return (
     <div data-testid="social-buttons" className={classNames.container}>
       <div className={classNames.children}>
-        <a
+        <button
           data-testid="social-buttons-facebook-button"
           className={`${classNames.button} ${classNames.facebook}`}
           onClick={() => !isLoading && onClick()}
         >
           Facebook
-        </a>
+        </button>
       </div>
       <div
         className={classNames.children}

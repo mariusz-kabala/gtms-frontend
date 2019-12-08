@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from 'components/common/Forms/styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { LoginForm } from 'components/login/Form'
@@ -31,13 +31,13 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
           onSuccess={onSuccess}
           onFailure={() => setError('SocialMediaLoginFailed')}
         />
+        <span>
+          {/* @todo remove temporary code */}
+          {t('subtitle')}
+        </span>
       </div>
       <ImageCover />
-      <span>
-        {/* @todo remove temporary code */}
-        {t('subtitle')}
-      </span>
-    </div>    
+    </div>
   )
 }
 
