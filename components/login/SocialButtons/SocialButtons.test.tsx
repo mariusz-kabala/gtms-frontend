@@ -136,7 +136,11 @@ describe('<SocialButtons />', () => {
       }
     )
 
-    render(<SocialButtons onFailure={fakeonFailed} onSuccess={fakeOnSuccess} />)
+    act(() => {
+      render(
+        <SocialButtons onFailure={fakeonFailed} onSuccess={fakeOnSuccess} />
+      )
+    })
 
     act(() => {
       onSuccess({
