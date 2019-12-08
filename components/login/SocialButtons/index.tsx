@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
-import GoogleLogin from 'react-google-login'
+import GoogleLogin, { GoogleLoginResponse } from 'react-google-login'
 import classNames from './styles.scss'
-import { fbLoginUser } from 'state/user'
+import { fbLoginUser, googleLoginUser } from 'state/user'
 import { useFacebookLogin } from 'hooks/fbLogin'
 import { Spinner } from 'components/common/Spinner'
 
@@ -51,9 +51,26 @@ export const SocialButtons: FC<{
       >
         <GoogleLogin
           clientId={process.env.GOOGLE_CLIENT_ID}
-          buttonText="LOGIN WITH GOOGLE"
-          onSuccess={() => null}
-          onFailure={() => null}
+          buttonText="Google"
+          onSuccess={async response => {
+            setIsLoading(true)
+
+            const { accessToken, googleId } = response as GoogleLoginResponse
+
+            try {
+              await googleLoginUser({
+                accessToken,
+                id: googleId,
+              })
+
+              onSuccess()
+            } catch (err) {
+              onFailure()
+            }
+
+            setIsLoading(false)
+          }}
+          onFailure={onFailure}
         />
       </div>
       {(isProcessing || isLoading) && (
