@@ -1,3 +1,4 @@
+export * from './account'
 export * from './accountActivation'
 export * from './checkCode'
 export * from './fbLogin'
