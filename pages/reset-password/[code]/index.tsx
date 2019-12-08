@@ -56,6 +56,6 @@ export const ResetPasswordPage: NextPage<{}> = () => {
 
 ResetPasswordPage.getInitialProps = async () => {
     return Promise.resolve({ namespacesRequired: ['resetPassword'] })
-  }
+}
 
 export default ResetPasswordPage

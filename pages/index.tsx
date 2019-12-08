@@ -3,7 +3,6 @@ import { NextPage, NextPageContext } from 'next'
 import { useAuth } from 'hooks/auth'
 import { authOrRedirectToLogin } from 'server/auth'
 import { Logout } from 'components/common/Logout'
-import { ToggleCheckbox } from 'components/common/Forms/ToggleCheckbox'
 
 export const HomePage: NextPage<{
   accessToken?: string
@@ -37,13 +36,6 @@ export const HomePage: NextPage<{
           margin: 0;
         }
       `}</style>
-      <ToggleCheckbox
-        lockerIcon
-        labelChecked="checked"
-        labelUnchecked="unchecked"
-      />
-      <br />
-      <ToggleCheckbox labelChecked="checked" labelUnchecked="unchecked" />
     </div>
   )
 }

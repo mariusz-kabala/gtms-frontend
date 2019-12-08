@@ -5,7 +5,7 @@ import cx from 'classnames'
 export const UserAvatar: FC<{
   additionalStyles?: string
   image: string
-  onClick: () => unknown
+  onClick?: () => unknown
   userName: string
 }> = ({ additionalStyles, image, onClick, userName }) => (
   <div

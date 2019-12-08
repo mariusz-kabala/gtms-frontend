@@ -1,40 +1,14 @@
 import React, { FC, ReactNode } from 'react'
 import styles from './styles.scss'
+import mockData from './mockData.json'
 
-/* @todo remove mock */
-const mockData = [
-  {
-    img: '/images/temp_images/logo-kreciolatv.png',
-  },
-  {
-    img: '/images/temp_images/logo-patrol-1.png',
-  },
-  {
-    img: '/images/temp_images/logo-patrol-2.png',
-  },
-  {
-    img: '/images/temp_images/avatar-1.png',
-  },
-  {
-    img: '/images/temp_images/logo-kreciolatv.png',
-  },
-  {
-    img: '/images/temp_images/logo-patrol-1.png',
-  },
-  {
-    img: '/images/temp_images/avatar-1.png',
-  },
-]
-
-export const NavigationDot: FC<{ children: ReactNode }> = ({ children }) => (
+export const NavigationDot: FC<{ children?: ReactNode }> = ({ children }) => (
   <>
-    <style
-      dangerouslySetInnerHTML={{
-        __html: `
-      body { padding-bottom: 70px }
-    `,
-      }}
-    />
+    <style global jsx>{`
+      body {
+        padding-bottom: 70px;
+      }
+    `}</style>
     <div className={styles.navigationDot}>
       {children}
       <ul className={styles.row}>
@@ -43,11 +17,11 @@ export const NavigationDot: FC<{ children: ReactNode }> = ({ children }) => (
           <a>
             <div
               className={styles.circle}
-              style={{ backgroundImage: `url(${mockData[0].img})` }}
+              style={{ backgroundImage: `url(${mockData.data[0].img})` }}
             />
           </a>
         </li>
-        {mockData.map((value, index) => (
+        {mockData.data.map((value, index) => (
           <li key={index}>
             <a>
               <div

@@ -1,0 +1,14 @@
+.wrapper {
+  padding: 5% 10%;
+  background: gray;
+}
+
+// @todo move it to separate component
+.userImages {
+  display: flex;
+  overflow: hidden;
+
+  li {
+    margin-right: 5px;
+  }
+}
