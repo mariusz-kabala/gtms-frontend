@@ -11,7 +11,8 @@ import { Button } from 'components/common/Button'
 
 export const NameSurnameForm: NFC<{}> = () => {
   const { t } = useTranslation('registration')
-  const { register, handleSubmit, errors, setError } = useForm<
+  const { register, handleSubmit, errors } = useForm<
+    // const { register, handleSubmit, errors, setError } = useForm<
     IAccountNameSurnameData
   >()
   const onSubmit = async (data: IAccountNameSurnameData) => {
