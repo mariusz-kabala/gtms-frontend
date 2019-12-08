@@ -15,7 +15,6 @@ export const NameSurnameForm: NFC<{}> = () => {
     // const { register, handleSubmit, errors, setError } = useForm<
     IAccountNameSurnameData
   >()
-  const onSubmit = () => null
   // const onSubmit = async (data: IAccountNameSurnameData) => {
   // const { password, passwordConfirmation } = data
   // if (password !== passwordConfirmation) {
@@ -33,7 +32,7 @@ export const NameSurnameForm: NFC<{}> = () => {
   // }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <Input
         type="text"
         name="name"
