@@ -68,7 +68,7 @@ export const AccountPage: NextPage<{}> = () => {
         Delete Account
       </Button>
       {modalState && (
-        <Modal onClick={() => setModalState(false)}>
+        <Modal onClose={() => setModalState(false)}>
           <h2>Are you sure youd like to delete your account?</h2>
 
           <Button onClick={() => null}>
