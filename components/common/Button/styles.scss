@@ -23,12 +23,12 @@ $color2: $theme4;
 
   display: flex;
   cursor: pointer;
-  width: 100%;
-  padding: 20px;
+  padding: 15px;
   border: none;
   background: $color1;
   color: white;
   text-transform: uppercase;
+  font-size: 0.8em;
 
   &:hover {
     background: $color2;
@@ -36,5 +36,14 @@ $color2: $theme4;
 
   &:hover {
     transition: 0.3s all;
+  }
+
+  &.sizeSmall {
+    padding: 1em;
+    font-size: 0.7em;
+  }
+
+  &.width100 {
+    width: 100%;
   }
 }

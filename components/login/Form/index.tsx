@@ -68,7 +68,7 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
         <Error text={t('form.validation.password.isRequired')} />
       )}
 
-      <Button type="submit" disabled={isMakingRequest}>
+      <Button type="submit" width="100" disabled={isMakingRequest}>
         {t('form.submitButton')}
       </Button>
     </form>

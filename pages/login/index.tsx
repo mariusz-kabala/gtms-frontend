@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import styles from 'components/common/Forms/styles.scss'
 import { NextPage, NextPageContext } from 'next'
-import { LoginForm } from 'components/login/Form'
 import { AnimatedComponent } from 'components/common/AnimatedComponent'
-import { Logo } from 'components/common/Logo'
+import { Button } from 'components/common/Button'
 import { ImageCover } from 'components/common/ImageCover'
+import { LoginForm } from 'components/login/Form'
+import { Logo } from 'components/common/Logo'
 import { useTranslation, Router } from 'i18n'
 import { parseCookies, destroyCookie } from 'nookies'
 import { SocialButtons } from 'components/login/SocialButtons'
@@ -27,6 +28,7 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
           <Logo />
         </AnimatedComponent>
         <LoginForm onSuccess={onSuccess} />
+        <Button size="small">Forgot password?</Button>
         <SocialButtons
           onSuccess={onSuccess}
           onFailure={() => setError('SocialMediaLoginFailed')}
