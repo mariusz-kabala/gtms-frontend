@@ -1,5 +1,7 @@
 import { Query } from '@datorama/akita'
 import { userStore, UserStore, IUserStore } from './user.store'
+import { map } from 'rxjs/operators'
+import { combineLatest } from 'rxjs'
 
 export class UserQuery extends Query<IUserStore> {
   hasData$ = this.select(
@@ -9,6 +11,11 @@ export class UserQuery extends Query<IUserStore> {
       typeof values.email === 'string' &&
       values.email !== ''
   )
+
+  isActive$ = combineLatest(
+    this.hasData$,
+    this.select(values => values.isActive)
+  ).pipe(map(([hasData, isActive]) => hasData && isActive))
 
   hasSession$ = this.select(
     values =>

@@ -38,7 +38,7 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
         <LoginForm onSuccess={onSuccess} />
         <SocialButtons
           onSuccess={onSuccess}
-          onFailure={() => setError('SocialMediaLoginFailed')}
+          onFailure={() => setError('socialMediaLoginFailed')}
         />
       </section>
       <ImageCover />
