@@ -2,7 +2,7 @@ import React from 'react'
 import { Logo } from 'components/common/Logo'
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
-import { useTranslation } from 'i18n'
+import { useTranslation, Router } from 'i18n'
 import { userQuery } from 'state/user'
 import { RegistrationForm } from 'components/registration/Form'
 import { SuccessConfirmation } from 'components/registration/SuccessConfirmation'
@@ -12,15 +12,41 @@ import styles from '../styles.scss'
 
 const RegistrationPage: NextPage<{}> = () => {
   const { t } = useTranslation('registration')
-  const [hasUserData, setHasUserData] = useState<boolean>(false)
+  const [hasUserData, setHasUserData] = useState<boolean>(userQuery.hasData())
+  const [isActive, setIsActive] = useState<boolean>(
+    userQuery.getValue().isActive
+  )
   const [error, setError] = useState<string | undefined>()
 
   useEffect(() => {
-    const subscription = userQuery.hasData$.subscribe(hasData =>
-      setHasUserData(hasData)
-    )
+    if (hasUserData && !isActive) {
+      Router.push({
+        pathname: '/registration/success',
+      })
+    }
+  }, [isActive, hasUserData])
 
-    return () => subscription.unsubscribe()
+  useEffect(() => {
+    if (hasUserData && isActive) {
+      Router.push({
+        pathname: '/',
+      })
+
+      return
+    }
+
+    const hasDataSub = userQuery.hasData$.subscribe(hasData => {
+      setHasUserData(hasData)
+    })
+
+    const isActiveSub = userQuery.isActive$.subscribe(status => {
+      setIsActive(status)
+    })
+
+    return () => {
+      hasDataSub.unsubscribe()
+      isActiveSub.unsubscribe()
+    }
   }, [])
 
   return (
@@ -44,7 +70,7 @@ const RegistrationPage: NextPage<{}> = () => {
             <>
               <RegistrationForm />
               <SocialButtons
-                onSuccess={() => {}}
+                onSuccess={() => null}
                 onFailure={() => setError('socialMediaRegistrationFailed')}
               />
             </>

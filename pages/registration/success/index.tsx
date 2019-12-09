@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Logo } from 'components/common/Logo'
 import { NextPage } from 'next'
-import { useTranslation, Link } from 'i18n'
+import { useTranslation, Link, Router } from 'i18n'
 import { ImageCover } from 'components/common/ImageCover'
 import styles from '../../styles.scss'
+import { userQuery } from 'state/user'
 
 export const RegistrationSuccessPage: NextPage<{}> = () => {
   const { t } = useTranslation('registration')
+
+  useEffect(() => {
+    if (!userQuery.hasData() || userQuery.getValue().isActive) {
+      Router.push({
+        pathname: '/registration',
+      })
+    }
+  }, [])
 
   return (
     <>

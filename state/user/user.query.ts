@@ -4,27 +4,25 @@ import { map } from 'rxjs/operators'
 import { combineLatest } from 'rxjs'
 
 export class UserQuery extends Query<IUserStore> {
-  hasData$ = this.select(
-    values =>
-      typeof values.id === 'string' &&
-      values.id !== '' &&
-      typeof values.email === 'string' &&
-      values.email !== ''
-  )
+  public hasData$ = this.select(values => this.hasData(values))
 
-  isActive$ = combineLatest(
+  public hasData = (values = this.getValue()) =>
+    typeof values.id === 'string' &&
+    values.id !== '' &&
+    typeof values.email === 'string' &&
+    values.email !== ''
+
+  public isActive$ = combineLatest(
     this.hasData$,
     this.select(values => values.isActive)
   ).pipe(map(([hasData, isActive]) => hasData && isActive))
 
-  hasSession$ = this.select(
-    values =>
-      values.session &&
-      values.session.accessToken &&
-      values.session.refreshToken
-  )
+  public hasSession$ = this.select(values => this.hasSession(values))
 
-  hasRoles = (rolesToCheck: string[]) =>
+  public hasSession = (values = this.getValue()) =>
+    values.session && values.session.accessToken && values.session.refreshToken
+
+  public hasRoles = (rolesToCheck: string[]) =>
     this.select(values => {
       const { roles } = values
 
@@ -37,9 +35,9 @@ export class UserQuery extends Query<IUserStore> {
       return true
     })
 
-  isInitialized$ = this.select(values => values.isInitialized)
+  public isInitialized$ = this.select(values => values.isInitialized)
 
-  isLogged$ = this.select(values => {
+  public isLogged$ = this.select(values => {
     const now = new Date().getTime()
 
     return (

@@ -49,7 +49,6 @@ module.exports = {
     return {
       accessToken: JWT,
       refreshToken: refreshJWT,
-      newUser: true,
     }
   },
 }
