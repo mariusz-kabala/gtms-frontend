@@ -44,7 +44,11 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} data-testid="login-form">
+    <form
+      method="post"
+      onSubmit={handleSubmit(onSubmit)}
+      data-testid="login-form"
+    >
       <Input
         type="email"
         placeholder={t('form.labels.email')}

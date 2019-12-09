@@ -27,6 +27,7 @@ const RegistrationPage: NextPage<{}> = () => {
   }, [isActive, hasUserData])
 
   useEffect(() => {
+    console.log('HERE!!!!')
     if (hasUserData && isActive) {
       Router.push({
         pathname: '/',

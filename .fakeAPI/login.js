@@ -13,12 +13,14 @@ module.exports = {
     ) {
       res.status(401)
     } else {
+      const isActive = req.body.email !== 'test@geotags.pl'
       JWT = jwt.sign(
         {
           countryCode: 'PL',
           email: req.body.email,
           id: '5cdfb6a6bad88bb5dbf1eccf',
           languageCode: 'pl-PL',
+          isActive,
           roles: [],
         },
         'fake-key',
@@ -30,6 +32,7 @@ module.exports = {
       refreshJWT = jwt.sign(
         {
           countryCode: 'PL',
+          isActive,
           email: req.body.email,
           id: '5cdfb6a6bad88bb5dbf1eccf',
           languageCode: 'pl-PL',

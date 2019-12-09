@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { Logo } from 'components/common/Logo'
 import { NextPage } from 'next'
-import { useTranslation, Link, Router } from 'i18n'
+import { useTranslation, Router } from 'i18n'
 import { ImageCover } from 'components/common/ImageCover'
+import { Logout } from 'components/common/Logout'
 import styles from '../../styles.scss'
 import { userQuery } from 'state/user'
 
@@ -31,9 +32,7 @@ export const RegistrationSuccessPage: NextPage<{}> = () => {
           <Logo />
           <div>
             <p>{t('registrationSuccessMessage')}</p>
-            <Link href={`login`}>
-              <a>{t('goToLoginPage')}</a>
-            </Link>
+            <Logout text={t('goToLoginPage')} />
           </div>
         </div>
       </div>

@@ -1,28 +1,39 @@
 import { Query } from '@datorama/akita'
 import { userStore, UserStore, IUserStore } from './user.store'
 import { map } from 'rxjs/operators'
-import { combineLatest } from 'rxjs'
+import { combineLatest, Observable } from 'rxjs'
 
 export class UserQuery extends Query<IUserStore> {
-  public hasData$ = this.select(values => this.hasData(values))
+  public hasData$: Observable<boolean> = this.select(values =>
+    this.hasData(values)
+  )
 
-  public hasData = (values = this.getValue()) =>
+  public hasData = (values = this.getValue()): boolean =>
     typeof values.id === 'string' &&
     values.id !== '' &&
     typeof values.email === 'string' &&
     values.email !== ''
 
-  public isActive$ = combineLatest(
+  public isActive$: Observable<boolean> = combineLatest(
     this.hasData$,
     this.select(values => values.isActive)
   ).pipe(map(([hasData, isActive]) => hasData && isActive))
 
-  public hasSession$ = this.select(values => this.hasSession(values))
+  public isActive = (values = this.getValue()): boolean =>
+    this.hasData(values) && values.isActive
 
-  public hasSession = (values = this.getValue()) =>
-    values.session && values.session.accessToken && values.session.refreshToken
+  public hasSession$: Observable<boolean> = this.select(values =>
+    this.hasSession(values)
+  )
 
-  public hasRoles = (rolesToCheck: string[]) =>
+  public hasSession = (values = this.getValue()): boolean =>
+    !!(
+      values.session &&
+      values.session.accessToken &&
+      values.session.refreshToken
+    )
+
+  public hasRoles = (rolesToCheck: string[]): Observable<boolean> =>
     this.select(values => {
       const { roles } = values
 
@@ -35,19 +46,27 @@ export class UserQuery extends Query<IUserStore> {
       return true
     })
 
-  public isInitialized$ = this.select(values => values.isInitialized)
+  public isInitialized$: Observable<boolean> = this.select(
+    values => values.isInitialized
+  )
 
-  public isLogged$ = this.select(values => {
+  public isLogged$: Observable<boolean> = this.select(values =>
+    this.isLogged(values)
+  )
+
+  public isLogged = (values = this.getValue()): boolean => {
     const now = new Date().getTime()
 
-    return (
+    return !!(
+      values.isActive &&
+      !values.isBlocked &&
       values.session &&
       values.session.accessToken &&
       values.session.refreshToken &&
       (values.session.accessToken.expiresAt > now ||
         values.session.refreshToken.expiresAt > now)
     )
-  })
+  }
 
   constructor(protected store: UserStore) {
     super(store)
