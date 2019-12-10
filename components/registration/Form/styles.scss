@@ -1,6 +1,5 @@
 @import 'scss/mixins/button.scss';
 
 .btnSubmit {
-  display: none;
   @include btnWidth100;
 }

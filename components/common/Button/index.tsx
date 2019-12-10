@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
+import styles from './styles.scss'
 
 export const Button: FC<{
   additionalStyles?: string
