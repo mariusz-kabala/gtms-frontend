@@ -98,8 +98,8 @@ export const RegistrationForm: FC<{}> = () => {
 
       <Button
         type="submit"
-        disabled={isMakingRequest}
         additionalStyles={styles.btnSubmit}
+        disabled={isMakingRequest}
       >
         {t('form.submitButton')}
       </Button>
