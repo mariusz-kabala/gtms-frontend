@@ -30,12 +30,12 @@ const RegistrationPage: NextPage<{}> = () => {
         </AnimatedComponent>
         {!hasUserData && <RegistrationForm />}
         {hasUserData && <SuccessConfirmation />}
+        <span>
+          {/* @todo remove temporary code */}
+          {t('subtitle')}
+        </span>
       </div>
       <ImageCover />
-      <span>
-        {/* @todo remove temporary code */}
-        {t('subtitle')}
-      </span>
     </div>
   )
 }
