@@ -1,8 +1,5 @@
 @import 'scss/variables';
 
-$color1: $theme2;
-$color2: $theme4;
-
 .button {
   justify-content: center;
   width: 100%;
@@ -27,13 +24,13 @@ $color2: $theme4;
   cursor: pointer;
   padding: 15px;
   border: none;
-  background: $color1;
+  background: $theme2;
   color: white;
   text-transform: uppercase;
   font-size: 0.8em;
 
   &:hover {
-    background: $color2;
+    background: $theme4;
     transition: 0.3s all;
   }
 }

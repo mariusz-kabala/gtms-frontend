@@ -1,4 +1,4 @@
-@import 'components/common/Button/mixins.scss';
+@import 'scss/mixins/button.scss';
 
 .btnSubmit {
   @include btnWidth100;
