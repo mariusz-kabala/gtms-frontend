@@ -26,12 +26,12 @@ export const RemindPasswordPage: NextPage<{}> = () => {
         <Link href={`/login`}>
           <a>{t('goToLoginPage')}</a>
         </Link>
+        <span>
+          {/* @todo remove temporary code */}
+          {t('subtitle')}
+        </span>
       </div>
       <ImageCover />
-      <span>
-        {/* @todo remove temporary code */}
-        {t('subtitle')}
-      </span>
     </div>
   )
 }

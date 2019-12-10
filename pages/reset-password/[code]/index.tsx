@@ -30,7 +30,7 @@ export const ResetPasswordPage: NextPage<{}> = () => {
     }, [code])
 
     return (
-        <div data-testid="remind-password-page" className={styles.wrapper}>
+        <div className={styles.wrapper} data-testid="remind-password-page">
             <div className={styles.formWrapper}>
                 <AnimatedComponent>
                     <Logo />
@@ -38,14 +38,14 @@ export const ResetPasswordPage: NextPage<{}> = () => {
                 {isLoading && <Spinner />}
                 {!isLoading && !isPasswordChanged && <ResetPasswordForm code={code} onSuccess={() => setIsPasswordChanged(true)} />}
                 {!isLoading && isPasswordChanged && <p data-testid="reset-password-changed-confirmation">
-            {t('passwordHasBeenChanged')}</p>}
+                {t('passwordHasBeenChanged')}</p>}
+                <span>
+                    {/* @todo remove temporary code */}
+                    {t('subtitle')}
+                </span>            
             </div>
             <ImageCover />
-            <span>
-            {/* @todo remove temporary code */}
-            {t('subtitle')}
-            </span>
-        </div>        
+        </div>    
     )
 }
 
