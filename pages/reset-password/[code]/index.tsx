@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styles from 'components/common/Forms/styles.scss'
+import styles from './styles.scss'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { AnimatedComponent } from 'components/common/AnimatedComponent'

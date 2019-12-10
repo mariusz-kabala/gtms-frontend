@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from 'components/common/Forms/styles.scss'
+import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { Button } from 'components/common/Button'
@@ -28,7 +28,9 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
           <Logo />
         </AnimatedComponent>
         <LoginForm onSuccess={onSuccess} />
-        <Button size="small">Forgot password?</Button>
+        <Button additionalStyles={styles.btnForgotPassword}>
+          Forgot password?
+        </Button>
         <SocialButtons
           onSuccess={onSuccess}
           onFailure={() => setError('SocialMediaLoginFailed')}

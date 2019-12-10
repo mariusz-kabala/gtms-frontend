@@ -1,0 +1,13 @@
+@import 'scss/variables.scss';
+@import 'components/common/Forms/mixins.scss';
+
+.wrapper {
+  @include formWrapperBasic;
+
+  .btnForgotPassword {
+    // @todo create proper mixin for button
+    margin-left: auto;
+    margin-top: 10px;
+    font-size: 10px;
+  }
+}

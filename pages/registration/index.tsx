@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from 'components/common/Forms/styles.scss'
+import styles from './styles.scss'
 import { Logo } from 'components/common/Logo'
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'

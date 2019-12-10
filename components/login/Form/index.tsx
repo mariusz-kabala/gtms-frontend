@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react'
+import styles from './styles.scss'
 import useForm from 'react-hook-form'
 import { useTranslation } from 'i18n'
 import { ILoginData } from 'api/auth'
@@ -68,7 +69,11 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
         <Error text={t('form.validation.password.isRequired')} />
       )}
 
-      <Button type="submit" width="100" disabled={isMakingRequest}>
+      <Button
+        type="submit"
+        additionalStyles={styles.btnSubmit}
+        disabled={isMakingRequest}
+      >
         {t('form.submitButton')}
       </Button>
     </form>

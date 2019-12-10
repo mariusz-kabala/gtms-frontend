@@ -4,6 +4,8 @@ $color1: $theme2;
 $color2: $theme4;
 
 .button {
+  justify-content: center;
+  width: 100%;
   // RESET BUTTON
   border: none;
   margin: 0;
@@ -32,18 +34,6 @@ $color2: $theme4;
 
   &:hover {
     background: $color2;
-  }
-
-  &:hover {
     transition: 0.3s all;
-  }
-
-  &.sizeSmall {
-    padding: 1em;
-    font-size: 0.7em;
-  }
-
-  &.width100 {
-    width: 100%;
   }
 }

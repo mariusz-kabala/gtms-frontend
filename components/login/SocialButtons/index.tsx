@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import GoogleLogin, { GoogleLoginResponse } from 'react-google-login'
-import classNames from './styles.scss'
+import styles from './styles.scss'
 import { fbLoginUser, googleLoginUser } from 'state/user'
 import { useFacebookLogin } from 'hooks/fbLogin'
 import { Spinner } from 'components/common/Spinner'
@@ -35,18 +35,18 @@ export const SocialButtons: FC<{
   })
 
   return (
-    <div data-testid="social-buttons" className={classNames.container}>
-      <div className={classNames.children}>
+    <div data-testid="social-buttons" className={styles.container}>
+      <div className={styles.children}>
         <button
           data-testid="social-buttons-facebook-button"
-          className={`${classNames.button} ${classNames.facebook}`}
+          className={`${styles.button} ${styles.facebook}`}
           onClick={() => !isLoading && onClick()}
         >
           Facebook
         </button>
       </div>
       <div
-        className={classNames.children}
+        className={styles.children}
         data-testid="social-buttons-google-button"
       >
         <GoogleLogin
@@ -74,10 +74,7 @@ export const SocialButtons: FC<{
         />
       </div>
       {(isProcessing || isLoading) && (
-        <div
-          className={classNames.children}
-          data-testid="social-buttons-loader"
-        >
+        <div className={styles.children} data-testid="social-buttons-loader">
           <Spinner />
         </div>
       )}

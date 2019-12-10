@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from 'components/common/Forms/styles.scss'
+import styles from './styles.scss'
 import { NextPage } from 'next'
 import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { ImageCover } from 'components/common/ImageCover'
