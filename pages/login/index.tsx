@@ -8,6 +8,7 @@ import { parseCookies, destroyCookie } from 'nookies'
 import styles from '../styles.scss'
 import { SocialButtons } from 'components/login/SocialButtons'
 import { userQuery } from 'state/user'
+import { initAuthSession } from 'helpers/auth'
 
 export const LoginPage: NextPage<{ redirectTo?: string }> = ({
   redirectTo,
@@ -75,6 +76,11 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
 }
 
 LoginPage.getInitialProps = async (ctx: NextPageContext) => {
+  await initAuthSession(ctx)
+
+  if (userQuery.isLogged()) {
+  }
+
   const { redirectTo } = parseCookies(ctx)
 
   destroyCookie(ctx, 'redirectTo')

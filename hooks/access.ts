@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useAuth } from './auth'
-import Router from 'next/router'
+import { Router } from 'i18n'
 import { userQuery } from 'state/user'
 
 const redirectToLogin = () =>

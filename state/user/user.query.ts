@@ -46,9 +46,12 @@ export class UserQuery extends Query<IUserStore> {
       return true
     })
 
-  public isInitialized$: Observable<boolean> = this.select(
-    values => values.isInitialized
+  public isInitialized$: Observable<boolean> = this.select(values =>
+    this.isInitialized(values)
   )
+
+  public isInitialized = (values = this.getValue()): boolean =>
+    values.isInitialized
 
   public isLogged$: Observable<boolean> = this.select(values =>
     this.isLogged(values)

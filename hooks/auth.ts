@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { init } from 'state/user'
-import { userQuery, IUserStore } from 'state/user'
+import { userQuery } from 'state/user'
 
 export function useAuth(
   accessToken?: string,
@@ -9,29 +9,13 @@ export function useAuth(
   isLogged: boolean
   isInitialized: boolean
 } {
-  let initialValues: Partial<IUserStore> = {
-    isInitialized: false,
-  }
-
   if (accessToken && refreshToken) {
-    initialValues = init({ accessToken, refreshToken })
+    init({ accessToken, refreshToken })
   }
 
-  const now = new Date().getTime()
-
-  const [isLogged, setIsLogged] = useState<boolean>(
-    !!(
-      initialValues.session &&
-      ((initialValues.session.accessToken &&
-        initialValues.session.accessToken.expiresAt &&
-        initialValues.session.accessToken.expiresAt > now) ||
-        (initialValues.session.refreshToken &&
-          initialValues.session.refreshToken.expiresAt &&
-          initialValues.session.refreshToken.expiresAt > now))
-    )
-  )
+  const [isLogged, setIsLogged] = useState<boolean>(userQuery.isLogged())
   const [isInitialized, setIsInitialized] = useState<boolean>(
-    !!initialValues.isInitialized
+    userQuery.isInitialized()
   )
 
   useEffect(() => {
