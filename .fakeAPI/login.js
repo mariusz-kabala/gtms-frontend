@@ -5,7 +5,7 @@ let refreshJWT
 
 module.exports = {
   path: '/v1/auth/authenticate',
-  delay: 5000,
+  delay: 50,
   method: 'POST',
   status: (req, res, next) => {
     if (

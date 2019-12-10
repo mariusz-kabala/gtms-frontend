@@ -4,7 +4,6 @@ import { fetchNewToken } from 'api/auth'
 import { parseJwt } from 'helpers/jwt'
 import { IJWT } from 'api/auth'
 import { init } from 'state/user'
-import { Router } from 'i18n'
 
 export async function initAuthSession(
   ctx: NextPageContext
@@ -41,21 +40,5 @@ export async function initAuthSession(
   return {
     accessToken,
     refreshToken,
-  }
-}
-
-export function redirectToLogin(ctx: NextPageContext) {
-  if (ctx.res) {
-    setCookie(ctx, 'redirectTo', ctx.pathname, {})
-
-    ctx.res.writeHead(302, {
-      Location: '/login',
-    })
-
-    ctx.res.end()
-  } else {
-    Router.push({
-      pathname: '/login',
-    })
   }
 }

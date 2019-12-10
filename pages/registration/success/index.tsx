@@ -1,22 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Logo } from 'components/common/Logo'
-import { NextPage } from 'next'
-import { useTranslation, Router } from 'i18n'
+import { NextPage, NextPageContext } from 'next'
+import { useTranslation } from 'i18n'
 import { ImageCover } from 'components/common/ImageCover'
 import { Logout } from 'components/common/Logout'
 import styles from '../../styles.scss'
 import { userQuery } from 'state/user'
+import { initAuthSession } from 'helpers/auth'
+import { redirect } from 'helpers/redirect'
 
 export const RegistrationSuccessPage: NextPage<{}> = () => {
   const { t } = useTranslation('registration')
-
-  useEffect(() => {
-    if (!userQuery.hasData() || userQuery.getValue().isActive) {
-      Router.push({
-        pathname: '/registration',
-      })
-    }
-  }, [])
 
   return (
     <>
@@ -41,7 +35,13 @@ export const RegistrationSuccessPage: NextPage<{}> = () => {
   )
 }
 
-RegistrationSuccessPage.getInitialProps = async () => {
+RegistrationSuccessPage.getInitialProps = async (ctx: NextPageContext) => {
+  await initAuthSession(ctx)
+
+  if (!userQuery.hasData() || userQuery.getValue().isActive) {
+    redirect('/registration', ctx)
+  }
+
   return Promise.resolve({ namespacesRequired: ['registration'] })
 }
 

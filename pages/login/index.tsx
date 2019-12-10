@@ -3,22 +3,21 @@ import { NextPage, NextPageContext } from 'next'
 import { LoginForm } from 'components/login/Form'
 import { Logo } from 'components/common/Logo'
 import { ImageCover } from 'components/common/ImageCover'
-import { useTranslation, Router } from 'i18n'
+import { useTranslation, Router, Link } from 'i18n'
 import { parseCookies, destroyCookie } from 'nookies'
 import styles from '../styles.scss'
 import { SocialButtons } from 'components/login/SocialButtons'
 import { userQuery } from 'state/user'
 import { initAuthSession } from 'helpers/auth'
+import { redirect } from 'helpers/redirect'
 
 export const LoginPage: NextPage<{ redirectTo?: string }> = ({
   redirectTo,
 }) => {
   const { t } = useTranslation('login')
   const [error, setError] = useState<string | undefined>()
-  const onSuccess = () => console.log(redirectTo)
-  // Router.push({
-  //   pathname: `/${redirectTo || ''}`,
-  // })
+  // todo: remove this callback
+  const onSuccess = () => null
 
   useEffect(() => {
     const sub = userQuery.isActive$.subscribe(isActive => {
@@ -28,7 +27,7 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
         })
       } else if (userQuery.hasData() && isActive) {
         Router.push({
-          pathname: '/',
+          pathname: redirectTo || '/',
         })
       }
     })
@@ -65,10 +64,20 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
         {error && <div data-testid="login-page-error">{t(error)}</div>}
         <Logo />
         <LoginForm onSuccess={onSuccess} />
+        <div>
+          <Link href="/remind-password">
+            <a>{t('goToRemindPassword')}</a>
+          </Link>
+        </div>
         <SocialButtons
           onSuccess={onSuccess}
           onFailure={() => setError('socialMediaLoginFailed')}
         />
+        <div>
+          <Link href="/registration">
+            <a>{t('goToRegistration')}</a>
+          </Link>
+        </div>
       </section>
       <ImageCover />
     </div>
@@ -79,6 +88,7 @@ LoginPage.getInitialProps = async (ctx: NextPageContext) => {
   await initAuthSession(ctx)
 
   if (userQuery.isLogged()) {
+    redirect('/', ctx)
   }
 
   const { redirectTo } = parseCookies(ctx)
