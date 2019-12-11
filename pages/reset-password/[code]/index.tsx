@@ -24,7 +24,7 @@ export const ResetPasswordPage: NextPage<{}> = () => {
             })
             .catch(() => {
                 router.push({
-                    pathname: 'login',
+                    pathname: '/login', 
                 })
             })
     }, [code])
