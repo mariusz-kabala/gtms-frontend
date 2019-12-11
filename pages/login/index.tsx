@@ -16,27 +16,17 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
 }) => {
   const { t } = useTranslation('login')
   const [error, setError] = useState<string | undefined>()
-  // todo: remove this callback
-  const onSuccess = () => null
 
   useEffect(() => {
     const sub = userQuery.isActive$.subscribe(isActive => {
       if (userQuery.hasData() && !isActive) {
-        Router.push({
-          pathname: '/registration/success',
-        })
-      } else if (userQuery.hasData() && isActive) {
-        Router.push({
-          pathname: redirectTo || '/',
-        })
+        redirect('/registration/success')
       }
     })
 
     const loggedSub = userQuery.isLogged$.subscribe(isLogged => {
       if (isLogged) {
-        Router.push({
-          pathname: `/${redirectTo || ''}`,
-        })
+        redirect(redirectTo || '/')
       }
     })
 
@@ -63,16 +53,13 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
         </div>
         {error && <div data-testid="login-page-error">{t(error)}</div>}
         <Logo />
-        <LoginForm onSuccess={onSuccess} />
+        <LoginForm />
         <div>
           <Link href="/remind-password">
             <a>{t('goToRemindPassword')}</a>
           </Link>
         </div>
-        <SocialButtons
-          onSuccess={onSuccess}
-          onFailure={() => setError('socialMediaLoginFailed')}
-        />
+        <SocialButtons onFailure={() => setError('socialMediaLoginFailed')} />
         <div>
           <Link href="/registration">
             <a>{t('goToRegistration')}</a>

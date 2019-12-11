@@ -17,7 +17,7 @@ export class UserQuery extends Query<IUserStore> {
   public isActive$: Observable<boolean> = combineLatest(
     this.hasData$,
     this.select(values => values.isActive)
-  ).pipe(map(([hasData, isActive]) => hasData && isActive))
+  ).pipe(map(([hasData, isActive]) => !!(hasData && isActive)))
 
   public isActive = (values = this.getValue()): boolean =>
     this.hasData(values) && values.isActive
@@ -27,11 +27,7 @@ export class UserQuery extends Query<IUserStore> {
   )
 
   public hasSession = (values = this.getValue()): boolean =>
-    !!(
-      values.session &&
-      values.session.accessToken &&
-      values.session.refreshToken
-    )
+    !!(values.session?.accessToken && values.session?.refreshToken)
 
   public hasRoles = (rolesToCheck: string[]): Observable<boolean> =>
     this.select(values => {
@@ -63,11 +59,8 @@ export class UserQuery extends Query<IUserStore> {
     return !!(
       values.isActive &&
       !values.isBlocked &&
-      values.session &&
-      values.session.accessToken &&
-      values.session.refreshToken &&
-      (values.session.accessToken.expiresAt > now ||
-        values.session.refreshToken.expiresAt > now)
+      (values.session?.accessToken?.expiresAt > now ||
+        values.session?.refreshToken?.expiresAt > now)
     )
   }
 

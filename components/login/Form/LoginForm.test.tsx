@@ -23,16 +23,14 @@ describe('<LoginForm />', () => {
   })
 
   it('Should be on the page', () => {
-    const { getByTestId } = render(<LoginForm onSuccess={jest.fn()} />)
+    const { getByTestId } = render(<LoginForm />)
 
     expect(getByTestId('login-form')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('login')
   })
 
   it('Should have all required fields', () => {
-    const { getByPlaceholderText, getByText } = render(
-      <LoginForm onSuccess={jest.fn()} />
-    )
+    const { getByPlaceholderText, getByText } = render(<LoginForm />)
 
     expect(getByPlaceholderText('form.labels.email')).toBeInTheDocument()
     expect(getByPlaceholderText('form.labels.password')).toBeInTheDocument()
@@ -40,7 +38,7 @@ describe('<LoginForm />', () => {
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { queryByTestId } = render(<LoginForm onSuccess={jest.fn()} />)
+    const { queryByTestId } = render(<LoginForm />)
 
     expect(queryByTestId('form-error')).toBeNull()
   })
@@ -62,7 +60,7 @@ describe('<LoginForm />', () => {
       }
     })
 
-    const { getByText } = render(<LoginForm onSuccess={jest.fn()} />)
+    const { getByText } = render(<LoginForm />)
 
     expect(getByText('form.validation.email.isRequired')).toBeInTheDocument()
     expect(getByText('form.validation.password.isRequired')).toBeInTheDocument()
@@ -91,7 +89,7 @@ describe('<LoginForm />', () => {
     })
 
     act(() => {
-      render(<LoginForm onSuccess={jest.fn()} />)
+      render(<LoginForm />)
 
       onSubmit({})
     })
@@ -110,7 +108,6 @@ describe('<LoginForm />', () => {
     )
     // eslint-disable-next-line
     let onSubmit: any
-    const onSuccess = jest.fn()
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
@@ -130,7 +127,7 @@ describe('<LoginForm />', () => {
     })
 
     act(() => {
-      render(<LoginForm onSuccess={onSuccess} />)
+      render(<LoginForm />)
     })
 
     await act(async () => {
@@ -140,7 +137,6 @@ describe('<LoginForm />', () => {
       })
     })
 
-    expect(onSuccess).toBeCalledTimes(1)
     expect(fetchMock.mock.calls.length).toEqual(1)
     done()
   })
@@ -168,7 +164,7 @@ describe('<LoginForm />', () => {
       }
     })
 
-    render(<LoginForm onSuccess={jest.fn()} />)
+    render(<LoginForm />)
 
     await act(async () => {
       await onSubmit({
