@@ -4,12 +4,8 @@ import { useAuth } from 'hooks/auth'
 import { Logout } from 'components/common/Logout'
 import { ToggleCheckbox } from 'components/common/Forms/ToggleCheckbox'
 
-export const HomePage: NextPage<{
-  accessToken?: string
-  refreshToken?: string
-  namespacesRequired?: string[]
-}> = ({ accessToken, refreshToken }) => {
-  const { isLogged } = useAuth(accessToken, refreshToken)
+export const HomePage: NextPage<{}> = () => {
+  const { isLogged } = useAuth()
 
   return (
     <div>
