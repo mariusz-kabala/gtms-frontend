@@ -33,7 +33,6 @@ const RegistrationPage: NextPage<{}> = () => {
 
           <RegistrationForm />
           <SocialButtons
-            onSuccess={() => null}
             onFailure={() => setError('socialMediaRegistrationFailed')}
           />
           <Link href="/login">

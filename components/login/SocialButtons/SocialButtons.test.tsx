@@ -1,10 +1,8 @@
 import React from 'react'
-import { render, wait } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { SocialButtons } from './index'
 import { useFacebookLogin } from 'hooks/fbLogin'
-import { act } from 'react-dom/test-utils'
 import { FetchMock } from 'jest-fetch-mock'
-import GoogleLogin from 'react-google-login'
 
 const fetchMock = fetch as FetchMock
 
@@ -15,11 +13,6 @@ jest.mock('hooks/fbLogin', () => ({
       isProcessing: false,
     }
   }),
-}))
-
-jest.mock('react-google-login', () => ({
-  __esModule: true,
-  default: jest.fn().mockImplementation(() => <></>),
 }))
 
 describe('<SocialButtons />', () => {
