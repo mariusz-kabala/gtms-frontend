@@ -1,5 +1,5 @@
 import React from 'react'
-import { act, fireEvent, render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { Sidebar } from './index'
 import styles from './styles.scss'
 
@@ -42,6 +42,16 @@ describe('<Sidebar />', () => {
     expect(container.querySelector(`.${styles.leftSide}`)).toBeInTheDocument()
   })
 
+  it('Should have opened class when isActive prop is present', () => {
+    const { container } = render(
+      <Sidebar additionalStyles={'cssTest'} isActive onClose={() => null}>
+        <a>testing</a>
+      </Sidebar>
+    )
+
+    expect(container.querySelector(`.${styles.opened}`)).toBeInTheDocument()
+  })
+
   it('Should have leftSide class when leftSide prop is present', () => {
     const { container } = render(
       <Sidebar
@@ -73,22 +83,16 @@ describe('<Sidebar />', () => {
   })
 
   it('Should trigger onClose callback when clicking on Overlay component', () => {
-    const onCloseCallback = jest.fn()
+    const onClose = jest.fn()
 
     const { getByTestId } = render(
-      <Sidebar
-        additionalStyles={'cssTest'}
-        isActive={false}
-        onClose={onCloseCallback}
-      >
+      <Sidebar additionalStyles={'cssTest'} isActive={true} onClose={onClose}>
         <a>testing</a>
       </Sidebar>
     )
 
-    act(() => {
-      fireEvent.click(getByTestId('overlay'))
-    })
+    fireEvent.click(getByTestId('overlay'))
 
-    expect(onCloseCallback).toBeCalled()
+    expect(onClose).toBeCalled()
   })
 })

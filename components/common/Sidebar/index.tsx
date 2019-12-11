@@ -37,8 +37,8 @@ export const Sidebar: FC<{
         [styles.rightSide]: rightSide,
       })}
     >
-      {isActive && <Overlay onClick={onClose} />}
       <div className={styles.sidebarContent}>{children}</div>
+      {isActive && <Overlay onClick={onClose} />}
     </div>
   )
 }
