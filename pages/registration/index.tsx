@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Logo } from 'components/common/Logo'
 import { NextPage, NextPageContext } from 'next'
 import { useState } from 'react'
@@ -11,9 +11,18 @@ import { initAuthSession } from 'helpers/auth'
 import { redirect } from 'helpers/redirect'
 import styles from '../styles.scss'
 
-const RegistrationPage: NextPage<{}> = () => {
+export const RegistrationPage: NextPage<{}> = () => {
   const { t } = useTranslation('registration')
   const [error, setError] = useState<string | undefined>()
+
+  useEffect(() => {
+    const sub = userQuery.isActive$.subscribe(isActive => {
+      if (userQuery.hasData() && !isActive) {
+        redirect('/registration/success')
+      }
+    })
+    return () => sub.unsubscribe()
+  }, [])
 
   return (
     <>
