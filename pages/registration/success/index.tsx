@@ -38,7 +38,11 @@ export const RegistrationSuccessPage: NextPage<{}> = () => {
 RegistrationSuccessPage.getInitialProps = async (ctx: NextPageContext) => {
   await initAuthSession(ctx)
 
-  if (!userQuery.hasData() || userQuery.getValue().isActive) {
+  if (userQuery.isLogged()) {
+    redirect('/', ctx)
+  }
+
+  if (!userQuery.hasData()) {
     redirect('/registration', ctx)
   }
 
