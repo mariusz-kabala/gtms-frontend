@@ -24,7 +24,7 @@ export function useCheckAccess({
       return
     }
 
-    const sub = userQuery.hasRoles(roles).subscribe(hasRoles => {
+    const sub = userQuery.hasRoles$(roles).subscribe(hasRoles => {
       if (!hasRoles && isInitialized) {
         redirectToLogin()
       }

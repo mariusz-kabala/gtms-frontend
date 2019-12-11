@@ -29,18 +29,27 @@ export class UserQuery extends Query<IUserStore> {
   public hasSession = (values = this.getValue()): boolean =>
     !!(values.session?.accessToken && values.session?.refreshToken)
 
-  public hasRoles = (rolesToCheck: string[]): Observable<boolean> =>
-    this.select(values => {
-      const { roles } = values
+  public hasRoles$ = (rolesToCheck: string[]): Observable<boolean> =>
+    this.select(values => this.hasRoles(rolesToCheck, values))
 
-      for (const role of rolesToCheck) {
-        if (!roles.includes(role)) {
-          return false
-        }
+  public hasRoles = (
+    rolesToCheck: string[],
+    values = this.getValue()
+  ): boolean => {
+    const { roles, isBlocked } = values
+
+    if (!Array.isArray(roles) || isBlocked) {
+      return false
+    }
+
+    for (const role of rolesToCheck) {
+      if (!roles.includes(role)) {
+        return false
       }
+    }
 
-      return true
-    })
+    return true
+  }
 
   public isInitialized$: Observable<boolean> = this.select(values =>
     this.isInitialized(values)
