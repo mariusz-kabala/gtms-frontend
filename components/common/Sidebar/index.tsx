@@ -19,15 +19,9 @@ export const Sidebar: FC<{
   onClose,
   rightSide,
 }) => {
-  const closeSidebar = () => {
-    if (onClose) {
-      onClose()
-    }
-  }
-
   useKey(
     () => {
-      closeSidebar()
+      onClose()
     },
     {
       detectKeys: [27],
@@ -43,7 +37,7 @@ export const Sidebar: FC<{
         [styles.rightSide]: rightSide,
       })}
     >
-      {isActive && <Overlay onClick={closeSidebar} />}
+      {isActive && <Overlay onClick={onClose} />}
       <div className={styles.sidebarContent}>{children}</div>
     </div>
   )

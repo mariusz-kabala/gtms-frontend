@@ -1,7 +1,5 @@
 @import 'scss/variables';
 
-$color1: $theme1;
-
 .sidebar {
   display: flex;
   height: 100%;
@@ -11,7 +9,7 @@ $color1: $theme1;
     top: 0;
     z-index: 9999;
     height: 100%;
-    background-color: $color1;
+    background-color: $theme1;
     transition: all 300ms ease-in;
   }
 
