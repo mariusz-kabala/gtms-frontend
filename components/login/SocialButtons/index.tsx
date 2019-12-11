@@ -59,8 +59,6 @@ export const SocialButtons: FC<{
                 accessToken,
                 id: googleId,
               })
-
-              onSuccess()
             } catch (err) {
               onFailure()
             }

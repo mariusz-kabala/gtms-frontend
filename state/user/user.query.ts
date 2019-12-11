@@ -59,8 +59,10 @@ export class UserQuery extends Query<IUserStore> {
     return !!(
       values.isActive &&
       !values.isBlocked &&
-      (values?.session?.accessToken?.expiresAt > now ||
-        values?.session?.refreshToken?.expiresAt > now)
+      values.session?.accessToken?.expiresAt &&
+      values.session?.refreshToken?.expiresAt &&
+      (values.session.accessToken.expiresAt > now ||
+        values.session.refreshToken.expiresAt > now)
     )
   }
 
