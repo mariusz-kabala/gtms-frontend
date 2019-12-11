@@ -1,12 +1,11 @@
-@import '../../assets/scss/globals/variables';
-$color1: $theme6;
+@import 'scss/variables';
 
 .modal {
   position: fixed;
   left: 0;
   top: 0;
   // @todo create z-index in one place
-  z-index: 1502;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +15,7 @@ $color1: $theme6;
   .content {
     position: relative;
     z-index: 9999;
-    background: $color1;
+    background: $theme6;
     padding: 20px;
     border-radius: 2px;
   }
