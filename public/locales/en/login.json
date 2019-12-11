@@ -14,6 +14,9 @@
         "isRequired": "Password is required"
       }
     },
-    "submitButton": "Login"
-  }
+    "submitButton": "Login",
+    "socialMediaLoginFailed": "Login failed, try a little bit later, or contact us"
+  },
+  "goToRegistration": "No account yet? Register yourself!",
+  "goToRemindPassword": "Forgot your password? Click here"
 }

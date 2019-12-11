@@ -6,9 +6,8 @@ import { useFacebookLogin } from 'hooks/fbLogin'
 import { Spinner } from 'components/common/Spinner'
 
 export const SocialButtons: FC<{
-  onSuccess: () => unknown
   onFailure: () => unknown
-}> = ({ onSuccess, onFailure }) => {
+}> = ({ onFailure }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { onClick, isProcessing } = useFacebookLogin({
     appId: process.env.FB_APP_ID,
@@ -24,8 +23,6 @@ export const SocialButtons: FC<{
           accessToken,
           id,
         })
-
-        onSuccess()
       } catch (err) {
         onFailure()
       }
@@ -62,8 +59,6 @@ export const SocialButtons: FC<{
                 accessToken,
                 id: googleId,
               })
-
-              onSuccess()
             } catch (err) {
               onFailure()
             }

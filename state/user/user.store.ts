@@ -6,9 +6,14 @@ export type IUserStore = IUser & { isInitialized: boolean }
 @StoreConfig({ name: 'user' })
 export class UserStore extends Store<IUserStore> {
   constructor() {
-    super({
-      isInitialized: false,
-    })
+    super(
+      {
+        isInitialized: false,
+      },
+      {
+        resettable: true,
+      }
+    )
   }
 }
 

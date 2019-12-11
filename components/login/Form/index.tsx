@@ -7,7 +7,7 @@ import { Input } from 'components/common/Forms/Input'
 import { Error } from 'components/common/Forms/Error'
 import { Button } from 'components/common/Button'
 
-export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
+export const LoginForm: FC<{}> = () => {
   const { t } = useTranslation('login')
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
   const { register, handleSubmit, errors, setError } = useForm<ILoginData>()
@@ -34,8 +34,6 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
 
     try {
       await loginUser(data)
-
-      onSuccess()
     } catch (err) {
       setError('email', 'invalid')
     }
@@ -44,7 +42,11 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} data-testid="login-form">
+    <form
+      method="post"
+      onSubmit={handleSubmit(onSubmit)}
+      data-testid="login-form"
+    >
       <Input
         type="email"
         placeholder={t('form.labels.email')}

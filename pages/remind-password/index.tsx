@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { NextPage } from 'next'
+import { NextPage, NextPageContext } from 'next'
 import { Logo } from 'components/common/Logo'
 import commonCss from '../styles.scss'
 import { ImageCover } from 'components/common/ImageCover'
 import { useTranslation, Link } from 'i18n'
 import { RemindPasswordForm } from 'components/remind-password/Form'
+import { initAuthSession } from 'helpers/auth'
+import { redirect } from 'helpers/redirect'
+import { userQuery } from 'state/user'
 
 export const RemindPasswordPage: NextPage<{}> = () => {
   const { t } = useTranslation('remindPassword')
@@ -41,7 +44,13 @@ export const RemindPasswordPage: NextPage<{}> = () => {
   )
 }
 
-RemindPasswordPage.getInitialProps = async () => {
+RemindPasswordPage.getInitialProps = async (ctx: NextPageContext) => {
+  await initAuthSession(ctx)
+
+  if (userQuery.isLogged()) {
+    redirect('/', ctx)
+  }
+
   return Promise.resolve({ namespacesRequired: ['remindPassword'] })
 }
 

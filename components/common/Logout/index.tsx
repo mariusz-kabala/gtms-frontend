@@ -2,7 +2,9 @@ import React, { FC } from 'react'
 import { useTranslation } from 'i18n'
 import { setItem } from 'helpers/localStorage'
 
-export const Logout: FC<{}> = () => {
+export const Logout: FC<{
+  text?: string
+}> = ({ text }) => {
   const { t } = useTranslation('common')
 
   return (
@@ -11,7 +13,7 @@ export const Logout: FC<{}> = () => {
       onClick={() => setItem('logout', '' + Date.now())}
       href="/logout"
     >
-      {t('logout')}
+      {text ?? t('logout')}
     </a>
   )
 }
