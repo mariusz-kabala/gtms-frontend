@@ -1,0 +1,43 @@
+@import 'scss/variables';
+
+.sidebar {
+  display: flex;
+  height: 100%;
+
+  .sidebarContent {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    height: 100%;
+    background-color: $theme1;
+    transition: all 300ms ease-in;
+  }
+
+  .pushedContent {
+    transition: all 300ms ease-in;
+  }
+
+  &.leftSide {
+    .sidebarContent {
+      left: -250px;
+    }
+
+    &.opened {
+      .sidebarContent {
+        left: 0;
+      }
+    }
+  }
+
+  &.rightSide {
+    .sidebarContent {
+      right: -250px;
+    }
+
+    &.opened {
+      .sidebarContent {
+        right: 0;
+      }
+    }
+  }
+}
