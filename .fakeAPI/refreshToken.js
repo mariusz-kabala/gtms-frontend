@@ -14,6 +14,7 @@ module.exports = {
         id: '5cdfb6a6bad88bb5dbf1eccf',
         languageCode: 'pl-PL',
         roles: [],
+        isActive: true,
       },
       'fake-key',
       {

@@ -1,24 +1,22 @@
 import React from 'react'
 import { act, fireEvent, render } from '@testing-library/react'
 import { Modal } from './index'
-import styles from './styles.scss'
 
 describe('<Modal />', () => {
   it('Should be on the page', () => {
-    const { getByTestId, getByText, container } = render(
-      <Modal onClose={() => null}>
+    const { getByTestId, getByText } = render(
+      <Modal onClose={jest.fn()}>
         <span>content</span>
       </Modal>
     )
 
     expect(getByTestId('modal')).toBeInTheDocument()
-    expect(container.querySelector(`.${styles.modal}`)).toBeInTheDocument()
     expect(getByText('content')).toBeInTheDocument()
   })
 
   it('Should add additional css classes', () => {
     const { container } = render(
-      <Modal additionalStyles={'testingClass'} onClose={() => null}>
+      <Modal additionalStyles={'testingClass'} onClose={jest.fn()}>
         <span />
       </Modal>
     )
@@ -37,7 +35,7 @@ describe('<Modal />', () => {
 
     fireEvent.click(getByTestId('overlay'))
 
-    expect(onClose).toBeCalled()
+    expect(onClose).toBeCalledTimes(1)
   })
 
   it('Should register event listner on document', () => {
@@ -57,12 +55,10 @@ describe('<Modal />', () => {
 
     expect(getByTestId('modal')).toBeInTheDocument()
 
-    expect(document.addEventListener).toBeCalled()
-
     act(() => {
       events.keydown({ keyCode: 27, which: 27, key: 'Escape' })
     })
 
-    expect(onClose).toBeCalled()
+    expect(onClose).toBeCalledTimes(1)
   })
 })

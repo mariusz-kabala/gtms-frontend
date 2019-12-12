@@ -5,27 +5,18 @@ import { parseJwt } from 'helpers/jwt'
 import { IJWT } from 'api/auth'
 import { init } from 'state/user'
 
-function redirectToLogin(ctx: NextPageContext) {
-  if (ctx.res) {
-    setCookie(ctx, 'redirectTo', ctx.pathname, {})
-
-    ctx.res.writeHead(302, {
-      Location: '/login',
-    })
-
-    ctx.res.end()
-  }
-
-  return Promise.resolve({})
-}
-
-export async function authOrRedirectToLogin(ctx: NextPageContext): Promise<{}> {
+export async function initAuthSession(
+  ctx: NextPageContext
+): Promise<{
+  accessToken?: string
+  refreshToken?: string
+}> {
   const cookies = parseCookies(ctx)
   const refreshToken = cookies.refreshToken
   let accessToken = cookies.accessToken
 
   if (!refreshToken) {
-    return redirectToLogin(ctx)
+    return {}
   }
 
   if (!accessToken) {
@@ -37,7 +28,7 @@ export async function authOrRedirectToLogin(ctx: NextPageContext): Promise<{}> {
         maxAge: new Date(parsedToken.exp * 1000).getTime(),
       })
     } catch (err) {
-      return redirectToLogin(ctx)
+      return {}
     }
   }
 

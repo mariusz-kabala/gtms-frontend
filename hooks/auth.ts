@@ -1,38 +1,10 @@
 import { useEffect, useState } from 'react'
-import { init } from 'state/user'
-import { userQuery, IUserStore } from 'state/user'
+import { userQuery } from 'state/user'
 
-export function useAuth(
-  accessToken?: string,
-  refreshToken?: string
-): {
+export function useAuth(): {
   isLogged: boolean
-  isInitialized: boolean
 } {
-  let initialValues: Partial<IUserStore> = {
-    isInitialized: false,
-  }
-
-  if (accessToken && refreshToken) {
-    initialValues = init({ accessToken, refreshToken })
-  }
-
-  const now = new Date().getTime()
-
-  const [isLogged, setIsLogged] = useState<boolean>(
-    !!(
-      initialValues.session &&
-      ((initialValues.session.accessToken &&
-        initialValues.session.accessToken.expiresAt &&
-        initialValues.session.accessToken.expiresAt > now) ||
-        (initialValues.session.refreshToken &&
-          initialValues.session.refreshToken.expiresAt &&
-          initialValues.session.refreshToken.expiresAt > now))
-    )
-  )
-  const [isInitialized, setIsInitialized] = useState<boolean>(
-    !!initialValues.isInitialized
-  )
+  const [isLogged, setIsLogged] = useState<boolean>(userQuery.isLogged())
 
   useEffect(() => {
     const syncLogout = () => (event: { key: string }) => {
@@ -41,19 +13,15 @@ export function useAuth(
       }
     }
 
-    const initSub = userQuery.isInitialized$.subscribe(value =>
-      setIsInitialized(value)
-    )
     const authSub = userQuery.isLogged$.subscribe(value => setIsLogged(!!value))
 
     window.addEventListener('storage', syncLogout)
 
     return () => {
       authSub.unsubscribe()
-      initSub.unsubscribe()
       window.removeEventListener('storage', syncLogout)
     }
   }, [])
 
-  return { isLogged, isInitialized }
+  return { isLogged }
 }

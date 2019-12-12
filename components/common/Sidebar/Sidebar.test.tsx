@@ -6,7 +6,7 @@ import styles from './styles.scss'
 describe('<Sidebar />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(
-      <Sidebar isActive={false} onClose={() => null}>
+      <Sidebar isActive={false} onClose={jest.fn()}>
         <a>testing</a>
       </Sidebar>
     )
@@ -15,17 +15,17 @@ describe('<Sidebar />', () => {
   })
 
   it('Should have additional css classes', () => {
-    const { getByTestId } = render(
+    const { container } = render(
       <Sidebar
-        additionalStyles={'cssTest'}
+        additionalStyles={'testingClass'}
         isActive={false}
-        onClose={() => null}
+        onClose={jest.fn()}
       >
         <a>testing</a>
       </Sidebar>
     )
 
-    expect(getByTestId('sidebar')).toBeInTheDocument()
+    expect(container.querySelector('.testingClass')).toBeInTheDocument()
   })
 
   it('Should have leftSide class when neither leftSide prop or rightSide prop is not present', () => {
@@ -33,7 +33,7 @@ describe('<Sidebar />', () => {
       <Sidebar
         additionalStyles={'cssTest'}
         isActive={false}
-        onClose={() => null}
+        onClose={jest.fn()}
       >
         <a>testing</a>
       </Sidebar>
@@ -44,7 +44,7 @@ describe('<Sidebar />', () => {
 
   it('Should have opened class when isActive prop is present', () => {
     const { container } = render(
-      <Sidebar additionalStyles={'cssTest'} isActive onClose={() => null}>
+      <Sidebar additionalStyles={'cssTest'} isActive={true} onClose={jest.fn()}>
         <a>testing</a>
       </Sidebar>
     )
@@ -57,8 +57,8 @@ describe('<Sidebar />', () => {
       <Sidebar
         additionalStyles={'cssTest'}
         isActive={false}
-        leftSide
-        onClose={() => null}
+        leftSide={true}
+        onClose={jest.fn()}
       >
         <a>testing</a>
       </Sidebar>
@@ -72,8 +72,8 @@ describe('<Sidebar />', () => {
       <Sidebar
         additionalStyles={'cssTest'}
         isActive={false}
-        rightSide
-        onClose={() => null}
+        rightSide={true}
+        onClose={jest.fn()}
       >
         <a>testing</a>
       </Sidebar>

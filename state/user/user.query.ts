@@ -1,48 +1,79 @@
 import { Query } from '@datorama/akita'
 import { userStore, UserStore, IUserStore } from './user.store'
+import { map } from 'rxjs/operators'
+import { combineLatest, Observable } from 'rxjs'
 
 export class UserQuery extends Query<IUserStore> {
-  hasData$ = this.select(
-    values =>
-      typeof values.id === 'string' &&
-      values.id !== '' &&
-      typeof values.email === 'string' &&
-      values.email !== ''
+  public hasData$: Observable<boolean> = this.select(values =>
+    this.hasData(values)
   )
 
-  hasSession$ = this.select(
-    values =>
-      values.session &&
-      values.session.accessToken &&
-      values.session.refreshToken
+  public hasData = (values = this.getValue()): boolean =>
+    typeof values.id === 'string' &&
+    values.id !== '' &&
+    typeof values.email === 'string' &&
+    values.email !== ''
+
+  public isActive$: Observable<boolean> = combineLatest(
+    this.hasData$,
+    this.select(values => values.isActive)
+  ).pipe(map(([hasData, isActive]) => !!(hasData && isActive)))
+
+  public isActive = (values = this.getValue()): boolean =>
+    this.hasData(values) && values.isActive
+
+  public hasSession$: Observable<boolean> = this.select(values =>
+    this.hasSession(values)
   )
 
-  hasRoles = (rolesToCheck: string[]) =>
-    this.select(values => {
-      const { roles } = values
+  public hasSession = (values = this.getValue()): boolean =>
+    !!(values.session?.accessToken && values.session?.refreshToken)
 
-      for (const role of rolesToCheck) {
-        if (!roles.includes(role)) {
-          return false
-        }
+  public hasRoles$ = (rolesToCheck: string[]): Observable<boolean> =>
+    this.select(values => this.hasRoles(rolesToCheck, values))
+
+  public hasRoles = (
+    rolesToCheck: string[],
+    values = this.getValue()
+  ): boolean => {
+    const { roles, isBlocked } = values
+
+    if (!Array.isArray(roles) || isBlocked) {
+      return false
+    }
+
+    for (const role of rolesToCheck) {
+      if (!roles.includes(role)) {
+        return false
       }
+    }
 
-      return true
-    })
+    return true
+  }
 
-  isInitialized$ = this.select(values => values.isInitialized)
+  public isInitialized$: Observable<boolean> = this.select(values =>
+    this.isInitialized(values)
+  )
 
-  isLogged$ = this.select(values => {
+  public isInitialized = (values = this.getValue()): boolean =>
+    values.isInitialized
+
+  public isLogged$: Observable<boolean> = this.select(values =>
+    this.isLogged(values)
+  )
+
+  public isLogged = (values = this.getValue()): boolean => {
     const now = new Date().getTime()
 
-    return (
-      values.session &&
-      values.session.accessToken &&
-      values.session.refreshToken &&
+    return !!(
+      values.isActive &&
+      !values.isBlocked &&
+      values.session?.accessToken?.expiresAt &&
+      values.session?.refreshToken?.expiresAt &&
       (values.session.accessToken.expiresAt > now ||
         values.session.refreshToken.expiresAt > now)
     )
-  })
+  }
 
   constructor(protected store: UserStore) {
     super(store)

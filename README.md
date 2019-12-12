@@ -19,7 +19,7 @@ npm i
 ### Start DEV Environment
 
 ```bash
-npm run start
+npm run dev
 ```
 
 ### Start FAKE API server
@@ -38,6 +38,12 @@ npm run fake-api:watch
 
 ```bash
 npm run build
+```
+
+### Run production bundle (only after building it)
+
+```bash
+npm run start
 ```
 
 # ENVIRONMENT VARIABLES
