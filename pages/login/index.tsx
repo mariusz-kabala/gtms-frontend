@@ -58,7 +58,10 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
             </Button>
           </Link>
         </div>
-        <SocialButtons onFailure={() => setError('socialMediaLoginFailed')} />
+        <SocialButtons
+          additionalStyles={styles.socialButtons}
+          onFailure={() => setError('socialMediaLoginFailed')}
+        />
         <div></div>
       </div>
       <ImageCover />
