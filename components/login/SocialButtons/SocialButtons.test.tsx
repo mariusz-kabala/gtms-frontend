@@ -190,4 +190,16 @@ describe('<SocialButtons />', () => {
       expect(fakeonFailed).toBeCalled()
     })
   })
+
+  it('Should have additional css classes', () => {
+    const { container } = render(
+      <SocialButtons
+        onFailure={jest.fn()}
+        onSuccess={jest.fn()}
+        additionalStyles={'cssTest'}
+      />
+    )
+
+    expect(container.querySelector('.cssTest')).toBeInTheDocument()
+  })
 })

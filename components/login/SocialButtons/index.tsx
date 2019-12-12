@@ -1,14 +1,16 @@
 import React, { FC, useState } from 'react'
 import GoogleLogin, { GoogleLoginResponse } from 'react-google-login'
 import styles from './styles.scss'
+import cx from 'classnames'
 import { fbLoginUser, googleLoginUser } from 'state/user'
 import { useFacebookLogin } from 'hooks/fbLogin'
 import { Spinner } from 'components/common/Spinner'
 
 export const SocialButtons: FC<{
+  additionalStyles?: string
   onSuccess: () => unknown
   onFailure: () => unknown
-}> = ({ onSuccess, onFailure }) => {
+}> = ({ additionalStyles, onSuccess, onFailure }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { onClick, isProcessing } = useFacebookLogin({
     appId: process.env.FB_APP_ID,
@@ -35,7 +37,10 @@ export const SocialButtons: FC<{
   })
 
   return (
-    <div data-testid="social-buttons" className={styles.container}>
+    <div
+      data-testid="social-buttons"
+      className={cx(styles.container, additionalStyles)}
+    >
       <div className={styles.children}>
         <button
           data-testid="social-buttons-facebook-button"
