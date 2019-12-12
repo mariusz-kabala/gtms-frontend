@@ -8,6 +8,7 @@ module.exports = {
   delay: 5000,
   method: 'POST',
   status: (req, res, next) => {
+    const isActive = req.body.email !== 'test@geotags.pl'
     JWT = jwt.sign(
       {
         countryCode: 'PL',
@@ -15,6 +16,7 @@ module.exports = {
         id: '5cdfb6a6bad88bb5dbf1eccf',
         languageCode: 'pl-PL',
         roles: [],
+        isActive,
       },
       'fake-key',
       {
@@ -29,6 +31,7 @@ module.exports = {
         id: '5cdfb6a6bad88bb5dbf1eccf',
         languageCode: 'pl-PL',
         roles: [],
+        isActive,
       },
       'fake-key-refresh',
       {

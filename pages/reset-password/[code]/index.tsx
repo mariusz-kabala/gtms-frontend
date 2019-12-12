@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styles from './styles.scss'
-import { NextPage } from 'next'
+import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { ImageCover } from 'components/common/ImageCover'
@@ -9,6 +8,10 @@ import { ResetPasswordForm } from 'components/reset-password/Form'
 import { Spinner } from 'components/common/Spinner'
 import { useTranslation } from 'i18n'
 import { checkCodeReq } from 'api/auth'
+import { initAuthSession } from 'helpers/auth'
+import { redirect } from 'helpers/redirect'
+import { userQuery } from 'state/user'
+import styles from './styles.scss'
 
 export const ResetPasswordPage: NextPage<{}> = () => {
     const { t } = useTranslation('resetPassword')
@@ -31,7 +34,7 @@ export const ResetPasswordPage: NextPage<{}> = () => {
 
     return (
         <div className={styles.wrapper} data-testid="remind-password-page">
-            <div className={styles.formWrapper}>
+            <div>
                 <AnimatedComponent>
                     <Logo />
                 </AnimatedComponent>
@@ -49,7 +52,13 @@ export const ResetPasswordPage: NextPage<{}> = () => {
     )
 }
 
-ResetPasswordPage.getInitialProps = async () => {
+ResetPasswordPage.getInitialProps = async (ctx: NextPageContext) => {
+    await initAuthSession(ctx)
+    
+    if (userQuery.isLogged()) {
+        redirect('/', ctx)
+    }
+    
     return Promise.resolve({ namespacesRequired: ['resetPassword'] })
   }
 

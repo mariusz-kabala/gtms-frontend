@@ -3,7 +3,7 @@ import { useFacebookLogin } from './index'
 // eslint-disable-next-line
 // @ts-ignore
 import { isMobile } from 'react-device-detect'
-import { refirectToFB } from './redirectToFB'
+import { redirectToFB } from './redirectToFB'
 
 document.getElementById = jest.fn()
 document.getElementsByTagName = jest.fn()
@@ -19,10 +19,10 @@ jest.mock('react-device-detect', () => ({
 }))
 
 jest.mock('./redirectToFB', () => ({
-  refirectToFB: jest.fn(),
+  redirectToFB: jest.fn(),
 }))
 
-describe('useFacebookLogin', () => {
+describe('useFacebookLogin hook', () => {
   // eslint-disable-next-line
   ;(process as any).browser = true
 
@@ -265,7 +265,7 @@ describe('useFacebookLogin', () => {
       result.current.onClick()
     })
 
-    expect(refirectToFB).toBeCalledTimes(1)
+    expect(redirectToFB).toBeCalledTimes(1)
   })
 
   // this should always run as the last one because it set FB object to undefined, and will make other tests to fail

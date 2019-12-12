@@ -3,31 +3,13 @@ import useForm from 'react-hook-form'
 import { useTranslation } from 'i18n'
 import { IGroupCreateData } from 'api/group/groupCreate'
 import { NFC } from 'types/nfc.d'
-import { Error } from 'components/common/Forms/Error'
 import { Input } from 'components/common/Forms/Input'
 import { Textarea } from 'components/common/Forms/Textarea'
 import { Button } from 'components/common/Button'
 
 export const GroupCreateForm: NFC<{}> = () => {
   const { t } = useTranslation('groupCreate')
-  // const { register, handleSubmit, errors, setError } = useForm<
-  const { register, errors } = useForm<IGroupCreateData>()
-
-  // const onSubmit = async () => {
-  //   // @todo create proper validation
-  //   if (1 > 2) {
-  //     setError(
-  //       'passwordConfirmation',
-  //       'notMatch',
-  //       t('form.validation.groupName.notMatch')
-  //     )
-  //     return
-  //   }
-
-  //   try {
-  //     // await registerUserAccount(data) // @todo create groupCreate method
-  //   } catch (err) {}
-  // }
+  const { register } = useForm<IGroupCreateData>()
 
   return (
     <form>
@@ -46,7 +28,6 @@ export const GroupCreateForm: NFC<{}> = () => {
           placeholder={t('form.labels.name')}
           reference={register({ required: true })}
         />
-        {errors.name && <Error text={t('form.validation.name.isRequired')} />}
       </div>
 
       <br />

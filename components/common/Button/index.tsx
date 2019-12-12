@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC, ReactNode, forwardRef, Ref } from 'react'
 import cx from 'classnames'
 import styles from './styles.scss'
 
@@ -9,16 +9,23 @@ export const Button: FC<{
   onClick?: () => unknown
   width?: string
   type?: 'button' | 'submit' | 'reset'
-}> = ({ additionalStyles, children, disabled, onClick, type = 'button' }) => {
-  return (
-    <button
-      className={cx(styles.button, additionalStyles)}
-      data-testid={'action-button'}
-      disabled={disabled}
-      onClick={onClick}
-      type={type}
-    >
-      {children}
-    </button>
-  )
-}
+}> = forwardRef(
+  (
+    { additionalStyles, children, disabled, onClick, type = 'button' },
+    ref: Ref<any>
+  ) => {
+    return (
+      <button
+        ref={ref}
+        className={cx(styles.button, additionalStyles)}
+        data-testid={'action-button'}
+        disabled={disabled}
+        onClick={onClick}
+        // @ts-ignore
+        type={type}
+      >
+        {children}
+      </button>
+    )
+  }
+)

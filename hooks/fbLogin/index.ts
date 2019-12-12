@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { IFBAuthResponse } from './types.d'
 import { decodeParam, getParamsFromObject } from './helpers'
-import { refirectToFB } from './redirectToFB'
+import { redirectToFB } from './redirectToFB'
 
 const FB_SDK_ID = 'facebook-jssdk'
 
@@ -165,7 +165,7 @@ export function useFacebookLogin({
     /* eslint-enable */
 
     if (isMobile) {
-      return refirectToFB(getParamsFromObject(params))
+      return redirectToFB(getParamsFromObject(params))
     }
 
     if (!window.FB && onFailure) {

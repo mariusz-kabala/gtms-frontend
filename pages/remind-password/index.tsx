@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
-import styles from './styles.scss'
-import { NextPage } from 'next'
 import { AnimatedComponent } from 'components/common/AnimatedComponent'
+import { NextPage, NextPageContext } from 'next'
 import { ImageCover } from 'components/common/ImageCover'
 import { Logo } from 'components/common/Logo'
 import { RemindPasswordForm } from 'components/remind-password/Form'
 import { useTranslation, Link } from 'i18n'
+import { initAuthSession } from 'helpers/auth'
+import { redirect } from 'helpers/redirect'
+import { userQuery } from 'state/user'
+import styles from './styles.scss'
 
 export const RemindPasswordPage: NextPage<{}> = () => {
   const { t } = useTranslation('remindPassword')
@@ -13,7 +16,7 @@ export const RemindPasswordPage: NextPage<{}> = () => {
 
   return (
     <div data-testid="remind-password-page" className={styles.wrapper}>
-      <div className={styles.formWrapper}>
+      <div>
         <AnimatedComponent>
           <Logo />
         </AnimatedComponent>
@@ -36,7 +39,13 @@ export const RemindPasswordPage: NextPage<{}> = () => {
   )
 }
 
-RemindPasswordPage.getInitialProps = async () => {
+RemindPasswordPage.getInitialProps = async (ctx: NextPageContext) => {
+  await initAuthSession(ctx)
+
+  if (userQuery.isLogged()) {
+    redirect('/', ctx)
+  }
+
   return Promise.resolve({ namespacesRequired: ['remindPassword'] })
 }
 

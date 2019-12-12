@@ -1,4 +1,10 @@
-const PERMANENT_IGNORE = ['/node_modules/', '/dist/', '.d.ts']
+const PERMANENT_IGNORE = [
+  '/node_modules/',
+  '/dist/',
+  '.d.ts',
+  './i18n.ts',
+  './pages/_app.tsx',
+]
 
 const TEMPORARY_IGNORE = [
   './components/common/FlipCard/index.tsx',

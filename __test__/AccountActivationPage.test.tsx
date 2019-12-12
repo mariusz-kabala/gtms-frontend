@@ -3,6 +3,10 @@ import { render, wait, waitForElement } from '@testing-library/react'
 import { ActivateAccountPage } from 'pages/activate-account/[code]'
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from 'i18n'
+import { userStore, IUserStore } from 'state/user'
+import { initAuthSession } from 'helpers/auth'
+import { NextPageContext } from 'next'
+import { redirect } from 'helpers/redirect'
 
 const fetchMock = fetch as FetchMock
 
@@ -15,7 +19,20 @@ jest.mock('next/router', () => {
   }
 })
 
+jest.mock('helpers/auth', () => ({
+  initAuthSession: jest.fn().mockImplementation(() => Promise.resolve()),
+}))
+
+jest.mock('helpers/redirect', () => ({
+  redirect: jest.fn(),
+}))
+
 describe('<ActivateAccountPage />', () => {
+  beforeEach(() => {
+    ;(initAuthSession as jest.Mock).mockClear()
+    ;(redirect as jest.Mock).mockClear()
+  })
+
   it('Should render the page', async done => {
     fetchMock.mockResponse('{}')
 
@@ -71,7 +88,48 @@ describe('<ActivateAccountPage />', () => {
 
     const props = await ActivateAccountPage.getInitialProps(ctx)
 
+    expect(initAuthSession).toBeCalledTimes(1)
+    expect(initAuthSession).toBeCalledWith(ctx)
+    expect(redirect).not.toBeCalled()
+
     expect(props).toHaveProperty('namespacesRequired')
+    done()
+  })
+
+  it('Should redirect to / if auth session is valid', async done => {
+    if (!ActivateAccountPage.getInitialProps) {
+      return done()
+    }
+
+    const now = new Date().getTime()
+    const update: Partial<IUserStore> = {
+      isInitialized: true,
+      isActive: true,
+      isBlocked: false,
+      session: {
+        accessToken: {
+          expiresAt: now + 100,
+          value: '',
+        },
+        refreshToken: {
+          expiresAt: now + 100,
+          value: '',
+        },
+        createdAt: now,
+      },
+    }
+
+    userStore.update(update)
+
+    const ctx = {} as NextPageContext
+
+    await ActivateAccountPage.getInitialProps(ctx)
+
+    expect(initAuthSession).toBeCalledTimes(1)
+    expect(initAuthSession).toBeCalledWith(ctx)
+    expect(redirect).toBeCalledTimes(1)
+    expect(redirect).toBeCalledWith('/', ctx)
+
     done()
   })
 })
