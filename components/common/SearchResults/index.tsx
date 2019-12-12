@@ -7,32 +7,32 @@ import { Spinner } from 'components/common/Spinner'
 const movies = [
   {
     id: 1,
-    image: 'static/images/temp_images/logo-patrol-1.png',
+    image: '/images/temp_images/logo-patrol-1.png',
     title: '1983',
   },
   {
     id: 2,
-    image: 'static/images/temp_images/logo-patrol-2.png',
+    image: '/images/temp_images/logo-patrol-2.png',
     title: 'Russian doll',
   },
   {
     id: 3,
-    image: 'static/images/temp_images/logo-sztab-1.png',
+    image: '/images/temp_images/logo-sztab-1.png',
     title: 'The rain',
   },
   {
     id: 4,
-    image: 'static/images/temp_images/logo-sztab-2.png',
+    image: '/images/temp_images/logo-sztab-2.png',
     title: 'Sex education',
   },
   {
     id: 5,
-    image: 'static/images/temp_images/logo-sztab-3.png',
+    image: '/images/temp_images/logo-sztab-3.png',
     title: 'Elite',
   },
   {
     id: 6,
-    image: 'static/images/temp_images/logo-uczymy-ratowac.png',
+    image: '/images/temp_images/logo-uczymy-ratowac.png',
     title: 'Black mirror',
   },
 ]
