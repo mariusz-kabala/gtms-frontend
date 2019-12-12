@@ -4,7 +4,6 @@ import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from 'i18n'
 import { ImageCover } from 'components/common/ImageCover'
 import { Logout } from 'components/common/Logout'
-import styles from '../../styles.scss'
 import { userQuery } from 'state/user'
 import { initAuthSession } from 'helpers/auth'
 import { redirect } from 'helpers/redirect'
@@ -14,7 +13,7 @@ export const RegistrationSuccessPage: NextPage<{}> = () => {
 
   return (
     <>
-      <div className={styles.page} data-testid="registration-success-page">
+      <div data-testid="registration-success-page">
         <div
           style={{
             position: 'relative',
