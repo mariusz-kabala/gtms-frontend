@@ -1,9 +1,15 @@
 @import '../node_modules/reset-css/sass/reset';
 @import './variables.scss';
 
-* {
+html {
   font-family: $defaultFontFamily;
   box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 html,
