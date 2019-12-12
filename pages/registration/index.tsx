@@ -4,12 +4,13 @@ import { NextPage, NextPageContext } from 'next'
 import { useState } from 'react'
 import { useTranslation, Link } from 'i18n'
 import { userQuery } from 'state/user'
+import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { RegistrationForm } from 'components/registration/Form'
 import { ImageCover } from 'components/common/ImageCover'
 import { SocialButtons } from 'components/login/SocialButtons'
 import { initAuthSession } from 'helpers/auth'
 import { redirect } from 'helpers/redirect'
-import styles from '../styles.scss'
+import styles from './styles.scss'
 
 export const RegistrationPage: NextPage<{}> = () => {
   const { t } = useTranslation('registration')
@@ -25,32 +26,22 @@ export const RegistrationPage: NextPage<{}> = () => {
   }, [])
 
   return (
-    <>
-      <div className={styles.page} data-testid="registration-page">
-        <div
-          style={{
-            position: 'relative',
-            zIndex: 1000,
-            background: '#000',
-            padding: '20px',
-          }}
-        >
-          <p>{t('subtitle')}</p>
-          <h1>{t('header')}</h1>
-          {error && <div data-testid="registration-page-error">{t(error)}</div>}
+    <div className={styles.wrapper} data-testid="registration-page">
+      <div className={styles.formWrapper}>
+        <AnimatedComponent>
           <Logo />
-
-          <RegistrationForm />
-          <SocialButtons
-            onFailure={() => setError('socialMediaRegistrationFailed')}
-          />
-          <Link href="/login">
-            <a>{t('goToLogin')}</a>
-          </Link>
-        </div>
+        </AnimatedComponent>
+        {error && <div data-testid="registration-page-error">{t(error)}</div>}
+        <RegistrationForm />
+        <SocialButtons
+          onFailure={() => setError('socialMediaRegistrationFailed')}
+        />
+        <Link href="/login">
+          <a>{t('goToLogin')}</a>
+        </Link>
       </div>
       <ImageCover />
-    </>
+    </div>
   )
 }
 

@@ -1,4 +1,5 @@
 import React, { useState, FC } from 'react'
+import styles from './styles.scss'
 import useForm from 'react-hook-form'
 import { useTranslation } from 'i18n'
 import { registerUserAccount } from 'state/user'
@@ -95,7 +96,11 @@ export const RegistrationForm: FC<{}> = () => {
         <Error text={t('form.validation.passwordConfirmation.notMatch')} />
       )}
 
-      <Button type="submit" disabled={isMakingRequest}>
+      <Button
+        type="submit"
+        additionalStyles={styles.btnSubmit}
+        disabled={isMakingRequest}
+      >
         {t('form.submitButton')}
       </Button>
     </form>

@@ -9,12 +9,10 @@ import { Button } from 'components/common/Button'
 
 export const GroupCreateForm: NFC<{}> = () => {
   const { t } = useTranslation('groupCreate')
-  const { register, handleSubmit } = useForm<IGroupCreateData>()
-
-  const onSubmit = async () => Promise.resolve()
+  const { register } = useForm<IGroupCreateData>()
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       {/* @todo remove temporary <br /> elements everywhere in this file */}
 
       <div
@@ -23,11 +21,11 @@ export const GroupCreateForm: NFC<{}> = () => {
           color: '#fff',
         }}
       >
-        <label htmlFor="groupName">{t('form.labels.groupName')}</label>
+        <label htmlFor="name">{t('form.labels.name')}</label>
         <Input
           type="text"
-          name="groupName"
-          placeholder={t('form.labels.groupName')}
+          name="name"
+          placeholder={t('form.labels.name')}
           reference={register({ required: true })}
         />
       </div>
@@ -43,10 +41,7 @@ export const GroupCreateForm: NFC<{}> = () => {
       >
         group description
         <br />
-        <Textarea
-          name="groupDescription"
-          reference={register({ required: true })}
-        />
+        <Textarea name="description" reference={register({ required: true })} />
       </div>
       <br />
       <br />

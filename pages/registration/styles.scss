@@ -1,0 +1,6 @@
+@import 'scss/variables.scss';
+@import 'components/common/Forms/mixins.scss';
+
+.wrapper {
+  @include formWrapperBasic;
+}

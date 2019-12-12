@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
-import { Logo } from 'components/common/Logo'
-import commonCss from '../../styles.scss'
+import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { ImageCover } from 'components/common/ImageCover'
-import { useTranslation } from 'i18n'
-import { Spinner } from 'components/common/Spinner'
-import { checkCodeReq } from 'api/auth'
+import { Logo } from 'components/common/Logo'
 import { ResetPasswordForm } from 'components/reset-password/Form'
+import { Spinner } from 'components/common/Spinner'
+import { useTranslation } from 'i18n'
+import { checkCodeReq } from 'api/auth'
 import { initAuthSession } from 'helpers/auth'
 import { redirect } from 'helpers/redirect'
 import { userQuery } from 'state/user'
+import styles from './styles.scss'
 
 export const ResetPasswordPage: NextPage<{}> = () => {
     const { t } = useTranslation('resetPassword')
@@ -26,34 +27,28 @@ export const ResetPasswordPage: NextPage<{}> = () => {
             })
             .catch(() => {
                 router.push({
-                    pathname: 'login',
+                    pathname: '/login', 
                 })
             })
     }, [code])
 
     return (
-        <div data-testid="remind-password-page" className={commonCss.page}>
-            <section
-                style={{
-                // @todo remove it soon
-                position: 'relative',
-                background: 'black',
-                padding: '20px',
-                zIndex: 1,
-                }}
-            >
-                <div className={commonCss.header}>
-                <p>{t('subtitle')}</p>
-                <h1>{t('title')}</h1>
-                </div>
-                <Logo />
+        <div className={styles.wrapper} data-testid="remind-password-page">
+            <div>
+                <AnimatedComponent>
+                    <Logo />
+                </AnimatedComponent>
                 {isLoading && <Spinner />}
                 {!isLoading && !isPasswordChanged && <ResetPasswordForm code={code} onSuccess={() => setIsPasswordChanged(true)} />}
                 {!isLoading && isPasswordChanged && <p data-testid="reset-password-changed-confirmation">
-            {t('passwordHasBeenChanged')}</p>}
-            </section>
+                {t('passwordHasBeenChanged')}</p>}
+                <span>
+                    {/* @todo remove temporary code */}
+                    {t('subtitle')}
+                </span>            
+            </div>
             <ImageCover />
-        </div>
+        </div>    
     )
 }
 

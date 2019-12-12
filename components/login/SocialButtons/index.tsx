@@ -1,13 +1,15 @@
 import React, { FC, useState } from 'react'
 import GoogleLogin, { GoogleLoginResponse } from 'react-google-login'
-import classNames from './styles.scss'
+import styles from './styles.scss'
+import cx from 'classnames'
 import { fbLoginUser, googleLoginUser } from 'state/user'
 import { useFacebookLogin } from 'hooks/fbLogin'
 import { Spinner } from 'components/common/Spinner'
 
 export const SocialButtons: FC<{
+  additionalStyles?: string
   onFailure: () => unknown
-}> = ({ onFailure }) => {
+}> = ({ additionalStyles, onFailure }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { onClick, isProcessing } = useFacebookLogin({
     appId: process.env.FB_APP_ID,
@@ -32,18 +34,21 @@ export const SocialButtons: FC<{
   })
 
   return (
-    <div data-testid="social-buttons" className={classNames.container}>
-      <div className={classNames.children}>
-        <a
+    <div
+      data-testid="social-buttons"
+      className={cx(styles.container, additionalStyles)}
+    >
+      <div className={styles.children}>
+        <button
           data-testid="social-buttons-facebook-button"
-          className={`${classNames.button} ${classNames.facebook}`}
+          className={`${styles.button} ${styles.facebook}`}
           onClick={() => !isLoading && onClick()}
         >
           Facebook
-        </a>
+        </button>
       </div>
       <div
-        className={classNames.children}
+        className={styles.children}
         data-testid="social-buttons-google-button"
       >
         <GoogleLogin
@@ -69,10 +74,7 @@ export const SocialButtons: FC<{
         />
       </div>
       {(isProcessing || isLoading) && (
-        <div
-          className={classNames.children}
-          data-testid="social-buttons-loader"
-        >
+        <div className={styles.children} data-testid="social-buttons-loader">
           <Spinner />
         </div>
       )}

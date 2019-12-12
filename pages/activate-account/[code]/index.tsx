@@ -9,6 +9,7 @@ import { ImageCover } from 'components/common/ImageCover'
 import { initAuthSession } from 'helpers/auth'
 import { redirect } from 'helpers/redirect'
 import { userQuery } from 'state/user'
+import styles from './styles.scss'
 
 export const ActivateAccountPage: NextPage<{}> = () => {
   const { t } = useTranslation('accountActivation')
@@ -29,6 +30,7 @@ export const ActivateAccountPage: NextPage<{}> = () => {
   return (
     <div data-testid="activate-account-page">
       <section
+        className={styles.wrapper}
         style={{
           // @todo remove it soon
           position: 'relative',
