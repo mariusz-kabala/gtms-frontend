@@ -1,0 +1,24 @@
+@import 'scss/variables.scss';
+@import 'components/common/Forms/mixins.scss';
+
+.wrapper {
+  @include formWrapperBasic;
+
+  .actionButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .btnForgotPassword {
+    // @todo create proper mixin for button
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 10px;
+    width: 220px;
+  }
+
+  .socialButtons {
+    margin-top: 20px;
+  }
+}

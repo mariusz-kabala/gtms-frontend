@@ -1,14 +1,15 @@
 import React, { FC, useState } from 'react'
-import GoogleLogin from 'react-google-login'
-import classNames from './styles.scss'
-import { fbLoginUser } from 'state/user'
+import GoogleLogin, { GoogleLoginResponse } from 'react-google-login'
+import styles from './styles.scss'
+import cx from 'classnames'
+import { fbLoginUser, googleLoginUser } from 'state/user'
 import { useFacebookLogin } from 'hooks/fbLogin'
 import { Spinner } from 'components/common/Spinner'
 
 export const SocialButtons: FC<{
-  onSuccess: () => unknown
+  additionalStyles?: string
   onFailure: () => unknown
-}> = ({ onSuccess, onFailure }) => {
+}> = ({ additionalStyles, onFailure }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { onClick, isProcessing } = useFacebookLogin({
     appId: process.env.FB_APP_ID,
@@ -24,8 +25,6 @@ export const SocialButtons: FC<{
           accessToken,
           id,
         })
-
-        onSuccess()
       } catch (err) {
         onFailure()
       }
@@ -35,32 +34,47 @@ export const SocialButtons: FC<{
   })
 
   return (
-    <div data-testid="social-buttons" className={classNames.container}>
-      <div className={classNames.children}>
-        <a
+    <div
+      data-testid="social-buttons"
+      className={cx(styles.container, additionalStyles)}
+    >
+      <div className={styles.children}>
+        <button
           data-testid="social-buttons-facebook-button"
-          className={`${classNames.button} ${classNames.facebook}`}
+          className={`${styles.button} ${styles.facebook}`}
           onClick={() => !isLoading && onClick()}
         >
           Facebook
-        </a>
+        </button>
       </div>
       <div
-        className={classNames.children}
+        className={styles.children}
         data-testid="social-buttons-google-button"
       >
         <GoogleLogin
           clientId={process.env.GOOGLE_CLIENT_ID}
-          buttonText="LOGIN WITH GOOGLE"
-          onSuccess={() => null}
-          onFailure={() => null}
+          buttonText="Google"
+          onSuccess={async response => {
+            setIsLoading(true)
+
+            const { accessToken, googleId } = response as GoogleLoginResponse
+
+            try {
+              await googleLoginUser({
+                accessToken,
+                id: googleId,
+              })
+            } catch (err) {
+              onFailure()
+            }
+
+            setIsLoading(false)
+          }}
+          onFailure={onFailure}
         />
       </div>
       {(isProcessing || isLoading) && (
-        <div
-          className={classNames.children}
-          data-testid="social-buttons-loader"
-        >
+        <div className={styles.children} data-testid="social-buttons-loader">
           <Spinner />
         </div>
       )}

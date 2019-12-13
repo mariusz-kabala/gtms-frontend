@@ -1,23 +1,35 @@
 .container {
   display: flex;
   flex-direction: row;
-}
 
-.children {
-  margin-left: 20px;
-}
+  .children {
+    width: 100%;
+    margin-right: 20px;
 
-.button {
-  display: block;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  font-size: 18px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
+    &:last-child {
+      margin-right: 0;
+    }
 
-  &.facebook {
-    background-color: #485a8e;
+    // apply styles for custom button component and npm component
+    button,
+    .button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      color: #fff;
+      padding: 14px;
+      padding-bottom: 13px;
+      border: none;
+      font-size: 14px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      // clear border radius coming from npm module
+      border-radius: 0 !important;
+
+      &.facebook {
+        background-color: #485a8e;
+      }
+    }
   }
 }

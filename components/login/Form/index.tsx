@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react'
+import styles from './styles.scss'
 import useForm from 'react-hook-form'
 import { useTranslation } from 'i18n'
 import { ILoginData } from 'api/auth'
@@ -7,7 +8,7 @@ import { Input } from 'components/common/Forms/Input'
 import { Error } from 'components/common/Forms/Error'
 import { Button } from 'components/common/Button'
 
-export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
+export const LoginForm: FC<{}> = () => {
   const { t } = useTranslation('login')
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
   const { register, handleSubmit, errors, setError } = useForm<ILoginData>()
@@ -34,8 +35,6 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
 
     try {
       await loginUser(data)
-
-      onSuccess()
     } catch (err) {
       setError('email', 'invalid')
     }
@@ -44,7 +43,11 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} data-testid="login-form">
+    <form
+      method="post"
+      onSubmit={handleSubmit(onSubmit)}
+      data-testid="login-form"
+    >
       <Input
         type="email"
         placeholder={t('form.labels.email')}
@@ -68,7 +71,11 @@ export const LoginForm: FC<{ onSuccess: () => unknown }> = ({ onSuccess }) => {
         <Error text={t('form.validation.password.isRequired')} />
       )}
 
-      <Button type="submit" disabled={isMakingRequest}>
+      <Button
+        type="submit"
+        additionalStyles={styles.btnSubmit}
+        disabled={isMakingRequest}
+      >
         {t('form.submitButton')}
       </Button>
     </form>

@@ -2,18 +2,13 @@ import React from 'react'
 import { NextPage } from 'next'
 import { withTranslation, IWithTranslations, fakeTranslateFunc } from 'i18n'
 import { AcceptRulesButton } from 'components/rules/AcceptRulesButton'
-import styles from '../styles.scss'
-import css from './styles.scss'
+import styles from './styles.scss'
 
 export const RulesPage: NextPage<IWithTranslations> = ({ t }) => {
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
-        <p>{t('header.subtitle')}</p>
-        <h1>{t('header.registration')}</h1>
-      </header>
-
-      <article className={css.rules}>
+      <p>{t('header.subtitle')}</p>
+      <article className={styles.rules}>
         <p>
           Zgodnie z art. 13 ust. 1 i ust. 2 Rozporządzenia Parlamentu
           Europejskiego I Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (dalej

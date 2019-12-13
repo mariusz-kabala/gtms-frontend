@@ -8,6 +8,9 @@ import {
   fbLogin,
   IFbLoginData,
   IFbLoginResponse,
+  googleLogin,
+  IGoogleLoginData,
+  IGoogleLoginResponse,
 } from 'api/auth'
 import { IJWT } from 'api/auth'
 import { userStore } from './user.store'
@@ -109,6 +112,16 @@ export const fbLoginUser = async (
   payload: IFbLoginData
 ): Promise<IFbLoginResponse> => {
   const response = await fbLogin(payload)
+
+  updateStoreWithJWT(response)
+
+  return response
+}
+
+export const googleLoginUser = async (
+  payload: IGoogleLoginData
+): Promise<IGoogleLoginResponse> => {
+  const response = await googleLogin(payload)
 
   updateStoreWithJWT(response)
 
