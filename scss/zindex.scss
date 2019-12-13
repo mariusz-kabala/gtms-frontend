@@ -1,0 +1,18 @@
+$z-index: (
+  modalContent: 12,
+  modal: 11,
+  sidebar: 13,
+  navigationDot: 12,
+  flipBoxOne: -1,
+  flipBoxTwo: 1,
+  formWrapperBasic: 1,
+  overlay: 10,
+);
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}

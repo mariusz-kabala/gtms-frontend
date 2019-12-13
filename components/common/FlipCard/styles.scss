@@ -1,4 +1,5 @@
 @import 'scss/variables';
+@import 'scss/zindex';
 
 .flipBox {
   perspective: 1000;
@@ -18,7 +19,7 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    z-index: -1;
+    @include z-index(flipBoxOne);
     transform: rotateX(-180deg);
     > * {
       opacity: 0;
@@ -27,7 +28,7 @@
   }
 
   .front {
-    z-index: 10;
+    @include z-index(flipBoxTwo);
 
     > * {
       opacity: 1;
@@ -39,7 +40,7 @@
     .back {
       visibility: visible;
       transform: rotateX(0deg);
-      z-index: 10;
+      @include z-index(flipBoxTwo);
 
       > * {
         opacity: 1;
@@ -49,7 +50,7 @@
 
     .front {
       transform: rotateX(180deg);
-      z-index: -1;
+      @include z-index(flipBoxOne);
 
       > * {
         opacity: 0;

@@ -1,4 +1,5 @@
 @import 'scss/variables.scss';
+@import 'scss/zindex.scss';
 
 @mixin formWrapperBasic() {
   display: flex;
@@ -10,7 +11,7 @@
   > div {
     &:first-child {
       position: relative;
-      z-index: 1;
+      @include z-index(formWrapperBasic);
       width: 500px;
       padding: 1.5em;
       background: $theme1;

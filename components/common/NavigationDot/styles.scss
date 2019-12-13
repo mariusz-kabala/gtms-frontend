@@ -1,6 +1,5 @@
 @import 'scss/variables';
-
-$color1: $theme1;
+@import 'scss/zindex';
 
 .navigationDot {
   position: fixed;
@@ -8,8 +7,8 @@ $color1: $theme1;
   left: 0px;
   width: 100%;
   display: flex;
-  z-index: 1000;
-  background: $color1;
+  @include z-index(navigationDot);
+  background: $theme1;
 
   > ul {
     display: flex;
@@ -32,7 +31,7 @@ $color1: $theme1;
       .circle {
         width: 45px;
         height: 45px;
-        background: $color1;
+        background: $theme1;
         background-size: cover; // @todo move to mixin
         border-radius: 50%;
         cursor: pointer;
