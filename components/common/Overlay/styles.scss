@@ -1,6 +1,8 @@
+@import 'scss/zindex';
+
 .overlay {
   position: absolute;
-  z-index: 9998;
+  @include z-index(overlay);
   content: '';
   cursor: pointer;
   width: 100%;

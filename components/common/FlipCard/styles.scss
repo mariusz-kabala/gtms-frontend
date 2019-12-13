@@ -27,7 +27,7 @@
   }
 
   .front {
-    z-index: 10;
+    z-index: 1;
 
     > * {
       opacity: 1;
@@ -39,7 +39,7 @@
     .back {
       visibility: visible;
       transform: rotateX(0deg);
-      z-index: 10;
+      z-index: 1;
 
       > * {
         opacity: 1;
