@@ -1,0 +1,18 @@
+@import 'scss/variables';
+
+.searchBar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: $theme2;
+  cursor: pointer;
+
+  &:hover {
+    background: $theme4;
+  }
+
+  &:active,
+  &:focus {
+    background: $theme6;
+  }
+}
