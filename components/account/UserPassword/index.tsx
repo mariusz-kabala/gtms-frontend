@@ -1,0 +1,16 @@
+import React, { FC, useState } from 'react'
+import styles from './styles.scss'
+import { ExpandingItem } from 'components/common/ExpandingItem'
+import { PasswordChangeForm } from './Form'
+
+export const UserPassword: FC = () => {
+  const [state, setState] = useState<boolean>(false)
+
+  return (
+    <div className={styles.wrapper} onClick={() => setState(true)}>
+      <ExpandingItem isActive={state} label={<div>User Password</div>}>
+        <PasswordChangeForm />
+      </ExpandingItem>
+    </div>
+  )
+}

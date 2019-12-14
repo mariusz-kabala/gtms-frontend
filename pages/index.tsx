@@ -37,13 +37,7 @@ export const HomePage: NextPage<{}> = () => {
           margin: 0;
         }
       `}</style>
-      <ToggleCheckbox
-        lockerIcon
-        labelChecked="checked"
-        labelUnchecked="unchecked"
-      />
-      <br />
-      <ToggleCheckbox labelChecked="checked" labelUnchecked="unchecked" />
+      <ToggleCheckbox />
     </div>
   )
 }

@@ -1,126 +1,78 @@
 @import 'scss/variables';
 
-.switch {
-  height: 24px;
-  display: block;
-  position: relative;
-  cursor: pointer;
-  input {
-    display: none;
-    & + span {
-      padding-left: 50px;
-      min-height: 24px;
-      line-height: 24px;
+$duration: 1s;
+
+@mixin checked() {
+  ~ .checkmark {
+    transform: translate(1.55em);
+    background: $theme4;
+
+    span {
+      display: none;
+    }
+
+    svg {
       display: block;
-      color: $theme2;
-      position: relative;
-      vertical-align: middle;
-      white-space: nowrap;
-      transition: color 0.3s ease;
+    }
+  }
+}
 
-      .textLabelUnchecked {
+// @todo some of this scss may be refactored - its almost copied and pasted
+.wrapper {
+  position: relative;
+  width: 3em;
+  transition: transform $duration ease;
+  cursor: pointer;
+  font-size: 1.2em;
+  background: $theme6;
+
+  .inputCheckbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+
+    // for native input check
+    &:checked {
+      @include checked;
+
+      svg {
         display: block;
-      }
-
-      .textLabelChecked {
-        display: none;
-      }
-
-      &:before,
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        border-radius: 12px;
-      }
-
-      &:before {
-        top: 0;
-        left: 0;
-        width: 42px;
-        height: 24px;
-        background: $theme2;
-        transition: all 0.3s ease;
-      }
-
-      &:after {
-        width: 18px;
-        height: 18px;
-        background: $theme4;
-        top: 3px;
-        left: 3px;
-        box-shadow: 0 1px 3px rgba(#121621, 0.1);
-        transition: all 0.45s ease;
-      }
-
-      .locker {
-        width: 8px;
-        height: 7px;
-        background: $theme2;
-        position: absolute;
-        left: 8px;
-        bottom: 7px;
-        border-radius: 2px;
-        display: block;
-        z-index: 1;
-        transition: all 0.45s ease;
-
-        &:before {
-          content: '';
-          width: 2px;
-          height: 2px;
-          border-radius: 1px;
-          background: $theme4;
-          position: absolute;
-          display: block;
-          left: 50%;
-          top: 50%;
-          margin: -1px 0 0 -1px;
-        }
-        &:after {
-          content: '';
-          display: block;
-          border-top-left-radius: 4px;
-          border-top-right-radius: 4px;
-          border: 1px solid $theme2;
-          border-bottom: 0;
-          width: 6px;
-          height: 4px;
-          left: 1px;
-          bottom: 6px;
-          position: absolute;
-          transform-origin: 0 100%;
-          transition: all 0.45s ease;
-          transform: rotate(-35deg) translate(0, 1px);
-        }
       }
     }
-    &:checked {
-      & + span {
-        &:before {
-          background: rgba($theme1, 0.35);
-        }
-        &:after {
-          background: $theme4;
-          transform: translate(18px, 0);
-        }
-        .locker {
-          transform: translate(18px, 0);
-          background: $theme1;
-          &:after {
-            border-color: $theme1;
-            transform: rotate(0deg) translate(0, 0);
-          }
-        }
+  }
 
-        .textLabelUnchecked {
-          display: none;
-        }
+  .checkmark {
+    position: relative;
+    width: 1.5em;
+    height: 1em;
+    transition: transform $duration ease;
+    background: $theme2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        .textLabelChecked {
-          display: block;
-        }
-      }
+    span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      font-size: 0.5em;
+    }
+
+    svg {
+      display: none;
+      width: 0.9em;
+    }
+  }
+
+  // for controlled input check (checked = {true} prop)
+  &.checked {
+    .inputCheckbox {
+      @include checked;
     }
   }
 }

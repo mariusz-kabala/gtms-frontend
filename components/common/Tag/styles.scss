@@ -1,18 +1,15 @@
 @import 'scss/variables';
 
-$color1: $theme6;
-$color2: $theme4;
-
 .tag {
   display: inline-block;
-  background: $color2 / 1.4;
-  color: $color1;
+  background: $theme4;
+  color: $theme6;
   padding: 5px;
   font-size: 0.8rem;
   cursor: pointer;
 
   &:hover {
-    background: $color2;
-    color: $color1;
+    background: $theme4 / 1.4;
+    color: $theme6;
   }
 }

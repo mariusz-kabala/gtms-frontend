@@ -1,0 +1,19 @@
+@import 'scss/variables.scss';
+@import 'scss/mixins/button.scss';
+
+.wrapper {
+  padding: 0 10%;
+  // @todo remove it eventually - it's a temporary solution
+  color: $theme6;
+
+  section {
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    &:hover {
+      border-color: $theme4;
+      // background: $theme4;
+      color: $theme4;
+    }
+  }
+}

@@ -8,7 +8,7 @@ export const UserCard: FC<{
     {/* @todo add translations when needed */}
     <img className={styles.avatar} src={image} alt="user avatar" />
     <div className={styles.content}>
-      <span className={styles.nameSurname}>Johnny Silverhand</span>
+      <span className={styles.userName}>Johnny Silverhand</span>
       <p className={styles.desc}>
         Id in veniam sunt labore. Adipisicing proident dolor nulla cillum
         cupidatat. Do sint labore cupidatat commodo veniam tempor tempor

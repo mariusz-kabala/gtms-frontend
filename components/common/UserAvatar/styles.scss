@@ -13,7 +13,7 @@ $fontSize1: 0.85rem;
     max-width: 25px;
   }
 
-  .nameSurname {
+  .userName {
     margin: 0 0.7em;
     font-size: $fontSize1;
     color: $color1;
@@ -26,7 +26,7 @@ $fontSize1: 0.85rem;
   &:hover {
     background: $color2;
 
-    .nameSurname {
+    .userName {
       color: $color1;
     }
   }
