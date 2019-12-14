@@ -1,7 +1,7 @@
 def branch = '';
 
 pipeline {
-    agent { docker { image 'hashicorp/terraform:light' } }
+    agent any
     
     environment {
         CI = 'true'
