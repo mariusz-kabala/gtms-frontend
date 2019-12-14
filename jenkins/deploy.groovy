@@ -1,7 +1,7 @@
 def branch = '';
 
 pipeline {
-    agent any
+    agent { docker { image 'docker-registry.kabala.tech/alpine-terraform:latest' } }
     
     environment {
         CI = 'true'
@@ -10,7 +10,6 @@ pipeline {
 
     stages {
         stage ('Push the image') {
-            agent any
             steps {
                 script {
                     ansiColor('xterm') {
