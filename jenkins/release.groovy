@@ -18,7 +18,7 @@ pipeline {
                         if (branch == 'detached') {
                             branch = ''
                         }
-                        branch = branch ?: env.ghprbSourceBranch
+                        branch = branch ?: env.ghprbActualCommit
                     } catch (e) {
                         println "GIT BRANCH not detected"
                     }
@@ -46,7 +46,16 @@ pipeline {
         stage ('Prepare a release') {
             steps {
                 script {
-                    sh "npm run release -- --dry-run"
+                    sh "npm run release -- --no-verify ${env.additionalParams}"
+                }
+            }
+        }
+        stage ('Publish the new release') {
+            steps {
+                script {
+                    sshagent(['github']) {
+                        sh "git push --follow-tags origin ${env.ghprbActualCommit}"
+                    }
                 }
             }
         }
