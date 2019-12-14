@@ -72,5 +72,27 @@ pipeline {
                 }
             }
         }
+        stage ('Build Container') {
+             steps {
+                script {
+                    ansiColor('xterm') {
+                        app = docker.build("gtms-frontend")
+                    }
+                }
+            }
+        }
+        stage ('Push the image') {
+            steps {
+                script {
+                    ansiColor('xterm') {
+                        def props = readJSON file: 'package.json'
+                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                            app.push("${props['version']}")
+                            app.push("latest")
+                        }
+                    }
+                }
+            }
+        }
     }
 }
