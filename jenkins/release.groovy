@@ -4,6 +4,7 @@ pipeline {
     agent { docker { image 'docker-registry.kabala.tech/node12-with-git:latest' } }
 
     environment {
+        app = ''
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
     }
@@ -73,6 +74,7 @@ pipeline {
             }
         }
         stage ('Build Container') {
+            agent any
              steps {
                 script {
                     ansiColor('xterm') {
@@ -82,6 +84,7 @@ pipeline {
             }
         }
         stage ('Push the image') {
+            agent any
             steps {
                 script {
                     ansiColor('xterm') {
