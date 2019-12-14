@@ -63,7 +63,6 @@
     "express-http-proxy": "^1.6.0",
     "husky": "^3.0.1",
     "identity-obj-proxy": "^3.0.0",
-    "install-deps-postmerge": "^1.0.5",
     "jest": "^24.9.0",
     "jest-fetch-mock": "^2.1.2",
     "jsonwebtoken": "^8.5.1",
@@ -75,6 +74,7 @@
     "react-hooks-testing-library": "^0.6.0",
     "react-test-renderer": "^16.12.0",
     "reset-css": "^5.0.1",
+    "standard-version": "^7.0.1",
     "ts-jest": "^24.2.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.7.3",
@@ -109,7 +109,7 @@
     "start": "cross-env NODE_ENV=production node dist/server.js",
     "fake-api": "dyson .fakeAPI",
     "fake-api:watch": "nodemon --watch .fakeAPI --exec dyson .fakeAPI",
-    "postmerge": "install-deps-postmerge"
+    "release": "standard-version"
   },
   "browserslist": [
     "last 2 versions",
