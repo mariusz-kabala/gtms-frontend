@@ -15,10 +15,7 @@ pipeline {
                     ansiColor('xterm') {
                         def props = readJSON file: 'package.json'
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
-                            sh "cd terraform"
-                            sh "terraform init"
-                            sh "terraform plan"
-                            sh "terraform apply -auto-approve"
+                            sh "cd terraform && ls -la && terraform init && terraform plan && terraform apply -auto-approve"
                         }
                     }
                 }
