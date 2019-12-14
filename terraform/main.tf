@@ -1,5 +1,5 @@
 provider "docker" {
-    host = "tcp://127.0.0.1:2376/"
+    host = "tcp://192.168.0.33:2376/"
 }
 
 # declare any input variables
