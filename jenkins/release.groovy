@@ -57,6 +57,8 @@ pipeline {
             steps {
                 script {
                     sshagent(['jenkins-ssh-key']) {
+                        sh "git add -A"
+                        sh "npm run release -- -a --no-verify"
                         sh "git push --follow-tags origin ${env.ghprbActualCommit}"
                     }
                 }
