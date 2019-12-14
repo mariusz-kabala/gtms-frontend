@@ -4,8 +4,8 @@ pipeline {
     agent { docker { image 'docker-registry.kabala.tech/node12-with-git:latest' } }
 
     environment {
-        // GH_TOKEN = credentials('github-api-token')
         CI = 'true'
+        GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
     }
 
     stages {
@@ -39,6 +39,21 @@ pipeline {
                 }
             }
         }
+        stage ('Checkout') {
+            steps {
+                    checkout([
+                            $class                           : 'GitSCM',
+                            branches                         : [[name: "${branch}"]],
+                            browser                          : [$class: 'GithubWeb', repoUrl: "https://github.com/mariusz-kabala/gtms-frontend"],
+                            doGenerateSubmoduleConfigurations: false,
+                            userRemoteConfigs                : [[
+                                credentialsId: 'github',
+                                refspec      : '+refs/pull/*:refs/remotes/origin/pr/*',
+                                url          : "git@github.com:mariusz-kabala/gtms-frontend.git"
+                            ]]
+                    ])
+            }
+        }
         stage ('Install dependencies') {
             steps {
                 script {
@@ -46,20 +61,13 @@ pipeline {
                 }
             }
         }
-        stage ('Prepare a release') {
-            steps {
-                script {
-                    sh "npm run release -- --no-verify ${env.additionalParams}"
-                }
-            }
-        }
-        stage ('Publish the new release') {
+        stage ('Release') {
             steps {
                 script {
                     sshagent(['jenkins-ssh-key']) {
-                        sh "git add -A"
-                        sh "npm run release -- -a --no-verify"
-                        sh "git push --follow-tags origin ${env.ghprbActualCommit}"
+                        sh "git checkout ${branch}"
+                        sh "npm run release -- --no-verify ${env.additionalParams}"
+                        sh "git push --follow-tags origin HEAD"
                     }
                 }
             }
