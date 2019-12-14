@@ -56,7 +56,7 @@ pipeline {
         stage ('Publish the new release') {
             steps {
                 script {
-                    sshagent(['github']) {
+                    sshagent(['jenkins-ssh-key']) {
                         sh "git push --follow-tags origin ${env.ghprbActualCommit}"
                     }
                 }
