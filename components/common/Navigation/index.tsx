@@ -1,37 +1,50 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
-import { FaList } from 'react-icons/fa'
+import {
+  IoIosTennisball,
+  IoIosNavigate,
+  IoIosCart,
+  IoIosCloudUpload,
+  IoIosCompass,
+  IoIosFingerPrint,
+} from 'react-icons/io'
 
 export const Navigation: FC<{}> = () => {
   const links = [
     {
       id: 0,
       label: 'Main Page',
-      icon: <FaList />,
+      icon: <IoIosTennisball />,
       url: '/',
     },
     {
-      id: 0,
+      id: 1,
       label: 'Posts',
-      icon: <FaList />,
+      icon: <IoIosNavigate />,
       url: '/',
     },
     {
-      id: 0,
+      id: 2,
       label: 'Users',
-      icon: <FaList />,
+      icon: <IoIosCart />,
       url: '/',
     },
     {
-      id: 0,
+      id: 3,
       label: 'Settings',
-      icon: <FaList />,
+      icon: <IoIosCloudUpload />,
       url: '/',
     },
     {
-      id: 0,
+      id: 4,
       label: 'Invite friends',
-      icon: <FaList />,
+      icon: <IoIosCompass />,
+      url: '/',
+    },
+    {
+      id: 5,
+      label: 'Invite friends',
+      icon: <IoIosFingerPrint />,
       url: '/',
     },
   ]
@@ -43,9 +56,7 @@ export const Navigation: FC<{}> = () => {
           return (
             <li className={styles.link} key={index}>
               <a>
-                <i>
-                  <FaList />
-                </i>
+                <i>{value.icon}</i>
                 {value.label}
               </a>
             </li>
