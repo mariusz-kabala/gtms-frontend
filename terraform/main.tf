@@ -14,6 +14,7 @@ terraform {
 }
 
 resource "docker_container" "gtms-frontend" {
+  backend = "local"
   name  = "gtms-frontend"
   image = "docker-registry.kabala.tech/gtms-frontend:latest"
   restart = "always"
