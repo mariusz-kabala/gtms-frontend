@@ -4,6 +4,7 @@ pipeline {
     agent { docker { image 'docker-registry.kabala.tech/node12-with-git:latest' } }
 
     environment {
+        app = ''
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
     }
@@ -68,6 +69,29 @@ pipeline {
                         sh "git checkout ${branch}"
                         sh "npm run release -- --no-verify ${env.additionalParams}"
                         sh "git push --follow-tags origin HEAD"
+                    }
+                }
+            }
+        }
+        stage ('Build Container') {
+            agent any
+             steps {
+                script {
+                    ansiColor('xterm') {
+                        app = docker.build("gtms-frontend")
+                    }
+                }
+            }
+        }
+        stage ('Push the image') {
+            agent any
+            steps {
+                script {
+                    ansiColor('xterm') {
+                        def props = readJSON file: 'package.json'
+                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                            app.push("v${props['version']}")
+                        }
                     }
                 }
             }
