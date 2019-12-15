@@ -24,7 +24,7 @@ pipeline {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
-                            sh "terraform plan -out deploy.plan -var=\"tag=latest\""
+                            sh "terraform plan -out deploy.plan -var=\"tag=${GIT_TAG}\""
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }
