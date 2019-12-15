@@ -1,5 +1,4 @@
 locals {
-    subdomain = "${var.subdomain}"
     tag = "${var.tag}"
 }
 
