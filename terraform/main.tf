@@ -24,3 +24,12 @@ resource "docker_container" "gtms-frontend" {
      "traefik.enable" = "true"
   }
 }
+
+terraform {
+    backend "remote" {
+        organization = "kabala-tech"
+        workspaces {
+            name = "gtms-frontend"
+        }
+    }
+}
