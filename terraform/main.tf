@@ -2,13 +2,17 @@ provider "docker" {
     host = "tcp://192.168.0.33:2376/"
 }
 
-# declare any input variables
+terraform {
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "kabala-tech"
 
-# create docker volume resource
+    workspaces {
+      name = "gtms-frontend"
+    }
+  }
+}
 
-# create docker network resource
-
-# create db container
 resource "docker_container" "gtms-frontend" {
   name  = "gtms-frontend"
   image = "docker-registry.kabala.tech/gtms-frontend:latest"
