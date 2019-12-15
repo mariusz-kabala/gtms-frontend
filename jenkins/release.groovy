@@ -91,7 +91,6 @@ pipeline {
                         def props = readJSON file: 'package.json'
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             app.push("${props['version']}")
-                            app.push("latest")
                         }
                     }
                 }
