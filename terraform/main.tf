@@ -25,11 +25,12 @@ resource "docker_container" "gtms-frontend" {
   }
 }
 
-terraform {
-    backend "remote" {
-        organization = "kabala-tech"
-        workspaces {
-            name = "gtms-frontend"
-        }
+data "terraform_remote_state" "vpc" {
+  backend = "remote"
+  config = {
+    organization = "kabala-tech"
+    workspaces = {
+      name = "gtms-frontend"
     }
+  }
 }
