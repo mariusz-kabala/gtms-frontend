@@ -1,12 +1,15 @@
 def branch = '';
+def workspace = '';
 
 pipeline {
     agent { docker { image 'docker-registry.kabala.tech/node12-with-git:latest' } }
 
     environment {
         app = ''
+        workspace = pwd()
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
+        TF_CLI_CONFIG_FILE = "${workspace}/terraform/.terraformrc"
     }
 
     stages {
