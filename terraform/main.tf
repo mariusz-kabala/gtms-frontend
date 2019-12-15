@@ -25,7 +25,7 @@ resource "docker_container" "gtms-frontend" {
   }
 }
 
-data "terraform_remote_state" "vpc" {
+data "terraform_remote_state" "gtms-frontend" {
   backend = "remote"
   config = {
     organization = "kabala-tech"
