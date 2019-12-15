@@ -1,7 +1,7 @@
 def branch = '';
 
 pipeline {
-    agent { docker { image 'node:12.13-alpine' } }
+    agent { docker { image 'docker-registry.kabala.tech/node12-with-git:latest' } }
 
     environment {
         // GH_TOKEN = credentials('github-api-token')
@@ -36,47 +36,47 @@ pipeline {
                 }
             }
         }
-        // stage ('PR-title') {
-        //     when {
-        //         expression {
-        //             env.ghprbPullTitle
-        //         }
-        //     }
-        //     steps {
-        //         script {
-        //             def conventionalPrefixes = [
-        //                 'build',
-        //                 'fix',
-        //                 'ci',
-        //                 'perf',
-        //                 'feat',
-        //                 'chore',
-        //                 'revert',
-        //                 'test',
-        //                 'style',
-        //                 'refactor',
-        //                 'docs',
-        //                 'improvement',
-        //             ]
+        stage ('PR-title') {
+            when {
+                expression {
+                    env.ghprbPullTitle
+                }
+            }
+            steps {
+                script {
+                    def conventionalPrefixes = [
+                        'build',
+                        'fix',
+                        'ci',
+                        'perf',
+                        'feat',
+                        'chore',
+                        'revert',
+                        'test',
+                        'style',
+                        'refactor',
+                        'docs',
+                        'improvement',
+                    ]
 
-        //             def rxp = '^('+conventionalPrefixes.join('|')+')[!: ]{1,3}[a-z]{1,5}[0-9]?-[0-9]+([: ]{1,2}).*$'
+                    def rxp = '^('+conventionalPrefixes.join('|')+')[!: ]{1,3}[a-z]{1,5}[0-9]?-[0-9]+([: ]{1,2}).*$'
 
-        //             println "env.ghprbPullTitle = ${env.ghprbPullTitle}"
-        //             if (!env.ghprbPullTitle.toLowerCase().trim().matches(rxp)) {
-        //                 manager.addShortText('PR title', "white", "red", "1px", "red")
-        //                 error "Conventional PR title error"
-        //             }
-        //         }
-        //     }
-        // }
-        stage ('build') {
+                    println "env.ghprbPullTitle = ${env.ghprbPullTitle}"
+                    if (!env.ghprbPullTitle.toLowerCase().trim().matches(rxp)) {
+                        manager.addShortText('PR title', "white", "red", "1px", "red")
+                        error "Conventional PR title error"
+                    }
+                }
+            }
+        }
+        stage ('Install dependencies') {
             steps {
                 script {
                     sh "npm i"
                 }
             }
         }
-        stage ('TestsAndChecks') {
+        stage ('Run checks and unit tests') {
             when {
                 expression {
                     branch != 'master'
@@ -85,6 +85,14 @@ pipeline {
             steps {
                 script {
                     sh "npm run preversion"
+                }
+            }
+        }
+
+        stage ('Build project') {
+            steps {
+                script {
+                    sh "npm run build"
                 }
             }
         }
