@@ -1,2 +1,1 @@
 variable "tag" {}
-variable "subdomain" {}
