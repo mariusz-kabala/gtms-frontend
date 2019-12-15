@@ -24,7 +24,7 @@ pipeline {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
-                            sh "terraform plan -out deploy.plan -var='version='${GIT_TAG}' -var='subdomain='${SUBDOMAIN}' -var='s3_access_key='${AWS_ACCESS_KEY}' -var='s3_secret_key='${AWS_SECRET_ACCESS_KEY}'"
+                            sh "terraform plan -out deploy.plan -var='tag='${GIT_TAG}' -var='subdomain='${SUBDOMAIN}' -var='s3_access_key='${AWS_ACCESS_KEY}' -var='s3_secret_key='${AWS_SECRET_ACCESS_KEY}'"
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }
