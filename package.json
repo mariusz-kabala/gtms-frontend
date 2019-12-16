@@ -34,7 +34,7 @@
     "@babel/plugin-proposal-decorators": "^7.7.4",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
-    "@testing-library/dom": "^6.10.1",
+    "@testing-library/dom": "^6.11.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.3",
     "@types/body-scroll-lock": "^2.6.1",
