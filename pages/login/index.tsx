@@ -37,10 +37,6 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
 
   return (
     <div className={styles.wrapper} data-testid="login-page">
-      <div
-        className={styles.left}
-        style={{ backgroundImage: `url('/images/temp_images/andrew_bg.jpg')` }}
-      ></div>
       <div className={styles.right}>
         <div>
           {error && <div data-testid="login-page-error">{t(error)}</div>}
@@ -73,6 +69,10 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
           />
         </div>
       </div>
+      <div
+        className={styles.left}
+        style={{ backgroundImage: `url('/images/temp_images/andrew_bg.jpg')` }}
+      ></div>
     </div>
   )
 }
