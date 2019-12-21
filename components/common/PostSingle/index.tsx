@@ -12,8 +12,10 @@ export const PostSingle: FC<{
 }> = ({ additionalStyles }) => {
   const [state, setState] = useState(false)
 
-   {/* @this component is just a mock */}
-  
+  {
+    /* @this component is just a mock */
+  }
+
   return (
     <div className={cx(additionalStyles)}>
       <FlipCard
