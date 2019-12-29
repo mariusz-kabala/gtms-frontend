@@ -1,18 +1,9 @@
 .wrapper {
-  z-index: 0;
-  width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 
-  &.height100 {
-    height: 100%;
-  }
-
   img {
-    position: relative;
-    z-index: -1;
-    display: block;
     max-width: 100%;
   }
 }

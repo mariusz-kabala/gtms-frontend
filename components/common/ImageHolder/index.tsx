@@ -4,11 +4,11 @@ import cx from 'classnames'
 
 export const ImageHolder: FC<{
   image: string
-  height100?: boolean
-}> = ({ height100, image }) => (
+  fullHeight?: boolean
+}> = ({ fullHeight, image }) => (
   <div
     className={cx(styles.wrapper, {
-      [styles.height100]: height100,
+      [styles.fullHeight]: fullHeight,
     })}
     data-testid="image-holder"
     style={{ backgroundImage: `url(${image})` }}

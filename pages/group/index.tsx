@@ -14,7 +14,7 @@ import { UsersList } from 'components/common/UsersList'
 import { ZawolajAdnrzeja } from 'components/common/ZawolajAndrzeja'
 import { Logout } from 'components/common/Logout'
 
-export const GroupPage: NextPage = () => {
+export const GroupPage: NextPage<{}> = () => {
   const { isLogged } = useAuth()
 
   return (
@@ -63,7 +63,7 @@ export const GroupPage: NextPage = () => {
             <li>
               {/* <h2 className={styles.header}>Ostatnio dodane wioski</h2> */}
               <ImageHolder
-                height100
+                fullHeight
                 image={
                   'https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg'
                 }

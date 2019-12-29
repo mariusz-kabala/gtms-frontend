@@ -2,15 +2,7 @@
 
 .wrapper {
   display: flex;
-  color: #979797;
   min-height: 100%;
-
-  .logo {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    max-width: 250px;
-  }
 
   > div {
     padding: 0 40px;
@@ -37,8 +29,9 @@
       }
     }
 
+    // @todo create global header
     .header {
-      // @todo create global header
+      // @todo handle it in GEOT-72 and GEOT-73
       font-size: 1.2em;
       font-weight: 300;
       margin-bottom: 20px;
