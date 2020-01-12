@@ -1,19 +1,120 @@
-@import 'scss/variables.scss';
-@import 'scss/mixins/button.scss';
+@import 'scss/variables';
 
 .wrapper {
-  padding: 0 10%;
-  // @todo remove it eventually - it's a temporary solution
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   color: $theme6;
 
-  section {
-    cursor: pointer;
-    margin-bottom: 20px;
+  .content {
+    display: flex;
+    max-width: 800px;
+  }
 
-    &:hover {
-      border-color: $theme4;
-      // background: $theme4;
-      color: $theme4;
+  .visibleForEveryone,
+  .visibleForOwner {
+    position: relative;
+    width: 50%;
+    border: 1px solid $theme4;
+    padding: 15px;
+
+    .visibilityLabel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      padding: 8px;
+      font-size: 12px;
+      background: $theme4;
+      color: $theme6;
+    }
+  }
+
+  .visibleForEveryone {
+    .userImage {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      width: 100%;
+      height: 300px;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      &:hover {
+        cursor: pointer; // @todo remove it when image holder component will be added
+
+        &:before {
+          content: none;
+        }
+      }
+
+      .userName {
+        position: relative;
+        font-size: 30px;
+        color: $theme6;
+        margin: 0 15px 15px 0;
+        -webkit-box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    .images {
+      display: flex;
+      overflow: hidden; // @todo here we should put custom component with carousel which cuts overfloving images
+      margin-top: 20px;
+
+      li {
+        max-width: 100px;
+        margin-right: 10px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .desc {
+      margin-top: 20px;
+      opacity: 0.75;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .userTags {
+      margin-top: 20px;
+    }
+  }
+
+  .divider {
+    width: 1px;
+    margin: 0 5px;
+    background: gray;
+  }
+
+  .visibleForOwner {
+    > div {
+      margin-top: 20px;
+
+      &:nth-of-type(1) {
+        margin-top: 30px;
+      }
     }
   }
 }

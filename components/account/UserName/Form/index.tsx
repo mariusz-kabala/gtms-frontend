@@ -34,7 +34,6 @@ export const UserNameChangeForm: NFC<{}> = () => {
 
   return (
     <form data-testid="userNameChangeform" onSubmit={handleSubmit(onSubmit)}>
-      >
       <Input
         type="text"
         name="name"
