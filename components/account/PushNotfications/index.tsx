@@ -9,11 +9,10 @@ export const PushNotifications: FC = () => {
     <div
       className={styles.wrapper}
       onClick={() => setState(!state)}
-      data-testid="pushNotifications">
+      data-testid="pushNotifications"
+    >
       <ToggleCheckbox checked={state} />
-      <span className={styles.label}>
-        push notifications
-      </span>
+      <span className={styles.label}>push notifications</span>
     </div>
   )
 }

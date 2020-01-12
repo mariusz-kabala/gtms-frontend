@@ -10,10 +10,9 @@ export const UserEmail: FC = () => {
     <div
       className={styles.wrapper}
       data-testid="userEmail"
-      onClick={() => setState(true)}>
-      <ExpandingItem 
-        isActive={state} 
-        label={<div>User Email</div>}>
+      onClick={() => setState(true)}
+    >
+      <ExpandingItem isActive={state} label={<div>User Email</div>}>
         <UserEmailChangeForm />
       </ExpandingItem>
     </div>

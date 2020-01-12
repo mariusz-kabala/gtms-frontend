@@ -28,9 +28,7 @@ export const UserEmailChangeForm: NFC<{}> = () => {
   }
 
   return (
-    <form
-      data-testid="userEmailChangeForm"
-      onSubmit={handleSubmit(onSubmit)}>
+    <form data-testid="userEmailChangeForm" onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="email">{t('form.labels.email')}</label>
       <Input
         type="email"

@@ -50,7 +50,7 @@ describe('<UserEmailChangeForm />', () => {
         errors: {
           email: {
             type: 'required',
-          }
+          },
         },
         setError: jest.fn(),
       }

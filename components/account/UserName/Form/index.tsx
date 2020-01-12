@@ -33,9 +33,7 @@ export const UserNameChangeForm: NFC<{}> = () => {
   }
 
   return (
-    <form
-      data-testid="userNameChangeform"    
-      onSubmit={handleSubmit(onSubmit)}>      
+    <form data-testid="userNameChangeform" onSubmit={handleSubmit(onSubmit)}>
       >
       <Input
         type="text"
@@ -44,15 +42,15 @@ export const UserNameChangeForm: NFC<{}> = () => {
         reference={register}
       />
       {errors.name && <Error text={t('form.validation.name.isRequired')} />}
-
       <Input
         type="text"
         name="surname"
         placeholder={t('form.labels.surname')}
         reference={register}
       />
-      {errors.surname && <Error text={t('form.validation.surname.isRequired')} />}
-
+      {errors.surname && (
+        <Error text={t('form.validation.surname.isRequired')} />
+      )}
       <Button
         type="submit"
         disabled={false}
