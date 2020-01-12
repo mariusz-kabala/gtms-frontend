@@ -3,36 +3,34 @@ import styles from './styles.scss'
 import useForm from 'react-hook-form'
 import { NFC } from 'types/nfc.d'
 import { useTranslation } from 'i18n'
-// import { registerUserAccount } from 'state/user'
-import { IRegistrationData } from 'api/auth'
+import { IUserEmailData } from 'userAccount/userEmail'
 import { Input } from 'components/common/Forms/Input'
 import { Error } from 'components/common/Forms/Error'
 import { Button } from 'components/common/Button'
 
 export const UserEmailChangeForm: NFC<{}> = () => {
-  const { t } = useTranslation('registration')
-  // const { register, handleSubmit, errors, setError } = useForm<
-  const { register, handleSubmit, errors } = useForm<IRegistrationData>()
-  const onSubmit = async () => {
-    alert('submit')
-    // const { password, passwordConfirmation } = data
+  const { t } = useTranslation('userEmailChangeForm')
+  const { register, handleSubmit, errors, setError } = useForm<IUserEmailData>()
 
-    // if (password !== passwordConfirmation) {
-    //   setError(
-    //     'passwordConfirmation',
-    //     'notMatch',
-    //     t('form.validation.passwordConfirmation.notMatch')
-    //   )
-    //   return
-    // }
+  const validate = (data: IUserEmailData): boolean => {
+    let hasErrors = false
+    if (!data.email) {
+      setError('email', 'required')
+      hasErrors = true
+    }
 
-    // try {
-    //   await registerUserAccount(data)
-    // } catch (err) {}
+    return !hasErrors
+  }
+  const onSubmit = async (data: IUserEmailData) => {
+    if (!validate(data)) {
+      return
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      data-testid="userEmailChangeForm"
+      onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="email">{t('form.labels.email')}</label>
       <Input
         type="email"

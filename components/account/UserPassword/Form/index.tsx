@@ -3,7 +3,6 @@ import styles from './styles.scss'
 import useForm from 'react-hook-form'
 import { NFC } from 'types/nfc.d'
 import { useTranslation } from 'i18n'
-// import { changePasswordUserAccount } from 'state/user'
 import { IRegistrationData } from 'api/auth'
 import { Input } from 'components/common/Forms/Input'
 import { Error } from 'components/common/Forms/Error'
@@ -25,11 +24,6 @@ export const PasswordChangeForm: NFC<{}> = () => {
       )
       return
     }
-
-    // try {
-    //  @todo put here sth like
-    // await changePasswordUserAccount(data)
-    // } catch (err) {}
   }
 
   return (

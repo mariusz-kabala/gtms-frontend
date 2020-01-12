@@ -8,7 +8,7 @@ export const DeleteAccount: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
-    <>
+    <div data-testid="deleteAccount">
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
           <div className={styles.modalContent}>
@@ -38,6 +38,6 @@ export const DeleteAccount: FC = () => {
       >
         Delete Account
       </Button>
-    </>
+    </div>
   )
 }

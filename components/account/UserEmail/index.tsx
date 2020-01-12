@@ -7,8 +7,13 @@ export const UserEmail: FC = () => {
   const [state, setState] = useState<boolean>(false)
 
   return (
-    <div className={styles.wrapper} onClick={() => setState(true)}>
-      <ExpandingItem isActive={state} label={<div>User Email</div>}>
+    <div
+      className={styles.wrapper}
+      data-testid="userEmail"
+      onClick={() => setState(true)}>
+      <ExpandingItem 
+        isActive={state} 
+        label={<div>User Email</div>}>
         <UserEmailChangeForm />
       </ExpandingItem>
     </div>

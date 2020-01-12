@@ -24,7 +24,7 @@ export const Checkbox: FC<{
     data-testid="form-checkbox"
   >
     <input
-      className={styles.input} /* @todo name it properly */
+      className={styles.input}
       defaultChecked={checked}
       ref={reference}
       type="checkbox"

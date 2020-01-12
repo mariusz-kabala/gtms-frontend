@@ -7,7 +7,10 @@ export const UserPassword: FC = () => {
   const [state, setState] = useState<boolean>(false)
 
   return (
-    <div className={styles.wrapper} onClick={() => setState(true)}>
+    <div
+      className={styles.wrapper} 
+      data-testid="userPassword"
+      onClick={() => setState(true)}>
       <ExpandingItem isActive={state} label={<div>User Password</div>}>
         <PasswordChangeForm />
       </ExpandingItem>

@@ -6,10 +6,13 @@ export const PushNotifications: FC = () => {
   const [state, setState] = useState<boolean>(false)
 
   return (
-    <div className={styles.wrapper}>
-      <ToggleCheckbox checked={state} onChange={() => setState(!state)} />
-      <span onClick={() => setState(!state)} className={styles.label}>
-        push notifications{' '}
+    <div
+      className={styles.wrapper}
+      onClick={() => setState(!state)}
+      data-testid="pushNotifications">
+      <ToggleCheckbox checked={state} />
+      <span className={styles.label}>
+        push notifications
       </span>
     </div>
   )
