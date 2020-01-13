@@ -12,7 +12,7 @@ export const UserPassword: FC = () => {
       data-testid="userPassword"
       onClick={() => setState(true)}
     >
-      <ExpandingItem isActive={state} label={<div>User Password</div>}>
+      <ExpandingItem isActive={state} label={<span>*************</span>}>
         <PasswordChangeForm />
       </ExpandingItem>
     </div>

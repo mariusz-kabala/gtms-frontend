@@ -3,11 +3,13 @@
 @import 'scss/mixins/button.scss';
 
 .btnDeleteAccount {
-  @include btnWidth100;
   margin-bottom: 20px;
+  padding: 0;
+  background: none;
 
   &:hover {
-    background: red;
+    background: none;
+    color: red;
   }
 }
 
@@ -20,7 +22,6 @@
 
   > div {
     h2 {
-      font-size: 1.6em;
       color: $theme4;
       text-align: center;
     }

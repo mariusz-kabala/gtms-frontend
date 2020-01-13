@@ -1,20 +1,26 @@
 import React, { FC, useState } from 'react'
 import styles from './styles.scss'
+import cx from 'classnames'
 import { ExpandingItem } from 'components/common/ExpandingItem'
 import { UserNameChangeForm } from './Form'
 
-export const UserName: FC = () => {
+export const UserName: FC<{
+  additionalStyles?: string
+}> = ({
+  additionalStyles
+}) => {
   const [state, setState] = useState<boolean>(false)
 
   return (
     <div
-      className={styles.wrapper}
+      className={cx(styles.wrapper, additionalStyles)}
       data-testid="userName"
       onClick={() => setState(true)}
     >
-      <ExpandingItem isActive={state} label={<div>User Name</div>}>
+      <ExpandingItem isActive={state} label='Larry Ellison'>
         <UserNameChangeForm />
       </ExpandingItem>
     </div>
   )
 }
+

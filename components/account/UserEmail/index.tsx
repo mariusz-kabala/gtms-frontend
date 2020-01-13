@@ -12,7 +12,7 @@ export const UserEmail: FC = () => {
       data-testid="userEmail"
       onClick={() => setState(true)}
     >
-      <ExpandingItem isActive={state} label={<div>User Email</div>}>
+      <ExpandingItem isActive={state} label='larry.ellison@oracle.com'>
         <UserEmailChangeForm />
       </ExpandingItem>
     </div>

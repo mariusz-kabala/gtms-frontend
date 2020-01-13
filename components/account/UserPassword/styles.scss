@@ -3,6 +3,8 @@
 // @import 'scss/mixins/button.scss';
 
 .wrapper {
+  text-transform: uppercase;
+
   &:hover {
     cursor: pointer;
     color: $theme4;

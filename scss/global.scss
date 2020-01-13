@@ -1,8 +1,8 @@
 @import '../node_modules/reset-css/sass/reset';
+@import './reset_button.scss';
 @import './variables.scss';
 
 html {
-  font-family: $defaultFontFamily;
   box-sizing: border-box;
 }
 
@@ -12,13 +12,15 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  background: $theme1;
-}
-
 html,
 body,
 body > div:first-of-type {
   height: 100%;
+}
+
+body {
+  background: $theme1;
+  font-family: 'Lato,sans-serif', 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
 }
 

@@ -15,7 +15,8 @@
   .content {
     position: relative;
     @include z-index(modalContent);
-    background: $theme2;
+    background: $theme1;
+    border: 1px solid $theme4;
     padding: 20px;
     border-radius: 2px;
   }

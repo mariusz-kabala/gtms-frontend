@@ -12,7 +12,6 @@ import { UserAvatar } from 'components/common/UserAvatar'
 import { UserEmail } from 'components/account/UserEmail'
 import { UserName } from 'components/account/UserName'
 import { UserPassword } from 'components/account/UserPassword'
-
 import mockData from './mockData.json'
 
 export const AccountPage: NextPage<{}> = () => {

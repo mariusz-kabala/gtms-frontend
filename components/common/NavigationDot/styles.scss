@@ -8,7 +8,7 @@
   height: 100%;
   display: flex;
   @include z-index(navigationDot);
-  background: $theme1;
+  background: $theme0;
 
   > ul {
     display: flex;

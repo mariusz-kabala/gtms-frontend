@@ -11,7 +11,7 @@ export const PushNotifications: FC = () => {
       onClick={() => setState(!state)}
       data-testid="pushNotifications"
     >
-      <span className={styles.label}>push notifications</span>
+      <span className={styles.label}>Push notifications</span>
       <ToggleCheckbox checked={state} />
     </div>
   )

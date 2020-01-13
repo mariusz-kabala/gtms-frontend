@@ -4,6 +4,7 @@
 .wrapper {
   display: flex;
   height: 100%;
+  background: $theme0;
 
   .left {
     width: 65%;
@@ -24,17 +25,14 @@
 
       h1,
       p {
-        font-weight: 600;
         color: $theme6;
         margin-bottom: 15px;
       }
       h1 {
-        font-size: 3em;
         text-transform: uppercase;
       }
       p {
         line-height: 1.3em;
-        font-weight: 200;
 
         &:last-child {
           margin-bottom: 40px;
@@ -53,7 +51,6 @@
     // @todo create proper mixin for button
     display: inline-block;
     margin-top: 10px;
-    font-size: 10px;
     width: 220px;
   }
 
