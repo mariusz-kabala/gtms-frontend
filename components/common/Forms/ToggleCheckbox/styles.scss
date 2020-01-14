@@ -1,11 +1,12 @@
 @import 'scss/variables';
+@import 'scss/fontSize';
 
 $duration: 1s;
 
 @mixin checked() {
   ~ .checkmark {
-    transform: translate(1.55em);
-    background: $theme4;
+    transform: translate(2em);
+    background: $theme5;
 
     span {
       display: none;
@@ -20,10 +21,10 @@ $duration: 1s;
 // @todo some of this scss may be refactored - its almost copied and pasted
 .wrapper {
   position: relative;
-  width: 3em;
+  width: 4em;
   transition: transform $duration ease;
   cursor: pointer;
-  background: $theme6;
+  background: $theme7;
 
   .inputCheckbox {
     position: absolute;
@@ -43,10 +44,11 @@ $duration: 1s;
 
   .checkmark {
     position: relative;
-    width: 1.5em;
+    width: 2em;
     height: 1em;
     transition: transform $duration ease;
-    background: $theme2;
+    background: $theme3;
+    color: $theme7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,6 +61,7 @@ $duration: 1s;
       justify-content: center;
       align-items: center;
       text-transform: uppercase;
+      @include font-size(xs);
     }
 
     svg {

@@ -18,7 +18,7 @@ export const DeleteAccount: FC = () => {
 
               <div className={styles.buttons}>
                 <Button additionalStyles={styles.no} onClick={() => null}>
-                  Nah, not, not really, just kiddin
+                  Nah, not, not really, just kiddin'
                 </Button>
 
                 <Button onClick={() => null}>

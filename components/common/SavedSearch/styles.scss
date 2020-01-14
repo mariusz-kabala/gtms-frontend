@@ -3,9 +3,9 @@
 .search {
   margin-bottom: 1em;
   padding: 0.5em;
-  color: $theme6;
+  color: $theme7;
   background: $theme1;
-  border: 1px solid $theme6;
+  border: 1px solid $theme7;
   cursor: pointer;
 
   &:last-child {
@@ -33,7 +33,7 @@
   }
 
   &.active {
-    border-color: $theme4;
-    background: $theme4;
+    border-color: $theme5;
+    background: $theme5;
   }
 }
