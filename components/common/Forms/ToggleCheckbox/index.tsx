@@ -9,7 +9,7 @@ export const ToggleCheckbox: FC<{
   onChange?: () => unknown
   reference?: (ref: ElementLike | null) => void
 }> = ({ additionalStyles, checked, onChange, reference }) => (
-  <label
+  <div
     className={cx(styles.wrapper, additionalStyles, {
       [styles.checked]: checked,
     })}
@@ -30,5 +30,5 @@ export const ToggleCheckbox: FC<{
         />
       </svg>
     </div>
-  </label>
+  </div>
 )

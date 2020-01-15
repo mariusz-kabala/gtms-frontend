@@ -8,7 +8,7 @@ describe('<Input />', () => {
       <Input additionalStyles={'testingStyles'} />
     )
 
-    expect(getByTestId('form-input')).toBeInTheDocument()
+    expect(getByTestId('formInput')).toBeInTheDocument()
     expect(container.querySelector('.testingStyles')).toBeInTheDocument()
   })
 
@@ -28,7 +28,7 @@ describe('<Input />', () => {
     const callback = jest.fn()
     const { getByTestId } = render(<Input onClick={callback} />)
 
-    fireEvent.click(getByTestId('form-input'))
+    fireEvent.click(getByTestId('formInput'))
 
     expect(callback).toBeCalledTimes(1)
   })

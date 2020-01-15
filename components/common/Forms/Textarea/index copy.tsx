@@ -3,26 +3,23 @@ import styles from './styles.scss'
 import cx from 'classnames'
 import { ElementLike } from 'react-hook-form/dist/types'
 
-export const Input: FC<{
+export const Textarea: FC<{
   additionalStyles?: string
   defaultValue?: string
   name?: string
-  onClick?: () => unknown
   placeholder?: string
+  onClick?: () => unknown
   reference?: (ref: ElementLike | null) => void
-  type?: 'text' | 'email' | 'password'
 }> = ({
   additionalStyles,
   defaultValue,
   name,
-  onClick,
   placeholder,
+  onClick,
   reference,
-  type = 'text',
 }) => (
-  <input
-    type={type}
-    data-testid="formInput"
+  <textarea
+    data-testid="formTextarea"
     className={cx(styles.input, additionalStyles)}
     defaultValue={defaultValue}
     name={name}
