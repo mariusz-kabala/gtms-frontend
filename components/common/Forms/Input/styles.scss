@@ -8,9 +8,9 @@
   border-bottom: 1px solid $theme6;
   background: none;
   color: $theme6;
+  outline: none; // @todo create proper support of outline for screen readers etc.
 
-  + button,
-  .input {
-    margin-top: 10px;
+  &:hover {
+    border-color: $theme4;
   }
 }

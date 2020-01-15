@@ -27,9 +27,9 @@ export const Checkbox: FC<{
       className={styles.input} /* @todo name it properly */
       defaultChecked={checked}
       ref={reference}
-      type="checkbox"
       name={name}
       id={name}
+      type="checkbox"
     />
     <label htmlFor={name} className={styles.check}>
       <svg width="18px" height="18px" viewBox="0 0 18 18">

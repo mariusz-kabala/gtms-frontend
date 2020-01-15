@@ -1,9 +1,17 @@
 import React from 'react'
+import styles from './styles.scss'
 import { NextPage } from 'next'
-import { Navigation } from 'components/common/Navigation'
+import { GroupCreate } from 'components/group/GroupCreate'
 
 const GroupPage: NextPage<{}> = () => {
-  return <Navigation />
+  return (
+    <div
+      className={styles.bg}
+      style={{ backgroundImage: `url('/images/temp_images/nightcamp.jpg')` }}
+    >
+      <GroupCreate />
+    </div>
+  )
 }
 
 export default GroupPage

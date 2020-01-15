@@ -1,10 +1,12 @@
+@import 'scss/variables.scss';
 @import 'scss/mixins/button.scss';
 @import 'scss/mixins/forms.scss';
 
-.btnSubmit {
-  @include btnWidth100;
-}
-
 .form {
   @include formInputGaps;
+
+  .btnSubmit {
+    @include btnWidth100;
+    margin-top: 15px;
+  }
 }

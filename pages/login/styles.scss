@@ -5,13 +5,13 @@
   display: flex;
   height: 100%;
 
-  .left {
+  .image {
     width: 65%;
     background-repeat: no-repeat;
     background-size: cover;
   }
 
-  .right {
+  .text {
     position: relative;
     display: flex;
     justify-content: center;
@@ -30,17 +30,14 @@
       }
 
       h1 {
-        font-size: 3em;
+        font-size: 2.3em; // @todo fix it in GEOT-72
         text-transform: uppercase;
       }
 
       p {
         line-height: 1.3em;
         font-weight: 200;
-
-        &:last-child {
-          margin-bottom: 40px;
-        }
+        margin-bottom: 40px;
       }
     }
   }
@@ -54,12 +51,8 @@
   .btnForgotPassword {
     // @todo create proper mixin for button
     display: inline-block;
-    margin-top: 10px;
+    margin: 20px 0;
     font-size: 10px;
     width: 220px;
-  }
-
-  .socialButtons {
-    margin-top: 20px;
   }
 }

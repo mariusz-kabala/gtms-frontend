@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react'
-import { Logo } from 'components/common/Logo'
 import { NextPage, NextPageContext } from 'next'
 import { useState } from 'react'
 import { useTranslation, Link } from 'i18n'
 import { userQuery } from 'state/user'
-import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { RegistrationForm } from 'components/registration/Form'
-import { ImageCover } from 'components/common/ImageCover'
 import { SocialButtons } from 'components/login/SocialButtons'
 import { initAuthSession } from 'helpers/auth'
 import { redirect } from 'helpers/redirect'
+import { Button } from 'components/common/Button'
 import styles from './styles.scss'
 
 export const RegistrationPage: NextPage<{}> = () => {
@@ -27,20 +25,33 @@ export const RegistrationPage: NextPage<{}> = () => {
 
   return (
     <div className={styles.wrapper} data-testid="registration-page">
-      <div className={styles.formWrapper}>
-        <AnimatedComponent>
-          <Logo />
-        </AnimatedComponent>
-        {error && <div data-testid="registration-page-error">{t(error)}</div>}
-        <RegistrationForm />
-        <SocialButtons
-          onFailure={() => setError('socialMediaRegistrationFailed')}
-        />
-        <Link href="/login">
-          <a>{t('goToLogin')}</a>
-        </Link>
+      <div className={styles.text}>
+        <div>
+          {error && <div data-testid="registration-page-error">{t(error)}</div>}
+          <h1>Nisi excepteur aliqua</h1>
+          <p>
+            Tempor irure qui excepteur ipsum excepteur qui pariatur deserunt
+            consequat consequat est. Non eiusmod ea non cupidatat occaecat do
+            cupidatat in duis ipsum velit veniam incididunt.
+          </p>
+          <RegistrationForm />
+          <div className={styles.actionButtons}>
+            <Link href="/login">
+              <Button additionalStyles={styles.btnForgotPassword}>
+                <a>{t('goToLogin')}</a>
+              </Button>
+            </Link>
+          </div>
+          <SocialButtons
+            additionalStyles={styles.socialButtons}
+            onFailure={() => setError('socialMediaLoginFailed')}
+          />
+        </div>
       </div>
-      <ImageCover />
+      <div
+        className={styles.image}
+        style={{ backgroundImage: `url('/images/temp_images/andrew_bg.jpg')` }}
+      ></div>
     </div>
   )
 }

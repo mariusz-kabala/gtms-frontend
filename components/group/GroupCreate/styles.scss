@@ -1,0 +1,36 @@
+@import 'scss/variables.scss';
+@import 'scss/mixins/button.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .formWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background: $theme1;
+    color: $theme6;
+    max-width: 400px;
+
+    h1 {
+      font-size: 1.6em;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      line-height: 1.3em;
+      font-weight: 300;
+    }
+  }
+
+  .btnNext {
+    margin-top: 20px;
+    @include btnWidth100;
+  }
+}

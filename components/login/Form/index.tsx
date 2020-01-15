@@ -44,6 +44,7 @@ export const LoginForm: FC<{}> = () => {
 
   return (
     <form
+      className={styles.form}
       method="post"
       onSubmit={handleSubmit(onSubmit)}
       data-testid="login-form"
