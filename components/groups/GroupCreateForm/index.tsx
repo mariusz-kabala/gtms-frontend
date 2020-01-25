@@ -4,7 +4,7 @@ import { useTranslation } from 'i18n'
 import { IGroupCreateData } from 'api/group/groupCreate'
 import { NFC } from 'types/nfc.d'
 import { Input } from 'components/common/Forms/Input'
-import { Textarea } from 'components/common/Forms/Textarea'
+import Textarea from 'components/common/Forms/Textarea'
 import { Button } from 'components/common/Button'
 
 export const GroupCreateForm: NFC<{}> = () => {

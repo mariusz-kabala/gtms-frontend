@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
-// import styles from './styles.scss'
+import styles from './styles.scss'
 import useForm from 'react-hook-form'
 import { useTranslation } from 'i18n'
 import { ILoginData } from 'api/auth'
 import { loginUser } from 'state/user'
 import { Input } from 'components/common/Forms/Input'
 import { Error } from 'components/common/Forms/Error'
-import { TextareaAutosize } from 'components/common/Forms/Textarea'
+import Textarea from 'react-expanding-textarea'
 // import { Textarea } from 'components/common/Forms/Textarea'
 import { Button } from 'components/common/Button'
 
@@ -72,16 +72,15 @@ export const SettingsWizardForm: FC<{}> = () => {
         <Error text={t('form.validation.password.isRequired')} />
       )}
 
-      {/* <TextareaAutosize name="description" reference={register({ required: true })} /> */}
-      {/* <Textarea name="description" reference={register({ required: true })} /> */}
-      <TextareaAutosize
-        className="textarea"
-        defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      <Textarea
+        className={styles.textarea}
+        defaultValue="Lorem ipsum dolor sit amet, ..."
         id="my-textarea"
         maxLength="3000"
         name="pet[notes]"
-        onChange={handleChange}
-        placeholder="Enter details here..."
+        // onChange={handleChange}
+        placeholder="Enter additional notes..."
+        // ref={textareaRef}
       />
 
       <Button
