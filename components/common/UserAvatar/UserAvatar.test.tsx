@@ -5,7 +5,7 @@ import styles from './styles.scss'
 
 describe('<UserAvatar />', () => {
   it('Should be on the page and render all elements', () => {
-    const { getByTestId, container, getByText } = render(
+    const { getByTestId, container } = render(
       <UserAvatar image="/fake/img.png" onClick={jest.fn()} />
     )
 
