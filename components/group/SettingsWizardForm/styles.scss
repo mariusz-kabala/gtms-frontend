@@ -1,0 +1,15 @@
+@import 'scss/variables';
+
+// @todo this is temporary - textarea must be handled properly
+.textarea {
+  width: 100%;
+  min-height: 150px;
+  background: none;
+  color: $theme7;
+  border: none;
+  padding: 8px;
+
+  &:focus {
+    border: 1px solid $theme5;
+  }
+}

@@ -55,7 +55,11 @@ export const RegistrationForm: FC<{}> = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} data-testid="registration-form">
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit(onSubmit)}
+      data-testid="registration-form"
+    >
       <Input
         type="email"
         name="email"

@@ -1,5 +1,53 @@
-@import 'scss/mixins/forms.scss';
+@import 'scss/variables.scss';
+@import 'scss/mixins/button.scss';
+@import 'scss/mixins/fontSize';
+@import 'scss/mixins/header';
+@import 'scss/mixins/imageCover';
 
 .wrapper {
-  @include formWrapperBasic;
+  display: flex;
+  height: 100%;
+  background: $theme0;
+
+  .image {
+    width: 65%;
+    @include imageCover();
+  }
+
+  .text {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px; // @todo put to variable
+    width: 35%;
+
+    > div {
+      width: 100%;
+
+      // @todo put belowe into one place
+      h1,
+      p {
+        margin-bottom: $margin3;
+      }
+
+      h1 {
+        @include header(h1, textUppercase, 500);
+        text-transform: uppercase;
+      }
+
+      p {
+        &:last-child {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  .btnForgotPassword {
+    // @todo create proper mixin for button
+    display: inline-block;
+    width: 220px;
+    @include btnWidth100;
+  }
 }

@@ -1,0 +1,19 @@
+@import 'scss/variables';
+
+.wrapper {
+  display: flex;
+  overflow: hidden;
+
+  li {
+    > img {
+      max-width: 100px;
+      margin-right: $margin4;
+    }
+
+    &:last-child {
+      > img {
+        margin-right: 0;
+      }
+    }
+  }
+}

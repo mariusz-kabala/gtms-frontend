@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { NextPage, NextPageContext } from 'next'
-import { ImageCover } from 'components/common/ImageCover'
 import { Logo } from 'components/common/Logo'
 import { RemindPasswordForm } from 'components/remind-password/Form'
 import { useTranslation, Link } from 'i18n'
@@ -17,6 +16,8 @@ export const RemindPasswordPage: NextPage<{}> = () => {
   return (
     <div data-testid="remind-password-page" className={styles.wrapper}>
       <div>
+        {' '}
+        {/* this div is needed for css purpouse */}
         <AnimatedComponent>
           <Logo />
         </AnimatedComponent>
@@ -34,7 +35,6 @@ export const RemindPasswordPage: NextPage<{}> = () => {
           {t('subtitle')}
         </span>
       </div>
-      <ImageCover />
     </div>
   )
 }

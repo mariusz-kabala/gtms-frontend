@@ -1,17 +1,19 @@
 @import 'scss/variables.scss';
 @import 'scss/mixins/button.scss';
+@import 'scss/mixins/header';
+@import 'scss/mixins/imageCover';
 
 .wrapper {
   display: flex;
   height: 100%;
+  background: $theme0;
 
-  .left {
+  .image {
     width: 65%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include imageCover();
   }
 
-  .right {
+  .text {
     position: relative;
     display: flex;
     justify-content: center;
@@ -24,20 +26,16 @@
 
       h1,
       p {
-        font-weight: 600;
-        color: $theme6;
-        margin-bottom: 15px;
+        color: $theme7;
+        margin-bottom: $margin3;
       }
 
       h1 {
-        font-size: 3em;
+        @include header(h1, textUppercase, 500);
         text-transform: uppercase;
       }
 
       p {
-        line-height: 1.3em;
-        font-weight: 200;
-
         &:last-child {
           margin-bottom: 40px;
         }
@@ -54,12 +52,6 @@
   .btnForgotPassword {
     // @todo create proper mixin for button
     display: inline-block;
-    margin-top: 10px;
-    font-size: 10px;
     width: 220px;
-  }
-
-  .socialButtons {
-    margin-top: 20px;
   }
 }

@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'i18n'
 import { Spinner } from 'components/common/Spinner'
 import { Logo } from 'components/common/Logo'
-import { ImageCover } from 'components/common/ImageCover'
 import { initAuthSession } from 'helpers/auth'
 import { redirect } from 'helpers/redirect'
 import { userQuery } from 'state/user'
@@ -29,16 +28,7 @@ export const ActivateAccountPage: NextPage<{}> = () => {
 
   return (
     <div data-testid="activate-account-page">
-      <section
-        className={styles.wrapper}
-        style={{
-          // @todo remove it soon
-          position: 'relative',
-          background: 'black',
-          padding: '20px',
-          zIndex: 1,
-        }}
-      >
+      <section className={styles.wrapper}>
         <Logo />
         {isLoading && <Spinner />}
         {!isLoading && !hasError && (
@@ -52,7 +42,6 @@ export const ActivateAccountPage: NextPage<{}> = () => {
           </p>
         )}
       </section>
-      <ImageCover />
     </div>
   )
 }

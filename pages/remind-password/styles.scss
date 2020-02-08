@@ -1,6 +1,14 @@
 @import 'scss/variables.scss';
-@import 'scss/mixins/forms.scss';
+@import 'scss/mixins/imageCover';
 
 .wrapper {
-  @include formWrapperBasic;
+  > div {
+    background: $theme0;
+  }
+
+  &:after {
+    content: '';
+    z-index: -1;
+    @include imageCover();
+  }
 }

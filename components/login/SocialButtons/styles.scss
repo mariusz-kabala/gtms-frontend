@@ -1,10 +1,11 @@
+@import 'scss/variables';
+
 .container {
   display: flex;
   flex-direction: row;
 
   .children {
     width: 100%;
-    margin-right: 20px;
 
     &:last-child {
       margin-right: 0;
@@ -17,10 +18,9 @@
       justify-content: center;
       width: 100%;
       color: #fff;
-      padding: 14px;
+      padding: $margin3;
       padding-bottom: 13px;
       border: none;
-      font-size: 14px;
       text-align: center;
       text-decoration: none;
       cursor: pointer;

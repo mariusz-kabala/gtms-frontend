@@ -1,20 +1,13 @@
 @import 'scss/variables';
-@import 'scss/zindex';
+@import 'scss/mixins/zindex';
 
 .sidebar {
-  display: flex;
-  height: 100%;
-
   .sidebarContent {
     position: fixed;
-    top: 0;
     @include z-index(sidebar);
+    width: 250px;
     height: 100%;
-    background-color: $theme1;
-    transition: all 300ms ease-in;
-  }
-
-  .pushedContent {
+    overflow: hidden;
     transition: all 300ms ease-in;
   }
 

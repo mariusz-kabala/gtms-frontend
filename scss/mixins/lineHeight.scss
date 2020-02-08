@@ -1,0 +1,13 @@
+$line-height: (
+  xs: 0.8em,
+  default: 1.25em,
+  md: 1.4em,
+);
+
+@function line-height($key) {
+  @return map-get($line-height, $key);
+}
+
+@mixin line-height($key) {
+  line-height: line-height($key);
+}

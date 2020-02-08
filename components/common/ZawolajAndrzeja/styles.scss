@@ -1,0 +1,21 @@
+@import 'scss/variables';
+
+.wrapper {
+  ul {
+    li {
+      margin-bottom: $margin2;
+      cursor: pointer;
+
+      .item {
+        display: flex;
+        align-items: center;
+      }
+
+      &:hover {
+        span {
+          color: $theme5;
+        }
+      }
+    }
+  }
+}

@@ -22,8 +22,7 @@
     "react-google-recaptcha": "^2.0.1",
     "react-hook-form": "^3.29.4",
     "rxjs": "^6.5.3",
-    "use-key-hook": "^1.5.0",
-    "yup": "^0.28.0"
+    "use-key-hook": "^1.5.0"
   },
   "repository": {
     "type": "git",
@@ -71,6 +70,7 @@
     "nodemon": "^2.0.2",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.1",
+    "react-expanding-textarea": "^2.1.1",
     "react-hooks-testing-library": "^0.6.0",
     "react-icons": "^3.8.0",
     "react-test-renderer": "^16.12.0",

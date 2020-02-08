@@ -1,8 +1,9 @@
 import React from 'react'
 import App from 'next/app'
-import RulesProvider from 'providers/Rules'
-import 'scss/global.scss'
 import { appWithTranslation } from '../i18n'
+import RulesProvider from 'providers/Rules'
+import { NavigationDot } from 'components/common/NavigationDot'
+import 'scss/global.scss'
 
 class GTMSApp extends App {
   render() {
@@ -10,6 +11,7 @@ class GTMSApp extends App {
 
     return (
       <RulesProvider>
+        <NavigationDot />
         <Component {...pageProps} />
       </RulesProvider>
     )

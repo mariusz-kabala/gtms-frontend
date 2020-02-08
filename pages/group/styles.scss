@@ -1,0 +1,43 @@
+@import 'scss/variables';
+@import 'scss/mixins/header';
+@import 'scss/mixins/gridGallery';
+
+.wrapper {
+  // display: flex;
+  // min-height: 100%;
+
+  > .hide {
+    display: none;
+  }
+
+  div {
+    > img {
+      max-width: 100%;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .content {
+    padding: 0 40px; // @todo temporary - put it to variable or find global solutions for pages like that
+
+    // @todo temporary - remove it soon
+    > div {
+      margin-bottom: 40px;
+    }
+
+    .h2 {
+      @include header(h2, textUppercase, 500, 'one');
+      margin: $margin4 0;
+    }
+
+    .templist {
+      // @todo remove temp
+      @include gridGallery();
+    }
+  }
+
+  .temp {
+    @include gridGallery();
+  }
+}

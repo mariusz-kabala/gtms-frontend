@@ -3,91 +3,61 @@
 .checkboxWrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 0.6em;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.check {
-  cursor: pointer;
-  position: relative;
-  margin-right: 0.5em;
-  width: 18px;
-  height: 18px;
-  -webkit-tap-highlight-color: transparent;
-  transform: translate3d(0, 0, 0);
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(34, 50, 84, 0.03);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-
-  svg {
-    position: relative;
-    z-index: 1;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #c8ccd4;
-    stroke-width: 1.5;
+  .check {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     transform: translate3d(0, 0, 0);
-    transition: all 0.2s ease;
+
+    svg {
+      position: relative;
+      z-index: 1;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke: #c8ccd4;
+      stroke-width: 1.5;
+      transform: translate3d(0, 0, 0);
+      transition: all 0.2s ease;
+
+      path {
+        stroke-dasharray: 60;
+        stroke-dashoffset: 0;
+      }
+
+      polyline {
+        stroke-dasharray: 22;
+        stroke-dashoffset: 66;
+      }
+    }
+
+    &:hover {
+      svg {
+        stroke: $theme4;
+      }
+    }
   }
 
-  svg path {
-    stroke-dasharray: 60;
-    stroke-dashoffset: 0;
+  .input {
+    display: none;
+
+    &:checked + label svg {
+      stroke: $theme4;
+
+      path {
+        stroke-dashoffset: 60;
+        transition: all 0.3s linear;
+      }
+
+      polyline {
+        stroke-dashoffset: 42;
+        transition: all 0.2s linear;
+        transition-delay: 0.15s;
+      }
+    }
   }
 
-  svg polyline {
-    stroke-dasharray: 22;
-    stroke-dashoffset: 66;
+  .label {
+    margin-left: $margin1;
   }
-
-  &:hover:before {
-    opacity: 1;
-  }
-
-  &:hover svg {
-    stroke: $theme8;
-  }
-}
-
-.input {
-  display: none;
-}
-
-.input:checked + label svg {
-  stroke: $theme8;
-}
-
-.input:checked + label svg path {
-  stroke-dashoffset: 60;
-  transition: all 0.3s linear;
-}
-
-.input:checked + label svg polyline {
-  stroke-dashoffset: 42;
-  transition: all 0.2s linear;
-  transition-delay: 0.15s;
-}
-
-.label {
-  font-size: 0.8em;
-}
-
-.selected {
-  padding: 0.75em;
-  border-top: 1px solid lightgray;
-  background: $theme6;
 }

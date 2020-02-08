@@ -6,8 +6,8 @@ import styles from './styles.scss'
 
 export const RulesPage: NextPage<IWithTranslations> = ({ t }) => {
   return (
-    <div className={styles.page}>
-      <p>{t('header.subtitle')}</p>
+    <div className={styles.wrapper}>
+      <h2 className={styles.header}>{t('header.subtitle')}</h2>
       <article className={styles.rules}>
         <p>
           Zgodnie z art. 13 ust. 1 i ust. 2 Rozporządzenia Parlamentu
@@ -52,9 +52,7 @@ export const RulesPage: NextPage<IWithTranslations> = ({ t }) => {
           formie profilowania
         </p>
       </article>
-      <div>
-        <AcceptRulesButton />
-      </div>
+      <AcceptRulesButton />
     </div>
   )
 }

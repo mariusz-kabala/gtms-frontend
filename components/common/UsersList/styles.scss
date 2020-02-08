@@ -1,0 +1,26 @@
+@import 'scss/variables';
+
+.wrapper {
+  overflow: hidden;
+
+  ul {
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: $margin2;
+      cursor: pointer;
+
+      img {
+        max-width: 45px;
+      }
+
+      span {
+        margin-left: $margin2;
+      }
+
+      &:hover {
+        color: $theme5;
+      }
+    }
+  }
+}

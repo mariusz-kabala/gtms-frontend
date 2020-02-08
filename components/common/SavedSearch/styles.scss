@@ -1,12 +1,11 @@
 @import 'scss/variables';
 
 .search {
-  margin-bottom: 1em;
-  padding: 0.5em;
-  font-size: 0.85em;
-  color: $theme6;
+  margin-bottom: 1em; // @todo put it to variable somehow
+  padding: 0.5em; // @todo put it to variable somehow
+  color: $theme7;
   background: $theme1;
-  border: 1px solid $theme6;
+  border: 1px solid $theme7;
   cursor: pointer;
 
   &:last-child {
@@ -17,8 +16,7 @@
     display: flex;
 
     .tag {
-      font-size: 1.3em;
-      margin-left: 0.5em;
+      margin-left: 0.5em; // @todo put it to variable somehow
 
       &:first-child {
         margin-left: 0;
@@ -35,7 +33,7 @@
   }
 
   &.active {
-    border-color: $theme4;
-    background: $theme4;
+    border-color: $theme5;
+    background: $theme5;
   }
 }

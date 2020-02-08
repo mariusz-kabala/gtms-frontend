@@ -1,8 +1,10 @@
 @import '../node_modules/reset-css/sass/reset';
+@import './resetCustom.scss';
 @import './variables.scss';
+@import './mixins/fontSize.scss';
+@import './mixins/lineHeight.scss';
 
 html {
-  font-family: $defaultFontFamily;
   box-sizing: border-box;
 }
 
@@ -12,12 +14,16 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  background: $theme1;
-}
-
 html,
 body,
 body > div:first-of-type {
   height: 100%;
+}
+
+body {
+  font-family: 'Lato,sans-serif', 'Open Sans', 'Helvetica Neue', sans-serif;
+  @include font-size(default);
+  @include line-height(default);
+  color: $theme7;
+  background: $theme1;
 }

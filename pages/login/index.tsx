@@ -37,20 +37,20 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
 
   return (
     <div className={styles.wrapper} data-testid="login-page">
-      <div className={styles.right}>
+      <div className={styles.text}>
         <div>
           {error && <div data-testid="login-page-error">{t(error)}</div>}
-          <h1>Andrzej can be found</h1>
+          <h1>Nisi excepteur aliqua</h1>
           <p>
             Tempor irure qui excepteur ipsum excepteur qui pariatur deserunt
             consequat consequat est. Non eiusmod ea non cupidatat occaecat do
             cupidatat in duis ipsum velit veniam incididunt.
           </p>
-          <p>
-            Ad amet sunt voluptate consequat aliquip pariatur. Quis laboris
-            incididunt elit.
-          </p>
           <LoginForm />
+          <SocialButtons
+            additionalStyles={styles.socialButtons}
+            onFailure={() => setError('socialMediaLoginFailed')}
+          />
           <div className={styles.actionButtons}>
             <Link href="/registration">
               <Button additionalStyles={styles.btnForgotPassword}>
@@ -63,14 +63,10 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
               </Button>
             </Link>
           </div>
-          <SocialButtons
-            additionalStyles={styles.socialButtons}
-            onFailure={() => setError('socialMediaLoginFailed')}
-          />
         </div>
       </div>
       <div
-        className={styles.left}
+        className={styles.image}
         style={{ backgroundImage: `url('/images/temp_images/andrew_bg.jpg')` }}
       ></div>
     </div>

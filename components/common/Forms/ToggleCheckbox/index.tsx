@@ -1,50 +1,34 @@
 import React, { FC } from 'react'
+import cx from 'classnames'
 import styles from './styles.scss'
 import { ElementLike } from 'react-hook-form/dist/types'
 
 export const ToggleCheckbox: FC<{
   additionalStyles?: string
   checked?: boolean
-  labelChecked?: string
-  labelUnchecked?: string
-  name?: string
   onChange?: () => unknown
   reference?: (ref: ElementLike | null) => void
-  lockerIcon?: boolean
-}> = ({
-  additionalStyles,
-  checked = false,
-  labelChecked,
-  labelUnchecked,
-  name,
-  onChange,
-  reference,
-  lockerIcon,
-}) => (
+}> = ({ additionalStyles, checked, onChange, reference }) => (
   <div
-    onClick={onChange}
-    className={additionalStyles}
+    className={cx(styles.wrapper, additionalStyles, {
+      [styles.checked]: checked,
+    })}
     data-testid="toggle-checkbox"
+    onClick={onChange}
   >
-    <label className={styles.switch}>
-      <input
-        className={styles.input} /* @todo name it properly */
-        defaultChecked={checked}
-        ref={reference}
-        type="checkbox"
-        name={name}
-        id={name}
-      />
-      <span>
-        {lockerIcon && (
-          <span
-            data-testid="toggle-checkbox-locker-icon"
-            className={styles.locker}
-          />
-        )}
-        <span className={styles.textLabelChecked}>{labelChecked}</span>
-        <span className={styles.textLabelUnchecked}>{labelUnchecked}</span>
-      </span>
-    </label>
+    <input ref={reference} className={styles.inputCheckbox} type="checkbox" />
+    <div className={styles.checkmark}>
+      <span>off</span>
+      <svg viewBox="0 0 100 100">
+        <path
+          d="M20,55 L40,75 L77,27"
+          fill="none"
+          stroke="#FFF"
+          strokeWidth="15"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
   </div>
 )

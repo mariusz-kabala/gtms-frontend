@@ -8,8 +8,13 @@ import {
   IoIosCompass,
   IoIosFingerPrint,
 } from 'react-icons/io'
+import { useAuth } from 'hooks/auth'
+import { Logout } from 'components/common/Logout'
+import { UserAvatar } from 'components/common/UserAvatar'
 
 export const Navigation: FC<{}> = () => {
+  const { isLogged } = useAuth()
+
   const links = [
     {
       id: 0,
@@ -51,17 +56,34 @@ export const Navigation: FC<{}> = () => {
 
   return (
     <nav className={styles.wrapper} data-testid="navigation">
+      <UserAvatar
+        additionalStyles={styles.userAvatar}
+        image="/images/temp_images/pl-rock-logo.png"
+        responsive
+      />
+
+      {/* here to avoid <> fragment */}
+      {/* @todo check if it can be placed in scss file */}
+      <style global jsx>
+        {`
+          body {
+            padding-left: 50px;
+          }
+        `}
+      </style>
+
       <ul>
         {links.map((value, index) => {
           return (
             <li className={styles.link} key={index}>
               <a>
                 <i>{value.icon}</i>
-                {value.label}
+                <span>{value.label}</span>
               </a>
             </li>
           )
         })}
+        <li>{isLogged && <Logout />}</li>
       </ul>
     </nav>
   )

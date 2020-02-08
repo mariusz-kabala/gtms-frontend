@@ -1,0 +1,9 @@
+@import 'scss/variables.scss';
+@import 'scss/mixins/button.scss';
+
+.form {
+  .btnSubmit {
+    @include btnWidth100;
+    margin-top: $margin3;
+  }
+}

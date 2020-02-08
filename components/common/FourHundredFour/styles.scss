@@ -1,10 +1,8 @@
 @import 'scss/variables';
 
-$color1: $theme1;
-
 .animated {
   position: relative;
-  background-color: $color1;
+  background-color: $theme1;
   margin: auto;
 
   .content {

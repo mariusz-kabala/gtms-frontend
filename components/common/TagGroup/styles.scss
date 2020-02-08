@@ -1,9 +1,12 @@
-.tagGroup {
-  > div {
-    margin-left: 5px;
+@import 'scss/variables';
+@import 'scss/mixins/fontSize';
 
-    &:first-child {
-      margin-left: 0;
-    }
+.tagGroup {
+  @include font-size(sm);
+
+  > div {
+    margin-right: $margin1;
+    margin-bottom: $margin1;
+    padding: 2px $margin1;
   }
 }

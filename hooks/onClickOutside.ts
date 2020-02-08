@@ -5,7 +5,7 @@ import { useEffect, RefObject } from 'react'
 //   // Create a ref that we add to the element for which we want to detect outside clicks
 //   const ref = useRef();
 //   // State for our modal
-//   const [isModalOpen, setModalOpen] = useState(false);
+//   const [isModalOpen, setModalOpen] = useState<boolean>(false)
 //   // Call hook passing in the ref and a function to call on outside click
 //   useOnClickOutside(ref, () => setModalOpen(false));
 

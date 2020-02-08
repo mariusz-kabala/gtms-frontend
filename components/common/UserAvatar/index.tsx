@@ -5,13 +5,15 @@ import cx from 'classnames'
 export const UserAvatar: FC<{
   additionalStyles?: string
   image: string
-  onClick: () => unknown
-  userName: string
-}> = ({ additionalStyles, image, onClick, userName }) => (
+  onClick?: () => unknown
+  responsive: boolean
+}> = ({ additionalStyles, image, onClick, responsive = false }) => (
   <div
     data-testid="user-avatar"
     onClick={onClick}
-    className={cx(styles.container, additionalStyles)}
+    className={cx(styles.container, additionalStyles, {
+      [styles.responsive]: responsive,
+    })}
   >
     <img
       data-testid="user-avatar-image"
@@ -19,8 +21,5 @@ export const UserAvatar: FC<{
       src={image}
       alt="user avatar"
     />
-    <span data-testid="user-avatar-label" className={styles.nameSurname}>
-      {userName}
-    </span>
   </div>
 )

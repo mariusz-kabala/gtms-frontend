@@ -1,33 +1,14 @@
 @import 'scss/variables';
 
-$color1: $theme6;
-$color2: $theme4;
-$fontSize1: 0.85rem;
-
 .container {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-
-  .avatar {
-    max-width: 25px;
+  img {
+    width: 100%;
+    max-width: 35px;
   }
 
-  .nameSurname {
-    margin: 0 0.7em;
-    font-size: $fontSize1;
-    color: $color1;
-
-    span {
-      margin-left: 0.3em;
-    }
-  }
-
-  &:hover {
-    background: $color2;
-
-    .nameSurname {
-      color: $color1;
+  &.responsive {
+    img {
+      max-width: 100%;
     }
   }
 }

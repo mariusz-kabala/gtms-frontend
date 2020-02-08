@@ -1,5 +1,5 @@
 @import 'scss/variables';
-@import 'scss/zindex';
+@import 'scss/mixins/zindex';
 
 .modal {
   position: fixed;
@@ -13,10 +13,7 @@
   height: 100%;
 
   .content {
-    position: relative;
     @include z-index(modalContent);
-    background: $theme6;
-    padding: 20px;
-    border-radius: 2px;
+    background: $theme0;
   }
 }

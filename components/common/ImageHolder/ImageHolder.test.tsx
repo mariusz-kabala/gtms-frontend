@@ -1,13 +1,13 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { ImageCover } from './index'
+import { ImageHolder } from './index'
 import styles from './styles.scss'
 
-describe('<ImageCover />', () => {
+describe('<ImageHolder />', () => {
   it('Should be on the page', () => {
-    const { getByTestId, container } = render(<ImageCover />)
+    const { getByTestId, container } = render(<ImageHolder src={'url'} />)
 
-    expect(getByTestId('image-cover')).toBeInTheDocument()
+    expect(getByTestId('imageHolder')).toBeInTheDocument()
     expect(container.querySelector(`.${styles.wrapper}`)).toBeInTheDocument()
   })
 })
