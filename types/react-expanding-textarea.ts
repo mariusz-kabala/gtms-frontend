@@ -1,1 +1,1 @@
-declare module 'use-key-hook'
+declare module 'react-expanding-textarea'
