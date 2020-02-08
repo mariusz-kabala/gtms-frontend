@@ -1,4 +1,4 @@
-export interface ILoginData {
+export interface IUserNameData {
   name: string
   surname: string
 }

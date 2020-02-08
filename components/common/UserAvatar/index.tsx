@@ -6,7 +6,7 @@ export const UserAvatar: FC<{
   additionalStyles?: string
   image: string
   onClick?: () => unknown
-  responsive: boolean
+  responsive?: boolean
 }> = ({ additionalStyles, image, onClick, responsive = false }) => (
   <div
     data-testid="user-avatar"

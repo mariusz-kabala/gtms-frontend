@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
-import { UserAvatar } from 'components/common/UserAvatar'
 
 const mockData = [
   {

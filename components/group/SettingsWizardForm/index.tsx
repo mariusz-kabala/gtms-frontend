@@ -32,15 +32,11 @@ export const SettingsWizardForm: FC<{}> = () => {
       return
     }
 
-    setIsMakingRequest(true)
-
     try {
       await loginUser(data)
     } catch (err) {
       setError('email', 'invalid')
     }
-
-    setIsMakingRequest(false)
   }
 
   return (
