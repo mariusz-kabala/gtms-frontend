@@ -16,7 +16,8 @@ export const DeleteAccount: FC = () => {
         >
           <div>
             {/* @todo create mixin for headers */}
-            <h2>Are you sure youd like to delete your account?</h2>
+            {/* @todo remove youd like hack for comma when translation applied */}
+            <h2>Are you sure {`you'd`} like to delete your account?</h2>
             <div className={styles.buttons}>
               <Button
                 additionalStyles={styles.no}
