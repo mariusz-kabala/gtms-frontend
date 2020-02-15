@@ -1,5 +1,6 @@
 @import 'scss/variables';
 @import 'scss/mixins/zindex';
+@import 'scss/mixins/fontSize.scss';
 
 .modal {
   position: fixed;
@@ -7,13 +8,22 @@
   top: 0;
   @include z-index(modal);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
 
   .content {
+    display: flex;
+    flex-direction: column;
     @include z-index(modalContent);
-    background: $theme0;
+
+    i {
+      @include font-size(xlg);
+      margin-left: auto;
+      margin-bottom: $margin2;
+      cursor: pointer;
+    }
   }
 }

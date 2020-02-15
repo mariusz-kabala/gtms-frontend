@@ -61,4 +61,14 @@ describe('<Modal />', () => {
 
     expect(onClose).toBeCalledTimes(1)
   })
+
+  it('Should close modal button be on the page', () => {
+    const { getByTestId } = render(
+      <Modal onClose={jest.fn()}>
+        <span>content</span>
+      </Modal>
+    )
+
+    expect(getByTestId('close-modal-button')).toBeInTheDocument()
+  })
 })

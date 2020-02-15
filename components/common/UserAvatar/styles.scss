@@ -1,13 +1,13 @@
 @import 'scss/variables';
 
 .container {
-  img {
+  .avatar {
     width: 100%;
-    max-width: 35px;
+    max-width: 25px;
   }
 
   &.responsive {
-    img {
+    .avatar {
       max-width: 100%;
     }
   }

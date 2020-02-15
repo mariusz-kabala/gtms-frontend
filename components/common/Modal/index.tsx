@@ -4,6 +4,7 @@ import cx from 'classnames'
 import { Overlay } from 'components/common/Overlay'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
+import { IoIosCloseCircleOutline } from 'react-icons/io'
 
 export const Modal: FC<{
   additionalStyles?: string
@@ -22,7 +23,12 @@ export const Modal: FC<{
 
   return (
     <div className={cx(styles.modal, additionalStyles)} data-testid="modal">
-      <div className={styles.content}>{children}</div>
+      <div className={styles.content}>
+        <i data-testid="close-modal-buton" onClick={onClose}>
+          <IoIosCloseCircleOutline />
+        </i>
+        {children}
+      </div>
       <Overlay onClick={onClose} />
     </div>
   )

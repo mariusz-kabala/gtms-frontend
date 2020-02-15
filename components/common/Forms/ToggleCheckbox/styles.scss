@@ -1,7 +1,7 @@
 @import 'scss/variables';
 @import 'scss/mixins/fontSize';
 
-$duration: 1s;
+$duration: 0.5s;
 
 @mixin checked() {
   ~ .checkmark {

@@ -1,4 +1,16 @@
 @import 'scss/variables';
 
 .postSingle {
+  .user {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: $margin1;
+    }
+  }
+
+  .tags {
+    margin-top: 10px;
+  }
 }

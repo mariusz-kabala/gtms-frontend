@@ -61,6 +61,7 @@ export const GroupList: FC<{}> = () => (
     <ul>
       {mockData.map((value, index) => (
         <li key={index}>
+          {/* @todo remove ImageHolder here - it's only for showing how this components works */}
           <ImageHolder src={value.image} additionalStyles={styles.image} />
           <div className={styles.desc}>
             <h3>Group title</h3>

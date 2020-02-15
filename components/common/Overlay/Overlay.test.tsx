@@ -4,7 +4,7 @@ import { Overlay } from './index'
 
 describe('<Overlay />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<Overlay onClick={jest.fn()} />)
+    const { getByTestId } = render(<Overlay />)
 
     expect(getByTestId('overlay')).toBeInTheDocument()
   })

@@ -18,6 +18,8 @@ export const GroupPage: NextPage<{}> = () => {
         <PostSingle />
         <PostSingle />
       </div>
+      <GroupList />
+
       <div className={styles.hide}>
         <div>
           <img src="https://images.pexels.com/photos/620335/pexels-photo-620335.jpeg" />
@@ -25,7 +27,6 @@ export const GroupPage: NextPage<{}> = () => {
         <div className={styles.content}>
           <div>
             <h2 className={styles.h2}>Ostatnio dodane</h2>
-            <GroupList />
           </div>
           <div className={styles.templist}>
             <div>
