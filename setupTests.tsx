@@ -11,7 +11,7 @@ process.env.FE_API_URL = ''
 
 // eslint-disable-next-line
 window.FB = {} as any
-jest.mock('i18n', () => ({
+jest.mock('@gtms/commons/i18n', () => ({
   useTranslation: jest.fn().mockImplementation(() => ({
     t: (key: string) => key,
   })),

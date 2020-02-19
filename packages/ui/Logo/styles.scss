@@ -1,0 +1,12 @@
+@import '~@gtms/styles/scss/variables';
+
+.logo {
+  display: flex;
+  justify-content: center;
+
+  > img {
+    display: block;
+    max-width: 350px;
+    margin-bottom: 10px;
+  }
+}

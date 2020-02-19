@@ -6,20 +6,14 @@ It is a React app with SSR support
 
 # Requirements
 
-- Use only `npm`, please do not use `yarn` or any other package manager. Do not commit `yarn.lock` into repo
+- Use only `yarn`, please do not use `npm` or any other package manager. This repo is using yarn workspaces feature and yarn is required
 
 # Running the project
 
 ### Install dependencies
 
 ```bash
-npm i
-```
-
-### Start DEV Environment
-
-```bash
-npm run dev
+yarn
 ```
 
 ### Start FAKE API server
@@ -34,16 +28,53 @@ npm run fake-api
 npm run fake-api:watch
 ```
 
-### Build production bundle
+# MONOREPO STRUCTURE
 
-```bash
-npm run build
+Inside `packages` dir lie all independent packages. Current structure
+
+- `api-*` - packages responsible for communication with BE
+- `commons` - reusable, common code, different purposes
+- `styles` - global scss, mixins, variables
+- `ui` - common, reusable, simple UI components, without any buissnes logic
+- `state-*` - packages to manage apps state
+- `app-*` - standalone applications
+
+For most packages code is located in `src` folder but there are exceptions like: 
+- `commons` or `ui`
+
+if there is no `src` folder inside package it means that you **SHOULD NOT** import directly from that package, for example
+
+```
+import { Button } from @gtms/ui
 ```
 
-### Run production bundle (only after building it)
+**IS NOT CORRECT**, do:
+
+```
+import { Button } from @gtms/ui/Button
+```
+
+so webpack can do proper tree-shaking and make better prod build
+
+### COMMANDS:
+
+
+You can run or build only `app-*` packages. To run an app in dev mode:
 
 ```bash
-npm run start
+yarn workspace @gtms/app-${APP_NAME_HERE} dev
+```
+
+To create production bundle of an app
+
+```bash
+yarn workspace @gtms/app-${APP_NAME_HERE} build
+```
+
+To run prod bundle
+
+```bash
+yarn workspace @gtms/app-${APP_NAME_HERE} start
 ```
 
 # ENVIRONMENT VARIABLES
@@ -90,50 +121,22 @@ Unit tests are mandatory, tests are running with `jest` and `react-testing-libra
 You can always check current coverage by using this command:
 
 ```bash
-npm run test:coverage
+yarn test:coverage
 ```
 
 To run all the tests simple type:
 
 ```bash
-npm t
+yarn test
 ```
 
 To run test cases in watch mode (only on files that you changed, useful during dev process) use:
 
 ```bash
-npm t -- --watch
+yarn test --watch
 ```
 
 Keep the test file next to the file with code. The only exception are pages - as `nextjs` requires to have only pages code in `pages` dir. Tests for pages should be located in `./__test__` - use this folder only for that
-
-# Import aliases
-
-Please do not use relative imports in case if folder has an alias, aliases are defined in `next.config.js`, `tsconfig.json` and `jest.config.js` - REMEMBER: those files need to be updated in order to add a new alias
-
-### Current list of aliases:
-
-- `providers` => `./providers`
-- `api` => `./api`
-- `helpers` => `./helpers`
-- `state` => `./state`
-- `i18n` => `./i18n`
-- `hooks` => `./hooks`
-- `server` => `./server`
-- `scss` => `./scss`
-- `components` => `./components`
-
-### Bad import example:
-
-```javascript
-import { fetchJSON } from '../../api'
-```
-
-### Good import example:
-
-```javascript
-import { fetchJSON } from 'api'
-```
 
 ### Do not use default exports, only if it is required by next.js (like for pages for example)
 

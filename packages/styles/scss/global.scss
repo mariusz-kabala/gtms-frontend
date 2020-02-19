@@ -1,0 +1,23 @@
+@import '~reset-css/sass/reset';
+@import './variables.scss';
+
+html {
+  font-family: $defaultFontFamily;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: $theme1;
+}
+
+html,
+body,
+body > div:first-of-type {
+  height: 100%;
+}

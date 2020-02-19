@@ -1,0 +1,58 @@
+@import '~@gtms/styles/scss/variables';
+
+$color1: #feed01;
+$color2: #e20612;
+$color3: #009fe3;
+$color4: #61b22f;
+$color5: #fbb400;
+
+$width: 6px;
+$height: 45px;
+
+.spinner {
+  display: inline-block;
+  height: $height;
+  min-height: $height;
+  text-align: center;
+
+  > div {
+    margin-right: 3px;
+    height: 100%;
+    width: $width;
+    background-color: $color1;
+    display: inline-block;
+
+    animation: animation1 1.2s infinite ease-in-out;
+  }
+
+  .rect2 {
+    animation-delay: -1.1s;
+    background: $color2;
+  }
+
+  .rect3 {
+    animation-delay: -1s;
+    background: $color3;
+  }
+
+  .rect4 {
+    animation-delay: -0.9s;
+    background: $color4;
+  }
+
+  .rect5 {
+    animation-delay: -0.8s;
+    background: $color5;
+  }
+}
+
+@keyframes animation1 {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}

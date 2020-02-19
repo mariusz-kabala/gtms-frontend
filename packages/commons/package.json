@@ -1,0 +1,11 @@
+{
+  "name": "@gtms/commons",
+  "version": "0.0.1",
+  "source": "./index.ts",
+  "module": "./index.ts",
+  "main": "./index.ts",
+  "dependencies": {
+    "@gtms/api-auth": "0.0.1",
+    "@gtms/state-user": "0.0.1"
+  }
+}
