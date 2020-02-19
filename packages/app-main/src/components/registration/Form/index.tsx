@@ -1,6 +1,6 @@
 import React, { useState, FC } from 'react'
 import styles from './styles.scss'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { registerUserAccount } from '@gtms/state-user'
 import { IRegistrationData } from '@gtms/api-auth'

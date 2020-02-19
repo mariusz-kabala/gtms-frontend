@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "experimentalDecorators": true,
     "module": "commonjs",
@@ -9,5 +9,5 @@
     "outDir": "dist",
     "noEmit": false
   },
-  "include": ["server.ts"]
+  "include": ["src/server.ts"]
 }

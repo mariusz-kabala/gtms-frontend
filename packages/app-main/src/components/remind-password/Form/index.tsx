@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Button } from '@gtms/ui/Button'

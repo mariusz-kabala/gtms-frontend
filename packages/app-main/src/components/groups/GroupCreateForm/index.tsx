@@ -1,5 +1,5 @@
 import React from 'react'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IGroupCreateData } from '@gtms/api-group'
 import { NFC } from '@gtms/commons/types/nfc.d'

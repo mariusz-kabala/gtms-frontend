@@ -22,7 +22,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx"],
-  "files": ["node_modules/@testing-library/jest-dom/extend-expect.d.ts"]
+  "exclude": ["/node_modules/**/*"],
+  "include": ["packages/**/*", "**/*.d.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -1,5 +1,5 @@
-@import 'scss/variables.scss';
-@import 'scss/zindex.scss';
+@import '../variables.scss';
+@import '../zindex.scss';
 
 @mixin formWrapperBasic() {
   display: flex;

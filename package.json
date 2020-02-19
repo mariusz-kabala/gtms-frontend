@@ -48,6 +48,10 @@
     "@types/react-dom": "^16.9.5",
     "@types/react-facebook-login": "^4.1.1",
     "@types/react-test-renderer": "^16.9.2",
+    "@types/testing-library__dom": "^6.12.1",
+    "@types/testing-library__jest-dom": "^5.0.1",
+    "@types/testing-library__react": "^9.1.2",
+    "@types/testing-library__react-hooks": "^3.2.0",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
     "autoprefixer": "^9.7.4",
@@ -68,6 +72,9 @@
     "jsonwebtoken": "^8.5.1",
     "lint-staged": "^10.0.7",
     "mutationobserver-shim": "^0.3.3",
+    "next-compose-plugins": "^2.2.0",
+    "next-plugin-custom-babel-config": "^1.0.2",
+    "next-transpile-modules": "^3.0.2",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
@@ -93,21 +100,17 @@
       "npm run eslint -- --fix"
     ],
     "*.{json,css,scss,md,js,jsx,ts,tsx}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "scripts": {
     "test": "jest",
-    "test:coverage": "npm t -- --coverage --changedSince=origin/master",
+    "test:coverage": "yarn test -- --coverage --changedSince=origin/master",
     "prettier:fix": "pretty-quick --staged",
     "prettier": "prettier --write '**/*.{js,jsx,json,css,scss,less,md,ts,tsx}'",
-    "preversion": "npm run check:ts && npm run eslint && npm run test:coverage",
+    "preversion": "yarn check:ts && npm run eslint && npm run test:coverage",
     "eslint": "eslint \"**/*.ts\" \"**/*.tsx\"",
     "check:ts": "tsc --noEmit -p tsconfig.json",
-    "build": "next build && tsc --project tsconfig.server.json",
-    "dev": "cross-env NODE_ENV=development API_URL=http://localhost:9000 FE_API_URL=/api nodemon",
-    "start": "cross-env NODE_ENV=production node dist/server.js",
     "fake-api": "dyson .fakeAPI",
     "fake-api:watch": "nodemon --watch .fakeAPI --exec dyson .fakeAPI",
     "release": "standard-version"
