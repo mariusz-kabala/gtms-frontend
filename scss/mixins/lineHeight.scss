@@ -1,7 +1,7 @@
 $line-height: (
-  xs: 0.8em,
-  default: 1.25em,
-  md: 1.4em,
+  xs: 0.8,
+  default: 1.25,
+  md: 1.4,
 );
 
 @function line-height($key) {

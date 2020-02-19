@@ -11,16 +11,15 @@ export const GroupPage: NextPage<{}> = () => {
   return (
     <div className={styles.wrapper}>
       <Navigation />
-      <div className={styles.temp}>
-        <PostSingle />
-        <PostSingle />
-        <PostSingle />
-        <PostSingle />
-        <PostSingle />
-      </div>
-      <GroupList />
-
       <div className={styles.hide}>
+        <div className={styles.temp}>
+          <PostSingle />
+          <PostSingle />
+          <PostSingle />
+          <PostSingle />
+          <PostSingle />
+        </div>
+        <GroupList />
         <div>
           <img src="https://images.pexels.com/photos/620335/pexels-photo-620335.jpeg" />
         </div>

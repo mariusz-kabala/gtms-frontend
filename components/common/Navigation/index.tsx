@@ -67,7 +67,7 @@ export const Navigation: FC<{}> = () => {
       <style global jsx>
         {`
           body {
-            padding-left: 50px;
+            padding-left: 40px;
           }
         `}
       </style>

@@ -6,26 +6,33 @@
   position: fixed;
   left: 0;
   @include z-index(navigation);
-  width: 50px;
+  width: 40px;
   height: 100%;
-  background: $theme0;
+  background: $theme2;
   color: $theme7;
   cursor: pointer;
   transition: 300ms all;
 
   .userAvatar {
-    padding: 8px;
-    padding-bottom: 0;
+    display: block;
+    margin-left: 4px;
 
     img {
-      width: 34px;
+      margin-top: 5px;
+      margin-bottom: $margin2;
+      width: 32px;
+      border: 4px solid $theme0;
     }
   }
 
   li {
     display: flex;
-    margin-top: 1em; //@todo put it to variable somehow?
-    padding: 0 $margin3;
+    margin-top: $margin3;
+    padding: 0 $margin2;
+
+    &:first-child {
+      margin-top: 0;
+    }
 
     a {
       display: flex;

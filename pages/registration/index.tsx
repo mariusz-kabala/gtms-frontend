@@ -28,11 +28,12 @@ export const RegistrationPage: NextPage<{}> = () => {
       <div className={styles.text}>
         <div>
           {error && <div data-testid="registration-page-error">{t(error)}</div>}
-          <h1>Nisi excepteur aliqua</h1>
+          <h1>
+            ANDRZEJ CAN BE FOUND
+          </h1>
           <p>
-            Tempor irure qui excepteur ipsum excepteur qui pariatur deserunt
-            consequat consequat est. Non eiusmod ea non cupidatat occaecat do
-            cupidatat in duis ipsum velit veniam incididunt.
+            W tym roku, go znajdziemy! Latami przeczesywaliśmy lasy wołając Andrzeja. teraz czas na internet. Tu go ODnajdziemy.
+            We will bring him home.
           </p>
           <RegistrationForm />
           <SocialButtons

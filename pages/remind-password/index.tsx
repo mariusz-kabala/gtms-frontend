@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { AnimatedComponent } from 'components/common/AnimatedComponent'
 import { NextPage, NextPageContext } from 'next'
-import { Logo } from 'components/common/Logo'
 import { RemindPasswordForm } from 'components/remind-password/Form'
 import { useTranslation, Link } from 'i18n'
 import { initAuthSession } from 'helpers/auth'
@@ -15,26 +13,19 @@ export const RemindPasswordPage: NextPage<{}> = () => {
 
   return (
     <div data-testid="remind-password-page" className={styles.wrapper}>
-      <div>
-        {' '}
-        {/* this div is needed for css purpouse */}
-        <AnimatedComponent>
-          <Logo />
-        </AnimatedComponent>
-        {!showConfirmation && (
-          <RemindPasswordForm onSuccess={() => setShowConfirmation(true)} />
-        )}
-        {showConfirmation && (
-          <p data-testid="remind-password-success-confirmation">{t('info')}</p>
-        )}
-        <Link href={`/login`}>
-          <a>{t('goToLoginPage')}</a>
-        </Link>
-        <span>
-          {/* @todo remove temporary code */}
-          {t('subtitle')}
-        </span>
-      </div>
+      {!showConfirmation && (
+        <RemindPasswordForm onSuccess={() => setShowConfirmation(true)} />
+      )}
+      {showConfirmation && (
+        <p data-testid="remind-password-success-confirmation">{t('info')}</p>
+      )}
+      <Link href={`/login`}>
+        <a>{t('goToLoginPage')}</a>
+      </Link>
+      <span>
+        {/* @todo remove temporary code */}
+        {t('subtitle')}
+      </span>
     </div>
   )
 }

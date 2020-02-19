@@ -14,9 +14,9 @@ export const ExpandingItem: FC<{
         </div>
       )}
       {!isActive && (
-        <span data-testid="expandingItemLabel" className={styles.label}>
+        <div data-testid="expandingItemLabel" className={styles.label}>
           {label}
-        </span>
+        </div>
       )}
     </div>
   )

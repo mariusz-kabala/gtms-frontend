@@ -8,35 +8,33 @@
   display: flex;
   height: 100%;
   background: $theme0;
+  font-family: 'Bebas Neue';
 
   .image {
-    width: 65%;
+    width: 56%;
     @include imageCover();
   }
 
   .text {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 0 40px; // @todo put to variable
-    width: 35%;
+    width: 44%;
 
     > div {
       width: 100%;
 
-      // @todo put belowe into one place
-      h1,
-      p {
-        margin-bottom: $margin3;
-      }
-
       h1 {
         @include header(h1, textUppercase, 500);
         text-transform: uppercase;
+        font-size: 9em;
+        font-weight: 600;
+        white-space: nowrap;
+        margin-top: $margin5;
       }
 
       p {
+        @include font-size(xlg);
+
         &:last-child {
           margin-bottom: 40px;
         }

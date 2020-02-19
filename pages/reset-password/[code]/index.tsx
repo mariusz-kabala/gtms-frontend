@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
-import { AnimatedComponent } from 'components/common/AnimatedComponent'
-import { Logo } from 'components/common/Logo'
 import { ResetPasswordForm } from 'components/reset-password/Form'
 import { Spinner } from 'components/common/Spinner'
 import { useTranslation } from 'i18n'
@@ -25,9 +23,9 @@ export const ResetPasswordPage: NextPage<{}> = () => {
         setIsLoading(false)
       })
       .catch(() => {
-        router.push({
-          pathname: '/login',
-        })
+        // router.push({
+        //   pathname: '/login',
+        // })
       })
   }, [code])
 
@@ -35,10 +33,6 @@ export const ResetPasswordPage: NextPage<{}> = () => {
     <div className={styles.wrapper} data-testid="remind-password-page">
       <div>
         {' '}
-        {/* this div is needed for css purpouse */}
-        <AnimatedComponent>
-          <Logo />
-        </AnimatedComponent>
         {isLoading && <Spinner />}
         {!isLoading && !isPasswordChanged && (
           <ResetPasswordForm
