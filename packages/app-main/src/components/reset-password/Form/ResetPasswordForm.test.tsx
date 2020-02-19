@@ -2,19 +2,19 @@ import React from 'react'
 import { render, act } from '@testing-library/react'
 import { ResetPasswordForm, IResetPasswordFormData } from './index'
 import { FetchMock } from 'jest-fetch-mock'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 
 const fetchMock = fetch as FetchMock
 
-jest.mock('react-hook-form', () => {
-  return jest.fn().mockImplementation(() => ({
+jest.mock('react-hook-form', () => ({
+  useForm: jest.fn().mockImplementation(() => ({
     register: jest.fn(),
     handleSubmit: jest.fn(),
     errors: {},
     setError: jest.fn(),
-  }))
-})
+  })),
+}))
 
 describe('<ResetPasswordForm />', () => {
   beforeEach(() => {
