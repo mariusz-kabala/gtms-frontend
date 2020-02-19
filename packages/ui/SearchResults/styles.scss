@@ -1,0 +1,18 @@
+@import '@gtms/styles/scss/variables';
+
+.list {
+  display: flex;
+  color: $theme6;
+
+  li {
+    margin-right: 10px;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    img {
+      max-width: 135px;
+    }
+  }
+}

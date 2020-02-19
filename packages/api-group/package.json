@@ -1,0 +1,10 @@
+{
+  "name": "@gtms/api-group",
+  "version": "0.0.1",
+  "source": "src/index.ts",
+  "module": "src/index.ts",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@gtms/api-common": "0.0.1"
+  }
+}

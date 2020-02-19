@@ -1,0 +1,44 @@
+@import '@gtms/styles/scss/variables';
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  background: $theme1;
+  color: $theme6;
+  cursor: pointer;
+
+  li {
+    position: relative;
+    margin-bottom: 1em;
+    color: $theme6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
+      i {
+        margin-right: 0.75em;
+        line-height: 0;
+
+        > svg {
+          font-size: 1.3em;
+        }
+      }
+    }
+
+    &:hover {
+      background: $theme1;
+
+      a {
+        color: $theme4;
+      }
+    }
+  }
+}

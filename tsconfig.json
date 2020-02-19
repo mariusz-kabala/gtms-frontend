@@ -20,21 +20,9 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "paths": {
-      "providers/*": ["providers/*"],
-      "api/*": ["api/*"],
-      "helpers/*": ["helpers/*"],
-      "i18n": ["i18n.ts"],
-      "types": ["types/*"],
-      "state": ["state/*"],
-      "hooks": ["hooks/*"],
-      "server": ["server/*"],
-      "scss": ["scss/*"],
-      "components": ["components/*"]
-    }
+    "isolatedModules": true
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx"],
   "files": ["node_modules/@testing-library/jest-dom/extend-expect.d.ts"]
 }

@@ -1,0 +1,16 @@
+{
+  "name": "@gtms/main-app",
+  "version": "0.0.1",
+  "source": "src/index.ts",
+  "module": "src/index.ts",
+  "main": "src/index.ts",
+  "scripts": {},
+  "dependencies": {
+    "@gtms/api-auth": "0.0.1",
+    "@gtms/api-group": "0.0.1",
+    "@gtms/commons": "0.0.1",
+    "@gtms/state-user": "0.0.1",
+    "@gtms/styles": "0.0.1",
+    "@gtms/ui": "0.0.1"
+  }
+}
