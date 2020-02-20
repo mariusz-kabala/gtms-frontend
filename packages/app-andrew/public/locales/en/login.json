@@ -1,0 +1,22 @@
+{
+  "title": "Login",
+  "subtitle": "Fast and simple way to change something",
+  "form": {
+    "labels": {
+      "email": "Email address",
+      "password": "Password"
+    },
+    "validation": {
+      "email": {
+        "isRequired": "Email address is required"
+      },
+      "password": {
+        "isRequired": "Password is required"
+      }
+    },
+    "submitButton": "Login",
+    "socialMediaLoginFailed": "Login failed, try a little bit later, or contact us"
+  },
+  "goToRegistration": "No account yet? Register yourself!",
+  "goToRemindPassword": "Forgot your password? Click here"
+}

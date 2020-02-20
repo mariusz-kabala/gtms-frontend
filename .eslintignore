@@ -4,4 +4,4 @@ dist
 node_modules
 .next
 .fakeAPI
-packages/app-main/next.config.js
+next.config.js
