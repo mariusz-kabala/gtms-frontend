@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
-import { ElementLike } from 'react-hook-form/dist/types'
 
 export const ToggleCheckbox: FC<{
   additionalStyles?: string
@@ -9,7 +8,9 @@ export const ToggleCheckbox: FC<{
   labelUnchecked?: string
   name?: string
   onChange?: () => unknown
-  reference?: (ref: ElementLike | null) => void
+  reference?: (
+    ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
+  ) => void
   lockerIcon?: boolean
 }> = ({
   additionalStyles,

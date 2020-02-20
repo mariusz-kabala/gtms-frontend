@@ -1,13 +1,14 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { ElementLike } from 'react-hook-form/dist/types'
 
 export const Textarea: FC<{
   additionalStyles?: string
   name?: string
   placeholder?: string
-  reference?: (ref: ElementLike | null) => void
+  reference?: (
+    ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
+  ) => void
 }> = ({ additionalStyles, name, placeholder, reference }) => (
   <textarea
     data-testid="form-textarea"

@@ -74,7 +74,7 @@ describe('Auth helper', () => {
     expect(parseJwt).toBeCalledWith('fake-access-token')
     expect(setCookie).toBeCalledTimes(1)
     expect(fetchMock.mock.calls[0][0]).toBe('/v1/auth/refresh-token')
-    expect(fetchMock.mock.calls[0][1].body).toBe(
+    expect((fetchMock.mock.calls[0][1] as { body: string }).body).toBe(
       '{"token":"fake-refreshToken"}'
     )
 

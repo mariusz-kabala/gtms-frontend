@@ -1,14 +1,15 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { ElementLike } from 'react-hook-form/dist/types'
 
 export const Checkbox: FC<{
   additionalStyles?: string
   name?: string
   checked?: boolean
   label?: string
-  reference?: (ref: ElementLike | null) => void
+  reference?: (
+    ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
+  ) => void
   onChange?: () => unknown
 }> = ({
   additionalStyles,
