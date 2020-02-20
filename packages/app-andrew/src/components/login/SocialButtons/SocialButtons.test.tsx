@@ -76,7 +76,7 @@ describe('<SocialButtons />', () => {
 
     expect(fetchMock).toBeCalledTimes(1)
     expect(fetchMock.mock.calls[0][0]).toBe('/v1/auth/facebook')
-    expect(fetchMock.mock.calls[0][1].body).toBe(
+    expect((fetchMock.mock.calls[0][1] as { body: string }).body).toBe(
       '{"accessToken":"fake-token","id":"fake-id"}'
     )
   })
@@ -123,7 +123,7 @@ describe('<SocialButtons />', () => {
     expect(fetchMock).toBeCalled()
     expect(fakeonFailed).not.toBeCalled()
     expect(fetchMock.mock.calls[0][0]).toBe('/v1/auth/google')
-    expect(fetchMock.mock.calls[0][1].body).toEqual(
+    expect((fetchMock.mock.calls[0][1] as { body: string }).body).toEqual(
       JSON.stringify({ accessToken: 'fake-token', id: 'fake-id' })
     )
   })

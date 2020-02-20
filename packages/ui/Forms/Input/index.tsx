@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { ElementLike } from 'react-hook-form/dist/types'
 
 export const Input: FC<{
   additionalStyles?: string
@@ -9,7 +8,9 @@ export const Input: FC<{
   name?: string
   placeholder?: string
   type?: 'text' | 'email' | 'password'
-  reference?: (ref: ElementLike | null) => void
+  reference?: (
+    ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
+  ) => void
   onClick?: () => unknown
 }> = ({
   additionalStyles,

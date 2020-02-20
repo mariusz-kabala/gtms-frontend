@@ -97,7 +97,9 @@ describe('User service', () => {
 
     expect(fetchMock).toBeCalledTimes(1)
 
-    expect(fetchMock.mock.calls[0][1].body).toBe(JSON.stringify(fakeData))
+    expect((fetchMock.mock.calls[0][1] as { body: string }).body).toBe(
+      JSON.stringify(fakeData)
+    )
     expect(fetchMock.mock.calls[0][0]).toBe('/v1/auth/users')
 
     expect(userStore.update).toBeCalledTimes(1)
@@ -127,7 +129,9 @@ describe('User service', () => {
 
     expect(fetchMock).toBeCalledTimes(1)
     expect(fetchMock.mock.calls[0][0]).toBe('/v1/auth/authenticate')
-    expect(fetchMock.mock.calls[0][1].body).toBe(JSON.stringify(payload))
+    expect((fetchMock.mock.calls[0][1] as { body: string }).body).toBe(
+      JSON.stringify(payload)
+    )
     expect(userStore.update).toBeCalledTimes(1)
     expect(parseJwt).toBeCalledTimes(2)
 
@@ -162,7 +166,9 @@ describe('User service', () => {
 
     expect(fetchMock).toBeCalledTimes(1)
     expect(fetchMock.mock.calls[0][0]).toBe('/v1/auth/facebook')
-    expect(fetchMock.mock.calls[0][1].body).toBe(JSON.stringify(payload))
+    expect((fetchMock.mock.calls[0][1] as { body: string }).body).toBe(
+      JSON.stringify(payload)
+    )
     expect(userStore.update).toBeCalledTimes(1)
     expect(parseJwt).toBeCalledTimes(2)
 
@@ -197,7 +203,9 @@ describe('User service', () => {
 
     expect(fetchMock).toBeCalledTimes(1)
     expect(fetchMock.mock.calls[0][0]).toBe('/v1/auth/google')
-    expect(fetchMock.mock.calls[0][1].body).toBe(JSON.stringify(payload))
+    expect((fetchMock.mock.calls[0][1] as { body: string }).body).toBe(
+      JSON.stringify(payload)
+    )
     expect(userStore.update).toBeCalledTimes(1)
     expect(parseJwt).toBeCalledTimes(2)
 
