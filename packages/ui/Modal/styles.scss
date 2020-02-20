@@ -1,5 +1,6 @@
-@import '@gtms/styles/scss/variables';
-@import '@gtms/styles/scss/zindex';
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/zindex';
+@import '~@gtms/styles/scss/mixins/fontSize';
 
 .modal {
   position: fixed;
@@ -7,16 +8,22 @@
   top: 0;
   @include z-index(modal);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
 
   .content {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     @include z-index(modalContent);
-    background: $theme6;
-    padding: 20px;
-    border-radius: 2px;
+
+    i {
+      @include font-size(xlg);
+      margin-left: auto;
+      margin-bottom: $margin2;
+      cursor: pointer;
+    }
   }
 }
