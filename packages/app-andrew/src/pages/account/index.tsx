@@ -10,7 +10,7 @@ export const AccountPage: NextPage<{}> = () => {
   const { t } = useTranslation('account')
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid="account-page">
       <div className={styles.content}>
         <div className={styles.visibleForEveryone}>
           <span className={styles.visibilityLabel}>
