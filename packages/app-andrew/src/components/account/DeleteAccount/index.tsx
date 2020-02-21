@@ -2,13 +2,12 @@ import React, { FC, useState } from 'react'
 import { Button } from '@gtms/ui/Button'
 import { Modal } from '@gtms/ui/Modal'
 import styles from './styles.scss'
-// import { Link } from 'i18n'
 
 export const DeleteAccount: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
-    <div data-testid="deleteAccount">
+    <div data-testid="delete-account">
       {isModalOpen && (
         <Modal
           additionalStyles={styles.modalContent}
