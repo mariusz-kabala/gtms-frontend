@@ -30,7 +30,6 @@ export const PostSingle: FC<{
             onClick={() => setState(!state)}
             image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
             additionalStyles={styles.userAvatar}
-            userName="Marty McFly"
           />
           <p className={styles.text}>
             Ex sint non nisi laborum ex in esse aliquip non veniam. Excepteur
