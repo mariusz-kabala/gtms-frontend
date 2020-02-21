@@ -1,0 +1,6 @@
+// @todo this should be used on group page if it's not - remove it
+@mixin gridGallery() {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-gap: 1.5rem;
+}

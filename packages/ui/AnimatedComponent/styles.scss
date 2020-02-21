@@ -1,11 +1,7 @@
 @import '~@gtms/styles/scss/variables';
 
-$color1: $theme1;
-
 .animated {
   position: relative;
-  background-color: $color1;
-  margin: auto;
 
   .content {
     animation: sk-rotatePlane 1.8s ease-in-out;
