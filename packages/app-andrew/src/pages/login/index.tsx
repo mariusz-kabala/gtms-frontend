@@ -43,7 +43,7 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
           <h1>Andrzej can be found</h1>
           <p>
             Tempor irure qui excepteur ipsum excepteur qui pariatur deserunt
-            consequat aconsequat est. Non eiusmod ea non cupidatat occaecat do
+            consequat aco nsequat est. Non eiusmod ea non cupidatat occaecat do
             cupidatat in duis ipsum velit veniam incididunt.
           </p>
           <p>
