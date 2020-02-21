@@ -14,6 +14,7 @@ const TEMPORARY_IGNORE = [
   './pages/account.tsx',
   './api/auth/googleLogin.ts',
   './components/login/SocialButtons/index.tsx',
+  './packages/ui/PostSingle/index.tsx',
 ]
 
 module.exports = [...PERMANENT_IGNORE, ...TEMPORARY_IGNORE]
