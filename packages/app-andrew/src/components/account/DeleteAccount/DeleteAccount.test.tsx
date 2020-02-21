@@ -6,6 +6,6 @@ describe('<DeleteAccount />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(<DeleteAccount />)
 
-    expect(getByTestId('deleteAccount')).toBeInTheDocument()
+    expect(getByTestId('delete-account')).toBeInTheDocument()
   })
 })
