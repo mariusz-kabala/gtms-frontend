@@ -3,7 +3,7 @@
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .btnDeleteAccount {
-  margin-bottom: $margin4;
+  margin-bottom: 20px;
   padding: 0;
   background: none;
 
@@ -25,15 +25,15 @@
     h2 {
       text-align: center;
       @include font-size(lg);
-      margin-bottom: $margin5;
+      margin-bottom: 30px;
     }
 
     .buttons {
       display: flex;
-      margin-top: $margin4;
+      margin-top: 20px;
 
       button {
-        margin-right: $margin3;
+        margin-right: 15px;
 
         &:last-child {
           margin-right: 0;
