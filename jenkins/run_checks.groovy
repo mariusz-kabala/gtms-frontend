@@ -4,7 +4,7 @@ pipeline {
     agent { docker { image 'docker-registry.kabala.tech/node12-with-git:latest' } }
 
     environment {
-        // GH_TOKEN = credentials('github-api-token')
+        GITHUB_API_KEY = credentials('jenkins-github-accesstoken')
         CI = 'true'
     }
 
@@ -12,6 +12,7 @@ pipeline {
         stage ('prepare') {
             steps {
                 script {
+                    sh "printenv"
                     try {
                         branch = env.GIT_LOCAL_BRANCH
                         branch = branch ?: env.GIT_BRANCH
@@ -72,11 +73,11 @@ pipeline {
         stage ('Install dependencies') {
             steps {
                 script {
-                    sh "npm i"
+                    sh "yarn"
                 }
             }
         }
-        stage ('Run checks and unit tests') {
+        stage ('Check TypeScript') {
             when {
                 expression {
                     branch != 'master'
@@ -84,7 +85,87 @@ pipeline {
             }
             steps {
                 script {
-                    sh "npm run preversion"
+                    def statusJson = groovy.json.JsonOutput.toJson([
+                        state: "pending",
+                        context: "TypeScript",
+                        description: "checking...",
+                        target_url: "${BUILD_URL}console"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+
+                    sh "yarn check:ts"
+
+                    def statusJsonSuccess = groovy.json.JsonOutput.toJson([
+                        state: "success",
+                        context: "TypeScript",
+                        description: "OK",
+                        target_url: "${BUILD_URL}console"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                }
+            }
+        }
+
+        stage ('Check Eslint') {
+            when {
+                expression {
+                    branch != 'master'
+                }
+            }
+            steps {
+                script {
+                    def statusJson = groovy.json.JsonOutput.toJson([
+                        state: "pending",
+                        context: "Eslint",
+                        description: "checking...",
+                        target_url: "${BUILD_URL}console"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+
+                    sh "yarn eslint"
+
+                    def statusJsonSuccess = groovy.json.JsonOutput.toJson([
+                        state: "success",
+                        context: "Eslint",
+                        description: "OK",
+                        target_url: "${BUILD_URL}console"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                }
+            }
+        }
+
+        stage ('Run unit tests') {
+            when {
+                expression {
+                    branch != 'master'
+                }
+            }
+            steps {
+                script {
+                    def statusJson = groovy.json.JsonOutput.toJson([
+                        state: "pending",
+                        context: "UnitTests",
+                        description: "checking...",
+                        target_url: "${BUILD_URL}console"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+
+                    sh "yarn test:coverage"
+
+                    def statusJsonSuccess = groovy.json.JsonOutput.toJson([
+                        state: "success",
+                        context: "UnitTests",
+                        description: "OK",
+                        target_url: "${BUILD_URL}console"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
                 }
             }
         }
@@ -92,7 +173,24 @@ pipeline {
         stage ('Build project') {
             steps {
                 script {
-                    sh "npm run build"
+                    def statusJson = groovy.json.JsonOutput.toJson([
+                        state: "pending",
+                        context: "Build",
+                        description: "building...",
+                        target_url: "${BUILD_URL}console"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "yarn workspaces run build"
+
+                    def statusJsonSuccess = groovy.json.JsonOutput.toJson([
+                        state: "success",
+                        context: "Build",
+                        description: "OK",
+                        target_url: "${BUILD_URL}console"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
                 }
             }
         }
