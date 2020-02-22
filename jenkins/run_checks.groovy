@@ -218,6 +218,17 @@ pipeline {
                         sh "mv aws-config ~/.aws/config"
                         sh "aws s3 cp styleguide s3://styleguide/${branch}/ --recursive --acl public-read"
                     }
+
+                    def statusUpdatedJson = groovy.json.JsonOutput.toJson([
+                        state: "success",
+                        context: "styleGuide",
+                        description: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html",
+                        target_url: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+
+                    echo "https://styleguide.s3.nl-ams.scw.cloud/"
                 }
             }
         }
