@@ -72,7 +72,7 @@ pipeline {
         stage ('Install dependencies') {
             steps {
                 script {
-                    sh "npm i"
+                    sh "yarn"
                 }
             }
         }
@@ -84,7 +84,7 @@ pipeline {
             }
             steps {
                 script {
-                    sh "npm run preversion"
+                    sh "yarn preversion"
                 }
             }
         }
@@ -92,7 +92,7 @@ pipeline {
         stage ('Build project') {
             steps {
                 script {
-                    sh "npm run build"
+                    sh "yarn workspaces run build"
                 }
             }
         }
