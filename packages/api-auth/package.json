@@ -6,5 +6,8 @@
   "main": "src/index.ts",
   "dependencies": {
     "@gtms/api-common": "0.0.1"
+  },
+  "scripts": {
+    "build": "exit 0"
   }
 }

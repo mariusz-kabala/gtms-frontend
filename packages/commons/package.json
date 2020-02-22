@@ -7,5 +7,8 @@
   "dependencies": {
     "@gtms/api-auth": "0.0.1",
     "@gtms/state-user": "0.0.1"
+  },
+  "scripts": {
+    "build": "exit 0"
   }
 }

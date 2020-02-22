@@ -105,10 +105,10 @@
   },
   "scripts": {
     "test": "jest",
-    "test:coverage": "yarn test -- --coverage --changedSince=origin/master",
+    "test:coverage": "yarn test --coverage --changedSince=origin/master",
     "prettier:fix": "pretty-quick --staged",
     "prettier": "prettier --write '**/*.{js,jsx,json,css,scss,less,md,ts,tsx}'",
-    "preversion": "yarn check:ts && npm run eslint && npm run test:coverage",
+    "preversion": "yarn check:ts && yarn eslint && yarn test:coverage",
     "eslint": "eslint \"**/*.ts\" \"**/*.tsx\"",
     "check:ts": "tsc --noEmit -p tsconfig.json",
     "fake-api": "dyson .fakeAPI",
