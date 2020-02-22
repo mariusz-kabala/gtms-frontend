@@ -15,7 +15,7 @@ export const LogoutPage: NextPage<{}> = () => {
   return <div />
 }
 
-LogoutPage.getInitialProps = async (ctx: NextPageContext) => {
+LogoutPage.getInitialProps = (ctx: NextPageContext) => {
   destroyCookie(ctx, 'refreshToken')
   destroyCookie(ctx, 'accessToken')
 
