@@ -6,6 +6,8 @@ pipeline {
     environment {
         GITHUB_API_KEY = credentials('jenkins-github-accesstoken')
         CI = 'true'
+        AWS_ACCESS_KEY_ID = credentials('SCALEWAY_S3_ACCESS_KEY')
+        AWS_SECRET_ACCESS_KEY = credentials('SCALEWAY_S3_ACCESS_SECRET_KEY') 
     }
 
     stages {
@@ -194,6 +196,39 @@ pipeline {
                     ])
 
                     sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                }
+            }
+        }
+
+        stage ('Build styleguide') {
+            steps {
+                script {
+                    def statusJson = groovy.json.JsonOutput.toJson([
+                        state: "pending",
+                        context: "Styleguide",
+                        description: "building...",
+                        target_url: "${BUILD_URL}console"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "yarn styleguide:build"
+
+                    configFileProvider([configFile(fileId: 'scaleway-s3-config', targetLocation: 'aws-config')]) {
+                        sh "mkdir ~/.aws"
+                        sh "mv aws-config ~/.aws/config"
+                        sh "aws s3 cp styleguide s3://styleguide/${branch}/ --recursive --acl public-read"
+                    }
+
+                    def statusUpdatedJson = groovy.json.JsonOutput.toJson([
+                        state: "success",
+                        context: "styleGuide",
+                        description: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html",
+                        target_url: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
+                    ])
+
+                    sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+
+                    echo "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
                 }
             }
         }
