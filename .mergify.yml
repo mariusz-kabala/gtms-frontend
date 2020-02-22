@@ -1,0 +1,34 @@
+pull_request_rules:
+  - name: Automatic merge on approval
+    conditions:
+      - approved-reviews-by=mariusz-kabala
+      - status-success=Checks
+    actions:
+      merge:
+        method: squash
+
+  - name: Automatic approve PRs from deps bot
+    conditions:
+      - status-success=Checks
+      - author=dependabot-preview[bot]
+    actions:
+      review:
+        type: APPROVE
+
+  - name: Automatic merge PRs from deps bot
+    conditions:
+      - "#approved-reviews-by>=1"
+      - status-success=Checks
+      - author=dependabot-preview[bot]
+    actions:
+      merge:
+        method: squash
+        
+  - name: Request review from Mariusz
+    conditions:
+      - author=ra8ga
+      - status-success=Checks
+    actions:
+      request_reviews:
+        users:
+        - mariusz-kabala 
