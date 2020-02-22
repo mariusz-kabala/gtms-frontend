@@ -12,6 +12,7 @@ pipeline {
         stage ('prepare') {
             steps {
                 script {
+                    sh "printenv"
                     try {
                         branch = env.GIT_LOCAL_BRANCH
                         branch = branch ?: env.GIT_BRANCH
@@ -38,8 +39,11 @@ pipeline {
         }
         stage ('PR-title') {
             when {
-                expression {
-                    env.ghprbPullTitle
+                allOf {
+                    expression {
+                        env.ghprbPullTitle
+                    }
+                    not { environment name: 'ghprbPullAuthorLogin', value: 'dependabot-preview[bot]' }
                 }
             }
             steps {
