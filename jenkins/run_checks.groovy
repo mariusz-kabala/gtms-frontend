@@ -39,8 +39,11 @@ pipeline {
         }
         stage ('PR-title') {
             when {
-                expression {
-                    env.ghprbPullTitle
+                allOf {
+                    expression {
+                        env.ghprbPullTitle
+                    }
+                    not { environment name: 'ghprbPullAuthorLogin', value: 'dependabot-preview[bot]' }
                 }
             }
             steps {
