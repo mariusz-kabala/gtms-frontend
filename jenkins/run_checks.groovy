@@ -226,9 +226,9 @@ pipeline {
                         target_url: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
 
-                    echo "https://styleguide.s3.nl-ams.scw.cloud/"
+                    echo "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
                 }
             }
         }
