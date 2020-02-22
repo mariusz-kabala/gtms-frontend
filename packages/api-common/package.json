@@ -3,5 +3,8 @@
   "version": "0.0.1",
   "source": "src/index.ts",
   "module": "src/index.ts",
-  "main": "src/index.ts"
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "exit 0"
+  }
 }
