@@ -39,7 +39,8 @@ Inside `packages` dir lie all independent packages. Current structure
 - `state-*` - packages to manage apps state
 - `app-*` - standalone applications
 
-For most packages code is located in `src` folder but there are exceptions like: 
+For most packages code is located in `src` folder but there are exceptions like:
+
 - `commons` or `ui`
 
 if there is no `src` folder inside package it means that you **SHOULD NOT** import directly from that package, for example
@@ -58,7 +59,6 @@ so webpack can do proper tree-shaking and make better prod build
 
 ### COMMANDS:
 
-
 You can run or build only `app-*` packages. To run an app in dev mode:
 
 ```bash
@@ -76,6 +76,18 @@ To run prod bundle
 ```bash
 yarn workspace @gtms/app-${APP_NAME_HERE} start
 ```
+
+# Styleguide
+
+As a rule - all components in `@gtms/ui` package should be described and documented in styleguide. To do that create a `md` file next to the `index.tsx` file with your component. And describe **all** possible use cases
+
+To run styleguide localy use:
+
+```bash
+yarn styleguide
+```
+
+Styleguide is being build per PR, url to it can be find in the list of checks. Please - when you do the code review, please also check styleguide and confirm that the new component looks fine.
 
 # ENVIRONMENT VARIABLES
 
