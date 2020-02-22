@@ -6,9 +6,18 @@ pull_request_rules:
     actions:
       merge:
         method: squash
-        
-  - name: Automatic merge from deps bot
+
+  - name: Automatic approve PRs from deps bot
     conditions:
+      - status-success=Checks
+      - author=dependabot-preview[bot]
+    actions:
+      review:
+        type: APPROVE
+
+  - name: Automatic merge PRs from deps bot
+    conditions:
+      - "#approved-reviews-by>=1"
       - status-success=Checks
       - author=dependabot-preview[bot]
     actions:
