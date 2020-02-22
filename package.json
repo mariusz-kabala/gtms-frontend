@@ -78,12 +78,18 @@
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
+    "react-docgen-typescript": "^1.16.2",
     "react-hooks-testing-library": "^0.6.0",
     "react-icons": "^3.9.0",
+    "react-styleguidist": "^10.6.2",
     "react-test-renderer": "^16.12.0",
     "reset-css": "^5.0.1",
+    "sass-extract": "^2.1.0",
+    "sass-loader": "^8.0.2",
     "standard-version": "^7.1.0",
+    "style-loader": "^1.1.3",
     "ts-jest": "^25.2.0",
+    "ts-loader": "^6.2.1",
     "ts-node": "^8.6.0",
     "typescript": "^3.7.5",
     "webpack-filter-warnings-plugin": "^1.2.1"
@@ -113,7 +119,9 @@
     "check:ts": "tsc --noEmit -p tsconfig.json",
     "fake-api": "dyson .fakeAPI",
     "fake-api:watch": "nodemon --watch .fakeAPI --exec dyson .fakeAPI",
-    "release": "standard-version"
+    "release": "standard-version",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "browserslist": [
     "last 2 versions",
