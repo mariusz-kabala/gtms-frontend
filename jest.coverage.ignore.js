@@ -11,7 +11,6 @@ const TEMPORARY_IGNORE = [
   './pages/registration/index.tsx',
   './hooks/auth.ts',
   './pages/index.tsx',
-  './pages/account.tsx',
   './api/auth/googleLogin.ts',
   './components/login/SocialButtons/index.tsx',
 ]

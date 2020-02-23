@@ -21,10 +21,7 @@ export const AccountPage: NextPage<{}> = () => {
             style={{
               backgroundImage: `url('https://images.unsplash.com/photo-1464863979621-258859e62245')`,
             }}
-          >
-            {/* @todo do it later */}
-            {/* <UserName additionalStyles={styles.userName} /> */}
-          </div>
+          />
           <p className={styles.desc}>
             {t('title')}
             Dolore tempor reprehenderit dolor deserunt et. Consequat occaecat
@@ -59,7 +56,7 @@ export const AccountPage: NextPage<{}> = () => {
   )
 }
 
-AccountPage.getInitialProps = async () => {
+AccountPage.getInitialProps = () => {
   return Promise.resolve({ namespacesRequired: ['account'] })
 }
 
