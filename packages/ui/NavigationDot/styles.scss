@@ -28,8 +28,8 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-    margin-right: $margin3;
-    margin-bottom: $margin2;
+    margin-right: 15px;
+    margin-bottom: 10px;
 
     // @todo separate component?
     .circle {
@@ -43,7 +43,7 @@ body {
     }
 
     &:first-child {
-      margin-left: $margin2;
+      margin-left: 10px;
     }
 
     &:hover {
