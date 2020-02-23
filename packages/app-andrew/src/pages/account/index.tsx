@@ -45,10 +45,6 @@ export const AccountPage: NextPage<{}> = () => {
           <span className={styles.visibilityLabel}>
             This part is visible ONLY FOR YOU
           </span>
-          {/* @todo do it later */}
-          {/* <UserEmail />
-          <UserPassword />
-          <PushNotifications /> */}
           <DeleteAccount />
         </div>
       </div>
