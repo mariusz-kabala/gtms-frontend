@@ -1,23 +1,15 @@
 Basic usage
 
 ```
-<FlipCard>Click me!</FlipCard>
+<FlipCard back="<div>back side</div>" isActive="boolean">
+  children
+</FlipCard>
 ```
 
-Disabled FlipCard
+FlipCard back side is active (visible)
 
 ```
-<FlipCard disabled="true">Click me!</FlipCard>
-```
-
-Submit FlipCard
-
-```
-<FlipCard type="submit">Submit data</FlipCard>
-```
-
-Reset FlipCard
-
-```
-<FlipCard type="reset">Reset data</FlipCard>
+<FlipCard back="<div>back side</div>" isActive="true">
+  children
+</FlipCard>
 ```
