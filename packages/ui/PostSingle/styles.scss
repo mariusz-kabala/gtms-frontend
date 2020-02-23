@@ -1,14 +1,9 @@
 @import '@gtms/styles/scss/variables';
 
-$color1: $theme1;
-$color2: $theme4;
-$color3: $theme1;
-$fontSize: 0.75rem;
-
 .postSingle {
   padding: 15px;
-  border: 1px solid $color1;
-  background: $color3;
+  border: 1px solid $theme1;
+  background: $theme1;
   cursor: pointer;
 
   &:last-child {
@@ -16,12 +11,11 @@ $fontSize: 0.75rem;
   }
 
   &:hover {
-    border-color: $color2;
+    border-color: $theme4;
   }
 
   .text {
     font-weight: 200;
-    font-size: $fontSize;
     line-height: 1.2rem;
     margin-top: 10px;
     margin-bottom: 10px;
