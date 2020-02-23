@@ -1,5 +1,13 @@
 Basic usage
 
 ```
-<Overlay />
+const [state, setState] = React.useState('')
+
+;<>
+  <div onClick={() => setState(true)}>show overlay</div>
+  {
+    state &&
+    <Overlay />
+  }
+</>
 ```
