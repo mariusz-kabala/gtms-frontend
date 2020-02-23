@@ -1,7 +1,7 @@
 Basic usage
 
 ```
-<SearchResults tempActive={boolean}>
+<SearchResults tempActive={true}>
   children
 </SearchResults>
 ```
