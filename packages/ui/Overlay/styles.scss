@@ -1,7 +1,9 @@
 @import '~@gtms/styles/scss/zindex';
 
 .overlay {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   @include z-index(overlay);
   content: '';
   cursor: pointer;
