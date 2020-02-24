@@ -40,7 +40,7 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
       <div className={styles.right}>
         <div>
           {error && <div data-testid="login-page-error">{t(error)}</div>}
-          <h1>Andrzej can be found</h1>
+          <h1>Tempor irure qui exce</h1>
           <p>
             Tempor irure qui excepteur ipsum excepteur qui pariatur deserunt
             consequat aco nsequat est. Non eiusmod ea non cupidatat occaecat do
