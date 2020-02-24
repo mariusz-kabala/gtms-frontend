@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Spinner } from '@gtms/ui/Spinner'
 import { Logo } from '@gtms/ui/Logo'
-import { ImageCover } from '@gtms/ui/ImageCover'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { userQuery } from '@gtms/state-user'
@@ -50,7 +49,6 @@ export const ActivateAccountPage: NextPage<{}> = () => {
           </p>
         )}
       </section>
-      <ImageCover />
     </div>
   )
 }
