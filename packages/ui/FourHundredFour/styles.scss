@@ -48,8 +48,7 @@
     rgba(0, 0, 0, 0.3) 50%,
     rgba(0, 0, 0, 0) 100%
   );
-  background-size: auto 4px;
-  z-index: 99;
+  background-size: auto 5px;
   &::before {
     content: '';
     pointer-events: none;
