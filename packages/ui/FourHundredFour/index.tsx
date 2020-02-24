@@ -11,7 +11,7 @@ export const FourHundredFour: FC<{ additionalStyles?: string }> = ({
   return (
     <div
       data-testid={'four-hundred-four'}
-      className={cx(styles.page404, additionalStyles)}
+      className={cx(styles.wrapper, additionalStyles)}
     >
       <div className={styles.overlay} />
       <div className={styles.terminal}>
