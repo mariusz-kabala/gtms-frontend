@@ -30,7 +30,6 @@ export const AccountPage: NextPage<{}> = () => {
             aliqua id.
           </p>
           <TagGroup additionalStyles={styles.userTags}>
-            {/* @todo remove mock data */}
             <Tag label="Mechanik" />
             <Tag label="Oddam" />
             <Tag label="SerwisRowerowy" />
