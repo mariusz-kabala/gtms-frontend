@@ -998,9 +998,9 @@
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
 "@datorama/akita@^4.19.2":
-  version "4.19.2"
-  resolved "https://registry.yarnpkg.com/@datorama/akita/-/akita-4.19.2.tgz#0b69aadff32a4a7ee384db7a6777e24168868277"
-  integrity sha512-hj9eHcpe5qTYFgrHenpiQAoohJBprkxWU2QZ/HcaaxHVrHr9x7C1xbUTnrAj58jI19Hr4WYowXBSroFBrF/aRA==
+  version "4.19.3"
+  resolved "https://registry.yarnpkg.com/@datorama/akita/-/akita-4.19.3.tgz#f59a8067c0e44dc2e83552a26bce44d635f85d65"
+  integrity sha512-SOWMXtdxm7T1IJ9dPo0pRUz9WVL6N8+OvrGD0wJ0seeYdBiiM+E8MkXaRkHRJsoyGtj403p9PDfGkgRGhU4cHA==
   dependencies:
     schematics-utilities "^1.1.1"
     tslib "^1.9.0"
