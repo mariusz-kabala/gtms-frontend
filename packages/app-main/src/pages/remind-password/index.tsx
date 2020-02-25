@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { AnimatedComponent } from '@gtms/ui/AnimatedComponent'
 import { NextPage, NextPageContext } from 'next'
 import { Logo } from '@gtms/ui/Logo'
 import { RemindPasswordForm } from '../../components/remind-password/Form'
@@ -16,9 +15,7 @@ export const RemindPasswordPage: NextPage<{}> = () => {
   return (
     <div data-testid="remind-password-page" className={styles.wrapper}>
       <div>
-        <AnimatedComponent>
-          <Logo />
-        </AnimatedComponent>
+        <Logo />
         {!showConfirmation && (
           <RemindPasswordForm onSuccess={() => setShowConfirmation(true)} />
         )}

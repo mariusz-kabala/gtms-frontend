@@ -1,4 +1,3 @@
-export * from './AnimatedComponent'
 export * from './Button'
 export * from './CookiePolicy'
 export * from './FlipCard'
