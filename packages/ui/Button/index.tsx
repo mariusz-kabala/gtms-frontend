@@ -7,7 +7,6 @@ export const Button: FC<{
   children: ReactNode
   disabled?: boolean
   onClick?: () => unknown
-  width?: string
   type?: 'button' | 'submit' | 'reset'
 }> = forwardRef(
   (

@@ -65,3 +65,4 @@ vsc.code-workspace
 
 # prod bundle files
 dist/
+styleguide
