@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
-import { AnimatedComponent } from '@gtms/ui/AnimatedComponent'
 import { Logo } from '@gtms/ui/Logo'
 import { ResetPasswordForm } from '../../../components/reset-password/Form'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -34,9 +33,7 @@ export const ResetPasswordPage: NextPage<{}> = () => {
   return (
     <div className={styles.wrapper} data-testid="remind-password-page">
       <div>
-        <AnimatedComponent>
-          <Logo />
-        </AnimatedComponent>
+        <Logo />
         {isLoading && <Spinner />}
         {!isLoading && !isPasswordChanged && (
           <ResetPasswordForm
