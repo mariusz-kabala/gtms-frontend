@@ -4,7 +4,6 @@ import { NextPage, NextPageContext } from 'next'
 import { useState } from 'react'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { userQuery } from '@gtms/state-user'
-import { AnimatedComponent } from '@gtms/ui/AnimatedComponent'
 import { RegistrationForm } from '../../components/registration/Form'
 import { SocialButtons } from '../../components/login/SocialButtons'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
@@ -27,9 +26,7 @@ export const RegistrationPage: NextPage<{}> = () => {
   return (
     <div className={styles.wrapper} data-testid="registration-page">
       <div className={styles.formWrapper}>
-        <AnimatedComponent>
-          <Logo />
-        </AnimatedComponent>
+        <Logo />
         {error && <div data-testid="registration-page-error">{t(error)}</div>}
         <RegistrationForm />
         <SocialButtons
