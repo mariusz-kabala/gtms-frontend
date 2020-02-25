@@ -4,6 +4,7 @@ const PERMANENT_IGNORE = [
   '.d.ts',
   './i18n.ts',
   './pages/_app.tsx',
+  './ui/index.ts',
 ]
 
 const TEMPORARY_IGNORE = [
