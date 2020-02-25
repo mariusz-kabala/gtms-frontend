@@ -6,7 +6,6 @@ import { useTranslation, Link } from '@gtms/commons/i18n'
 import { userQuery } from '@gtms/state-user'
 import { AnimatedComponent } from '@gtms/ui/AnimatedComponent'
 import { RegistrationForm } from '../../components/registration/Form'
-import { ImageCover } from '@gtms/ui/ImageCover'
 import { SocialButtons } from '../../components/login/SocialButtons'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
@@ -40,7 +39,6 @@ export const RegistrationPage: NextPage<{}> = () => {
           <a>{t('goToLogin')}</a>
         </Link>
       </div>
-      <ImageCover />
     </div>
   )
 }
