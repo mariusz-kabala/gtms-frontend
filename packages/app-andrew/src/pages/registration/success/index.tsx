@@ -2,7 +2,6 @@ import React from 'react'
 import { Logo } from '@gtms/ui/Logo'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
-import { ImageCover } from '@gtms/ui/ImageCover'
 import { Logout } from '@gtms/ui/Logout'
 import { userQuery } from '@gtms/state-user'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
@@ -12,25 +11,22 @@ export const RegistrationSuccessPage: NextPage<{}> = () => {
   const { t } = useTranslation('registration')
 
   return (
-    <>
-      <div data-testid="registration-success-page">
-        <div
-          style={{
-            position: 'relative',
-            zIndex: 1000,
-            background: '#000',
-            padding: '20px',
-          }}
-        >
-          <Logo />
-          <div>
-            <p>{t('registrationSuccessMessage')}</p>
-            <Logout text={t('goToLoginPage')} />
-          </div>
+    <div data-testid="registration-success-page">
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 1000,
+          background: '#000',
+          padding: '20px',
+        }}
+      >
+        <Logo />
+        <div>
+          <p>{t('registrationSuccessMessage')}</p>
+          <Logout text={t('goToLoginPage')} />
         </div>
       </div>
-      <ImageCover />
-    </>
+    </div>
   )
 }
 
