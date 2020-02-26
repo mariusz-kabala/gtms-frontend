@@ -1,13 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const jsParser = require('react-docgen')
 const tsParser = require('react-docgen-typescript')
-
+const path = require('path')
+console.log(path.join(process.cwd(), 'packages/styleguide/src/StyleGuide.js'))
 module.exports = {
   components: ['packages/ui/**/[a-z]*.{ts,tsx}'],
   serverPort: 6061,
   skipComponentsWithoutExample: true,
   usageMode: 'expand',
   propsParser: tsParser.withCustomConfig('./tsconfig.jest.json').parse,
+  styleguideComponents: {
+    StyleGuideRenderer: path.join(
+      process.cwd(),
+      'packages/styleguide/src/StyleGuide'
+    ),
+  },
   webpackConfig: {
     module: {
       rules: [

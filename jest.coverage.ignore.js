@@ -5,6 +5,7 @@ const PERMANENT_IGNORE = [
   './i18n.ts',
   './pages/_app.tsx',
   './ui/index.ts',
+  './packages/styleguide/src/StyleGuide.tsx',
 ]
 
 const TEMPORARY_IGNORE = [
