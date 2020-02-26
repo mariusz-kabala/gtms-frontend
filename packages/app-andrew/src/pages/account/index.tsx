@@ -4,6 +4,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
+import { ImageHolder } from '@gtms/ui/ImageHolder'
 import { DeleteAccount } from '../../components/account/DeleteAccount'
 
 export const AccountPage: NextPage<{}> = () => {
@@ -16,11 +17,9 @@ export const AccountPage: NextPage<{}> = () => {
           <span className={styles.visibilityLabel}>
             This part is visible for EVERYONE
           </span>
-          <div
-            className={styles.userImage}
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1464863979621-258859e62245')`,
-            }}
+          <ImageHolder
+            additionalStyles={styles.userImage}
+            src="https://images.unsplash.com/photo-1464863979621-258859e62245"
           />
           <p className={styles.desc}>
             {t('title')}

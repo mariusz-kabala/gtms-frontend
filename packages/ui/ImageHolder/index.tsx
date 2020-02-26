@@ -7,7 +7,6 @@ export const ImageHolder: FC<{
   additionalStyles?: string
   onClick?: () => unknown
   src: string
-  alt?: string
 }> = ({ additionalStyles, onClick = () => null, src, alt }) => {
   const [state, setState] = useState<boolean>(false)
 
@@ -18,11 +17,10 @@ export const ImageHolder: FC<{
           <img src={src} alt={alt ?? ''} />
         </Modal>
       )}
-      <img
-        data-testid="imageHolder"
+      <div
         className={cx(styles.wrapper, additionalStyles)}
-        src={src}
-        alt={alt ?? ''}
+        style={{ backgroundImage: `url(${src})` }}
+        data-testid="imageHolder"
         onClick={() => {
           setState(true)
           onClick()

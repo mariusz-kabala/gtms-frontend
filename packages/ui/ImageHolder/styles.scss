@@ -1,6 +1,8 @@
 @import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
   cursor: pointer;
   max-width: 100%;
+  @include imageCover();
 }

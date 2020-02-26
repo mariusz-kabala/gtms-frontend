@@ -16,8 +16,10 @@
 
   .content {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     @include z-index(modalContent);
+    max-width: 900px;
 
     i {
       @include font-size(xlg);
