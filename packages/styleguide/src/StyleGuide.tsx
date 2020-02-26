@@ -17,7 +17,7 @@ const styles = ({
   mq,
   space,
   maxWidth,
-}) => ({
+}: any) => ({
   root: {
     minHeight: '100vh',
     backgroundColor: color.baseBackground,
@@ -67,7 +67,7 @@ const styles = ({
   },
 })
 
-export const StyleGuideRenderer = ({
+export const StyleGuideRenderer: React.FunctionComponent<any> = ({
   classes,
   title,
   version,
@@ -78,7 +78,6 @@ export const StyleGuideRenderer = ({
 }) => {
   return (
     <div className={cx(classes.root, hasSidebar && classes.hasSidebar)}>
-      DUPA
       <main className={classes.content}>
         {children}
         <footer className={classes.footer}>

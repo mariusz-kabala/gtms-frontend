@@ -1,0 +1,6 @@
+declare module 'react-styleguidist'
+declare module 'react-styleguidist/lib/client/rsg-components/Logo'
+declare module 'react-styleguidist/lib/client/rsg-components/Markdown'
+declare module 'react-styleguidist/lib/client/rsg-components/Styled'
+declare module 'react-styleguidist/lib/client/rsg-components/Ribbon'
+declare module 'react-styleguidist/lib/client/rsg-components/Version'
