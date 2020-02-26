@@ -2,7 +2,6 @@
 @import './variables.scss';
 
 html {
-  font-family: $defaultFontFamily;
   box-sizing: border-box;
 }
 
@@ -13,7 +12,9 @@ html {
 }
 
 body {
+  font-family: $defaultFontFamily;
   background: $theme1;
+  color: $theme6;
 }
 
 html,

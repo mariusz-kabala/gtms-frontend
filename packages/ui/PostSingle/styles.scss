@@ -3,12 +3,7 @@
 .postSingle {
   padding: 15px;
   border: 1px solid $theme1;
-  background: $theme1;
   cursor: pointer;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   &:hover {
     border-color: $theme4;
