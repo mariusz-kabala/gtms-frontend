@@ -7,6 +7,7 @@ export const ImageHolder: FC<{
   additionalStyles?: string
   onClick?: () => unknown
   src: string
+  alt?: string
 }> = ({ additionalStyles, onClick = () => null, src }) => {
   const [state, setState] = useState<boolean>(false)
 
