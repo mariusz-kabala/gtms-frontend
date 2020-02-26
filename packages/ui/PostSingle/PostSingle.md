@@ -2,6 +2,6 @@ Basic usage
 
 ```
 <div style={{ background: 'black'}}>
-<PostSingle />
+  <PostSingle />
 </div>
 ```
