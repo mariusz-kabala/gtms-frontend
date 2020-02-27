@@ -37,7 +37,7 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
 
   return (
     <div className={styles.wrapper} data-testid="login-page">
-      <div className={styles.right}>
+      <div className={styles.left}>
         <div>
           {error && <div data-testid="login-page-error">{t(error)}</div>}
           <h1>Tempor irure qui exce</h1>
@@ -70,7 +70,7 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
         </div>
       </div>
       <div
-        className={styles.left}
+        className={styles.right}
         style={{ backgroundImage: `url('/images/temp_images/andrew_bg.jpg')` }}
       ></div>
     </div>

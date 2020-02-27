@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
-import { Logo } from '@gtms/ui/Logo'
 import { RemindPasswordForm } from '../../components/remind-password/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
@@ -13,9 +12,8 @@ export const RemindPasswordPage: NextPage<{}> = () => {
   const [showConfirmation, setShowConfirmation] = useState<boolean>(false)
 
   return (
-    <div data-testid="remind-password-page" className={styles.wrapper}>
-      <div>
-        <Logo />
+    <div className={styles.wrapper} data-testid="remind-password-page">
+      <div className={styles.left}>
         {!showConfirmation && (
           <RemindPasswordForm onSuccess={() => setShowConfirmation(true)} />
         )}
@@ -30,6 +28,10 @@ export const RemindPasswordPage: NextPage<{}> = () => {
           {t('subtitle')}
         </span>
       </div>
+      <div
+        className={styles.right}
+        style={{ backgroundImage: `url('/images/temp_images/andrew_bg.jpg')` }}
+      ></div>
     </div>
   )
 }

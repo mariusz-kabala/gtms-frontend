@@ -6,17 +6,11 @@
   height: 100%;
 
   .left {
-    width: 65%;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .right {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 35%;
+    width: 40%;
     padding: 0 40px;
 
     > div {
@@ -45,6 +39,14 @@
     }
   }
 
+  .right {
+    width: 60%;
+    // @todo put here image-cover mixin when it will be merged
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   .actionButtons {
     > button {
       @include btnWidth100;
@@ -54,12 +56,10 @@
   .btnForgotPassword {
     // @todo create proper mixin for button
     display: inline-block;
-    margin-top: 10px;
     font-size: 10px;
     width: 220px;
   }
 
   .socialButtons {
-    margin-top: 20px;
   }
 }

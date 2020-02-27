@@ -1,6 +1,24 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/forms.scss';
+@import '~@gtms/styles/scss/mixins/button.scss';
 
 .wrapper {
-  @include formWrapperBasic;
+  display: flex;
+  height: 100%;
+
+  .left {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 0 40px;
+  }
+
+  .right {
+    width: 60%;
+    // @todo put here image-cover mixin when it will be merged
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

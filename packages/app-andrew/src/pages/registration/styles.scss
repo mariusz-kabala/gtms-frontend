@@ -1,5 +1,65 @@
-@import '~@gtms/styles/scss/mixins/forms.scss';
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/button.scss';
 
 .wrapper {
-  @include formWrapperBasic;
+  display: flex;
+  height: 100%;
+
+  .left {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 0 40px;
+
+    > div {
+      width: 100%;
+
+      h1,
+      p {
+        font-weight: 600;
+        color: $theme6;
+        margin-bottom: 15px;
+      }
+
+      h1 {
+        font-size: 3em;
+        text-transform: uppercase;
+      }
+
+      p {
+        line-height: 1.3em;
+        font-weight: 200;
+
+        &:last-child {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  .right {
+    width: 60%;
+    // @todo put here image-cover mixin when it will be merged
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .actionButtons {
+    > button {
+      @include btnWidth100;
+    }
+  }
+
+  .btnForgotPassword {
+    // @todo create proper mixin for button
+    display: inline-block;
+    font-size: 10px;
+    width: 220px;
+  }
+
+  .socialButtons {
+  }
 }
