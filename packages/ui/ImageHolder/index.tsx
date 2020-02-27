@@ -18,11 +18,10 @@ export const ImageHolder: FC<{
           <img src={src} alt={alt ?? ''} />
         </Modal>
       )}
-      <img
-        data-testid="imageHolder"
+      <div
         className={cx(styles.wrapper, additionalStyles)}
-        src={src}
-        alt={alt ?? ''}
+        style={{ backgroundImage: `url(${src})` }}
+        data-testid="imageHolder"
         onClick={() => {
           setState(true)
           onClick()

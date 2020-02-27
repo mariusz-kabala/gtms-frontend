@@ -1,0 +1,47 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/button';
+@import '~@gtms/styles/scss/mixins/fontSize';
+
+.btnDeleteAccount {
+  margin-bottom: 20px;
+  padding: 0;
+  background: none;
+
+  &:hover {
+    background: none;
+    color: red;
+  }
+}
+
+.modalContent {
+  min-width: 500px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none !important;
+
+  > div {
+    h2 {
+      text-align: center;
+      @include font-size(lg);
+    }
+
+    .buttons {
+      display: flex;
+      margin-top: 20px;
+
+      button {
+        margin-right: 15px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .no {
+        background: red;
+      }
+    }
+  }
+}
