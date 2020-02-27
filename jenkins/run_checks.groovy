@@ -173,6 +173,19 @@ pipeline {
                     sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
                 }
             }
+
+            post {
+                always {
+                    publishHTML target: [
+                        allowMissing         : false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll              : true,
+                        reportDir            : 'coverage',
+                        reportFiles          : 'index.html',
+                        reportName           : 'Test Report'
+                    ]
+                }
+            }
         }
 
         stage ('Build project') {
