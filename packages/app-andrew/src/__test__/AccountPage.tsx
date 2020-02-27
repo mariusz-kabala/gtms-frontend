@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { AccountPage } from '../pages/account'
 import { useTranslation } from '@gtms/commons/i18n'
 
