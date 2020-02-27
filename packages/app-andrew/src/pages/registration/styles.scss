@@ -1,9 +1,11 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/button.scss';
+@import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
   display: flex;
   height: 100%;
+  background-color: $theme0;
 
   .left {
     position: relative;
@@ -41,10 +43,7 @@
 
   .right {
     width: 60%;
-    // @todo put here image-cover mixin when it will be merged
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include imageCover();
   }
 
   .actionButtons {
