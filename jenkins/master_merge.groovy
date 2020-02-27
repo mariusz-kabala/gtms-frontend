@@ -48,11 +48,6 @@ pipeline {
         }
         
         stage ('Run unit tests') {
-            when {
-                expression {
-                    branch != 'master'
-                }
-            }
             steps {
                 script {
 
