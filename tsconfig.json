@@ -22,6 +22,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
+  "files": ["packages/styleguide/src/StyleGuide.d.ts"],
   "exclude": ["/node_modules/**/*"],
   "include": ["packages/**/*", "**/*.d.ts", "**/*.ts", "**/*.tsx"]
 }
