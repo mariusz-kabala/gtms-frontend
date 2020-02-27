@@ -1,0 +1,72 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: $theme6;
+
+  .content {
+    display: flex;
+    max-width: 700px;
+  }
+
+  .visibleForEveryone,
+  .visibleForOwner {
+    position: relative;
+    width: 50%;
+
+    .visibilityLabel {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      margin-bottom: 25px;
+      background: $theme4;
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        bottom: -5px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 5px 0 5px;
+        border-color: $theme4 transparent transparent transparent;
+      }
+    }
+  }
+
+  .visibleForEveryone {
+    .userImage {
+      width: 100%;
+      height: 400px;
+    }
+
+    .desc {
+      margin-top: 10px;
+    }
+
+    .userTags {
+      margin-top: 20px;
+    }
+  }
+
+  .userName {
+    position: relative;
+    z-index: 1;
+    @include font-size(xlg);
+  }
+
+  .visibleForOwner {
+    border-left: 1px solid $theme5;
+    margin-left: 20px;
+    padding-left: 20px;
+
+    > div {
+      margin-bottom: 20px;
+    }
+  }
+}
