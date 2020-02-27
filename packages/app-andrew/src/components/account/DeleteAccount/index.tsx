@@ -3,7 +3,9 @@ import { Button } from '@gtms/ui/Button'
 import { Modal } from '@gtms/ui/Modal'
 import styles from './styles.scss'
 
-export const DeleteAccount: FC = () => {
+export const DeleteAccount: FC<{
+  onConfirm: () => unknown
+}> = ({ onConfirm }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
@@ -19,12 +21,19 @@ export const DeleteAccount: FC = () => {
             <h2>Are you sure {`you'd`} like to delete your account?</h2>
             <div className={styles.buttons}>
               <Button
+                testid="delete-account-cancel"
                 additionalStyles={styles.no}
                 onClick={() => setIsModalOpen(false)}
               >
                 Nah, not, not really, just kidding
               </Button>
-              <Button onClick={() => null}>
+              <Button
+                testid="delete-account-confirm"
+                onClick={() => {
+                  onConfirm()
+                  setIsModalOpen(false)
+                }}
+              >
                 Yes, really. Its time to say good bye...
               </Button>
             </div>
@@ -36,6 +45,7 @@ export const DeleteAccount: FC = () => {
         onClick={() => {
           setIsModalOpen(true)
         }}
+        testid="delete-account-button"
         additionalStyles={styles.btnDeleteAccount}
       >
         Delete Account

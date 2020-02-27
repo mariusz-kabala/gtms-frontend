@@ -13,7 +13,10 @@ export const AccountPage: NextPage<{}> = () => {
   return (
     <div className={styles.wrapper} data-testid="account-page">
       <div className={styles.content}>
-        <div className={styles.visibleForEveryone}>
+        <div
+          data-testid="account-page-public"
+          className={styles.visibleForEveryone}
+        >
           <span className={styles.visibilityLabel}>
             This part is visible for EVERYONE
           </span>
@@ -39,11 +42,14 @@ export const AccountPage: NextPage<{}> = () => {
           </TagGroup>
         </div>
         <div className={styles.divider} />
-        <div className={styles.visibleForOwner}>
+        <div
+          data-testid="account-page-private"
+          className={styles.visibleForOwner}
+        >
           <span className={styles.visibilityLabel}>
             This part is visible ONLY FOR YOU
           </span>
-          <DeleteAccount />
+          <DeleteAccount onConfirm={() => null} />
         </div>
       </div>
     </div>
