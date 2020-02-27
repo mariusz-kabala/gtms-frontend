@@ -6,7 +6,7 @@ import styles from './styles.scss'
 describe('<ImageHolder />', () => {
   it('Should be on the page', () => {
     const { getByTestId, container } = render(
-      <ImageHolder src={'url'} additionalStyles="loremIpsum" alt="test image" />
+      <ImageHolder src={'url'} additionalStyles="loremIpsum" />
     )
 
     expect(getByTestId('imageHolder')).toBeInTheDocument()

@@ -1,9 +1,15 @@
-.tagGroup {
-  > div {
-    margin-left: 5px;
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
 
-    &:first-child {
-      margin-left: 0;
-    }
+.tagGroup {
+  @include font-size(sm);
+
+  > div {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
   }
+
+  // removing margin-bottom above (.tagGRoup > div)
+  margin-bottom: -5px;
 }
