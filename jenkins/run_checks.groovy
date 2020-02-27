@@ -100,25 +100,38 @@ pipeline {
                     sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                     sh "yarn check:ts"
+                }
+            }
+            post {
+                success {
+                    script {
+                        def statusJsonSuccess = groovy.json.JsonOutput.toJson([
+                            state: "success",
+                            context: "TypeScript",
+                            description: "OK",
+                            target_url: "${BUILD_URL}console"
+                        ])
 
-                    def statusJsonSuccess = groovy.json.JsonOutput.toJson([
-                        state: "success",
-                        context: "TypeScript",
-                        description: "OK",
-                        target_url: "${BUILD_URL}console"
-                    ])
+                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    }
+                }
 
-                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                unsuccessful {
+                    script {
+                        def statusJsonFailed = groovy.json.JsonOutput.toJson([
+                            state: "failure",
+                            context: "TypeScript",
+                            description: "Failed",
+                            target_url: "${BUILD_URL}console"
+                        ])
+
+                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    }
                 }
             }
         }
 
         stage ('Check Eslint') {
-            when {
-                expression {
-                    branch != 'master'
-                }
-            }
             steps {
                 script {
                     def statusJson = groovy.json.JsonOutput.toJson([
@@ -131,25 +144,38 @@ pipeline {
                     sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                     sh "yarn eslint"
+                }
+            }
+            post {
+                success {
+                    script {
+                        def statusJsonSuccess = groovy.json.JsonOutput.toJson([
+                            state: "success",
+                            context: "Eslint",
+                            description: "OK",
+                            target_url: "${BUILD_URL}console"
+                        ])
 
-                    def statusJsonSuccess = groovy.json.JsonOutput.toJson([
-                        state: "success",
-                        context: "Eslint",
-                        description: "OK",
-                        target_url: "${BUILD_URL}console"
-                    ])
+                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    }
+                }
 
-                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                unsuccessful {
+                    script {
+                        def statusJsonFailed = groovy.json.JsonOutput.toJson([
+                            state: "failure",
+                            context: "Eslint",
+                            description: "Failed",
+                            target_url: "${BUILD_URL}console"
+                        ])
+
+                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    }
                 }
             }
         }
 
         stage ('Run unit tests') {
-            when {
-                expression {
-                    branch != 'master'
-                }
-            }
             steps {
                 script {
                     def statusJson = groovy.json.JsonOutput.toJson([
@@ -162,15 +188,6 @@ pipeline {
                     sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                     sh "yarn test:coverage"
-
-                    def statusJsonSuccess = groovy.json.JsonOutput.toJson([
-                        state: "success",
-                        context: "UnitTests",
-                        description: "OK",
-                        target_url: "${JOB_URL}TestReport"
-                    ])
-
-                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                 }
             }
 
@@ -184,6 +201,30 @@ pipeline {
                         reportFiles          : 'index.html',
                         reportName           : 'TestReport'
                     ]
+                }
+                success {
+                    script {
+                        def statusJsonSuccess = groovy.json.JsonOutput.toJson([
+                            state: "success",
+                            context: "UnitTests",
+                            description: "OK",
+                            target_url: "${BUILD_URL}TestReport"
+                        ])
+
+                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    }
+                }
+                unsuccessful {
+                    script {
+                        def statusJsonFailed = groovy.json.JsonOutput.toJson([
+                            state: "failure",
+                            context: "UnitTests",
+                            description: "Failed",
+                            target_url: "${BUILD_URL}TestReport"
+                        ])
+
+                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    }
                 }
             }
         }
@@ -200,15 +241,32 @@ pipeline {
 
                     sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     sh "yarn workspaces run build"
+                }
+            }
+            post {
+                success {
+                    script {
+                        def statusJsonSuccess = groovy.json.JsonOutput.toJson([
+                            state: "success",
+                            context: "Build",
+                            description: "OK",
+                            target_url: "${BUILD_URL}console"
+                        ])
 
-                    def statusJsonSuccess = groovy.json.JsonOutput.toJson([
-                        state: "success",
-                        context: "Build",
-                        description: "OK",
-                        target_url: "${BUILD_URL}console"
-                    ])
+                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    }
+                }
+                unsuccessful {
+                    script {
+                        def statusJsonFailed = groovy.json.JsonOutput.toJson([
+                            state: "failure",
+                            context: "Build",
+                            description: "Failed",
+                            target_url: "${BUILD_URL}console"
+                        ])
 
-                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    }
                 }
             }
         }
@@ -231,17 +289,35 @@ pipeline {
                         sh "mv aws-config ~/.aws/config"
                         sh "aws s3 cp styleguide s3://styleguide/${branch}/ --recursive --acl public-read"
                     }
+                }
+            }
+            post {
+                success {
+                    script {
+                        def statusUpdatedJson = groovy.json.JsonOutput.toJson([
+                            state: "success",
+                            context: "styleGuide",
+                            description: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html",
+                            target_url: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
+                        ])
 
-                    def statusUpdatedJson = groovy.json.JsonOutput.toJson([
-                        state: "success",
-                        context: "styleGuide",
-                        description: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html",
-                        target_url: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
-                    ])
+                        sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
-                    sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        echo "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
+                    }
+                }
 
-                    echo "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
+                unsuccessful {
+                    script {
+                        def statusUpdatedJson = groovy.json.JsonOutput.toJson([
+                            state: "failure",
+                            context: "styleGuide",
+                            description: "Failed",
+                            target_url: "${BUILD_URL}console"
+                        ])
+
+                        sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    }
                 }
             }
         }
