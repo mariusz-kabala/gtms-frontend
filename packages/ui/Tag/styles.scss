@@ -1,18 +1,16 @@
-@import '@gtms/styles/scss/variables';
-
-$color1: $theme6;
-$color2: $theme4;
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
 
 .tag {
   display: inline-block;
-  background: $color2 / 1.4;
-  color: $color1;
+  background: $theme6;
+  color: $theme1;
   padding: 5px;
-  font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
 
   &:hover {
-    background: $color2;
-    color: $color1;
+    background: $theme4;
+    color: $theme6;
   }
 }
