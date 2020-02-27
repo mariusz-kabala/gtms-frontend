@@ -8,4 +8,10 @@
   border-bottom: 1px solid $theme6;
   background: none;
   color: $theme6;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $theme4;
+  }
 }

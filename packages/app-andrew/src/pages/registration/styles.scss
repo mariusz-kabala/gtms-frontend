@@ -9,14 +9,12 @@
 
   .left {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 40%;
     padding: 0 40px;
 
     > div {
       width: 100%;
+      margin-top: 40px;
 
       h1,
       p {
@@ -31,11 +29,24 @@
       }
 
       p {
-        line-height: 1.3em;
         font-weight: 200;
 
         &:last-child {
           margin-bottom: 40px;
+        }
+      }
+
+      .goToLoginButton {
+        margin: 10px 0;
+
+        > button {
+          @include btnWidth100;
+        }
+      }
+
+      .socialButtons {
+        > div:first-child {
+          margin-right: 10px;
         }
       }
     }
@@ -44,21 +55,5 @@
   .right {
     width: 60%;
     @include imageCover();
-  }
-
-  .actionButtons {
-    > button {
-      @include btnWidth100;
-    }
-  }
-
-  .btnForgotPassword {
-    // @todo create proper mixin for button
-    display: inline-block;
-    font-size: 10px;
-    width: 220px;
-  }
-
-  .socialButtons {
   }
 }

@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/mixins/button';
 
 .btnSubmit {
+  margin-top: 10px;
   @include btnWidth100;
 }
