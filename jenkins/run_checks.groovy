@@ -167,7 +167,7 @@ pipeline {
                         state: "success",
                         context: "UnitTests",
                         description: "OK",
-                        target_url: "${BUILD_URL}console"
+                        target_url: "${JOB_URL}TestReport"
                     ])
 
                     sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
@@ -182,7 +182,7 @@ pipeline {
                         keepAll              : true,
                         reportDir            : 'coverage',
                         reportFiles          : 'index.html',
-                        reportName           : 'Test Report'
+                        reportName           : 'TestReport'
                     ]
                 }
             }
