@@ -14,6 +14,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
   },
+  coverageReporters: ['json', 'html'],
   testURL: 'http://localhost',
   testMatch: ['<rootDir>/packages/**/*.test.ts?(x)'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/', '/tools/'],

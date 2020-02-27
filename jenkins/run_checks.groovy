@@ -97,7 +97,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                     sh "yarn check:ts"
 
@@ -108,7 +108,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                 }
             }
         }
@@ -128,7 +128,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                     sh "yarn eslint"
 
@@ -139,7 +139,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                 }
             }
         }
@@ -159,7 +159,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                     sh "yarn test:coverage"
 
@@ -167,10 +167,23 @@ pipeline {
                         state: "success",
                         context: "UnitTests",
                         description: "OK",
-                        target_url: "${BUILD_URL}console"
+                        target_url: "${JOB_URL}TestReport"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                }
+            }
+
+            post {
+                always {
+                    publishHTML target: [
+                        allowMissing         : false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll              : true,
+                        reportDir            : 'coverage',
+                        reportFiles          : 'index.html',
+                        reportName           : 'TestReport'
+                    ]
                 }
             }
         }
@@ -185,7 +198,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     sh "yarn workspaces run build"
 
                     def statusJsonSuccess = groovy.json.JsonOutput.toJson([
@@ -195,7 +208,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                 }
             }
         }
@@ -210,7 +223,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     sh "yarn styleguide:build"
 
                     configFileProvider([configFile(fileId: 'scaleway-s3-config', targetLocation: 'aws-config')]) {
@@ -226,7 +239,7 @@ pipeline {
                         target_url: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
                     ])
 
-                    sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.GIT_COMMIT}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                     echo "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
                 }
