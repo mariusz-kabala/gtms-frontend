@@ -14,13 +14,23 @@ describe('<ExpandingItem />', () => {
     expect(getByTestId('expandingItem')).toBeInTheDocument()
   })
 
-  it('Should have active class when state is active', () => {
-    const { container } = render(
+  it('Should display content when state is active', () => {
+    const { getByTestId } = render(
       <ExpandingItem label={<div>label</div>} isActive={true}>
         Expanded content
       </ExpandingItem>
     )
 
-    expect(container.querySelector(`.${styles.content}`)).toBeInTheDocument()
+    expect(getByTestId('expandingItemContent')).toBeInTheDocument()
+  })
+
+  it('Should display label when state is active', () => {
+    const { getByTestId } = render(
+      <ExpandingItem label={<div>label</div>} isActive={true}>
+        Expanded content
+      </ExpandingItem>
+    )
+
+    expect(getByTestId('expandingItemLabel')).toBeInTheDocument()
   })
 })
