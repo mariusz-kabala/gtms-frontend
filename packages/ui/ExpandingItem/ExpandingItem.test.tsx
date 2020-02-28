@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { ExpandingItem } from './index'
-import styles from './styles.scss'
 
 describe('<ExpandingItem />', () => {
   it('Should be on the page', () => {

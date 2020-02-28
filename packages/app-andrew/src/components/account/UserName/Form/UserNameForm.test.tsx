@@ -6,9 +6,6 @@ import { ILoginData } from 'api/auth'
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 
-// where I should this one below?
-import { IUserNameData } from '@gtms/commons/types/userAccount'
-
 const fetchMock = fetch as FetchMock
 
 jest.mock('react-hook-form', () => {
