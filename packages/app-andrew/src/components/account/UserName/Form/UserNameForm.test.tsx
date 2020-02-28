@@ -1,10 +1,13 @@
 import React from 'react'
 import { render, act } from '@testing-library/react'
 import { UserNameChangeForm } from './index'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { ILoginData } from 'api/auth'
 import { FetchMock } from 'jest-fetch-mock'
-import { useTranslation } from 'i18n'
+import { useTranslation } from '@gtms/commons/i18n'
+
+// where I should this one below?
+import { IUserNameData } from '@gtms/commons/types/userAccount'
 
 const fetchMock = fetch as FetchMock
 
