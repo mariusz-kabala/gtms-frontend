@@ -2,7 +2,7 @@ import React from 'react'
 import { render, act } from '@testing-library/react'
 import { UserNameChangeForm } from './index'
 import { useForm } from 'react-hook-form'
-import { ILoginData } from 'api/auth'
+import { ILoginData } from '@gtms/api-auth'
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 
@@ -73,6 +73,8 @@ describe('<UserNameChangeForm />', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
+
+        // Im not sure if line below is ok
         handleSubmit: (func: (data: ILoginData) => Promise<void>) => {
           onSubmit = func
         },
