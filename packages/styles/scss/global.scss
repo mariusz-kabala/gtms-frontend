@@ -1,5 +1,6 @@
 @import '~reset-css/sass/reset';
 @import './variables.scss';
+@import './customReset.scss';
 
 html {
   font-family: $defaultFontFamily;
@@ -14,7 +15,6 @@ html {
 
 body {
   background-color: $theme0;
-  color: $theme6;
 }
 
 html,

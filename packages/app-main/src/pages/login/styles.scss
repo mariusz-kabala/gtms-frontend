@@ -40,24 +40,23 @@
           margin-bottom: 40px;
         }
       }
+
+      .actionButtons {
+        > button {
+          width: 100%;
+        }
+      }
+
+      .btn {
+        // @todo create proper mixin for button
+        display: inline-block;
+        margin-top: 10px;
+        width: 220px;
+      }
+
+      .socialButtons {
+        margin-top: 20px;
+      }
     }
-  }
-
-  .actionButtons {
-    > button {
-      width: 100%;
-    }
-  }
-
-  .btnForgotPassword {
-    // @todo create proper mixin for button
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 10px;
-    width: 220px;
-  }
-
-  .socialButtons {
-    margin-top: 20px;
   }
 }
