@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { Button } from '@gtms/ui/Button'
 import { NextPage, NextPageContext } from 'next'
 import { useState } from 'react'
 import { useTranslation, Link } from '@gtms/commons/i18n'
@@ -41,9 +40,7 @@ export const RegistrationPage: NextPage<{}> = () => {
           {error && <div data-testid="registration-page-error">{t(error)}</div>}
           <RegistrationForm />
           <div className={styles.goToLoginButton}>
-            <Button>
-              <Link href="/login">{t('goToLogin')}</Link>
-            </Button>
+            <Link href="/login">{t('goToLogin')}</Link>
           </div>
           <SocialButtons
             additionalStyles={styles.socialButtons}

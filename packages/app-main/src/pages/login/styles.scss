@@ -1,5 +1,4 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/button.scss';
 
 .wrapper {
   display: flex;
@@ -46,7 +45,7 @@
 
   .actionButtons {
     > button {
-      @include btnWidth100;
+      width: 100%;
     }
   }
 
