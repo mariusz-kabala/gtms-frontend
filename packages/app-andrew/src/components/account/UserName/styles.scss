@@ -1,0 +1,8 @@
+@import '~@gtms/styles/scss/variables.scss';
+
+.wrapper {
+  &:hover {
+    cursor: pointer;
+    color: $theme5;
+  }
+}
