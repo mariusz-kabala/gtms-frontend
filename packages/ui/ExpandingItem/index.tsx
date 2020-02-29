@@ -7,14 +7,14 @@ export const ExpandingItem: FC<{
   isActive: boolean
 }> = ({ children, isActive, label }) => {
   return (
-    <div data-testid="expandingItem" className={styles.wrapper}>
+    <div data-testid="expanding-item" className={styles.wrapper}>
       {isActive && (
-        <div data-testid="expandingItemContent" className={styles.content}>
+        <div data-testid="expanding-item-content" className={styles.content}>
           {children}
         </div>
       )}
       {!isActive && (
-        <span data-testid="expandingItemLabel" className={styles.label}>
+        <span data-testid="expanding-item-label" className={styles.label}>
           {label}
         </span>
       )}

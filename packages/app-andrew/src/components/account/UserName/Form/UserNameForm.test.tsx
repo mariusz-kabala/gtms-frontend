@@ -2,20 +2,23 @@ import React from 'react'
 import { render, act } from '@testing-library/react'
 import { UserNameChangeForm } from './index'
 import { useForm } from 'react-hook-form'
-import { ILoginData } from '@gtms/api-auth'
+
+// where I should this one below?
+import { IUserNameData } from '@gtms/commons/types/userAccount'
+
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 
 const fetchMock = fetch as FetchMock
 
-jest.mock('react-hook-form', () => {
-  return jest.fn().mockImplementation(() => ({
+jest.mock('react-hook-form', () => ({
+  useForm: jest.fn().mockImplementation(() => ({
     register: jest.fn(),
     handleSubmit: jest.fn(),
     errors: {},
     setError: jest.fn(),
-  }))
-})
+  })),
+}))
 
 describe('<UserNameChangeForm />', () => {
   beforeEach(() => {
@@ -25,7 +28,7 @@ describe('<UserNameChangeForm />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(<UserNameChangeForm />)
 
-    expect(getByTestId('userNameChangeform')).toBeInTheDocument()
+    expect(getByTestId('user-name-change-form')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('userNameChangeForm')
   })
 
@@ -73,19 +76,10 @@ describe('<UserNameChangeForm />', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
-
-        // Im not sure if line below is ok
-        handleSubmit: (func: (data: ILoginData) => Promise<void>) => {
+        handleSubmit: (func: (data: IUserNameData) => Promise<void>) => {
           onSubmit = func
         },
-        errors: {
-          name: {
-            type: 'required',
-          },
-          surname: {
-            type: 'required',
-          },
-        },
+        errors: {},
         setError,
       }
     })

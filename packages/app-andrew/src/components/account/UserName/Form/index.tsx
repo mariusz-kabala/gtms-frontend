@@ -14,7 +14,6 @@ import { Input } from '@gtms/ui/Forms/Input'
 export const UserNameChangeForm: NFC<{}> = () => {
   const { t } = useTranslation('userNameChangeForm')
   const { register, handleSubmit, errors, setError } = useForm<IUserNameData>()
-
   const validate = (data: IUserNameData): boolean => {
     let hasErrors = false
     if (!data.name) {
@@ -36,7 +35,7 @@ export const UserNameChangeForm: NFC<{}> = () => {
   }
 
   return (
-    <form data-testid="userNameChangeform" onSubmit={handleSubmit(onSubmit)}>
+    <form data-testid="user-name-change-form" onSubmit={handleSubmit(onSubmit)}>
       <Input
         type="text"
         name="name"

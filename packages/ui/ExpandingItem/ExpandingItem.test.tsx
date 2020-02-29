@@ -10,7 +10,7 @@ describe('<ExpandingItem />', () => {
       </ExpandingItem>
     )
 
-    expect(getByTestId('expandingItem')).toBeInTheDocument()
+    expect(getByTestId('expanding-item')).toBeInTheDocument()
   })
 
   it('Should display content when state is active', () => {
@@ -20,16 +20,16 @@ describe('<ExpandingItem />', () => {
       </ExpandingItem>
     )
 
-    expect(getByTestId('expandingItemContent')).toBeInTheDocument()
+    expect(getByTestId('expanding-item-content')).toBeInTheDocument()
   })
 
   it('Should display label when state is active', () => {
     const { getByTestId } = render(
-      <ExpandingItem label={<div>label</div>} isActive={true}>
+      <ExpandingItem label={<div>label</div>} isActive={false}>
         Expanded content
       </ExpandingItem>
     )
 
-    expect(getByTestId('expandingItemLabel')).toBeInTheDocument()
+    expect(getByTestId('expanding-item-label')).toBeInTheDocument()
   })
 })
