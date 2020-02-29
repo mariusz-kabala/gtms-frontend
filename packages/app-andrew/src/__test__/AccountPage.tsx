@@ -13,6 +13,10 @@ describe('<AccountPage />', () => {
 
     expect(getByTestId('tag-group')).toBeInTheDocument()
 
+    expect(getByTestId('user-name-change-form')).toBeInTheDocument()
+
+    expect(getByTestId('delete-account')).toBeInTheDocument()
+
     expect(useTranslation).toBeCalledWith('account')
   })
 
