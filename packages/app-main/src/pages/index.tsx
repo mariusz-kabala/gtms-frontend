@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { NextPage } from 'next'
 import { useAuth } from '@gtms/commons/hooks/auth'
 import { Logout } from '@gtms/ui/Logout'
-import { ToggleCheckbox } from '@gtms/ui/Forms/ToggleCheckbox'
 import { Sidebar } from '@gtms/ui/Sidebar'
 
 export const HomePage: NextPage<{}> = () => {
@@ -37,13 +36,6 @@ export const HomePage: NextPage<{}> = () => {
           margin: 0;
         }
       `}</style>
-      <ToggleCheckbox
-        lockerIcon
-        labelChecked="checked"
-        labelUnchecked="unchecked"
-      />
-      <br />
-      <ToggleCheckbox labelChecked="checked" labelUnchecked="unchecked" />
     </div>
   )
 }
