@@ -1,13 +1,14 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
 import styles from './styles.scss'
-import { ElementLike } from 'react-hook-form/dist/types'
 
 export const ToggleCheckbox: FC<{
   additionalStyles?: string
   checked?: boolean
   onChange?: () => unknown
-  reference?: (ref: ElementLike | null) => void
+  reference?: (
+    ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
+  ) => void
 }> = ({ additionalStyles, checked, onChange, reference }) => (
   <div
     className={cx(styles.wrapper, additionalStyles, {
