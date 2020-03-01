@@ -1,9 +1,7 @@
 import React, { FC, useState } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { FlipCard } from '../FlipCard'
 import { UserAvatar } from '../UserAvatar'
-import { UserCard } from '../UserCard'
 import { TagGroup } from '../TagGroup'
 import { Tag } from '../Tag'
 
@@ -17,34 +15,26 @@ export const PostSingle: FC<{
   }
 
   return (
-    <div className={cx(additionalStyles)}>
-      <FlipCard
-        isActive={state}
-        clickOutside
-        back={
-          <UserCard image="https://www.bootdey.com/img/Content/avatar/avatar6.png" />
-        }
-      >
-        <div className={styles.postSingle}>
-          <UserAvatar
-            onClick={() => setState(!state)}
-            image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
-            additionalStyles={styles.userAvatar}
-            userName="Marty McFly"
-          />
-          <p className={styles.text}>
-            Ex sint non nisi laborum ex in esse aliquip non veniam. Excepteur
-            irure nisi enim laboris fugiat nostrud consequat do in ea. Et minim
-            pariatur proident esse irure nisi ea non sint qui eu incididunt.
-          </p>
-          <TagGroup>
-            <Tag label="tag" />
-            <Tag label="tag" />
-            <Tag label="tag" />
-            <Tag label="tag" />
-          </TagGroup>
-        </div>
-      </FlipCard>
+    <div className={cx(styles.postSingle, additionalStyles)}>
+      <UserAvatar
+        onClick={() => setState(!state)}
+        image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
+        additionalStyles={styles.userAvatar}
+        userName="Marty McFly"
+      />
+      <div className={styles.text}>
+        <p>
+          Ex sint non nisi laborum ex in esse aliquip non veniam. Excepteur
+          irure nisi enim laboris fugiat nostrud consequat do in ea. Et minim
+          pariatur proident esse irure nisi ea non sint qui eu incididunt.
+        </p>
+      </div>
+      <TagGroup>
+        <Tag label="tag" />
+        <Tag label="tag" />
+        <Tag label="tag" />
+        <Tag label="tag" />
+      </TagGroup>
     </div>
   )
 }

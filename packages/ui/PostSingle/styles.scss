@@ -6,10 +6,6 @@
   color: $theme6;
   cursor: pointer;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   &:hover {
     border-color: $theme4;
   }
