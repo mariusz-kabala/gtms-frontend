@@ -12,7 +12,7 @@ export const UserName: FC<{
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
-      data-testid="userName"
+      data-testid="user-name"
       onClick={() => setState(true)}
     >
       <ExpandingItem isActive={state} label="Larry Ellison">

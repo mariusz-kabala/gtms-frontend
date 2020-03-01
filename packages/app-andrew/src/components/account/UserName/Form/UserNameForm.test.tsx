@@ -92,4 +92,31 @@ describe('<UserNameChangeForm />', () => {
 
     expect(setError).toBeCalledTimes(2)
   })
+
+  it('Should show no errors when data is valid', () => {
+    // eslint-disable-next-line
+    let onSubmit: any
+    const setError = jest.fn()
+    ;(useForm as jest.Mock).mockImplementationOnce(() => {
+      return {
+        register: jest.fn(),
+        handleSubmit: (func: (data: IUserNameData) => Promise<void>) => {
+          onSubmit = func
+        },
+        errors: {},
+        setError,
+      }
+    })
+
+    act(() => {
+      render(<UserNameChangeForm />)
+
+      onSubmit({
+        name: 'Tester',
+        surname: 'Test',
+      })
+    })
+
+    expect(setError).toBeCalledTimes(0)
+  })
 })
