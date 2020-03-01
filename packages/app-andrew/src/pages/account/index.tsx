@@ -6,6 +6,7 @@ import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { ImageHolder } from '@gtms/ui/ImageHolder'
 import { DeleteAccount } from '../../components/account/DeleteAccount'
+import { PushNotifications } from '../../components/account/PushNotfications'
 
 export const AccountPage: NextPage<{}> = () => {
   const { t } = useTranslation('account')
@@ -49,6 +50,7 @@ export const AccountPage: NextPage<{}> = () => {
           <span className={styles.visibilityLabel}>
             This part is visible ONLY FOR YOU
           </span>
+          <PushNotifications />
           <DeleteAccount onConfirm={() => null} />
         </div>
       </div>
