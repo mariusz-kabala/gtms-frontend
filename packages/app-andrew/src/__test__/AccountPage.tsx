@@ -13,6 +13,10 @@ describe('<AccountPage />', () => {
 
     expect(getByTestId('tag-group')).toBeInTheDocument()
 
+    expect(getByTestId('delete-account')).toBeInTheDocument()
+
+    expect(getByTestId('push-notifications')).toBeInTheDocument()
+
     expect(useTranslation).toBeCalledWith('account')
   })
 

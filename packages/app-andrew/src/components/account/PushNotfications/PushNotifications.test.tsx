@@ -6,6 +6,6 @@ describe('<PushNotifications />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(<PushNotifications />)
 
-    expect(getByTestId('pushNotifications')).toBeInTheDocument()
+    expect(getByTestId('push-notifications')).toBeInTheDocument()
   })
 })
