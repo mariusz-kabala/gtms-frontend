@@ -1,17 +1,43 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC, ReactNode, useEffect } from 'react'
 import styles from './styles.scss'
+import cx from 'classnames'
+import { Overlay } from '../Overlay'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import useKey from 'use-key-hook'
+import { IoIosClose } from 'react-icons/io'
 
 export const ExpandingItem: FC<{
+  additionalStyles?: string
   children: ReactNode
+  onClose: () => unknown
   label: ReactNode
   isActive: boolean
-}> = ({ children, isActive, label }) => {
+}> = ({ additionalStyles, children, isActive, label, onClose }) => {
+  useEffect(() => {
+    disableBodyScroll(document.body)
+
+    return () => enableBodyScroll(document.body)
+  }, [])
+
+  useKey(() => onClose(), {
+    detectKeys: [27],
+  })
+
   return (
-    <div data-testid="expanding-item" className={styles.wrapper}>
+    <div
+      className={cx(styles.wrapper, additionalStyles)}
+      data-testid="expanding-item"
+    >
       {isActive && (
-        <div data-testid="expanding-item-content" className={styles.content}>
-          {children}
-        </div>
+        <>
+          <i onClick={onClose}>
+            <IoIosClose />
+          </i>
+          <div data-testid="expanding-item-content" className={styles.content}>
+            {children}
+          </div>
+          <Overlay onClick={onClose} />
+        </>
       )}
       {!isActive && (
         <span data-testid="expanding-item-label" className={styles.label}>

@@ -1,5 +1,29 @@
 @import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
   cursor: pointer;
+
+  i,
+  .content {
+    position: relative;
+    z-index: 11;
+    @include font-size(xlg);
+  }
+
+  i {
+    display: flex;
+    justify-content: flex-end;
+
+    &:hover {
+      > svg {
+        color: $theme4;
+      }
+    }
+  }
+
+  .content {
+    padding: 10px;
+    border: 1px solid $theme4;
+  }
 }
