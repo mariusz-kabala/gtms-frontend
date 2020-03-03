@@ -1,0 +1,18 @@
+@import '~@gtms/styles/scss/variables.scss';
+
+@mixin buttonDefault() {
+  display: inline-block;
+  justify-content: center;
+  text-align: center; // for <a> elements
+  text-decoration: none; // for <a> elements
+  cursor: pointer;
+  padding: 15px;
+  background: $theme2;
+  color: $theme6;
+  text-transform: uppercase;
+}
+
+@mixin buttonColorsHoverDefault() {
+  background: $theme4;
+  color: $theme6;
+}

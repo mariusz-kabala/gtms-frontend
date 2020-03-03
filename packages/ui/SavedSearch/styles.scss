@@ -3,7 +3,6 @@
 .search {
   margin-bottom: 1em;
   padding: 0.5em;
-  font-size: 0.85em;
   color: $theme6;
   background: $theme1;
   border: 1px solid $theme6;
@@ -17,7 +16,6 @@
     display: flex;
 
     .tag {
-      font-size: 1.3em;
       margin-left: 0.5em;
 
       &:first-child {

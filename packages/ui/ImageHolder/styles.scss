@@ -4,5 +4,7 @@
 .wrapper {
   cursor: pointer;
   max-width: 100%;
+  min-width: 20px;
+  min-height: 20px;
   @include imageCover();
 }

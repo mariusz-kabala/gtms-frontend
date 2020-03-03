@@ -2,7 +2,7 @@
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .tagGroup {
-  @include font-size(sm);
+  @include font-size(xsm);
 
   > div {
     margin-right: 5px;

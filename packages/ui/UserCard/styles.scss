@@ -1,34 +1,24 @@
 @import '@gtms/styles/scss/variables';
 
-$color1: $theme4;
-$color2: $theme6;
-$color3: $theme1;
-$fontSize1: 1.25rem;
-$fontSize2: 0.8rem;
-$padding1: 1rem;
-
 .container {
   display: flex;
-  background: $color3;
+  background: $theme1;
 
   .avatar {
     height: 160px;
   }
 
   .content {
-    padding: $padding1;
+    padding: 1rem;
 
     .nameSurname {
       display: inline-block;
-      font-size: $fontSize1;
-      color: $color1;
+      color: $theme4;
       margin-bottom: 10px;
     }
 
     .desc {
-      color: $color2;
-      font-size: $fontSize2;
-      line-height: 1.2rem;
+      color: $theme6;
     }
   }
 }

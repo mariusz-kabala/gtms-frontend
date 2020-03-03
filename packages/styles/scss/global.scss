@@ -1,5 +1,6 @@
 @import '~reset-css/sass/reset';
 @import './variables.scss';
+@import './customReset.scss';
 
 html {
   box-sizing: border-box;
@@ -12,9 +13,8 @@ html {
 }
 
 body {
-  font-family: $defaultFontFamily;
-  background: $theme1;
-  color: $theme6;
+  background-color: $theme0;
+  font-family: 'Lato,sans-serif', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 html,
