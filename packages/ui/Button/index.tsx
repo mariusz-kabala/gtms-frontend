@@ -1,6 +1,4 @@
 import React, { FC, ReactNode, forwardRef, Ref } from 'react'
-import cx from 'classnames'
-import styles from './styles.scss'
 
 export const Button: FC<{
   additionalStyles?: string
@@ -17,7 +15,7 @@ export const Button: FC<{
     return (
       <button
         ref={ref}
-        className={cx(styles.button, additionalStyles)}
+        className={additionalStyles}
         data-testid={testid ?? 'action-button'}
         disabled={disabled}
         onClick={onClick}
