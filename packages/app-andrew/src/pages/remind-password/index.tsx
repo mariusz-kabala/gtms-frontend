@@ -14,19 +14,21 @@ export const RemindPasswordPage: NextPage<{}> = () => {
   return (
     <div className={styles.wrapper} data-testid="remind-password-page">
       <div className={styles.left}>
+        <h2>Remind password</h2>
+        <p>
+          Wyślemy Ci link do zresetowania hasła na Twój adres mailowy. Podaj go
+          w polu ponizej.
+        </p>
         {!showConfirmation && (
           <RemindPasswordForm onSuccess={() => setShowConfirmation(true)} />
         )}
         {showConfirmation && (
           <p data-testid="remind-password-success-confirmation">{t('info')}</p>
         )}
-        <Link href={`/login`}>
-          <a>{t('goToLoginPage')}</a>
-        </Link>
-        <span>
-          {/* @todo remove temporary code */}
-          {t('subtitle')}
-        </span>
+        <br />
+        <div className={styles.btn}>
+          <Link href={`/login`}>{t('goToLoginPage')}</Link>
+        </div>
       </div>
       <div
         className={styles.right}
