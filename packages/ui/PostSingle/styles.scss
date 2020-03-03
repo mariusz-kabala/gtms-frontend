@@ -3,6 +3,7 @@
 .postSingle {
   padding: 15px;
   border: 1px solid $theme1;
+  color: $theme6;
   cursor: pointer;
 
   &:hover {
@@ -10,8 +11,6 @@
   }
 
   .text {
-    font-weight: 200;
-    line-height: 1.2rem;
     margin-top: 10px;
     margin-bottom: 10px;
   }

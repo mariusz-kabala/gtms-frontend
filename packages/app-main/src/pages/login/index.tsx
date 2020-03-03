@@ -53,12 +53,12 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
           <LoginForm />
           <div className={styles.actionButtons}>
             <Link href="/registration">
-              <Button additionalStyles={styles.btnForgotPassword}>
+              <Button additionalStyles={styles.btn}>
                 {t('goToRegistration')}
               </Button>
             </Link>
             <Link href="/remind-password">
-              <Button additionalStyles={styles.btnForgotPassword}>
+              <Button additionalStyles={styles.btn}>
                 {t('goToRemindPassword')}
               </Button>
             </Link>

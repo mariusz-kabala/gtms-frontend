@@ -1,23 +1,15 @@
 @import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
 
 .error {
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-content: center;
-  margin: 10px 0;
+  padding-top: 5px;
   color: $theme7;
-  font-size: 12px;
+  @include font-size(sm);
   font-weight: 400;
-
-  &:before {
-    content: '';
-    border: solid $theme7;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 2px;
-    margin: 5px;
-    margin-right: 6px;
-    // up
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-  }
+  border-top: 1px solid $theme7;
+  margin-top: -11px;
 }
