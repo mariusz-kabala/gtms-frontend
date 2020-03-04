@@ -14,8 +14,12 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
   },
+  coverageReporters: ['text', 'json', 'html'],
   testURL: 'http://localhost',
-  testMatch: ['<rootDir>/packages/**/*.test.ts?(x)'],
+  testMatch: [
+    '<rootDir>/packages/**/*.test.ts?(x)',
+    '<rootDir>/packages/**/__test__/*.ts?(x)',
+  ],
   testPathIgnorePatterns: ['/node_modules/', '/dist/', '/tools/'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'd.ts', 'json', 'node'],
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],

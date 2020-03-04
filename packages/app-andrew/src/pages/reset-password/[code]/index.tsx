@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
-import { AnimatedComponent } from '@gtms/ui/AnimatedComponent'
-import { Logo } from '@gtms/ui/Logo'
 import { ResetPasswordForm } from '../../../components/reset-password/Form'
 import { Spinner } from '@gtms/ui/Spinner'
 import { useTranslation } from '@gtms/commons/i18n'
@@ -34,9 +32,10 @@ export const ResetPasswordPage: NextPage<{}> = () => {
   return (
     <div className={styles.wrapper} data-testid="remind-password-page">
       <div>
-        <AnimatedComponent>
-          <Logo />
-        </AnimatedComponent>
+        <h2>
+          {/* @todo GEOT-109 - put proper translations everywhere */}
+          {t('Momencik resetujemy hasło...')}
+        </h2>
         {isLoading && <Spinner />}
         {!isLoading && !isPasswordChanged && (
           <ResetPasswordForm
@@ -49,10 +48,6 @@ export const ResetPasswordPage: NextPage<{}> = () => {
             {t('passwordHasBeenChanged')}
           </p>
         )}
-        <span>
-          {/* @todo remove temporary code */}
-          {t('subtitle')}
-        </span>
       </div>
     </div>
   )

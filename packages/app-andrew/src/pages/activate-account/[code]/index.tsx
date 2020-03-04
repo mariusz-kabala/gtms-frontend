@@ -4,10 +4,10 @@ import { activateAccount } from '@gtms/api-auth'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Spinner } from '@gtms/ui/Spinner'
-import { Logo } from '@gtms/ui/Logo'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { userQuery } from '@gtms/state-user'
+import styles from './styles.scss'
 
 export const ActivateAccountPage: NextPage<{}> = () => {
   const { t } = useTranslation('accountActivation')
@@ -26,29 +26,18 @@ export const ActivateAccountPage: NextPage<{}> = () => {
   }, [code])
 
   return (
-    <div data-testid="activate-account-page">
-      <section
-        style={{
-          // @todo remove it soon
-          position: 'relative',
-          background: 'black',
-          padding: '20px',
-          zIndex: 1,
-        }}
-      >
-        <Logo />
-        {isLoading && <Spinner />}
-        {!isLoading && !hasError && (
-          <p data-testid="activate-account-page-confirmation">
-            {t('accountActivated')}
-          </p>
-        )}
-        {!isLoading && hasError && (
-          <p data-testid="activate-account-page-activation-failed">
-            {t('activationFailed')}
-          </p>
-        )}
-      </section>
+    <div className={styles.wrapper} data-testid="activate-account-page">
+      {isLoading && <Spinner />}
+      {!isLoading && !hasError && (
+        <h2 data-testid="activate-account-page-confirmation">
+          {t('accountActivated')}
+        </h2>
+      )}
+      {!isLoading && hasError && (
+        <h2 data-testid="activate-account-page-activation-failed">
+          {t('activationFailed')}
+        </h2>
+      )}
     </div>
   )
 }
