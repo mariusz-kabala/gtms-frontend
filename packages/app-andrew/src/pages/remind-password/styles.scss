@@ -1,6 +1,53 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/forms.scss';
+@import '~@gtms/styles/scss/mixins/imageCover';
+@import '~@gtms/styles/scss/mixins/buttons';
 
 .wrapper {
-  @include formWrapperBasic;
+  display: flex;
+  height: 100%;
+
+  .left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    padding: 0 40px;
+
+    h2,
+    p {
+      font-weight: 600;
+      color: $theme6;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: 3em;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-weight: 200;
+
+      &:last-child {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .right {
+    width: 60%;
+    @include imageCover();
+  }
+
+  .btn {
+    display: none !important;
+    width: 100%;
+
+    > a {
+      width: 100%;
+      display: inline-block;
+      @include buttonDefault();
+    }
+  }
 }

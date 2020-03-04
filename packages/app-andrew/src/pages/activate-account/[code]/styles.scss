@@ -1,0 +1,15 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/header.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  h2 {
+    @include header(h1, textUppercase, 500);
+    color: $theme6;
+    margin-bottom: 20px;
+  }
+}

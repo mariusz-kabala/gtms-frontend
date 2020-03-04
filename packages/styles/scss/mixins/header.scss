@@ -1,0 +1,42 @@
+$size: (
+  h1: 1.802em,
+  h2: 1.602em,
+  h3: 1.424em,
+  h4: 1.266em,
+  h5: 1.125em,
+);
+
+@function header($key) {
+  @return map-get($size, $key);
+}
+
+@mixin header(
+  $key,
+  $textUppercase: 'initial',
+  $textBold: 'initial',
+  $type: 'default'
+) {
+  font-size: header($key);
+  font-weight: 400;
+
+  @if $textUppercase {
+    text-transform: uppercase;
+  }
+
+  @if $textBold {
+    font-weight: $textBold;
+  }
+
+  @if $type == 'one' {
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      margin: $margin3 0;
+      background: $theme7;
+    }
+  }
+}

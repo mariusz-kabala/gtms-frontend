@@ -1,5 +1,4 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/button.scss';
 
 .wrapper {
   display: flex;
@@ -35,31 +34,29 @@
       }
 
       p {
-        line-height: 1.3em;
         font-weight: 200;
 
         &:last-child {
           margin-bottom: 40px;
         }
       }
+
+      .actionButtons {
+        > button {
+          width: 100%;
+        }
+      }
+
+      .btn {
+        // @todo create proper mixin for button
+        display: inline-block;
+        margin-top: 10px;
+        width: 220px;
+      }
+
+      .socialButtons {
+        margin-top: 20px;
+      }
     }
-  }
-
-  .actionButtons {
-    > button {
-      @include btnWidth100;
-    }
-  }
-
-  .btnForgotPassword {
-    // @todo create proper mixin for button
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 10px;
-    width: 220px;
-  }
-
-  .socialButtons {
-    margin-top: 20px;
   }
 }

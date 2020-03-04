@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { AnimatedComponent } from '@gtms/ui/AnimatedComponent'
 import { NextPage, NextPageContext } from 'next'
-import { ImageCover } from '@gtms/ui/ImageCover'
 import { Logo } from '@gtms/ui/Logo'
 import { RemindPasswordForm } from '../../components/remind-password/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
@@ -17,9 +15,7 @@ export const RemindPasswordPage: NextPage<{}> = () => {
   return (
     <div data-testid="remind-password-page" className={styles.wrapper}>
       <div>
-        <AnimatedComponent>
-          <Logo />
-        </AnimatedComponent>
+        <Logo />
         {!showConfirmation && (
           <RemindPasswordForm onSuccess={() => setShowConfirmation(true)} />
         )}
@@ -34,7 +30,6 @@ export const RemindPasswordPage: NextPage<{}> = () => {
           {t('subtitle')}
         </span>
       </div>
-      <ImageCover />
     </div>
   )
 }
