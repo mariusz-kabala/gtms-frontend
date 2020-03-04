@@ -5,19 +5,19 @@ import { UserNameChangeForm } from './Form'
 export const UserName: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
-  const [state, setState] = useState<boolean>(false)
+  const [isEditModeActive, setIsEditModeActive] = useState<boolean>(false)
 
   return (
     <div
       className={additionalStyles}
       data-testid="user-name"
-      onClick={() => (!state ? setState(true) : null)}
+      onClick={() => (!isEditModeActive ? setIsEditModeActive(true) : null)}
     >
       <ExpandingItem
-        isActive={state}
+        isActive={isEditModeActive}
         label="Larry Ellison"
         onClose={() => {
-          setState(false)
+          setIsEditModeActive(false)
         }}
       >
         <UserNameChangeForm />

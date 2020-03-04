@@ -28,6 +28,8 @@ describe('<UserName />', () => {
 
     const { getByTestId, queryByTestId } = render(<UserName />)
 
+    expect(queryByTestId('user-name-change-form')).toBeNull()
+
     fireEvent.click(getByTestId('user-name'))
 
     expect(getByTestId('user-name-change-form')).toBeInTheDocument()
