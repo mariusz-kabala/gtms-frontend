@@ -1,5 +1,10 @@
-@import '~@gtms/styles/scss/mixins/button';
+@import '~@gtms/styles/scss/mixins/buttons';
 
 .btnSubmit {
-  @include btnWidth100;
+  width: 100%;
+  margin-top: 10px;
+  @include buttonDefault();
+  &:hover {
+    @include buttonColorsHoverDefault();
+  }
 }

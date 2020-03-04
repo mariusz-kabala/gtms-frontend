@@ -7,10 +7,10 @@ export const SuccessConfirmation: FC<{}> = () => {
 
   return (
     <div data-testid="registration-success-confirmation">
-      <p>{t('registrationSuccessMessage')}</p>
-      <Link href={`login`}>
-        <a>{t('goToLoginPage')}</a>
-      </Link>
+      <h2>{t('registrationSuccessMessage')}</h2>
+      <div>
+        <Link href={`login`}>{t('goToLoginPage')}</Link>
+      </div>
     </div>
   )
 }

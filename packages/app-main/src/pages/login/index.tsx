@@ -40,7 +40,7 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
       <div className={styles.right}>
         <div>
           {error && <div data-testid="login-page-error">{t(error)}</div>}
-          <h1>Andrzej can be found</h1>
+          <h1>Tempor irure qui excepteur ipsu</h1>
           <p>
             Tempor irure qui excepteur ipsum excepteur qui pariatur deserunt
             consequat consequat est. Non eiusmod ea non cupidatat occaecat do
@@ -53,12 +53,12 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
           <LoginForm />
           <div className={styles.actionButtons}>
             <Link href="/registration">
-              <Button additionalStyles={styles.btnForgotPassword}>
+              <Button additionalStyles={styles.btn}>
                 {t('goToRegistration')}
               </Button>
             </Link>
             <Link href="/remind-password">
-              <Button additionalStyles={styles.btnForgotPassword}>
+              <Button additionalStyles={styles.btn}>
                 {t('goToRemindPassword')}
               </Button>
             </Link>

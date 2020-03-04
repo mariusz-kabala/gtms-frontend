@@ -1,8 +1,8 @@
 @import '~reset-css/sass/reset';
 @import './variables.scss';
+@import './customReset.scss';
 
 html {
-  font-family: $defaultFontFamily;
   box-sizing: border-box;
 }
 
@@ -13,11 +13,16 @@ html {
 }
 
 body {
-  background: $theme1;
+  background-color: $theme0;
+  font-family: 'Lato,sans-serif', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 html,
 body,
 body > div:first-of-type {
   height: 100%;
+}
+
+img {
+  max-width: 100%;
 }
