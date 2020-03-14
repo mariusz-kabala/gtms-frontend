@@ -1,9 +1,5 @@
 @import '~@gtms/styles/scss/variables';
 
-$color1: $theme1;
-$color2: $theme2;
-$color3: $theme6;
-
 .cookiePolicy {
   display: flex;
   flex-direction: column;
@@ -14,9 +10,9 @@ $color3: $theme6;
   .cookie {
     display: flex;
     width: 100%;
-    background: $color1;
-    color: $color3;
-    border-bottom: 1px solid $color2;
+    background: $theme3;
+    color: $theme2;
+    border-bottom: 1px solid $theme4;
 
     p {
       display: flex;

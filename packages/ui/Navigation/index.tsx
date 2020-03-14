@@ -57,7 +57,7 @@ export const Navigation: FC<{}> = () => {
             <li className={styles.link} key={index}>
               <a>
                 <i>{value.icon}</i>
-                {value.label}
+                <span>{value.label}</span>
               </a>
             </li>
           )
