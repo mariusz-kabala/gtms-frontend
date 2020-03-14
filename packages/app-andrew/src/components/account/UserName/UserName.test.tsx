@@ -28,6 +28,8 @@ describe('<UserName />', () => {
 
     const { getByTestId, queryByTestId } = render(<UserName />)
 
+    expect(document.addEventListener).toBeCalled()
+
     expect(queryByTestId('user-name-change-form')).toBeNull()
 
     fireEvent.click(getByTestId('user-name'))
