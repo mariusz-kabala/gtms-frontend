@@ -1878,7 +1878,7 @@ acorn-walk@^6.0.1:
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-6.2.0.tgz#123cb8f3b84c2171f1f7fb252615b1c78a6b1a8c"
   integrity sha512-7evsyfH1cLOCdAzZAd43Cic04yKydNx0cF+7tiA19p1XnLLPU4dpCQOqpjqwokFe//vS0QqfqqjCS2JkiIs0cA==
 
-acorn@^6.0.1, acorn@^6.1.1, acorn@^6.2.1, acorn@~6.4.0:
+acorn@^6.0.1, acorn@^6.1.1, acorn@^6.2.1, acorn@^6.4.1:
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.1.tgz#531e58ba3f51b9dacb9a6646ca4debf5b14ca474"
   integrity sha512-ZVA9k326Nwrj3Cj9jlh3wGFutC2ZornPNARZwsNYqQYgN0EsV2d53w5RN/co65Ohn4sUAUtb1rSUAOD6XN9idA==
@@ -10516,12 +10516,12 @@ react-simple-code-editor@^0.10.0:
   integrity sha512-bL5W5mAxSW6+cLwqqVWY47Silqgy2DKDTR4hDBrLrUqC5BXc29YVx17l2IZk5v36VcDEq1Bszu2oHm1qBwKqBA==
 
 react-styleguidist@^11.0.0:
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-11.0.0.tgz#87997fdbf5d468c714b800f1dc13a25c1b25e23e"
-  integrity sha512-Za/OiEBSJ+B01f6vu5M5ByS5tnlmYm9Zc3oju4V4YAns67P4ehzOSgwq3lzg5tWkw/gg5m7eSXUP8msPzfrhXg==
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-11.0.1.tgz#6aee297b609c0ed18ce6c27c81cfc29e00fddfef"
+  integrity sha512-kMfJH730OPouU8Sl9neNjWCr72Lq2fx+JPNDrYcUqJXfz0z0fUUDW9DOuvw54f+u6hFSCin3/qdnH2JpIOH6HQ==
   dependencies:
     "@vxna/mini-html-webpack-template" "^1.0.0"
-    acorn "~6.4.0"
+    acorn "^6.4.1"
     acorn-jsx "^5.1.0"
     ast-types "~0.13.2"
     buble "0.19.8"
