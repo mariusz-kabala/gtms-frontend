@@ -1,35 +1,40 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
+import cx from 'classnames'
 
 export const ToggleCheckbox: FC<{
   additionalStyles?: string
   checked?: boolean
   labelChecked?: string
   labelUnchecked?: string
+  lockerIcon?: boolean
   name?: string
   onChange?: () => unknown
   reference?: (
     ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
   ) => void
-  lockerIcon?: boolean
+  rounded?: boolean
 }> = ({
   additionalStyles,
   checked = false,
   labelChecked,
   labelUnchecked,
+  lockerIcon,
   name,
   onChange,
   reference,
-  lockerIcon,
+  rounded,
 }) => (
   <div
     onClick={onChange}
     className={additionalStyles}
     data-testid="toggle-checkbox"
   >
-    <label className={styles.switch}>
+    <label className={styles.switcher}>
       <input
-        className={styles.input} /* @todo name it properly */
+        className={cx(styles.input, {
+          [styles.rounded]: rounded,
+        })}
         defaultChecked={checked}
         ref={reference}
         type="checkbox"
