@@ -1,6 +1,13 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
+.placeholder {
+  //  @todo remove it when placeholders wont be needed
+  font-size: 11px;
+  display: block;
+  margin: 10px 0;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
