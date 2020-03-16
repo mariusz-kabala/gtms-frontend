@@ -1,36 +1,40 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
+import image1 from './temp/avatar-1.png'
+import image2 from './temp/logo-kreciolatv.png'
+import image3 from './temp/logo-patrol-1.png'
+import image4 from './temp/logo-patrol-2.png'
 
 /* @todo remove mock */
 const mockData = [
   {
     id: 0,
-    img: '/images/temp_images/avatar-1.png',
+    img: image1,
   },
   {
     id: 1,
-    img: '/images/temp_images/logo-kreciolatv.png',
+    img: image2,
   },
   {
     id: 2,
-    img: '/images/temp_images/logo-patrol-1.png',
+    img: image3,
   },
   {
     id: 3,
-    img: '/images/temp_images/logo-patrol-2.png',
+    img: image4,
   },
   {
     id: 4,
-    img: '/images/temp_images/logo-kreciolatv.png',
+    img: image1,
   },
   {
     id: 5,
-    img: '/images/temp_images/logo-patrol-1.png',
+    img: image2,
   },
   {
     id: 6,
-    img: '/images/temp_images/logo-patrol-2.png',
+    img: image3,
   },
 ]
 
