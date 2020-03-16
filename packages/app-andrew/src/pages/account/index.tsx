@@ -7,7 +7,6 @@ import { ImageHolder } from '@gtms/ui/ImageHolder'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { ImageHolder } from '@gtms/ui/ImageHolder'
-import { DeleteAccount } from '../../components/account/DeleteAccount'
 import { PushNotificationsSwitcher } from '../../components/account/PushNotificationsSwitcher'
 
 export const AccountPage: NextPage<{}> = () => {
