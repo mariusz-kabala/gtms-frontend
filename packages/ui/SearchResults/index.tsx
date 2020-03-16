@@ -2,37 +2,43 @@ import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { Spinner } from '../Spinner'
+import image1 from './tmp/logo-patrol-1.png'
+import image2 from './tmp/logo-patrol-2.png'
+import image3 from './tmp/logo-sztab-1.png'
+import image4 from './tmp/logo-sztab-2.png'
+import image5 from './tmp/logo-sztab-3.png'
+import image6 from './tmp/logo-uczymy-ratowac.png'
 
 // @todo remove mock
 const movies = [
   {
     id: 1,
-    image: '/images/temp_images/logo-patrol-1.png',
+    image: image1,
     title: '1983',
   },
   {
     id: 2,
-    image: '/images/temp_images/logo-patrol-2.png',
+    image: image2,
     title: 'Russian doll',
   },
   {
     id: 3,
-    image: '/images/temp_images/logo-sztab-1.png',
+    image: image3,
     title: 'The rain',
   },
   {
     id: 4,
-    image: '/images/temp_images/logo-sztab-2.png',
+    image: image4,
     title: 'Sex education',
   },
   {
     id: 5,
-    image: '/images/temp_images/logo-sztab-3.png',
+    image: image5,
     title: 'Elite',
   },
   {
     id: 6,
-    image: '/images/temp_images/logo-uczymy-ratowac.png',
+    image: image6,
     title: 'Black mirror',
   },
 ]
