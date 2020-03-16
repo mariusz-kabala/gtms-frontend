@@ -4,10 +4,9 @@ import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
 import { DeleteAccount } from '../../components/account/DeleteAccount'
 import { ImageHolder } from '@gtms/ui/ImageHolder'
+import { PushNotificationsSwitcher } from '../../components/account/PushNotificationsSwitcher'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
-import { ImageHolder } from '@gtms/ui/ImageHolder'
-import { PushNotificationsSwitcher } from '../../components/account/PushNotificationsSwitcher'
 
 export const AccountPage: NextPage<{}> = () => {
   const { t } = useTranslation('account')
