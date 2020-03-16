@@ -7,6 +7,7 @@ import { ImageHolder } from '@gtms/ui/ImageHolder'
 import { PushNotificationsSwitcher } from '../../components/account/PushNotificationsSwitcher'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
+import { UserName } from '../../components/account/UserName'
 
 export const AccountPage: NextPage<{}> = () => {
   const { t } = useTranslation('account')
@@ -50,6 +51,7 @@ export const AccountPage: NextPage<{}> = () => {
           <span className={styles.visibilityLabel}>
             This part is visible ONLY FOR YOU
           </span>
+          <UserName />
           <PushNotificationsSwitcher />
           <span className={styles.placeholder}>==== USER NAME ====</span>
           <span className={styles.placeholder}>==== USER PASSWORD ====</span>
