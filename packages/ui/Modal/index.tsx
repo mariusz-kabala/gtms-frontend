@@ -9,7 +9,7 @@ export const Modal: FC<{
   additionalStyles?: string
   children: ReactNode
   onClose: () => unknown
-}> = ({ children, additionalStyles, onClose }) => {
+}> = ({ additionalStyles, children, onClose }) => {
   useEffect(() => {
     disableBodyScroll(document.body)
 
