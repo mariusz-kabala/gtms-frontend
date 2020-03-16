@@ -4,6 +4,7 @@
 
 .btnDeleteAccount {
   @include buttonDefault();
+  width: 100%;
   &:hover {
     @include buttonColorsHoverDefault();
   }
