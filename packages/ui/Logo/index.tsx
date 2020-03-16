@@ -1,8 +1,9 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
+import image from './logo_bankpodrozy_rectangle.png'
 
 export const Logo: FC<{}> = () => (
   <div data-testid="logo" className={styles.logo}>
-    <img src="/images/logo_bankpodrozy_rectangle.png" alt="Logo" />
+    <img src={image} alt="Logo" />
   </div>
 )
