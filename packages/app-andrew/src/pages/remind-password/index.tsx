@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
-import { Logo } from '@gtms/ui/Logo'
 import { RemindPasswordForm } from '../../components/remind-password/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
@@ -13,23 +12,28 @@ export const RemindPasswordPage: NextPage<{}> = () => {
   const [showConfirmation, setShowConfirmation] = useState<boolean>(false)
 
   return (
-    <div data-testid="remind-password-page" className={styles.wrapper}>
-      <div>
-        <Logo />
+    <div className={styles.wrapper} data-testid="remind-password-page">
+      <div className={styles.left}>
+        <h2>Remind password</h2>
+        <p>
+          Wyślemy Ci link do zresetowania hasła na Twój adres mailowy. Podaj go
+          w polu ponizej.
+        </p>
         {!showConfirmation && (
           <RemindPasswordForm onSuccess={() => setShowConfirmation(true)} />
         )}
         {showConfirmation && (
           <p data-testid="remind-password-success-confirmation">{t('info')}</p>
         )}
-        <Link href={`/login`}>
-          <a>{t('goToLoginPage')}</a>
-        </Link>
-        <span>
-          {/* @todo remove temporary code */}
-          {t('subtitle')}
-        </span>
+        <br />
+        <div className={styles.btn}>
+          <Link href={`/login`}>{t('goToLoginPage')}</Link>
+        </div>
       </div>
+      <div
+        className={styles.right}
+        style={{ backgroundImage: `url('/images/temp_images/andrew_bg.jpg')` }}
+      ></div>
     </div>
   )
 }
