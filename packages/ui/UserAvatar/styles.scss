@@ -1,9 +1,5 @@
 @import '@gtms/styles/scss/variables';
 
-$color1: $theme6;
-$color2: $theme4;
-$fontSize1: 0.85rem;
-
 .container {
   display: inline-flex;
   align-items: center;
@@ -15,8 +11,8 @@ $fontSize1: 0.85rem;
 
   .nameSurname {
     margin: 0 0.7em;
-    font-size: $fontSize1;
-    color: $color1;
+    font-size: 0.85rem;
+    color: $theme6;
 
     span {
       margin-left: 0.3em;
@@ -24,10 +20,10 @@ $fontSize1: 0.85rem;
   }
 
   &:hover {
-    background: $color2;
+    background: $theme4;
 
     .nameSurname {
-      color: $color1;
+      color: $theme6;
     }
   }
 }
