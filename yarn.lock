@@ -10452,9 +10452,9 @@ react-group@^3.0.2:
     prop-types "^15.7.2"
 
 react-hook-form@^5.0.3:
-  version "5.1.0"
-  resolved "https://npm.kabala.tech/react-hook-form/-/react-hook-form-5.1.0.tgz#3d3af0428b3f932b465dee432725753edd17bfbf"
-  integrity sha512-WJZM4kuH0Wx/EtueWziJWhHeWMqaN9Y3G2rMdjB6FPa/BgnRisLWlk89BL42BwtdXzZRlxCMD8xjNNXsSawABg==
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-5.1.1.tgz#f5ca03343d18b1c437b2343914d10f9cfe9aa333"
+  integrity sha512-ZG5YYL7ufdBiXbCdYp3uGg6JOTTeSZ2B0RGVM9/22KXuTv0jeu9oFUa7zJVGO+tM7QN+gEbBODTIfmeQLC89EA==
 
 react-hooks-testing-library@^0.6.0:
   version "0.6.0"
