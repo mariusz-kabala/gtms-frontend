@@ -56,7 +56,10 @@ export const SearchResults: FC<{ tempActive?: boolean }> = ({ tempActive }) => (
         {// @todo create group card element that will be reusable in places like this one
         movies.map((value, index) => {
           return (
-            <li key={index}>
+            <li
+              data-testid={`search-result-${index}`}
+              key={`search-result-${index}`}
+            >
               <img src={value.image} />
               <h3>{value.title}</h3>
             </li>
