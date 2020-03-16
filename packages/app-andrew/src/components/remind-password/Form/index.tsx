@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react'
+import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
@@ -31,7 +32,11 @@ export const RemindPasswordForm: FC<{
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} data-testid="remind-password-form">
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit(onSubmit)}
+      data-testid="remind-password-form"
+    >
       <Input
         type="email"
         placeholder={t('form.labels.email')}
@@ -44,7 +49,11 @@ export const RemindPasswordForm: FC<{
       {errors.email && errors.email.type === 'serverError' && (
         <Error text={t('serverError')} />
       )}
-      <Button type="submit" disabled={isMakingRequest}>
+      <Button
+        additionalStyles={styles.btn}
+        type="submit"
+        disabled={isMakingRequest}
+      >
         {t('form.submitButton')}
       </Button>
     </form>

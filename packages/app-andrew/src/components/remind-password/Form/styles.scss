@@ -1,0 +1,14 @@
+@import '~@gtms/styles/scss/mixins/buttons';
+
+.form {
+  width: 100%;
+
+  .btn {
+    width: 100%;
+    @include buttonDefault();
+
+    &:hover {
+      @include buttonColorsHoverDefault();
+    }
+  }
+}

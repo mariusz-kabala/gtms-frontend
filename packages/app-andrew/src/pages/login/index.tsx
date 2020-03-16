@@ -37,10 +37,10 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
 
   return (
     <div className={styles.wrapper} data-testid="login-page">
-      <div className={styles.right}>
+      <div className={styles.left}>
         <div>
           {error && <div data-testid="login-page-error">{t(error)}</div>}
-          <h1>Tempor irure qui exce</h1>
+          <h2>Tempor irure qui exce</h2>
           <p>
             Tempor irure qui excepteur ipsum excepteur qui pariatur deserunt
             consequat aco nsequat est. Non eiusmod ea non cupidatat occaecat do
@@ -53,12 +53,12 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
           <LoginForm />
           <div className={styles.actionButtons}>
             <Link href="/registration">
-              <Button additionalStyles={styles.btnForgotPassword}>
+              <Button additionalStyles={styles.btn}>
                 {t('goToRegistration')}
               </Button>
             </Link>
             <Link href="/remind-password">
-              <Button additionalStyles={styles.btnForgotPassword}>
+              <Button additionalStyles={styles.btn}>
                 {t('goToRemindPassword')}
               </Button>
             </Link>
@@ -70,7 +70,7 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
         </div>
       </div>
       <div
-        className={styles.left}
+        className={styles.right}
         style={{ backgroundImage: `url('/images/temp_images/andrew_bg.jpg')` }}
       ></div>
     </div>

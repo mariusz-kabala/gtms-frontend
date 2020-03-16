@@ -1,15 +1,12 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/button';
+@import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .btnDeleteAccount {
-  margin-bottom: 20px;
-  padding: 0;
-  background: none;
-
+  @include buttonDefault();
+  width: 100%;
   &:hover {
-    background: none;
-    color: red;
+    @include buttonColorsHoverDefault();
   }
 }
 

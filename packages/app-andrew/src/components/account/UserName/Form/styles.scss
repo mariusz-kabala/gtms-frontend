@@ -2,7 +2,6 @@
 
 .btnSubmit {
   width: 100%;
-  margin-top: 10px;
   @include buttonDefault();
   &:hover {
     @include buttonColorsHoverDefault();
