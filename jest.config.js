@@ -13,6 +13,7 @@ module.exports = {
   },
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
+    '\\.(png|jpg|jpeg)$': 'identity-obj-proxy',
   },
   coverageReporters: ['text', 'json', 'html'],
   testURL: 'http://localhost',

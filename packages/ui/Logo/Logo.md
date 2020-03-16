@@ -1,5 +1,7 @@
 Basic usage
 
 ```
-<Logo />
+<div style={{background: 'black'}}>
+    <Logo />
+</div>
 ```
