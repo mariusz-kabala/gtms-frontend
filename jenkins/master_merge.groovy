@@ -73,7 +73,7 @@ pipeline {
                     sh "yarn styleguide:build"
 
                     configFileProvider([configFile(fileId: 'scaleway-s3-config', targetLocation: 'aws-config')]) {
-                        sh "mkdir ~/.aws"
+                        sh "mkdir -p ~/.aws"
                         sh "mv aws-config ~/.aws/config"
                         sh "aws s3 cp styleguide s3://styleguide/master/ --recursive --acl public-read"
                     }
