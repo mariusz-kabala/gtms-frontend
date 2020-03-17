@@ -1,7 +1,7 @@
 def branch = '';
 
 pipeline {
-    agent { docker { image 'docker-registry.kabala.tech/alpine-terraform:latest' } }
+    agent { docker { image 'docker-registry.kabala.tech/node12-with-git:latest' } }
     
     environment {
         AWS_ACCESS_KEY_ID = credentials('SCALEWAY_S3_ACCESS_KEY')
@@ -42,18 +42,18 @@ pipeline {
             }
         }
 
-        stage ('Deploy app-andrew') {
-            steps {
-                dir("packages/app-andrew/terraform") {
-                    script {
-                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
-                            sh "terraform init"
-                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"API_TOKEN=${DECONZ_API_TOKEN}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
-                            sh "terraform apply -auto-approve deploy.plan"
-                        }
-                    }
-                }
-            }
-        }
+        // stage ('Deploy app-andrew') {
+        //     steps {
+        //         dir("packages/app-andrew/terraform") {
+        //             script {
+        //                 docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+        //                     sh "terraform init"
+        //                     sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"API_TOKEN=${DECONZ_API_TOKEN}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
+        //                     sh "terraform apply -auto-approve deploy.plan"
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
