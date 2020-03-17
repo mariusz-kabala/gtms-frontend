@@ -47,12 +47,12 @@ pipeline {
                     checkout([
                             $class                           : 'GitSCM',
                             branches                         : [[name: "${branch}"]],
-                            browser                          : [$class: 'GithubWeb', repoUrl: "https://github.com/mariusz-kabala/gtms-frontend"],
+                            browser                          : [$class: 'GithubWeb', repoUrl: "https://github.com/gtms-org/gtms-frontend"],
                             doGenerateSubmoduleConfigurations: false,
                             userRemoteConfigs                : [[
                                 credentialsId: 'github',
                                 refspec      : '+refs/pull/*:refs/remotes/origin/pr/*',
-                                url          : "git@github.com:mariusz-kabala/gtms-frontend.git"
+                                url          : "git@github.com:gtms-org/gtms-frontend.git"
                             ]]
                     ])
             }

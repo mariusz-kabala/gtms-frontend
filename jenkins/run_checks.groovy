@@ -97,7 +97,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                     sh "yarn check:ts"
                 }
@@ -112,7 +112,7 @@ pipeline {
                             target_url: "${BUILD_URL}console"
                         ])
 
-                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     }
                 }
 
@@ -125,7 +125,7 @@ pipeline {
                             target_url: "${BUILD_URL}console"
                         ])
 
-                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     }
                 }
             }
@@ -141,7 +141,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                     sh "yarn eslint"
                 }
@@ -156,7 +156,7 @@ pipeline {
                             target_url: "${BUILD_URL}console"
                         ])
 
-                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     }
                 }
 
@@ -169,7 +169,7 @@ pipeline {
                             target_url: "${BUILD_URL}console"
                         ])
 
-                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     }
                 }
             }
@@ -185,7 +185,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                     sh "yarn test:coverage"
                 }
@@ -211,7 +211,7 @@ pipeline {
                             target_url: "${BUILD_URL}TestReport"
                         ])
 
-                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     }
                 }
                 unsuccessful {
@@ -223,7 +223,7 @@ pipeline {
                             target_url: "${BUILD_URL}TestReport"
                         ])
 
-                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     }
                 }
             }
@@ -239,7 +239,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     sh "yarn workspaces run build"
                 }
             }
@@ -253,7 +253,7 @@ pipeline {
                             target_url: "${BUILD_URL}console"
                         ])
 
-                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusJsonSuccess}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     }
                 }
                 unsuccessful {
@@ -265,7 +265,7 @@ pipeline {
                             target_url: "${BUILD_URL}console"
                         ])
 
-                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     }
                 }
             }
@@ -281,7 +281,7 @@ pipeline {
                         target_url: "${BUILD_URL}console"
                     ])
 
-                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                    sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     sh "yarn styleguide:build"
 
                     configFileProvider([configFile(fileId: 'scaleway-s3-config', targetLocation: 'aws-config')]) {
@@ -301,7 +301,7 @@ pipeline {
                             target_url: "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
                         ])
 
-                        sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
                         echo "https://styleguide.s3.nl-ams.scw.cloud/${branch}/index.html"
                     }
@@ -316,7 +316,7 @@ pipeline {
                             target_url: "${BUILD_URL}console"
                         ])
 
-                        sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/mariusz-kabala/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
                     }
                 }
             }
