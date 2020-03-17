@@ -9,7 +9,7 @@ export const UserCard: FC<{
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid="user-card">
       <img className={styles.avatar} src={image} alt="user avatar" />
       <div className={styles.desc}>
         <h2 className={styles.nameSurname}>Johnny Silverhand</h2>
