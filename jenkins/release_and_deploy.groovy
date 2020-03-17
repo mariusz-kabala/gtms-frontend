@@ -19,6 +19,15 @@ pipeline {
             }
         }
 
+        stage ('Install dependencies') {
+            steps {
+                script {
+                    sh "npm i -g lerna"
+                    sh "yarn install --ignore-scripts"
+                }
+            }
+        }
+
         stage ('Release') {
             steps {
                 script {
