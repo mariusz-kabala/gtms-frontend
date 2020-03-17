@@ -50,7 +50,7 @@ pipeline {
         stage ('Run unit tests') {
             steps {
                 script {
-                    sh "yarn test --coverage"
+                    sh "yarn test --coverage --config ./jest.noThreshold.js"
                 }
             }
 
