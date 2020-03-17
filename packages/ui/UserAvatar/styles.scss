@@ -1,29 +1,10 @@
-@import '@gtms/styles/scss/variables';
-
 .container {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  max-width: 25px;
 
-  .avatar {
-    max-width: 25px;
-  }
-
-  .nameSurname {
-    margin: 0 0.7em;
-    font-size: 0.85rem;
-    color: $theme6;
-
-    span {
-      margin-left: 0.3em;
-    }
-  }
-
-  &:hover {
-    background: $theme4;
-
-    .nameSurname {
-      color: $theme6;
-    }
+  img {
+    width: 100%;
   }
 }

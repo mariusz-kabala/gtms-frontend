@@ -1,9 +1,6 @@
 @import '~@gtms/styles/scss/variables';
-@import '~@gtms/styles/scss/mixins/fontSize';
 
 .tagGroup {
-  @include font-size(xsm);
-
   > div {
     margin-right: 5px;
     margin-bottom: 5px;
