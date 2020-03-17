@@ -22,8 +22,7 @@ pipeline {
         stage ('Install dependencies') {
             steps {
                 script {
-                    sh "npm i -g lerna"
-                    sh "yarn install --ignore-scripts"
+                    sh "yarn"
                 }
             }
         }
@@ -32,7 +31,7 @@ pipeline {
             steps {
                 script {
                     sshagent(['jenkins-ssh-key']) {
-                        sh "git checkout ${branch}"
+                        sh "git checkout master"
                         sh "lerna version --no-commit-hooks"
                     }
                 }
