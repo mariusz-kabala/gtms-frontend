@@ -57,7 +57,7 @@ pipeline {
             post {
                 always {
                     configFileProvider([configFile(fileId: 'scaleway-s3-config', targetLocation: 'aws-config')]) {
-                        sh "mkdir ~/.aws"
+                        sh "mkdir -p ~/.aws"
                         sh "mv aws-config ~/.aws/config"
                         sh "aws s3 cp coverage s3://unittest/gtmsfrontend/master/ --recursive --acl public-read"
                     }
