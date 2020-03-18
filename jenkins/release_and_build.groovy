@@ -85,6 +85,9 @@ pipeline {
                 script {
                     def props = readJSON file: "packages/app-andrew/package.json"
                     def currentApp = docker.build(props['name'].replace('@', '').replace('-', '').toLowerCase(), "-f packages/app-andrew/Dockerfile .")
+
+                    env.VERSION = "v${props['version']}" 
+
                     docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                         currentApp.push("v${props['version']}")
                     }
@@ -94,15 +97,11 @@ pipeline {
 
         stage ('Deploy app-andrew') {
             steps {
-                dir("packages/app-andrew/terraform") {
-                    script {
-                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
-                            sh "terraform init"
-                            sh "terraform workspace select ${env.DEPLOY_ENVIRONMENT} || terraform workspace new ${env.DEPLOY_ENVIRONMENT}"
-                            sh "terraform plan -out deploy.plan -var-file=${env.DEPLOY_ENVIRONMENT}.tfvars -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
-                            sh "terraform apply -auto-approve deploy.plan"
-                        }
-                    }
+                script {
+                    build job: '(GTMS Frontend) Deploy app', wait: false, parameters: [
+                        string(name: 'version', value: env.VERSION),
+                        string(name: 'DEPLOY_ENVIRONMENT', value: env.DEPLOY_ENVIRONMENT)
+                    ]
                 }
             }
         }
