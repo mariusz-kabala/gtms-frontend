@@ -1,0 +1,5 @@
+env = "qa-stable"
+docker_host = "192.168.0.33:2376"
+app_domain = "geotags.pl"
+fb_app_id = "fb-app-id-is-missing"
+google_client_id = "google-client-id-is-missing"

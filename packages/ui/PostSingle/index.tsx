@@ -16,12 +16,14 @@ export const PostSingle: FC<{
 
   return (
     <div className={cx(styles.postSingle, additionalStyles)}>
-      <UserAvatar
-        onClick={() => setState(!state)}
-        image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
-        additionalStyles={styles.userAvatar}
-        userName="Marty McFly"
-      />
+      <div className={styles.user}>
+        <UserAvatar
+          onClick={() => setState(!state)}
+          image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
+          additionalStyles={styles.userAvatar}
+        />
+        <span>Marty Mcfly</span>
+      </div>
       <div className={styles.text}>
         <p>
           Ex sint non nisi laborum ex in esse aliquip non veniam. Excepteur

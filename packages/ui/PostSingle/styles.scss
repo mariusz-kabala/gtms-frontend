@@ -1,17 +1,26 @@
 @import '@gtms/styles/scss/variables';
 
 .postSingle {
-  padding: 15px;
-  border: 1px solid $theme1;
-  color: $theme6;
+  color: $theme2;
   cursor: pointer;
+  opacity: 0.9;
 
   &:hover {
-    border-color: $theme4;
+    opacity: 1;
   }
 
   .text {
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 10px;
+      color: $theme4;
+    }
   }
 }

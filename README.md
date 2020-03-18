@@ -4,6 +4,12 @@ Project is based on next.js (refer next.js documentation in case of issues - htt
 
 It is a React app with SSR support
 
+# Useful urls
+
+- Test coverage: https://unittest.s3.nl-ams.scw.cloud/gtmsfrontend/master/index.html
+
+- Styleguide: https://styleguide.s3.nl-ams.scw.cloud/master/index.html
+
 # Requirements
 
 - Use only `yarn`, please do not use `npm` or any other package manager. This repo is using yarn workspaces feature and yarn is required
@@ -19,13 +25,13 @@ yarn
 ### Start FAKE API server
 
 ```bash
-npm run fake-api
+yarn fake-api
 ```
 
 ### Start FAKE API server in watch mode (auto-reload)
 
 ```bash
-npm run fake-api:watch
+yarn fake-api:watch
 ```
 
 # MONOREPO STRUCTURE
@@ -89,6 +95,8 @@ yarn styleguide
 
 Styleguide is being build per PR, url to it can be find in the list of checks. Please - when you do the code review, please also check styleguide and confirm that the new component looks fine.
 
+Latest Styleguide can be find here: https://styleguide.s3.nl-ams.scw.cloud/master/index.html
+
 # ENVIRONMENT VARIABLES
 
 Some app functionalities like for example social login with Facebook or Google require configuration. In dev mode config is taken from `.env` file. That file is in `.gitignore` but example with list of needed varables can be found in `.env.example`.
@@ -147,6 +155,8 @@ To run test cases in watch mode (only on files that you changed, useful during d
 ```bash
 yarn test --watch
 ```
+
+Current test coverage: https://unittest.s3.nl-ams.scw.cloud/gtmsfrontend/master/index.html
 
 Keep the test file next to the file with code. The only exception are pages - as `nextjs` requires to have only pages code in `pages` dir. Tests for pages should be located in `./__test__` - use this folder only for that
 

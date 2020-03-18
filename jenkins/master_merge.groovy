@@ -50,21 +50,19 @@ pipeline {
         stage ('Run unit tests') {
             steps {
                 script {
-
-                    sh "yarn test --coverage"
-
+                    sh "yarn test --coverage --config ./jest.noThreshold.js"
                 }
             }
 
             post {
                 always {
                     configFileProvider([configFile(fileId: 'scaleway-s3-config', targetLocation: 'aws-config')]) {
-                        sh "mkdir ~/.aws"
+                        sh "mkdir -p ~/.aws"
                         sh "mv aws-config ~/.aws/config"
-                        sh "aws s3 cp coverage s3://unittest/master/ --recursive --acl public-read"
+                        sh "aws s3 cp coverage s3://unittest/gtmsfrontend/master/ --recursive --acl public-read"
                     }
 
-                    echo "https://unittest.s3.nl-ams.scw.cloud/master/index.html"
+                    echo "https://unittest.s3.nl-ams.scw.cloud/gtmsfrontend/master/index.html"
                 }
             }
         }
@@ -75,7 +73,7 @@ pipeline {
                     sh "yarn styleguide:build"
 
                     configFileProvider([configFile(fileId: 'scaleway-s3-config', targetLocation: 'aws-config')]) {
-                        sh "mkdir ~/.aws"
+                        sh "mkdir -p ~/.aws"
                         sh "mv aws-config ~/.aws/config"
                         sh "aws s3 cp styleguide s3://styleguide/master/ --recursive --acl public-read"
                     }
