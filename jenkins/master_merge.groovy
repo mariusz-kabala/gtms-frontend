@@ -7,7 +7,7 @@ pipeline {
         GITHUB_API_KEY = credentials('jenkins-github-accesstoken')
         CI = 'true'
         AWS_ACCESS_KEY_ID = credentials('SCALEWAY_S3_ACCESS_KEY')
-        AWS_SECRET_ACCESS_KEY = credentials('SCALEWAY_S3_ACCESS_SECRET_KEY') 
+        AWS_SECRET_ACCESS_KEY = credentials('SCALEWAY_S3_ACCESS_SECRET_KEY')
     }
 
     stages {

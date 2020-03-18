@@ -10,6 +10,7 @@ pipeline {
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
         DOCKER_REGISTRY_USERNAME = credentials('docker-registry-username')
         DOCKER_REGISTRY_PASSWORD = credentials('docker-registry-password')
+        GH_TOKEN = credentials('jenkins-github-accesstoken')
     }
 
     stages {
