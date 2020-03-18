@@ -12,7 +12,7 @@
       min-height: 24px;
       line-height: 24px;
       display: block;
-      color: $theme2;
+      color: $theme4;
       position: relative;
       vertical-align: middle;
       white-space: nowrap;
@@ -39,7 +39,7 @@
         left: 0;
         width: 42px;
         height: 24px;
-        background: $theme2;
+        background: $theme4;
         transition: all 0.3s ease;
       }
 
@@ -56,7 +56,7 @@
       .locker {
         width: 8px;
         height: 7px;
-        background: $theme2;
+        background: $theme4;
         position: absolute;
         left: 8px;
         bottom: 7px;
@@ -82,7 +82,6 @@
           display: block;
           border-top-left-radius: 4px;
           border-top-right-radius: 4px;
-          border: 1px solid $theme2;
           border-bottom: 0;
           width: 6px;
           height: 4px;
@@ -98,7 +97,7 @@
     &:checked {
       & + span {
         &:before {
-          background: rgba($theme1, 0.35);
+          background: rgba($theme3, 0.35);
         }
         &:after {
           background: $theme4;
@@ -106,9 +105,9 @@
         }
         .locker {
           transform: translate(18px, 0);
-          background: $theme1;
+          background: $theme3;
           &:after {
-            border-color: $theme1;
+            border-color: $theme3;
             transform: rotate(0deg) translate(0, 0);
           }
         }

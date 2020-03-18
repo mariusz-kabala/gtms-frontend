@@ -1,24 +1,20 @@
 @import '@gtms/styles/scss/variables';
 
-.container {
-  display: flex;
-  background: $theme1;
+.wrapper {
+  background: $theme3;
 
-  .avatar {
-    height: 160px;
-  }
-
-  .content {
-    padding: 1rem;
-
-    .nameSurname {
-      display: inline-block;
-      color: $theme4;
-      margin-bottom: 10px;
+  .desc {
+    > * {
+      margin-top: 5px;
     }
 
-    .desc {
-      color: $theme6;
+    > h2 {
+      font-weight: 500;
+    }
+
+    p {
+      line-height: 1.4em;
+      color: gray;
     }
   }
 }

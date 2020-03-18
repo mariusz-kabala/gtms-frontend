@@ -3,15 +3,12 @@ FROM node:12-alpine
 # Setting working directory. All the path will be relative to WORKDIR
 WORKDIR /usr/src/app
 
-# Installing dependencies
-COPY package*.json ./
-RUN npm install
-
-# Copying source files
 COPY . .
 
+RUN yarn
+
 # Building app
-RUN npm run build
+RUN yarn workspace @gtms/app-andrew build
 
 # Running the app
-CMD [ "npm", "start" ]
+CMD [ "yarn", "workspace", "@gtms/app-andrew", "start" ]
