@@ -101,7 +101,7 @@ pipeline {
                 script {
                     build job: '(GTMS Frontend) Deploy app', wait: false, parameters: [
                         string(name: 'version', value: env.VERSION),
-                        string(name: 'DEPLOY_ENVIRONMENT', value: env.DEPLOY_ENVIRONMENT)
+                        string(name: 'DEPLOY_ENVIRONMENT', value: 'qa-master')
                     ]
                 }
             }
