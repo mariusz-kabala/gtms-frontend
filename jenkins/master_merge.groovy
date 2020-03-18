@@ -82,5 +82,15 @@ pipeline {
                 }
             }
         }
+
+        stage ('Trigger build & deployment') {
+            steps {
+                script {
+                    build job: '(GTMS Frontend) Release and build', wait: false, parameters: [
+                        string(name: 'DEPLOY_ENVIRONMENT', value: env.DEPLOY_ENVIRONMENT)
+                    ]
+                }
+            }
+        }
     }
 }
