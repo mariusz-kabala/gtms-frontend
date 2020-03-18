@@ -41,18 +41,3 @@ resource "docker_container" "gtms-frontend" {
     "GOOGLE_CLIENT_ID=${var.google_client_id}"
   ]
 }
-
-resource "docker_container" "service-auth-db" {
-  name  = "service-auth-${var.env}-db"
-  image = "mongo:4"
-  restart = "always"
-
-  networks_advanced {
-      name = "kabala-net"
-  }
-
-  volumes {
-    host_path      = "${var.mount_point}/${var.env}/service-auth-db"
-    container_path = "/data/db"
-  }
-}
