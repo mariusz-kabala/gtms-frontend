@@ -87,7 +87,7 @@ pipeline {
             steps {
                 script {
                     build job: '(GTMS Frontend) Release and build', wait: false, parameters: [
-                        string(name: 'DEPLOY_ENVIRONMENT', value: env.DEPLOY_ENVIRONMENT)
+                        string(name: 'DEPLOY_ENVIRONMENT', value: 'qa-master')
                     ]
                 }
             }
