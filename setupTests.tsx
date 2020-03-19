@@ -23,7 +23,9 @@ jest.mock('@gtms/commons/i18n', () => ({
 jest.mock('next/config', () => ({
   __esModule: true,
   default: jest.fn(() => ({
-    FE_API_URL: '',
+    publicRuntimeConfig: {
+      FE_API_URL: '',
+    },
   })),
 }))
 
