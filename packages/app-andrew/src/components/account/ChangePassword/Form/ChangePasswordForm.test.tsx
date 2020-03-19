@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, act } from '@testing-library/react'
-import { ResetPasswordForm, IResetPasswordFormData } from './index'
+import { ChangePasswordForm, IChangePasswordFormData } from './index'
 import { FetchMock } from 'jest-fetch-mock'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
@@ -16,20 +16,20 @@ jest.mock('react-hook-form', () => ({
   })),
 }))
 
-describe('<ResetPasswordForm />', () => {
+describe('<ChangePasswordForm />', () => {
   beforeEach(() => {
     fetchMock.resetMocks()
   })
 
   const renderComponent = (onSuccess = jest.fn()) =>
-    render(<ResetPasswordForm code={'testing'} onSuccess={onSuccess} />)
+    render(<ChangePasswordForm code={'testing'} onSuccess={onSuccess} />)
 
   it('Should be on the page', () => {
     const { getByTestId } = renderComponent()
 
-    expect(getByTestId('reset-password-form')).toBeInTheDocument()
+    expect(getByTestId('user-password-change-form')).toBeInTheDocument()
 
-    expect(useTranslation).toBeCalledWith('resetPassword')
+    expect(useTranslation).toBeCalledWith('userPasswordChangeForm')
   })
 
   it('Should have password, confirmPassword fields and submit button', () => {
@@ -70,25 +70,6 @@ describe('<ResetPasswordForm />', () => {
     expect(getByText('form.validation.password.isRequired')).toBeInTheDocument()
   })
 
-  it('Should display server errors when 500 from API response', () => {
-    ;(useForm as jest.Mock).mockImplementationOnce(() => {
-      return {
-        register: jest.fn(),
-        handleSubmit: jest.fn(),
-        errors: {
-          password: {
-            type: 'serverError',
-          },
-        },
-        setError: jest.fn(),
-      }
-    })
-
-    const { getByText } = renderComponent()
-
-    expect(getByText('serverError')).toBeInTheDocument()
-  })
-
   it('Should set errors when clicking on submit button without filling form', () => {
     // eslint-disable-next-line
     let onSubmit: any
@@ -97,7 +78,7 @@ describe('<ResetPasswordForm />', () => {
       return {
         register: jest.fn(),
         handleSubmit: (
-          func: (data: IResetPasswordFormData) => Promise<void>
+          func: (data: IChangePasswordFormData) => Promise<void>
         ) => {
           onSubmit = func
         },
@@ -122,7 +103,7 @@ describe('<ResetPasswordForm />', () => {
       return {
         register: jest.fn(),
         handleSubmit: (
-          func: (data: IResetPasswordFormData) => Promise<void>
+          func: (data: IChangePasswordFormData) => Promise<void>
         ) => {
           onSubmit = func
         },
@@ -140,73 +121,5 @@ describe('<ResetPasswordForm />', () => {
     })
 
     expect(setError).toBeCalledTimes(1)
-  })
-
-  it('Should make an request to API to reset passwords', async done => {
-    fetchMock.mockResponseOnce('{}')
-    // eslint-disable-next-line
-    let onSubmit: any
-    const onSuccess = jest.fn()
-    ;(useForm as jest.Mock).mockImplementationOnce(() => {
-      return {
-        register: jest.fn(),
-        handleSubmit: (
-          func: (data: IResetPasswordFormData) => Promise<void>
-        ) => {
-          onSubmit = func
-        },
-        errors: {},
-        setError: jest.fn(),
-      }
-    })
-
-    act(() => {
-      renderComponent(onSuccess)
-    })
-
-    await act(
-      async () =>
-        await onSubmit({
-          password: 'testing1234',
-          confirmPassword: 'testing1234',
-        })
-    )
-
-    expect(onSuccess).toBeCalledTimes(1)
-    expect(fetchMock.mock.calls.length).toEqual(1)
-    done()
-  })
-
-  it('Should set server error message when 500 from API response', async done => {
-    fetchMock.mockRejectOnce(new Error('fake error'))
-    // eslint-disable-next-line
-    let onSubmit: any
-    const setError = jest.fn()
-    ;(useForm as jest.Mock).mockImplementationOnce(() => {
-      return {
-        register: jest.fn(),
-        handleSubmit: (
-          func: (data: IResetPasswordFormData) => Promise<void>
-        ) => {
-          onSubmit = func
-        },
-        errors: {},
-        setError,
-      }
-    })
-
-    renderComponent()
-
-    await act(
-      async () =>
-        await onSubmit({
-          password: 'testing1234',
-          confirmPassword: 'testing1234',
-        })
-    )
-    expect(fetchMock.mock.calls.length).toEqual(1)
-    expect(setError).toBeCalledTimes(1)
-
-    done()
   })
 })

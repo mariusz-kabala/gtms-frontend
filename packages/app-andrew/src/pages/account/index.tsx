@@ -2,6 +2,7 @@ import React from 'react'
 import { NextPage } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
+import { ChangePassword } from '../../components/account/ChangePassword'
 import { DeleteAccount } from '../../components/account/DeleteAccount'
 import { UserName } from '../../components/account/UserName'
 import { ImageHolder } from '@gtms/ui/ImageHolder'
@@ -51,6 +52,7 @@ export const AccountPage: NextPage<{}> = () => {
             This part is visible ONLY FOR YOU
           </span>
           <UserName />
+          <ChangePassword />
           <DeleteAccount onConfirm={() => null} />
         </div>
       </div>

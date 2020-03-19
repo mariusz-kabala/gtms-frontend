@@ -1,5 +1,7 @@
+@import '~@gtms/styles/scss/variables';
+
 .button {
-  background-color: #e17430;
+  background-color: $theme4;
   width: 100%;
   padding: 10px 0;
   cursor: pointer;
