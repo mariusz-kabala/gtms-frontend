@@ -20,7 +20,9 @@ describe('fetchJSON', () => {
 
   it('Should return proper API url', () => {
     ;(getConfig as jest.Mock).mockImplementation(() => ({
-      FE_API_URL: 'http://fake.com',
+      publicRuntimeConfig: {
+        FE_API_URL: 'http://fake.com',
+      },
     }))
 
     expect(makeApiUrl('test/fake/api')).toBe('http://fake.com/v1/test/fake/api')

@@ -41,7 +41,9 @@ export const fetchJSON = <T, R>(
 }
 
 export const makeApiUrl = (url: string): string => {
-  const { API_URL, FE_API_URL } = getConfig()
+  const {
+    publicRuntimeConfig: { API_URL, FE_API_URL },
+  } = getConfig()
 
   const baseURL = typeof window === 'undefined' ? API_URL : FE_API_URL
 
