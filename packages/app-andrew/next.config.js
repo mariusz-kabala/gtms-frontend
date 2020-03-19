@@ -21,7 +21,7 @@ module.exports = withPlugins(
   [withTM, withCustomBabelConfigFile, withSass, withImages],
   {
     babelConfigFile: path.resolve('./.babelrc'),
-    env: {
+    publicRuntimeConfig: {
       API_URL: process.env.API_URL,
       FE_API_URL: process.env.FE_API_URL,
       FB_APP_ID: process.env.FB_APP_ID,

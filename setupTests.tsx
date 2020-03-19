@@ -7,8 +7,6 @@ const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock
 customGlobal.fetch = require('jest-fetch-mock')
 customGlobal.fetchMock = customGlobal.fetch
 
-process.env.FE_API_URL = ''
-
 // eslint-disable-next-line
 window.FB = {} as any
 jest.mock('@gtms/commons/i18n', () => ({
@@ -20,6 +18,13 @@ jest.mock('@gtms/commons/i18n', () => ({
   },
   Link: jest.fn().mockImplementation(() => <></>),
   default: jest.fn(),
+}))
+
+jest.mock('next/config', () => ({
+  __esModule: true,
+  default: jest.fn(() => ({
+    FE_API_URL: '',
+  })),
 }))
 
 export default null
