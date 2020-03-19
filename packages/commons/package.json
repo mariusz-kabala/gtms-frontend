@@ -1,12 +1,12 @@
 {
   "name": "@gtms/commons",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "source": "./index.ts",
   "module": "./index.ts",
   "main": "./index.ts",
   "dependencies": {
-    "@gtms/api-auth": "0.1.2",
-    "@gtms/state-user": "0.1.2"
+    "@gtms/api-auth": "0.1.5",
+    "@gtms/state-user": "0.1.5"
   },
   "scripts": {
     "build": "exit 0"

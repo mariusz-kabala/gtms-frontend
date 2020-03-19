@@ -33,8 +33,8 @@ resource "docker_container" "gtms-frontend" {
 
   env = [
     "NODE_ENV=production",
-    "API_URL=${var.app_domain}/api",
-    "FE_API_URL=${var.app_domain}/api",
+    "API_URL=https://${var.app_domain}/api",
+    "FE_API_URL=https://${var.app_domain}/api",
     "VERSION=${var.tag}",
     "PORT=80",
     "FB_APP_ID=${var.fb_app_id}",
