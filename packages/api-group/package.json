@@ -1,11 +1,11 @@
 {
   "name": "@gtms/api-group",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "dependencies": {
-    "@gtms/api-common": "0.1.2"
+    "@gtms/api-common": "0.1.3"
   },
   "scripts": {
     "build": "exit 0"
