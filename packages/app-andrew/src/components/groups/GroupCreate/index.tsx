@@ -1,7 +1,7 @@
 import React from 'react'
+import { NextPage } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
-import { NextPage } from 'next'
 import { GroupCreateForm } from './Form'
 
 export const GroupCreate: NextPage<{}> = () => {

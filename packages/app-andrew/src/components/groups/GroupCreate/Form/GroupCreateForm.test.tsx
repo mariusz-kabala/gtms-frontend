@@ -63,7 +63,9 @@ describe('<GroupCreateForm />', () => {
     const { getByText } = render(<GroupCreateForm />)
 
     expect(getByText('form.validation.name.isRequired')).toBeInTheDocument()
-    expect(getByText('form.validation.description.isRequired')).toBeInTheDocument()
+    expect(
+      getByText('form.validation.description.isRequired')
+    ).toBeInTheDocument()
   })
 
   it('Should set errors when clicking on submit button without filling form', () => {
