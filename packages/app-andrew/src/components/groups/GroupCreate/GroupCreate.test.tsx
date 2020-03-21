@@ -4,10 +4,10 @@ import { render } from '@testing-library/react'
 import { GroupCreate } from './index'
 
 describe('<GroupCreate />', () => {
-  // it('Should be on the page', () => {
-  //   const { getByTestId } = render(<GroupCreate />)
+  it('Should be on the page', () => {
+    const { getByTestId } = render(<GroupCreate />)
 
-  //   expect(getByTestId('group-create')).toBeInTheDocument()
-  //   expect(useTranslation).toBeCalledWith('groupCreate')
-  // })
+    expect(getByTestId('group-create')).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('groupCreate')
+  })
 })
