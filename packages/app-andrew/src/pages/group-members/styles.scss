@@ -1,0 +1,26 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/header.scss';
+
+.wrapper {
+  padding: 20px;
+
+  .header {
+    @include header(h3, textUppercase, 500);
+    margin-bottom: 15px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-gap: 15px;
+
+    .btn {
+      @include buttonDefault();
+      border: 1px solid $theme1;
+      &:hover {
+        @include buttonColorsHoverDefault();
+      }
+    }
+  }
+}
