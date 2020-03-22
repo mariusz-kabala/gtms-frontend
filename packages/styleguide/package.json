@@ -1,4 +1,7 @@
 {
   "name": "@gtms/styleguide",
-  "version": "0.1.2"
+  "version": "0.1.2",
+  "scripts": {
+    "build": "exit 0"
+  }
 }
