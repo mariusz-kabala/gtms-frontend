@@ -7,7 +7,7 @@ pipeline {
         GITHUB_API_KEY = credentials('jenkins-github-accesstoken')
         CI = 'true'
         AWS_ACCESS_KEY_ID = credentials('SCALEWAY_S3_ACCESS_KEY')
-        AWS_SECRET_ACCESS_KEY = credentials('SCALEWAY_S3_ACCESS_SECRET_KEY') 
+        AWS_SECRET_ACCESS_KEY = credentials('SCALEWAY_S3_ACCESS_SECRET_KEY')
     }
 
     stages {
@@ -79,6 +79,16 @@ pipeline {
                     }
 
                     echo "https://styleguide.s3.nl-ams.scw.cloud/master/index.html"
+                }
+            }
+        }
+
+        stage ('Trigger build & deployment') {
+            steps {
+                script {
+                    build job: '(GTMS Frontend) Release and build', wait: false, parameters: [
+                        string(name: 'DEPLOY_ENVIRONMENT', value: 'qa-master')
+                    ]
                 }
             }
         }

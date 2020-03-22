@@ -8,6 +8,9 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('SCALEWAY_S3_ACCESS_SECRET_KEY')
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
+        DOCKER_REGISTRY_USERNAME = credentials('docker-registry-username')
+        DOCKER_REGISTRY_PASSWORD = credentials('docker-registry-password')
+        GH_TOKEN = credentials('jenkins-github-accesstoken')
     }
 
     stages {
@@ -83,6 +86,9 @@ pipeline {
                 script {
                     def props = readJSON file: "packages/app-andrew/package.json"
                     def currentApp = docker.build(props['name'].replace('@', '').replace('-', '').toLowerCase(), "-f packages/app-andrew/Dockerfile .")
+
+                    env.VERSION = "v${props['version']}" 
+
                     docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                         currentApp.push("v${props['version']}")
                     }
@@ -90,18 +96,15 @@ pipeline {
             }
         }
 
-        // stage ('Deploy app-andrew') {
-        //     steps {
-        //         dir("packages/app-andrew/terraform") {
-        //             script {
-        //                 docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
-        //                     sh "terraform init"
-        //                     sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"API_TOKEN=${DECONZ_API_TOKEN}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
-        //                     sh "terraform apply -auto-approve deploy.plan"
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        stage ('Deploy app-andrew') {
+            steps {
+                script {
+                    build job: '(GTMS Frontend) Deploy app', wait: false, parameters: [
+                        string(name: 'version', value: env.VERSION),
+                        string(name: 'DEPLOY_ENVIRONMENT', value: 'qa-master')
+                    ]
+                }
+            }
+        }
     }
 }

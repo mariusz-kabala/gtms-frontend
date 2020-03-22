@@ -1,6 +1,6 @@
 {
   "name": "@gtms/app-main",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
@@ -10,11 +10,11 @@
     "start": "cross-env NODE_ENV=production node dist/server.js"
   },
   "dependencies": {
-    "@gtms/api-auth": "0.1.0",
-    "@gtms/api-group": "0.1.0",
-    "@gtms/commons": "0.1.0",
-    "@gtms/state-user": "0.1.0",
-    "@gtms/styles": "0.1.0",
-    "@gtms/ui": "0.1.0"
+    "@gtms/api-auth": "0.1.5",
+    "@gtms/api-group": "0.1.5",
+    "@gtms/commons": "0.1.5",
+    "@gtms/state-user": "0.1.5",
+    "@gtms/styles": "0.1.2",
+    "@gtms/ui": "0.1.5"
   }
 }
