@@ -1,5 +1,6 @@
 import { fetchJSON, makeApiUrl } from './index'
 import { FetchMock } from 'jest-fetch-mock'
+import getConfig from 'next/config'
 
 const fetchMock = fetch as FetchMock
 
@@ -18,7 +19,11 @@ describe('fetchJSON', () => {
   })
 
   it('Should return proper API url', () => {
-    process.env.FE_API_URL = 'http://fake.com'
+    ;(getConfig as jest.Mock).mockImplementation(() => ({
+      publicRuntimeConfig: {
+        FE_API_URL: 'http://fake.com',
+      },
+    }))
 
     expect(makeApiUrl('test/fake/api')).toBe('http://fake.com/v1/test/fake/api')
   })

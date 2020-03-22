@@ -10,6 +10,7 @@ pipeline {
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
         DOCKER_REGISTRY_USERNAME = credentials('docker-registry-username')
         DOCKER_REGISTRY_PASSWORD = credentials('docker-registry-password')
+        GH_TOKEN = credentials('jenkins-github-accesstoken')
     }
 
     stages {
@@ -100,7 +101,7 @@ pipeline {
                 script {
                     build job: '(GTMS Frontend) Deploy app', wait: false, parameters: [
                         string(name: 'version', value: env.VERSION),
-                        string(name: 'DEPLOY_ENVIRONMENT', value: env.DEPLOY_ENVIRONMENT)
+                        string(name: 'DEPLOY_ENVIRONMENT', value: 'qa-master')
                     ]
                 }
             }

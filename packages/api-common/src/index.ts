@@ -1,3 +1,5 @@
+import getConfig from 'next/config'
+
 interface IParams<T> {
   values: T
   headers?: {
@@ -39,8 +41,11 @@ export const fetchJSON = <T, R>(
 }
 
 export const makeApiUrl = (url: string): string => {
-  const API_URL =
-    typeof window === 'undefined' ? process.env.API_URL : process.env.FE_API_URL
+  const {
+    publicRuntimeConfig: { API_URL, FE_API_URL },
+  } = getConfig()
 
-  return `${API_URL}/v1/${url}`
+  const baseURL = typeof window === 'undefined' ? API_URL : FE_API_URL
+
+  return `${baseURL}/v1/${url}`
 }
