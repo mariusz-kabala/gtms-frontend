@@ -1,0 +1,15 @@
+$font-weight: (
+  light: 200,
+  semiNormal: 300,
+  normal: 400,
+  semiBold: 500,
+  bold: 600,
+);
+
+@function font-weight($key) {
+  @return map-get($font-weight, $key);
+}
+
+@mixin font-weight($key) {
+  font-weight: font-weight($key);
+}
