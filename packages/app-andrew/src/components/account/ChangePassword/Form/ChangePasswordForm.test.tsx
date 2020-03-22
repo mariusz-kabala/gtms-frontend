@@ -22,7 +22,7 @@ describe('<ChangePasswordForm />', () => {
   })
 
   const renderComponent = (onSuccess = jest.fn()) =>
-    render(<ChangePasswordForm code={'testing'} onSuccess={onSuccess} />)
+    render(<ChangePasswordForm onSuccess={onSuccess} />)
 
   it('Should be on the page', () => {
     const { getByTestId } = renderComponent()
