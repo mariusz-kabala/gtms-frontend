@@ -10,55 +10,60 @@ import styles from './styles.scss'
 
 export const RulesPage: NextPage<IWithTranslations> = ({ t }) => {
   return (
-    <div className={styles.page}>
-      <p>{t('header.subtitle')}</p>
-      <article className={styles.rules}>
-        <p>
-          Zgodnie z art. 13 ust. 1 i ust. 2 Rozporządzenia Parlamentu
-          Europejskiego I Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (dalej
-          RORO) informuję, iż:
-        </p>
-        <p>
-          1. Administratorem Twoich danych osobowych jest NerdART Mariusz
-          Kabała, ul. Sikorskiego 2/2 41-219 Sosnowiec; tel: 792-550-681
-        </p>
-        <p>
-          2. Twoje dane osobowe przetwarzane będą na podstawie wyrażonej przez
-          Ciebie zgody (Art. 6 ust 1 pkt. a), w celu umożliwienia Ci wspólnej
-          podróży na festiwal
-        </p>
-        <p>
-          3. Twoje dane osobowe nie będą przekazywane do państwa trzeciego, ani
-          organizacji międzynarodowej.
-        </p>
-        <p>4. Twoje dane osobowe będziemy przetwarzać do odwołania zgody</p>
-        <p>
-          5. Posiadasz prawo dostępu do treści swoich danych, oraz prawo ich
-          sprostowania, usunięcia, ograniczenia przetwarzania, prawo do
-          przenoszenia danych, prawo wniesienia sprzeciwu, prawo do cofnięcia
-          zgody w dowolnym momencie bez wpływu na zgodność z prawem
-          przetwarzania, którego dokonano na podstawie zgody przed jej
-          cofnięciem
-        </p>
-        <p>
-          6. Masz prawo wniesienia skargi do organu nadzorczego (Urzędu Ochrony
-          Danych Osobowych) gdy uznasz, iż przetwarzanie Twoich danych osobowych
-          narusza przepisy ogólnego rozporządzenia o ochronie danych osobowych z
-          dnia 27 kwietnia 2016 r
-        </p>
-        <p>
-          7. Podanie przez Ciebie danych osobowych jest dobrowolne, jednak jest
-          warunkiem skorzystania z naszego portalu, bez ich podania nie będziesz
-          mógł z niego skorzystać
-        </p>
-        <p>
-          8. Twoje dane nie będą przetwarzane w sposób zautomatyzowany, ani w
-          formie profilowania
-        </p>
-      </article>
-      <div>
-        <AcceptRulesButton />
-      </div>
+    <div className={styles.wrapper}>
+      <h2>{t('header.subtitle')}</h2>
+      <p>
+        Lorem et est aliquip nisi et laborum enim proident amet velit esse
+        voluptate laboris anim. Nisi ullamco labore tempor esse aliquip ea.
+        Cillum ex fugiat sit qui sint nostrud sunt velit elit. Magna minim
+        laborum duis ex in do sit adipisicing mollit ullamco ipsum Lorem. Quis
+        sunt enim consectetur pariatur laborum nulla eiusmod id dolore commodo.
+        Elit Lorem ullamco voluptate voluptate labore commodo aliqua ad eu
+        occaecat pariatur.
+      </p>
+      <p>
+        Cupidatat aute dolor pariatur id do incididunt nisi dolor incididunt
+        minim do ea veniam. Laboris aute et nisi cillum reprehenderit occaecat
+        cupidatat pariatur amet voluptate ea tempor. Laborum eu sit
+        reprehenderit ea consequat adipisicing. Nulla incididunt incididunt anim
+        pariatur sit ipsum proident minim anim sunt ad minim. Deserunt excepteur
+        in excepteur amet aliquip elit qui pariatur est irure et ad minim
+        labore.
+      </p>
+      <p>
+        Sit anim magna aute officia amet. Ipsum cillum occaecat pariatur ea enim
+        in nostrud. Proident proident est tempor est exercitation ea excepteur
+        sunt.
+      </p>
+      <p>
+        Pariatur excepteur et in adipisicing. Nostrud nisi deserunt consectetur
+        et dolor culpa culpa proident. Sit commodo sit nulla nisi nostrud quis
+        duis magna sint ea sit. Ad minim labore esse magna elit commodo proident
+        ea mollit sunt magna esse culpa. Deserunt veniam pariatur nostrud fugiat
+        eiusmod incididunt qui fugiat.
+      </p>
+      <p>
+        Voluptate cupidatat laborum aliquip tempor qui officia ea laboris ex
+        deserunt veniam laboris Lorem. Cillum ad officia culpa est proident elit
+        qui. Dolor esse est nisi non. Fugiat pariatur in cupidatat do irure est.
+        Non deserunt velit qui proident labore ullamco non.
+      </p>
+      <p>
+        Exercitation cupidatat in ad non magna quis Lorem. Ut enim adipisicing
+        veniam sunt mollit. Aliqua laboris dolore pariatur do laboris ullamco
+        proident ullamco aute in. Labore esse adipisicing consectetur sit eu
+        pariatur proident culpa nulla id.
+      </p>
+      <p>
+        Tempor qui non et mollit excepteur velit est ad officia. Exercitation
+        proident pariatur reprehenderit magna cillum pariatur nulla velit. Ex ex
+        labore consequat amet dolor esse dolore. Quis aliquip aute ut nostrud
+        aute voluptate voluptate quis velit. Labore mollit sunt exercitation
+        officia eu minim commodo ad commodo mollit non tempor. Aute pariatur
+        minim mollit minim non ex nisi esse magna ex deserunt irure. Sit
+        pariatur aute nisi mollit fugiat sint ullamco fugiat elit labore tempor.
+      </p>
+      <AcceptRulesButton />
     </div>
   )
 }

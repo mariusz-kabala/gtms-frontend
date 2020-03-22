@@ -1,9 +1,8 @@
 import React, { memo, useCallback, useContext } from 'react'
+import styles from './styles.scss'
 import { useRouter } from 'next/router'
 import { NFC } from '@gtms/commons/types/nfc.d'
-import css from './styles.scss'
 import { RulesContext, IRulesContext } from '../../../providers/Rules'
-import { Trans } from '@gtms/commons/i18n'
 
 export const AcceptRulesButton: NFC<{}> = memo(() => {
   const { acceptRules, callBackFunc } = useContext<IRulesContext>(RulesContext)
@@ -11,8 +10,8 @@ export const AcceptRulesButton: NFC<{}> = memo(() => {
 
   return (
     <button
+      className={styles.btn}
       type="button"
-      className={css.button}
       onClick={useCallback(() => {
         acceptRules()
 
@@ -23,7 +22,7 @@ export const AcceptRulesButton: NFC<{}> = memo(() => {
         }
       }, [acceptRules, callBackFunc, router])}
     >
-      <Trans i18nKey="rules:AcceptRulesButton.accept" />
+      Accepts buttons
     </button>
   )
 })
