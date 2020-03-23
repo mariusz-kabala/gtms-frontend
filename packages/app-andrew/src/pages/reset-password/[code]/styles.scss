@@ -11,7 +11,7 @@
     text-align: center;
 
     h2 {
-      @include header(h1, textUppercase, 500);
+      @include header(h1, textUppercase);
       color: $theme2;
       margin-bottom: 20px;
     }  
