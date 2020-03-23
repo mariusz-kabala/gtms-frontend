@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/imageCover';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
   display: flex;
@@ -18,7 +19,7 @@
 
       h2,
       p {
-        font-weight: 600;
+        @include font-weight(bold);
         color: $theme2;
         margin-bottom: 15px;
       }
@@ -29,7 +30,7 @@
       }
 
       p {
-        font-weight: 200;
+        @include font-weight(light);
 
         &:last-child {
           margin-bottom: 40px;
