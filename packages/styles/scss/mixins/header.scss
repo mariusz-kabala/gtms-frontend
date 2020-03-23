@@ -10,21 +10,11 @@ $size: (
   @return map-get($size, $key);
 }
 
-@mixin header(
-  $key,
-  $textUppercase: 'initial',
-  $textBold: 'initial',
-  $type: 'default'
-) {
+@mixin header($key, $textUppercase: 'initial', $type: 'default') {
   font-size: header($key);
-  font-weight: 400;
 
   @if $textUppercase {
     text-transform: uppercase;
-  }
-
-  @if $textBold {
-    font-weight: $textBold;
   }
 
   @if $type == 'one' {
