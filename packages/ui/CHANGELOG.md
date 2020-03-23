@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.2.0...@gtms/ui@0.3.0) (2020-03-23)
+
+
+### Features
+
+* GEOT-128: group members ([#332](https://github.com/gtms-org/gtms-frontend/issues/332)) ([503bfd2](https://github.com/gtms-org/gtms-frontend/commit/503bfd23a5bcb3fb38be03731d5a3c94c8e7f2dc))
+
+
+
+
+
 # [0.2.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.1.5...@gtms/ui@0.2.0) (2020-03-23)
 
 
