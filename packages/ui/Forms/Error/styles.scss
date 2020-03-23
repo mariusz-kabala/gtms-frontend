@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .error {
   position: relative;
@@ -9,7 +10,7 @@
   padding-top: 5px;
   color: $theme5;
   @include font-size(sm);
-  font-weight: 400;
+  @include font-weight(normal);
   border-top: 1px solid $theme5;
   margin-top: -10px;
 }
