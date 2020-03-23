@@ -1,12 +1,12 @@
 {
   "name": "@gtms/ui",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "source": "./index.ts",
   "module": "./index.ts",
   "main": "./index.ts",
   "dependencies": {
     "@gtms/commons": "0.1.5",
-    "@gtms/styles": "0.1.2"
+    "@gtms/styles": "0.2.0"
   },
   "scripts": {
     "build": "exit 0"
