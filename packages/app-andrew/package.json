@@ -1,6 +1,6 @@
 {
   "name": "@gtms/app-andrew",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
@@ -14,7 +14,7 @@
     "@gtms/api-group": "0.1.5",
     "@gtms/commons": "0.1.5",
     "@gtms/state-user": "0.1.5",
-    "@gtms/styles": "0.1.2",
-    "@gtms/ui": "0.1.5"
+    "@gtms/styles": "0.2.0",
+    "@gtms/ui": "0.2.0"
   }
 }
