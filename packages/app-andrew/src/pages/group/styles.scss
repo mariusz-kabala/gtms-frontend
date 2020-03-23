@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
@@ -43,7 +44,7 @@
 
           h2 {
             font-size: 55px;
-            font-weight: 600;
+            @include font-weight(bold);
           }
 
           p {
@@ -110,7 +111,7 @@
         margin: 0 30px;
 
         .header {
-          @include header(h6, textUppercase, 500);
+          @include header(h6, textUppercase);
           margin-bottom: 15px;
         }
 
