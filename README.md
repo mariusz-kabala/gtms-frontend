@@ -65,10 +65,24 @@ so webpack can do proper tree-shaking and make better prod build
 
 ### COMMANDS:
 
-You can run or build only `app-*` packages. To run an app in dev mode:
+You can run or build only `app-*` packages. To run an app in dev mode (app connected to FAKE-API):
 
 ```bash
 yarn workspace @gtms/app-${APP_NAME_HERE} dev
+```
+
+if you want to use `real` backend, you can use one of 2 QA envs:
+
+- QA master:
+
+```bash
+yarn workspace @gtms/app-${APP_NAME_HERE} dev:qa-master
+```
+
+- QA stable:
+
+```bash
+yarn workspace @gtms/app-${APP_NAME_HERE} dev:qa-stable
 ```
 
 To create production bundle of an app

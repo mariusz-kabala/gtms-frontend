@@ -4,7 +4,7 @@ let JWT
 let refreshJWT
 
 module.exports = {
-  path: '/v1/auth/authenticate',
+  path: '/api/v1/auth/authenticate',
   delay: 50,
   method: 'POST',
   status: (req, res, next) => {
