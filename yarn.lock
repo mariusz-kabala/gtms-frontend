@@ -1363,6 +1363,13 @@
   resolved "https://npm.kabala.tech/@types%2fevents/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
   integrity sha512-EaObqwIvayI5a8dCzhFrjKzVwKLxjoG9T6Ppd5CEo07LRKfQ8Yokw54r5+Wq7FaBQ+yXRvQAYPrHwya1/UFt9g==
 
+"@types/express-http-proxy@^1.5.12":
+  version "1.5.12"
+  resolved "https://npm.kabala.tech/@types%2fexpress-http-proxy/-/express-http-proxy-1.5.12.tgz#077ab1ee9e0f20fa8a131f10dd96d7c72473b474"
+  integrity sha512-QnTNKXq3xqVU21iMtz1P1M+rhusjGqNqpcbmGzvnkrLNNCiFy6UNK/JDIYJjs3bu8AopFpnBn3wJC16K4nKSgQ==
+  dependencies:
+    "@types/express" "*"
+
 "@types/express-serve-static-core@*":
   version "4.17.2"
   resolved "https://npm.kabala.tech/@types%2fexpress-serve-static-core/-/express-serve-static-core-4.17.2.tgz#f6f41fa35d42e79dbf6610eccbb2637e6008a0cf"
@@ -1371,7 +1378,7 @@
     "@types/node" "*"
     "@types/range-parser" "*"
 
-"@types/express@^4.17.2":
+"@types/express@*", "@types/express@^4.17.2":
   version "4.17.3"
   resolved "https://npm.kabala.tech/@types%2fexpress/-/express-4.17.3.tgz#38e4458ce2067873b09a73908df488870c303bd9"
   integrity sha512-I8cGRJj3pyOLs/HndoP+25vOqhqWkAZsWMEmq1qXy/b/M3ppufecUwaK2/TVDVxcV61/iSdhykUjQQ2DLSrTdg==
