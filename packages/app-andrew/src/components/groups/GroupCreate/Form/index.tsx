@@ -9,7 +9,6 @@ import { Button } from '@gtms/ui/Button'
 
 export const GroupCreateForm: FC<{}> = () => {
   const { t } = useTranslation('groupCreate')
-  // @todo add interface below for ex.  useForm<ILoginData>()
   const { register, handleSubmit, errors, setError } = useForm<
     IGroupCreateData
   >()
