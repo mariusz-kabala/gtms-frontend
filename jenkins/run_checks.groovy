@@ -74,6 +74,11 @@ pipeline {
                     }
                 }
             }
+            post {
+                unsuccessful {
+                    rocketSend channel: "pull-requests-checks", message: "[${BUILD_DISPLAY_NAME}] :sob: Checks have been failed (_Conventional PR title error_) - ${env.JOB_NAME} ${env.BUILD_NUMBER} *${ghprbPullTitle}*  (<${env.ghprbPullLink}|Open>)", rawMessage: true
+                }
+            }
         }
         stage ('Install dependencies') {
             steps {
@@ -126,6 +131,7 @@ pipeline {
                         ])
 
                         sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+                        rocketSend channel: "pull-requests-checks", message: "[${BUILD_DISPLAY_NAME}] :sob: Checks have been failed (_TypeScript Checks_) - ${env.JOB_NAME} ${env.BUILD_NUMBER} *${ghprbPullTitle}*  (<${env.ghprbPullLink}|Open>)", rawMessage: true
                     }
                 }
             }
@@ -170,6 +176,8 @@ pipeline {
                         ])
 
                         sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+
+                        rocketSend channel: "pull-requests-checks", message: "[${BUILD_DISPLAY_NAME}] :sob: Checks have been failed (_Eslint Checks_) - ${env.JOB_NAME} ${env.BUILD_NUMBER} *${ghprbPullTitle}*  (<${env.ghprbPullLink}|Open>)", rawMessage: true
                     }
                 }
             }
@@ -224,6 +232,8 @@ pipeline {
                         ])
 
                         sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+
+                        rocketSend channel: "pull-requests-checks", message: "[${BUILD_DISPLAY_NAME}] :sob: Checks have been failed (_Unit tests_) - ${env.JOB_NAME} ${env.BUILD_NUMBER} *${ghprbPullTitle}*  (<${env.ghprbPullLink}|Open>)", rawMessage: true
                     }
                 }
             }
@@ -266,6 +276,8 @@ pipeline {
                         ])
 
                         sh "curl -s -X POST -d '${statusJsonFailed}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+
+                        rocketSend channel: "pull-requests-checks", message: "[${BUILD_DISPLAY_NAME}] :sob: Checks have been failed (_Build_) - ${env.JOB_NAME} ${env.BUILD_NUMBER} *${ghprbPullTitle}*  (<${env.ghprbPullLink}|Open>)", rawMessage: true
                     }
                 }
             }
@@ -317,6 +329,8 @@ pipeline {
                         ])
 
                         sh "curl -s -X POST -d '${statusUpdatedJson}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
+
+                        rocketSend channel: "pull-requests-checks", message: "[${BUILD_DISPLAY_NAME}] :sob: Checks have been failed (_Styleguide build_) - ${env.JOB_NAME} ${env.BUILD_NUMBER} *${ghprbPullTitle}*  (<${env.ghprbPullLink}|Open>)", rawMessage: true
                     }
                 }
             }

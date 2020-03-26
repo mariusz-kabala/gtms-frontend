@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.2.0...@gtms/app-andrew@0.3.0) (2020-03-23)
+
+
+### Features
+
+* GEOT-128: group members ([#332](https://github.com/gtms-org/gtms-frontend/issues/332)) ([503bfd2](https://github.com/gtms-org/gtms-frontend/commit/503bfd23a5bcb3fb38be03731d5a3c94c8e7f2dc))
+
+
+
+
+
+# [0.2.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.1.8...@gtms/app-andrew@0.2.0) (2020-03-23)
+
+
+### Features
+
+* GEOT-73: GEOT-73: font-weight global solution ([#333](https://github.com/gtms-org/gtms-frontend/issues/333)) ([4c6bab2](https://github.com/gtms-org/gtms-frontend/commit/4c6bab2b8713a1fad0fc219d48128feda79dac32))
+
+
+
+
+
 ## [0.1.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.1.7...@gtms/app-andrew@0.1.8) (2020-03-19)
 
 **Note:** Version bump only for package @gtms/app-andrew

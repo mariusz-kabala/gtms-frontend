@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-main@0.2.0...@gtms/app-main@0.2.1) (2020-03-23)
+
+**Note:** Version bump only for package @gtms/app-main
+
+
+
+
+
+# [0.2.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-main@0.1.5...@gtms/app-main@0.2.0) (2020-03-23)
+
+
+### Features
+
+* GEOT-73: GEOT-73: font-weight global solution ([#333](https://github.com/gtms-org/gtms-frontend/issues/333)) ([4c6bab2](https://github.com/gtms-org/gtms-frontend/commit/4c6bab2b8713a1fad0fc219d48128feda79dac32))
+
+
+
+
+
 ## [0.1.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-main@0.1.4...@gtms/app-main@0.1.5) (2020-03-19)
 
 **Note:** Version bump only for package @gtms/app-main

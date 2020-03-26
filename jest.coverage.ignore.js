@@ -9,14 +9,9 @@ const PERMANENT_IGNORE = [
 ]
 
 const TEMPORARY_IGNORE = [
-  './components/common/FlipCard/index.tsx',
-  './pages/registration/index.tsx',
-  './hooks/auth.ts',
-  './pages/index.tsx',
-  './api/auth/googleLogin.ts',
-  './components/login/SocialButtons/index.tsx',
   './packages/ui/PostSingle/index.tsx',
   './packages/app-andrew/src/pages/group/index.tsx',
+  './packages/app-andrew/src/server.ts',
 ]
 
 module.exports = [...PERMANENT_IGNORE, ...TEMPORARY_IGNORE]
