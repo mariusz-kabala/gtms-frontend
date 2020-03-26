@@ -56,7 +56,7 @@
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
     "autoprefixer": "^9.7.4",
-    "body-scroll-lock": "^2.6.4",
+    "body-scroll-lock": "^3.0.1",
     "cross-env": "^7.0.0",
     "dotenv": "^8.2.0",
     "dyson": "^3.0.1",
