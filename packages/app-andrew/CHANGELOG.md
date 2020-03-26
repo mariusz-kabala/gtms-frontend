@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.3.0...@gtms/app-andrew@0.4.0) (2020-03-26)
+
+
+### Features
+
+* GEOT-174: setup connection with QA BE ([#353](https://github.com/gtms-org/gtms-frontend/issues/353)) ([5d4f98e](https://github.com/gtms-org/gtms-frontend/commit/5d4f98edcfd81d14340661af0e461a1b9e24c2f8))
+
+
+
+
+
 # [0.3.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.2.0...@gtms/app-andrew@0.3.0) (2020-03-23)
 
 
