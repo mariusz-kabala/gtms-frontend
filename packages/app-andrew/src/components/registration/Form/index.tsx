@@ -33,7 +33,7 @@ const validate = (data: IRegistrationData, setError: any): boolean => {
   return !hasErrors
 }
 
-export const RegistrationForm: FC<{}> = () => {
+export const RegistrationForm: FC<{ onError: () => void }> = ({ onError }) => {
   const { t } = useTranslation('registration')
   const { register, handleSubmit, errors, setError } = useForm<
     IRegistrationData
@@ -49,7 +49,16 @@ export const RegistrationForm: FC<{}> = () => {
 
     try {
       await registerUserAccount(data)
-    } catch (err) {}
+    } catch (err) {
+      if (err.status === 400) {
+        const errors = await err.json()
+        Object.keys(errors).forEach((field: string) => {
+          setError(field, 'backend', errors[field].message)
+        })
+      } else {
+        onError()
+      }
+    }
 
     setIsMakingRequest(false)
   }
@@ -62,7 +71,12 @@ export const RegistrationForm: FC<{}> = () => {
         placeholder={t('form.labels.email')}
         reference={register({ required: true })}
       />
-      {errors.email && <Error text={t('form.validation.email.isRequired')} />}
+      {errors.email && errors.email.type === 'required' && (
+        <Error text={t('form.validation.email.isRequired')} />
+      )}
+      {errors.email && errors.email.type === 'backend' && (
+        <Error text={errors.email.message as string} />
+      )}
 
       <Input
         type="text"
@@ -77,8 +91,11 @@ export const RegistrationForm: FC<{}> = () => {
         name="password"
         reference={register({ required: true })}
       />
-      {errors.password && (
+      {errors.password && errors.password.type === 'required' && (
         <Error text={t('form.validation.password.isRequired')} />
+      )}
+      {errors.password && errors.password.type === 'backend' && (
+        <Error text={errors.password.message as string} />
       )}
 
       <Input
