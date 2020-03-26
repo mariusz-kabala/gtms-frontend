@@ -14,7 +14,7 @@ export const RegistrationPage: NextPage<{}> = () => {
   const [error, setError] = useState<string | undefined>()
 
   useEffect(() => {
-    const sub = userQuery.isActive$.subscribe(isActive => {
+    const sub = userQuery.isActive$.subscribe((isActive) => {
       if (userQuery.hasData() && !isActive) {
         redirect('/registration/success')
       }
@@ -38,7 +38,7 @@ export const RegistrationPage: NextPage<{}> = () => {
             incididunt elit.
           </p>
           {error && <div data-testid="registration-page-error">{t(error)}</div>}
-          <RegistrationForm />
+          <RegistrationForm onError={() => setError('registrationFailed')} />
           <div className={styles.goToLoginButton}>
             <Link href="/login">{t('goToLogin')}</Link>
           </div>
