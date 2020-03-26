@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.4.0...@gtms/app-andrew@0.5.0) (2020-03-26)
+
+
+### Features
+
+* GEOT-48: support be errors during registration ([#359](https://github.com/gtms-org/gtms-frontend/issues/359)) ([7110286](https://github.com/gtms-org/gtms-frontend/commit/7110286a9055d2ce0ff7631131cc7178ab44661f))
+
+
+
+
+
 # [0.4.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.3.0...@gtms/app-andrew@0.4.0) (2020-03-26)
 
 
