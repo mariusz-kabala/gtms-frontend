@@ -12,6 +12,7 @@ const TEMPORARY_IGNORE = [
   './packages/ui/PostSingle/index.tsx',
   './packages/app-andrew/src/pages/group/index.tsx',
   './packages/app-andrew/src/server.ts',
+  './packages/ui/SavedSearch/index.tsx',
 ]
 
 module.exports = [...PERMANENT_IGNORE, ...TEMPORARY_IGNORE]
