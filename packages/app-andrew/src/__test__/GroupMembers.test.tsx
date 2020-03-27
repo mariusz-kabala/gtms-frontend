@@ -11,7 +11,7 @@ describe('<GroupMembersPage />', () => {
     expect(useTranslation).toBeCalledWith('groupMembers')
   })
 
-  it('Should return translations namespace from getInitialProps', async done => {
+  it('Should return translations namespace from getInitialProps', async (done) => {
     if (!GroupMembersPage.getInitialProps) {
       return done()
     }

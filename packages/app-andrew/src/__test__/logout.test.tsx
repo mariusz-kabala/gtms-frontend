@@ -9,7 +9,7 @@ jest.mock('nookies', () => ({
 }))
 
 describe('Logout Page', () => {
-  it('Should destroy auth cookies', async done => {
+  it('Should destroy auth cookies', async (done) => {
     if (LogoutPage.getInitialProps) {
       // eslint-disable-next-line
       const ctx: any = null
@@ -31,7 +31,7 @@ describe('Logout Page', () => {
     expect(Router.push).toBeCalledWith({ pathname: '/login' })
   })
 
-  it('Should return proper translations namespace from initial func', async done => {
+  it('Should return proper translations namespace from initial func', async (done) => {
     if (!LogoutPage.getInitialProps) {
       return done()
     }

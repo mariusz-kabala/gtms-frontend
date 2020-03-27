@@ -17,13 +17,13 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
   const [error, setError] = useState<string | undefined>()
 
   useEffect(() => {
-    const sub = userQuery.isActive$.subscribe(isActive => {
+    const sub = userQuery.isActive$.subscribe((isActive) => {
       if (userQuery.hasData() && !isActive) {
         redirect('/registration/success')
       }
     })
 
-    const loggedSub = userQuery.isLogged$.subscribe(isLogged => {
+    const loggedSub = userQuery.isLogged$.subscribe((isLogged) => {
       if (isLogged) {
         redirect(redirectTo || '/')
       }

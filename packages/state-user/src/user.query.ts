@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators'
 import { combineLatest, Observable } from 'rxjs'
 
 export class UserQuery extends Query<IUserStore> {
-  public hasData$: Observable<boolean> = this.select(values =>
+  public hasData$: Observable<boolean> = this.select((values) =>
     this.hasData(values)
   )
 
@@ -16,13 +16,13 @@ export class UserQuery extends Query<IUserStore> {
 
   public isActive$: Observable<boolean> = combineLatest(
     this.hasData$,
-    this.select(values => values.isActive)
+    this.select((values) => values.isActive)
   ).pipe(map(([hasData, isActive]) => !!(hasData && isActive)))
 
   public isActive = (values = this.getValue()): boolean =>
     this.hasData(values) && values.isActive
 
-  public hasSession$: Observable<boolean> = this.select(values =>
+  public hasSession$: Observable<boolean> = this.select((values) =>
     this.hasSession(values)
   )
 
@@ -30,7 +30,7 @@ export class UserQuery extends Query<IUserStore> {
     !!(values.session?.accessToken && values.session?.refreshToken)
 
   public hasRoles$ = (rolesToCheck: string[]): Observable<boolean> =>
-    this.select(values => this.hasRoles(rolesToCheck, values))
+    this.select((values) => this.hasRoles(rolesToCheck, values))
 
   public hasRoles = (
     rolesToCheck: string[],
@@ -51,14 +51,14 @@ export class UserQuery extends Query<IUserStore> {
     return true
   }
 
-  public isInitialized$: Observable<boolean> = this.select(values =>
+  public isInitialized$: Observable<boolean> = this.select((values) =>
     this.isInitialized(values)
   )
 
   public isInitialized = (values = this.getValue()): boolean =>
     values.isInitialized
 
-  public isLogged$: Observable<boolean> = this.select(values =>
+  public isLogged$: Observable<boolean> = this.select((values) =>
     this.isLogged(values)
   )
 

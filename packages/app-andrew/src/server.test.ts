@@ -16,17 +16,17 @@ jest.mock('express-http-proxy')
 jest.mock('express')
 
 describe('Server', () => {
-  it('Should setup express instance', async done => {
+  it('Should setup express instance', async (done) => {
     process.env.API_URL = 'http://fake-api.com'
     let proxyUrl
     // eslint-disable-next-line
     let proxyParams: any
     const server = {
-        use: jest.fn(),
-        get: jest.fn(),
-        listen: jest.fn(),
-      }
-      // eslint-disable-next-line
+      use: jest.fn(),
+      get: jest.fn(),
+      listen: jest.fn(),
+    }
+    // eslint-disable-next-line
     ;(express as any).mockImplementation(() => server)
     ;(proxy as jest.Mock).mockImplementation((url, params) => {
       proxyUrl = url
