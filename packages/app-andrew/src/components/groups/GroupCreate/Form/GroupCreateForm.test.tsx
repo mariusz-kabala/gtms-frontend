@@ -93,4 +93,80 @@ describe('<GroupCreateForm />', () => {
 
     expect(setError).toBeCalledTimes(2)
   })
+
+  it('Should display validation errors returned from BE endpoint', async () => {
+    fetchMock.mockResponseOnce(() =>
+      Promise.resolve({
+        status: 400,
+        body: JSON.stringify({
+          name: {
+            message: 'Name already exists',
+          },
+          description: {
+            message: 'Description is too short',
+          },
+        }),
+      })
+    )
+
+    // eslint-disable-next-line
+    const setError = jest.fn()
+    let onSubmit: any
+    ;(useForm as jest.Mock).mockImplementationOnce(() => {
+      return {
+        register: jest.fn(),
+        handleSubmit: (func: (data: ILoginData) => Promise<void>) => {
+          onSubmit = func
+        },
+        errors: {},
+        setError,
+      }
+    })
+
+    render(<GroupCreateForm onError={jest.fn()} />)
+
+    await act(async () => {
+      await onSubmit({
+        name: 'test',
+        description: 'lorem ipsum',
+      })
+    })
+
+    expect(fetchMock.mock.calls.length).toEqual(1)
+    expect(setError).toBeCalledTimes(2)
+  })
+
+  it('Should trigger onError callback when create group endpoint returns 500', async () => {
+    fetchMock.mockResponseOnce(() =>
+      Promise.resolve({
+        status: 500,
+        body: '',
+      })
+    )
+
+    // eslint-disable-next-line
+    const onError = jest.fn()
+    let onSubmit: any
+    ;(useForm as jest.Mock).mockImplementationOnce(() => {
+      return {
+        register: jest.fn(),
+        handleSubmit: (func: (data: ILoginData) => Promise<void>) => {
+          onSubmit = func
+        },
+        errors: {},
+        setError: jest.fn(),
+      }
+    })
+
+    render(<GroupCreateForm onError={onError} />)
+
+    await act(async () => {
+      await onSubmit({
+        name: 'test',
+        description: 'lorem ipsum',
+      })
+    })
+
+    expect(onError).toBeCalledTimes(1)
+  })
 })
