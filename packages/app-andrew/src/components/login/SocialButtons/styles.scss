@@ -1,3 +1,5 @@
+@import '~@gtms/styles/scss/variables';
+
 .container {
   display: flex;
   flex-direction: row;
@@ -11,12 +13,13 @@
       display: flex;
       justify-content: center;
       width: 100%;
-      color: #fff;
+      color: $theme2;
       padding: 15px;
       border: none;
       text-align: center;
       text-decoration: none;
       cursor: pointer;
+      opacity: 1 !important; // clear opacity coming from npm module
       border-radius: 0 !important; // clear border radius coming from npm module
 
       &.facebook {
