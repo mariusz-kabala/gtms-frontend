@@ -20,7 +20,7 @@ export interface IGroupCreateResponse {
   members: string[]
 }
 
-export const createGroup = (
+export const createGroupAPI = (
   payload: IGroupCreateData
 ): Promise<IGroupCreateResponse> =>
   fetchJSON<IGroupCreateData, IGroupCreateResponse>(makeApiUrl('groups/'), {

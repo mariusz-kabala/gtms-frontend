@@ -1,18 +1,24 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IGroupCreateData } from '@gtms/api-group'
 import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Button } from '@gtms/ui/Button'
+import { createNewGroup } from '@gtms/state-group'
 
-export const GroupCreateForm: FC<{}> = () => {
+interface IFromData {
+  name: string
+  description: string
+}
+
+export const GroupCreateForm: FC<{ onError: () => unknown }> = ({
+  onError,
+}) => {
   const { t } = useTranslation('groupCreate')
-  const { register, handleSubmit, errors, setError } = useForm<
-    IGroupCreateData
-  >()
-  const validate = (data: IGroupCreateData) => {
+  const { register, handleSubmit, errors, setError } = useForm<IFromData>()
+  const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
+  const validate = (data: IFromData) => {
     let hasErrors = false
 
     if (!data.name) {
@@ -27,9 +33,24 @@ export const GroupCreateForm: FC<{}> = () => {
 
     return !hasErrors
   }
-  const onSubmit = async (data: IGroupCreateData) => {
+  const onSubmit = async (data: IFromData) => {
     if (!validate(data)) {
       return
+    }
+
+    setIsMakingRequest(true)
+
+    try {
+      await createNewGroup(data)
+    } catch (err) {
+      if (err.status === 400) {
+        const errors = await err.json()
+        Object.keys(errors).forEach((field: string) => {
+          setError(field, 'backend', errors[field].message)
+        })
+      } else {
+        onError()
+      }
     }
   }
 
@@ -49,16 +70,26 @@ export const GroupCreateForm: FC<{}> = () => {
       {errors.name && errors.name.type === 'required' && (
         <Error text={t('form.validation.name.isRequired')} />
       )}
+      {errors.name && errors.name.type === 'required' && (
+        <Error text={errors.name.message as string} />
+      )}
       <Input
         type="text"
         placeholder={t('form.labels.description')}
         name="description"
         reference={register({ required: true })}
       />
-      {errors.name && errors.name.type === 'required' && (
+      {errors.description && errors.description.type === 'required' && (
         <Error text={t('form.validation.description.isRequired')} />
       )}
-      <Button type="submit" additionalStyles={styles.btn}>
+      {errors.description && errors.description.type === 'required' && (
+        <Error text={errors.description.message as string} />
+      )}
+      <Button
+        type="submit"
+        disabled={isMakingRequest}
+        additionalStyles={styles.btn}
+      >
         {t('form.submitButton')}
       </Button>
     </form>
