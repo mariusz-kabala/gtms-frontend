@@ -23,14 +23,16 @@ describe('<RegistrationForm />', () => {
   })
 
   it('Should be on the page', () => {
-    const { getByTestId } = render(<RegistrationForm />)
+    const { getByTestId } = render(<RegistrationForm onError={jest.fn()} />)
 
     expect(getByTestId('registration-form')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('registration')
   })
 
   it('Should have all required fields', () => {
-    const { getByPlaceholderText, getByText } = render(<RegistrationForm />)
+    const { getByPlaceholderText, getByText } = render(
+      <RegistrationForm onError={jest.fn()} />
+    )
 
     expect(getByPlaceholderText('form.labels.email')).toBeInTheDocument()
     expect(getByPlaceholderText('form.labels.name')).toBeInTheDocument()
@@ -42,7 +44,7 @@ describe('<RegistrationForm />', () => {
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { queryByTestId } = render(<RegistrationForm />)
+    const { queryByTestId } = render(<RegistrationForm onError={jest.fn()} />)
 
     expect(queryByTestId('form-error')).toBeNull()
   })
@@ -64,7 +66,7 @@ describe('<RegistrationForm />', () => {
       }
     })
 
-    const { getByText } = render(<RegistrationForm />)
+    const { getByText } = render(<RegistrationForm onError={jest.fn()} />)
 
     expect(getByText('form.validation.email.isRequired')).toBeInTheDocument()
     expect(getByText('form.validation.password.isRequired')).toBeInTheDocument()
@@ -86,7 +88,7 @@ describe('<RegistrationForm />', () => {
     })
 
     act(() => {
-      render(<RegistrationForm />)
+      render(<RegistrationForm onError={jest.fn()} />)
 
       onSubmit({})
     })
@@ -117,7 +119,7 @@ describe('<RegistrationForm />', () => {
     })
 
     act(() => {
-      render(<RegistrationForm />)
+      render(<RegistrationForm onError={jest.fn()} />)
     })
 
     await act(async () => {
@@ -131,5 +133,124 @@ describe('<RegistrationForm />', () => {
     expect(fetchMock.mock.calls[0][0]).toBe('/v1/auth/users')
     expect(fetchMock.mock.calls.length).toEqual(1)
     done()
+  })
+
+  it('Should display validation errors returned from BE endpoint', async () => {
+    fetchMock.mockResponseOnce(() =>
+      Promise.resolve({
+        status: 400,
+        body: JSON.stringify({
+          password: {
+            message: 'Password is invalid',
+          },
+          email: {
+            message: 'Email already exists',
+          },
+        }),
+      })
+    )
+
+    // eslint-disable-next-line
+    const setError = jest.fn()
+    let onSubmit: any
+    ;(useForm as jest.Mock).mockImplementationOnce(() => {
+      return {
+        register: jest.fn(),
+        handleSubmit: (func: (data: ILoginData) => Promise<void>) => {
+          onSubmit = func
+        },
+        errors: {},
+        setError,
+      }
+    })
+
+    act(() => {
+      render(<RegistrationForm onError={jest.fn()} />)
+    })
+
+    await act(async () => {
+      await onSubmit({
+        email: 'tester@testing.jest',
+        password: 'loremIpsum',
+        passwordConfirmation: 'loremIpsum',
+        name: 'Tester',
+      })
+    })
+
+    expect(fetchMock.mock.calls.length).toEqual(1)
+    expect(setError).toBeCalledTimes(2)
+    expect(setError).toBeCalledWith(
+      'password',
+      'backend',
+      'Password is invalid'
+    )
+  })
+
+  it('Should trigger onError callback when register endpoint returns 500', async () => {
+    fetchMock.mockResponseOnce(() =>
+      Promise.resolve({
+        status: 500,
+        body: '',
+      })
+    )
+
+    // eslint-disable-next-line
+    const onError = jest.fn()
+    let onSubmit: any
+    ;(useForm as jest.Mock).mockImplementationOnce(() => {
+      return {
+        register: jest.fn(),
+        handleSubmit: (func: (data: ILoginData) => Promise<void>) => {
+          onSubmit = func
+        },
+        errors: {},
+        setError: jest.fn(),
+      }
+    })
+
+    act(() => {
+      render(<RegistrationForm onError={onError} />)
+    })
+
+    await act(async () => {
+      await onSubmit({
+        email: 'tester@testing.jest',
+        password: 'loremIpsum',
+        passwordConfirmation: 'loremIpsum',
+        name: 'Tester',
+      })
+    })
+
+    expect(onError).toBeCalledTimes(1)
+  })
+
+  it('Should set validation errors when password does not match', async () => {
+    let onSubmit: any
+    const setError = jest.fn()
+    ;(useForm as jest.Mock).mockImplementationOnce(() => {
+      return {
+        register: jest.fn(),
+        handleSubmit: (func: (data: ILoginData) => Promise<void>) => {
+          onSubmit = func
+        },
+        errors: {},
+        setError,
+      }
+    })
+
+    act(() => {
+      render(<RegistrationForm onError={jest.fn()} />)
+    })
+
+    await act(async () => {
+      await onSubmit({
+        email: 'tester@testing.jest',
+        password: 'loremIpsum',
+        passwordConfirmation: 'wrongPass',
+        name: 'Tester',
+      })
+    })
+
+    expect(setError).toBeCalledTimes(1)
   })
 })
