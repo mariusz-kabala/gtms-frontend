@@ -33,7 +33,7 @@ describe('<ActivateAccountPage />', () => {
     ;(redirect as jest.Mock).mockClear()
   })
 
-  it('Should render the page', async done => {
+  it('Should render the page', async (done) => {
     fetchMock.mockResponse('{}')
 
     const { getByTestId, queryByTestId } = render(<ActivateAccountPage />)
@@ -51,7 +51,7 @@ describe('<ActivateAccountPage />', () => {
     done()
   })
 
-  it('Should display confirmation message, after activation the account', async done => {
+  it('Should display confirmation message, after activation the account', async (done) => {
     fetchMock.mockResponse('{}')
 
     const { getByTestId, queryByTestId } = render(<ActivateAccountPage />)
@@ -65,7 +65,7 @@ describe('<ActivateAccountPage />', () => {
     done()
   })
 
-  it('Should display error message when 404 in the response from the API', async done => {
+  it('Should display error message when 404 in the response from the API', async (done) => {
     fetchMock.mockRejectOnce(new Error('fake error'))
 
     const { getByTestId, queryByTestId } = render(<ActivateAccountPage />)
@@ -79,7 +79,7 @@ describe('<ActivateAccountPage />', () => {
     done()
   })
 
-  it('Should return translations namespace from initial func', async done => {
+  it('Should return translations namespace from initial func', async (done) => {
     if (!ActivateAccountPage.getInitialProps) {
       return done()
     }
@@ -96,7 +96,7 @@ describe('<ActivateAccountPage />', () => {
     done()
   })
 
-  it('Should redirect to / if auth session is valid', async done => {
+  it('Should redirect to / if auth session is valid', async (done) => {
     if (!ActivateAccountPage.getInitialProps) {
       return done()
     }

@@ -91,7 +91,7 @@ describe('<RegistrationPage />', () => {
     })
   })
 
-  it('Should return translations namespace from getInitialProps', async done => {
+  it('Should return translations namespace from getInitialProps', async (done) => {
     if (!RegistrationPage.getInitialProps) {
       return done()
     }
@@ -108,7 +108,7 @@ describe('<RegistrationPage />', () => {
     done()
   })
 
-  it('Should initialize user auth session from JWT cookie', async done => {
+  it('Should initialize user auth session from JWT cookie', async (done) => {
     if (!RegistrationPage.getInitialProps) {
       return done()
     }
@@ -125,7 +125,7 @@ describe('<RegistrationPage />', () => {
     done()
   })
 
-  it('Should redirect to / if auth session is valid', async done => {
+  it('Should redirect to / if auth session is valid', async (done) => {
     if (!RegistrationPage.getInitialProps) {
       return done()
     }
@@ -160,7 +160,7 @@ describe('<RegistrationPage />', () => {
     done()
   })
 
-  it('Should redirect to /registration/success when auth store has data but account is not active', async done => {
+  it('Should redirect to /registration/success when auth store has data but account is not active', async (done) => {
     if (!RegistrationPage.getInitialProps) {
       return done()
     }

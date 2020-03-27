@@ -4,7 +4,7 @@ let JWT
 let refreshJWT
 
 module.exports = {
-  path: '/v1/auth/facebook',
+  path: '/api/v1/auth/facebook',
   delay: 5000,
   method: 'POST',
   status: (req, res, next) => {

@@ -1,6 +1,6 @@
 {
   "name": "@gtms/api-group",
-  "version": "0.1.5",
+  "version": "0.0.1",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",

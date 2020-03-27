@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 let JWT
 
 module.exports = {
-  path: '/v1/auth/refresh-token',
+  path: '/api/v1/auth/refresh-token',
   delay: 500,
   method: 'POST',
   status: (req, res, next) => {

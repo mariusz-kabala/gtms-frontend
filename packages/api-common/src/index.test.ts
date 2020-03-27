@@ -28,7 +28,7 @@ describe('fetchJSON', () => {
     expect(makeApiUrl('test/fake/api')).toBe('http://fake.com/v1/test/fake/api')
   })
 
-  it('Should make a request with proper params', async done => {
+  it('Should make a request with proper params', async (done) => {
     fetchMock.mockResponse('{}')
     await fetchJSON('test/fake/url')
 
@@ -40,7 +40,7 @@ describe('fetchJSON', () => {
     done()
   })
 
-  it('Should send proper POST request', async done => {
+  it('Should send proper POST request', async (done) => {
     fetchMock.mockResponse('{}')
 
     await fetchJSON('test/fake/url', {
@@ -62,7 +62,7 @@ describe('fetchJSON', () => {
     done()
   })
 
-  it('Should add params to request header', async done => {
+  it('Should add params to request header', async (done) => {
     fetchMock.mockResponse('{}')
     await fetchJSON('test/fake/url', {
       values: {},
