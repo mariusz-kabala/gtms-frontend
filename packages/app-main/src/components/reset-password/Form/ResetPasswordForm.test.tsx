@@ -142,7 +142,7 @@ describe('<ResetPasswordForm />', () => {
     expect(setError).toBeCalledTimes(1)
   })
 
-  it('Should make an request to API to reset passwords', async done => {
+  it('Should make an request to API to reset passwords', async (done) => {
     fetchMock.mockResponseOnce('{}')
     // eslint-disable-next-line
     let onSubmit: any
@@ -177,7 +177,7 @@ describe('<ResetPasswordForm />', () => {
     done()
   })
 
-  it('Should set server error message when 500 from API response', async done => {
+  it('Should set server error message when 500 from API response', async (done) => {
     fetchMock.mockRejectOnce(new Error('fake error'))
     // eslint-disable-next-line
     let onSubmit: any

@@ -80,7 +80,7 @@ export const SavedSearch: FC<{
   <ul className={additionalStyles}>
     {mockData &&
       mockData.length > 0 &&
-      mockData.map(search => (
+      mockData.map((search) => (
         <li
           className={cx(styles.search, {
             [styles.active]: search.isActive,
@@ -89,7 +89,7 @@ export const SavedSearch: FC<{
         >
           {search && search.tags && (
             <ul className={styles.tags}>
-              {search.tags.map(tag => {
+              {search.tags.map((tag) => {
                 return (
                   <li className={styles.tag} key={tag._id}>
                     #{tag.label}
@@ -101,7 +101,7 @@ export const SavedSearch: FC<{
 
           {search && search.locations && (
             <ul className={styles.locations}>
-              {search.locations.map(location => {
+              {search.locations.map((location) => {
                 return (
                   <li className={styles.location} key={location._id}>
                     {location.label}
@@ -113,7 +113,7 @@ export const SavedSearch: FC<{
 
           {search && search.groups && (
             <ul className={styles.groups}>
-              {search.groups.map(group => {
+              {search.groups.map((group) => {
                 return (
                   <li className={styles.group} key={group._id}>
                     {group.label}

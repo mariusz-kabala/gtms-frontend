@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@gtms/api-auth": "0.1.5",
-    "@gtms/api-group": "0.1.5",
+    "@gtms/api-group": "0.0.1",
     "@gtms/commons": "0.1.5",
     "@gtms/state-user": "0.1.5",
     "@gtms/styles": "0.2.0",

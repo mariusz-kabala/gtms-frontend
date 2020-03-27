@@ -1,0 +1,32 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/imageCover';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: $theme2;
+  @include imageCover();
+
+  .formWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background: $theme0;
+    max-width: 400px;
+
+    h1 {
+      font-size: 1.6em;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      line-height: 1.3em;
+      font-weight: 300;
+    }
+  }
+}

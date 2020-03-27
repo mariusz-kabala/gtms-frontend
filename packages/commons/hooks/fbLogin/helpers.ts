@@ -18,7 +18,7 @@ export function getParamsFromObject(params: {
   return (
     '?' +
     Object.keys(params)
-      .map(param => `${param}=${encodeURIComponent(params[param])}`)
+      .map((param) => `${param}=${encodeURIComponent(params[param])}`)
       .join('&')
   )
 }

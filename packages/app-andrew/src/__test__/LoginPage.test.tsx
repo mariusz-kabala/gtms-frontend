@@ -160,7 +160,7 @@ describe('<LoginPage />', () => {
     })
   })
 
-  it('Should return translations namespace and redirectTo from getInitialProps', async done => {
+  it('Should return translations namespace and redirectTo from getInitialProps', async (done) => {
     if (!LoginPage.getInitialProps) {
       return done()
     }
@@ -178,7 +178,7 @@ describe('<LoginPage />', () => {
     done()
   })
 
-  it('Should parse cookies to return proper redirection after login URL from getInitialProps', async done => {
+  it('Should parse cookies to return proper redirection after login URL from getInitialProps', async (done) => {
     if (!LoginPage.getInitialProps) {
       return done()
     }
@@ -204,7 +204,7 @@ describe('<LoginPage />', () => {
     done()
   })
 
-  it('Should initialize user auth session from JWT cookie', async done => {
+  it('Should initialize user auth session from JWT cookie', async (done) => {
     if (!LoginPage.getInitialProps) {
       return done()
     }
@@ -221,7 +221,7 @@ describe('<LoginPage />', () => {
     done()
   })
 
-  it('Should redirect to / if auth session is valid', async done => {
+  it('Should redirect to / if auth session is valid', async (done) => {
     if (!LoginPage.getInitialProps) {
       return done()
     }

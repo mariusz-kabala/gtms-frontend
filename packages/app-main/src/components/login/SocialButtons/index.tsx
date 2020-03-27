@@ -15,7 +15,7 @@ export const SocialButtons: FC<{
     appId: process.env.FB_APP_ID,
     fields: 'name, email, picture',
     onFailure,
-    onSuccess: async payload => {
+    onSuccess: async (payload) => {
       const { accessToken, id } = payload
 
       setIsLoading(true)
@@ -54,7 +54,7 @@ export const SocialButtons: FC<{
         <GoogleLogin
           clientId={process.env.GOOGLE_CLIENT_ID}
           buttonText="Google"
-          onSuccess={async response => {
+          onSuccess={async (response) => {
             setIsLoading(true)
 
             const { accessToken, googleId } = response as GoogleLoginResponse

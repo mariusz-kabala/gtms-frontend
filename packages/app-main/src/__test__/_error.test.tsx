@@ -15,7 +15,7 @@ describe('Error page', () => {
     expect(getByTestId('four-hundred-four')).toBeInTheDocument()
   })
 
-  it('Should return proper response code from getInitialProps', async done => {
+  it('Should return proper response code from getInitialProps', async (done) => {
     // eslint-disable-next-line
     const ctx: any = Promise.resolve({
       res: {
@@ -34,7 +34,7 @@ describe('Error page', () => {
     }
   })
 
-  it('Should return error 404 if no valid error returned from getInitialProps', async done => {
+  it('Should return error 404 if no valid error returned from getInitialProps', async (done) => {
     // eslint-disable-next-line
     const ctx: any = Promise.resolve({})
     if (ErrorPage.getInitialProps) {
@@ -45,7 +45,7 @@ describe('Error page', () => {
     done()
   })
 
-  it('Should return proper error code from getInitialProps', async done => {
+  it('Should return proper error code from getInitialProps', async (done) => {
     // eslint-disable-next-line
     const ctx: any = Promise.resolve({
       err: {
