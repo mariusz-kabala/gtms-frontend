@@ -10,7 +10,7 @@ describe('<GroupCreatePage />', () => {
     expect(getByTestId('group-create')).toBeInTheDocument()
   })
 
-  it('Should return translations namespace from getInitialProps', async done => {
+  it('Should return translations namespace from getInitialProps', async (done) => {
     if (!GroupCreatePage.getInitialProps) {
       return done()
     }

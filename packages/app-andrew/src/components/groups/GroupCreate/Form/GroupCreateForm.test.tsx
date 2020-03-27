@@ -23,14 +23,16 @@ describe('<GroupCreateForm />', () => {
   })
 
   it('Should be on the page', () => {
-    const { getByTestId } = render(<GroupCreateForm />)
+    const { getByTestId } = render(<GroupCreateForm onError={jest.fn()} />)
 
     expect(getByTestId('group-create-form')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('groupCreate')
   })
 
   it('Should have all required fields', () => {
-    const { getByPlaceholderText, getByText } = render(<GroupCreateForm />)
+    const { getByPlaceholderText, getByText } = render(
+      <GroupCreateForm onError={jest.fn()} />
+    )
 
     expect(getByPlaceholderText('form.labels.name')).toBeInTheDocument()
     expect(getByPlaceholderText('form.labels.description')).toBeInTheDocument()
@@ -38,7 +40,7 @@ describe('<GroupCreateForm />', () => {
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { queryByTestId } = render(<GroupCreateForm />)
+    const { queryByTestId } = render(<GroupCreateForm onError={jest.fn()} />)
 
     expect(queryByTestId('form-error')).toBeNull()
   })
@@ -60,7 +62,7 @@ describe('<GroupCreateForm />', () => {
       }
     })
 
-    const { getByText } = render(<GroupCreateForm />)
+    const { getByText } = render(<GroupCreateForm onError={jest.fn()} />)
 
     expect(getByText('form.validation.name.isRequired')).toBeInTheDocument()
     expect(
@@ -84,7 +86,7 @@ describe('<GroupCreateForm />', () => {
     })
 
     act(() => {
-      render(<GroupCreateForm />)
+      render(<GroupCreateForm onError={jest.fn()} />)
 
       onSubmit({})
     })

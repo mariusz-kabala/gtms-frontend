@@ -63,7 +63,7 @@ describe('<ResetPasswordPage />', () => {
     wait(() => expect(fetchMock).toBeCalledTimes(1))
   })
 
-  it('Should render change password form after confirming that code is valid', async done => {
+  it('Should render change password form after confirming that code is valid', async (done) => {
     fetchMock.mockResponse('{}')
 
     const { queryByTestId } = render(<ResetPasswordPage />)
@@ -94,7 +94,7 @@ describe('<ResetPasswordPage />', () => {
     wait(() => expect(push).toBeCalledTimes(1))
   })
 
-  it('Should render password has been changed confirmation', async done => {
+  it('Should render password has been changed confirmation', async (done) => {
     fetchMock.mockResponse('{}')
 
     // eslint-disable-next-line
@@ -122,7 +122,7 @@ describe('<ResetPasswordPage />', () => {
     done()
   })
 
-  it('Should return translation namespaces from initial func', async done => {
+  it('Should return translation namespaces from initial func', async (done) => {
     if (!ResetPasswordPage.getInitialProps) {
       return done()
     }
@@ -135,7 +135,7 @@ describe('<ResetPasswordPage />', () => {
     done()
   })
 
-  it('Should redirect to / if auth session is valid', async done => {
+  it('Should redirect to / if auth session is valid', async (done) => {
     if (!ResetPasswordPage.getInitialProps) {
       return done()
     }

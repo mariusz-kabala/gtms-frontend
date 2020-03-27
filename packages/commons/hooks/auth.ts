@@ -13,7 +13,9 @@ export function useAuth(): {
       }
     }
 
-    const authSub = userQuery.isLogged$.subscribe(value => setIsLogged(!!value))
+    const authSub = userQuery.isLogged$.subscribe((value) =>
+      setIsLogged(!!value)
+    )
 
     window.addEventListener('storage', syncLogout)
 

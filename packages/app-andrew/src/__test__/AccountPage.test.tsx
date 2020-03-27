@@ -25,7 +25,7 @@ describe('<AccountPage />', () => {
     expect(useTranslation).toBeCalledWith('account')
   })
 
-  it('Should return translations namespace from getInitialProps', async done => {
+  it('Should return translations namespace from getInitialProps', async (done) => {
     if (!AccountPage.getInitialProps) {
       return done()
     }

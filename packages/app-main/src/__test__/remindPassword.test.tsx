@@ -62,7 +62,7 @@ describe('<RemindPasswordPage />', () => {
     ).toBeInTheDocument()
   })
 
-  it('Should return translations namespace from initial func', async done => {
+  it('Should return translations namespace from initial func', async (done) => {
     if (!RemindPasswordPage.getInitialProps) {
       return done()
     }
@@ -75,7 +75,7 @@ describe('<RemindPasswordPage />', () => {
     done()
   })
 
-  it('Should redirect to / if auth session is valid', async done => {
+  it('Should redirect to / if auth session is valid', async (done) => {
     if (!RemindPasswordPage.getInitialProps) {
       return done()
     }

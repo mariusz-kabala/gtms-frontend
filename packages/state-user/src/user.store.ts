@@ -9,7 +9,6 @@ export class UserStore extends Store<IUserStore> {
     super(
       {
         isInitialized: false,
-        dupa: false,
       },
       {
         resettable: true,
