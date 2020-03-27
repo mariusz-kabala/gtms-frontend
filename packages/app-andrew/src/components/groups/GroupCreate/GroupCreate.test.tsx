@@ -19,9 +19,9 @@ describe('<GroupCreate />', () => {
   })
 
   it('Should display an error when group creation fails', async () => {
-    let onErrorCallback: () => unknown
+    let onErrorCallback: () => void
     ;(GroupCreateForm as jest.Mock).mockImplementation(
-      (params: { onError: () => unknown }) => {
+      (params: { onError: () => void }) => {
         onErrorCallback = params.onError
 
         return <></>
