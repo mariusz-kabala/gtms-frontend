@@ -94,7 +94,7 @@ describe('<RegistrationForm />', () => {
     expect(setError).toBeCalledTimes(3)
   })
 
-  it('Should make an request to API to register the user', async done => {
+  it('Should make an request to API to register the user', async (done) => {
     fetchMock.mockResponseOnce(
       JSON.stringify({
         id: '5ce208055bf8fdcf85ee2d86',

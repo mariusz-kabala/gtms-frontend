@@ -3,8 +3,10 @@ import next from 'next'
 import nextI18NextMiddleware from 'next-i18next/middleware'
 import nextI18next from '../../commons/i18n'
 
-const isInProductionMode = process.env.NODE_ENV === 'production'
-const port = process.env.PORT || 3000
+const { NODE_ENV, API_URL, PORT, USE_PROXY_SSL } = process.env
+
+const isInProductionMode = NODE_ENV === 'production'
+const port = PORT || 3000
 const app = next({ dev: !isInProductionMode })
 const handle = app.getRequestHandler()
 ;(async () => {
@@ -14,7 +16,15 @@ const handle = app.getRequestHandler()
   if (!isInProductionMode) {
     // eslint-disable-next-line
     const proxy = require('express-http-proxy')
-    server.use('/api', proxy('http://localhost:9000'))
+    server.use(
+      '/api',
+      proxy(API_URL, {
+        https: USE_PROXY_SSL === '1' ? true : false,
+        proxyReqPathResolver: (req: Request) => {
+          return `/api${req.url}`
+        },
+      })
+    )
   }
 
   server.get('/logout', (req: Request, res: Response) => handle(req, res))

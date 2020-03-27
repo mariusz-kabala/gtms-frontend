@@ -120,7 +120,7 @@ export function useFacebookLogin({
           locale: language,
           fields,
         },
-        me =>
+        (me) =>
           onSuccess({
             ...me,
             ...response.authResponse,

@@ -1,5 +1,5 @@
 module.exports = {
-  path: '/v1/auth/users',
+  path: '/api/v1/auth/users',
   delay: 1000,
   method: 'POST',
   status: (req, res, next) => {

@@ -1,17 +1,6 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/zindex';
 
-body {
-  &:after {
-    position: fixed;
-    bottom: 0;
-    content: '';
-    width: 150%;
-    height: 0px;
-    box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 1);
-  }
-}
-
 .navigationDot {
   position: fixed;
   left: 0px;
