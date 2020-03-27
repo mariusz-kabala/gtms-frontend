@@ -12,7 +12,7 @@ export const Textarea: FC<{
 }> = ({ additionalStyles, name, placeholder, reference }) => (
   <textarea
     data-testid="form-textarea"
-    className={cx(styles.input, additionalStyles)}
+    className={cx(styles.textarea, additionalStyles)}
     name={name}
     placeholder={placeholder}
     ref={reference}
