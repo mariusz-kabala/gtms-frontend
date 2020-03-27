@@ -30,7 +30,7 @@ describe('<RegistrationSuccessPage />', () => {
     expect(useTranslation).toBeCalledWith('registration')
   })
 
-  it('Should return translations namespace from getInitialProps', async done => {
+  it('Should return translations namespace from getInitialProps', async (done) => {
     if (!RegistrationSuccessPage.getInitialProps) {
       return done()
     }
@@ -47,7 +47,7 @@ describe('<RegistrationSuccessPage />', () => {
     done()
   })
 
-  it('Should redirect to / if auth session is valid', async done => {
+  it('Should redirect to / if auth session is valid', async (done) => {
     if (!RegistrationSuccessPage.getInitialProps) {
       return done()
     }
@@ -84,7 +84,7 @@ describe('<RegistrationSuccessPage />', () => {
     done()
   })
 
-  it('Should redirect to /registration if no user data in store', async done => {
+  it('Should redirect to /registration if no user data in store', async (done) => {
     if (!RegistrationSuccessPage.getInitialProps) {
       return done()
     }

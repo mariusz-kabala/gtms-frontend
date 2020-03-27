@@ -1,16 +1,13 @@
 import React from 'react'
 import { NextPage } from 'next'
-import {
-  withTranslation,
-  IWithTranslations,
-  fakeTranslateFunc,
-} from '@gtms/commons/i18n'
+import { useTranslation } from '@gtms/commons/i18n'
 import { AcceptRulesButton } from '../../components/rules/AcceptRulesButton'
 import styles from './styles.scss'
 
-export const RulesPage: NextPage<IWithTranslations> = ({ t }) => {
+export const RulesPage: NextPage<{}> = () => {
+  const { t } = useTranslation('rules')
   return (
-    <div className={styles.page}>
+    <div className={styles.page} data-testid="rules-page">
       <p>{t('header.subtitle')}</p>
       <article className={styles.rules}>
         <p>
@@ -19,8 +16,7 @@ export const RulesPage: NextPage<IWithTranslations> = ({ t }) => {
           RORO) informuję, iż:
         </p>
         <p>
-          1. Administratorem Twoich danych osobowych jest NerdART Mariusz
-          Kabała, ul. Sikorskiego 2/2 41-219 Sosnowiec; tel: 792-550-681
+          1. Administratorem Twoich danych osobowych jest <b>MISSING</b>
         </p>
         <p>
           2. Twoje dane osobowe przetwarzane będą na podstawie wyrażonej przez
@@ -63,9 +59,7 @@ export const RulesPage: NextPage<IWithTranslations> = ({ t }) => {
   )
 }
 
-RulesPage.getInitialProps = async () => ({
-  namespacesRequired: ['rules'],
-  t: fakeTranslateFunc,
-})
+RulesPage.getInitialProps = async () =>
+  Promise.resolve({ namespacesRequired: ['rules'] })
 
-export default withTranslation('rules')(RulesPage)
+export default RulesPage

@@ -40,7 +40,7 @@ const mockData = [
 
 export const NavigationDot: FC = () => (
   <ul className={styles.navigationDot} data-testid="navigationDot">
-    {mockData.map(value => (
+    {mockData.map((value) => (
       <li key={value.id}>
         <Link href="/remind-password">
           <div

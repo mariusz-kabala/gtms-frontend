@@ -8,6 +8,7 @@ const withTM = require('next-transpile-modules')([
   '@gtms/api-group',
   '@gtms/commons',
   '@gtms/state-user',
+  '@gtms/state-group',
   '@gtms/styles',
   '@gtms/ui',
 ])

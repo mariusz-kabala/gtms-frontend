@@ -15,7 +15,7 @@ export const RegistrationPage: NextPage<{}> = () => {
   const [error, setError] = useState<string | undefined>()
 
   useEffect(() => {
-    const sub = userQuery.isActive$.subscribe(isActive => {
+    const sub = userQuery.isActive$.subscribe((isActive) => {
       if (userQuery.hasData() && !isActive) {
         redirect('/registration/success')
       }

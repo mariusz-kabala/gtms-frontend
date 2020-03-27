@@ -82,7 +82,7 @@ describe('useFacebookLogin hook', () => {
   it('Should create fb-root if it does not exist', () => {
     const fbRoot: { id?: string } = {}
     ;(document.getElementById as jest.Mock).mockImplementation(() => undefined)
-    ;(document.createElement as jest.Mock).mockImplementation(id => {
+    ;(document.createElement as jest.Mock).mockImplementation((id) => {
       if (id === 'div') {
         return fbRoot
       }
@@ -187,7 +187,7 @@ describe('useFacebookLogin hook', () => {
 
     // eslint-disable-next-line
     let checkLoginStatus: any
-    ;(window.FB.login as jest.Mock).mockImplementation(callback => {
+    ;(window.FB.login as jest.Mock).mockImplementation((callback) => {
       checkLoginStatus = callback
     })
 
@@ -228,7 +228,7 @@ describe('useFacebookLogin hook', () => {
 
     // eslint-disable-next-line
     let checkLoginStatus: any
-    ;(window.FB.login as jest.Mock).mockImplementation(callback => {
+    ;(window.FB.login as jest.Mock).mockImplementation((callback) => {
       checkLoginStatus = callback
     })
 

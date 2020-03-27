@@ -97,7 +97,7 @@ describe('<LoginForm />', () => {
     expect(setError).toBeCalledTimes(2)
   })
 
-  it('Should make an request to API to login the user', async done => {
+  it('Should make an request to API to login the user', async (done) => {
     fetchMock.mockResponseOnce(
       JSON.stringify({
         accessToken:
@@ -141,7 +141,7 @@ describe('<LoginForm />', () => {
     done()
   })
 
-  it('Should set login failed error message when 401 from API response', async done => {
+  it('Should set login failed error message when 401 from API response', async (done) => {
     fetchMock.mockRejectOnce(new Error('fake error'))
     // eslint-disable-next-line
     let onSubmit: any
