@@ -13,6 +13,9 @@ const TEMPORARY_IGNORE = [
   './packages/app-andrew/src/pages/group/index.tsx',
   './packages/app-andrew/src/server.ts',
   './packages/ui/SavedSearch/index.tsx',
+  './packages/app-main/src/pages/rules/index.tsx',
+  './packages/app-main/src/providers/Rules/index.tsx',
+  './packages/app-main/src/components/rules/AcceptRulesButton/index.tsx',
 ]
 
 module.exports = [...PERMANENT_IGNORE, ...TEMPORARY_IGNORE]
