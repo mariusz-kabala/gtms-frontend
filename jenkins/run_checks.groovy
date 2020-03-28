@@ -84,6 +84,7 @@ pipeline {
             steps {
                 script {
                     sh "yarn"
+                    sh "yarn workspaces run setup:ts"
                 }
             }
         }

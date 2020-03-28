@@ -7,7 +7,7 @@
     "publish": {
       "allowBranch": "master",
       "conventionalCommits": true,
-      "message": "chore: Bump versions",
+      "message": "chore: 🤖 Bump versions",
       "exact": true,
       "yes": true,
       "createRelease": "github",

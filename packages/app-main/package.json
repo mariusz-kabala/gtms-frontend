@@ -7,7 +7,8 @@
   "scripts": {
     "build": "next build && tsc --project tsconfig.server.json",
     "dev": "cross-env NODE_ENV=development API_URL=http://localhost:9000 FE_API_URL=/api nodemon",
-    "start": "cross-env NODE_ENV=production node dist/server.js"
+    "start": "cross-env NODE_ENV=production node dist/server.js",
+    "setup:ts": "cp-cli tsconfig.json.example tsconfig.json"
   },
   "dependencies": {
     "@gtms/api-auth": "0.1.5",
