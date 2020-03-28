@@ -68,5 +68,5 @@ dist/
 /styleguide/
 
 # local copies of tsconfig
-./packages/app-andrew/tsconfig.json
-./packages/app-main/tsconfig.json
+packages/app-andrew/tsconfig.json
+packages/app-main/tsconfig.json
