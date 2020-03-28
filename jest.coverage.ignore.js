@@ -6,6 +6,7 @@ const PERMANENT_IGNORE = [
   './pages/_app.tsx',
   './ui/index.ts',
   './packages/styleguide/src/StyleGuide.tsx',
+  './projects/gtms-frontend/packages/ui/Forms/index.ts',
 ]
 
 const TEMPORARY_IGNORE = [
@@ -16,6 +17,7 @@ const TEMPORARY_IGNORE = [
   './packages/app-main/src/pages/rules/index.tsx',
   './packages/app-main/src/providers/Rules/index.tsx',
   './packages/app-main/src/components/rules/AcceptRulesButton/index.tsx',
+  './projects/gtms-frontend/packages/ui/Forms/ExpandingTextarea/index.tsx',
 ]
 
 module.exports = [...PERMANENT_IGNORE, ...TEMPORARY_IGNORE]

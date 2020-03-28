@@ -3,6 +3,7 @@ import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Input } from '@gtms/ui/Forms/Input'
+import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Button } from '@gtms/ui/Button'
 import { createNewGroup } from '@gtms/state-group'
@@ -73,8 +74,7 @@ export const GroupCreateForm: FC<{ onError: () => unknown }> = ({
       {errors.name && errors.name.type === 'required' && (
         <Error text={errors.name.message as string} />
       )}
-      <Input
-        type="text"
+      <ExpandingTextarea
         placeholder={t('form.labels.description')}
         name="description"
         reference={register({ required: true })}
