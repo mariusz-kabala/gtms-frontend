@@ -24,7 +24,7 @@ In the dev mode you can use your own `tsconfig` file. Before starting working on
 ./packages/app-${APPLICATION_NAME}/tsconfig.json.example
 ```
 
-just copy this file to:
+just copy file to:
 
 ```bash
 ./packages/app-${APPLICATION_NAME}/tsconfig.json
@@ -32,7 +32,7 @@ just copy this file to:
 
 it is good to go, you don't have to make any changes there if default config works for you
 
-Also, if you don't want to do that manually here is a useful command that will do it for you (you just need to run it one, after checking out the project, or when you want to reset ts settings):
+Also, if you don't want to do that manually here is a useful command that will do it for you (you just need to run it once, after checking out the project, or when you want to reset ts settings):
 
 ```bash
 yarn workspaces run setup:ts
