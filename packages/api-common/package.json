@@ -5,6 +5,7 @@
   "module": "src/index.ts",
   "main": "src/index.ts",
   "scripts": {
-    "build": "exit 0"
+    "build": "exit 0",
+    "setup:ts": "exit 0"
   }
 }
