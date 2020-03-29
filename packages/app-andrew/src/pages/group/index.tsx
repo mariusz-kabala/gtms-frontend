@@ -48,17 +48,12 @@ const GroupPage: NextPage<{}> = () => {
         <div className={styles.columns}>
           <div className={styles.column}>
             <div>
-              <h2 className={styles.header}>Ostatnio dodane posty</h2>
+              <h2 className={styles.header}>Polecane grupy</h2>
               <div className={styles.grid}>
                 <UserCard image={'/images/temp_images/logo-patrol-1.png'} />
                 <UserCard image={'/images/temp_images/logo-patrol-2.png'} />
                 <UserCard image={'/images/temp_images/logo-sztab-1.png'} />
                 <UserCard image={'/images/temp_images/logo-sztab-2.png'} />
-              </div>
-            </div>
-            <div>
-              <h2 className={styles.header}>Ostatnio dodane posty</h2>
-              <div className={styles.grid}>
                 <UserCard image={'/images/temp_images/logo-sztab-3.png'} />
                 <UserCard
                   image={'/images/temp_images/logo-uczymy-ratowac.png'}

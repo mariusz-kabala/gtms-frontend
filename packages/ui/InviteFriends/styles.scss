@@ -1,18 +1,24 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/header.scss';
 
 .wrapper {
   padding: 20px;
 
   h2 {
-    color: $theme2;
+    @include header(h4);
+    color: $theme5;
     margin-bottom: 20px;
   }
 
   .btn {
     @include buttonDefault();
-    @include buttonColorsHoverDefault();
     width: 100%;
     color: white;
+    background: $theme1;
+
+    &:hover {
+      @include buttonColorsHoverDefault();
+    }
   }
 }
