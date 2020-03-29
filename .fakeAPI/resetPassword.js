@@ -1,5 +1,5 @@
 module.exports = {
-  path: '/v1/auth/reset-password',
+  path: '/api/v1/auth/reset-password',
   delay: 220,
   method: 'POST',
   template: () => ({}),

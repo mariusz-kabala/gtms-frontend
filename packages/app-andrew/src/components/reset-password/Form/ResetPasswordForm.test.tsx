@@ -48,7 +48,7 @@ describe('<ResetPasswordForm />', () => {
     expect(queryByTestId('form-error')).toBeNull()
   })
 
-  it('Should display validation errors for email field', () => {
+  it('Should display validation error - password required', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
@@ -142,7 +142,7 @@ describe('<ResetPasswordForm />', () => {
     expect(setError).toBeCalledTimes(1)
   })
 
-  it('Should make an request to API to reset passwords', async done => {
+  it('Should make an request to API to reset passwords', async (done) => {
     fetchMock.mockResponseOnce('{}')
     // eslint-disable-next-line
     let onSubmit: any
@@ -177,7 +177,7 @@ describe('<ResetPasswordForm />', () => {
     done()
   })
 
-  it('Should set server error message when 500 from API response', async done => {
+  it('Should set server error message when 500 from API response', async (done) => {
     fetchMock.mockRejectOnce(new Error('fake error'))
     // eslint-disable-next-line
     let onSubmit: any

@@ -16,6 +16,28 @@ It is a React app with SSR support
 
 # Running the project
 
+### Setting up TypeScript configuration
+
+In the dev mode you can use your own `tsconfig` file. Before starting working on any application in monorepo you have to create `tsconfig.json` file. You can find an example of that file here:
+
+```bash
+./packages/app-${APPLICATION_NAME}/tsconfig.json.example
+```
+
+just copy file to:
+
+```bash
+./packages/app-${APPLICATION_NAME}/tsconfig.json
+```
+
+it is good to go, you don't have to make any changes there if default config works for you
+
+Also, if you don't want to do that manually here is a useful command that will do it for you (you just need to run it once, after checking out the project, or when you want to reset ts settings):
+
+```bash
+yarn workspaces run setup:ts
+```
+
 ### Install dependencies
 
 ```bash
@@ -65,10 +87,24 @@ so webpack can do proper tree-shaking and make better prod build
 
 ### COMMANDS:
 
-You can run or build only `app-*` packages. To run an app in dev mode:
+You can run or build only `app-*` packages. To run an app in dev mode (app connected to FAKE-API):
 
 ```bash
 yarn workspace @gtms/app-${APP_NAME_HERE} dev
+```
+
+if you want to use `real` backend, you can use one of 2 QA envs:
+
+- QA master:
+
+```bash
+yarn workspace @gtms/app-${APP_NAME_HERE} dev:qa-master
+```
+
+- QA stable:
+
+```bash
+yarn workspace @gtms/app-${APP_NAME_HERE} dev:qa-stable
 ```
 
 To create production bundle of an app

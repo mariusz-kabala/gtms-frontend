@@ -13,13 +13,13 @@ jest.mock('next-i18next/middleware')
 jest.mock('express')
 
 describe('Server', () => {
-  it('Should setup express instance', async done => {
+  it('Should setup express instance', async (done) => {
     const server = {
-        use: jest.fn(),
-        get: jest.fn(),
-        listen: jest.fn(),
-      }
-      // eslint-disable-next-line
+      use: jest.fn(),
+      get: jest.fn(),
+      listen: jest.fn(),
+    }
+    // eslint-disable-next-line
     ;(express as any).mockImplementation(() => server)
     await require('./server')
 

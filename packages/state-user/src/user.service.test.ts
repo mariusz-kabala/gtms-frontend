@@ -80,7 +80,7 @@ describe('User service', () => {
     expect(update.session).toHaveProperty('createdAt')
   })
 
-  it('Should update store with proper data after registration', async done => {
+  it('Should update store with proper data after registration', async (done) => {
     const fakeData = {
       email: 'fake@email.address',
       password: 'fake',
@@ -113,7 +113,7 @@ describe('User service', () => {
     done()
   })
 
-  it('Should update store with user data after login', async done => {
+  it('Should update store with user data after login', async (done) => {
     fetchMock.mockResponse(
       JSON.stringify({
         accessToken: 'fake-token',
@@ -150,7 +150,7 @@ describe('User service', () => {
     done()
   })
 
-  it('Should update store with user data after login with FB', async done => {
+  it('Should update store with user data after login with FB', async (done) => {
     fetchMock.mockResponse(
       JSON.stringify({
         accessToken: 'fake-token',
@@ -187,7 +187,7 @@ describe('User service', () => {
     done()
   })
 
-  it('Should update store with user data after login with Google', async done => {
+  it('Should update store with user data after login with Google', async (done) => {
     fetchMock.mockResponse(
       JSON.stringify({
         accessToken: 'fake-token',

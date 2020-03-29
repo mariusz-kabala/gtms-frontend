@@ -1,4 +1,5 @@
 def branch = '';
+def hasNewLock = '0';
 
 pipeline {
     agent { docker { image 'docker-registry.kabala.tech/node12-with-git:latest' } }
@@ -64,8 +65,41 @@ pipeline {
         stage ('Install dependencies') {
             steps {
                 script {
-                    sh "npm i -g lerna"
                     sh "yarn"
+                    sh "yarn workspaces run setup:ts"
+
+                    try {
+                        hasNewLock = sh (
+                            script: 'git status | grep -c yarn.lock',
+                            returnStdout: true,
+                            returnStatus: false
+                        ).trim()
+                    } catch (Exception e) {
+                        // ignore
+                    }
+                }
+            }
+        }
+
+        stage ('Update lock file') {
+            when {
+                allOf {
+                    expression {
+                        hasNewLock == '1'
+                    }
+                    expression {
+                        branch == 'master'
+                    }
+                }
+            }
+            steps {
+                script {
+                    sshagent(['jenkins-ssh-key']) {
+                        sh "git checkout ${branch}"
+                        sh "git add yarn.lock"
+                        sh "git commit -m 'chore: 🤖 update lock file'"
+                        sh "git push origin master"
+                    }
                 }
             }
         }

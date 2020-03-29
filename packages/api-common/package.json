@@ -1,10 +1,11 @@
 {
   "name": "@gtms/api-common",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "scripts": {
-    "build": "exit 0"
+    "build": "exit 0",
+    "setup:ts": "exit 0"
   }
 }
