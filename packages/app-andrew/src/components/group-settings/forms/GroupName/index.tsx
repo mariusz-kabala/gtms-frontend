@@ -12,10 +12,6 @@ import {
   GroupNameData,
 } from '@gtms/app-andrew/src/components/group-settings/forms/GroupName/interfaces'
 
-export const GroupNameForm = () => {
-  return <div>TEST</div>
-}
-/*
 export const GroupNameForm: NFC<GroupNameFormProps> = (props) => {
   const { register, handleSubmit, errors, setError } = useForm<
     GroupNameFormData
@@ -54,4 +50,3 @@ export const GroupNameForm: NFC<GroupNameFormProps> = (props) => {
     </form>
   )
 }
-*/

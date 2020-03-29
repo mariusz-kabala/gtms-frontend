@@ -1,11 +1,12 @@
 
-import React, { useState, FC, ReactNode } from 'react'
+import React, { useState } from 'react'
 import { NextPage } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
 import { ExpandingItem } from '@gtms/ui/ExpandingItem'
 import { Button } from '@gtms/ui/Button'
-import { GroupNameForm } from '@gtms/app-andrew/src/components/group-settings/forms/GroupName/index'
+import { GroupNameForm } from '../../components/group-settings/forms/GroupName'
+
 
 interface GroupSettingsProps {
   groupDetails: {
@@ -14,11 +15,11 @@ interface GroupSettingsProps {
   }
 }
 
-interface TetherProps {
-  children: ReactNode
-  show: boolean
-  target: string
-}
+// interface TetherProps {
+//   children: ReactNode
+//   show: boolean
+//   target: string
+// }
 
 export const GroupSettingsPage: NextPage<GroupSettingsProps> = ({
   groupDetails,
