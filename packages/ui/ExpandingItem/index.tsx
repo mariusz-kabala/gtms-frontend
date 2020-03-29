@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { Overlay } from '../Overlay'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
-import { IoIosClose } from 'react-icons/io'
+import { IoIosClose, IoMdCreate } from 'react-icons/io'
 
 export const ExpandingItem: FC<{
   additionalStyles?: string
@@ -28,21 +28,20 @@ export const ExpandingItem: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="expanding-item"
     >
+      <div className={styles.label}>
+        <span data-testid="expanding-item-label">{label}</span>
+        <IoMdCreate />
+      </div>
       {isActive && (
-        <>
-          <i onClick={onClose}>
-            <IoIosClose />
-          </i>
+        <div className={styles.edit}>
+          <Overlay onClick={onClose} />
           <div data-testid="expanding-item-content" className={styles.content}>
+            <i onClick={onClose}>
+              <IoIosClose />
+            </i>
             {children}
           </div>
-          <Overlay onClick={onClose} />
-        </>
-      )}
-      {!isActive && (
-        <span data-testid="expanding-item-label" className={styles.label}>
-          {label}
-        </span>
+        </div>
       )}
     </div>
   )

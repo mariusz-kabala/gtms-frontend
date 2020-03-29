@@ -1,0 +1,62 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/buttons';
+
+$max-image-height: 200px;
+$max-image-width: 150px;
+
+.wrapper {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  width: 400px;
+  @include font-size(lg);
+
+  .groupImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: 0 0 15px;
+
+    .image {
+      max-width: $max-image-width;
+    }
+
+    .changeImage {
+      width: $max-image-width;
+      cursor: pointer;
+      &:hover {
+        @include buttonColorsHoverDefault();
+      }
+    }
+  }
+
+  .groupInput {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 10px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+      flex: 0 1 150px;
+      padding: 10px;
+      &:hover {
+        @include buttonColorsHoverDefault();
+        cursor: pointer;
+      }
+
+      &.delete {
+        &:hover {
+          background-color: #640818;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
