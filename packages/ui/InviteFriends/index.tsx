@@ -7,9 +7,7 @@ import useClipboard from 'react-use-clipboard'
 
 export const InviteFriends: FC<{
   additionalStyles?: string
-  onClick?: () => unknown
-  src?: string
-}> = ({ additionalStyles, onClick = () => null, src, alt }) => {
+}> = ({ additionalStyles }) => {
   const [isCopied, setCopied] = useClipboard(
     'http://jedziemyna.pl/openerfestival'
   )
