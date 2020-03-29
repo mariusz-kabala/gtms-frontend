@@ -1,32 +1,32 @@
-import React, { FC, useState } from 'react'
-import cx from 'classnames'
+import React, { FC } from 'react'
 import styles from './styles.scss'
-import { Modal } from '@gtms/ui/Modal'
+import cx from 'classnames'
+import { useTranslation } from '@gtms/commons/i18n'
+import { Button } from '@gtms/ui/Button'
+import useClipboard from 'react-use-clipboard'
 
 export const InviteFriends: FC<{
   additionalStyles?: string
   onClick?: () => unknown
-  src: string
-  alt?: string
+  src?: string
 }> = ({ additionalStyles, onClick = () => null, src, alt }) => {
-  const [state, setState] = useState<boolean>(false)
+  const [isCopied, setCopied] = useClipboard(
+    'http://jedziemyna.pl/openerfestival'
+  )
+  const { t } = useTranslation('inviteFriends')
 
   return (
     <>
-      {state && (
-        <Modal onClose={() => setState(false)}>
-          <img src={src} alt={alt ?? ''} />
-        </Modal>
-      )}
       <div
         className={cx(styles.wrapper, additionalStyles)}
-        style={{ backgroundImage: `url(${src})` }}
-        data-testid="imageHolder"
-        onClick={() => {
-          setState(true)
-          onClick()
-        }}
-      />
+        data-testid="inviteFriends"
+      >
+        <h2>Zaproś znajomych, bla bla bla, bla bla bla</h2>
+        <Button additionalStyles={styles.btn} onClick={setCopied}>
+          {!isCopied && t('copyLink')}
+          {isCopied && 'skopiowano'}
+        </Button>
+      </div>
     </>
   )
 }

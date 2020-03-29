@@ -26,18 +26,40 @@ export const ActivateAccountPage: NextPage<{}> = () => {
   }, [code])
 
   return (
-    <div className={styles.wrapper} data-testid="activate-account-page">
-      {isLoading && <Spinner />}
-      {!isLoading && !hasError && (
-        <h2 data-testid="activate-account-page-confirmation">
-          {t('accountActivated')}
-        </h2>
-      )}
-      {!isLoading && hasError && (
-        <h2 data-testid="activate-account-page-activation-failed">
-          {t('activationFailed')}
-        </h2>
-      )}
+    <div
+      className={styles.wrapper}
+      style={{ backgroundImage: `url('/images/temp_images/group_bg.png')` }}
+      data-testid="activate-account-page"
+    >
+      <div className={styles.content}>
+        {isLoading && <Spinner />}
+        {!isLoading && !hasError && (
+          <>
+            <h2 data-testid="activate-account-page-confirmation">
+              {t('accountActivated')}
+            </h2>
+            <p>
+              Consequat laborum excepteur sit elit elit duis nostrud eu eu
+              minim. Reprehenderit exercitation laborum laboris eiusmod irure
+              voluptate eiusmod nulla mollit consequat ad. Sit dolor id nostrud
+              nisi et sit consequat ullamco laborum veniam magna.
+            </p>
+          </>
+        )}
+        {!isLoading && hasError && (
+          <>
+            <h2 data-testid="activate-account-page-activation-failed">
+              {t('activationFailed')}
+            </h2>
+            <p>
+              Consequat laborum excepteur sit elit elit duis nostrud eu eu
+              minim. Reprehenderit exercitation laborum laboris eiusmod irure
+              voluptate eiusmod nulla mollit consequat ad. Sit dolor id nostrud
+              nisi et sit consequat ullamco laborum veniam magna.
+            </p>
+          </>
+        )}
+      </div>
     </div>
   )
 }

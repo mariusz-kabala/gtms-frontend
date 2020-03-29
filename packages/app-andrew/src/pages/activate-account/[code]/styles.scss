@@ -1,15 +1,28 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
+@import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+  @include imageCover();
 
-  h2 {
-    @include header(h1, textUppercase);
-    color: $theme2;
-    margin-bottom: 20px;
+  .content {
+    max-width: 500px;
+    text-align: center;
+    background: $theme0;
+    padding: 30px;
+
+    h2,
+    p {
+      color: $theme2;
+    }
+
+    h2 {
+      @include header(h1, textUppercase);
+      margin-bottom: 10px;
+    }
   }
 }

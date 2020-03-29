@@ -1,13 +1,18 @@
-@import '~@gtms/styles/scss/mixins/zindex';
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  @include z-index(overlay);
-  content: '';
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75);
+.wrapper {
+  padding: 20px;
+
+  h2 {
+    color: $theme2;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    @include buttonDefault();
+    @include buttonColorsHoverDefault();
+    width: 100%;
+    color: white;
+  }
 }

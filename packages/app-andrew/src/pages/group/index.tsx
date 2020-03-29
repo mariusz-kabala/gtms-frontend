@@ -6,6 +6,7 @@ import { Navigation } from '@gtms/ui/Navigation'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { UserCard } from '@gtms/ui/UserCard'
+import { InviteFriends } from '@gtms/ui/InviteFriends'
 
 const GroupPage: NextPage<{}> = () => {
   return (
@@ -17,6 +18,7 @@ const GroupPage: NextPage<{}> = () => {
         />
         <Navigation />
       </div>
+      <InviteFriends />
       <div className={styles.content}>
         <div className={styles.banner}>
           <div className={styles.frame}>

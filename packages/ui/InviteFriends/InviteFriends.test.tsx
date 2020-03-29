@@ -4,16 +4,16 @@ import { InviteFriends } from './index'
 
 describe('<InviteFriends />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<InviteFriends onClick={jest.fn()} />)
+    const { getByTestId } = render(<InviteFriends />)
 
-    expect(getByTestId('overlay')).toBeInTheDocument()
+    expect(getByTestId('inviteFriends')).toBeInTheDocument()
   })
 
   it('Should trigger provided callback when clicking on it', () => {
     const callback = jest.fn()
-    const { getByTestId } = render(<InviteFriends onClick={callback} />)
+    const { getByTestId } = render(<InviteFriends />)
 
-    fireEvent.click(getByTestId('overlay'))
+    fireEvent.click(getByTestId('inviteFriends'))
 
     expect(callback).toBeCalledTimes(1)
   })

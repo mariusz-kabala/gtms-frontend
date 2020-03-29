@@ -234,6 +234,14 @@ The same rule goes for `Router`
 import { Router } from 'i18n'
 ```
 
+# Adding external npm modules
+
+If component is used globally (in more than one package) it should be installed by:
+
+yarn add -W package-name
+
+If component is used locally (in one package) it should be installed by adding package manually to local package.json and by running yarn in root folder
+
 ### Rules
 
 - Use only hook, awoid usage of translations HOC
