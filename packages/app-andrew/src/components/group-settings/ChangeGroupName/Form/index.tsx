@@ -21,13 +21,12 @@ export const GroupNameForm: NFC<GroupNameFormProps> = (props) => {
   const { t } = useTranslation('userNameChangeForm')
 
   const validate = (formData: GroupNameFormData): formData is GroupNameData => {
-    let hasErrors = false
     if (!formData.name) {
       setError('name', 'required')
-      hasErrors = true
+      return true
     }
 
-    return !hasErrors
+    return false
   }
 
   const onSubmit = async (data: GroupNameFormData) => {
