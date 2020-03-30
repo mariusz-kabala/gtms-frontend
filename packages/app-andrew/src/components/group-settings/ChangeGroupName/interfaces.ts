@@ -3,6 +3,11 @@ export interface GroupNameFormProps {
   onSubmit: (formData: GroupNameData) => void
 }
 
+export interface ChangeGroupNameProps {
+  formData: Partial<GroupNameFormData>
+  additionalStyles?: string
+}
+
 export interface GroupNameData {
   name: string
 }

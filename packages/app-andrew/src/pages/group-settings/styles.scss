@@ -25,6 +25,7 @@ $max-image-width: 150px;
     }
 
     .changeImage {
+      padding: 5px;
       width: $max-image-width;
       cursor: pointer;
       &:hover {

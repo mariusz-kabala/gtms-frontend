@@ -1,40 +1,12 @@
-
-import React, { useState, FC, ReactNode } from 'react'
+import React from 'react'
 import { NextPage } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
-import { ExpandingItem } from '@gtms/ui/ExpandingItem'
 import { Button } from '@gtms/ui/Button'
-import { GroupNameForm } from '@gtms/app-andrew/src/components/group-settings/forms/GroupName/index'
+import { ChangeGroupName } from '../../components/group-settings/ChangeGroupName'
 
-interface GroupSettingsProps {
-  groupDetails: {
-    name: string
-    description: string
-  }
-}
-
-interface TetherProps {
-  children: ReactNode
-  show: boolean
-  target: string
-}
-
-export const GroupSettingsPage: NextPage<GroupSettingsProps> = ({
-  groupDetails,
-}) => {
-  const [showEditGroupNameForm, setEditGroupName] = useState(false)
+export const GroupSettingsPage: NextPage<{}> = () => {
   const { t } = useTranslation('groupSettings')
-
-  const editGroupName = () => {
-    setEditGroupName(!showEditGroupNameForm)
-  }
-
-  const onEditGroupNameSubmit = (a: any) => {
-    debugger;
-    setEditGroupName(false)
-
-  }
 
   return (
     <div className={styles.wrapper} data-testid="settings-page">
@@ -47,31 +19,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsProps> = ({
         <Button additionalStyles={styles.changeImage}>Change image</Button>
       </div>
 
-      <div id="groupName" className={styles.groupInput} onClick={editGroupName}>
-        <ExpandingItem
-          isActive={showEditGroupNameForm}
-          label="Group Name"
-          additionalStyles={styles.groupName}
-          onClose={() => {
-            console.log('onClose')
-          }}
-        >
-          <GroupNameForm />
-        </ExpandingItem>
-      </div>
-
-      <div className={styles.groupInput} onClick={editGroupName}>
-        Some Props
-      </div>
-
-      <div className={styles.groupInput} onClick={editGroupName}>
-        Some Props
-      </div>
-
-      {/*<div className={styles.buttons}>
-        <Button additionalStyles={`${styles.button} ${styles.delete}`}>DELETE GROUP</Button>
-        <Button additionalStyles={styles.button}>SAVE CHANGES</Button>
-      </div>*/}
+      <ChangeGroupName formData={{ name: 'Some Group Name' }} />
     </div>
   )
 }
@@ -79,10 +27,6 @@ export const GroupSettingsPage: NextPage<GroupSettingsProps> = ({
 GroupSettingsPage.getInitialProps = () => {
   return {
     namespacesRequired: ['groupSettings'],
-    groupDetails: {
-      name: '',
-      description: '',
-    },
   }
 }
 
