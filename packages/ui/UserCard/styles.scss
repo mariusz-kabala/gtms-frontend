@@ -1,5 +1,6 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/header.scss';
 
 .wrapper {
   background: $theme2;
@@ -10,7 +11,7 @@
     }
 
     > h2 {
-      @include font-weight(semibold);
+      @include header(h5, 500);
     }
 
     p {
