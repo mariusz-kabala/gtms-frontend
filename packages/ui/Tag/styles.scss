@@ -3,14 +3,14 @@
 
 .tag {
   display: inline-block;
-  background: $theme4;
-  color: $theme3;
+  background: $theme3;
+  color: $theme2;
   padding: 5px;
   @include font-weight(semiBold);
   cursor: pointer;
 
   &:hover {
-    background: $theme4;
-    color: $theme2;
+    background: $theme3;
+    color: $theme5;
   }
 }

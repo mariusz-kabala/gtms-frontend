@@ -7,11 +7,11 @@
   cursor: pointer;
 
   &:hover {
-    background: $theme4;
+    background: $theme3;
   }
 
   &:active,
   &:focus {
-    background: $theme2;
+    background: $theme5;
   }
 }
