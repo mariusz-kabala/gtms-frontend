@@ -6,6 +6,6 @@ describe('<InviteFriends />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(<InviteFriends />)
 
-    expect(getByTestId('inviteFriends')).toBeInTheDocument()
+    expect(getByTestId('invite-friends')).toBeInTheDocument()
   })
 })
