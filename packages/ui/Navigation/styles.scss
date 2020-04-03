@@ -20,7 +20,6 @@
   li {
     position: relative;
     padding: 0.5em 0;
-    color: $theme5;
 
     &:last-child {
       margin-bottom: 0;
@@ -32,6 +31,7 @@
       align-items: center;
       text-decoration: none;
       opacity: 0.75;
+      color: $theme5;
 
       i {
         margin-right: 0.75em;
