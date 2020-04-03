@@ -1,8 +1,17 @@
-.rules {
-  background-color: rgba(0, 0, 0, 0.5);
-  margin-top: 25px;
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/header.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  color: $theme2;
   padding: 5%;
+
+  h2 {
+    @include header(h1, textUppercase, 500);
+  }
+
   > p {
-    margin: 10px 0;
+    margin-top: 10px;
   }
 }
