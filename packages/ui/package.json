@@ -6,7 +6,8 @@
   "main": "./index.ts",
   "dependencies": {
     "@gtms/commons": "0.2.0",
-    "@gtms/styles": "0.3.0"
+    "@gtms/styles": "0.3.0",
+    "react-use-clipboard": "^1.0.0"
   },
   "scripts": {
     "build": "exit 0",
