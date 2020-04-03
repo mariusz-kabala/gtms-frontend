@@ -5,7 +5,7 @@ import { UserAvatar } from '../UserAvatar'
 import { TagGroup } from '../TagGroup'
 import { Tag } from '../Tag'
 
-export const PostSingle: FC<{
+export const PostCreate: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
   const [state, setState] = useState(false)
