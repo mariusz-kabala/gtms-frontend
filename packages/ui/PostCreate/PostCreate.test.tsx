@@ -4,7 +4,7 @@ import { PostCreate } from './index'
 
 describe('<PostCreate />', () => {
   it('Should be on the page', () => {
-    const { getByTestId, getByText } = render(<PostCreate />)
+    const { getByTestId } = render(<PostCreate />)
 
     expect(getByTestId('postCreate')).toBeInTheDocument()
   })

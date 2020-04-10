@@ -4,7 +4,7 @@ import { PostSingle } from './index'
 
 describe('<PostSingle />', () => {
   it('Should be on the page', () => {
-    const { getByTestId, getByText } = render(<PostSingle />)
+    const { getByTestId } = render(<PostSingle />)
 
     expect(getByTestId('postSingle')).toBeInTheDocument()
   })
