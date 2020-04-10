@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { UserAvatar } from '../UserAvatar'
@@ -8,17 +8,16 @@ import { Tag } from '../Tag'
 export const PostSingle: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
-  const [state, setState] = useState(false)
-
   {
     /* @this component is just a mock */
   }
-
   return (
-    <div className={cx(styles.wrapper, additionalStyles)}>
+    <div
+      className={cx(styles.wrapper, additionalStyles)}
+      data-testid="postSingle"
+    >
       <div className={styles.user}>
         <UserAvatar
-          onClick={() => setState(!state)}
           image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
           additionalStyles={styles.userAvatar}
         />

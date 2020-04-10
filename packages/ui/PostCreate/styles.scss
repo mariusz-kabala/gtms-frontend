@@ -1,26 +1,33 @@
 @import '@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/buttons';
 
-.wrapper {
-  color: $theme2;
-  cursor: pointer;
-  opacity: 0.9;
+.text {
+  position: relative;
 
-  &:hover {
-    opacity: 1;
-  }
-
-  .text {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .user {
+  .avatar {
+    position: absolute;
+    top: 5px;
+    left: 5px;
     display: flex;
-    align-items: center;
 
     span {
-      margin-left: 10px;
       color: $theme4;
+      margin-left: 5px;
     }
+  }
+
+  textarea {
+    padding-top: 15px;
+    text-indent: 30px;
+    line-height: 1.6em;
+  }
+}
+
+.btn {
+  width: 100%;
+  margin-top: 5px;
+  @include buttonDefault();
+  &:hover {
+    @include buttonColorsHoverDefault();
   }
 }

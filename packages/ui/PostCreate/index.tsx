@@ -1,42 +1,38 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
+import { Button } from '@gtms/ui/Button'
+import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { UserAvatar } from '../UserAvatar'
-import { TagGroup } from '../TagGroup'
-import { Tag } from '../Tag'
 
 export const PostCreate: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
-  const [state, setState] = useState(false)
-
   {
     /* @this component is just a mock */
   }
-
   return (
-    <div className={cx(styles.wrapper, additionalStyles)}>
-      <div className={styles.user}>
-        <UserAvatar
-          onClick={() => setState(!state)}
-          image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
-          additionalStyles={styles.userAvatar}
-        />
-        <span>Marty Mcfly</span>
-      </div>
+    <div
+      className={cx(styles.wrapper, additionalStyles)}
+      data-testid="postCreate"
+    >
       <div className={styles.text}>
-        <p>
-          Ex sint non nisi laborum ex in esse aliquip non veniam. Excepteur
-          irure nisi enim laboris fugiat nostrud consequat do in ea. Et minim
-          pariatur proident esse irure nisi ea non sint qui eu incididunt.
-        </p>
+        <div className={styles.avatar}>
+          <UserAvatar
+            image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
+            additionalStyles={styles.userAvatar}
+          />
+          <span>John Lasseter</span>
+        </div>
+        <ExpandingTextarea
+          rows={3}
+          // additionalStyles={styles.text}
+          placeholder={'Your message...'}
+        />
       </div>
-      <TagGroup>
-        <Tag label="tag" />
-        <Tag label="tag" />
-        <Tag label="tag" />
-        <Tag label="tag" />
-      </TagGroup>
+      <Button type="submit" disabled={false} additionalStyles={styles.btn}>
+        send
+      </Button>
     </div>
   )
 }

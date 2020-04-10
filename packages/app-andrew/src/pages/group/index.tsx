@@ -3,6 +3,7 @@ import styles from './styles.scss'
 import { NextPage } from 'next'
 import { Button } from '@gtms/ui/Button'
 import { Navigation } from '@gtms/ui/Navigation'
+import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { UserCard } from '@gtms/ui/UserCard'
@@ -36,12 +37,13 @@ const GroupPage: NextPage<{}> = () => {
               </Button>
             </div>
           </div>
-          <div
+          {/* @todo this needs to be done better */}
+          {/* <div
             className={styles.backgroundImage}
             style={{
               backgroundImage: `url('/images/temp_images/cover-image.jpg')`,
             }}
-          />
+          /> */}
         </div>
         <div className={styles.columns}>
           <div className={styles.column}>
@@ -68,6 +70,7 @@ const GroupPage: NextPage<{}> = () => {
           </div>
           <div className={styles.column}>
             <h2 className={styles.header}>Ostatnio dodane posty</h2>
+            <PostCreate additionalStyles={styles.postCreate} />
             <PostSingle additionalStyles={styles.post} />
             <PostSingle additionalStyles={styles.post} />
             <PostSingle additionalStyles={styles.post} />
