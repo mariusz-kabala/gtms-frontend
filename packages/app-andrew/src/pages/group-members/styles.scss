@@ -4,6 +4,7 @@
 
 .wrapper {
   padding: 20px;
+  color: $theme2;
 
   .header {
     @include header(h3, textUppercase, 500);
