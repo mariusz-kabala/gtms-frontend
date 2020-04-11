@@ -3,6 +3,7 @@ import { NextPage } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 // import { Button } from '@gtms/ui/Button'
+import { TagCard } from '@gtms/ui/TagCard'
 
 export const GroupTagsPage: NextPage<{}> = () => {
   const { t } = useTranslation('groupTags')
@@ -12,186 +13,51 @@ export const GroupTagsPage: NextPage<{}> = () => {
       <h2 className={styles.header}>{t('Tags')}</h2>
       {/* <Button>Do stuff</Button> */}
       <div className={styles.grid}>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
-        <div className={styles.wrapper}>
-          <h3>
-            #dojazdy <span>124 postów</span>
-          </h3>
-          <p>
-            Nostrud occaecat mollit incididunt id fugiat ad sit laborum. Lorem
-            labore est consequat adipisicing nisi labore nostrud sint sint enim.
-          </p>
-        </div>
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
+        <TagCard />
       </div>
     </div>
   )
