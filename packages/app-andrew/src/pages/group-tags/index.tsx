@@ -13,51 +13,21 @@ export const GroupTagsPage: NextPage<{}> = () => {
       <h2 className={styles.header}>{t('Tags')}</h2>
       {/* <Button>Do stuff</Button> */}
       <div className={styles.grid}>
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
-        <TagCard />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
+        <TagCard image={'images/temp_images/logo-patrol-2.png'} />
       </div>
     </div>
   )

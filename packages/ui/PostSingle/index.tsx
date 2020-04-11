@@ -19,7 +19,7 @@ export const PostSingle: FC<{
       <div className={styles.user}>
         <UserAvatar
           onClick={() => setState(!state)}
-          image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
+          image="images/temp_images/logo-patrol-2.png"
           additionalStyles={styles.userAvatar}
         />
         <span>Marty Mcfly</span>
