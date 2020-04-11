@@ -1,0 +1,21 @@
+@import '@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+
+.wrapper {
+  background: $theme3;
+
+  .desc {
+    > * {
+      margin-top: 5px;
+    }
+
+    > h2 {
+      @include font-weight(semibold);
+    }
+
+    p {
+      line-height: 1.4em;
+      color: gray;
+    }
+  }
+}
