@@ -12,14 +12,14 @@ export const ImageHolder: FC<{
   const [state, setState] = useState<boolean>(false)
 
   return (
-    <>
+    <div className={styles.wrapper}>
       {state && (
         <Modal onClose={() => setState(false)}>
-          <img src={src} alt={alt ?? ''} />
+          <img className={styles.fullImage} src={src} alt={alt ?? ''} />
         </Modal>
       )}
       <div
-        className={cx(styles.wrapper, additionalStyles)}
+        className={cx(styles.miniature, additionalStyles)}
         style={{ backgroundImage: `url(${src})` }}
         data-testid="imageHolder"
         onClick={() => {
@@ -27,6 +27,6 @@ export const ImageHolder: FC<{
           onClick()
         }}
       />
-    </>
+    </div>
   )
 }
