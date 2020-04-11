@@ -3,6 +3,8 @@
 
 .wrapper {
   background: $theme3;
+  color: $theme2;
+  cursor: pointer;
 
   .desc {
     > * {
@@ -16,6 +18,16 @@
     p {
       line-height: 1.4em;
       color: gray;
+    }
+  }
+
+  &:hover {
+    color: $theme4;
+
+    .desc {
+      p {
+        color: $theme2;
+      }
     }
   }
 }

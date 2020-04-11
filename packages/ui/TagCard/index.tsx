@@ -10,13 +10,10 @@ export const TagCard: FC<{
 
   return (
     <div className={styles.wrapper} data-testid="tag-card">
-      {image && <img className={styles.avatar} src={image} alt="user avatar" />}
+      <img className={styles.avatar} src={image} alt="tag avatar" />
       <div className={styles.desc}>
-        <h3 className={styles.title}>
-          #dojazdy
-          <span>124 posty</span>
-        </h3>
-        <p className={styles.text}>
+        <h2 className={styles.tag}>#dojazdy</h2>
+        <p className={styles.desc}>
           Id in veniam sunt labore. Adipisicing proident dolor nulla cillum
           cupidatat. Do sint labore cupidatat.
         </p>
