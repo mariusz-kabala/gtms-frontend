@@ -1,5 +1,7 @@
 Basic usage
 
 ```
-  <RecentlyRegisteredUsers />
+  <div style={{background: 'black'}}>
+    <RecentlyRegisteredUsers />
+  </div>
 ```

@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { UserAvatar } from '../UserAvatar'
+import image from './logo-patrol-1.png'
 
 export const RecentlyRegisteredUsers: FC<{
   additionalStyles?: string
@@ -17,38 +18,19 @@ export const RecentlyRegisteredUsers: FC<{
     >
       <ul className={styles.users}>
         <li className={styles.user}>
-          <UserAvatar
-            image="/images/temp_images/logo-sztab-1.png"
-            additionalStyles={styles.userAvatar}
-          />
+          <UserAvatar image={image} additionalStyles={styles.userAvatar} />
           <span>Marty Mcfly</span>
         </li>
         <li className={styles.user}>
-          <UserAvatar
-            image="/images/temp_images/logo-sztab-1.png"
-            additionalStyles={styles.userAvatar}
-          />
+          <UserAvatar image={image} additionalStyles={styles.userAvatar} />
           <span>Marty Mcfly</span>
         </li>
         <li className={styles.user}>
-          <UserAvatar
-            image="/images/temp_images/logo-sztab-1.png"
-            additionalStyles={styles.userAvatar}
-          />
+          <UserAvatar image={image} additionalStyles={styles.userAvatar} />
           <span>Marty Mcfly</span>
         </li>
         <li className={styles.user}>
-          <UserAvatar
-            image="/images/temp_images/logo-sztab-1.png"
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Marty Mcfly</span>
-        </li>
-        <li className={styles.user}>
-          <UserAvatar
-            image="/images/temp_images/logo-sztab-1.png"
-            additionalStyles={styles.userAvatar}
-          />
+          <UserAvatar image={image} additionalStyles={styles.userAvatar} />
           <span>Marty Mcfly</span>
         </li>
       </ul>
