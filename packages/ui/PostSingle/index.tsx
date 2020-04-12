@@ -15,7 +15,10 @@ export const PostSingle: FC<{
   }
 
   return (
-    <div className={cx(styles.postSingle, additionalStyles)}>
+    <div
+      className={cx(styles.postSingle, additionalStyles)}
+      data-testid="postsingle"
+    >
       <div className={styles.user}>
         <UserAvatar
           onClick={() => setState(!state)}
