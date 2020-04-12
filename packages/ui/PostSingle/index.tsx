@@ -16,7 +16,7 @@ export const PostSingle: FC<{
 
   return (
     <div
-      className={cx(styles.postSingle, additionalStyles)}
+      className={cx(styles.wrapper, additionalStyles)}
       data-testid="postsingle"
     >
       <div className={styles.user}>
