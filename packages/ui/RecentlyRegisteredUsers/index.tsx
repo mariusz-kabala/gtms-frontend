@@ -2,8 +2,6 @@ import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { UserAvatar } from '../UserAvatar'
-import { TagGroup } from '../TagGroup'
-import { Tag } from '../Tag'
 
 export const RecentlyRegisteredUsers: FC<{
   additionalStyles?: string
