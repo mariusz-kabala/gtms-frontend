@@ -1,0 +1,26 @@
+@import '@gtms/styles/scss/variables';
+
+.wrapper {
+  color: $theme2;
+  cursor: pointer;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 10px;
+      color: $theme4;
+    }
+  }
+}
