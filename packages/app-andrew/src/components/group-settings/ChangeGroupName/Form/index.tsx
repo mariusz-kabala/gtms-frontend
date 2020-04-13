@@ -45,6 +45,7 @@ export const GroupNameForm: NFC<GroupNameFormProps> = (props) => {
         defaultValue={props.formData.name}
         placeholder={t('form.labels.name')}
         reference={register}
+        atributes={{ autoFocus: true }}
       />
       {errors.name && <Error text={t('form.validation.name.isRequired')} />}
       <Button

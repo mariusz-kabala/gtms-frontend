@@ -114,6 +114,7 @@
   },
   "scripts": {
     "test": "jest",
+    "test:dev": "jest --watch",
     "test:coverage": "yarn test --coverage --changedSince=origin/master",
     "prettier:fix": "pretty-quick --staged",
     "prettier": "prettier --write '**/*.{js,jsx,json,css,scss,less,md,ts,tsx}'",

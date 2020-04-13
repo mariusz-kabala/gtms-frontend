@@ -32,4 +32,27 @@ describe('<Input />', () => {
 
     expect(callback).toBeCalledTimes(1)
   })
+
+  it('Should spread input atributes', () => {
+    const inputAtributes = {
+      alt: 'Custom alt',
+      autoFocus: true,
+    }
+    const { getByTestId } = render(<Input atributes={inputAtributes} />)
+    const inputElement = getByTestId('form-input')
+    const altAtribute = inputElement.getAttribute('alt')
+    expect(altAtribute).toBe(inputAtributes.alt)
+
+    /*
+      Why falsy instead of truthly, even if we pass `autoFocus: true`?
+      From: https://blog.danieljohnson.io/react-ref-autofocus/
+      `React team decided the autofocus attribute had too many cross-browser inconsistencies.
+      So they polyfilled the behavior. When you pass an autoFocus prop,
+      React will internally call focus() when the input element mounts`
+    */
+    expect(inputElement.autofocus).toBeFalsy()
+
+    const isInputFocused = document.activeElement === inputElement
+    expect(isInputFocused).toBeTruthy()
+  })
 })

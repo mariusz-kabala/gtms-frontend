@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
+import { ChangeGroupName } from '../../../../components/group-settings/ChangeGroupName/index'
 
-import { ChangeGroupName } from '../../../components/group-settings/ChangeGroupName/index'
 describe('<ChangeGroupName />', () => {
   it('Should render the page', () => {
     const groupName = 'Group name'

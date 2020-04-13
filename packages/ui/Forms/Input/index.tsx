@@ -12,6 +12,7 @@ export const Input: FC<{
     ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
   ) => void
   onClick?: () => unknown
+  atributes?: React.InputHTMLAttributes<HTMLInputElement>
 }> = ({
   additionalStyles,
   defaultValue,
@@ -20,16 +21,21 @@ export const Input: FC<{
   onClick,
   reference,
   type = 'text',
-}) => (
-  <input
-    type={type}
-    data-testid="form-input"
-    className={cx(styles.input, additionalStyles)}
-    defaultValue={defaultValue}
-    name={name}
-    id={name}
-    placeholder={placeholder}
-    ref={reference}
-    onClick={onClick}
-  />
-)
+  atributes,
+}) => {
+  return (
+    <input
+      type={type}
+      data-testid="form-input"
+      className={cx(styles.input, additionalStyles)}
+      defaultValue={defaultValue}
+      name={name}
+      id={name}
+      placeholder={placeholder}
+      ref={reference}
+      onClick={onClick}
+      onFocus={(element) => element.currentTarget.select()}
+      {...atributes}
+    />
+  )
+}
