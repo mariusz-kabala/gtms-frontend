@@ -36,12 +36,26 @@ describe('<Input />', () => {
   it('Should spread input atributes', () => {
     const inputAtributes = {
       alt: 'Custom alt',
-      autoFocus: true,
+      size: 2,
     }
     const { getByTestId } = render(<Input atributes={inputAtributes} />)
     const inputElement = getByTestId('form-input')
     const altAtribute = inputElement.getAttribute('alt')
     expect(altAtribute).toBe(inputAtributes.alt)
+
+    const sizeAtribute = inputElement.getAttribute('size')
+    expect(sizeAtribute).toBe(inputAtributes.size.toString())
+  })
+
+  it('Should focus input', async () => {
+    const inputAtributes = {
+      autoFocus: true,
+    }
+    const inputValue = 'InputValue'
+    const { getByDisplayValue } = render(
+      <Input defaultValue={inputValue} atributes={inputAtributes} />
+    )
+    const inputElement = getByDisplayValue(inputValue)
 
     /*
       Why falsy instead of truthly, even if we pass `autoFocus: true`?
