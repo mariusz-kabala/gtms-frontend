@@ -9,28 +9,30 @@ import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
 import {
-  GroupNameFormProps,
-  GroupNameFormData,
-  GroupNameData,
+  ChangeGroupNameFormProps,
+  ChangeGroupNameFormData,
+  ChangeGroupNameData,
 } from '../interfaces'
 
-export const GroupNameForm: NFC<GroupNameFormProps> = (props) => {
+export const GroupNameForm: NFC<ChangeGroupNameFormProps> = (props) => {
   const { register, handleSubmit, errors, setError } = useForm<
-    GroupNameFormData
+    ChangeGroupNameFormData
   >()
   const { t } = useTranslation('userNameChangeForm')
 
-  const validate = (formData: GroupNameFormData): formData is GroupNameData => {
+  const isFormValid = (
+    formData: ChangeGroupNameFormData
+  ): formData is ChangeGroupNameData => {
     if (!formData.name) {
       setError('name', 'required')
-      return true
+      return false
     }
 
-    return false
+    return true
   }
 
-  const onSubmit = async (data: GroupNameFormData) => {
-    if (!validate(data)) {
+  const onSubmit = async (data: ChangeGroupNameFormData) => {
+    if (!isFormValid(data)) {
       return
     }
 

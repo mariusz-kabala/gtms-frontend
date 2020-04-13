@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { GroupSettingsPage } from '../pages/group-settings/index'
 
 describe('<GroupSettings />', () => {
-  it('Should render the page', () => {
+  it('Should render on the page', () => {
     const { getByTestId } = render(<GroupSettingsPage />)
     expect(getByTestId('group-name')).toBeInTheDocument()
     expect(getByTestId('settings-page')).toBeInTheDocument()

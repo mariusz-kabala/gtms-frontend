@@ -1,15 +1,15 @@
-export interface GroupNameFormProps {
-  formData: Partial<GroupNameFormData>
-  onSubmit: (formData: GroupNameData) => void
-}
-
 export interface ChangeGroupNameProps {
-  formData: Partial<GroupNameFormData>
+  formData: Partial<ChangeGroupNameFormData>
   additionalStyles?: string
 }
 
-export interface GroupNameData {
+export interface ChangeGroupNameData {
   name: string
 }
 
-export type GroupNameFormData = Partial<GroupNameData>
+export type ChangeGroupNameFormData = Partial<ChangeGroupNameData>
+
+export interface ChangeGroupNameFormProps {
+  formData: Partial<ChangeGroupNameFormData>
+  onSubmit: (formData: ChangeGroupNameData) => void
+}

@@ -1,16 +1,16 @@
 import React, { FC, useState } from 'react'
 import { ExpandingItem } from '@gtms/ui/ExpandingItem'
 import { GroupNameForm } from './Form'
-import { ChangeGroupNameProps, GroupNameData } from './interfaces'
+import { ChangeGroupNameProps, ChangeGroupNameData } from './interfaces'
 
 export const ChangeGroupName: FC<ChangeGroupNameProps> = ({
   additionalStyles,
   formData,
 }) => {
-  const [isEditModeActive, setIsEditModeActive] = useState<boolean>(false)
+  const [isInEditMode, setEditMode] = useState<boolean>(false)
 
-  const onSubmit = (formData: GroupNameData) => {
-    setIsEditModeActive(false)
+  const onSubmit = (formData: ChangeGroupNameData) => {
+    setEditMode(false)
     alert(JSON.stringify(formData))
   }
 
@@ -18,12 +18,12 @@ export const ChangeGroupName: FC<ChangeGroupNameProps> = ({
     <div
       className={additionalStyles}
       data-testid="group-name"
-      onClick={() => (!isEditModeActive ? setIsEditModeActive(true) : null)}
+      onClick={() => (!isInEditMode ? setEditMode(true) : null)}
     >
       <ExpandingItem
-        isActive={isEditModeActive}
+        isActive={isInEditMode}
         label={formData.name}
-        onClose={() => setIsEditModeActive(false)}
+        onClose={() => setEditMode(false)}
         contentLabel="Edit Group Name"
       >
         <GroupNameForm formData={formData} onSubmit={onSubmit} />

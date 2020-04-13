@@ -22,20 +22,18 @@ export const Input: FC<{
   reference,
   type = 'text',
   atributes,
-}) => {
-  return (
-    <input
-      type={type}
-      data-testid="form-input"
-      className={cx(styles.input, additionalStyles)}
-      defaultValue={defaultValue}
-      name={name}
-      id={name}
-      placeholder={placeholder}
-      ref={reference}
-      onClick={onClick}
-      onFocus={(element) => element.currentTarget.select()}
-      {...atributes}
-    />
-  )
-}
+}) => (
+  <input
+    type={type}
+    data-testid="form-input"
+    className={cx(styles.input, additionalStyles)}
+    defaultValue={defaultValue}
+    name={name}
+    id={name}
+    placeholder={placeholder}
+    ref={reference}
+    onClick={onClick}
+    onFocus={(element) => element.currentTarget.select()}
+    {...atributes}
+  />
+)

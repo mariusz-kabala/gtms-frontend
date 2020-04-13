@@ -3,14 +3,13 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { ChangeGroupName } from '../../../../components/group-settings/ChangeGroupName/index'
 
 describe('<ChangeGroupName />', () => {
-  it('Should render the page', () => {
+  it('Should render on the page', () => {
     const groupName = 'Group name'
-    const { getByTestId } = render(
+    const { getByTestId, queryByText } = render(
       <ChangeGroupName formData={{ name: groupName }} />
     )
 
     expect(getByTestId('group-name')).toBeInTheDocument()
-    expect(screen.queryByText(groupName)).toBeInTheDocument()
   })
 
   it('Should show show initial form data', async () => {
@@ -21,7 +20,7 @@ describe('<ChangeGroupName />', () => {
     expect(groupFormName).toBeInTheDocument()
   })
 
-  it('Should show expand form on click', async () => {
+  it('Should show form on click', async () => {
     const groupName = 'Group name'
     const wrapper = render(<ChangeGroupName formData={{ name: groupName }} />)
     const groupForm = screen.queryByText(groupName)

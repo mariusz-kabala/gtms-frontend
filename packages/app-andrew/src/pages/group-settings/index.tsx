@@ -16,7 +16,9 @@ export const GroupSettingsPage: NextPage<{}> = () => {
           alt={t('groupImage')}
           className={styles.image}
         />
-        <Button additionalStyles={styles.changeImage}>Change image</Button>
+        <Button additionalStyles={styles.changeImage}>
+          {t('changeImage')}
+        </Button>
       </div>
 
       <ChangeGroupName formData={{ name: 'Some Group Name' }} />
