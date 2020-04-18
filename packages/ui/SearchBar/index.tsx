@@ -117,7 +117,9 @@ export const SearchBar: FC<{
                       onTagAdd(tag)
                       setShowSuggestions(false)
 
-                      inputEl?.current && inputEl?.current.focus()
+                      if (inputEl !== null) {
+                        ;(inputEl.current as any).focus()
+                      }
                     }}
                   >
                     #{tag}
