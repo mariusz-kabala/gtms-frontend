@@ -3,8 +3,12 @@
 
 .wrapper {
   cursor: pointer;
-  max-width: 100%;
-  min-width: 20px;
-  min-height: 20px;
-  @include imageCover();
+
+  .miniature {
+    @include imageCover();
+  }
+
+  .fullImage {
+    max-height: 85%;
+  }
 }
