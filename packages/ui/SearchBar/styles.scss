@@ -1,40 +1,22 @@
 @import '@gtms/styles/scss/variables';
 
 .searchBar {
-  display: flex;
-  flex-direction: row;
+  position: relative;
   width: 100%;
-  background: #201a24;
   padding: 15px;
-
-  .tags {
-    display: flex;
-    margin-bottom: 4px;
-
-    &.independent {
-      margin-top: 5px;
-      flex: 1;
-      flex-basis: 100%;
-    }
-
-    .tag {
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-  }
+  background: #201a24;
 
   .inputWrapper {
+    position: relative;
     display: flex;
     flex-basis: 100%;
-    position: relative;
 
     input[type='text'] {
       display: block;
       width: 100%;
       padding-bottom: 5px;
-      border: none;
       background: none;
+      border: none;
       border-bottom: 2px solid white;
       color: white;
 
@@ -42,38 +24,46 @@
         outline: none;
       }
     }
+  }
+}
 
-    .suggestions {
-      position: absolute;
-      bottom: -35px;
-      min-height: 30px;
-      background-color: #fff;
-      padding: 5px;
+.suggestions {
+  position: absolute;
+  left: 0;
+  margin-top: -2px;
+  // bottom: -45px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  padding: 10px;
+  background-color: white;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 
-      button.tag {
-        &:first-child {
-          margin-left: 0;
-        }
-      }
+  .tag {
+    &:first-child {
+      margin-left: 0;
     }
   }
 }
 
+.tags {
+  margin-top: 5px;
+}
+
 .tag {
   display: inline-block;
-  padding: 2.5px;
-  border: 1px solid white;
+  padding: 5px;
+  background: #595272;
   border-radius: 4px;
   margin-left: 3px;
-  cursor: pointer;
   color: white;
+  font-size: 13px;
+  font-weight: 400;
 
   &:focus {
     outline: none;
-  }
-
-  &:hover {
-    cursor: pointer;
   }
 
   &:first-child {
