@@ -28,8 +28,13 @@
       display: flex;
       margin-top: 20px;
 
-      button {
+      > * {
+        @include buttonDefault();
         margin-right: 15px;
+
+        &:hover {
+          @include buttonColorsHoverDefault();
+        }
 
         &:last-child {
           margin-right: 0;
@@ -37,7 +42,9 @@
       }
 
       .no {
-        background: red;
+        &:hover {
+          background: red;
+        }
       }
     }
   }

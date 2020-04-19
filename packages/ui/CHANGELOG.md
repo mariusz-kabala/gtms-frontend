@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.4.0...@gtms/ui@0.4.1) (2020-04-19)
+
+
+### Bug Fixes
+
+* GEOT-206: better handling full image ([#409](https://github.com/gtms-org/gtms-frontend/issues/409)) ([35ad6dd](https://github.com/gtms-org/gtms-frontend/commit/35ad6dd12cdc90a56a0a3cc90dd3e8ff3f782060))
+
+
+
+
+
 # 0.4.0 (2020-03-28)
 
 
