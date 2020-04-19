@@ -8,7 +8,7 @@ const [isLoading, setIsloading] = React.useState(false);
 
 let suggestionTimeout;
 
-<SearchBar isLoading={isLoading} tags={tags} query={query} suggestions={suggestions} onTagAdd={newTag => {
+<SearchBar placeholder='start searching' isLoading={isLoading} tags={tags} query={query} suggestions={suggestions} onTagAdd={newTag => {
     tags.push(newTag)
     setTags([...tags])
 }} onQueryChange={text => setQuery(text)} onLoadSuggestion={text => {

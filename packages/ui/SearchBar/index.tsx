@@ -3,30 +3,32 @@ import styles from './styles.scss'
 import cx from 'classnames'
 
 export const SearchBar: FC<{
-  tags?: string[]
-  query?: string
-  suggestions?: string[]
-  isLoading?: boolean
-  suggestionMinLength?: number
   inlineTagsLimit?: number
-  onTagAdd: (tag: string) => void
-  onTagRemove: (tag: string) => void
+  isLoading?: boolean
   onLoadSuggestion: (text: string) => void
   onLoadSuggestionCancel: () => void
   onQueryChange: (text: string) => void
+  onTagAdd: (tag: string) => void
+  onTagRemove: (tag: string) => void
+  placeholder?: string
+  query?: string
+  suggestionMinLength?: number
+  suggestions?: string[]
+  tags?: string[]
 }> = (params) => {
   const {
-    tags = [],
-    query = '',
-    suggestions = [],
-    onTagAdd,
+    inlineTagsLimit = 9999,
     isLoading,
-    onQueryChange,
-    onTagRemove,
     onLoadSuggestion,
     onLoadSuggestionCancel,
-    inlineTagsLimit = 9999,
+    onQueryChange,
+    onTagAdd,
+    onTagRemove,
+    placeholder,
+    query = '',
     suggestionMinLength = 3,
+    suggestions = [],
+    tags = [],
   } = params
   const [value, setValue] = useState<string>(query)
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false)
@@ -75,6 +77,7 @@ export const SearchBar: FC<{
             ref={inputEl}
             type="text"
             value={value}
+            placeholder={placeholder}
             onChange={(e) => {
               setValue(e.target.value)
             }}
