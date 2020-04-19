@@ -1367,9 +1367,9 @@
   integrity sha512-EaObqwIvayI5a8dCzhFrjKzVwKLxjoG9T6Ppd5CEo07LRKfQ8Yokw54r5+Wq7FaBQ+yXRvQAYPrHwya1/UFt9g==
 
 "@types/express-http-proxy@^1.5.12":
-  version "1.5.12"
-  resolved "https://npm.kabala.tech/@types%2fexpress-http-proxy/-/express-http-proxy-1.5.12.tgz#077ab1ee9e0f20fa8a131f10dd96d7c72473b474"
-  integrity sha512-QnTNKXq3xqVU21iMtz1P1M+rhusjGqNqpcbmGzvnkrLNNCiFy6UNK/JDIYJjs3bu8AopFpnBn3wJC16K4nKSgQ==
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@types/express-http-proxy/-/express-http-proxy-1.6.0.tgz#533c18d46c0deef03402437cc26b65309b62623c"
+  integrity sha512-gXUjvEC26nghFmndtMrsOjLaCZQhqtUTy+KXbsUEiVn0Nhl6KNG7Ku5uqvevRlDRFtyV3KzriG3lyFWB+Nbimw==
   dependencies:
     "@types/express" "*"
 
