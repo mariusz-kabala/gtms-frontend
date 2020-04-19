@@ -50,7 +50,6 @@ export const SearchBar: FC<{
       last.substr(0, 1) === '#' && last.length > suggestionMinLength
 
     setShowSuggestions(result)
-    debugger
 
     result && onLoadSuggestion(last.substr(1))
   }, [value])
