@@ -10,7 +10,6 @@ class GTMSApp extends App {
 
     return (
       <>
-        {' '}
         {/* <> is required here, if there will be added any wrapper which generates <div> instaed of <>, then css must be refactored. Height of the page (100%) will break so it will break e.g login / register page */}
         <NavigationDot />
         <Component {...pageProps} />

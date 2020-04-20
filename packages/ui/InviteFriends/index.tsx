@@ -19,14 +19,14 @@ export const InviteFriends: FC<{
         className={cx(styles.wrapper, additionalStyles)}
         data-testid="invite-friends"
       >
-        <h2>Zaproś znajomych, bla bla bla, bla bla bla</h2>
+        <h2>{t('invite.inviteFriends')}</h2>
         <Button
           additionalStyles={styles.btn}
           onClick={setCopied}
           data-testid="invite-friends-copy-button"
         >
-          {!isCopied && t('copyLink')}
-          {isCopied && 'skopiowano'}
+          {!isCopied && t('skopiujLink')}
+          {isCopied && t('skopiowano')}
         </Button>
       </div>
     </>
