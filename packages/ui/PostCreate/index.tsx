@@ -24,7 +24,7 @@ export const PostCreate: FC<{
           />
           <span>John Lasseter</span>
         </div>
-        <ExpandingTextarea rows={3} placeholder={t('your.message')} />
+        <ExpandingTextarea rows={3} placeholder={t('yourMessage')} />
       </div>
       <Button type="submit" disabled={false} additionalStyles={styles.btn}>
         {t('send')}
