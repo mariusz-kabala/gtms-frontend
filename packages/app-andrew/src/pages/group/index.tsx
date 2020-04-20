@@ -37,13 +37,6 @@ const GroupPage: NextPage<{}> = () => {
               </Button>
             </div>
           </div>
-          {/* @todo this needs to be done better */}
-          {/* <div
-            className={styles.backgroundImage}
-            style={{
-              backgroundImage: `url('/images/temp_images/cover-image.jpg')`,
-            }}
-          /> */}
         </div>
         <div className={styles.columns}>
           <div className={styles.column}>

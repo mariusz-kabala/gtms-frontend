@@ -3,14 +3,14 @@ import styles from './styles.scss'
 import cx from 'classnames'
 import { Button } from '@gtms/ui/Button'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
+import { useTranslation } from '@gtms/commons/i18n'
 import { UserAvatar } from '../UserAvatar'
 
 export const PostCreate: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
-  {
-    /* @this component is just a mock */
-  }
+  const { t } = useTranslation('postCreate')
+
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -24,14 +24,10 @@ export const PostCreate: FC<{
           />
           <span>John Lasseter</span>
         </div>
-        <ExpandingTextarea
-          rows={3}
-          // additionalStyles={styles.text}
-          placeholder={'Your message...'}
-        />
+        <ExpandingTextarea rows={3} placeholder={t('your.message')} />
       </div>
       <Button type="submit" disabled={false} additionalStyles={styles.btn}>
-        send
+        {t('send')}
       </Button>
     </div>
   )
