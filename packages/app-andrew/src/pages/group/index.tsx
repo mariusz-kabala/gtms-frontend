@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './styles.scss'
 import { NextPage } from 'next'
+import { useTranslation } from '@gtms/commons/i18n'
 import { Button } from '@gtms/ui/Button'
 import { Navigation } from '@gtms/ui/Navigation'
 import { PostCreate } from '@gtms/ui/PostCreate'
@@ -9,6 +10,8 @@ import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { UserCard } from '@gtms/ui/UserCard'
 
 const GroupPage: NextPage<{}> = () => {
+  const { t } = useTranslation('groupPage')
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.navigation}>
@@ -22,7 +25,7 @@ const GroupPage: NextPage<{}> = () => {
         <div className={styles.banner}>
           <div className={styles.frame}>
             <div className={styles.desc}>
-              <h2>Dojedź na festiwal z JedziemyNa.pl</h2>
+              <h2>{t('header')}</h2>
               <p>
                 Elit excepteur id veniam ea consequat eu excepteur exercitation
                 ullamco nisi sint elit Lorem irure. Exercitation laborum sit
@@ -75,6 +78,10 @@ const GroupPage: NextPage<{}> = () => {
       </div>
     </div>
   )
+}
+
+GroupPage.getInitialProps = () => {
+  return Promise.resolve({ namespacesRequired: ['groupPage', 'postCreate'] })
 }
 
 export default GroupPage
