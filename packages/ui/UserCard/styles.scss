@@ -1,21 +1,65 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
+  position: fixed;
+  z-index: 11;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+
+  width: 700px;
+  height: 500px;
+  border-radius: $borderRadius;
   background: $theme3;
+  background: #252230;
+  color: $theme2;
+  box-shadow: 0px 0px 28px 3px rgba(0, 0, 0, 0.64);
 
-  .desc {
-    > * {
-      margin-top: 5px;
+  .content {
+    display: flex;
+    height: 100%;
+  }
+
+  .left,
+  .right {
+    // @todo use display grid
+    height: 100%;
+    padding: 15px;
+  }
+
+  .left {
+    > div {
+      // @todo make additional wrapper styles and additioanl image styles
+      height: 100%;
     }
 
-    > h2 {
-      @include font-weight(semibold);
+    .image {
+      border-radius: $borderRadius;
+      width: 300px;
+      height: 100%;
+      padding: 15px;
     }
+  }
 
-    p {
-      line-height: 1.4em;
-      color: gray;
+  .right {
+    .desc {
+      > * {
+        margin-top: 5px;
+      }
+
+      > h2 {
+        @include font-weight(semibold);
+        @include font-size(lg);
+      }
+
+      p {
+        line-height: 1.4em;
+      }
     }
   }
 }
