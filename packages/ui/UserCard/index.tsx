@@ -16,7 +16,7 @@ import { TagGroup } from '@gtms/ui/TagGroup'
 export const UserCard: FC<{
   additionalStyles?: string
   image: string
-  onClose?: () => unknown
+  onClose: () => unknown
 }> = ({ additionalStyles, image, onClose }) => {
   useEffect(() => {
     disableBodyScroll(document.body)
