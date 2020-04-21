@@ -57,6 +57,11 @@
         @include font-size(lg);
       }
 
+      > h3 {
+        margin-top: 15px;
+        @include font-size(md);
+      }
+
       p {
         line-height: 1.4em;
       }
