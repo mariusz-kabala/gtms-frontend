@@ -65,7 +65,7 @@ export const GroupMembersPage: NextPage<{}> = () => {
 }
 
 GroupMembersPage.getInitialProps = () => {
-  return Promise.resolve({ namespacesRequired: ['groupMembers'] })
+  return Promise.resolve({ namespacesRequired: ['groupMembers', 'common'] })
 }
 
 export default GroupMembersPage

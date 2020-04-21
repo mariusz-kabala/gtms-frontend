@@ -1,22 +1,18 @@
-import React, {
-  FC,
-  // ReactNode,
-  useEffect,
-} from 'react'
+import React, { FC, useEffect } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { Overlay } from '../Overlay'
-import { ImageHolder } from '../ImageHolder'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
+import { ImageHolder } from '../ImageHolder'
+import { Overlay } from '../Overlay'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
-// import { UserCardMini } from '@gtms/ui/UserCardMini'
+import { useTranslation } from '@gtms/commons/i18n'
 
 export const UserCard: FC<{
   additionalStyles?: string
   image: string
-  onClose: () => unknown
+  onClose?: () => unknown
 }> = ({ additionalStyles, image, onClose }) => {
   useEffect(() => {
     disableBodyScroll(document.body)
@@ -27,6 +23,8 @@ export const UserCard: FC<{
   useKey(() => onClose(), {
     detectKeys: [27],
   })
+
+  const { t } = useTranslation('userCard')
 
   return (
     <>
@@ -49,7 +47,7 @@ export const UserCard: FC<{
                 Id in veniam sunt labore. Adipisicing proident dolor nulla
                 cillum cupidatat. Do sint labore cupidatat.
               </p>
-              <h3>Moje tagi:</h3>
+              <h3>{t('myTags')}</h3>
               <TagGroup additionalStyles={styles.userTags}>
                 <Tag label="Mechanik" />
                 <Tag label="Oddam" />
@@ -59,7 +57,7 @@ export const UserCard: FC<{
                 <Tag label="Znaleziono" />
                 <Tag label="Polityka" />
               </TagGroup>
-              <h3>Obserwuje tagi:</h3>
+              <h3>{t('watchedTags')}</h3>
               <TagGroup additionalStyles={styles.userTags}>
                 <Tag label="Mechanik" />
                 <Tag label="Oddam" />
@@ -69,8 +67,7 @@ export const UserCard: FC<{
                 <Tag label="Znaleziono" />
                 <Tag label="Polityka" />
               </TagGroup>
-              <h3>Jestem w grupach</h3>
-              {/* <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} /> */}
+              <h3>{t('groupsMember')}</h3>
             </div>
           </div>
         </div>
