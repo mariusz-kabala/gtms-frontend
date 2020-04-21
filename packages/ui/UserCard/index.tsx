@@ -1,4 +1,8 @@
-import React, { FC, ReactNode, useEffect } from 'react'
+import React, {
+  FC,
+  // ReactNode,
+  useEffect,
+} from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { Overlay } from '../Overlay'
@@ -12,6 +16,7 @@ import { TagGroup } from '@gtms/ui/TagGroup'
 export const UserCard: FC<{
   additionalStyles?: string
   image: string
+  onClose?: () => unknown
 }> = ({ additionalStyles, image, onClose }) => {
   useEffect(() => {
     disableBodyScroll(document.body)
