@@ -24,10 +24,8 @@ describe('<GroupMembersPage />', () => {
     } = await GroupMembersPage.getInitialProps(ctx)
 
     expect(props).toHaveProperty('namespacesRequired')
-    expect(new Set(props.namespacesRequired)).toContain(
-      'groupMembers',
-      'userCard'
-    )
+    expect(new Set(props.namespacesRequired)).toContain('groupMembers')
+    expect(new Set(props.namespacesRequired)).toContain('userCard')
 
     done()
   })
