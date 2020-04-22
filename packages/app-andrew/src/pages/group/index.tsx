@@ -1,14 +1,18 @@
 import React from 'react'
 import styles from './styles.scss'
 import { NextPage } from 'next'
-import { Link } from '@gtms/commons/i18n'
 import { Button } from '@gtms/ui/Button'
+import { Link } from '@gtms/commons/i18n'
+import { useTranslation } from '@gtms/commons/i18n'
 import { Navigation } from '@gtms/ui/Navigation'
+import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { UserCard } from '@gtms/ui/UserCard'
 
 const GroupPage: NextPage<{}> = () => {
+  const { t } = useTranslation('groupPage')
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.navigation}>
@@ -24,7 +28,7 @@ const GroupPage: NextPage<{}> = () => {
         <div className={styles.banner}>
           <div className={styles.frame}>
             <div className={styles.desc}>
-              <h2>Dojedź na festiwal z JedziemyNa.pl</h2>
+              <h2>{t('header')}</h2>
               <p>
                 Elit excepteur id veniam ea consequat eu excepteur exercitation
                 ullamco nisi sint elit Lorem irure. Exercitation laborum sit
@@ -39,12 +43,6 @@ const GroupPage: NextPage<{}> = () => {
               </Button>
             </div>
           </div>
-          <div
-            className={styles.backgroundImage}
-            style={{
-              backgroundImage: `url('/images/temp_images/cover-image.jpg')`,
-            }}
-          />
         </div>
         <div className={styles.columns}>
           <div className={styles.column}>
@@ -71,6 +69,7 @@ const GroupPage: NextPage<{}> = () => {
           </div>
           <div className={styles.column}>
             <h2 className={styles.header}>Ostatnio dodane posty</h2>
+            <PostCreate additionalStyles={styles.postCreate} />
             <PostSingle additionalStyles={styles.post} />
             <PostSingle additionalStyles={styles.post} />
             <PostSingle additionalStyles={styles.post} />
@@ -82,6 +81,10 @@ const GroupPage: NextPage<{}> = () => {
       </div>
     </div>
   )
+}
+
+GroupPage.getInitialProps = () => {
+  return Promise.resolve({ namespacesRequired: ['groupPage', 'postCreate'] })
 }
 
 export default GroupPage
