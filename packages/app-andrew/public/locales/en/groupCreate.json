@@ -1,17 +1,4 @@
 {
-  "form": {
-    "validation": {
-      "name": "Email address",
-      "groupDescription": "Name"
-    },
-    "validation": {
-      "groupName": {
-        "isRequired": "Group name address is required"
-      },
-      "groupDescription": {
-        "isRequired": "Group description address is required"
-      }
-    },
-    "submitButton": "Create group button"
-  }
+  "header": "Header goes here",
+  "subheader": "Quis non id amet ex ea. Occaecat proident commodo minim aute dolor in excepteur incididunt dolor velit. Eiusmod anim amet officia occaecat magna dolor proident eu in ullamco."
 }

@@ -6,7 +6,7 @@
 .wrapper {
   display: flex;
   height: 100%;
-  background-color: $theme0;
+  background: $theme0;
 
   .left {
     position: relative;
@@ -20,7 +20,7 @@
       h2,
       p {
         @include font-weight(bold);
-        color: $theme5;
+        color: $theme6;
         margin-bottom: 15px;
       }
 

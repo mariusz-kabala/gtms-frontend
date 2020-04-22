@@ -12,95 +12,75 @@
     display: flex;
     flex-direction: column;
     max-width: 45px;
-    background: $theme0;
+    background: $theme1;
 
     .avatar {
       max-width: none;
-      padding: 5px;
     }
   }
 
   .content {
     position: relative;
     width: 100%;
-    color: $theme5;
+    padding: 0 20px;
+    color: $theme6;
 
-    .banner {
+    .groupHeader {
       width: 100%;
+      margin-bottom: 30px;
 
-      .frame {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        align-items: flex-end;
-        border: 10px solid $theme0;
-        height: 400px;
-        margin: 30px;
-        padding: 30px;
+      h2 {
+        @include font-weight(bold);
+      }
 
-        .desc {
-          opacity: 0.85;
-          width: 70%;
-
-          h2 {
-            font-size: 55px;
-            @include font-weight(bold);
-          }
-
-          p {
-            font-size: 18px;
-          }
-        }
-
-        &:hover {
-          cursor: pointer;
-          border: 10px solid $theme3;
-
-          .desc {
-            opacity: 1;
-          }
-        }
-
-        .btn {
-          margin-top: 10px;
-          margin-right: 15px;
-          @include buttonDefault();
-          @include buttonColorsHoverDefault(
-
-          ); // @todo it's not hover - refactor it
-        }
+      .btn {
+        @include buttonDefault();
       }
     }
 
     .columns {
       position: relative;
-      display: flex;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 2fr 1fr;
 
       .column {
         display: flex;
         flex-direction: column;
-        width: 50%;
-        margin: 0 30px;
 
-        .header {
-          @include header(h6, textUppercase);
-          margin-bottom: 15px;
-        }
-
-        .postCreate {
+        section {
           margin-bottom: 20px;
-        }
 
-        .post {
-          margin-bottom: 20px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .header {
+            @include header(h4, textUppercase);
+            margin-bottom: 15px;
+          }
+
+          .postCreate {
+            margin-bottom: 20px;
+          }
+
+          .post {
+            margin-bottom: 20px;
+          }
+
+          .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-gap: 15px;
+          }
         }
       }
+    }
 
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        grid-gap: 15px;
-      }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-gap: 15px;
     }
   }
 }

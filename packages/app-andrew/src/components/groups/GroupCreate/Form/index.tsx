@@ -3,14 +3,13 @@ import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Input } from '@gtms/ui/Forms/Input'
-import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Button } from '@gtms/ui/Button'
 import { createNewGroup } from '@gtms/state-group'
 
 interface IFromData {
-  name: string
   description: string
+  name: string
 }
 
 export const GroupCreateForm: FC<{ onError: () => unknown }> = ({
@@ -24,11 +23,6 @@ export const GroupCreateForm: FC<{ onError: () => unknown }> = ({
 
     if (!data.name) {
       setError('name', 'required')
-      hasErrors = true
-    }
-
-    if (!data.description) {
-      setError('description', 'required')
       hasErrors = true
     }
 
@@ -77,17 +71,6 @@ export const GroupCreateForm: FC<{ onError: () => unknown }> = ({
       )}
       {errors.name && errors.name.type === 'required' && (
         <Error text={errors.name.message as string} />
-      )}
-      <ExpandingTextarea
-        placeholder={t('form.labels.description')}
-        name="description"
-        reference={register({ required: true })}
-      />
-      {errors.description && errors.description.type === 'required' && (
-        <Error text={t('form.validation.description.isRequired')} />
-      )}
-      {errors.description && errors.description.type === 'required' && (
-        <Error text={errors.description.message as string} />
       )}
       <Button
         type="submit"

@@ -5,8 +5,15 @@
   height: 40px;
   max-height: 40px;
   border: none;
-  border-bottom: 1px solid $theme5;
+  border-bottom: 1px solid $theme6;
   background: none;
-  color: $theme5;
+  color: $theme6;
   margin-bottom: 10px;
+
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none;
+    border-color: $theme3;
+  }
 }

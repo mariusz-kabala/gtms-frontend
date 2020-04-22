@@ -6,13 +6,14 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  background: $theme0;
 
   > div {
     text-align: center;
 
     h2 {
       @include header(h1, textUppercase);
-      color: $theme5;
+      color: $theme6;
       margin-bottom: 20px;
     }
   }

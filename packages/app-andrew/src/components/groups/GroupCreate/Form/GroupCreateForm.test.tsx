@@ -35,7 +35,6 @@ describe('<GroupCreateForm />', () => {
     )
 
     expect(getByPlaceholderText('form.labels.name')).toBeInTheDocument()
-    expect(getByPlaceholderText('form.labels.description')).toBeInTheDocument()
     expect(getByText('form.submitButton')).toBeInTheDocument()
   })
 
@@ -45,16 +44,13 @@ describe('<GroupCreateForm />', () => {
     expect(queryByTestId('form-error')).toBeNull()
   })
 
-  it('Should display validation errors for name and description', () => {
+  it('Should display validation errors for name', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
         handleSubmit: jest.fn(),
         errors: {
           name: {
-            type: 'required',
-          },
-          description: {
             type: 'required',
           },
         },
@@ -65,9 +61,6 @@ describe('<GroupCreateForm />', () => {
     const { getByText } = render(<GroupCreateForm onError={jest.fn()} />)
 
     expect(getByText('form.validation.name.isRequired')).toBeInTheDocument()
-    expect(
-      getByText('form.validation.description.isRequired')
-    ).toBeInTheDocument()
   })
 
   it('Should set errors when clicking on submit button without filling form', () => {
@@ -91,7 +84,7 @@ describe('<GroupCreateForm />', () => {
       onSubmit({})
     })
 
-    expect(setError).toBeCalledTimes(2)
+    expect(setError).toBeCalledTimes(1)
   })
 
   it('Should display validation errors returned from BE endpoint', async () => {
@@ -101,9 +94,6 @@ describe('<GroupCreateForm />', () => {
         body: JSON.stringify({
           name: {
             message: 'Name already exists',
-          },
-          description: {
-            message: 'Description is too short',
           },
         }),
       })
@@ -128,12 +118,11 @@ describe('<GroupCreateForm />', () => {
     await act(async () => {
       await onSubmit({
         name: 'test',
-        description: 'lorem ipsum',
       })
     })
 
     expect(fetchMock.mock.calls.length).toEqual(1)
-    expect(setError).toBeCalledTimes(2)
+    expect(setError).toBeCalledTimes(1)
   })
 
   it('Should trigger onError callback when create group endpoint returns 500', async () => {
@@ -163,7 +152,6 @@ describe('<GroupCreateForm />', () => {
     await act(async () => {
       await onSubmit({
         name: 'test',
-        description: 'lorem ipsum',
       })
     })
 

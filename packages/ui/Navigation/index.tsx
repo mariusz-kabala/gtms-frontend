@@ -52,20 +52,22 @@ export const Navigation: FC<{}> = () => {
 
   return (
     <nav className={styles.wrapper} data-testid="navigation">
-      <ul>
-        {links.map((value, index) => {
-          return (
-            <li className={styles.link} key={index}>
-              <Link href={value.url}>
-                <a>
-                  <i>{value.icon}</i>
-                  <span>{value.label}</span>
-                </a>
-              </Link>
-            </li>
-          )
-        })}
-      </ul>
+      <div>
+        <ul>
+          {links.map((value, index) => {
+            return (
+              <li className={styles.link} key={index}>
+                <Link href={value.url}>
+                  <a>
+                    <i>{value.icon}</i>
+                    <span>{value.label}</span>
+                  </a>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
     </nav>
   )
 }

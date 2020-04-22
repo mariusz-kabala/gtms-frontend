@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, useEffect } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { Overlay } from '../Overlay'
+import { Overlay } from '@gtms/ui/Overlay'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
 import { IoIosClose } from 'react-icons/io'
@@ -28,6 +28,9 @@ export const ExpandingItem: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="expanding-item"
     >
+      <span data-testid="expanding-item-label" className={styles.label}>
+        {label}
+      </span>
       {isActive && (
         <>
           <i onClick={onClose}>
@@ -38,11 +41,6 @@ export const ExpandingItem: FC<{
           </div>
           <Overlay onClick={onClose} />
         </>
-      )}
-      {!isActive && (
-        <span data-testid="expanding-item-label" className={styles.label}>
-          {label}
-        </span>
       )}
     </div>
   )

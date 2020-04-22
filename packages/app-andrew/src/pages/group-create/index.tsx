@@ -8,12 +8,21 @@ import { userQuery } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
 export const GroupCreatePage: NextPage<{}> = () => {
-  const { t } = useTranslation('account')
+  const { t } = useTranslation('groupCreate')
 
   return (
     <div className={styles.wrapper} data-testid="group-create-page">
-      {t('group create header')}
-      <GroupCreate />
+      <div className={styles.left}>
+        <div>
+          <h2>{t('header')}</h2>
+          <p>{t('subheader')}</p>
+          <GroupCreate />
+        </div>
+      </div>
+      <div
+        className={styles.right}
+        style={{ backgroundImage: `url('/images/temp_images/group_bg_2.png')` }}
+      />
     </div>
   )
 }

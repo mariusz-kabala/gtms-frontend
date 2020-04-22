@@ -7,7 +7,7 @@
 
   h2 {
     @include header(h4);
-    color: $theme5;
+    color: $theme6;
     margin-bottom: 20px;
   }
 
@@ -15,7 +15,7 @@
     @include buttonDefault();
     width: 100%;
     color: white;
-    background: $theme1;
+    background: $theme2;
 
     &:hover {
       @include buttonColorsHoverDefault();
