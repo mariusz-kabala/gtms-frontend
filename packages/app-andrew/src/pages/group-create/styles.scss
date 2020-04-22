@@ -1,3 +1,42 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/imageCover';
+
 .wrapper {
+  display: flex;
   height: 100%;
+  background-color: $theme0;
+  color: $theme5;
+
+  .left {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 40%;
+    padding: 0 40px;
+
+    > div {
+      width: 100%;
+
+      h2 {
+        font-size: 2.6em;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin-top: 5px;
+        margin-bottom: 20px;
+        line-height: 1.3em;
+        font-weight: 300;
+        font-size: 1.6em;
+      }
+    }
+  }
+
+  .right {
+    width: 60%;
+    @include imageCover();
+  }
 }
