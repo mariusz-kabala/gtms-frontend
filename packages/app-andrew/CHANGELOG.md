@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.7.0...@gtms/app-andrew@0.7.1) (2020-04-19)
+
+
+### Bug Fixes
+
+* GEOT-207: fix buttons in delete account ([#410](https://github.com/gtms-org/gtms-frontend/issues/410)) ([1622b29](https://github.com/gtms-org/gtms-frontend/commit/1622b29ab4bfaeb3b0217dacf72cbb6e0bed1c4f))
+
+
+
+
+
+# [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.6.0...@gtms/app-andrew@0.7.0) (2020-04-03)
+
+
+### Features
+
+* GEOT-77: gdpr better styles ([#390](https://github.com/gtms-org/gtms-frontend/issues/390)) ([741c563](https://github.com/gtms-org/gtms-frontend/commit/741c563e8e0a8159ae4c078c0cd11ff60522823a))
+
+
+
+
+
 # 0.6.0 (2020-03-28)
 
 

@@ -21,7 +21,7 @@ describe('<RulesPage />', () => {
     } = await RulesPage.getInitialProps(ctx)
 
     expect(props).toHaveProperty('namespacesRequired')
-    expect(props.namespacesRequired).toEqual(['rules'])
+    expect(props.namespacesRequired).toEqual(['rulesPage'])
 
     done()
   })
