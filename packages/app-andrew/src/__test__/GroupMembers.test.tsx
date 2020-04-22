@@ -8,6 +8,7 @@ describe('<GroupMembersPage />', () => {
     const { getByTestId } = render(<GroupMembersPage />)
 
     expect(getByTestId('group-members-page')).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('userCard')
     expect(useTranslation).toBeCalledWith('groupMembers')
   })
 
@@ -23,7 +24,10 @@ describe('<GroupMembersPage />', () => {
     } = await GroupMembersPage.getInitialProps(ctx)
 
     expect(props).toHaveProperty('namespacesRequired')
-    expect(props.namespacesRequired).toEqual(['groupMembers, userCard'])
+    expect(new Set(props.namespacesRequired)).toContain(
+      'groupMembers',
+      'userCard'
+    )
 
     done()
   })
