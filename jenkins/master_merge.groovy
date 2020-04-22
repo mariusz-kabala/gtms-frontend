@@ -4,6 +4,8 @@ pipeline {
     agent { 
         docker { 
             image 'docker-registry.kabala.tech/node12-with-git:latest' 
+        }
+        node {
             label 'homeSRV2' 
         } 
     }
