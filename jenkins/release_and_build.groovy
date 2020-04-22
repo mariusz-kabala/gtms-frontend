@@ -2,7 +2,11 @@ def branch = '';
 def hasNewLock = '0';
 
 pipeline {
-    agent { docker { image 'docker-registry.kabala.tech/node12-with-git:latest' } }
+    agent { 
+        docker { 
+            image 'docker-registry.kabala.tech/node12-with-git:latest' 
+        }
+    }
     
     environment {
         AWS_ACCESS_KEY_ID = credentials('SCALEWAY_S3_ACCESS_KEY')
