@@ -8,9 +8,9 @@
   flex-direction: column;
   align-content: center;
   padding-top: 5px;
-  color: $theme5;
+  color: $theme4;
   @include font-size(sm);
   @include font-weight(normal);
-  border-top: 1px solid $theme5;
-  margin-top: -10px;
+  border-top: 1px solid $theme4;
+  margin-top: -11px;
 }

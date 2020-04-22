@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
+import { Link } from '@gtms/commons/i18n'
 import {
   IoIosTennisball,
   IoIosNavigate,
@@ -55,10 +56,12 @@ export const Navigation: FC<{}> = () => {
         {links.map((value, index) => {
           return (
             <li className={styles.link} key={index}>
-              <a>
-                <i>{value.icon}</i>
-                <span>{value.label}</span>
-              </a>
+              <Link href={value.url}>
+                <a>
+                  <i>{value.icon}</i>
+                  <span>{value.label}</span>
+                </a>
+              </Link>
             </li>
           )
         })}
