@@ -23,7 +23,7 @@
   .content {
     position: relative;
     width: 100%;
-    color: $theme2;
+    color: $theme5;
 
     .banner {
       width: 100%;
@@ -54,7 +54,7 @@
 
         &:hover {
           cursor: pointer;
-          border: 10px solid $theme4;
+          border: 10px solid $theme3;
 
           .desc {
             opacity: 1;

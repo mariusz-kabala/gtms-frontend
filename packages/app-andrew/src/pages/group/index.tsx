@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './styles.scss'
 import { NextPage } from 'next'
-import { useTranslation } from '@gtms/commons/i18n'
 import { Button } from '@gtms/ui/Button'
+import { Link } from '@gtms/commons/i18n'
+import { useTranslation } from '@gtms/commons/i18n'
 import { Navigation } from '@gtms/ui/Navigation'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostSingle } from '@gtms/ui/PostSingle'
@@ -15,10 +16,12 @@ const GroupPage: NextPage<{}> = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.navigation}>
-        <UserAvatar
-          additionalStyles={styles.avatar}
-          image="/images/temp_images/avatar-1.png"
-        />
+        <Link href="/account">
+          <UserAvatar
+            additionalStyles={styles.avatar}
+            image="/images/temp_images/avatar-1.png"
+          />
+        </Link>
         <Navigation />
       </div>
       <div className={styles.content}>
