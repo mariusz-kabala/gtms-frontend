@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.5.0...@gtms/ui@0.6.0) (2020-04-22)
+
+
+### Features
+
+* GEOT-195: new post component ([#408](https://github.com/gtms-org/gtms-frontend/issues/408)) ([1134c74](https://github.com/gtms-org/gtms-frontend/commit/1134c7451a17bfcf8ce07d379972bcc821db4005))
+
+
+
+
+
 # [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.4.1...@gtms/ui@0.5.0) (2020-04-22)
 
 
