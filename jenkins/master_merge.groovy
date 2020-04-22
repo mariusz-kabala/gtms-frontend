@@ -4,8 +4,7 @@ pipeline {
     agent { 
         docker { 
             image 'docker-registry.kabala.tech/node12-with-git:latest' 
-            label 'homeSRV2' 
-        } 
+        }
     }
     environment {
         GITHUB_API_KEY = credentials('jenkins-github-accesstoken')
