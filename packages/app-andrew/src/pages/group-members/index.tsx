@@ -13,10 +13,7 @@ export const GroupMembersPage: NextPage<{}> = () => {
     <div className={styles.wrapper} data-testid="group-members-page">
       <h2 className={styles.header}>{t('header')}</h2>
       <div className={styles.grid}>
-        <UserCard
-          onClose={() => null}
-          image={'/images/temp_images/avatar-1.png'}
-        />
+        <UserCard image={'/images/temp_images/avatar-1.png'} />
 
         <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
         <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
