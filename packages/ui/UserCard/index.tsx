@@ -12,7 +12,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 export const UserCard: FC<{
   additionalStyles?: string
   image: string
-  onClose: () => unknown
+  onClose?: () => unknown
 }> = ({ additionalStyles, image, onClose }) => {
   useEffect(() => {
     disableBodyScroll(document.body)
