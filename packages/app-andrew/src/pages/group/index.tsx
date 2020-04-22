@@ -8,7 +8,7 @@ import { Navigation } from '@gtms/ui/Navigation'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
-import { UserCard } from '@gtms/ui/UserCard'
+import { UserCardMini } from '@gtms/ui/UserCardMini'
 
 const GroupPage: NextPage<{}> = () => {
   const { t } = useTranslation('groupPage')
@@ -49,21 +49,23 @@ const GroupPage: NextPage<{}> = () => {
             <div>
               <h2 className={styles.header}>Ostatnio dodane posty</h2>
               <div className={styles.grid}>
-                <UserCard image={'/images/temp_images/logo-patrol-1.png'} />
-                <UserCard image={'/images/temp_images/logo-patrol-2.png'} />
-                <UserCard image={'/images/temp_images/logo-sztab-1.png'} />
-                <UserCard image={'/images/temp_images/logo-sztab-2.png'} />
+                <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
+                <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
+                <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
+                <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
               </div>
             </div>
             <div>
               <h2 className={styles.header}>Ostatnio dodane posty</h2>
               <div className={styles.grid}>
-                <UserCard image={'/images/temp_images/logo-sztab-3.png'} />
-                <UserCard
+                <UserCardMini image={'/images/temp_images/logo-sztab-3.png'} />
+                <UserCardMini
                   image={'/images/temp_images/logo-uczymy-ratowac.png'}
                 />
-                <UserCard image={'/images/temp_images/logo-wielki-mecz.png'} />
-                <UserCard image={'/images/temp_images/logo-zbc.png'} />
+                <UserCardMini
+                  image={'/images/temp_images/logo-wielki-mecz.png'}
+                />
+                <UserCardMini image={'/images/temp_images/logo-zbc.png'} />
               </div>
             </div>
           </div>
