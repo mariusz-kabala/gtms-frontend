@@ -23,84 +23,50 @@
   .content {
     position: relative;
     width: 100%;
+    display: flex;
     color: $theme5;
 
-    .banner {
+    .groupHeader {
       width: 100%;
 
-      .frame {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        align-items: flex-end;
-        border: 10px solid $theme0;
-        height: 400px;
-        margin: 30px;
-        padding: 30px;
+      .desc {
+        width: 70%;
 
-        .desc {
-          opacity: 0.85;
-          width: 70%;
-
-          h2 {
-            font-size: 55px;
-            @include font-weight(bold);
-          }
-
-          p {
-            font-size: 18px;
-          }
+        h2 {
+          @include font-weight(bold);
+          font-size: 24px;
         }
 
-        &:hover {
-          cursor: pointer;
-          border: 10px solid $theme3;
-
-          .desc {
-            opacity: 1;
-          }
-        }
-
-        .btn {
-          margin-top: 10px;
-          margin-right: 15px;
-          @include buttonDefault();
-          @include buttonColorsHoverDefault(
-
-          ); // @todo it's not hover - refactor it
+        p {
+          font-size: 18px;
         }
       }
     }
 
-    .columns {
-      position: relative;
+    .column {
       display: flex;
+      flex-direction: column;
+      width: 50%;
+      margin: 0 30px;
 
-      .column {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        margin: 0 30px;
-
-        .header {
-          @include header(h6, textUppercase);
-          margin-bottom: 15px;
-        }
-
-        .postCreate {
-          margin-bottom: 20px;
-        }
-
-        .post {
-          margin-bottom: 20px;
-        }
+      .header {
+        @include header(h6, textUppercase);
+        margin-bottom: 15px;
       }
 
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        grid-gap: 15px;
+      .postCreate {
+        margin-bottom: 20px;
       }
+
+      .post {
+        margin-bottom: 20px;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-gap: 15px;
     }
   }
 }

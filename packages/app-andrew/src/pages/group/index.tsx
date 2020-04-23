@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './styles.scss'
 import { NextPage } from 'next'
-import { Button } from '@gtms/ui/Button'
 import { Link } from '@gtms/commons/i18n'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Navigation } from '@gtms/ui/Navigation'
@@ -25,60 +24,48 @@ const GroupPage: NextPage<{}> = () => {
         <Navigation />
       </div>
       <div className={styles.content}>
-        <div className={styles.banner}>
-          <div className={styles.frame}>
+        <div className={styles.column}>
+          <div className={styles.groupHeader}>
             <div className={styles.desc}>
-              <h2>{t('header')}</h2>
+              <h2>{t('SzukamAndrzeja.pl')}</h2>
               <p>
-                Elit excepteur id veniam ea consequat eu excepteur exercitation
-                ullamco nisi sint elit Lorem irure. Exercitation laborum sit
-                proident occaecat dolore pariatur esse tempor fugiat magna
-                incididunt aliquip ullamco.
+                Najlepsze festiwalowe spotted, baza wszystkich wiosek online,
+                ogłoszenia, dyskusje, wspólne dojazdy, festiwalowy tinder!
               </p>
-              <Button type="submit" additionalStyles={styles.btn}>
-                Add Post
-              </Button>
-              <Button type="submit" additionalStyles={styles.btn}>
-                Zaproś znajomych
-              </Button>
+            </div>
+          </div>
+          <div>
+            <h2 className={styles.header}>Ostatnio dodane posty</h2>
+            <div className={styles.grid}>
+              <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
+              <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
+              <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
+              <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
+            </div>
+          </div>
+          <div>
+            <h2 className={styles.header}>Ostatnio dodane posty</h2>
+            <div className={styles.grid}>
+              <UserCardMini image={'/images/temp_images/logo-sztab-3.png'} />
+              <UserCardMini
+                image={'/images/temp_images/logo-uczymy-ratowac.png'}
+              />
+              <UserCardMini
+                image={'/images/temp_images/logo-wielki-mecz.png'}
+              />
+              <UserCardMini image={'/images/temp_images/logo-zbc.png'} />
             </div>
           </div>
         </div>
-        <div className={styles.columns}>
-          <div className={styles.column}>
-            <div>
-              <h2 className={styles.header}>Ostatnio dodane posty</h2>
-              <div className={styles.grid}>
-                <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-                <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-                <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-                <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-              </div>
-            </div>
-            <div>
-              <h2 className={styles.header}>Ostatnio dodane posty</h2>
-              <div className={styles.grid}>
-                <UserCardMini image={'/images/temp_images/logo-sztab-3.png'} />
-                <UserCardMini
-                  image={'/images/temp_images/logo-uczymy-ratowac.png'}
-                />
-                <UserCardMini
-                  image={'/images/temp_images/logo-wielki-mecz.png'}
-                />
-                <UserCardMini image={'/images/temp_images/logo-zbc.png'} />
-              </div>
-            </div>
-          </div>
-          <div className={styles.column}>
-            <h2 className={styles.header}>Ostatnio dodane posty</h2>
-            <PostCreate additionalStyles={styles.postCreate} />
-            <PostSingle additionalStyles={styles.post} />
-            <PostSingle additionalStyles={styles.post} />
-            <PostSingle additionalStyles={styles.post} />
-            <PostSingle additionalStyles={styles.post} />
-            <PostSingle additionalStyles={styles.post} />
-            <PostSingle additionalStyles={styles.post} />
-          </div>
+        <div className={styles.column}>
+          <h2 className={styles.header}>Ostatnio dodane posty</h2>
+          <PostCreate additionalStyles={styles.postCreate} />
+          <PostSingle additionalStyles={styles.post} />
+          <PostSingle additionalStyles={styles.post} />
+          <PostSingle additionalStyles={styles.post} />
+          <PostSingle additionalStyles={styles.post} />
+          <PostSingle additionalStyles={styles.post} />
+          <PostSingle additionalStyles={styles.post} />
         </div>
       </div>
     </div>
