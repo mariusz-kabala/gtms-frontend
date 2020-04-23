@@ -28,6 +28,7 @@
 
     .groupHeader {
       width: 100%;
+      display: flex;
 
       .desc {
         width: 70%;
@@ -50,7 +51,9 @@
       margin: 0 30px;
 
       .header {
-        @include header(h6, textUppercase);
+        @include header(h4, textUppercase);
+        font-weight: bold;
+        margin-top: 15px;
         margin-bottom: 15px;
       }
 

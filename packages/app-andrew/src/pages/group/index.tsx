@@ -26,6 +26,9 @@ const GroupPage: NextPage<{}> = () => {
       <div className={styles.content}>
         <div className={styles.column}>
           <div className={styles.groupHeader}>
+            <div className={styles.avatar}>
+              <img src={'/images/temp_images/logo-patrol-1.png'} />
+            </div>
             <div className={styles.desc}>
               <h2>{t('SzukamAndrzeja.pl')}</h2>
               <p>
