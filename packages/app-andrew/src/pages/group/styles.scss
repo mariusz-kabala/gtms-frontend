@@ -23,7 +23,7 @@
   .content {
     position: relative;
     width: 100%;
-    color: $theme2;
+    color: $theme5;
 
     .banner {
       width: 100%;
@@ -54,7 +54,7 @@
 
         &:hover {
           cursor: pointer;
-          border: 10px solid $theme4;
+          border: 10px solid $theme3;
 
           .desc {
             opacity: 1;
@@ -68,34 +68,6 @@
           @include buttonColorsHoverDefault(
 
           ); // @todo it's not hover - refactor it
-        }
-      }
-
-      .backgroundImage {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        @include imageCover();
-
-        &:before {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 0;
-          opacity: 1;
-          box-shadow: 0px 0px 200px 140px $theme3;
-        }
-
-        &:after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 0px;
-          opacity: 0.9;
-          box-shadow: 0px 0px 100px 400px $theme3;
         }
       }
     }
@@ -113,6 +85,10 @@
         .header {
           @include header(h6, textUppercase);
           margin-bottom: 15px;
+        }
+
+        .postCreate {
+          margin-bottom: 20px;
         }
 
         .post {

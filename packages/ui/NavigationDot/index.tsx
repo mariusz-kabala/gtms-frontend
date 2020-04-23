@@ -42,7 +42,7 @@ export const NavigationDot: FC = () => (
   <ul className={styles.navigationDot} data-testid="navigationDot">
     {mockData.map((value) => (
       <li key={value.id}>
-        <Link href="/remind-password">
+        <Link href="/account">
           <div
             className={styles.circle}
             style={{ backgroundImage: `url(${value.img})` }}

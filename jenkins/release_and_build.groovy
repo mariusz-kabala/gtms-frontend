@@ -4,9 +4,9 @@ def hasNewLock = '0';
 pipeline {
     agent { 
         docker { 
-            image 'docker-registry.kabala.tech/node12-with-git:latest' 
-            label 'homeSRV2' 
-        } 
+            image 'docker-registry.kabala.tech/node12-with-git:latest'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
     }
     
     environment {
@@ -123,6 +123,7 @@ pipeline {
         stage ('Build app-andrew') {
             steps {
                 script {
+                    sh "whoami"
                     def props = readJSON file: "packages/app-andrew/package.json"
                     def currentApp = docker.build(props['name'].replace('@', '').replace('-', '').toLowerCase(), "-f packages/app-andrew/Dockerfile .")
 

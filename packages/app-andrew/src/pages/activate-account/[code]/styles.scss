@@ -9,7 +9,7 @@
 
   h2 {
     @include header(h1, textUppercase);
-    color: $theme2;
+    color: $theme5;
     margin-bottom: 20px;
   }
 }

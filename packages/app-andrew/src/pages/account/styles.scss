@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  color: $theme2;
+  color: $theme5;
 
   .content {
     display: flex;
@@ -23,7 +23,7 @@
       display: inline-block;
       padding: 10px;
       margin-bottom: 25px;
-      background: $theme4;
+      background: $theme1;
 
       &:after {
         content: '';
@@ -34,7 +34,7 @@
         height: 0;
         border-style: solid;
         border-width: 5px 5px 0 5px;
-        border-color: $theme4 transparent transparent transparent;
+        border-color: $theme1 transparent transparent transparent;
       }
     }
   }
@@ -50,7 +50,7 @@
     }
 
     .userTags {
-      margin-top: 20px;
+      margin-top: 10px;
     }
   }
 
@@ -61,7 +61,7 @@
   }
 
   .visibleForOwner {
-    border-left: 1px solid $theme2;
+    border-left: 1px solid $theme1;
     margin-left: 20px;
     padding-left: 20px;
 

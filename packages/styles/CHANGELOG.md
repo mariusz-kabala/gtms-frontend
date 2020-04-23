@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.5.0...@gtms/styles@0.5.1) (2020-04-23)
+
+**Note:** Version bump only for package @gtms/styles
+
+
+
+
+
+# [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.4.0...@gtms/styles@0.5.0) (2020-04-23)
+
+
+### Features
+
+* GEOT-217: user card template ([#453](https://github.com/gtms-org/gtms-frontend/issues/453)) ([ec81c63](https://github.com/gtms-org/gtms-frontend/commit/ec81c63612b5394c847508218449fce88eb28650))
+
+
+
+
+
+# [0.4.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.3.0...@gtms/styles@0.4.0) (2020-04-22)
+
+
+### Features
+
+* GEOT-156: invite friend ([#396](https://github.com/gtms-org/gtms-frontend/issues/396)) ([f59521b](https://github.com/gtms-org/gtms-frontend/commit/f59521bbc09c3de88f08d7c318c07c31036bb08a))
+
+
+
+
+
 # 0.3.0 (2020-03-28)
 
 
