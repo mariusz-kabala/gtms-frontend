@@ -123,6 +123,7 @@ pipeline {
         stage ('Build app-andrew') {
             steps {
                 script {
+                    sh "whoami"
                     def props = readJSON file: "packages/app-andrew/package.json"
                     def currentApp = docker.build(props['name'].replace('@', '').replace('-', '').toLowerCase(), "-f packages/app-andrew/Dockerfile .")
 
