@@ -4,7 +4,8 @@ def hasNewLock = '0';
 pipeline {
     agent { 
         docker { 
-            image 'docker-registry.kabala.tech/node12-with-git:latest' 
+            image 'docker-registry.kabala.tech/node12-with-git:latest'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
     
