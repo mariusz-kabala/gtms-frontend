@@ -1,6 +1,6 @@
 {
   "name": "@gtms/app-main",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
@@ -15,7 +15,7 @@
     "@gtms/api-group": "0.1.0",
     "@gtms/commons": "0.2.0",
     "@gtms/state-user": "0.2.0",
-    "@gtms/styles": "0.4.0",
-    "@gtms/ui": "0.6.0"
+    "@gtms/styles": "0.5.0",
+    "@gtms/ui": "0.7.0"
   }
 }
