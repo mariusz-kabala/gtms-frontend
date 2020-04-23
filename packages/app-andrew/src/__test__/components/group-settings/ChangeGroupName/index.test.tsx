@@ -5,7 +5,7 @@ import { ChangeGroupName } from '../../../../components/group-settings/ChangeGro
 describe('<ChangeGroupName />', () => {
   it('Should render on the page', () => {
     const groupName = 'Group name'
-    const { getByTestId, queryByText } = render(
+    const { getByTestId } = render(
       <ChangeGroupName formData={{ name: groupName }} />
     )
 
