@@ -10,8 +10,6 @@ import { PostSingle } from '@gtms/ui/PostSingle'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { UserCardMini } from '@gtms/ui/UserCardMini'
 
-import { UploadFile } from '@gtms/ui/UploadFile'
-
 const GroupPage: NextPage<{}> = () => {
   const { t } = useTranslation('groupPage')
 
@@ -28,7 +26,6 @@ const GroupPage: NextPage<{}> = () => {
       </div>
       <div className={styles.content}>
         <div className={styles.banner}>
-          <UploadFile />
           <div className={styles.frame}>
             <div className={styles.desc}>
               <h2>{t('header')}</h2>
