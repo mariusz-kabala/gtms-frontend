@@ -10,7 +10,7 @@ export const UserAvatar: FC<{
   <div
     data-testid="user-avatar"
     onClick={onClick}
-    className={cx(styles.container, additionalStyles)}
+    className={cx(styles.wrapper, additionalStyles)}
   >
     <img data-testid="user-avatar-image" src={image} alt="user avatar" />
   </div>
