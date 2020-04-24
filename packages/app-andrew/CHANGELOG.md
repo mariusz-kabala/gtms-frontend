@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.10.0...@gtms/app-andrew@0.10.1) (2020-04-23)
+
+**Note:** Version bump only for package @gtms/app-andrew
+
+
+
+
+
+# [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.9.0...@gtms/app-andrew@0.10.0) (2020-04-23)
+
+
+### Features
+
+* GEOT-217: user card template ([#453](https://github.com/gtms-org/gtms-frontend/issues/453)) ([ec81c63](https://github.com/gtms-org/gtms-frontend/commit/ec81c63612b5394c847508218449fce88eb28650))
+
+
+
+
+
 # [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.8.0...@gtms/app-andrew@0.9.0) (2020-04-22)
 
 
