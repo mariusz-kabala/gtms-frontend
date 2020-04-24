@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react'
+import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import {useDropzone} from 'react-dropzone'
@@ -8,11 +8,7 @@ export const UploadFile: FC<{
   additionalStyles?: string
   onClick?: () => unknown
 }> = ({ additionalStyles, onClick }) => {
-  const onDrop = useCallback(acceptedFiles => {
-    // Do something with the files
-    // @mariusz?
-  }, [])
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+  const {acceptedFiles, getRootProps, getInputProps, isDragActive} = useDropzone()
 
   return (
     <div
@@ -31,6 +27,13 @@ export const UploadFile: FC<{
             <p>Drag and drop some files here, or click to select files</p>
         }
       </div>
+      {
+        acceptedFiles.map(file => (
+          <li key={file.path}>
+            {file.path} - {file.size} bytes
+          </li>
+        ))
+      }
     </div>
   )
 }
