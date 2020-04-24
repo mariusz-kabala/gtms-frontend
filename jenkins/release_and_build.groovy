@@ -5,7 +5,7 @@ pipeline {
     agent { 
         docker { 
             image 'docker-registry.kabala.tech/node12-with-git:latest'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+            args '-v /var/run/docker.sock:/var/run/docker.sock:rw,z'
         }
     }
     
