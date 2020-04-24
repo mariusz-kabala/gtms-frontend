@@ -10,7 +10,7 @@ describe('<UploadFile />', () => {
     )
 
     expect(getByTestId('upload-file')).toBeInTheDocument()
-    expect(container.querySelector(`.${styles.container}`)).toBeInTheDocument()
+    expect(container.querySelector(`.${styles.wrapper}`)).toBeInTheDocument()
   })
 
   it('Should add additional css classes', () => {
