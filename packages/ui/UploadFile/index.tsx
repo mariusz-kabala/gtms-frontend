@@ -16,7 +16,7 @@ export const UploadFile: FC<{
 
   return (
     <div
-      data-testid="user-upload"
+      data-testid="upload-file"
       onClick={onClick}
       className={cx(styles.wrapper, additionalStyles)}
     >
