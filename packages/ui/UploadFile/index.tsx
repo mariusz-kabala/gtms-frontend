@@ -2,7 +2,7 @@ import React, { FC, useCallback } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import {useDropzone} from 'react-dropzone'
-import { IoIosTennisball } from 'react-icons/io'
+import { IoIosCloudUpload } from 'react-icons/io'
 
 export const UploadFile: FC<{
   additionalStyles?: string
@@ -22,10 +22,10 @@ export const UploadFile: FC<{
     >
       <div {...getRootProps()} className={styles.dropzone}>
         <input {...getInputProps()} />
+        <i><IoIosCloudUpload /></i>
         {
           isDragActive ?
             <>
-              <IoIosCloudUpload />
               <p>Drop the files here ...</p>
             </> :
             <p>Drag and drop some files here, or click to select files</p>

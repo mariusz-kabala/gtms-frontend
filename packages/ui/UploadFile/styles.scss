@@ -3,6 +3,7 @@
 .wrapper {
   .dropzone {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -13,12 +14,24 @@
     &:hover {
       color: $theme3;
       border: 3px dotted $theme3;
+
+      i {
+        color: $theme3;
+      }
     }
 
     &:active,
     &:focus,
     &:hover {
       outline: none;
+    }
+
+    i {
+      font-size: 30px;
+    }
+
+    p {
+      display: block;
     }
   }
 }
