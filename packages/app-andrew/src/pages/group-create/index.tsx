@@ -14,10 +14,8 @@ export const GroupCreatePage: NextPage<{}> = () => {
     <div className={styles.wrapper} data-testid="group-create-page">
       <div className={styles.left}>
         <div>
-          <h2>{t('AcceptRulesButton.acceptaa')}</h2>
-          <p>
-            {t('desc')}
-          </p>
+          <h2>{t('header')}</h2>
+          <p>{t('desc')}</p>
           <GroupCreate />
         </div>
       </div>
