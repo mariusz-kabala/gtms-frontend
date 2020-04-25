@@ -4,8 +4,8 @@ import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 import { GroupCreate } from '../../components/groups/GroupCreate'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
-import { userQuery } from '@gtms/state-user'
-import { redirect } from '@gtms/commons/helpers/redirect'
+// import { userQuery } from '@gtms/state-user'
+// import { redirect } from '@gtms/commons/helpers/redirect'
 
 export const GroupCreatePage: NextPage<{}> = () => {
   const { t } = useTranslation('groupCreate')
@@ -15,7 +15,7 @@ export const GroupCreatePage: NextPage<{}> = () => {
       <div className={styles.left}>
         <div>
           <h2>{t('header')}</h2>
-          <p>{t('desc')}</p>
+          <p>{t('subheader')}</p>
           <GroupCreate />
         </div>
       </div>
@@ -30,9 +30,9 @@ export const GroupCreatePage: NextPage<{}> = () => {
 GroupCreatePage.getInitialProps = async (ctx: NextPageContext) => {
   await initAuthSession(ctx)
 
-  if (!userQuery.isLogged()) {
-    redirect('/login', ctx)
-  }
+  // if (!userQuery.isLogged()) {
+  //   redirect('/login', ctx)
+  // }
 
   return Promise.resolve({ namespacesRequired: ['groupCreate'] })
 }

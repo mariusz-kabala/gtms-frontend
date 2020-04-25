@@ -30,11 +30,8 @@ const GroupPage: NextPage<{}> = () => {
               <img src={'/images/temp_images/avatar-1.png'} />
             </div>
             <div className={styles.desc}>
-              <h2>{t('SzukamAndrzeja.pl')}</h2>
-              <p>
-                Najlepsze festiwalowe spotted, baza wszystkich wiosek online,
-                ogłoszenia, dyskusje, wspólne dojazdy, festiwalowy tinder!
-              </p>
+              <h2>{t('header')}</h2>
+              <p>{t('subheader')}</p>
             </div>
           </div>
           <div>
