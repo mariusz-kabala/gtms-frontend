@@ -18,6 +18,7 @@ const TEMPORARY_IGNORE = [
   './packages/app-main/src/providers/Rules/index.tsx',
   './packages/ui/PostSingle/index.tsx',
   './packages/ui/SavedSearch/index.tsx',
+  './packages/ui/SearchResults/index.tsx',
   './projects/gtms-frontend/packages/ui/Forms/ExpandingTextarea/index.tsx',
 ]
 
