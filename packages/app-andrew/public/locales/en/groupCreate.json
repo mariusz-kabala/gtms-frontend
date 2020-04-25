@@ -1,17 +1,3 @@
 {
-  "form": {
-    "validation": {
-      "name": "Email address",
-      "groupDescription": "Name"
-    },
-    "validation": {
-      "groupName": {
-        "isRequired": "Group name address is required"
-      },
-      "groupDescription": {
-        "isRequired": "Group description address is required"
-      }
-    },
-    "submitButton": "Create group button"
-  }
+  "AcceptRulesButton.acceptaa": "Accept rules"
 }

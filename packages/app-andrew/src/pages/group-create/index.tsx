@@ -4,20 +4,19 @@ import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 import { GroupCreate } from '../../components/groups/GroupCreate'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
-import { userQuery } from '@gtms/state-user'
-import { redirect } from '@gtms/commons/helpers/redirect'
+// import { userQuery } from '@gtms/state-user'
+// import { redirect } from '@gtms/commons/helpers/redirect'
 
 export const GroupCreatePage: NextPage<{}> = () => {
-  const { t } = useTranslation('account')
+  const { t } = useTranslation('groupCreate')
 
   return (
     <div className={styles.wrapper} data-testid="group-create-page">
       <div className={styles.left}>
         <div>
-          <h2>{t('createGroup')}</h2>
+          <h2>{t('AcceptRulesButton.acceptaa')}</h2>
           <p>
-            Ad amet sunt voluptate consequat aliquip pariatur. Quis laboris
-            incididunt elit.
+            {t('desc')}
           </p>
           <GroupCreate />
         </div>
@@ -33,11 +32,11 @@ export const GroupCreatePage: NextPage<{}> = () => {
 GroupCreatePage.getInitialProps = async (ctx: NextPageContext) => {
   await initAuthSession(ctx)
 
-  if (!userQuery.isLogged()) {
-    redirect('/login', ctx)
-  }
+  // if (!userQuery.isLogged()) {
+  //   redirect('/login', ctx)
+  // }
 
-  return Promise.resolve({ namespacesRequired: ['groupCreate'] })
+  return Promise.resolve({ namespacesRequired: ['sadfasdfa'] })
 }
 
 export default GroupCreatePage
