@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { SearchPage } from '../pages/search-page'
+import { SearchPage } from '../pages/search'
 
 jest.mock('@gtms/commons/helpers/redirect', () => ({
   redirect: jest.fn(),

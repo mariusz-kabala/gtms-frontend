@@ -3,12 +3,15 @@
 
 .wrapper {
   color: $theme6;
+  cursor: pointer;
 
   img {
     border-radius: $borderRadius;
   }
 
   .members {
+    display: block;
+    margin: 5px 0;
     color: gray;
   }
 
@@ -17,13 +20,21 @@
       margin-top: 5px;
     }
 
-    > h2 {
+    .nameSurname {
       @include font-weight(semibold);
     }
 
     p {
       line-height: 1.4em;
       color: gray;
+    }
+  }
+
+  &:hover {
+    p,
+    span,
+    .nameSurname {
+      color: $theme6;
     }
   }
 }

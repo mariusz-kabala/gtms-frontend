@@ -8,7 +8,9 @@ export const Overlay: FC<{
   opacity?: number
 }> = ({ additionalStyles, onClick, opacity }) => (
   <div
-    className={cx(styles.overlay, additionalStyles)}
+    className={cx(styles.overlay, additionalStyles, {
+      clickable: onClick,
+    })}
     data-testid="overlay"
     onClick={onClick}
     style={{ opacity: opacity ? opacity : 0.5 }}

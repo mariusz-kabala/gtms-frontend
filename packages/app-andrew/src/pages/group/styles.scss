@@ -27,15 +27,14 @@
 
     .banner {
       width: 100%;
+      margin-bottom: 30px;
 
       .frame {
         position: relative;
         z-index: 1;
         display: flex;
         align-items: flex-end;
-        border: 10px solid $theme1;
         height: 400px;
-        padding: 30px;
 
         .desc {
           opacity: 0.85;
@@ -53,7 +52,6 @@
 
         &:hover {
           cursor: pointer;
-          border: 10px solid $theme4;
 
           .desc {
             opacity: 1;
