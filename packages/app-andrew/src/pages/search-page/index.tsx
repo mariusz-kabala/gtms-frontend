@@ -1,10 +1,7 @@
 import React from 'react'
-import { NextPage, NextPageContext } from 'next'
+import { NextPage } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
-import { userQuery } from '@gtms/state-user'
-import { redirect } from '@gtms/commons/helpers/redirect'
 import { Overlay } from '@gtms/ui/Overlay'
 
 export const SearchPage: NextPage<{}> = () => {
@@ -22,13 +19,7 @@ export const SearchPage: NextPage<{}> = () => {
   )
 }
 
-SearchPage.getInitialProps = async (ctx: NextPageContext) => {
-  await initAuthSession(ctx)
-
-  if (!userQuery.isLogged()) {
-    redirect('/login', ctx)
-  }
-
+SearchPage.getInitialProps = () => {
   return Promise.resolve({ namespacesRequired: ['searchPage'] })
 }
 
