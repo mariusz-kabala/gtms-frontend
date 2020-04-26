@@ -10,6 +10,10 @@
     left: 5px;
     display: flex;
 
+    img {
+      border-radius: 50%;
+    }
+
     span {
       color: $theme4;
       margin-left: 5px;

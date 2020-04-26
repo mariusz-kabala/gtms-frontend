@@ -46,7 +46,7 @@ const GroupPage: NextPage<{}> = () => {
         </div>
         <div className={styles.columns}>
           <div className={styles.column}>
-            <div>
+            <section>
               <h2 className={styles.header}>Ostatnio dodane posty</h2>
               <div className={styles.grid}>
                 <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
@@ -54,8 +54,8 @@ const GroupPage: NextPage<{}> = () => {
                 <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
                 <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
               </div>
-            </div>
-            <div>
+            </section>
+            <section>
               <h2 className={styles.header}>Ostatnio dodane posty</h2>
               <div className={styles.grid}>
                 <UserCardMini image={'/images/temp_images/logo-sztab-3.png'} />
@@ -67,17 +67,19 @@ const GroupPage: NextPage<{}> = () => {
                 />
                 <UserCardMini image={'/images/temp_images/logo-zbc.png'} />
               </div>
-            </div>
+            </section>
           </div>
           <div className={styles.column}>
-            <h2 className={styles.header}>Ostatnio dodane posty</h2>
-            <PostCreate additionalStyles={styles.postCreate} />
-            <PostSingle additionalStyles={styles.post} />
-            <PostSingle additionalStyles={styles.post} />
-            <PostSingle additionalStyles={styles.post} />
-            <PostSingle additionalStyles={styles.post} />
-            <PostSingle additionalStyles={styles.post} />
-            <PostSingle additionalStyles={styles.post} />
+            <section>
+              <h2 className={styles.header}>Ostatnio dodane posty</h2>
+              <PostCreate additionalStyles={styles.postCreate} />
+              <PostSingle additionalStyles={styles.post} />
+              <PostSingle additionalStyles={styles.post} />
+              <PostSingle additionalStyles={styles.post} />
+              <PostSingle additionalStyles={styles.post} />
+              <PostSingle additionalStyles={styles.post} />
+              <PostSingle additionalStyles={styles.post} />
+            </section>
           </div>
         </div>
       </div>

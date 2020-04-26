@@ -12,7 +12,7 @@ $size: (
 
 @mixin header($key, $textUppercase: 'initial', $type: 'default') {
   font-size: header($key);
-  color: $theme5;
+  color: $theme6;
 
   @if $textUppercase {
     text-transform: uppercase;

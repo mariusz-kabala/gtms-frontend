@@ -2,7 +2,15 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  color: $theme5;
+  color: $theme6;
+
+  img {
+    border-radius: $borderRadius;
+  }
+
+  .members {
+    color: gray;
+  }
 
   .desc {
     > * {
