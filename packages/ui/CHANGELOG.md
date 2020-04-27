@@ -5,19 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.7.1...@gtms/ui@0.8.0) (2020-04-27)
 
-
 ### Bug Fixes
 
-* GEOT-220: usercard styleguide ([#459](https://github.com/gtms-org/gtms-frontend/issues/459)) ([2e8de75](https://github.com/gtms-org/gtms-frontend/commit/2e8de7588130055ad0debcc62b14d486262b4cdc))
-
+- GEOT-220: usercard styleguide ([#459](https://github.com/gtms-org/gtms-frontend/issues/459)) ([2e8de75](https://github.com/gtms-org/gtms-frontend/commit/2e8de7588130055ad0debcc62b14d486262b4cdc))
 
 ### Features
 
-* GEOT-212 add search bar ui ([#417](https://github.com/gtms-org/gtms-frontend/issues/417)) ([432f3b7](https://github.com/gtms-org/gtms-frontend/commit/432f3b7a7face895bd9dd06b5f5c0e7c14c03a9c)), closes [#461](https://github.com/gtms-org/gtms-frontend/issues/461)
-
-
-
-
+- GEOT-212 add search bar ui ([#417](https://github.com/gtms-org/gtms-frontend/issues/417)) ([432f3b7](https://github.com/gtms-org/gtms-frontend/commit/432f3b7a7face895bd9dd06b5f5c0e7c14c03a9c)), closes [#461](https://github.com/gtms-org/gtms-frontend/issues/461)
 
 ## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.7.0...@gtms/ui@0.7.1) (2020-04-23)
 
