@@ -46,8 +46,12 @@ export const GroupCreateForm: FC<{ onError: () => unknown }> = ({
     } catch (err) {
       if (err.status === 400) {
         const errors = await err.json()
-        Object.keys(errors).forEach((field: string) => {
-          setError(field, 'backend', errors[field].message)
+        Object.keys(errors).forEach((field) => {
+          setError(
+            field as 'name' | 'description',
+            'backend',
+            errors[field].message
+          )
         })
       } else {
         onError()
