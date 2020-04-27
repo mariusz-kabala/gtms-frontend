@@ -9,11 +9,8 @@ export const UserCardMini: FC<{
       <img className={styles.avatar} src={image} alt="user avatar" />
       <div className={styles.desc}>
         <h2 className={styles.nameSurname}>Johnny Silverhand</h2>
+        <span className={styles.members}>205 członków</span>
         <div className={styles.desc}>
-          <p>
-            Id in veniam sunt labore. Adipisicing proident dolor nulla cillum
-            cupidatat. Do sint labore cupidatat.
-          </p>
           <p>
             Id in veniam sunt labore. Adipisicing proident dolor nulla cillum
             cupidatat. Do sint labore cupidatat.

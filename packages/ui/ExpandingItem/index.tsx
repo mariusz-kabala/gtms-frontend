@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, useEffect } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { Overlay } from '../Overlay'
+import { Overlay } from '@gtms/ui/Overlay'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
 import { IoIosClose } from 'react-icons/io'

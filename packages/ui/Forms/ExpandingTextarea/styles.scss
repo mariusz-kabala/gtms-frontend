@@ -4,8 +4,9 @@
   width: 100%;
   height: 100%;
   min-height: 40px;
-  border: 1px solid $theme1;
-  color: $theme5;
+  border: 2px solid $theme3;
+  border-radius: $borderRadius;
+  color: $theme6;
   padding: 5px;
   background: $theme0;
 
@@ -13,7 +14,7 @@
   &:focus,
   &:hover {
     outline: none;
-    border-color: $theme3;
+    border-color: $theme6;
   }
 }
 .hidden {

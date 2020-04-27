@@ -7,12 +7,12 @@
   text-decoration: none; // for <a> elements
   cursor: pointer;
   padding: 15px;
-  background: $theme2;
-  color: $theme5;
+  border-radius: $borderRadius;
+  color: $theme6;
   text-transform: uppercase;
 }
 
 @mixin buttonColorsHoverDefault() {
-  background: $theme3;
-  color: $theme5;
+  background: $theme4;
+  color: $theme6;
 }

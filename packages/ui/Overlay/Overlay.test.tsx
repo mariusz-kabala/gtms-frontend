@@ -9,6 +9,12 @@ describe('<Overlay />', () => {
     expect(getByTestId('overlay')).toBeInTheDocument()
   })
 
+  it('Should add additional css classes', () => {
+    const { container } = render(<Overlay additionalStyles={'testingClass'} />)
+
+    expect(container.querySelector('.testingClass')).toBeInTheDocument()
+  })
+
   it('Should trigger provided callback when clicking on it', () => {
     const callback = jest.fn()
     const { getByTestId } = render(<Overlay onClick={callback} />)
