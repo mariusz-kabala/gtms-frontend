@@ -3,8 +3,6 @@ import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { NFC } from '@gtms/commons/types/nfc.d'
 import { useTranslation } from '@gtms/commons/i18n'
-
-// where I should this one below?
 import { IUserNameData } from '@gtms/commons/types/userAccount'
 
 import { Button } from '@gtms/ui/Button'
