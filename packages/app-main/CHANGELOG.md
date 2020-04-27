@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-main@0.4.3...@gtms/app-main@0.5.0) (2020-04-27)
+
+### Features
+
+- GEOT-212 add search bar ui ([#417](https://github.com/gtms-org/gtms-frontend/issues/417)) ([432f3b7](https://github.com/gtms-org/gtms-frontend/commit/432f3b7a7face895bd9dd06b5f5c0e7c14c03a9c)), closes [#461](https://github.com/gtms-org/gtms-frontend/issues/461)
+
 ## [0.4.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-main@0.4.2...@gtms/app-main@0.4.3) (2020-04-23)
 
 **Note:** Version bump only for package @gtms/app-main
