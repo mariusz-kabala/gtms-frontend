@@ -25,24 +25,20 @@ const GroupPage: NextPage<{}> = () => {
         <Navigation />
       </div>
       <div className={styles.content}>
-        <div className={styles.banner}>
-          <div className={styles.frame}>
-            <div className={styles.desc}>
-              <h2>{t('header')}</h2>
-              <p>
-                Elit excepteur id veniam ea consequat eu excepteur exercitation
-                ullamco nisi sint elit Lorem irure. Exercitation laborum sit
-                proident occaecat dolore pariatur esse tempor fugiat magna
-                incididunt aliquip ullamco.
-              </p>
-              <Button type="submit" additionalStyles={styles.btn}>
-                Add Post
-              </Button>
-              <Button type="submit" additionalStyles={styles.btn}>
-                Zaproś znajomych
-              </Button>
-            </div>
-          </div>
+        <div className={styles.groupHeader}>
+          <h2>{t('header')}</h2>
+          <p>
+            Elit excepteur id veniam ea consequat eu excepteur exercitation
+            ullamco nisi sint elit Lorem irure. Exercitation laborum sit
+            proident occaecat dolore pariatur esse tempor fugiat magna
+            incididunt aliquip ullamco.
+          </p>
+          <Button additionalStyles={styles.btn} type="submit">
+            Add Post
+          </Button>
+          <Button additionalStyles={styles.btn} type="submit">
+            Zaproś znajomych
+          </Button>
         </div>
         <div className={styles.columns}>
           <div className={styles.column}>

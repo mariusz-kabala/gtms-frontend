@@ -25,47 +25,16 @@
     padding: 0 20px;
     color: $theme6;
 
-    .banner {
+    .groupHeader {
       width: 100%;
       margin-bottom: 30px;
 
-      .frame {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        align-items: flex-end;
-        height: 400px;
+      h2 {
+        @include font-weight(bold);
+      }
 
-        .desc {
-          opacity: 0.85;
-          width: 70%;
-
-          h2 {
-            font-size: 55px;
-            @include font-weight(bold);
-          }
-
-          p {
-            font-size: 18px;
-          }
-        }
-
-        &:hover {
-          cursor: pointer;
-
-          .desc {
-            opacity: 1;
-          }
-        }
-
-        .btn {
-          margin-top: 10px;
-          margin-right: 15px;
-          @include buttonDefault();
-          @include buttonColorsHoverDefault(
-
-          ); // @todo it's not hover - refactor it
-        }
+      .btn {
+        @include buttonDefault();
       }
     }
 
