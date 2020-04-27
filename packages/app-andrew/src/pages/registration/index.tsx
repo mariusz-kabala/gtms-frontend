@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
+import styles from './styles.scss'
 import { useState } from 'react'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { userQuery } from '@gtms/state-user'
@@ -7,7 +8,6 @@ import { RegistrationForm } from '../../components/registration/Form'
 import { SocialButtons } from '../../components/login/SocialButtons'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import styles from './styles.scss'
 
 export const RegistrationPage: NextPage<{}> = () => {
   const { t } = useTranslation('registration')
@@ -27,7 +27,7 @@ export const RegistrationPage: NextPage<{}> = () => {
       <div className={styles.left}>
         <div>
           {error && <div data-testid="login-page-error">{t(error)}</div>}
-          <h2>Tempor irure qui exce</h2>
+          <h2>Tempor irure qui exce1</h2>
           <p>
             Tempor irure qui excepteur ipsum excepteur qui pariatur deserunt
             consequat aco nsequat est. Non eiusmod ea non cupidatat occaecat do

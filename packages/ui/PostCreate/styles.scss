@@ -1,0 +1,33 @@
+@import '@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/buttons';
+
+.text {
+  position: relative;
+
+  .avatar {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: flex;
+
+    span {
+      color: $theme4;
+      margin-left: 5px;
+    }
+  }
+
+  textarea {
+    padding-top: 15px;
+    text-indent: 30px;
+    line-height: 1.6em;
+  }
+}
+
+.btn {
+  width: 100%;
+  margin-top: 5px;
+  @include buttonDefault();
+  &:hover {
+    @include buttonColorsHoverDefault();
+  }
+}
