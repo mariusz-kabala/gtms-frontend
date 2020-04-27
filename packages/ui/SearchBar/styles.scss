@@ -1,9 +1,48 @@
 @import '@gtms/styles/scss/variables';
 
 .searchBar {
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 100%;
+
+  .inputWrapper {
+    display: flex;
+    flex-basis: 100%;
+
+    input[type='text'] {
+      display: block;
+      width: 100%;
+      padding-bottom: 5px;
+      border: none;
+      font-size: 14px;
+      background: none;
+      color: #fff;
+      border-bottom: 2px solid #fff;
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+      }
+    }
+
+    .suggestions {
+      position: absolute;
+      left: 0;
+      bottom: -50px;
+      width: 100%;
+      padding: 10px;
+      min-height: 50px;
+      background-color: #fff;
+
+      button.tag {
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
 }
 
 .tags {
@@ -11,53 +50,31 @@
 
   &.independent {
     margin-top: 5px;
-    flex: 1;
-    flex-basis: 100%;
   }
 
-  button.tag {
+  .tag {
     &:first-child {
       margin-left: 0;
     }
   }
 }
 
-button.tag {
-  display: inline-block;
-  padding: 2.5px;
-  border: 1px solid black;
-  margin-left: 3px;
+.tag {
+  background: #595272;
+  color: #fff;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
 
   &:first-child {
     margin-left: 0;
   }
-}
 
-.suggestions {
-  position: absolute;
-  bottom: -35px;
-  min-height: 30px;
-  background-color: #fff;
-  padding: 5px;
-
-  button.tag {
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-}
-
-.inputWrapper {
-  display: flex;
-  flex-basis: 100%;
-  position: relative;
-  input[type='text'] {
-    display: block;
-    width: 100%;
-    padding-bottom: 5px;
-    border: none;
-    background: none;
-    border-bottom: 2px solid black;
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none;
   }
 }
