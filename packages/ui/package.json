@@ -1,12 +1,13 @@
 {
   "name": "@gtms/ui",
-  "version": "0.4.1",
+  "version": "0.7.1",
   "source": "./index.ts",
   "module": "./index.ts",
   "main": "./index.ts",
   "dependencies": {
     "@gtms/commons": "0.2.0",
-    "@gtms/styles": "0.3.0"
+    "@gtms/styles": "0.5.1",
+    "react-use-clipboard": "^1.0.0"
   },
   "scripts": {
     "build": "exit 0",
