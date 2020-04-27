@@ -1,8 +1,8 @@
 {
-  "acceptRules": "Akceptuję warunki",
-  "submitButton": "Zarejestruj się",
-  "header": "Zarejestruj się",
-  "subtitle": "Jedziemy bez focha",
+  "acceptRules": "en:Akceptuję warunki",
+  "submitButton": "en:Zarejestruj się",
+  "header": "en:Zarejestruj się",
+  "subtitle": "en:Jedziemy bez focha",
   "form": {
     "labels": {
       "email": "Email address",
