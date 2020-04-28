@@ -47,15 +47,17 @@ export const SearchResults: FC<{ tempActive?: boolean }> = ({ tempActive }) => (
     <Spinner />
     {tempActive && (
       <ul className={styles.list}>
-        {// @todo create group card element that will be reusable in places like this one
-        movies.map((value, index) => {
-          return (
-            <li key={index}>
-              <img src={value.image} />
-              <h3>{value.title}</h3>
-            </li>
-          )
-        })}
+        {
+          // @todo create group card element that will be reusable in places like this one
+          movies.map((value, index) => {
+            return (
+              <li key={index}>
+                <img src={value.image} />
+                <h3>{value.title}</h3>
+              </li>
+            )
+          })
+        }
       </ul>
     )}
   </div>
