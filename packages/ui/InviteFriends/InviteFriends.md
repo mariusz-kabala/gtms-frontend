@@ -1,0 +1,5 @@
+Basic usage
+
+```
+  <InviteFriends />
+```

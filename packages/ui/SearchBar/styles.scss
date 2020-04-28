@@ -1,17 +1,80 @@
 @import '@gtms/styles/scss/variables';
 
 .searchBar {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  cursor: pointer;
 
-  &:hover {
-    background: $theme4;
+  .inputWrapper {
+    display: flex;
+    flex-basis: 100%;
+
+    input[type='text'] {
+      display: block;
+      width: 100%;
+      padding-bottom: 5px;
+      border: none;
+      font-size: 14px;
+      background: none;
+      color: #fff;
+      border-bottom: 2px solid #fff;
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+      }
+    }
+
+    .suggestions {
+      position: absolute;
+      left: 0;
+      bottom: -50px;
+      width: 100%;
+      padding: 10px;
+      min-height: 50px;
+      background-color: #fff;
+
+      button.tag {
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.tags {
+  display: flex;
+
+  &.independent {
+    margin-top: 5px;
+  }
+
+  .tag {
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.tag {
+  background: #595272;
+  color: #fff;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:first-child {
+    margin-left: 0;
   }
 
   &:active,
-  &:focus {
-    background: $theme2;
+  &:focus,
+  &:hover {
+    outline: none;
   }
 }

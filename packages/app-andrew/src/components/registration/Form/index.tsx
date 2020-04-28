@@ -53,7 +53,11 @@ export const RegistrationForm: FC<{ onError: () => void }> = ({ onError }) => {
       if (err.status === 400) {
         const errors = await err.json()
         Object.keys(errors).forEach((field: string) => {
-          setError(field, 'backend', errors[field].message)
+          setError(
+            field as 'email' | 'password' | 'passwordConfirmation' | 'username',
+            'backend',
+            errors[field].message
+          )
         })
       } else {
         onError()
