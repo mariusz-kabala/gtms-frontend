@@ -1,9 +1,21 @@
 import { useEffect, useState } from 'react'
-import { userQuery } from '@gtms/state-user'
+import { userQuery, init } from '@gtms/state-user'
 
-export function useAuth(): {
+export function useAuth(tokens?: {
+  accessToken?: string
+  refreshToken?: string
+}): {
   isLogged: boolean
 } {
+  if (tokens && tokens.accessToken && tokens.refreshToken) {
+    init(
+      tokens as {
+        accessToken: string
+        refreshToken: string
+      }
+    )
+  }
+
   const [isLogged, setIsLogged] = useState<boolean>(userQuery.isLogged())
 
   useEffect(() => {

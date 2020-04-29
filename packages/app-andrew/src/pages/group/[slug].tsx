@@ -1,30 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import styles from './styles.scss'
-import { NextPage } from 'next'
+import { NextPage, NextPageContext } from 'next'
 import { Link } from '@gtms/commons/i18n'
 import { useTranslation } from '@gtms/commons/i18n'
-// import { Button } from '@gtms/ui/Button'
-import { useRouter } from 'next/router'
 import { Navigation } from '@gtms/ui/Navigation'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { UserCardMini } from '@gtms/ui/UserCardMini'
-import { groupQuery, IGroupStore, getGroup } from '@gtms/state-group'
+import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
 import { Spinner } from '@gtms/ui'
 import { GroupDescription } from '../../components/groups/GroupDescription'
 import { useAuth } from '@gtms/commons/hooks/auth'
+import { initAuthSession } from '@gtms/commons/helpers/auth'
 
-const GroupPage: NextPage<{}> = () => {
+type GroupPageProps = {
+  namespacesRequired: readonly string[]
+  group: IGroupStore
+  auth?: {
+    accessToken?: string
+    refreshToken?: string
+  }
+}
+
+const GroupPage: NextPage<GroupPageProps> = (props) => {
   const { t } = useTranslation('groupPage')
-  const router = useRouter()
-  const { slug } = router.query
-  const [group, setGroup] = useState<IGroupStore>(groupQuery.getValue())
-  const { isLogged } = useAuth()
+  const [group, setGroup] = useState<IGroupStore>(props.group)
+  const { isLogged } = useAuth(props.auth)
 
   useEffect(() => {
-    getGroup(slug as string)
-
+    initGroup(props.group)
     const groupSub = groupQuery.allState$.subscribe((value) => setGroup(value))
 
     return () => {
@@ -147,8 +152,29 @@ const GroupPage: NextPage<{}> = () => {
   )
 }
 
-GroupPage.getInitialProps = () => {
-  return Promise.resolve({ namespacesRequired: ['groupPage', 'postCreate'] })
+GroupPage.getInitialProps = (
+  ctx: NextPageContext
+): Promise<{
+  namespacesRequired: string[]
+  auth: {
+    accessToken?: string
+    refreshToken?: string
+  }
+  group: IGroupStore
+}> => {
+  const { slug } = ctx?.query
+
+  return Promise.all([initAuthSession(ctx), getGroup(slug as string)]).then(
+    (results) => {
+      const [auth] = results
+
+      return {
+        namespacesRequired: ['groupPage', 'postCreate'],
+        auth,
+        group: groupQuery.getValue(),
+      }
+    }
+  )
 }
 
 export default GroupPage

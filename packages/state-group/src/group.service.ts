@@ -6,7 +6,7 @@ import {
   updateGroupAPI,
   IGroupData,
 } from '@gtms/api-group'
-import { groupStore } from './group.store'
+import { groupStore, IGroupStore } from './group.store'
 import { IGroup } from './group.model'
 import { GroupType, GroupVisibility } from '@gtms/commons'
 
@@ -24,6 +24,8 @@ export const createNewGroup = async (payload: {
 
   return response
 }
+
+export const initGroup = (data: IGroupStore) => groupStore.update(data)
 
 export const getGroup = async (slug: string) => {
   groupStore.update({
