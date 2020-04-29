@@ -1,32 +1,16 @@
-import React, { FC, ReactNode, useState, useEffect } from 'react'
-import { UserAvatar } from '@gtms/ui/UserAvatar'
-import { IconType } from 'react-icons/lib/cjs/iconBase'
+import React, { FC, useState, useEffect } from 'react'
 import cx from 'classnames'
+import { UserAvatar } from '@gtms/ui/UserAvatar'
+import { MenuItemProps } from './MenuItem'
+
 import styles from './styles.scss'
-
-interface MenuItemProps {
-  Icon: IconType
-  Content: ReactNode
-  isExpanded?: boolean
-}
-
-export const MenuItem: FC<MenuItemProps> = ({ Icon, Content }) => {
-  return (
-    <div className={styles.sideMenuItem}>
-      <div className={styles.icon}>
-        <Icon size={20} />
-      </div>
-
-      <div className={styles.link}>{Content}</div>
-    </div>
-  )
-}
 
 export const SideMenu: FC<{
   children: React.ReactElement<MenuItemProps>[]
   isExpanded?: boolean
   onToggleExpand?: (isExpanded: boolean) => void
-}> = ({ children, isExpanded, onToggleExpand }) => {
+  additionalStyles?: string
+}> = ({ children, isExpanded, onToggleExpand, additionalStyles }) => {
   const [isMenuExpanded, setIsMenuExpanded] = useState<boolean>(false)
 
   const toggleMenu = () => {
@@ -45,15 +29,12 @@ export const SideMenu: FC<{
     }
   }, [isExpanded])
 
-  // const childrenWithProps = React.Children.map(children, (child) =>
-  //   React.cloneElement(child, {
-  //     toggleMenu: (isMenuExpanded: boolean) =>
-  //       setIsMenuExpanded(!isMenuExpanded),
-  //   })
-  // )
-
   return (
-    <div className={cx(styles.sideMenu, { [styles.expanded]: isMenuExpanded })}>
+    <div
+      className={cx(styles.sideMenu, additionalStyles, {
+        [styles.expanded]: isMenuExpanded,
+      })}
+    >
       <UserAvatar
         image="/images/temp_images/side_bar_logo.png"
         onClick={toggleMenu}

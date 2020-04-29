@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './styles.scss'
 import { NextPage } from 'next'
 import { Button } from '@gtms/ui/Button'
@@ -6,49 +6,14 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { UserCardMini } from '@gtms/ui/UserCardMini'
-import { SideMenu, MenuItem } from '@gtms/ui/SideMenu'
-import {
-  IoMdHome,
-  IoIosKeypad,
-  IoIosBody,
-  IoMdSettings,
-  IoMdAdd,
-  IoMdBuild,
-  IoMdBonfire,
-} from 'react-icons/io'
+import { GroupSideMenu } from './GroupSideMenu'
 
 const GroupPage: NextPage<{}> = () => {
   const { t } = useTranslation('groupPage')
-  const [isSiteMenuExpanded, toggleSideMenu] = useState<boolean>(false)
-
-  const onToggleSideMenu = (isSideMenuExpanded: boolean) => {
-    toggleSideMenu(isSideMenuExpanded)
-  }
 
   return (
     <div className={styles.wrapper}>
-      <SideMenu
-        isExpanded={isSiteMenuExpanded}
-        onToggleExpand={onToggleSideMenu}
-      >
-        <MenuItem Icon={IoMdHome} Content={<div>Home</div>} />
-        {/*<MenuItem
-          Icon={IoIosKeypad}
-          Content={<div onClick={() => alert('On Item Click')}>Posts</div>}
-        />
-        <MenuItem Icon={IoIosBody} Content={<div>Tags</div>} />
-        <MenuItem Icon={IoMdSettings} Content={<div>Group Settings</div>} />
-        <MenuItem Icon={IoMdAdd} Content={<div>Invite freinds</div>} />
-        <MenuItem Icon={IoMdBuild} Content={<div>Lorem ipsum</div>} />
-        <MenuItem
-          Icon={IoMdBonfire}
-          Content={
-            <div onClick={() => toggleSideMenu(!isSiteMenuExpanded)}>
-              Toggle Side Menu from outsite
-            </div>
-          }
-        />*/}
-      </SideMenu>
+      <GroupSideMenu />
 
       <div className={styles.content}>
         <div className={styles.banner}>
