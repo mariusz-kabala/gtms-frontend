@@ -45,12 +45,20 @@ export const ExpandingTextarea: FC<{
   name?: string
   placeholder?: string
   rows?: number
+  defaultValue?: string
   reference?: (
     ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
   ) => void
-}> = ({ additionalStyles, name, placeholder, reference, rows = 10 }) => {
+}> = ({
+  additionalStyles,
+  name,
+  placeholder,
+  reference,
+  rows = 10,
+  defaultValue = '',
+}) => {
   const ref = createRef<HTMLTextAreaElement>()
-  const [value, setValue] = useState<string>('')
+  const [value, setValue] = useState<string>(defaultValue)
 
   useEffect(() => {
     resize(rows, ref.current)
@@ -77,6 +85,7 @@ export const ExpandingTextarea: FC<{
         className={cx(styles.textarea, additionalStyles)}
         data-testid="form-expanding-textarea"
         name={name}
+        defaultValue={defaultValue}
         onInput={handleInput}
         rows={rows}
         placeholder={placeholder}

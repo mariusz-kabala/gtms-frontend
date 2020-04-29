@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators'
 import { combineLatest, Observable } from 'rxjs'
 
 export class UserQuery extends Query<IUserStore> {
+  public id = (values = this.getValue()): string | undefined => values.id
   public hasData$: Observable<boolean> = this.select((values) =>
     this.hasData(values)
   )

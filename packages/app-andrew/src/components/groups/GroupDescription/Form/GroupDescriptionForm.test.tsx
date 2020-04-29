@@ -23,7 +23,14 @@ describe('<GroupDescriptionForm />', () => {
   })
 
   it('Should be on the page', () => {
-    const { getByTestId } = render(<GroupDescriptionForm onError={jest.fn()} />)
+    const { getByTestId } = render(
+      <GroupDescriptionForm
+        text={'example'}
+        slug={'slug'}
+        onSuccess={jest.fn()}
+        onError={jest.fn()}
+      />
+    )
 
     expect(getByTestId('group-description-form')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('groupDescription')
@@ -31,7 +38,12 @@ describe('<GroupDescriptionForm />', () => {
 
   it('Should have all required fields', () => {
     const { getByPlaceholderText, getByText } = render(
-      <GroupDescriptionForm onError={jest.fn()} />
+      <GroupDescriptionForm
+        text={'example'}
+        slug={'slug'}
+        onSuccess={jest.fn()}
+        onError={jest.fn()}
+      />
     )
 
     expect(getByPlaceholderText('form.labels.description')).toBeInTheDocument()
@@ -40,7 +52,12 @@ describe('<GroupDescriptionForm />', () => {
 
   it('Should not display any errors when just loaded', () => {
     const { queryByTestId } = render(
-      <GroupDescriptionForm onError={jest.fn()} />
+      <GroupDescriptionForm
+        text={'example'}
+        slug={'slug'}
+        onSuccess={jest.fn()}
+        onError={jest.fn()}
+      />
     )
 
     expect(queryByTestId('form-error')).toBeNull()
@@ -60,7 +77,14 @@ describe('<GroupDescriptionForm />', () => {
       }
     })
 
-    const { getByText } = render(<GroupDescriptionForm onError={jest.fn()} />)
+    const { getByText } = render(
+      <GroupDescriptionForm
+        text={'example'}
+        slug={'slug'}
+        onSuccess={jest.fn()}
+        onError={jest.fn()}
+      />
+    )
 
     expect(
       getByText('form.validation.description.isRequired')
@@ -83,7 +107,14 @@ describe('<GroupDescriptionForm />', () => {
     })
 
     act(() => {
-      render(<GroupDescriptionForm onError={jest.fn()} />)
+      render(
+        <GroupDescriptionForm
+          onError={jest.fn()}
+          text={'example'}
+          slug={'slug'}
+          onSuccess={jest.fn()}
+        />
+      )
 
       onSubmit({})
     })

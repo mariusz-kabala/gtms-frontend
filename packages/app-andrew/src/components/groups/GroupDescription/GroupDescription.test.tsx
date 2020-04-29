@@ -4,14 +4,18 @@ import { GroupDescription } from './index'
 
 describe('<GroupDescription />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<GroupDescription />)
+    const { getByTestId } = render(
+      <GroupDescription isEditAllowed={true} text={'example'} slug={'slug'} />
+    )
 
     expect(getByTestId('group-edit-description')).toBeInTheDocument()
     expect(getByTestId('expanding-item')).toBeInTheDocument()
   })
 
   it('Should open edit mode of group description when clicked on <GroupDescription /> ', () => {
-    const { getByTestId } = render(<GroupDescription />)
+    const { getByTestId } = render(
+      <GroupDescription isEditAllowed={true} text={'example'} slug={'slug'} />
+    )
 
     fireEvent.click(getByTestId('group-edit-description'))
 
@@ -26,7 +30,9 @@ describe('<GroupDescription />', () => {
       events[event] = cb
     })
 
-    const { getByTestId, queryByTestId } = render(<GroupDescription />)
+    const { getByTestId, queryByTestId } = render(
+      <GroupDescription isEditAllowed={true} text={'example'} slug={'slug'} />
+    )
 
     expect(document.addEventListener).toBeCalled()
 
@@ -46,7 +52,9 @@ describe('<GroupDescription />', () => {
   })
 
   it('Should close edit mode when user cancel editing by clicking on Overlay', () => {
-    const { getByTestId, queryByTestId } = render(<GroupDescription />)
+    const { getByTestId, queryByTestId } = render(
+      <GroupDescription isEditAllowed={true} text={'example'} slug={'slug'} />
+    )
 
     fireEvent.click(getByTestId('group-edit-description'))
 

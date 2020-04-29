@@ -4,23 +4,38 @@ import { GroupDescriptionForm } from './Form'
 
 export const GroupDescription: FC<{
   additionalStyles?: string
-}> = ({ additionalStyles }) => {
+  text: string
+  slug: string
+  isEditAllowed: boolean // if its not allowed - cursor != pointer - fix css and remove comment
+}> = ({ additionalStyles, text, slug, isEditAllowed }) => {
   const [isEditModeActive, setIsEditModeActive] = useState<boolean>(false)
 
   return (
     <div
       className={additionalStyles}
       data-testid="group-edit-description"
-      onClick={() => (!isEditModeActive ? setIsEditModeActive(true) : null)}
+      onClick={() => {
+        if (isEditAllowed && !isEditModeActive) {
+          setIsEditModeActive(true)
+        }
+      }}
     >
       <ExpandingItem
         isActive={isEditModeActive}
-        label="Here should be group description that is already added, it it's empty it should say add your group description"
+        label={text}
         onClose={() => {
           setIsEditModeActive(false)
         }}
       >
-        <GroupDescriptionForm onError={() => null} />
+        <GroupDescriptionForm
+          text={text}
+          slug={slug}
+          onSuccess={() => setIsEditModeActive(false)}
+          onError={() => {
+            setIsEditModeActive(false)
+            // here is place where we should display an error to user - where is global notification system??
+          }}
+        />
       </ExpandingItem>
     </div>
   )

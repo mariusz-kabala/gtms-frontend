@@ -4,15 +4,20 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Button } from '@gtms/ui/Button'
+import { updateGroup } from '@gtms/state-group'
+import { Spinner } from '@gtms/ui'
 import styles from './styles.scss'
 
 interface IFromData {
   description: string
 }
 
-export const GroupDescriptionForm: FC<{ onError: () => unknown }> = ({
-  onError,
-}) => {
+export const GroupDescriptionForm: FC<{
+  slug: string
+  text?: string
+  onError: () => unknown
+  onSuccess: () => unknown
+}> = ({ onError, onSuccess, slug, text = '' }) => {
   const { t } = useTranslation('groupDescription')
   const { register, handleSubmit, errors, setError } = useForm<IFromData>()
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
@@ -34,6 +39,9 @@ export const GroupDescriptionForm: FC<{ onError: () => unknown }> = ({
     setIsMakingRequest(true)
 
     try {
+      await updateGroup(data, slug)
+
+      onSuccess()
     } catch (err) {
       if (err.status === 400) {
         const errors = await err.json()
@@ -44,6 +52,8 @@ export const GroupDescriptionForm: FC<{ onError: () => unknown }> = ({
         onError()
       }
     }
+
+    setIsMakingRequest(false)
   }
 
   return (
@@ -56,6 +66,7 @@ export const GroupDescriptionForm: FC<{ onError: () => unknown }> = ({
       <ExpandingTextarea
         placeholder={t('form.labels.description')}
         name="description"
+        defaultValue={text}
         reference={register({ required: true })}
       />
       {errors.description && errors.description.type === 'required' && (
@@ -71,6 +82,7 @@ export const GroupDescriptionForm: FC<{ onError: () => unknown }> = ({
       >
         {t('form.submitButton')}
       </Button>
+      {isMakingRequest && <Spinner />}
     </form>
   )
 }

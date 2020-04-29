@@ -3,7 +3,7 @@ const database = require('./db/groups')
 module.exports = {
   path: '/api/v1/groups/:slug',
   delay: 1500,
-  method: 'GET',
+  method: 'POST',
   status: (req, res, next) => {
     if (['woodstock', 'brudstock'].includes(req.params.slug)) {
       res.status(404)
@@ -16,6 +16,12 @@ module.exports = {
       return
     }
 
-    return database[params.slug] || database.owsiak
+    const record = database[params.slug] || database.owsiak
+
+    return Object.keys(record).reduce((newRecord, field) => {
+      newRecord[field] = body[field] || record[field]
+
+      return newRecord
+    }, {})
   },
 }

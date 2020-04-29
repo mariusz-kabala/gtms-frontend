@@ -7,6 +7,7 @@ import { Error } from '@gtms/ui/Forms/Error'
 import { Button } from '@gtms/ui/Button'
 import { createNewGroup } from '@gtms/state-group'
 import { IGroupCreateResponse } from '@gtms/api-group'
+import { Spinner } from '@gtms/ui'
 
 interface IFromData {
   name: string
@@ -78,6 +79,7 @@ export const GroupCreateForm: FC<{
       >
         {t('form.submitButton')}
       </Button>
+      {isMakingRequest && <Spinner />}
     </form>
   )
 }

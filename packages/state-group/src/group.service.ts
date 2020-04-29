@@ -3,6 +3,8 @@ import {
   createGroupAPI,
   IGroupCreateResponse,
   fetchGroupDetails,
+  updateGroupAPI,
+  IGroupData,
 } from '@gtms/api-group'
 import { groupStore } from './group.store'
 import { IGroup } from './group.model'
@@ -63,4 +65,12 @@ export const getGroup = async (slug: string) => {
         break
     }
   }
+}
+
+export const updateGroup = async (data: IGroupData, slug: string) => {
+  const group = (await updateGroupAPI(data, slug)) as IGroup
+
+  groupStore.update({
+    group,
+  })
 }
