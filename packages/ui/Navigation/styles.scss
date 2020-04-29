@@ -1,8 +1,10 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/zIndex';
 
 .wrapper {
   width: 100%;
+  @include z-index(navigationDot);
 
   // @todo make it expandable - it's so obvious it doesn't need a task and remove these lines
   max-width: 45px;

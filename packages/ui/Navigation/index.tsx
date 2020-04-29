@@ -19,37 +19,37 @@ export const Navigation: FC<{}> = () => {
       id: 0,
       label: 'Main Page',
       icon: <IoIosTennisball />,
-      url: '/',
+      url: '/account',
     },
     {
       id: 1,
       label: 'Posts',
       icon: <IoIosNavigate />,
-      url: '/',
+      url: '/group/owsiak',
     },
     {
       id: 2,
       label: 'Users',
       icon: <IoIosCart />,
-      url: '/',
+      url: '/group-members',
     },
     {
       id: 3,
       label: 'Settings',
       icon: <IoIosCloudUpload />,
-      url: '/',
+      url: '/group-settings',
     },
     {
       id: 4,
       label: 'Invite friends',
       icon: <IoIosCompass />,
-      url: '/',
+      url: '/group-tags',
     },
     {
       id: 5,
       label: 'Invite friends',
       icon: <IoIosFingerPrint />,
-      url: '/',
+      url: '/search',
     },
   ]
 
