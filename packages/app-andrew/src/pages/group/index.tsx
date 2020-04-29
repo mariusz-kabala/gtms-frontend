@@ -6,7 +6,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { UserCardMini } from '@gtms/ui/UserCardMini'
-import { GroupSideMenu } from './GroupSideMenu'
+import { GroupSideMenu } from './GroupSideMenu/index'
 
 const GroupPage: NextPage<{}> = () => {
   const { t } = useTranslation('groupPage')

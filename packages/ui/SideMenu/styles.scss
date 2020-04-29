@@ -7,6 +7,10 @@
   width: 40px;
   transition: all ease 0.3s;
 
+  .menuLogo {
+    height: 60px;
+  }
+
   .avatar {
     padding: 3px;
     max-width: 40px;
@@ -26,7 +30,6 @@
   .sideMenuItem {
     display: flex;
     align-items: center;
-    cursor: pointer;
 
     .icon {
       height: 40px;
@@ -37,6 +40,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
     }
 
     .link {
@@ -44,6 +48,8 @@
       left: -250px;
       transition: all ease 0.2s;
       max-width: 145px;
+      min-width: 130px;
+      cursor: pointer;
     }
   }
 }

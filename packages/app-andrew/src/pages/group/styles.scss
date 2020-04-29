@@ -10,23 +10,8 @@
   display: flex;
   height: 100%;
 
-  .navigation {
-    // @include sideMenu()
-    // color: white;
-    // display: flex;
-    // flex-direction: column;
-    // // max-width: 45px;
-    // background: $theme0;
-    //
-    // .avatar {
-    //   max-width: none;
-    //   padding: 5px;
-    // }
-  }
-
   .content {
     position: relative;
-    // width: 100%;
     color: $theme5;
 
     .banner {

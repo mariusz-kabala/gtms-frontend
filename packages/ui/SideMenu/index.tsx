@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, ReactNode } from 'react'
 import cx from 'classnames'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { MenuItemProps } from './MenuItem'
@@ -7,10 +7,19 @@ import styles from './styles.scss'
 
 export const SideMenu: FC<{
   children: React.ReactElement<MenuItemProps>[]
+  menuLogoPath: string
+  menuHeader: ReactNode
   isExpanded?: boolean
   onToggleExpand?: (isExpanded: boolean) => void
   additionalStyles?: string
-}> = ({ children, isExpanded, onToggleExpand, additionalStyles }) => {
+}> = ({
+  children,
+  menuHeader,
+  isExpanded,
+  onToggleExpand,
+  additionalStyles,
+  menuLogoPath,
+}) => {
   const [isMenuExpanded, setIsMenuExpanded] = useState<boolean>(false)
 
   const toggleMenu = () => {
@@ -35,12 +44,19 @@ export const SideMenu: FC<{
         [styles.expanded]: isMenuExpanded,
       })}
     >
-      <UserAvatar
-        image="/images/temp_images/side_bar_logo.png"
-        onClick={toggleMenu}
-        additionalStyles={styles.avatar}
-      />
-      <div className={styles.menuItems}>{children}</div>
+      <div className={styles.menuItems}>
+        <div className={cx(styles.sideMenuItem, styles.menuLogo)}>
+          <div className={styles.icon}>
+            <UserAvatar
+              image={menuLogoPath}
+              onClick={toggleMenu}
+              additionalStyles={styles.avatar}
+            />
+          </div>
+          <div className={styles.link}>{menuHeader}</div>
+        </div>
+        {children}
+      </div>
     </div>
   )
 }
