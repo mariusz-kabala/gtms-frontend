@@ -4,6 +4,7 @@ import { IGroup } from './group.model'
 export interface IGroupStore {
   isLoading: boolean
   hasNoAccess: boolean
+  notFound: boolean
   errorOccured: boolean
   group: IGroup | null
 }
@@ -13,6 +14,7 @@ export class GroupsStore extends Store<IGroupStore> {
     super({
       isLoading: true,
       hasNoAccess: false,
+      notFound: false,
       errorOccured: false,
       group: null,
     })

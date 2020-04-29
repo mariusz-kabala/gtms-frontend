@@ -23,7 +23,9 @@ describe('<GroupCreateForm />', () => {
   })
 
   it('Should be on the page', () => {
-    const { getByTestId } = render(<GroupCreateForm onError={jest.fn()} />)
+    const { getByTestId } = render(
+      <GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />
+    )
 
     expect(getByTestId('group-create-form')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('groupCreate')
@@ -31,7 +33,7 @@ describe('<GroupCreateForm />', () => {
 
   it('Should have all required fields', () => {
     const { getByPlaceholderText, getByText } = render(
-      <GroupCreateForm onError={jest.fn()} />
+      <GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />
     )
 
     expect(getByPlaceholderText('form.labels.name')).toBeInTheDocument()
@@ -39,7 +41,9 @@ describe('<GroupCreateForm />', () => {
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { queryByTestId } = render(<GroupCreateForm onError={jest.fn()} />)
+    const { queryByTestId } = render(
+      <GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />
+    )
 
     expect(queryByTestId('form-error')).toBeNull()
   })
@@ -58,7 +62,9 @@ describe('<GroupCreateForm />', () => {
       }
     })
 
-    const { getByText } = render(<GroupCreateForm onError={jest.fn()} />)
+    const { getByText } = render(
+      <GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />
+    )
 
     expect(getByText('form.validation.name.isRequired')).toBeInTheDocument()
   })
@@ -79,7 +85,7 @@ describe('<GroupCreateForm />', () => {
     })
 
     act(() => {
-      render(<GroupCreateForm onError={jest.fn()} />)
+      render(<GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />)
 
       onSubmit({})
     })
@@ -113,7 +119,7 @@ describe('<GroupCreateForm />', () => {
       }
     })
 
-    render(<GroupCreateForm onError={jest.fn()} />)
+    render(<GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />)
 
     await act(async () => {
       await onSubmit({
@@ -147,7 +153,7 @@ describe('<GroupCreateForm />', () => {
       }
     })
 
-    render(<GroupCreateForm onError={onError} />)
+    render(<GroupCreateForm onError={onError} onSuccess={jest.fn()} />)
 
     await act(async () => {
       await onSubmit({
