@@ -1,0 +1,49 @@
+@import '~@gtms/styles/scss/variables.scss';
+
+.sideMenu {
+  height: 100%;
+  background: #201a24;
+  color: white;
+  width: 40px;
+  transition: all ease 0.3s;
+
+  .avatar {
+    padding: 3px;
+    max-width: 40px;
+    background-color: $theme0;
+  }
+
+  &.expanded {
+    width: 200px;
+
+    .sideMenuItem {
+      .link {
+        left: 50px;
+      }
+    }
+  }
+
+  .sideMenuItem {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .icon {
+      height: 40px;
+      width: 40px;
+      z-index: 1;
+      background: #201a24;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .link {
+      position: absolute;
+      left: -250px;
+      transition: all ease 0.2s;
+      max-width: 145px;
+    }
+  }
+}

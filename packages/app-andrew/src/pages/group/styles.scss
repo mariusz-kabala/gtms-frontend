@@ -4,25 +4,29 @@
 @import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
+@import '~@gtms/ui/SideMenu/styles.scss';
+
 .wrapper {
   display: flex;
   height: 100%;
 
   .navigation {
-    display: flex;
-    flex-direction: column;
-    max-width: 45px;
-    background: $theme0;
-
-    .avatar {
-      max-width: none;
-      padding: 5px;
-    }
+    // @include sideMenu()
+    // color: white;
+    // display: flex;
+    // flex-direction: column;
+    // // max-width: 45px;
+    // background: $theme0;
+    //
+    // .avatar {
+    //   max-width: none;
+    //   padding: 5px;
+    // }
   }
 
   .content {
     position: relative;
-    width: 100%;
+    // width: 100%;
     color: $theme5;
 
     .banner {

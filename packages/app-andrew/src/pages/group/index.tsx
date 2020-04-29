@@ -1,29 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './styles.scss'
 import { NextPage } from 'next'
 import { Button } from '@gtms/ui/Button'
-import { Link } from '@gtms/commons/i18n'
 import { useTranslation } from '@gtms/commons/i18n'
-import { Navigation } from '@gtms/ui/Navigation'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostSingle } from '@gtms/ui/PostSingle'
-import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { UserCardMini } from '@gtms/ui/UserCardMini'
+import { SideMenu, MenuItem } from '@gtms/ui/SideMenu'
+import {
+  IoMdHome,
+  IoIosKeypad,
+  IoIosBody,
+  IoMdSettings,
+  IoMdAdd,
+  IoMdBuild,
+  IoMdBonfire,
+} from 'react-icons/io'
 
 const GroupPage: NextPage<{}> = () => {
   const { t } = useTranslation('groupPage')
+  const [isSiteMenuExpanded, toggleSideMenu] = useState<boolean>(false)
+
+  const onToggleSideMenu = (isSideMenuExpanded: boolean) => {
+    toggleSideMenu(isSideMenuExpanded)
+  }
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.navigation}>
-        <Link href="/account">
-          <UserAvatar
-            additionalStyles={styles.avatar}
-            image="/images/temp_images/avatar-1.png"
-          />
-        </Link>
-        <Navigation />
-      </div>
+      <SideMenu
+        isExpanded={isSiteMenuExpanded}
+        onToggleExpand={onToggleSideMenu}
+      >
+        <MenuItem Icon={IoMdHome} Content={<div>Home</div>} />
+        {/*<MenuItem
+          Icon={IoIosKeypad}
+          Content={<div onClick={() => alert('On Item Click')}>Posts</div>}
+        />
+        <MenuItem Icon={IoIosBody} Content={<div>Tags</div>} />
+        <MenuItem Icon={IoMdSettings} Content={<div>Group Settings</div>} />
+        <MenuItem Icon={IoMdAdd} Content={<div>Invite freinds</div>} />
+        <MenuItem Icon={IoMdBuild} Content={<div>Lorem ipsum</div>} />
+        <MenuItem
+          Icon={IoMdBonfire}
+          Content={
+            <div onClick={() => toggleSideMenu(!isSiteMenuExpanded)}>
+              Toggle Side Menu from outsite
+            </div>
+          }
+        />*/}
+      </SideMenu>
+
       <div className={styles.content}>
         <div className={styles.banner}>
           <div className={styles.frame}>
