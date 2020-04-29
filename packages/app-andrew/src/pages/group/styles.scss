@@ -8,17 +8,6 @@
   display: flex;
   height: 100%;
 
-  .navigation {
-    display: flex;
-    flex-direction: column;
-    max-width: 45px;
-    background: $theme1;
-
-    .avatar {
-      max-width: none;
-    }
-  }
-
   .content {
     position: relative;
     width: 100%;

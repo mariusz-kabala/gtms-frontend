@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
-import { Link } from '@gtms/commons/i18n'
 import { useTranslation } from '@gtms/commons/i18n'
-import { Navigation } from '@gtms/ui/Navigation'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostSingle } from '@gtms/ui/PostSingle'
-import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { UserCardMini } from '@gtms/ui/UserCardMini'
 import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
 import { Spinner } from '@gtms/ui'
@@ -39,15 +36,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.navigation}>
-        <Link href="/account">
-          <UserAvatar
-            additionalStyles={styles.avatar}
-            image="/images/temp_images/avatar-1.png"
-          />
-        </Link>
-        <Navigation />
-      </div>
       <div className={styles.content}>
         <div className={styles.groupHeader}>
           <h2>{group.group?.name}</h2>

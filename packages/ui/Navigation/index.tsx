@@ -1,6 +1,9 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
+import { useAuth } from '@gtms/commons/hooks/auth'
+import { UserAvatar } from '@gtms/ui/UserAvatar'
+
 import {
   IoIosTennisball,
   IoIosNavigate,
@@ -50,9 +53,17 @@ export const Navigation: FC<{}> = () => {
     },
   ]
 
-  return (
-    <nav className={styles.wrapper} data-testid="navigation">
-      <div>
+  const { isLogged } = useAuth()
+
+  return !isLogged ? (
+    <div className={styles.wrapper}>
+      <Link href="/account">
+        <UserAvatar
+          additionalStyles={styles.avatar}
+          image="/images/temp_images/avatar-1.png"
+        />
+      </Link>
+      <nav className={styles.navigation} data-testid="navigation">
         <ul>
           {links.map((value, index) => {
             return (
@@ -67,7 +78,7 @@ export const Navigation: FC<{}> = () => {
             )
           })}
         </ul>
-      </div>
-    </nav>
-  )
+      </nav>
+    </div>
+  ) : null
 }

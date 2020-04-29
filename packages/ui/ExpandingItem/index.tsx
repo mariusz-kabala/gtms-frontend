@@ -14,12 +14,17 @@ export const ExpandingItem: FC<{
   isActive: boolean
 }> = ({ additionalStyles, children, isActive, label, onClose }) => {
   useEffect(() => {
-    disableBodyScroll(document.body)
+    if (isActive) {
+      disableBodyScroll(document.body)
+    }
+  })
 
-    return () => enableBodyScroll(document.body)
-  }, [])
+  const closeActiveMode = () => {
+    onClose()
+    enableBodyScroll(document.body)
+  }
 
-  useKey(() => onClose(), {
+  useKey(() => closeActiveMode(), {
     detectKeys: [27],
   })
 
@@ -33,13 +38,13 @@ export const ExpandingItem: FC<{
       </span>
       {isActive && (
         <>
-          <i onClick={onClose}>
+          <i onClick={closeActiveMode}>
             <IoIosClose />
           </i>
           <div data-testid="expanding-item-content" className={styles.content}>
             {children}
           </div>
-          <Overlay onClick={onClose} />
+          <Overlay onClick={closeActiveMode} />
         </>
       )}
     </div>
