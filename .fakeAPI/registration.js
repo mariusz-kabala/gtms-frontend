@@ -11,7 +11,7 @@ module.exports = {
 
     next()
   },
-  template: (params, query, body) => {
+  template: (_params, _query, body) => {
     if (body.email === 'test@geotags.pl') {
       return {
         email: {

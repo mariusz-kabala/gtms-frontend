@@ -1,12 +1,21 @@
-import { EntityState, EntityStore, StoreConfig } from '@datorama/akita'
+import { Store, StoreConfig } from '@datorama/akita'
 import { IGroup } from './group.model'
 
-export type IGroupStore = EntityState<IGroup, number>
-
+export interface IGroupStore {
+  isLoading: boolean
+  hasNoAccess: boolean
+  errorOccured: boolean
+  group: IGroup | null
+}
 @StoreConfig({ name: 'groups' })
-export class GroupsStore extends EntityStore<IGroupStore> {
+export class GroupsStore extends Store<IGroupStore> {
   constructor() {
-    super()
+    super({
+      isLoading: true,
+      hasNoAccess: false,
+      errorOccured: false,
+      group: null,
+    })
   }
 }
 

@@ -6,15 +6,16 @@ import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Button } from '@gtms/ui/Button'
 import { createNewGroup } from '@gtms/state-group'
+import { IGroupCreateResponse } from '@gtms/api-group'
 
 interface IFromData {
-  description: string
   name: string
 }
 
-export const GroupCreateForm: FC<{ onError: () => unknown }> = ({
-  onError,
-}) => {
+export const GroupCreateForm: FC<{
+  onError: () => unknown
+  onSuccess: (group: IGroupCreateResponse) => unknown
+}> = ({ onError, onSuccess }) => {
   const { t } = useTranslation('groupCreate')
   const { register, handleSubmit, errors, setError } = useForm<IFromData>()
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
@@ -36,16 +37,14 @@ export const GroupCreateForm: FC<{ onError: () => unknown }> = ({
     setIsMakingRequest(true)
 
     try {
-      await createNewGroup(data)
+      const response: IGroupCreateResponse = await createNewGroup(data)
+
+      onSuccess(response)
     } catch (err) {
       if (err.status === 400) {
         const errors = await err.json()
         Object.keys(errors).forEach((field) => {
-          setError(
-            field as 'name' | 'description',
-            'backend',
-            errors[field].message
-          )
+          setError(field as 'name', 'backend', errors[field].message)
         })
       } else {
         onError()
@@ -69,7 +68,7 @@ export const GroupCreateForm: FC<{ onError: () => unknown }> = ({
       {errors.name && errors.name.type === 'required' && (
         <Error text={t('form.validation.name.isRequired')} />
       )}
-      {errors.name && errors.name.type === 'required' && (
+      {errors.name && errors.name.type === 'backend' && (
         <Error text={errors.name.message as string} />
       )}
       <Button

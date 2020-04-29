@@ -2,12 +2,15 @@ import {
   IGroupCreateData,
   createGroupAPI,
   IGroupCreateResponse,
+  fetchGroupDetails,
 } from '@gtms/api-group'
+import { groupStore } from './group.store'
+import { IGroup } from './group.model'
 import { GroupType, GroupVisibility } from '@gtms/commons'
 
 export const createNewGroup = async (payload: {
   name: string
-  description: string
+  description?: string
 }): Promise<IGroupCreateResponse> => {
   const data: IGroupCreateData = {
     ...payload,
@@ -18,4 +21,46 @@ export const createNewGroup = async (payload: {
   const response = await createGroupAPI(data)
 
   return response
+}
+
+export const getGroup = async (slug: string) => {
+  groupStore.update({
+    isLoading: true,
+    hasNoAccess: false,
+    notFound: false,
+    errorOccured: false,
+    group: null,
+  })
+
+  try {
+    const group = (await fetchGroupDetails(slug)) as IGroup
+
+    groupStore.update({
+      isLoading: false,
+      group,
+    })
+  } catch (res) {
+    switch (res.status) {
+      case 401:
+        groupStore.update({
+          isLoading: false,
+          hasNoAccess: true,
+        })
+        break
+
+      case 404:
+        groupStore.update({
+          isLoading: false,
+          notFound: true,
+        })
+        break
+
+      default:
+        groupStore.update({
+          isLoading: false,
+          errorOccured: true,
+        })
+        break
+    }
+  }
 }

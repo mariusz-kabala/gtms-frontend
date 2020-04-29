@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react'
-import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Button } from '@gtms/ui/Button'
+import styles from './styles.scss'
 
 interface IFromData {
   description: string
@@ -37,8 +37,8 @@ export const GroupDescriptionForm: FC<{ onError: () => unknown }> = ({
     } catch (err) {
       if (err.status === 400) {
         const errors = await err.json()
-        Object.keys(errors).forEach((field: string) => {
-          setError(field, 'backend', errors[field].message)
+        Object.keys(errors).forEach((field) => {
+          setError(field as 'description', 'backend', errors[field].message)
         })
       } else {
         onError()

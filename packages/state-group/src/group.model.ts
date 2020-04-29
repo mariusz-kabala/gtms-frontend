@@ -1,13 +1,20 @@
 import { GroupType, GroupVisibility } from '@gtms/commons'
 
 export interface IGroup {
-  _id: string
+  id: string
   name: string
   slug: string
   description?: string
   type: GroupType
   visibility: GroupVisibility
-  avatar?: string
+  avatar?: {
+    type: string
+    files: string[]
+  }
+  bg?: {
+    type: string
+    files: string[]
+  }
   tags?: string[]
   members?: string[]
   owner: string
