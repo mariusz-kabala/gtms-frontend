@@ -3,9 +3,14 @@ import styles from './styles.scss'
 
 export const UserCardMini: FC<{
   image: string
-}> = ({ image }) => {
+  onClick?: () => unknown
+}> = ({ image, onClick }) => {
   return (
-    <div className={styles.wrapper} data-testid="user-card-mini">
+    <div
+      className={styles.wrapper}
+      data-testid="user-card-mini"
+      onClick={onClick}
+    >
       <img className={styles.avatar} src={image} alt="user avatar" />
       <div className={styles.desc}>
         <h2 className={styles.nameSurname}>Johnny Silverhand</h2>

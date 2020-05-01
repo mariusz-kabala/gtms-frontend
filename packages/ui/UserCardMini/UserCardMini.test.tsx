@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { fireEvent, getByTestId, render } from '@testing-library/react'
 import { UserCardMini } from './index'
 
 describe('<UserCardMini />', () => {
@@ -7,5 +7,15 @@ describe('<UserCardMini />', () => {
     const { getByTestId } = render(<UserCardMini image="/fake/img.png" />)
 
     expect(getByTestId('user-card-mini')).toBeInTheDocument()
+  })
+
+  it('Should trigger onClick callback when clicking on card', () => {
+    const onClick = jest.fn()
+    const { getByTestId } = render(
+      <UserCardMini image="/fake/img.png" onClick={onClick} />
+    )
+    fireEvent.click(getByTestId('user-card-mini'))
+
+    expect(onClick).toBeCalledTimes(1)
   })
 })

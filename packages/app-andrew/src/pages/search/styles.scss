@@ -8,15 +8,9 @@
   align-items: center;
   justify-content: center;
 
-  .searchInputMock {
+  .searchBarWrapper {
     position: relative;
     z-index: 1;
-    width: 30%;
-    max-width: 350px;
-    color: $theme6;
-    font-size: 36px;
-    font-weight: 200;
-    border-bottom: 2px solid $theme6;
   }
 
   .overlay {

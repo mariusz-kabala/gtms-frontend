@@ -2,6 +2,7 @@ import React from 'react'
 import { NextPage } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
+import { SearchBar } from '@gtms/ui/SearchBar'
 import { Overlay } from '@gtms/ui/Overlay'
 
 export const SearchPage: NextPage<{}> = () => {
@@ -13,7 +14,17 @@ export const SearchPage: NextPage<{}> = () => {
       data-testid="search-page"
       style={{ backgroundImage: `url('/images/temp_images/image-4.jpg')` }}
     >
-      <div className={styles.searchInputMock}>{t('searchTempHeader')}</div>
+      {t('searchTempHeader')}
+      <div className={styles.searchBarWrapper}>
+        <SearchBar
+          onTagAdd={() => null}
+          onTagRemove={() => null}
+          onLoadSuggestion={() => null}
+          onQueryChange={() => null}
+          onLoadSuggestionCancel={() => null}
+          tags={['lorem', 'ipsum', 'punkciki', 'hello']}
+        />
+      </div>
       <Overlay additionalStyles={styles.overlay} opacity={0.75} />
     </div>
   )

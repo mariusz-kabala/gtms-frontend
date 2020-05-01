@@ -8,7 +8,7 @@ import { UserCardMini } from '@gtms/ui/UserCardMini'
 
 export const GroupMembersPage: NextPage<{}> = () => {
   const { t } = useTranslation('groupMembers')
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(true)
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
     <div className={styles.wrapper} data-testid="group-members-page">
@@ -21,49 +21,178 @@ export const GroupMembersPage: NextPage<{}> = () => {
           />
         )}
 
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-sztab-2.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-1.png'} />
-        <UserCardMini image={'/images/temp_images/logo-patrol-2.png'} />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-sztab-2.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-1.png'}
+        />
+        <UserCardMini
+          onClick={() => setIsModalOpen(true)}
+          image={'/images/temp_images/logo-patrol-2.png'}
+        />
         <Button additionalStyles={styles.btn}>See more</Button>
       </div>
     </div>

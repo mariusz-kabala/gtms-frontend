@@ -1,0 +1,31 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/header.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $theme6;
+
+  > div {
+    width: 80%;
+    text-align: center;
+
+    h3 {
+      @include header(h3, textUppercase);
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      color: $theme6;
+      text-decoration: none;
+      @include header(h4, textUppercase);
+
+      &:hover {
+        color: $theme4;
+      }
+    }
+  }
+}
