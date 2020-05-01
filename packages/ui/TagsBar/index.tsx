@@ -17,9 +17,7 @@ export const TagsBar: FC<{
   suggestions = [],
 }) => {
   const [isInEditMode, setIsInEditMode] = useState<boolean>(editMode)
-  const [showSuggestions, setShowSuggestions] = useState<boolean>(
-    suggestions.length > 0
-  )
+  const [showSuggestions] = useState<boolean>(suggestions.length > 0)
 
   return (
     <div className={styles.tagsBar}>
