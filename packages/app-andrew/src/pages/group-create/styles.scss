@@ -21,7 +21,7 @@
 
       h2 {
         font-size: 2.6em;
-        font-weight: 500;
+        @include font-weight(bold);
         text-transform: uppercase;
       }
 
@@ -29,7 +29,7 @@
         margin-top: 5px;
         margin-bottom: 20px;
         line-height: 1.3em;
-        font-weight: 300;
+        @include font-weight(semiNormal);
         font-size: 1.6em;
       }
     }

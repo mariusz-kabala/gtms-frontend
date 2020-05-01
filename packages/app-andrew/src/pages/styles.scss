@@ -1,13 +1,14 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
 
 .wrapper {
-  display: flex;
-  width: 100%;
-  height: 100%;
+  padding: 20px;
 
-  > div {
-    width: 100%;
-    height: 100%;
+  .header {
+    @include header(h3, textUppercase);
+    @include font-weight(bold);
+    margin-bottom: 15px;
   }
 }
