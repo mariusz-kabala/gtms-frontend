@@ -1,29 +1,91 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
-.tagsBar {
+.wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
-}
 
-.inputWrapper {
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  flex-direction: row;
+  .inputWrapper {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-direction: row;
 
-  input[type='text'] {
+    input[type='text'] {
+      flex: 1;
+      flex-basis: 100%;
+      padding-bottom: 5px;
+      margin-right: 5px;
+      border: none;
+      font-size: 14px;
+      background: none;
+      color: #fff;
+      border-bottom: 2px solid #fff;
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+      }
+    }
+
+    button[type='submit'] {
+      flex: 1;
+      color: #fff;
+      background-color: $theme3;
+      padding: 5px 10px;
+      margin-bottom: 10px;
+      @include font-size(md);
+    }
+
+    .loader {
+      flex: 1;
+      flex-basis: 55px;
+      margin-left: 10px;
+      height: 30px;
+
+      > div {
+        position: relative;
+        top: -10px;
+      }
+    }
+  }
+
+  .noRecords {
     flex: 1;
-    flex-basis: 100%;
-    padding-bottom: 5px;
-    margin-right: 5px;
-    border: none;
-    font-size: 14px;
-    background: none;
+    padding: 5%;
+    text-align: center;
     color: #fff;
-    border-bottom: 2px solid #fff;
+
+    a.actionButton {
+      display: inline;
+      color: #fff;
+      background-color: $theme3;
+      padding: 5px;
+      cursor: pointer;
+      line-height: 20px;
+    }
+  }
+
+  .tagsList {
+    display: flex;
+    margin-top: 5px;
+  }
+
+  .tag {
+    margin-right: 5px;
+    border-radius: 4px;
+    padding: 5px;
+    background: #595272;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:first-child {
+      margin-left: 0;
+    }
 
     &:active,
     &:focus,
@@ -32,80 +94,19 @@
     }
   }
 
-  button[type='submit'] {
-    flex: 1;
-    color: #fff;
-    background-color: $theme4;
-    padding: 5px 10px;
-    @include font-size(md);
-  }
+  .suggestions {
+    position: absolute;
+    left: 0;
+    bottom: -48px;
+    width: 100%;
+    padding: 10px;
+    min-height: 50px;
+    background-color: #fff;
 
-  .loader {
-    flex: 1;
-    flex-basis: 55px;
-    margin-left: 10px;
-    height: 30px;
-
-    > div {
-      position: relative;
-      top: -10px;
-    }
-  }
-}
-
-.noRecords {
-  flex: 1;
-  padding: 5%;
-  text-align: center;
-  color: #fff;
-}
-
-a.actionButton {
-  display: inline;
-  color: #fff;
-  background-color: $theme4;
-  padding: 5px;
-  cursor: pointer;
-  line-height: 20px;
-}
-
-.tagsList {
-  display: flex;
-  margin-top: 5px;
-}
-
-.tag {
-  background: #595272;
-  color: #fff;
-  padding: 5px;
-  margin-right: 5px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-
-  &:first-child {
-    margin-left: 0;
-  }
-
-  &:active,
-  &:focus,
-  &:hover {
-    outline: none;
-  }
-}
-
-.suggestions {
-  position: absolute;
-  left: 0;
-  bottom: -50px;
-  width: 75%;
-  padding: 10px;
-  min-height: 50px;
-  background-color: #fff;
-
-  button.tag {
-    &:first-child {
-      margin-left: 0;
+    button.tag {
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 }

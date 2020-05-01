@@ -19,7 +19,7 @@ export const TagsBar: FC<{
   const [showSuggestions] = useState<boolean>(suggestions.length > 0)
 
   return (
-    <div className={styles.tagsBar}>
+    <div className={styles.wrapper}>
       {isInEditMode && (
         <>
           <div className={styles.inputWrapper}>
