@@ -6,12 +6,15 @@ import { MenuItemProps } from './MenuItem'
 import styles from './styles.scss'
 
 export const SideMenu: FC<{
-  children: React.ReactElement<MenuItemProps>[]
+  children:
+    | React.ReactElement<MenuItemProps>[]
+    | React.ReactElement<MenuItemProps>
   menuLogoPath: string
   menuHeader: ReactNode
   isExpanded?: boolean
   onToggleExpand?: (isExpanded: boolean) => void
   additionalStyles?: string
+  testId?: string
 }> = ({
   children,
   menuHeader,
@@ -19,6 +22,7 @@ export const SideMenu: FC<{
   onToggleExpand,
   additionalStyles,
   menuLogoPath,
+  testId,
 }) => {
   const [isMenuExpanded, setIsMenuExpanded] = useState<boolean>(false)
 
@@ -43,6 +47,7 @@ export const SideMenu: FC<{
       className={cx(styles.sideMenu, additionalStyles, {
         [styles.expanded]: isMenuExpanded,
       })}
+      data-testid={testId ?? 'side-menu'}
     >
       <div className={styles.menuItems}>
         <div className={cx(styles.sideMenuItem, styles.menuLogo)}>
@@ -51,6 +56,7 @@ export const SideMenu: FC<{
               image={menuLogoPath}
               onClick={toggleMenu}
               additionalStyles={styles.avatar}
+              testId={testId ? `${testId}-logo` : 'side-menu-logo'}
             />
           </div>
           <div className={styles.link}>{menuHeader}</div>

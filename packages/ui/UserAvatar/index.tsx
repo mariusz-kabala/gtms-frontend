@@ -6,9 +6,10 @@ export const UserAvatar: FC<{
   additionalStyles?: string
   image: string
   onClick?: () => unknown
-}> = ({ additionalStyles, image, onClick }) => (
+  testId?: string
+}> = ({ additionalStyles, image, onClick, testId }) => (
   <div
-    data-testid="user-avatar"
+    data-testid={testId ?? 'user-avatar'}
     onClick={onClick}
     className={cx(styles.container, additionalStyles)}
   >
