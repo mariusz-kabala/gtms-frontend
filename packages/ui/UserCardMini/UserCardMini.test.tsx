@@ -4,7 +4,9 @@ import { UserCardMini } from './index'
 
 describe('<UserCardMini />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<UserCardMini image="/fake/img.png" />)
+    const { getByTestId } = render(
+      <UserCardMini name="Johnny Silverhand" image="/fake/img.png" />
+    )
 
     expect(getByTestId('user-card-mini')).toBeInTheDocument()
   })
