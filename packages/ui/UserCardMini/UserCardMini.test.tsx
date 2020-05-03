@@ -12,7 +12,11 @@ describe('<UserCardMini />', () => {
   it('Should trigger onClick callback when clicking on card', () => {
     const onClick = jest.fn()
     const { getByTestId } = render(
-      <UserCardMini image="/fake/img.png" onClick={onClick} />
+      <UserCardMini
+        name="Johnny Silverhand"
+        image="/fake/img.png"
+        onClick={onClick}
+      />
     )
     fireEvent.click(getByTestId('user-card-mini'))
 

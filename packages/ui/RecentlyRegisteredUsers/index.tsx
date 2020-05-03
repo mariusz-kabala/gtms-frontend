@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
+import { Button } from '@gtms/ui/Button'
 import { UserAvatar } from '../UserAvatar'
 
 export const RecentlyRegisteredUsers: FC<{
@@ -9,11 +10,12 @@ export const RecentlyRegisteredUsers: FC<{
   return (
     <div className={styles.wrapper}>
       <div className={styles.invite}>
-        <h3>Zaproś znajomych...</h3>
+        <Button>Zaproś znajomych...</Button>
       </div>
       <ul
         className={cx(styles.users, additionalStyles)}
-        data-testid="recently-registered-users">
+        data-testid="recently-registered-users"
+      >
         <li className={styles.user}>
           <UserAvatar
             image="/images/avatars/avatar-1.png"

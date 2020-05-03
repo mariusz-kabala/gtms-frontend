@@ -16,180 +16,224 @@ export const GroupMembersPage: NextPage<{}> = () => {
       <div className={styles.grid}>
         {isModalOpen && (
           <UserCard
+            name="Johnny Silverhand"
             onClose={() => setIsModalOpen(false)}
             image={'/images/temp_images/avatar-1.png'}
           />
         )}
 
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-sztab-2.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-1.png'}
         />
         <UserCardMini
+          name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
           image={'/images/temp_images/logo-patrol-2.png'}
         />

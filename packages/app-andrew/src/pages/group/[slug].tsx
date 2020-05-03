@@ -80,15 +80,19 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   <h2 className={styles.header}>{t('recently-added-posts')}</h2>
                   <div className={styles.grid}>
                     <UserCardMini
+                      name="Johnny Silverhand"
                       image={'/images/temp_images/logo-patrol-1.png'}
                     />
                     <UserCardMini
+                      name="Johnny Silverhand"
                       image={'/images/temp_images/logo-patrol-2.png'}
                     />
                     <UserCardMini
+                      name="Johnny Silverhand"
                       image={'/images/temp_images/logo-sztab-1.png'}
                     />
                     <UserCardMini
+                      name="Johnny Silverhand"
                       image={'/images/temp_images/logo-sztab-2.png'}
                     />
                   </div>
@@ -97,15 +101,21 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   <h2 className={styles.header}>Ostatnio dodane posty</h2>
                   <div className={styles.grid}>
                     <UserCardMini
+                      name="Johnny Silverhand"
                       image={'/images/temp_images/logo-sztab-3.png'}
                     />
                     <UserCardMini
+                      name="Johnny Silverhand"
                       image={'/images/temp_images/logo-uczymy-ratowac.png'}
                     />
                     <UserCardMini
+                      name="Johnny Silverhand"
                       image={'/images/temp_images/logo-wielki-mecz.png'}
                     />
-                    <UserCardMini image={'/images/temp_images/logo-zbc.png'} />
+                    <UserCardMini
+                      name="Johnny Silverhand"
+                      image={'/images/temp_images/logo-zbc.png'}
+                    />
                   </div>
                 </section>
               </div>

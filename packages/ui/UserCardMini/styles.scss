@@ -1,5 +1,6 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
   color: $theme6;
@@ -21,7 +22,8 @@
     }
 
     .nameSurname {
-      @include font-weight(semibold);
+      @include font-weight(bold);
+      @include font-size(md);
     }
 
     p {
