@@ -10,8 +10,8 @@ const PERMANENT_IGNORE = [
 ]
 
 const TEMPORARY_IGNORE = [
-  './packages/app-andrew/src/pages/group/index.tsx',
   './packages/app-andrew/src/pages/group-create/index.tsx',
+  './packages/app-andrew/src/pages/group/index.tsx',
   './packages/app-andrew/src/server.ts',
   './packages/app-main/src/components/rules/AcceptRulesButton/index.tsx',
   './packages/app-main/src/pages/rules/index.tsx',

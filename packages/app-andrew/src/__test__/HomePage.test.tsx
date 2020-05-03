@@ -1,19 +1,19 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { AppMainPage } from '../pages/home-page'
+import { HomePage } from '../pages/index'
 import { useTranslation } from '@gtms/commons/i18n'
 
-describe('<AppMainPage />', () => {
+describe('<HomePage />', () => {
   it('Should render group main page', () => {
-    const { getByTestId } = render(<AppMainPage />)
+    const { getByTestId } = render(<HomePage />)
 
-    expect(getByTestId('app-main-page')).toBeInTheDocument()
-    expect(useTranslation).toBeCalledWith('appMainPage')
+    expect(getByTestId('home-page')).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('homePage')
     expect(getByTestId('recently-registered-users')).toBeInTheDocument()
   })
 
   it('Should return translations namespace from getInitialProps', async (done) => {
-    if (!AppMainPage.getInitialProps) {
+    if (!HomePage.getInitialProps) {
       return done()
     }
     // eslint-disable-next-line
@@ -21,10 +21,10 @@ describe('<AppMainPage />', () => {
 
     const props: {
       namespacesRequired?: string[]
-    } = await AppMainPage.getInitialProps(ctx)
+    } = await HomePage.getInitialProps(ctx)
 
     expect(props).toHaveProperty('namespacesRequired')
-    expect(new Set(props.namespacesRequired)).toContain('appMainPage')
+    expect(new Set(props.namespacesRequired)).toContain('homePage')
 
     done()
   })
