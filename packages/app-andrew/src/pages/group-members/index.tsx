@@ -16,7 +16,6 @@ export const GroupMembersPage: NextPage<{}> = () => {
       <div className={styles.grid}>
         {isModalOpen && (
           <UserCard
-            name="Johnny Silverhand"
             onClose={() => setIsModalOpen(false)}
             image={'/images/temp_images/avatar-1.png'}
           />

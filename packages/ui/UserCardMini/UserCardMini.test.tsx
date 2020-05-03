@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, getByTestId, render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { UserCardMini } from './index'
 
 describe('<UserCardMini />', () => {
