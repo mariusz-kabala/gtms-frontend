@@ -41,7 +41,6 @@ describe('<SideMenu />', () => {
     )
 
     expect(getByTestId(SIDE_MENU_TEST_ID)).toBeInTheDocument()
-
     expect(getByText(HEADER_TEXT)).toBeInTheDocument()
 
     expect(getByText(COLAPSED_ITEM_TEXT_1)).toBeInTheDocument()

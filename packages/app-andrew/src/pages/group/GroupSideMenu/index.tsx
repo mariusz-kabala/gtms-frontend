@@ -17,9 +17,7 @@ const GROUP_MENU_LOGO_PATH = '/images/temp_images/side_bar_logo.png'
 const MenuHeader = () => {
   return (
     <>
-      <div className={styles.link}>
-        <b>SzukamAndrzeja.pl</b>
-      </div>
+      <div className={styles.link}>SzukamAndrzeja.pl</div>
       <div>Festiwalowe spotteed!</div>
     </>
   )
@@ -47,7 +45,7 @@ export const GroupSideMenu = () => {
             onClick={() => toggleSideMenu(!isSiteMenuExpanded)}
           />
         }
-        expandedContent={<div>Lorem</div>}
+        expandedContent={<span>Lorem</span>}
       />
       <MenuItem
         collapsedContent={
@@ -61,19 +59,19 @@ export const GroupSideMenu = () => {
       />
       <MenuItem
         collapsedContent={<IoIosBody size={20} />}
-        expandedContent={<div>Tags</div>}
+        expandedContent={<span>Tags</span>}
       />
       <MenuItem
         collapsedContent={<IoMdSettings size={20} />}
-        expandedContent={<div>Group Settings</div>}
+        expandedContent={<span>Group Settings</span>}
       />
       <MenuItem
         collapsedContent={<IoMdAdd size={20} />}
-        expandedContent={<div>Invite freinds</div>}
+        expandedContent={<span>Invite freinds</span>}
       />
       <MenuItem
         collapsedContent={<IoMdBuild size={20} />}
-        expandedContent={<div>Lorem ipsum</div>}
+        expandedContent={<span>Lorem ipsum</span>}
       />
       <MenuItem
         collapsedContent={
