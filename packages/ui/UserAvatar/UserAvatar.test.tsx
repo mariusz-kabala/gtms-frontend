@@ -11,7 +11,7 @@ describe('<UserAvatar />', () => {
 
     expect(getByTestId('user-avatar')).toBeInTheDocument()
     expect(getByTestId('user-avatar-image')).toBeInTheDocument()
-    expect(container.querySelector(`.${styles.container}`)).toBeInTheDocument()
+    expect(container.querySelector(`.${styles.wrapper}`)).toBeInTheDocument()
   })
 
   it('Should add additional css classes', () => {
