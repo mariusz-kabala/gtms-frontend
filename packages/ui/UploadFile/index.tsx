@@ -1,14 +1,28 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import {useDropzone} from 'react-dropzone'
+import { useDropzone, DropEvent } from 'react-dropzone'
 import { IoIosCloudUpload } from 'react-icons/io'
+import { Spinner } from '../Spinner'
 
 export const UploadFile: FC<{
   additionalStyles?: string
   onClick?: () => unknown
-}> = ({ additionalStyles, onClick }) => {
-  const {acceptedFiles, getRootProps, getInputProps, isDragActive} = useDropzone()
+  isLoading?: boolean
+  isError?: boolean
+  onDrop: (
+    acceptedFiles: File[],
+    rejectedFiles: File[],
+    event: DropEvent
+  ) => unknown
+}> = ({
+  additionalStyles,
+  onClick,
+  onDrop,
+  isLoading = false,
+  isError = false,
+}) => {
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
     <div
@@ -17,23 +31,24 @@ export const UploadFile: FC<{
       className={cx(styles.wrapper, additionalStyles)}
     >
       <div {...getRootProps()} className={styles.dropzone}>
-        <input {...getInputProps()} />
-        <i><IoIosCloudUpload /></i>
-        {
-          isDragActive ?
-            <>
-              <p>Drop the files here ...</p>
-            </> :
-            <p>Drag and drop some files here, or click to select files</p>
-        }
+        {isError && <div>Error occured</div>}
+        {isLoading && !isError && <Spinner />}
+        {!isLoading && !isError && (
+          <>
+            <input {...getInputProps()} />
+            <i>
+              <IoIosCloudUpload />
+            </i>
+            {isDragActive ? (
+              <>
+                <p>Drop the files here ...</p>
+              </>
+            ) : (
+              <p>Drag and drop some files here, or click to select files</p>
+            )}
+          </>
+        )}
       </div>
-      {
-        acceptedFiles.map(file => (
-          <li key={file.path}>
-            {file.path} - {file.size} bytes
-          </li>
-        ))
-      }
     </div>
   )
 }

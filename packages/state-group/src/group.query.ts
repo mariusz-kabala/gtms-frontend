@@ -15,6 +15,10 @@ export class GroupQuery extends Query<IGroupStore> {
     )
   }
 
+  public getId = (values = this.getValue()) => {
+    return values.group?.id
+  }
+
   public hasAvatar = (
     size: '35x35' | '50x50' | '200x200',
     values = this.getValue()

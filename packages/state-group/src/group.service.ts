@@ -6,8 +6,10 @@ import {
   fetchGroupDetails,
   updateGroupAPI,
   IGroupData,
+  uploadGroupAvatar,
 } from '@gtms/api-group'
 import { groupStore, IGroupStore } from './group.store'
+import { groupQuery } from './group.query'
 import { IGroup } from './group.model'
 import { GroupType, GroupVisibility } from '@gtms/commons'
 
@@ -107,9 +109,25 @@ export const getGroup = async (slug: string) => {
 }
 
 export const updateGroup = async (data: IGroupData, slug: string) => {
-  const group = (await updateGroupAPI(data, slug)) as IGroup
+  const group = (await updateGroupAPI(data, slug)) as IGroupDetailsResponse
+
+  if (Array.isArray(group.avatar?.files) && group.avatar?.status === 'ready') {
+    group.avatar.files = parseFiles(group.avatar.files)
+  }
 
   groupStore.update({
-    group,
+    group: group as IGroup,
   })
+}
+
+export const updateGroupAvatar = async (file: File, id?: string) => {
+  if (!id) {
+    id = groupQuery.getId()
+  }
+
+  if (!id) {
+    throw new Error('Group id has to be defined')
+  }
+
+  await uploadGroupAvatar(id, file)
 }
