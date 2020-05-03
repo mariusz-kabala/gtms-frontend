@@ -7,7 +7,7 @@
 
   i,
   .content {
-    position: relative;
+    position: absolute;
     @include z-index(expandingItem);
     @include font-size(xlg);
   }
@@ -24,7 +24,9 @@
   }
 
   .content {
-    padding: 10px;
+    width: 98%;
+    padding: 2.5%;
+    background-color: black;
     border: 1px solid $theme4;
   }
 }

@@ -11,8 +11,16 @@ export const ExpandingItem: FC<{
   children: ReactNode
   onClose: () => unknown
   label: ReactNode
+  closeOnClickOutsie?: boolean
   isActive: boolean
-}> = ({ additionalStyles, children, isActive, label, onClose }) => {
+}> = ({
+  additionalStyles,
+  children,
+  isActive,
+  label,
+  onClose,
+  closeOnClickOutsie = true,
+}) => {
   useEffect(() => {
     if (isActive) {
       disableBodyScroll(document.body)
@@ -44,7 +52,13 @@ export const ExpandingItem: FC<{
           <div data-testid="expanding-item-content" className={styles.content}>
             {children}
           </div>
-          <Overlay onClick={closeActiveMode} />
+          <Overlay
+            onClick={() => {
+              if (closeOnClickOutsie) {
+                closeActiveMode()
+              }
+            }}
+          />
         </>
       )}
     </div>

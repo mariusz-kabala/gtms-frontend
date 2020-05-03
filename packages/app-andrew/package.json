@@ -9,7 +9,7 @@
     "dev": "cross-env NODE_ENV=development API_URL=http://localhost:9000/api FE_API_URL=/api USE_PROXY_SSL=0 nodemon",
     "dev:qa-master": "cross-env NODE_ENV=development API_URL=https://master.geotags.pl FE_API_URL=/api USE_PROXY_SSL=1 nodemon",
     "dev:qa-stable": "cross-env NODE_ENV=development API_URL=https://geotags.pl FE_API_URL=/api USE_PROXY_SSL=1 nodemon",
-    "start": "cross-env NODE_ENV=production node dist/app-andrew/src/server.js",
+    "start": "cross-env NODE_ENV=production API_URL=http://localhost:9000/api FE_API_URL=/api node dist/app-andrew/src/server.js",
     "setup:ts": "cp-cli tsconfig.json.example tsconfig.json"
   },
   "dependencies": {

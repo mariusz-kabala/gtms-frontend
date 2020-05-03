@@ -8,11 +8,24 @@ export interface IGroup {
   type: GroupType
   visibility: GroupVisibility
   avatar?: {
-    type: string
-    files: string[]
+    status: string
+    files: {
+      '35x35'?: {
+        jpg: string
+        webp: string
+      }
+      '50x50'?: {
+        jpg: string
+        webp: string
+      }
+      '200x200'?: {
+        jpg: string
+        webp: string
+      }
+    }
   }
   bg?: {
-    type: string
+    status: string
     files: string[]
   }
   tags?: string[]

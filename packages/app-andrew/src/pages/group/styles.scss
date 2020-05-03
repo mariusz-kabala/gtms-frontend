@@ -1,12 +1,17 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
 .wrapper {
   display: flex;
   height: 100%;
+
+  h2 {
+    @include font-size('xlg');
+  }
 
   .content {
     position: relative;
@@ -17,6 +22,12 @@
     .groupHeader {
       width: 100%;
       margin-bottom: 30px;
+
+      picture {
+        float: left;
+        max-width: 65px;
+        margin-right: 5px;
+      }
 
       h2 {
         @include font-weight(bold);

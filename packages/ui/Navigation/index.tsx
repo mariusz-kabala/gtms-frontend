@@ -47,15 +47,15 @@ export const Navigation: FC<{}> = () => {
     },
     {
       id: 5,
-      label: 'Invite friends',
+      label: 'Logout',
       icon: <IoIosFingerPrint />,
-      url: '/search',
+      url: '/logout',
     },
   ]
 
   const { isLogged } = useAuth()
 
-  return !isLogged ? (
+  return isLogged ? (
     <div className={styles.wrapper}>
       <Link href="/account">
         <UserAvatar

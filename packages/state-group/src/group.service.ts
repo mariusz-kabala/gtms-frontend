@@ -2,6 +2,7 @@ import {
   IGroupCreateData,
   createGroupAPI,
   IGroupCreateResponse,
+  IGroupDetailsResponse,
   fetchGroupDetails,
   updateGroupAPI,
   IGroupData,
@@ -9,6 +10,35 @@ import {
 import { groupStore, IGroupStore } from './group.store'
 import { IGroup } from './group.model'
 import { GroupType, GroupVisibility } from '@gtms/commons'
+
+function parseFile(file: string) {
+  const [_host, path] = file
+    .replace('http://', '')
+    .replace('https://', '')
+    .split('/')
+
+  const [name, ext] = path.split('.')
+  const [size] = name.split('-')
+
+  return {
+    url: file,
+    size,
+    ext,
+  }
+}
+
+function parseFiles(files: string[]) {
+  return files.reduce((filesObj: any, file) => {
+    const { url, size, ext } = parseFile(file)
+    if (!filesObj[size]) {
+      filesObj[size] = {}
+    }
+
+    filesObj[size][ext] = url
+
+    return filesObj
+  }, {})
+}
 
 export const createNewGroup = async (payload: {
   name: string
@@ -37,11 +67,18 @@ export const getGroup = async (slug: string) => {
   })
 
   try {
-    const group = (await fetchGroupDetails(slug)) as IGroup
+    const group = (await fetchGroupDetails(slug)) as IGroupDetailsResponse
+
+    if (
+      Array.isArray(group.avatar?.files) &&
+      group.avatar?.status === 'ready'
+    ) {
+      group.avatar.files = parseFiles(group.avatar.files)
+    }
 
     groupStore.update({
       isLoading: false,
-      group,
+      group: group as IGroup,
     })
   } catch (res) {
     switch (res.status) {

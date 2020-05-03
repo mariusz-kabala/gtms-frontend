@@ -1,12 +1,35 @@
 import React from 'react'
-import App from 'next/app'
+import App, { AppContext } from 'next/app'
 import '@gtms/styles/scss/global.scss'
 import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
 import { Navigation } from '@gtms/ui/Navigation'
 import { NavigationDot } from '@gtms/ui/NavigationDot'
+import { initAuthSession } from '@gtms/commons/helpers/auth'
+import { init } from '@gtms/state-user'
 
-class GTMSApp extends App {
+interface GTMSAppProps {
+  auth?: {
+    accessToken?: string
+    refreshToken?: string
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  pageProps: any
+}
+
+class GTMSApp extends App<GTMSAppProps> {
+  componentWillMount() {
+    const { auth } = this.props
+
+    if (auth?.accessToken && auth.refreshToken) {
+      init(
+        auth as {
+          accessToken: string
+          refreshToken: string
+        }
+      )
+    }
+  }
   render() {
     const { Component, pageProps } = this.props
 
@@ -19,6 +42,21 @@ class GTMSApp extends App {
         <NavigationDot />
       </>
     )
+  }
+}
+
+App.getInitialProps = async ({ Component, ctx }: AppContext) => {
+  const componentGetInitialProps =
+    Component.getInitialProps || (() => Promise.resolve())
+
+  const [auth, pageProps] = await Promise.all([
+    initAuthSession(ctx),
+    componentGetInitialProps(ctx),
+  ])
+
+  return {
+    auth,
+    pageProps,
   }
 }
 

@@ -9,6 +9,17 @@ module.exports = {
     tags: ['owsiak', 'sprzedaje', 'uran', 'czeczenom'],
     members: [],
     owner: '5cdfb6a6bad88bb5dbf1eccf',
+    avatar: {
+      status: 'ready',
+      files: [
+        'https://gtms-groups-logo-qa.s3.nl-ams.scw.cloud/50x50-5ea3cf68975046d2c24669e3-max-NU55140_219ca84ceaaffd76545b27d680a224da.webp',
+        'https://gtms-groups-logo-qa.s3.nl-ams.scw.cloud/50x50-5ea3cf68975046d2c24669e3-max-NU55140_219ca84ceaaffd76545b27d680a224da.jpg',
+        'https://gtms-groups-logo-qa.s3.nl-ams.scw.cloud/35x35-5ea3cf68975046d2c24669e3-max-NU55140_219ca84ceaaffd76545b27d680a224da.webp',
+        'https://gtms-groups-logo-qa.s3.nl-ams.scw.cloud/35x35-5ea3cf68975046d2c24669e3-max-NU55140_219ca84ceaaffd76545b27d680a224da.jpg',
+        'https://gtms-groups-logo-qa.s3.nl-ams.scw.cloud/200x200-5ea3cf68975046d2c24669e3-max-NU55140_219ca84ceaaffd76545b27d680a224da.webp',
+        'https://gtms-groups-logo-qa.s3.nl-ams.scw.cloud/200x200-5ea3cf68975046d2c24669e3-max-NU55140_219ca84ceaaffd76545b27d680a224da.jpg',
+      ],
+    },
   },
   'private-group': {
     id: '1ERTdo8K9tthIBE11Vxgcm9P9MK17qbnBiSPbAV4vJaphwN5cz',

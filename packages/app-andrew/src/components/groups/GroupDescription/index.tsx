@@ -22,6 +22,7 @@ export const GroupDescription: FC<{
     >
       <ExpandingItem
         isActive={isEditModeActive}
+        closeOnClickOutsie={false}
         label={text}
         onClose={() => {
           setIsEditModeActive(false)

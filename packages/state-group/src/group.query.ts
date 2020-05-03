@@ -15,6 +15,37 @@ export class GroupQuery extends Query<IGroupStore> {
     )
   }
 
+  public hasAvatar = (
+    size: '35x35' | '50x50' | '200x200',
+    values = this.getValue()
+  ) => {
+    if (
+      !values.group ||
+      !values.group.avatar ||
+      !values.group.avatar.files ||
+      !values.group.avatar.files[size]
+    ) {
+      return false
+    }
+
+    return true
+  }
+
+  public getAvatar = (
+    size: '35x35' | '50x50' | '200x200',
+    values = this.getValue()
+  ) => {
+    if (this.hasAvatar(size, values)) {
+      const avatar: any = values.group?.avatar?.files || {}
+
+      return avatar[size]
+    }
+
+    return {
+      jpg: `http://via.placeholder.com/${size}`,
+    }
+  }
+
   constructor(protected store: GroupsStore, private userQuery: UserQuery) {
     super(store)
   }

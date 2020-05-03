@@ -8,22 +8,17 @@ import { UserCardMini } from '@gtms/ui/UserCardMini'
 import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
 import { Spinner } from '@gtms/ui'
 import { GroupDescription } from '../../components/groups/GroupDescription'
-import { useAuth } from '@gtms/commons/hooks/auth'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
+import { GroupAvatar } from '../../components/groups/GroupAvatar'
+import ReactTooltip from 'react-tooltip'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
   group: IGroupStore
-  auth?: {
-    accessToken?: string
-    refreshToken?: string
-  }
 }
 
 const GroupPage: NextPage<GroupPageProps> = (props) => {
   const { t } = useTranslation('groupPage')
   const [group, setGroup] = useState<IGroupStore>(props.group)
-  const { isLogged } = useAuth(props.auth)
 
   useEffect(() => {
     initGroup(props.group)
@@ -38,12 +33,19 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     <div className={styles.wrapper}>
       <div className={styles.content}>
         <div className={styles.groupHeader}>
-          <h2>{group.group?.name}</h2>
+          <GroupAvatar
+            isEditAllowed={groupQuery.hasAdminRights()}
+            files={groupQuery.getAvatar('200x200')}
+          />
+          <h2 data-tip={t('click-here-to-edit')} data-type="dark">
+            {group.group?.name}
+          </h2>
           <GroupDescription
-            isEditAllowed={isLogged && groupQuery.hasAdminRights()}
+            isEditAllowed={groupQuery.hasAdminRights()}
             slug={group.group?.slug || ''}
             text={group.group?.description || ''}
           />
+          {groupQuery.hasAdminRights() && <ReactTooltip />}
         </div>
         {group.isLoading && <Spinner />}
         {group.errorOccured && (
@@ -122,17 +124,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </section>
               </div>
             </div>
-
-            <div className={styles.column}>
-              <h2 className={styles.header}>Ostatnio dodane posty</h2>
-              <PostCreate additionalStyles={styles.postCreate} />
-              <PostSingle additionalStyles={styles.post} />
-              <PostSingle additionalStyles={styles.post} />
-              <PostSingle additionalStyles={styles.post} />
-              <PostSingle additionalStyles={styles.post} />
-              <PostSingle additionalStyles={styles.post} />
-              <PostSingle additionalStyles={styles.post} />
-            </div>
           </>
         )}
       </div>
@@ -140,29 +131,20 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   )
 }
 
-GroupPage.getInitialProps = (
+GroupPage.getInitialProps = async (
   ctx: NextPageContext
 ): Promise<{
   namespacesRequired: string[]
-  auth: {
-    accessToken?: string
-    refreshToken?: string
-  }
   group: IGroupStore
 }> => {
   const { slug } = ctx?.query
 
-  return Promise.all([initAuthSession(ctx), getGroup(slug as string)]).then(
-    (results) => {
-      const [auth] = results
+  await getGroup(slug as string)
 
-      return {
-        namespacesRequired: ['groupPage', 'postCreate'],
-        auth,
-        group: groupQuery.getValue(),
-      }
-    }
-  )
+  return {
+    namespacesRequired: ['groupPage', 'postCreate'],
+    group: groupQuery.getValue(),
+  }
 }
 
 export default GroupPage
