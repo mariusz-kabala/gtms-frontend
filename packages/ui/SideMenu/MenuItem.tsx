@@ -5,7 +5,6 @@ import cx from 'classnames'
 export interface MenuItemProps {
   collapsedContent: ReactNode
   expandedContent: ReactNode
-  isExpanded?: boolean
   additionalStyles?: string
 }
 
