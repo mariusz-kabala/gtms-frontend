@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  
+
   .inputWrapper {
     display: flex;
     position: relative;
@@ -35,6 +35,7 @@
       flex: 1;
       color: #fff;
       background-color: $theme3;
+      cursor: pointer;
       padding: 5px 10px;
       margin-bottom: 10px;
       @include font-size(md);

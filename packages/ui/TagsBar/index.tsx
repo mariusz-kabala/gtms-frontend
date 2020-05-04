@@ -1,6 +1,7 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { Spinner } from '../Spinner'
 import styles from './styles.scss'
+import { useDebounce } from '@gtms/commons'
 
 export const TagsBar: FC<{
   tags: string[]
@@ -8,23 +9,82 @@ export const TagsBar: FC<{
   editMode?: boolean
   isLoading?: boolean
   isSaving?: boolean
+  onLoadSuggestion: (text: string) => void
+  onLoadSuggestionCancel: () => void
+  onTagAdd: (tag: string) => void
+  onTagRemove: (tag: string) => void
+  onSave: () => void
 }> = ({
   tags,
+  onLoadSuggestion,
+  onLoadSuggestionCancel,
+  onTagAdd,
+  onTagRemove,
+  onSave,
   editMode = false,
   isLoading = false,
   isSaving = false,
   suggestions = [],
 }) => {
   const [isInEditMode, setIsInEditMode] = useState<boolean>(editMode)
-  const [showSuggestions] = useState<boolean>(suggestions.length > 0)
+  const [showSuggestions, setShowSuggestions] = useState<boolean>(
+    suggestions.length > 0
+  )
+  const [value, setValue] = useState<string>('')
+  const debouncedValue = useDebounce(value, 500)
+
+  useEffect(() => {
+    if (debouncedValue !== '') {
+      onLoadSuggestion(debouncedValue)
+    }
+  }, [debouncedValue])
+
+  useEffect(() => {
+    setShowSuggestions(suggestions.length > 0)
+  }, [suggestions])
 
   return (
     <div className={styles.wrapper}>
       {isInEditMode && (
         <>
           <div className={styles.inputWrapper}>
-            <input type="text" />
-            <button type="submit" disabled={isSaving}>
+            <input
+              type="text"
+              value={value}
+              onChange={(e) => {
+                setValue(e.target.value.trim().replace('#', ''))
+              }}
+              onKeyDown={(e) => {
+                if (e.keyCode === 9 && !isLoading && showSuggestions) {
+                  // tab
+                  e.preventDefault()
+
+                  setShowSuggestions(false)
+                  onTagAdd(suggestions[0])
+                  setValue('')
+                  return
+                }
+
+                if ([32, 13].includes(e.keyCode)) {
+                  // space and enter
+                  const tag = value.trim()
+
+                  if (tag !== '') {
+                    setShowSuggestions(false)
+                    onTagAdd(tag)
+                    setValue('')
+                    onLoadSuggestionCancel()
+                  }
+                }
+
+                if (e.keyCode === 8 && value.trim() === '') {
+                  // backspace
+                  setShowSuggestions(false)
+                  onLoadSuggestionCancel()
+                }
+              }}
+            />
+            <button type="submit" onClick={onSave} disabled={isSaving}>
               save
             </button>
             {isSaving && (
@@ -40,6 +100,11 @@ export const TagsBar: FC<{
                     key={`suggestion-tag-${tag}`}
                     type="button"
                     title="click to add"
+                    onClick={() => {
+                      setShowSuggestions(false)
+                      onTagAdd(tag)
+                      setValue('')
+                    }}
                   >
                     #{tag}
                   </button>
@@ -47,7 +112,7 @@ export const TagsBar: FC<{
               </div>
             )}
 
-            {isLoading && (
+            {isLoading && value !== '' && (
               <div className={styles.suggestions}>
                 <div className={styles.loader}>
                   <Spinner />
@@ -62,7 +127,7 @@ export const TagsBar: FC<{
                 key={`tag-${tag}`}
                 type="button"
                 title="click to remove"
-                onClick={() => null}
+                onClick={() => onTagRemove(tag)}
               >
                 #{tag}
               </button>
