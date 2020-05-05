@@ -22,17 +22,10 @@ export const HomePage: NextPage<{}> = () => {
         }}
       >
         <div className={styles.desc}>
-          <h2>Woodstockowe wioski On-line!</h2>
-          <p>
-            {' '}
-            Spotkajmy się jak co roku w woodstockowych wioskach, w tym roku
-            on-line. Rozmawiajmy, spotykajmy się w mniejszym gronie, bla bla
-            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
-            gravida. Risus commodo viverra maecenas accumsan lacus vel
-            facilisis.
-          </p>
+          <h2 className={styles.header}>{t('header')}</h2>
+          <p>{t('subheader')}</p>
           <Button additionalStyles={styles.btn} type="submit">
-            Dołącz do wirtualnej wioski
+            {t('btn')}
           </Button>
         </div>
         <div className={styles.shadow} />

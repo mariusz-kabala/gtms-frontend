@@ -3,14 +3,17 @@ import styles from './styles.scss'
 import cx from 'classnames'
 import { Button } from '@gtms/ui/Button'
 import { UserAvatar } from '../UserAvatar'
+import { useTranslation } from '@gtms/commons/i18n'
 
 export const RecentlyRegisteredUsers: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
+  const { t } = useTranslation('recentlyRegisteredUsersComponent')
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.invite}>
-        <Button>Zaproś znajomych...</Button>
+        <Button>{t('btn')}</Button>
       </div>
       <ul
         className={cx(styles.users, additionalStyles)}
