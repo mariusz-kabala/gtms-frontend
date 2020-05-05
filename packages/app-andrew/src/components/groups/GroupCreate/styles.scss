@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/imageCover';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
   display: flex;
@@ -18,7 +19,7 @@
 
     h1 {
       font-size: 1.6em;
-      font-weight: 500;
+      @include font-weight(bold);
       text-transform: uppercase;
     }
 
@@ -27,6 +28,7 @@
       margin-bottom: 20px;
       line-height: 1.3em;
       font-weight: 300;
+      @include font-weight(semiNormal);
     }
   }
 }

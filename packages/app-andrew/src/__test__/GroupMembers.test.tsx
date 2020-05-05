@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { GroupMembersPage } from '../pages/group-members'
 import { useTranslation } from '@gtms/commons/i18n'
 
@@ -8,7 +8,6 @@ describe('<GroupMembersPage />', () => {
     const { getByTestId } = render(<GroupMembersPage />)
 
     expect(getByTestId('group-members-page')).toBeInTheDocument()
-    expect(useTranslation).toBeCalledWith('userCard')
     expect(useTranslation).toBeCalledWith('groupMembers')
   })
 
@@ -25,18 +24,7 @@ describe('<GroupMembersPage />', () => {
 
     expect(props).toHaveProperty('namespacesRequired')
     expect(new Set(props.namespacesRequired)).toContain('groupMembers')
-    expect(new Set(props.namespacesRequired)).toContain('userCard')
 
     done()
-  })
-
-  it('Should close user card when user clicks on overlay', () => {
-    const { getByTestId, queryByTestId } = render(<GroupMembersPage />)
-
-    expect(getByTestId('user-card')).toBeInTheDocument()
-
-    fireEvent.click(getByTestId('overlay'))
-
-    expect(queryByTestId('user-card')).toBeNull()
   })
 })

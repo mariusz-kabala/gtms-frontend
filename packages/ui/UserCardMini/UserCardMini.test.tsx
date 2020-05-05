@@ -1,10 +1,12 @@
 import React from 'react'
-import { fireEvent, getByTestId, render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { UserCardMini } from './index'
 
 describe('<UserCardMini />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<UserCardMini image="/fake/img.png" />)
+    const { getByTestId } = render(
+      <UserCardMini name="Johnny Silverhand" image="/fake/img.png" />
+    )
 
     expect(getByTestId('user-card-mini')).toBeInTheDocument()
   })
@@ -12,7 +14,11 @@ describe('<UserCardMini />', () => {
   it('Should trigger onClick callback when clicking on card', () => {
     const onClick = jest.fn()
     const { getByTestId } = render(
-      <UserCardMini image="/fake/img.png" onClick={onClick} />
+      <UserCardMini
+        name="Johnny Silverhand"
+        image="/fake/img.png"
+        onClick={onClick}
+      />
     )
     fireEvent.click(getByTestId('user-card-mini'))
 
