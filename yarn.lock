@@ -6244,22 +6244,22 @@ i18next-browser-languagedetector@^4.0.0:
   dependencies:
     "@babel/runtime" "^7.5.5"
 
-i18next-fs-backend@^1.0.1:
+i18next-fs-backend@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-1.0.2.tgz#8f137a59a7088c97d5112d6d624ebb8c5675fac9"
   integrity sha512-7N7V6gu00/UBdCjz37JFKGB5UfuLDJlIoLMAxXQG5ih3CFKPqtJ7GfQ7lqd8t/L/6EQ1sciZ9022Xy5BwTrf7g==
 
-i18next-http-backend@^1.0.4:
+i18next-http-backend@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/i18next-http-backend/-/i18next-http-backend-1.0.8.tgz#6d32c4baacf363a26dfef76a973bfc3dd8d9b25d"
   integrity sha512-f9oWlt3AuMh+xuKVpG8qlP6azI40N+wRBK/2jaJ7tHk6vMJSAGtZSM76Zx7p2JULqj27yNnc2yOEN4moq3RuFg==
   dependencies:
     node-fetch "2.6.0"
 
-i18next-http-middleware@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/i18next-http-middleware/-/i18next-http-middleware-1.0.2.tgz#0507c6fdbfd4247eeb3550db2862b259dc26fe2d"
-  integrity sha512-ctyxMW/KGcfnDjiqWKx7Gm/flfkKrjvneH/d1KYSJwO/X9hxPwCBWiRa3cHy8movW/u6JfauuRuVU6fK27KAEw==
+i18next-http-middleware@>=1.0.2:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/i18next-http-middleware/-/i18next-http-middleware-1.0.4.tgz#80d4edc8343e9db645303ef878a9ea711aaaf593"
+  integrity sha512-ioH4LdcCeY6b5pIJppiw86ZjYnV2SnotZkDbGrLybnbc7qTBru4EnXXgMc7bWBjnIfhslW5usHddn6nojeIphw==
 
 i18next@^19.0.3:
   version "19.4.4"
@@ -8623,18 +8623,18 @@ next-compose-plugins@^2.2.0:
   integrity sha512-ChUlpT9tWfJ7YxqGw/WQ2T1gf8EeX93n1XqeQw0lkvGa7seszahvF4eOZUJoq7Hetsbzg4UHVnPoCXfXTyQR3g==
 
 next-i18next@^4.2.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/next-i18next/-/next-i18next-4.4.0.tgz#d811e686bd09acf3f0073602727ff82a44e51a79"
-  integrity sha512-cFl1K9mcQ/HRLwNdFXwJJGjtpr5URgUSbZihtFwsUD7Ib81pzSi4UfTUiCdS9Kn2gRSbtUxVWkrukGbu6rcepQ==
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/next-i18next/-/next-i18next-4.4.1.tgz#04bc3459015cb5c620cdf6b1388350b0a62fbd38"
+  integrity sha512-WsyEVqx0FPEmcC7lgCkCdolRyVewEdY2JFvZSl6344xk6DGGx5tNib0fBCGgd9zF0JFmndV+jBsep/ZJkl1gng==
   dependencies:
     core-js "^2"
     detect-node "^2.0.4"
     hoist-non-react-statics "^3.2.0"
     i18next "^19.0.3"
     i18next-browser-languagedetector "^4.0.0"
-    i18next-fs-backend "^1.0.1"
-    i18next-http-backend "^1.0.4"
-    i18next-http-middleware "^1.0.0"
+    i18next-fs-backend "^1.0.2"
+    i18next-http-backend "^1.0.8"
+    i18next-http-middleware ">=1.0.2"
     path-match "^1.2.4"
     prop-types "^15.6.2"
     react-i18next "^11.0.0"
