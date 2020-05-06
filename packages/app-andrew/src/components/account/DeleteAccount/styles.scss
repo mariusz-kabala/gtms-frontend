@@ -4,10 +4,8 @@
 
 .btnDeleteAccount {
   @include buttonDefault();
-  width: 100%;
-  &:hover {
-    @include buttonColorsHoverDefault();
-  }
+  padding: 0;
+  text-transform: initial;
 }
 
 .modalContent {

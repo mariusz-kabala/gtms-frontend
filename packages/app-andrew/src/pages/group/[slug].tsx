@@ -5,9 +5,11 @@ import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
 import { useTranslation } from '@gtms/commons/i18n'
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
+import { RecentlyCreatedGroups } from '@gtms/ui/RecentlyCreatedGroups'
 import { Spinner } from '@gtms/ui/Spinner'
-import { UserCardMini } from '@gtms/ui/UserCardMini'
 import { GroupDescription } from '../../components/groups/GroupDescription'
+import { GroupNoAccess } from '../../components/groups/GroupNoAccess'
+import { GroupNotFound } from '../../components/groups/GroupNotFound'
 import { GroupAvatar } from '../../components/groups/GroupAvatar'
 import ReactTooltip from 'react-tooltip'
 
@@ -61,79 +63,23 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             </p>
           </ErrorInfo>
         )}
-
-        {group.notFound && (
-          <div>
-            <h1>GROUP NOT FOUND!</h1>
-            <p>
-              Create a separate component for that - it should allow to search
-              for groups, maybe show recommended, or something like that
-            </p>
-          </div>
-        )}
-
-        {group.hasNoAccess && (
-          <div>
-            <h1>ACCESS DENY</h1>
-            <p>You have no access to see this group, fuck off</p>
-          </div>
-        )}
-
+        {group.notFound && <GroupNotFound />}
+        {group.hasNoAccess && <GroupNoAccess />}
         {group.group && (
-          <>
-            <div className={styles.columns}>
-              <div className={styles.column}>
-                <section>
-                  <h2 className={styles.header}>{t('recently-added-posts')}</h2>
-                  <div className={styles.grid}>
-                    <UserCardMini
-                      name="Johnny Silverhand"
-                      image={'/images/temp_images/logo-patrol-1.png'}
-                    />
-                    <UserCardMini
-                      name="Johnny Silverhand"
-                      image={'/images/temp_images/logo-patrol-2.png'}
-                    />
-                    <UserCardMini
-                      name="Johnny Silverhand"
-                      image={'/images/temp_images/logo-sztab-1.png'}
-                    />
-                    <UserCardMini
-                      name="Johnny Silverhand"
-                      image={'/images/temp_images/logo-sztab-2.png'}
-                    />
-                  </div>
-                </section>
-                <section>
-                  <h2 className={styles.header}>Ostatnio dodane posty</h2>
-                  <div className={styles.grid}>
-                    <UserCardMini
-                      name="Johnny Silverhand"
-                      image={'/images/temp_images/logo-sztab-3.png'}
-                    />
-                    <UserCardMini
-                      name="Johnny Silverhand"
-                      image={'/images/temp_images/logo-uczymy-ratowac.png'}
-                    />
-                    <UserCardMini
-                      name="Johnny Silverhand"
-                      image={'/images/temp_images/logo-wielki-mecz.png'}
-                    />
-                    <UserCardMini
-                      name="Johnny Silverhand"
-                      image={'/images/temp_images/logo-zbc.png'}
-                    />
-                  </div>
-                </section>
-              </div>
-              <div className={styles.column}>
-                <section>
-                  <h2 className={styles.header}>Ostatnio dodane posty</h2>
-                  <RecentlyAddedPosts />
-                </section>
-              </div>
+          <div className={styles.columns}>
+            <div className={styles.column}>
+              <section>
+                <h2 className={styles.header}>{t('recentlyCreatedGroups')}</h2>
+                <RecentlyCreatedGroups />
+              </section>
             </div>
-          </>
+            <div className={styles.column}>
+              <section>
+                <h2 className={styles.header}>{t('recentlyAddedPosts')}</h2>
+                <RecentlyAddedPosts />
+              </section>
+            </div>
+          </div>
         )}
       </div>
     </div>

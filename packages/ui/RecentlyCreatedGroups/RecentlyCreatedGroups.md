@@ -1,5 +1,7 @@
 Basic usage
 
 ```
-<RecentlyCreatedGroups />
+<div style={{ background: 'black'}}>
+  <RecentlyCreatedGroups />
+</div>
 ```

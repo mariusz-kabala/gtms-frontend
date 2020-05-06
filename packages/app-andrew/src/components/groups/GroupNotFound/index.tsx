@@ -2,9 +2,7 @@ import React, { FC } from 'react'
 import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
-export const GroupNotFound: FC<{
-  onConfirm: () => unknown
-}> = () => {
+export const GroupNotFound: FC = () => {
   return (
     <div className={styles.wrapper} data-testid="group-not-found">
       <h2>Group not found</h2>

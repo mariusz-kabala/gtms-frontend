@@ -4,7 +4,7 @@ import { GroupNotFound } from './index'
 
 describe('<GroupNotFound />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<GroupNotFound onConfirm={jest.fn()} />)
+    const { getByTestId } = render(<GroupNotFound />)
 
     expect(getByTestId('group-not-found')).toBeInTheDocument()
   })

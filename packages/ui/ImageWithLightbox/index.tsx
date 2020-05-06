@@ -3,7 +3,7 @@ import cx from 'classnames'
 import styles from './styles.scss'
 import { Modal } from '@gtms/ui/Modal'
 
-export const ImageHolder: FC<{
+export const ImageWithLightbox: FC<{
   additionalStyles?: string
   onClick?: () => unknown
   src: string
@@ -21,7 +21,7 @@ export const ImageHolder: FC<{
       <div
         className={cx(styles.miniature, additionalStyles)}
         style={{ backgroundImage: `url(${src})` }}
-        data-testid="imageHolder"
+        data-testid="imageWithLightbox"
         onClick={() => {
           setIsModalOpen(true)
           onClick()
