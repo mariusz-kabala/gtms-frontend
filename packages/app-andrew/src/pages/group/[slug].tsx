@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react'
 import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
-import { useTranslation } from '@gtms/commons/i18n'
-import { ErrorInfo } from '@gtms/ui/ErrorInfo'
-import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
-import { RecentlyCreatedGroups } from '@gtms/ui/RecentlyCreatedGroups'
-import { Spinner } from '@gtms/ui/Spinner'
-import { GroupDescription } from '../../components/groups/GroupDescription'
-import { GroupNoAccess } from '../../components/groups/GroupNoAccess'
+// import { useTranslation } from '@gtms/commons/i18n'
+// import { ErrorInfo } from '@gtms/ui/ErrorInfo'
+// import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
+// import { RecentlyCreatedGroups } from '@gtms/ui/RecentlyCreatedGroups'
+// import { Spinner } from '@gtms/ui/Spinner'
+// import { GroupDescription } from '../../components/groups/GroupDescription'
+// import { GroupNoAccess } from '../../components/groups/GroupNoAccess'
 import { GroupNotFound } from '../../components/groups/GroupNotFound'
-import { GroupAvatar } from '../../components/groups/GroupAvatar'
-import ReactTooltip from 'react-tooltip'
+// import { GroupAvatar } from '../../components/groups/GroupAvatar'
+// import ReactTooltip from 'react-tooltip'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
@@ -19,7 +19,7 @@ type GroupPageProps = {
 }
 
 const GroupPage: NextPage<GroupPageProps> = (props) => {
-  const { t } = useTranslation('groupPage')
+  // const { t } = useTranslation('groupPage')
   const [group, setGroup] = useState<IGroupStore>(props.group)
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
-        <div className={styles.groupHeader}>
+        {/* <div className={styles.groupHeader}>
           <GroupAvatar
             additionalStyles={styles.groupAvatar}
             isEditAllowed={groupQuery.hasAdminRights()}
@@ -62,9 +62,10 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               Create a proper component that can be used here when 500 from BE
             </p>
           </ErrorInfo>
-        )}
+        )} */}
+        <GroupNotFound />
         {group.notFound && <GroupNotFound />}
-        {group.hasNoAccess && <GroupNoAccess />}
+        {/* {group.hasNoAccess && <GroupNoAccess />}
         {group.group && (
           <div className={styles.columns}>
             <div className={styles.column}>
@@ -80,7 +81,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </section>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   )

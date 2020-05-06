@@ -1,12 +1,15 @@
 import React, { FC } from 'react'
-import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
+import { useTranslation } from '@gtms/commons/i18n'
+import { Button } from '@gtms/ui/Button'
 
 export const GroupNoAccess: FC = () => {
+  const { t } = useTranslation('groupNoAccessComponent')
+
   return (
     <div className={styles.wrapper} data-testid="group-no-access">
-      <h2>ACCESS DENY</h2>
-      <p>You have no access to see this group, fuck off</p>
+      <h2>{t('header')}</h2>
+      <p>{t('subheader')}</p>
       <Button>Delete Account</Button>
     </div>
   )
