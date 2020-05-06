@@ -59,13 +59,11 @@ export const GroupAvatar: FC<{
       </div>
       {isEditModeActive && (
         <Modal onClose={() => setIsEditModeActive(false)}>
-          <div>
-            <UploadFile
-              onDrop={onDrop}
-              isLoading={uploadStatus.isUploading}
-              isError={uploadStatus.isError}
-            />
-          </div>
+          <UploadFile
+            onDrop={onDrop}
+            isLoading={uploadStatus.isUploading}
+            isError={uploadStatus.isError}
+          />
         </Modal>
       )}
     </div>
