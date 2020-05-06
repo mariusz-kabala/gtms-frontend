@@ -23,7 +23,7 @@ export const AccountPage: NextPage<{}> = () => {
           </span>
           <ImageHolder
             additionalStyles={styles.userImage}
-            src="https://images.unsplash.com/photo-1464863979621-258859e62245"
+            src="/images/temp_images/avatar-1.png"
           />
           <p className={styles.desc}>
             {t('title')}

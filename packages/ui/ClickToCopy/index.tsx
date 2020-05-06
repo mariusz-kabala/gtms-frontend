@@ -5,25 +5,24 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { Button } from '@gtms/ui/Button'
 import useClipboard from 'react-use-clipboard'
 
-export const InviteFriends: FC<{
+export const ClickToCopy: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
   const [isCopied, setCopied] = useClipboard(
     'http://jedziemyna.pl/openerfestival'
   )
-  const { t } = useTranslation('inviteFriends')
+  const { t } = useTranslation('clickToCopyUiComponent')
 
   return (
     <>
       <div
         className={cx(styles.wrapper, additionalStyles)}
-        data-testid="invite-friends"
+        data-testid="click-to-copy"
       >
-        <h2>{t('invite.header')}</h2>
+        <h2>{t('header')}</h2>
         <Button
           additionalStyles={styles.btn}
           onClick={setCopied}
-          data-testid="invite-friends-copy-button"
         >
           {!isCopied && t('copyLink')}
           {isCopied && t('copied')}

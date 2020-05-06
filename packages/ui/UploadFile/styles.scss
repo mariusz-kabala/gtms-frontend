@@ -1,4 +1,5 @@
 @import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
   .dropzone {
@@ -6,18 +7,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    min-height: 100px;
-    border: 3px dotted $theme1;
+    width: 300px;
+    height: 300px;
+    border: 2px dotted $theme3;
+    padding: 20px;
     cursor: pointer;
+    text-align: center;
 
-    &:hover {
-      color: $theme3;
-      border: 3px dotted $theme3;
+    i {
+      @include font-size(xlg);
+    }
 
-      i {
-        color: $theme3;
-      }
+    p {
+      display: block;
+      @include font-size(md);
     }
 
     &:active,
@@ -26,13 +29,13 @@
       outline: none;
     }
 
-    i {
-      font-size: 30px;
-    }
+    &:hover {
+      color: $theme4;
+      border-color: $theme4;
 
-    p {
-      display: block;
-      margin-top: 100px;
+      i {
+        color: $theme4;
+      }
     }
   }
 }

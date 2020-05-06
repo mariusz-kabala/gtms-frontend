@@ -2,8 +2,8 @@ import React, { FC, useState, useCallback } from 'react'
 import { Picture } from '@gtms/ui/Picture'
 import { UploadFile } from '@gtms/ui/UploadFile'
 import { useTranslation } from '@gtms/commons/i18n'
-import { ExpandingItem } from '@gtms/ui/ExpandingItem'
 import { updateGroupAvatar } from '@gtms/state-group'
+import { Modal } from '@gtms/ui/Modal'
 
 export const GroupAvatar: FC<{
   additionalStyles?: string
@@ -54,26 +54,18 @@ export const GroupAvatar: FC<{
         }
       }}
     >
-      <ExpandingItem
-        isActive={isEditModeActive}
-        closeOnClickOutsie={false}
-        label={
-          <div data-tip={t('click-to-upload-new-image')}>
-            <Picture {...files} />
-          </div>
-        }
-        onClose={() => {
-          setIsEditModeActive(false)
-        }}
-      >
-        <div>
+      <div data-tip={t('click-to-upload-new-image')}>
+        <Picture {...files} />
+      </div>
+      {isEditModeActive && (
+        <Modal onClose={() => setIsEditModeActive(false)}>
           <UploadFile
             onDrop={onDrop}
             isLoading={uploadStatus.isUploading}
             isError={uploadStatus.isError}
           />
-        </div>
-      </ExpandingItem>
+        </Modal>
+      )}
     </div>
   )
 }

@@ -9,12 +9,12 @@ export const ImageHolder: FC<{
   src: string
   alt?: string
 }> = ({ additionalStyles, onClick = () => null, src, alt }) => {
-  const [state, setState] = useState<boolean>(false)
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
     <div className={styles.wrapper}>
-      {state && (
-        <Modal onClose={() => setState(false)}>
+      {isModalOpen && (
+        <Modal onClose={() => setIsModalOpen(false)}>
           <img className={styles.fullImage} src={src} alt={alt ?? ''} />
         </Modal>
       )}
@@ -23,7 +23,7 @@ export const ImageHolder: FC<{
         style={{ backgroundImage: `url(${src})` }}
         data-testid="imageHolder"
         onClick={() => {
-          setState(true)
+          setIsModalOpen(true)
           onClick()
         }}
       />
