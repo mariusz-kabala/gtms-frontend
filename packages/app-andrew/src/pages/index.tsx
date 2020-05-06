@@ -37,17 +37,6 @@ export const HomePage: NextPage<{}> = () => {
       <section>
         <h2 className={styles.header}>{t('Zaproś znajomych')}</h2>
         <RecentlyRegisteredUsers />
-        <ul>
-          <li>
-            <Link href="/group/owsiak">Owsiak</Link>
-          </li>
-          <li>
-            <Link href="/group/my-private-group">My Private group</Link>
-          </li>
-          <li>
-            <Link href="/group/private-group">Private group</Link>
-          </li>
-        </ul>
         {isLogged && <p>USER HAS A VALID SESSION!!!</p>}
         {isLogged && <Logout />}
       </section>
