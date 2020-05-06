@@ -1,4 +1,5 @@
 @import '@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
@@ -17,8 +18,13 @@
 
     > button {
       color: white;
+      @include buttonDefault();
       @include font-size(md);
       @include font-weight(bold);
+
+      &:hover {
+        @include buttonColorsHoverDefault();
+      }
     }
   }
 

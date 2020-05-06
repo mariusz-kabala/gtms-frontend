@@ -1,5 +1,5 @@
-import React, { FC, useState, useEffect, useRef } from 'react'
+import React, { FC } from 'react'
 
-export const TagsBar: FC<{}> = (params) => {
+export const TagsBar: FC<{}> = () => {
   return <div data-testid="tagsBar"></div>
 }

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
-import { useTranslation } from '@gtms/commons/i18n'
-import { PostCreate } from '@gtms/ui/PostCreate'
-import { PostSingle } from '@gtms/ui/PostSingle'
-import { UserCardMini } from '@gtms/ui/UserCardMini'
 import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
-import { Spinner } from '@gtms/ui'
+import { useTranslation } from '@gtms/commons/i18n'
+import { ErrorInfo } from '@gtms/ui/ErrorInfo'
+import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
+import { Spinner } from '@gtms/ui/Spinner'
+import { UserCardMini } from '@gtms/ui/UserCardMini'
 import { GroupDescription } from '../../components/groups/GroupDescription'
 import { GroupAvatar } from '../../components/groups/GroupAvatar'
 import ReactTooltip from 'react-tooltip'
@@ -34,27 +34,32 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       <div className={styles.content}>
         <div className={styles.groupHeader}>
           <GroupAvatar
+            additionalStyles={styles.groupAvatar}
             isEditAllowed={groupQuery.hasAdminRights()}
             files={groupQuery.getAvatar('200x200')}
           />
-          <h2 data-tip={t('click-here-to-edit')} data-type="dark">
-            {group.group?.name}
-          </h2>
-          <GroupDescription
-            isEditAllowed={groupQuery.hasAdminRights()}
-            slug={group.group?.slug || ''}
-            text={group.group?.description || ''}
-          />
-          {groupQuery.hasAdminRights() && <ReactTooltip />}
-        </div>
-        {group.isLoading && <Spinner />}
-        {group.errorOccured && (
           <div>
+            <h2 data-tip={t('click-here-to-edit')} data-type="dark">
+              {group.group?.name}
+            </h2>
+            <GroupDescription
+              isEditAllowed={groupQuery.hasAdminRights()}
+              slug={group.group?.slug || ''}
+              text={group.group?.description || ''}
+            />
+            {groupQuery.hasAdminRights() && <ReactTooltip />}
+          </div>
+        </div>
+
+        {group.isLoading && <Spinner />}
+
+        {group.errorOccured && (
+          <ErrorInfo>
             <h1>ERROR OCCURED</h1>
             <p>
               Create a proper component that can be used here when 500 from BE
             </p>
-          </div>
+          </ErrorInfo>
         )}
 
         {group.notFound && (
@@ -124,13 +129,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               <div className={styles.column}>
                 <section>
                   <h2 className={styles.header}>Ostatnio dodane posty</h2>
-                  <PostCreate additionalStyles={styles.postCreate} />
-                  <PostSingle additionalStyles={styles.post} />
-                  <PostSingle additionalStyles={styles.post} />
-                  <PostSingle additionalStyles={styles.post} />
-                  <PostSingle additionalStyles={styles.post} />
-                  <PostSingle additionalStyles={styles.post} />
-                  <PostSingle additionalStyles={styles.post} />
+                  <RecentlyAddedPosts />
                 </section>
               </div>
             </div>

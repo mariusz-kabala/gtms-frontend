@@ -14,7 +14,7 @@ export const PostSingle: FC<{
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
-      data-testid="postSingle"
+      data-testid="post-single"
     >
       <div className={styles.user}>
         <UserAvatar

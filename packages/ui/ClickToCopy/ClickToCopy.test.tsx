@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { InviteFriends } from './index'
+import { ClickToCopy } from './index'
 
-describe('<InviteFriends />', () => {
+describe('<ClickToCopy />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(<InviteFriends />)
 
-    expect(getByTestId('invite-friends')).toBeInTheDocument()
+    expect(getByTestId('click-to-copy')).toBeInTheDocument()
   })
 })
