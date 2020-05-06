@@ -8,9 +8,13 @@ export const GroupNoAccess: FC = () => {
 
   return (
     <div className={styles.wrapper} data-testid="group-no-access">
-      <h2>{t('header')}</h2>
-      <p>{t('subheader')}</p>
-      <Button>Delete Account</Button>
+      <div>
+        <h2>{t('header')}</h2>
+        <p>{t('subheader')}</p>
+        <Button additionalStyles={styles.btn}>
+          {t('btn')}
+        </Button>
+      </div>
     </div>
   )
 }

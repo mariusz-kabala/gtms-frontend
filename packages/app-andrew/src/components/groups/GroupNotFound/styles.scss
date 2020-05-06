@@ -1,7 +1,25 @@
 @import '~@gtms/styles/scss/variables.scss';
-
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  height: 100%;
+  text-align: center;
+
+  h2 {
+    font-size: 40px;
+  }
+
+  .btn {
+    @include buttonDefault();
+    @include buttonColorsDefault();
+    
+    &:hover {
+      @include buttonColorsHoverDefault();
+    }
+  }
 }
