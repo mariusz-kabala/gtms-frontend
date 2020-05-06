@@ -56,9 +56,11 @@
   }
 
   .userName {
-    position: relative;
-    z-index: 1;
-    @include font-size(xlg);
+    &:hover {
+      div > span {
+        color: $theme4;
+      }
+    }
   }
 
   .visibleForOwner {
@@ -68,6 +70,14 @@
 
     > div {
       margin-bottom: 20px;
+    }
+  }
+
+  .deleteAccount {
+    &:hover {
+      > button { 
+        color: $theme4;
+      }
     }
   }
 }

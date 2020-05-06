@@ -1,0 +1,16 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/header.scss';
+
+.wrapper {
+  padding: 20px;
+  color: $theme6;
+
+  .header {
+    @include header(h3, textUppercase);
+  }
+
+  .btn {
+    @include buttonDefault();
+  }
+}

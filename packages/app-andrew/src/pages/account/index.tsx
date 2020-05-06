@@ -50,8 +50,10 @@ export const AccountPage: NextPage<{}> = () => {
           <span className={styles.visibilityLabel}>
             This part is visible ONLY FOR YOU
           </span>
-          <UserName />
-          <DeleteAccount onConfirm={() => null} />
+          <UserName additionalStyles={styles.userName} />
+          <DeleteAccount 
+            additionalStyles={styles.deleteAccount}
+            onConfirm={() => null} />
         </div>
       </div>
     </div>
