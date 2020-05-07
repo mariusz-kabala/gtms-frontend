@@ -3,6 +3,7 @@ import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
 import { DeleteAccount } from '../../components/account/DeleteAccount'
+import { Email } from '../../components/account/Email'
 import { UserName } from '../../components/account/UserName'
 import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
 import { Tag } from '@gtms/ui/Tag'
@@ -58,6 +59,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             This part is visible ONLY FOR YOU
           </span>
           <UserName additionalStyles={styles.userName} />
+          <Email additionalStyles={styles.userName} />
           <DeleteAccount
             additionalStyles={styles.deleteAccount}
             onConfirm={() => null}
