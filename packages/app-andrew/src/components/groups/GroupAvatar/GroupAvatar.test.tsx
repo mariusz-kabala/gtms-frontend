@@ -5,7 +5,9 @@ import { useTranslation } from '@gtms/commons/i18n'
 
 describe('<GroupAvatar />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<GroupAvatar />)
+    const { getByTestId } = render(
+      <GroupAvatar files={{ jpg: '' }} isEditAllowed={false} />
+    )
 
     expect(getByTestId('group-avatar')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('groupAvatarComponent')

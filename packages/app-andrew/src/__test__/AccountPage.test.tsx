@@ -9,8 +9,16 @@ jest.mock('../components/account/DeleteAccount', () => ({
 }))
 
 describe('<AccountPage />', () => {
+  const accountDetails = {
+    id: 'fake-id',
+    email: 'fake@email.com',
+    tags: [],
+    roles: [],
+  }
   it('Should render the page', () => {
-    const { getByTestId } = render(<AccountPage />)
+    const { getByTestId } = render(
+      <AccountPage namespacesRequired={[]} accountDetails={accountDetails} />
+    )
 
     expect(getByTestId('account-page-private')).toBeInTheDocument()
 
@@ -32,9 +40,7 @@ describe('<AccountPage />', () => {
     // eslint-disable-next-line
     const ctx: any = null
 
-    const props: {
-      namespacesRequired?: string[]
-    } = await AccountPage.getInitialProps(ctx)
+    const props = await AccountPage.getInitialProps(ctx)
 
     expect(props).toHaveProperty('namespacesRequired')
     expect(props.namespacesRequired).toEqual(['account'])
@@ -50,7 +56,9 @@ describe('<AccountPage />', () => {
       return <></>
     })
 
-    render(<AccountPage />)
+    render(
+      <AccountPage namespacesRequired={[]} accountDetails={accountDetails} />
+    )
 
     expect(typeof onConfirm).toBe('function')
 

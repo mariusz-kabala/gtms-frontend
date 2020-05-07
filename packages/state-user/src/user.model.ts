@@ -14,6 +14,7 @@ export interface IUser {
   isBlocked: boolean
   isActive: boolean
   roles: string[]
+  tags: string[]
   session?: {
     accessToken: IToken
     refreshToken: IToken

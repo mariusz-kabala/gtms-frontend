@@ -14,7 +14,7 @@ import { IGroup } from './group.model'
 import { GroupType, GroupVisibility } from '@gtms/commons'
 
 function parseFile(file: string) {
-  const [_host, path] = file
+  const [, path] = file
     .replace('http://', '')
     .replace('https://', '')
     .split('/')

@@ -146,7 +146,7 @@ export const logoutUser = () => {
 }
 
 export const getAccountDetails = async () => {
-  const account = await fetchAccountDetails()
+  const details = await fetchAccountDetails()
 
-  // console.log('CHUJ', account)
+  userStore.update(details)
 }

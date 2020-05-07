@@ -1,4 +1,5 @@
 import getConfig from 'next/config'
+import { userQuery } from '@gtms/state-user'
 
 interface IParams<T> {
   values: T
@@ -23,6 +24,10 @@ export const fetchJSON = <T, R>(
     options.body = JSON.stringify(values)
     options.method = 'POST'
     options.cache = 'no-cache'
+  }
+
+  if (userQuery.isLogged()) {
+    headers['x-access-token'] = userQuery.jwt() || ''
   }
 
   options.headers = headers

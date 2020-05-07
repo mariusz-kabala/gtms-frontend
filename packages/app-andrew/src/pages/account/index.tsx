@@ -7,10 +7,15 @@ import { UserName } from '../../components/account/UserName'
 import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
-import { userQuery, getAccountDetails } from '@gtms/state-user'
+import { userQuery, getAccountDetails, IAccountDetails } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
-export const AccountPage: NextPage<{}> = () => {
+type AccountPageProps = {
+  namespacesRequired: readonly string[]
+  accountDetails: IAccountDetails
+}
+
+export const AccountPage: NextPage<AccountPageProps> = () => {
   const { t } = useTranslation('account')
 
   return (
@@ -53,9 +58,10 @@ export const AccountPage: NextPage<{}> = () => {
             This part is visible ONLY FOR YOU
           </span>
           <UserName additionalStyles={styles.userName} />
-          <DeleteAccount 
+          <DeleteAccount
             additionalStyles={styles.deleteAccount}
-            onConfirm={() => null} />
+            onConfirm={() => null}
+          />
         </div>
       </div>
     </div>
@@ -66,9 +72,13 @@ AccountPage.getInitialProps = async (ctx: NextPageContext) => {
   if (!userQuery.isLogged()) {
     redirect('/login', ctx)
   }
+
   await getAccountDetails()
 
-  return { namespacesRequired: ['account'] }
+  return {
+    namespacesRequired: ['account'],
+    accountDetails: userQuery.accountDetails(),
+  }
 }
 
 export default AccountPage

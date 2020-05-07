@@ -5,14 +5,18 @@ import styles from './styles.scss'
 
 describe('<UploadFile />', () => {
   it('Should be on the page', () => {
-    const { getByTestId, container } = render(<UploadFile />)
+    const { getByTestId, container } = render(
+      <UploadFile onDrop={() => null} />
+    )
 
     expect(getByTestId('upload-file')).toBeInTheDocument()
     expect(container.querySelector(`.${styles.wrapper}`)).toBeInTheDocument()
   })
 
   it('Should add additional css classes', () => {
-    const { container } = render(<UploadFile additionalStyles="testingClass" />)
+    const { container } = render(
+      <UploadFile onDrop={() => null} additionalStyles="testingClass" />
+    )
 
     expect(container.querySelector('.testingClass')).toBeInTheDocument()
   })

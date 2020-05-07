@@ -49,10 +49,8 @@ App.getInitialProps = async ({ Component, ctx }: AppContext) => {
   const componentGetInitialProps =
     Component.getInitialProps || (() => Promise.resolve())
 
-  const [auth, pageProps] = await Promise.all([
-    initAuthSession(ctx),
-    componentGetInitialProps(ctx),
-  ])
+  const auth = await initAuthSession(ctx)
+  const pageProps = await componentGetInitialProps(ctx)
 
   return {
     auth,

@@ -16,6 +16,7 @@ const handle = app.getRequestHandler()
   if (!isInProductionMode) {
     // eslint-disable-next-line
     const proxy = require('express-http-proxy')
+
     server.use(
       '/api',
       proxy(API_URL, {
@@ -29,9 +30,11 @@ const handle = app.getRequestHandler()
 
   server.get('/logout', (req: Request, res: Response) => handle(req, res))
 
-  server.use(nextI18NextMiddleware(nextI18next))
-
-  server.get('*', (req: Request, res: Response) => handle(req, res))
+  server.get(
+    '*',
+    nextI18NextMiddleware(nextI18next),
+    (req: Request, res: Response) => handle(req, res)
+  )
 
   await server.listen(port)
   console.log(`> Ready on http://localhost:${port}`) // eslint-disable-line no-console

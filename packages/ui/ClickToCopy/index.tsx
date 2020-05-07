@@ -20,10 +20,7 @@ export const ClickToCopy: FC<{
         data-testid="click-to-copy"
       >
         <h2>{t('header')}</h2>
-        <Button
-          additionalStyles={styles.btn}
-          onClick={setCopied}
-        >
+        <Button additionalStyles={styles.btn} onClick={setCopied}>
           {!isCopied && t('copyLink')}
           {isCopied && t('copied')}
         </Button>

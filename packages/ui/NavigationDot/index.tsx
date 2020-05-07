@@ -11,38 +11,37 @@ const mockData = [
   {
     id: 0,
     img: image1,
-    url: '/group/owsiak'
+    url: '/group/owsiak',
   },
   {
     id: 1,
     img: image2,
-    url: '/group/my-private-group'
+    url: '/group/my-private-group',
   },
   {
     id: 2,
     img: image3,
-    url: '/group/private-group'
+    url: '/group/private-group',
   },
   {
     id: 3,
     img: image4,
-    url: '/group/owsiak'
+    url: '/group/owsiak',
   },
   {
     id: 4,
     img: image1,
-    url: '/group/my-private-group'
+    url: '/group/my-private-group',
   },
   {
     id: 5,
     img: image2,
-    url: '/group/private-group'
-
+    url: '/group/private-group',
   },
   {
     id: 6,
     img: image3,
-    url: '/group/owsiak'
+    url: '/group/owsiak',
   },
 ]
 
