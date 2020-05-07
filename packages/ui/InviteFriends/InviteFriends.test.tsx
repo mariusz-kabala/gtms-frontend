@@ -1,13 +1,13 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { GroupCard } from './index'
+import { InviteFriends } from './index'
 
-describe('<GroupCard />', () => {
+describe('<InviteFriends />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(
-      <GroupCard onClose={jest.fn()} image="/fake/img.png" />
+      <InviteFriends />
     )
 
-    expect(getByTestId('group-card')).toBeInTheDocument()
+    expect(getByTestId('invite-friends')).toBeInTheDocument()
   })
 })
