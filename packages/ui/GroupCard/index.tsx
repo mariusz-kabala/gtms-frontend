@@ -32,7 +32,7 @@ export const GroupCard: FC<{
               Id in veniam sunt labore. Adipisicing proident dolor nulla
               cillum cupidatat. Do sint labore cupidatat.
             </p>
-            <h3>{t('myTags')}</h3>
+            <h3>{t('groupTags')}</h3>
             <TagGroup additionalStyles={styles.userTags}>
               <Tag label="Mechanik" />
               <Tag label="Oddam" />
@@ -42,7 +42,7 @@ export const GroupCard: FC<{
               <Tag label="Znaleziono" />
               <Tag label="Polityka" />
             </TagGroup>
-            <h3>{t('groupsMember')}</h3>
+            <h3>{t('groupsMembers')}</h3>
             <ul
               className={cx(styles.users, additionalStyles)}
               data-testid="recently-registered-users"

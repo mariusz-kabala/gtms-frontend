@@ -7,11 +7,10 @@ import useClipboard from 'react-use-clipboard'
 
 export const ClickToCopy: FC<{
   additionalStyles?: string
-}> = ({ additionalStyles }) => {
-  const [isCopied, setCopied] = useClipboard(
-    'http://jedziemyna.pl/openerfestival'
-  )
+  text: string
+}> = ({ additionalStyles, text }) => {
   const { t } = useTranslation('clickToCopyUiComponent')
+  const [isCopied, setCopied] = useClipboard(text)
 
   return (
     <>
@@ -19,7 +18,6 @@ export const ClickToCopy: FC<{
         className={cx(styles.wrapper, additionalStyles)}
         data-testid="click-to-copy"
       >
-        <h2>{t('header')}</h2>
         <Button additionalStyles={styles.btn} onClick={setCopied}>
           {!isCopied && t('copyLink')}
           {isCopied && t('copied')}

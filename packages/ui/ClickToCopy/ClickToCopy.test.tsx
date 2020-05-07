@@ -5,7 +5,7 @@ import { ClickToCopy } from './index'
 
 describe('<ClickToCopy />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<ClickToCopy />)
+    const { getByTestId } = render(<ClickToCopy text='Wejdź na www.jedziemyna.pl' />)
 
     expect(getByTestId('click-to-copy')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('clickToCopyComponent')
