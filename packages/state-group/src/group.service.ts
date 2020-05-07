@@ -45,6 +45,7 @@ function parseFiles(files: string[]) {
 export const createNewGroup = async (payload: {
   name: string
   description?: string
+  tags?: string[]
 }): Promise<IGroupCreateResponse> => {
   const data: IGroupCreateData = {
     ...payload,

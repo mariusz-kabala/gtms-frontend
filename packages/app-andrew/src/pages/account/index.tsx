@@ -65,7 +65,7 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
       })
       .catch(() => {
         setTagsHints({
-          isLoading: true,
+          isLoading: false,
           tags: [],
         })
       })

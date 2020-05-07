@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useCallback } from 'react'
 import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
@@ -8,6 +8,8 @@ import { Button } from '@gtms/ui/Button'
 import { createNewGroup } from '@gtms/state-group'
 import { IGroupCreateResponse } from '@gtms/api-group'
 import { Spinner } from '@gtms/ui'
+import { TagsBar } from '@gtms/ui/TagsBar'
+import { findTagsAPI } from '@gtms/api-tags'
 
 interface IFromData {
   name: string
@@ -20,6 +22,53 @@ export const GroupCreateForm: FC<{
   const { t } = useTranslation('groupCreate')
   const { register, handleSubmit, errors, setError } = useForm<IFromData>()
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
+  const [tags, setTags] = useState<string[]>([])
+  const [tagsHints, setTagsHints] = useState<{
+    isLoading: boolean
+    tags: string[]
+  }>({
+    isLoading: false,
+    tags: [],
+  })
+  const onTagAdd = useCallback(
+    (tag: string) => {
+      if (tags.indexOf(tag) === -1) {
+        setTags([...tags, tag])
+      }
+    },
+    [tags]
+  )
+  const onTagRemove = useCallback(
+    (tag: string) => {
+      const index = tags.indexOf(tag)
+
+      if (index > -1) {
+        tags.splice(index, 1)
+        setTags([...tags])
+      }
+    },
+    [tags]
+  )
+  const onLoadTagsHints = useCallback((query: string) => {
+    setTagsHints({
+      isLoading: true,
+      tags: [],
+    })
+
+    findTagsAPI(query)
+      .then((tags: string[]) => {
+        setTagsHints({
+          isLoading: false,
+          tags,
+        })
+      })
+      .catch(() => {
+        setTagsHints({
+          isLoading: false,
+          tags: [],
+        })
+      })
+  }, [])
   const validate = (data: IFromData) => {
     let hasErrors = false
 
@@ -35,10 +84,11 @@ export const GroupCreateForm: FC<{
       return
     }
 
-    setIsMakingRequest(true)
-
     try {
-      const response: IGroupCreateResponse = await createNewGroup(data)
+      const response: IGroupCreateResponse = await createNewGroup({
+        ...data,
+        tags,
+      })
 
       onSuccess(response)
     } catch (err) {
@@ -50,6 +100,8 @@ export const GroupCreateForm: FC<{
       } else {
         onError()
       }
+    } finally {
+      setIsMakingRequest(false)
     }
   }
 
@@ -72,6 +124,17 @@ export const GroupCreateForm: FC<{
       {errors.name && errors.name.type === 'backend' && (
         <Error text={errors.name.message as string} />
       )}
+      <TagsBar
+        tags={tags}
+        isSaving={false}
+        isLoading={tagsHints.isLoading}
+        suggestions={tagsHints.tags}
+        onLoadSuggestion={onLoadTagsHints}
+        onLoadSuggestionCancel={() => null}
+        onTagAdd={onTagAdd}
+        onTagRemove={onTagRemove}
+        onSave={() => Promise.resolve()}
+      />
       <Button
         type="submit"
         disabled={isMakingRequest}
