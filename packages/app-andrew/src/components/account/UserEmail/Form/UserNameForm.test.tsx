@@ -1,11 +1,8 @@
 import React from 'react'
 import { render, act } from '@testing-library/react'
-import { UserNameChangeForm } from './index'
+import { UserEmailChangeForm } from './index'
 import { useForm } from 'react-hook-form'
-
-// where I should this one below?
-import { IUserNameData } from '@gtms/commons/types/userAccount'
-
+import { IUserEmailData } from '@gtms/commons/types/userEmail'
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 
@@ -20,42 +17,38 @@ jest.mock('react-hook-form', () => ({
   })),
 }))
 
-describe('<UserNameChangeForm />', () => {
+describe('<UserEmailChangeForm />', () => {
   beforeEach(() => {
     fetchMock.resetMocks()
   })
 
   it('Should be on the page', () => {
-    const { getByTestId } = render(<UserNameChangeForm />)
+    const { getByTestId } = render(<UserEmailChangeForm />)
 
-    expect(getByTestId('user-name-change-form')).toBeInTheDocument()
-    expect(useTranslation).toBeCalledWith('userNameChangeForm')
+    expect(getByTestId('user-email-change-form')).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('UserEmailChangeForm')
   })
 
   it('Should have all required fields', () => {
-    const { getByPlaceholderText, getByText } = render(<UserNameChangeForm />)
+    const { getByPlaceholderText, getByText } = render(<UserEmailChangeForm />)
 
-    expect(getByPlaceholderText('form.labels.name')).toBeInTheDocument()
-    expect(getByPlaceholderText('form.labels.surname')).toBeInTheDocument()
+    expect(getByPlaceholderText('form.labels.email')).toBeInTheDocument()
     expect(getByText('form.submitButton')).toBeInTheDocument()
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { queryByTestId } = render(<UserNameChangeForm />)
+    const { queryByTestId } = render(<UserEmailChangeForm />)
 
     expect(queryByTestId('form-error')).toBeNull()
   })
 
-  it('Should display validation errors for name and surname', () => {
+  it('Should display validation errors for email', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
         handleSubmit: jest.fn(),
         errors: {
-          name: {
-            type: 'required',
-          },
-          surname: {
+          email: {
             type: 'required',
           },
         },
@@ -63,10 +56,9 @@ describe('<UserNameChangeForm />', () => {
       }
     })
 
-    const { getByText } = render(<UserNameChangeForm />)
+    const { getByText } = render(<UserEmailChangeForm />)
 
-    expect(getByText('form.validation.name.isRequired')).toBeInTheDocument()
-    expect(getByText('form.validation.surname.isRequired')).toBeInTheDocument()
+    expect(getByText('form.validation.email.isRequired')).toBeInTheDocument()
   })
 
   it('Should set errors when clicking on submit button without filling form', () => {
@@ -76,7 +68,7 @@ describe('<UserNameChangeForm />', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
-        handleSubmit: (func: (data: IUserNameData) => Promise<void>) => {
+        handleSubmit: (func: (data: IUserEmailData) => Promise<void>) => {
           onSubmit = func
         },
         errors: {},
@@ -85,7 +77,7 @@ describe('<UserNameChangeForm />', () => {
     })
 
     act(() => {
-      render(<UserNameChangeForm />)
+      render(<UserEmailChangeForm />)
 
       onSubmit({})
     })
@@ -100,7 +92,7 @@ describe('<UserNameChangeForm />', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
-        handleSubmit: (func: (data: IUserNameData) => Promise<void>) => {
+        handleSubmit: (func: (data: IUserEmailData) => Promise<void>) => {
           onSubmit = func
         },
         errors: {},
@@ -109,11 +101,10 @@ describe('<UserNameChangeForm />', () => {
     })
 
     act(() => {
-      render(<UserNameChangeForm />)
+      render(<UserEmailChangeForm />)
 
       onSubmit({
-        name: 'Tester',
-        surname: 'Test',
+        email: 'tester@jedziemyna.pl',
       })
     })
 

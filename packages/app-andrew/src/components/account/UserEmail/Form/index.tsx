@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form'
 import { NFC } from '@gtms/commons/types/nfc'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IUserEmailData } from '@gtms/commons/types/userAccount'
-
 import { Button } from '@gtms/ui/Button'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Input } from '@gtms/ui/Forms/Input'

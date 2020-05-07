@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import { ExpandingItem } from '@gtms/ui/ExpandingItem'
 import { EmailChangeForm } from './Form'
 
-export const Email: FC<{
+export const UserEmail: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
   const [isEditModeActive, setIsEditModeActive] = useState<boolean>(false)
@@ -10,7 +10,7 @@ export const Email: FC<{
   return (
     <div
       className={additionalStyles}
-      data-testid="user-name"
+      data-testid="user-email"
       onClick={() => (!isEditModeActive ? setIsEditModeActive(true) : null)}
     >
       <ExpandingItem
