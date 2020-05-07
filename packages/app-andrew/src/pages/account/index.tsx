@@ -1,22 +1,82 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
 import { DeleteAccount } from '../../components/account/DeleteAccount'
 import { UserName } from '../../components/account/UserName'
 import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
-import { Tag } from '@gtms/ui/Tag'
-import { TagGroup } from '@gtms/ui/TagGroup'
-import { userQuery, getAccountDetails, IAccountDetails } from '@gtms/state-user'
+import { TagsBar } from '@gtms/ui/TagsBar'
+import {
+  userQuery,
+  getAccountDetails,
+  IAccountDetails,
+  updateAccountDetails,
+} from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
+import { findTagsAPI } from '@gtms/api-tags'
 
 type AccountPageProps = {
   namespacesRequired: readonly string[]
   accountDetails: IAccountDetails
 }
 
-export const AccountPage: NextPage<AccountPageProps> = () => {
+export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
   const { t } = useTranslation('account')
+  const [tags, setTags] = useState<string[]>(accountDetails.tags)
+  const [isSaving, setIsSaving] = useState<boolean>(false)
+  const [tagsHints, setTagsHints] = useState<{
+    isLoading: boolean
+    tags: string[]
+  }>({
+    isLoading: false,
+    tags: [],
+  })
+  const onTagAdd = useCallback(
+    (tag: string) => {
+      if (tags.indexOf(tag) === -1) {
+        setTags([...tags, tag])
+      }
+    },
+    [tags]
+  )
+  const onTagRemove = useCallback(
+    (tag: string) => {
+      const index = tags.indexOf(tag)
+
+      if (index > -1) {
+        tags.splice(index, 1)
+        setTags([...tags])
+      }
+    },
+    [tags]
+  )
+  const onLoadTagsHints = useCallback((query: string) => {
+    setTagsHints({
+      isLoading: true,
+      tags: [],
+    })
+
+    findTagsAPI(query)
+      .then((tags: string[]) => {
+        setTagsHints({
+          isLoading: false,
+          tags,
+        })
+      })
+      .catch(() => {
+        setTagsHints({
+          isLoading: true,
+          tags: [],
+        })
+      })
+  }, [])
+
+  const onTagsSave = useCallback(() => {
+    setIsSaving(true)
+    return updateAccountDetails({ tags }).then(() => {
+      setIsSaving(false)
+    })
+  }, [tags])
 
   return (
     <div className={styles.wrapper} data-testid="account-page">
@@ -39,15 +99,17 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             velit et cupidatat quis labore in labore aute excepteur proident
             aliqua id.
           </p>
-          <TagGroup additionalStyles={styles.userTags}>
-            <Tag label="Mechanik" />
-            <Tag label="Oddam" />
-            <Tag label="SerwisRowerowy" />
-            <Tag label="Impreza" />
-            <Tag label="DzienKobiet" />
-            <Tag label="Znaleziono" />
-            <Tag label="Polityka" />
-          </TagGroup>
+          <TagsBar
+            tags={tags}
+            isSaving={isSaving}
+            isLoading={tagsHints.isLoading}
+            suggestions={tagsHints.tags}
+            onLoadSuggestion={onLoadTagsHints}
+            onLoadSuggestionCancel={() => null}
+            onTagAdd={onTagAdd}
+            onTagRemove={onTagRemove}
+            onSave={onTagsSave}
+          />
         </div>
         <div className={styles.divider} />
         <div

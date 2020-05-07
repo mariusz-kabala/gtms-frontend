@@ -13,7 +13,7 @@ export const TagsBar: FC<{
   onLoadSuggestionCancel: () => void
   onTagAdd: (tag: string) => void
   onTagRemove: (tag: string) => void
-  onSave: () => void
+  onSave: () => Promise<void>
 }> = ({
   tags,
   onLoadSuggestion,
@@ -84,7 +84,15 @@ export const TagsBar: FC<{
                 }
               }}
             />
-            <button type="submit" onClick={onSave} disabled={isSaving}>
+            <button
+              type="submit"
+              onClick={() =>
+                onSave().then(() => {
+                  setIsInEditMode(false)
+                })
+              }
+              disabled={isSaving}
+            >
               save
             </button>
             {isSaving && (

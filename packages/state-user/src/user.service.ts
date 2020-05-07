@@ -12,6 +12,8 @@ import {
   IGoogleLoginData,
   IGoogleLoginResponse,
   fetchAccountDetails,
+  updateAccountAPI,
+  IAccountUpdatePayload,
 } from '@gtms/api-auth'
 import { IJWT } from '@gtms/api-auth'
 import { userStore } from './user.store'
@@ -26,12 +28,26 @@ export const init = ({
 }) => {
   const storeValue = userStore.getValue()
 
-  if (storeValue.isInitialized) {
-    return storeValue
-  }
-
   const parsedToken = parseJwt<IJWT>(accessToken)
   const parsedRefreshToken = parseJwt<IJWT>(refreshToken)
+
+  if (storeValue.isInitialized) {
+    userStore.update({
+      session: {
+        accessToken: {
+          value: accessToken,
+          expiresAt: new Date(parsedToken.exp * 1000).getTime(),
+        },
+        refreshToken: {
+          value: refreshToken,
+          expiresAt: new Date(parsedRefreshToken.exp * 1000).getTime(),
+        },
+        createdAt: new Date().getTime(),
+      },
+    })
+
+    return userStore.getValue()
+  }
 
   const update = {
     isInitialized: true,
@@ -147,6 +163,12 @@ export const logoutUser = () => {
 
 export const getAccountDetails = async () => {
   const details = await fetchAccountDetails()
+
+  userStore.update(details)
+}
+
+export const updateAccountDetails = async (payload: IAccountUpdatePayload) => {
+  const details = await updateAccountAPI(payload)
 
   userStore.update(details)
 }
