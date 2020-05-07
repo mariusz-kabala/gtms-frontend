@@ -8,7 +8,7 @@
   cursor: pointer;
   padding: 10px;
   border-radius: $borderRadius;
-  color: $theme6;
+  color: $theme7;
   text-transform: uppercase;
 
   &:active,
@@ -20,10 +20,10 @@
 
 @mixin buttonColorsDefault() {
   background: $theme3;
-  color: $theme6;
+  color: $theme7;
 }
 
 @mixin buttonColorsHoverDefault() {
-  background: $theme4;
-  color: $theme6;
+  background: $theme5;
+  color: $theme7;
 }

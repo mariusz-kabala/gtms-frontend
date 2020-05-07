@@ -1,3 +1,5 @@
+@import '@gtms/styles/scss/variables';
+
 .container {
   display: flex;
   flex-direction: row;
@@ -16,7 +18,7 @@
       display: flex;
       justify-content: center;
       width: 100%;
-      color: #fff;
+      color: $theme7;
       padding: 14px;
       padding-bottom: 13px;
       border: none;

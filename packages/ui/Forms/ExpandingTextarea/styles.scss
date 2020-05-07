@@ -6,7 +6,7 @@
   min-height: 40px;
   border: 2px solid $theme3;
   border-radius: $borderRadius;
-  color: $theme6;
+  color: $theme7;
   padding: 5px;
   background: $theme0;
   resize: vertical;
@@ -15,7 +15,7 @@
   &:focus,
   &:hover {
     outline: none;
-    border-color: $theme6;
+    border-color: $theme7;
   }
 }
 .hidden {

@@ -15,9 +15,9 @@
   width: 700px;
   height: 500px;
   border-radius: $borderRadius;
-  background: $theme4;
+  background: $theme5;
   background: #252230;
-  color: $theme6;
+  color: $theme7;
   box-shadow: 0px 0px 28px 3px rgba(0, 0, 0, 0.64);
 
   .content {
@@ -59,11 +59,39 @@
 
       > h3 {
         margin-top: 15px;
+        margin-bottom: 15px;
         @include font-size(md);
       }
 
       p {
         line-height: 1.4em;
+      }
+    }
+
+    .users {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      grid-gap: 15px;
+      opacity: 0.9;
+      cursor: pointer;
+      color: $theme7;
+  
+      .userAvatar {
+        display: flex;
+        flex-direction: column;
+        max-width: 80px;
+  
+        img {
+          border-radius: 50%;
+        }
+      }
+  
+      span {
+        display: block;
+        @include font-size(md);
+        font-weight: 400;
+        margin-top: 10px;
+        text-align: center;
       }
     }
   }

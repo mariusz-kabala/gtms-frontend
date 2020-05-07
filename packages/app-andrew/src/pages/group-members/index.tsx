@@ -3,6 +3,7 @@ import { NextPage } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Button } from '@gtms/ui/Button'
+import { GroupCard } from '@gtms/ui/GroupCard'
 import { UserCard } from '@gtms/ui/UserCard'
 import { UserCardMini } from '@gtms/ui/UserCardMini'
 
@@ -12,6 +13,7 @@ export const GroupMembersPage: NextPage<{}> = () => {
 
   return (
     <div className={styles.wrapper} data-testid="group-members-page">
+      <GroupCard />
       <h2 className={styles.header}>{t('header')}</h2>
       <div className={styles.grid}>
         {isModalOpen && (
@@ -20,7 +22,6 @@ export const GroupMembersPage: NextPage<{}> = () => {
             image={'/images/temp_images/avatar-1.png'}
           />
         )}
-
         <UserCardMini
           name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}
