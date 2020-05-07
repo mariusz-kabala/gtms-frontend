@@ -1,5 +1,6 @@
 import React from 'react'
 import { fireEvent, render } from '@testing-library/react'
+import { useTranslation } from '@gtms/commons/i18n'
 import { UserCardMini } from './index'
 
 describe('<UserCardMini />', () => {
@@ -9,6 +10,7 @@ describe('<UserCardMini />', () => {
     )
 
     expect(getByTestId('user-card-mini')).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('userCardMiniComponent')
   })
 
   it('Should trigger onClick callback when clicking on card', () => {

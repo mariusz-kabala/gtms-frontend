@@ -1,11 +1,14 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
+import { useTranslation } from '@gtms/commons/i18n'
 
 export const UserCardMini: FC<{
   image: string
   name: string
   onClick?: () => unknown
 }> = ({ image, name, onClick }) => {
+  const { t } = useTranslation('userCardMiniComponent')
+
   return (
     <div
       className={styles.wrapper}
@@ -18,8 +21,7 @@ export const UserCardMini: FC<{
         <span className={styles.members}>205 członków</span>
         <div className={styles.desc}>
           <p>
-            Id in veniam sunt labore. Adipisicing proident dolor nulla cillum
-            cupidatat. Do sint labore cupidatat.
+            {t('subheader')}
           </p>
         </div>
       </div>

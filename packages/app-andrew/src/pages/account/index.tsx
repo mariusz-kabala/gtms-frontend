@@ -4,7 +4,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
 import { DeleteAccount } from '../../components/account/DeleteAccount'
 import { UserName } from '../../components/account/UserName'
-import { ImageHolder } from '@gtms/ui/ImageHolder'
+import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 
@@ -21,7 +21,7 @@ export const AccountPage: NextPage<{}> = () => {
           <span className={styles.visibilityLabel}>
             This part is visible for EVERYONE
           </span>
-          <ImageHolder
+          <ImageWithLightbox
             additionalStyles={styles.userImage}
             src="/images/temp_images/avatar-1.png"
           />
@@ -50,8 +50,10 @@ export const AccountPage: NextPage<{}> = () => {
           <span className={styles.visibilityLabel}>
             This part is visible ONLY FOR YOU
           </span>
-          <UserName />
-          <DeleteAccount onConfirm={() => null} />
+          <UserName additionalStyles={styles.userName} />
+          <DeleteAccount 
+            additionalStyles={styles.deleteAccount}
+            onConfirm={() => null} />
         </div>
       </div>
     </div>
