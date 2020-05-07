@@ -10483,9 +10483,9 @@ react-fast-compare@^2.0.1:
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
 react-google-login@^5.1.1:
-  version "5.1.10"
-  resolved "https://npm.kabala.tech/react-google-login/-/react-google-login-5.1.10.tgz#130404f7ea0977ea10c86d993a4ab802837c7c05"
-  integrity sha512-dEmfMGlh9EmFhSNLKG5qzUlVmbUH5E0FmgSM36LfrBg/omr4fHGuNELb+iVqig/I+UgRvhv0hD22m8KTcEjHDA==
+  version "5.1.12"
+  resolved "https://registry.yarnpkg.com/react-google-login/-/react-google-login-5.1.12.tgz#6ed5db99aa13cf72b8e272cc9cf47b298aef5f13"
+  integrity sha512-taR7Ekf8K93N5FxjpqmnF1eCJX6Tgtd8a9K68uvGn8OzpzSPfPxxAgFnlSQJc2Z3tdzDdej0KQuklMB4CIb5Gg==
   dependencies:
     "@types/react" "*"
     prop-types "^15.6.0"
