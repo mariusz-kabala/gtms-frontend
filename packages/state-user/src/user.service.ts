@@ -11,6 +11,7 @@ import {
   googleLogin,
   IGoogleLoginData,
   IGoogleLoginResponse,
+  fetchAccountDetails,
 } from '@gtms/api-auth'
 import { IJWT } from '@gtms/api-auth'
 import { userStore } from './user.store'
@@ -142,4 +143,10 @@ export const logoutUser = () => {
   userStore.update({
     isInitialized: true,
   })
+}
+
+export const getAccountDetails = async () => {
+  const account = await fetchAccountDetails()
+
+  // console.log('CHUJ', account)
 }

@@ -2,12 +2,12 @@ import React from 'react'
 import { NextPage } from 'next'
 import styles from './appStyles.scss'
 import { useAuth } from '@gtms/commons/hooks/auth'
-import { Link } from '@gtms/commons/i18n'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Logout } from '@gtms/ui/Logout'
 import { Button } from '@gtms/ui/Button'
 import { RecentlyCreatedGroups } from '@gtms/ui/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
+import { Link } from '@gtms/commons/i18n'
 
 export const HomePage: NextPage<{}> = () => {
   const { t } = useTranslation('homePage')
@@ -27,6 +27,11 @@ export const HomePage: NextPage<{}> = () => {
           <Button additionalStyles={styles.btn} type="submit">
             {t('btn')}
           </Button>
+          <div>
+            <Link href="/login">
+              <p>Zaloguj sie</p>
+            </Link>
+          </div>
         </div>
         <div className={styles.shadow} />
       </div>
@@ -37,7 +42,6 @@ export const HomePage: NextPage<{}> = () => {
       <section>
         <h2 className={styles.header}>{t('Zaproś znajomych')}</h2>
         <RecentlyRegisteredUsers />
-        {isLogged && <p>USER HAS A VALID SESSION!!!</p>}
         {isLogged && <Logout />}
       </section>
     </div>

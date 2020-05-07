@@ -49,7 +49,7 @@ ActivateAccountPage.getInitialProps = async (ctx: NextPageContext) => {
     redirect('/', ctx)
   }
 
-  return Promise.resolve({ namespacesRequired: ['accountActivation'] })
+  return { namespacesRequired: ['accountActivation'] }
 }
 
 export default ActivateAccountPage

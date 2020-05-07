@@ -1,5 +1,5 @@
 import React from 'react'
-import { NextPage } from 'next'
+import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
 import { DeleteAccount } from '../../components/account/DeleteAccount'
@@ -7,6 +7,8 @@ import { UserName } from '../../components/account/UserName'
 import { ImageHolder } from '@gtms/ui/ImageHolder'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
+import { userQuery, getAccountDetails } from '@gtms/state-user'
+import { redirect } from '@gtms/commons/helpers/redirect'
 
 export const AccountPage: NextPage<{}> = () => {
   const { t } = useTranslation('account')
@@ -58,8 +60,13 @@ export const AccountPage: NextPage<{}> = () => {
   )
 }
 
-AccountPage.getInitialProps = () => {
-  return Promise.resolve({ namespacesRequired: ['account'] })
+AccountPage.getInitialProps = async (ctx: NextPageContext) => {
+  if (!userQuery.isLogged()) {
+    redirect('/login', ctx)
+  }
+  await getAccountDetails()
+
+  return { namespacesRequired: ['account'] }
 }
 
 export default AccountPage
