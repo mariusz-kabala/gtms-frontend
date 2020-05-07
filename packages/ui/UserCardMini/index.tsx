@@ -20,9 +20,7 @@ export const UserCardMini: FC<{
         <h2 className={styles.nameSurname}>{name}</h2>
         <span className={styles.members}>205 członków</span>
         <div className={styles.desc}>
-          <p>
-            {t('subheader')}
-          </p>
+          <p>{t('subheader')}</p>
         </div>
       </div>
     </div>

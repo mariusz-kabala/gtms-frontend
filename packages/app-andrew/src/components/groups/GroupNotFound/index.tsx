@@ -11,9 +11,7 @@ export const GroupNotFound: FC = () => {
       <div>
         <h2>{t('header')}</h2>
         <p>{t('subheader')}</p>
-        <Button additionalStyles={styles.btn}>
-          {t('btn')}
-        </Button>
+        <Button additionalStyles={styles.btn}>{t('btn')}</Button>
       </div>
     </div>
   )

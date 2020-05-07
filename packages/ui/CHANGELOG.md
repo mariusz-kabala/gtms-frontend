@@ -3,13 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.8.1...@gtms/ui@0.9.0) (2020-05-07)
+
+### Features
+
+- GEOT-236: add tags bar component ([#483](https://github.com/gtms-org/gtms-frontend/issues/483)) ([a2f27b2](https://github.com/gtms-org/gtms-frontend/commit/a2f27b2fee260d23bd3f9c6c6e727d1b3470eb3e)), closes [#489](https://github.com/gtms-org/gtms-frontend/issues/489)
+
 ## [0.8.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.8.0...@gtms/ui@0.8.1) (2020-04-27)
 
 **Note:** Version bump only for package @gtms/ui
-
-
-
-
 
 # [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.7.1...@gtms/ui@0.8.0) (2020-04-27)
 

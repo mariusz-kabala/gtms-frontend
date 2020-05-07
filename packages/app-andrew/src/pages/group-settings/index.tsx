@@ -11,7 +11,11 @@ export const GroupSettingsPage: NextPage<{}> = () => {
     <div className={styles.wrapper} data-testid="group-settings-page">
       <h2 className={styles.header}>{t('header')}</h2>
       <p>
-        Eiusmod anim Lorem fugiat voluptate minim sint id occaecat nostrud dolor. Exercitation mollit duis id excepteur tempor. Ut veniam in adipisicing laborum Lorem fugiat reprehenderit magna excepteur in labore tempor fugiat ad. Lorem irure incididunt esse dolor eu dolore enim Lorem dolore. Excepteur irure qui fugiat est ea incididunt enim.
+        Eiusmod anim Lorem fugiat voluptate minim sint id occaecat nostrud
+        dolor. Exercitation mollit duis id excepteur tempor. Ut veniam in
+        adipisicing laborum Lorem fugiat reprehenderit magna excepteur in labore
+        tempor fugiat ad. Lorem irure incididunt esse dolor eu dolore enim Lorem
+        dolore. Excepteur irure qui fugiat est ea incididunt enim.
       </p>
       <div>
         <ul>
@@ -33,13 +37,34 @@ export const GroupSettingsPage: NextPage<{}> = () => {
         </ul>
         <div className={styles.content}>
           <p>
-            Mollit est irure duis id consectetur incididunt ullamco nostrud anim magna enim qui. Do qui et cupidatat ea tempor nisi quis occaecat culpa fugiat laborum consectetur pariatur dolor. Deserunt sit dolore consequat irure est eu fugiat elit minim culpa. Aliqua consequat reprehenderit duis sint culpa voluptate. Mollit exercitation magna nulla cupidatat qui ipsum do culpa. Qui aute incididunt voluptate aute excepteur quis aute mollit est adipisicing amet qui. Amet eu non minim sunt nulla dolore ut do excepteur veniam ea qui.
+            Mollit est irure duis id consectetur incididunt ullamco nostrud anim
+            magna enim qui. Do qui et cupidatat ea tempor nisi quis occaecat
+            culpa fugiat laborum consectetur pariatur dolor. Deserunt sit dolore
+            consequat irure est eu fugiat elit minim culpa. Aliqua consequat
+            reprehenderit duis sint culpa voluptate. Mollit exercitation magna
+            nulla cupidatat qui ipsum do culpa. Qui aute incididunt voluptate
+            aute excepteur quis aute mollit est adipisicing amet qui. Amet eu
+            non minim sunt nulla dolore ut do excepteur veniam ea qui.
           </p>
           <p>
-            Mollit est irure duis id consectetur incididunt ullamco nostrud anim magna enim qui. Do qui et cupidatat ea tempor nisi quis occaecat culpa fugiat laborum consectetur pariatur dolor. Deserunt sit dolore consequat irure est eu fugiat elit minim culpa. Aliqua consequat reprehenderit duis sint culpa voluptate. Mollit exercitation magna nulla cupidatat qui ipsum do culpa. Qui aute incididunt voluptate aute excepteur quis aute mollit est adipisicing amet qui. Amet eu non minim sunt nulla dolore ut do excepteur veniam ea qui.
+            Mollit est irure duis id consectetur incididunt ullamco nostrud anim
+            magna enim qui. Do qui et cupidatat ea tempor nisi quis occaecat
+            culpa fugiat laborum consectetur pariatur dolor. Deserunt sit dolore
+            consequat irure est eu fugiat elit minim culpa. Aliqua consequat
+            reprehenderit duis sint culpa voluptate. Mollit exercitation magna
+            nulla cupidatat qui ipsum do culpa. Qui aute incididunt voluptate
+            aute excepteur quis aute mollit est adipisicing amet qui. Amet eu
+            non minim sunt nulla dolore ut do excepteur veniam ea qui.
           </p>
           <p>
-            Mollit est irure duis id consectetur incididunt ullamco nostrud anim magna enim qui. Do qui et cupidatat ea tempor nisi quis occaecat culpa fugiat laborum consectetur pariatur dolor. Deserunt sit dolore consequat irure est eu fugiat elit minim culpa. Aliqua consequat reprehenderit duis sint culpa voluptate. Mollit exercitation magna nulla cupidatat qui ipsum do culpa. Qui aute incididunt voluptate aute excepteur quis aute mollit est adipisicing amet qui. Amet eu non minim sunt nulla dolore ut do excepteur veniam ea qui.
+            Mollit est irure duis id consectetur incididunt ullamco nostrud anim
+            magna enim qui. Do qui et cupidatat ea tempor nisi quis occaecat
+            culpa fugiat laborum consectetur pariatur dolor. Deserunt sit dolore
+            consequat irure est eu fugiat elit minim culpa. Aliqua consequat
+            reprehenderit duis sint culpa voluptate. Mollit exercitation magna
+            nulla cupidatat qui ipsum do culpa. Qui aute incididunt voluptate
+            aute excepteur quis aute mollit est adipisicing amet qui. Amet eu
+            non minim sunt nulla dolore ut do excepteur veniam ea qui.
           </p>
         </div>
       </div>

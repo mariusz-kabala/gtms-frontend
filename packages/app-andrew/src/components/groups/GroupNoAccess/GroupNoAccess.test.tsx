@@ -9,6 +9,5 @@ describe('<GroupNoAccess />', () => {
 
     expect(getByTestId('group-no-acess')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('groupNoAccessComponent')
-
   })
 })

@@ -41,7 +41,9 @@ export const ExpandingItem: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="expanding-item"
     >
-      <span data-testid="expanding-item-label" className={styles.label}>{label}</span>
+      <span data-testid="expanding-item-label" className={styles.label}>
+        {label}
+      </span>
       {isActive && (
         <>
           <i onClick={closeActiveMode}>

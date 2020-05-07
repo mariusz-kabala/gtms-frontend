@@ -10,9 +10,7 @@ export const DeleteAccount: FC<{
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
-    <div 
-      className={additionalStyles}
-      data-testid="delete-account">
+    <div className={additionalStyles} data-testid="delete-account">
       {isModalOpen && (
         <Modal
           additionalStyles={styles.modalContent}
