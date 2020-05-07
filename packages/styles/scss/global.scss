@@ -30,3 +30,7 @@ body > div:first-of-type {
 img {
   max-width: 100%;
 }
+
+button {
+  @include font-size(default);
+}

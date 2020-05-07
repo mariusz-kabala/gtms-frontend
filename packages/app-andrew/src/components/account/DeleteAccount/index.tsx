@@ -4,12 +4,15 @@ import { Modal } from '@gtms/ui/Modal'
 import styles from './styles.scss'
 
 export const DeleteAccount: FC<{
+  additionalStyles?: string
   onConfirm: () => unknown
-}> = ({ onConfirm }) => {
+}> = ({ additionalStyles, onConfirm }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
-    <div data-testid="delete-account">
+    <div 
+      className={additionalStyles}
+      data-testid="delete-account">
       {isModalOpen && (
         <Modal
           additionalStyles={styles.modalContent}
@@ -48,7 +51,7 @@ export const DeleteAccount: FC<{
         testid="delete-account-button"
         additionalStyles={styles.btnDeleteAccount}
       >
-        Delete Account
+        Delete account
       </Button>
     </div>
   )

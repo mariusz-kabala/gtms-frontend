@@ -3,6 +3,7 @@
 @import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
+  position: relative;
   cursor: pointer;
 
   i,
@@ -11,9 +12,8 @@
   }
 
   i {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
+    position: absolute;
+    right: 0;
 
     &:hover {
       > svg {
@@ -23,11 +23,9 @@
   }
 
   .content {
-    top: 50px;
     position: absolute;
-    width: 100%;
-    padding: 2.5%;
-    background-color: black;
-    border: 1px solid $theme4;
+    top: 0;
+    padding: 20px;
+    background: $theme0;
   }
 }

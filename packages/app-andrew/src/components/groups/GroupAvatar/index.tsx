@@ -13,7 +13,7 @@ export const GroupAvatar: FC<{
   }
   isEditAllowed: boolean
 }> = ({ files, isEditAllowed, additionalStyles }) => {
-  const { t } = useTranslation('groupPage')
+  const { t } = useTranslation('groupAvatarComponent')
   const [isEditModeActive, setIsEditModeActive] = useState<boolean>(false)
   const [uploadStatus, setUploadStatus] = useState<{
     isUploading: boolean
@@ -54,7 +54,7 @@ export const GroupAvatar: FC<{
         }
       }}
     >
-      <div data-tip={t('click-to-upload-new-image')}>
+      <div data-tip={t('clickToUploadNewImage')}>
         <Picture {...files} />
       </div>
       {isEditModeActive && (

@@ -9,7 +9,7 @@ import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { useTranslation } from '@gtms/commons/i18n'
 
-export const UserCard: FC<{
+export const GroupCard: FC<{
   additionalStyles?: string
   image: string
   onClose: () => unknown
@@ -24,13 +24,13 @@ export const UserCard: FC<{
     detectKeys: [27],
   })
 
-  const { t } = useTranslation('userCardComponent')
+  const { t } = useTranslation('groupCardComponent')
 
   return (
     <>
       <div
         className={cx(styles.wrapper, additionalStyles)}
-        data-testid="user-card"
+        data-testid="group-card"
       >
         <div className={styles.content}>
           <div className={styles.left}>

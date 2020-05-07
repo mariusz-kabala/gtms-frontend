@@ -31,6 +31,7 @@
   width: 100%;
   margin-top: 5px;
   @include buttonDefault();
+  @include buttonColorsDefault();
   &:hover {
     @include buttonColorsHoverDefault();
   }

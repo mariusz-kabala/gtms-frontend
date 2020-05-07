@@ -6,7 +6,7 @@
   text-align: center; // for <a> elements
   text-decoration: none; // for <a> elements
   cursor: pointer;
-  padding: 15px;
+  padding: 10px;
   border-radius: $borderRadius;
   color: $theme6;
   text-transform: uppercase;
@@ -16,6 +16,11 @@
   &:hover {
     outline: none;
   }
+}
+
+@mixin buttonColorsDefault() {
+  background: $theme3;
+  color: $theme6;
 }
 
 @mixin buttonColorsHoverDefault() {
