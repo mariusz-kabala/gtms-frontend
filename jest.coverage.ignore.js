@@ -19,6 +19,8 @@ const TEMPORARY_IGNORE = [
   './packages/app-main/src/components/rules/AcceptRulesButton/index.tsx',
   './projects/gtms-frontend/packages/ui/Forms/ExpandingTextarea/index.tsx',
   './packages/ui/SearchBar/index.tsx',
+  './packages/ui/TagsBar/index.tsx',
+  './packages/commons/hooks/useDebounce.ts',
 ]
 
 module.exports = [...PERMANENT_IGNORE, ...TEMPORARY_IGNORE]
