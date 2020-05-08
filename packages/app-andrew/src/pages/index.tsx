@@ -3,13 +3,14 @@ import { NextPage } from 'next'
 import styles from './appStyles.scss'
 import { useAuth } from '@gtms/commons/hooks/auth'
 import { useTranslation } from '@gtms/commons/i18n'
-import { Link } from '@gtms/commons/i18n'
 import { Button } from '@gtms/ui/Button'
+import { PolAndRock } from '@gtms/ui/PolAndRock'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
 import { Logout } from '@gtms/ui/Logout'
 import { RecentlyCreatedGroups } from '@gtms/ui/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
+import { IoIosSearch } from 'react-icons/io'
 
 export const HomePage: NextPage<{}> = () => {
   const { t } = useTranslation('homePage')
@@ -23,15 +24,14 @@ export const HomePage: NextPage<{}> = () => {
           <InviteFriends />
         </Modal>
       )}
-      <div
-        className={styles.banner}
-        style={{
-          backgroundImage: `url('/images/temp_images/cover-image-girls.jpg')`,
-        }}
-      >
-        <div className={styles.desc}>
-          <h2 className={styles.header}>{t('header')}</h2>
-          <p>{t('subheader')}</p>
+      <PolAndRock />
+      <div className={styles.desc}>
+        <h2 className={styles.header}>
+          <IoIosSearch />
+          {t('header')}
+        </h2>
+        <p>
+          {t('subheaderone')}
           <Button
             additionalStyles={styles.btn}
             onClick={() => setIsModalOpen(true)}
@@ -39,21 +39,16 @@ export const HomePage: NextPage<{}> = () => {
           >
             {t('btn')}
           </Button>
-          {!isLogged && (
-            <Link href="/login">
-              <Button additionalStyles={styles.btn}>{t('bntLogin')}</Button>
-            </Link>
-          )}
-        </div>
-        <div className={styles.shadow} />
+          {t('subheadertwo')}
+        </p>
       </div>
       <section className={styles.recentPosts}>
         <h2 className={styles.header}>{t('header')}</h2>
-        <RecentlyCreatedGroups />
+        <RecentlyCreatedGroups additionalStyles={styles.temporary} />
       </section>
       <section>
         <h2 className={styles.header}>{t('Zaproś znajomych')}</h2>
-        <RecentlyRegisteredUsers />
+        <RecentlyRegisteredUsers additionalStyles={styles.temporary} />
         {isLogged && <Logout />}
       </section>
     </div>

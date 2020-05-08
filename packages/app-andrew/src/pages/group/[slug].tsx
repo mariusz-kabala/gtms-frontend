@@ -3,9 +3,11 @@ import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
 import { useTranslation } from '@gtms/commons/i18n'
+import { CoverImage } from '@gtms/ui/CoverImage'
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { RecentlyCreatedGroups } from '@gtms/ui/RecentlyCreatedGroups'
+import { Notifications } from '@gtms/ui/Notifications'
 import { Spinner } from '@gtms/ui/Spinner'
 import { GroupDescription } from '../../components/groups/GroupDescription'
 import { GroupNoAccess } from '../../components/groups/GroupNoAccess'
@@ -22,6 +24,7 @@ type GroupPageProps = {
 const GroupPage: NextPage<GroupPageProps> = (props) => {
   const { t } = useTranslation('groupPage')
   const [group, setGroup] = useState<IGroupStore>(props.group)
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState<boolean>(false)
 
   useEffect(() => {
     initGroup(props.group)
@@ -34,6 +37,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   return (
     <div className={styles.wrapper}>
+      <Notifications
+        additionalStyles={styles.groupAvatar}
+        isActive={isNotificationsOpen}
+        onClose={() => setIsNotificationsOpen(false)}
+      />
       <div className={styles.content}>
         <div className={styles.groupHeader}>
           <GroupAvatar
@@ -57,12 +65,21 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   : group.group?.description || ''
               }
             />
-            {groupQuery.hasAdminRights() && <ReactTooltip />}
+            <div>
+              <h2 data-tip={t('click-here-to-edit')} data-type="dark">
+                {group.group?.name}
+              </h2>
+              <GroupDescription
+                isEditAllowed={groupQuery.hasAdminRights()}
+                slug={group.group?.slug || ''}
+                text={group.group?.description || ''}
+              />
+              {groupQuery.hasAdminRights() && <ReactTooltip />}
+            </div>
+            <h2 onClick={() => setIsNotificationsOpen(true)}>notification - temporary button</h2>
           </div>
         </div>
-
         {group.isLoading && <Spinner />}
-
         {group.errorOccured && (
           <ErrorInfo>
             <h1>ERROR OCCURED</h1>

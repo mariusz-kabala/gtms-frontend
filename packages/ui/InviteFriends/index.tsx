@@ -13,11 +13,18 @@ export const InviteFriends: FC<{
     <div
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="invite-friends"
-      style={{ backgroundImage: `url(/images/temp_images/andrew_bg.jpg)` }}
     >
       <div className={styles.content}>
-        <h2 className={styles.header}>{t('header')}</h2>
-        <ClickToCopy text="TEXT IS MISSING HERE!!" />
+        <h2 className={styles.header}>
+          {t('header')}
+          <span className={styles.subheader}>
+            {t('subheader')}
+          </span>
+          <ClickToCopy
+            additionalStyles={styles.btn}
+            text='wejdz na www.jedziemyna.pl' />
+          <img src='images/polandrock/invite-bg.png' />
+        </h2>
       </div>
     </div>
   )

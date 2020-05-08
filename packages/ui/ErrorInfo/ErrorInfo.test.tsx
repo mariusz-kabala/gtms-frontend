@@ -5,7 +5,7 @@ import { ErrorInfo } from './index'
 describe('<ErrorInfo />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(
-      <ErrorInfo onClick={() => null}>
+      <ErrorInfo>
         <a>testing</a>
       </ErrorInfo>
     )
@@ -15,7 +15,7 @@ describe('<ErrorInfo />', () => {
 
   it('Should have additional css classes', () => {
     const { container } = render(
-      <ErrorInfo onClick={() => null} additionalStyles={'cssTest'}>
+      <ErrorInfo additionalStyles={'cssTest'}>
         <a>testing</a>
       </ErrorInfo>
     )

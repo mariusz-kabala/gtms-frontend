@@ -2,6 +2,7 @@ import React from 'react'
 import { render, act } from '@testing-library/react'
 import { EmailChangeForm } from './index'
 import { useForm } from 'react-hook-form'
+import { IUserEmailData } from '@gtms/commons/types/userAccount'
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 
@@ -139,7 +140,7 @@ describe('<EmailChangeForm />', () => {
       )
 
       onSubmit({
-        email: 'tester@jedziemyna.pl',
+        email: 'tester@geotags.pl',
       })
     })
 

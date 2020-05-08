@@ -3,6 +3,7 @@ import { NextPage } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Button } from '@gtms/ui/Button'
+import { GroupDeleteGroup } from '../../components/groups/GroupDeleteGroup'
 
 export const GroupSettingsPage: NextPage<{}> = () => {
   const { t } = useTranslation('groupSettingsPage')
@@ -26,9 +27,6 @@ export const GroupSettingsPage: NextPage<{}> = () => {
             <a>Members</a>
           </li>
           <li>
-            <a>Lorem ipsum</a>
-          </li>
-          <li>
             <a>Dolor sit amet</a>
           </li>
           <li>
@@ -46,26 +44,7 @@ export const GroupSettingsPage: NextPage<{}> = () => {
             aute excepteur quis aute mollit est adipisicing amet qui. Amet eu
             non minim sunt nulla dolore ut do excepteur veniam ea qui.
           </p>
-          <p>
-            Mollit est irure duis id consectetur incididunt ullamco nostrud anim
-            magna enim qui. Do qui et cupidatat ea tempor nisi quis occaecat
-            culpa fugiat laborum consectetur pariatur dolor. Deserunt sit dolore
-            consequat irure est eu fugiat elit minim culpa. Aliqua consequat
-            reprehenderit duis sint culpa voluptate. Mollit exercitation magna
-            nulla cupidatat qui ipsum do culpa. Qui aute incididunt voluptate
-            aute excepteur quis aute mollit est adipisicing amet qui. Amet eu
-            non minim sunt nulla dolore ut do excepteur veniam ea qui.
-          </p>
-          <p>
-            Mollit est irure duis id consectetur incididunt ullamco nostrud anim
-            magna enim qui. Do qui et cupidatat ea tempor nisi quis occaecat
-            culpa fugiat laborum consectetur pariatur dolor. Deserunt sit dolore
-            consequat irure est eu fugiat elit minim culpa. Aliqua consequat
-            reprehenderit duis sint culpa voluptate. Mollit exercitation magna
-            nulla cupidatat qui ipsum do culpa. Qui aute incididunt voluptate
-            aute excepteur quis aute mollit est adipisicing amet qui. Amet eu
-            non minim sunt nulla dolore ut do excepteur veniam ea qui.
-          </p>
+          <GroupDeleteGroup additionalStyles={styles.btn} onConfirm={() => null} />
         </div>
       </div>
       <Button additionalStyles={styles.btn}>See more</Button>

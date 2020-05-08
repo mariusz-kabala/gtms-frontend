@@ -1,0 +1,75 @@
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
+
+.wrapper {
+  display: flex;
+  width: 0;
+  height: 100%;
+  // @todo better animation is needed here, some mixin should be good
+  transition: all 100ms linear;
+  opacity: 0;
+
+  &.opened {
+    width: 250px;
+    opacity: 1;
+  }
+
+  .header {
+    display: flex;
+
+    h2 {
+      color: $theme7;
+      margin-bottom: 8px;
+    }
+
+    &:hover {
+      .iconClose {
+        color: $theme5;
+      }
+    }
+  }
+
+  .iconClose {
+    margin-right: auto;
+    color: $theme7;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    background-color: $theme1;
+    padding: 10px;
+
+    .notification {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 3px;
+      @include font-size(sm);
+      color: $theme7;
+      cursor: pointer;
+      background: $theme2;
+      border: 1px solid $theme2;
+      
+      .icon {
+        max-width: 30px;
+        margin: 0 8px;
+      }
+
+      .iconClose {
+        color: $theme4;
+        
+        &:hover {
+          color: $theme5;
+        }
+      }
+      
+      &:hover {
+        border-color: $theme5;
+      }
+    }
+  }
+}

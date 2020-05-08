@@ -1,0 +1,37 @@
+@import '@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontSize';
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; 
+  color: $theme7;
+  background: $theme3;
+  
+  > div {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+
+    h2 {
+      width: 100%;
+      @include font-size(md);
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      width: 50%;
+      @include buttonDefault();
+  
+      &:hover {
+        @include buttonColorsHoverDefault();
+      }
+    }
+  }
+}
