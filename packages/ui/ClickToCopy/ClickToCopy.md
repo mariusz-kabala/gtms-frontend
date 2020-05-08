@@ -1,5 +1,5 @@
 Basic usage
 
 ```
-  <ClickToCopy />
+  <ClickToCopy text='Wejdź na www.jedziemyna.pl' />
 ```

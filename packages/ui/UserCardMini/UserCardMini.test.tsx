@@ -6,7 +6,11 @@ import { UserCardMini } from './index'
 describe('<UserCardMini />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(
-      <UserCardMini name="Johnny Silverhand" image="/fake/img.png" />
+      <UserCardMini
+        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis aliqua aliqua ullamco id consequat dolore aliqua laboris culpa."
+        name="Johnny Silverhand" 
+        image="/fake/img.png"
+      />
     )
 
     expect(getByTestId('user-card-mini')).toBeInTheDocument()
@@ -17,6 +21,7 @@ describe('<UserCardMini />', () => {
     const onClick = jest.fn()
     const { getByTestId } = render(
       <UserCardMini
+        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis aliqua aliqua ullamco id consequat dolore aliqua laboris culpa."
         name="Johnny Silverhand"
         image="/fake/img.png"
         onClick={onClick}

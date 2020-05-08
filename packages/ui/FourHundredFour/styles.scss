@@ -95,7 +95,7 @@
 }
 
 .link {
-  color: #fff;
+  color: $theme7;
   text-decoration: none;
   &::before {
     content: '[';
@@ -106,5 +106,5 @@
 }
 
 .errorCode {
-  color: white;
+  color: $theme7;;
 }

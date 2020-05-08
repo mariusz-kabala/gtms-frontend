@@ -2,7 +2,9 @@ import React, { useState, useCallback } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
+import { ChangePassword } from '../../components/account/ChangePassword'
 import { DeleteAccount } from '../../components/account/DeleteAccount'
+import { UserEmail } from '../../components/account/UserEmail'
 import { UserName } from '../../components/account/UserName'
 import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
 import { TagsBar } from '@gtms/ui/TagsBar'
@@ -119,7 +121,9 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
           <span className={styles.visibilityLabel}>
             This part is visible ONLY FOR YOU
           </span>
+          <ChangePassword />
           <UserName additionalStyles={styles.userName} />
+          <UserEmail additionalStyles={styles.userName} />
           <DeleteAccount
             additionalStyles={styles.deleteAccount}
             onConfirm={() => null}

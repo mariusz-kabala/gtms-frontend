@@ -20,7 +20,6 @@ export const GroupMembersPage: NextPage<{}> = () => {
             image={'/images/temp_images/avatar-1.png'}
           />
         )}
-
         <UserCardMini
           name="Johnny Silverhand"
           onClick={() => setIsModalOpen(true)}

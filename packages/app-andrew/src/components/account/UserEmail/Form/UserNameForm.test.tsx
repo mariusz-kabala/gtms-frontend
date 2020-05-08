@@ -1,8 +1,9 @@
 import React from 'react'
 import { render, act } from '@testing-library/react'
-import { ChangePasswordForm, IChangePasswordFormData } from './index'
-import { FetchMock } from 'jest-fetch-mock'
+import { UserEmailChangeForm } from './index'
 import { useForm } from 'react-hook-form'
+import { IUserEmailData } from '@gtms/commons/types/userEmail'
+import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 
 const fetchMock = fetch as FetchMock
@@ -16,56 +17,48 @@ jest.mock('react-hook-form', () => ({
   })),
 }))
 
-describe('<ChangePasswordForm />', () => {
+describe('<UserEmailChangeForm />', () => {
   beforeEach(() => {
     fetchMock.resetMocks()
   })
 
-  const renderComponent = (onSuccess = jest.fn()) =>
-    render(<ChangePasswordForm onSuccess={onSuccess} />)
-
   it('Should be on the page', () => {
-    const { getByTestId } = renderComponent()
+    const { getByTestId } = render(<UserEmailChangeForm />)
 
-    expect(getByTestId('user-password-change-form')).toBeInTheDocument()
-
-    expect(useTranslation).toBeCalledWith('userPasswordChangeForm')
+    expect(getByTestId('user-email-change-form')).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('UserEmailChangeForm')
   })
 
-  it('Should have password, confirmPassword fields and submit button', () => {
-    const { getByPlaceholderText, getByText } = renderComponent()
+  it('Should have all required fields', () => {
+    const { getByPlaceholderText, getByText } = render(<UserEmailChangeForm />)
 
-    expect(getByPlaceholderText('form.labels.password')).toBeInTheDocument()
-    expect(getByPlaceholderText('form.labels.confirmPassword')).toBeInTheDocument()
+    expect(getByPlaceholderText('form.labels.email')).toBeInTheDocument()
     expect(getByText('form.submitButton')).toBeInTheDocument()
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { queryByTestId } = renderComponent()
+    const { queryByTestId } = render(<UserEmailChangeForm />)
 
     expect(queryByTestId('form-error')).toBeNull()
   })
 
-  it('Should display validation error - password required', () => {
+  it('Should display validation errors for email', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
         handleSubmit: jest.fn(),
         errors: {
-          password: {
+          email: {
             type: 'required',
-          },
-          confirmPassword: {
-            type: 'notEqual',
           },
         },
         setError: jest.fn(),
       }
     })
 
-    const { getByText } = renderComponent()
+    const { getByText } = render(<UserEmailChangeForm />)
 
-    expect(getByText('form.validation.password.isRequired')).toBeInTheDocument()
+    expect(getByText('form.validation.email.isRequired')).toBeInTheDocument()
   })
 
   it('Should set errors when clicking on submit button without filling form', () => {
@@ -75,9 +68,7 @@ describe('<ChangePasswordForm />', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
-        handleSubmit: (
-          func: (data: IChangePasswordFormData) => Promise<void>
-        ) => {
+        handleSubmit: (func: (data: IUserEmailData) => Promise<void>) => {
           onSubmit = func
         },
         errors: {},
@@ -86,23 +77,22 @@ describe('<ChangePasswordForm />', () => {
     })
 
     act(() => {
-      renderComponent()
+      render(<UserEmailChangeForm />)
+
       onSubmit({})
     })
 
     expect(setError).toBeCalledTimes(2)
   })
 
-  it('Should set errors when passwords are not equal', () => {
+  it('Should show no errors when data is valid', () => {
     // eslint-disable-next-line
     let onSubmit: any
     const setError = jest.fn()
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
-        handleSubmit: (
-          func: (data: IChangePasswordFormData) => Promise<void>
-        ) => {
+        handleSubmit: (func: (data: IUserEmailData) => Promise<void>) => {
           onSubmit = func
         },
         errors: {},
@@ -111,13 +101,13 @@ describe('<ChangePasswordForm />', () => {
     })
 
     act(() => {
-      renderComponent()
+      render(<UserEmailChangeForm />)
+
       onSubmit({
-        password: 'passwordsAre',
-        confirmPassword: 'different',
+        email: 'tester@jedziemyna.pl',
       })
     })
 
-    expect(setError).toBeCalledTimes(1)
+    expect(setError).toBeCalledTimes(0)
   })
 })

@@ -12,7 +12,7 @@
       min-height: 24px;
       line-height: 24px;
       display: block;
-      color: $theme4;
+      color: $theme5;
       position: relative;
       vertical-align: middle;
       white-space: nowrap;
@@ -39,14 +39,14 @@
         left: 0;
         width: 42px;
         height: 24px;
-        background: $theme4;
+        background: $theme5;
         transition: all 0.3s ease;
       }
 
       &:after {
         width: 18px;
         height: 18px;
-        background: $theme4;
+        background: $theme5;
         top: 3px;
         left: 3px;
         box-shadow: 0 1px 3px rgba(#121621, 0.1);
@@ -56,7 +56,7 @@
       .locker {
         width: 8px;
         height: 7px;
-        background: $theme4;
+        background: $theme5;
         position: absolute;
         left: 8px;
         bottom: 7px;
@@ -70,7 +70,7 @@
           width: 2px;
           height: 2px;
           border-radius: 1px;
-          background: $theme4;
+          background: $theme5;
           position: absolute;
           display: block;
           left: 50%;
@@ -100,7 +100,7 @@
           background: rgba($theme1, 0.35);
         }
         &:after {
-          background: $theme4;
+          background: $theme5;
           transform: translate(18px, 0);
         }
         .locker {

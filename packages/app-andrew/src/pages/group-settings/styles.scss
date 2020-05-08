@@ -9,7 +9,7 @@
   flex-direction: column;
   padding: 20px;
   max-width: 980px;
-  color: $theme6;
+  color: $theme7;
 
   .header {
     @include header(h3, textUppercase);
@@ -29,7 +29,7 @@
         @include font-size(md);
   
         &:hover {
-          border-color: $theme6;
+          border-color: $theme7;
         }
       }
     }

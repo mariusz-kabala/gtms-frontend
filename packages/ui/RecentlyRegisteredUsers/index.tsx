@@ -1,7 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { Button } from '@gtms/ui/Button'
+import { InviteFriends } from '@gtms/ui/InviteFriends'
+import { Modal } from '@gtms/ui/Modal'
 import { UserAvatar } from '../UserAvatar'
 import { useTranslation } from '@gtms/commons/i18n'
 
@@ -9,11 +11,17 @@ export const RecentlyRegisteredUsers: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
   const { t } = useTranslation('recentlyRegisteredUsersComponent')
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
     <div className={styles.wrapper}>
+      {isModalOpen && (
+        <Modal onClose={() => setIsModalOpen(false)}>
+          <InviteFriends />
+        </Modal>
+      )}
       <div className={styles.invite}>
-        <Button>{t('btn')}</Button>
+        <Button onClick={() => setIsModalOpen(true)}>{t('btn')}</Button>
       </div>
       <ul
         className={cx(styles.users, additionalStyles)}
