@@ -36,9 +36,7 @@ describe('<ChangePasswordForm />', () => {
     const { getByPlaceholderText, getByText } = renderComponent()
 
     expect(getByPlaceholderText('form.labels.password')).toBeInTheDocument()
-    expect(
-      getByPlaceholderText('form.labels.confirmPassword')
-    ).toBeInTheDocument()
+    expect(getByPlaceholderText('form.labels.confirmPassword')).toBeInTheDocument()
     expect(getByText('form.submitButton')).toBeInTheDocument()
   })
 

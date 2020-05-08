@@ -14,7 +14,7 @@
     margin-bottom: 10px;
   }
 
-  .user {
+  .header {
     display: flex;
     align-items: center;
 
@@ -27,6 +27,11 @@
     span {
       margin-left: 10px;
       color: $theme5;
+    }
+
+    .delete {
+      margin-left: auto;
+      text-transform:  uppercase;
     }
   }
 }
