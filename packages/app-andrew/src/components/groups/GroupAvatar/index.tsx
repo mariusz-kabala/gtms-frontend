@@ -4,6 +4,9 @@ import { UploadFile } from '@gtms/ui/UploadFile'
 import { useTranslation } from '@gtms/commons/i18n'
 import { updateGroupAvatar } from '@gtms/state-group'
 import { Modal } from '@gtms/ui/Modal'
+import { FileStatus } from '@gtms/commons'
+import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 export const GroupAvatar: FC<{
   additionalStyles?: string
@@ -12,7 +15,8 @@ export const GroupAvatar: FC<{
     webp?: string
   }
   isEditAllowed: boolean
-}> = ({ files, isEditAllowed, additionalStyles }) => {
+  filesStatus: FileStatus
+}> = ({ files, isEditAllowed, additionalStyles, filesStatus }) => {
   const { t } = useTranslation('groupAvatarComponent')
   const [isEditModeActive, setIsEditModeActive] = useState<boolean>(false)
   const [uploadStatus, setUploadStatus] = useState<{
@@ -54,7 +58,12 @@ export const GroupAvatar: FC<{
         }
       }}
     >
-      <div data-tip={t('clickToUploadNewImage')}>
+      <div className={styles.container} data-tip={t('clickToUploadNewImage')}>
+        {[FileStatus.uploaded, FileStatus.processing].includes(filesStatus) && (
+          <div className={styles.loader}>
+            <Spinner />
+          </div>
+        )}
         <Picture {...files} />
       </div>
       {isEditModeActive && (

@@ -1,5 +1,5 @@
 import { Store, StoreConfig } from '@datorama/akita'
-import { IGroup } from './group.model'
+import { IGroup } from '@gtms/commons'
 
 export interface IGroupStore {
   isLoading: boolean

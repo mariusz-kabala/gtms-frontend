@@ -1,6 +1,7 @@
 import { Query } from '@datorama/akita'
 import { UserQuery, userQuery } from '@gtms/state-user'
 import { IGroupStore, groupStore, GroupsStore } from './group.store'
+import { FileStatus } from '@gtms/commons'
 
 export class GroupQuery extends Query<IGroupStore> {
   public allState$ = this.select()
@@ -17,6 +18,10 @@ export class GroupQuery extends Query<IGroupStore> {
 
   public getId = (values = this.getValue()) => {
     return values.group?.id
+  }
+
+  public getAvatarFileStatus = (values=this.getValue()): FileStatus => {
+    return values.group?.avatar?.status || FileStatus.notExists
   }
 
   public hasAvatar = (

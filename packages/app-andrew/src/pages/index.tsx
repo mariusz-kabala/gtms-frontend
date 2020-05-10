@@ -25,22 +25,25 @@ export const HomePage: NextPage<{}> = () => {
       )}
       <div
         className={styles.banner}
-        style={{backgroundImage: `url('/images/temp_images/cover-image-girls.jpg')`}}
+        style={{
+          backgroundImage: `url('/images/temp_images/cover-image-girls.jpg')`,
+        }}
       >
         <div className={styles.desc}>
           <h2 className={styles.header}>{t('header')}</h2>
           <p>{t('subheader')}</p>
-          <Button 
+          <Button
             additionalStyles={styles.btn}
             onClick={() => setIsModalOpen(true)}
-            type="submit">
+            type="submit"
+          >
             {t('btn')}
           </Button>
-          <Link href="/login">
-            <Button additionalStyles={styles.btn}>
-              {t('bntLogin')}
-            </Button>
-          </Link>
+          {!isLogged && (
+            <Link href="/login">
+              <Button additionalStyles={styles.btn}>{t('bntLogin')}</Button>
+            </Link>
+          )}
         </div>
         <div className={styles.shadow} />
       </div>

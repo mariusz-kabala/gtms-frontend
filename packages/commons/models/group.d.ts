@@ -1,4 +1,4 @@
-import { GroupType, GroupVisibility } from '@gtms/commons'
+import { GroupType, GroupVisibility, FileStatus } from '../enums'
 
 export interface IGroup {
   id: string
@@ -8,7 +8,7 @@ export interface IGroup {
   type: GroupType
   visibility: GroupVisibility
   avatar?: {
-    status: string
+    status: FileStatus
     files: {
       '35x35'?: {
         jpg: string
@@ -25,7 +25,7 @@ export interface IGroup {
     }
   }
   bg?: {
-    status: string
+    status: FileStatus
     files: string[]
   }
   tags?: string[]

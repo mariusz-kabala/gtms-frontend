@@ -108,6 +108,35 @@ export class UserQuery extends Query<IUserStore> {
     this.accountDetails(values)
   )
 
+  public hasAvatar = (
+    size: '1300x1300' | '800x800' | '200x200' | '50x50' | '35x35',
+    values = this.getValue()
+  ) => {
+    if (!values.avatar || !values.avatar.files || !values.avatar.files[size]) {
+      return false
+    }
+
+    return true
+  }
+
+  public getAvatar = (
+    size: '35x35' | '50x50' | '200x200',
+    values = this.getValue()
+  ): {
+    jpg: string
+    webp?: string
+  } => {
+    if (this.hasAvatar(size, values)) {
+      const avatar: any = values.avatar?.files || {}
+
+      return avatar[size]
+    }
+
+    return {
+      jpg: `http://via.placeholder.com/${size}`,
+    }
+  }
+
   constructor(protected store: UserStore) {
     super(store)
   }

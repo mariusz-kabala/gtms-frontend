@@ -10,37 +10,13 @@ import {
 } from '@gtms/api-group'
 import { groupStore, IGroupStore } from './group.store'
 import { groupQuery } from './group.query'
-import { IGroup } from './group.model'
-import { GroupType, GroupVisibility } from '@gtms/commons'
-
-function parseFile(file: string) {
-  const [, path] = file
-    .replace('http://', '')
-    .replace('https://', '')
-    .split('/')
-
-  const [name, ext] = path.split('.')
-  const [size] = name.split('-')
-
-  return {
-    url: file,
-    size,
-    ext,
-  }
-}
-
-function parseFiles(files: string[]) {
-  return files.reduce((filesObj: any, file) => {
-    const { url, size, ext } = parseFile(file)
-    if (!filesObj[size]) {
-      filesObj[size] = {}
-    }
-
-    filesObj[size][ext] = url
-
-    return filesObj
-  }, {})
-}
+import {
+  IGroup,
+  GroupType,
+  GroupVisibility,
+  FileStatus,
+  parseFiles,
+} from '@gtms/commons'
 
 export const createNewGroup = async (payload: {
   name: string
@@ -74,7 +50,7 @@ export const getGroup = async (slug: string) => {
 
     if (
       Array.isArray(group.avatar?.files) &&
-      group.avatar?.status === 'ready'
+      group.avatar?.status === FileStatus.ready
     ) {
       group.avatar.files = parseFiles(group.avatar.files)
     }
@@ -131,4 +107,24 @@ export const updateGroupAvatar = async (file: File, id?: string) => {
   }
 
   await uploadGroupAvatar(id, file)
+
+  const group = groupStore.getValue().group as IGroup
+
+  if (!group.avatar) {
+    group.avatar = {
+      status: FileStatus.uploaded,
+      files: {},
+    }
+  }
+
+  group.avatar.status = FileStatus.uploaded
+
+  groupStore.update((value) => ({
+    ...value,
+    group,
+  }))
+
+  setTimeout(() => {
+    getGroup(group.slug)
+  }, 2500)
 }

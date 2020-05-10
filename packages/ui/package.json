@@ -5,8 +5,9 @@
   "module": "./index.ts",
   "main": "./index.ts",
   "dependencies": {
-    "@gtms/commons": "0.3.0",
-    "@gtms/styles": "0.5.1",
+    "@gtms/commons": "*",
+    "@gtms/styles": "*",
+    "@gtms/state-user": "*",
     "react-dropzone": "^10.2.2",
     "react-use-clipboard": "^1.0.0"
   },

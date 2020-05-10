@@ -3,7 +3,8 @@ import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
 import { useAuth } from '@gtms/commons/hooks/auth'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
-
+import { useRouter } from 'next/router'
+import { userQuery } from '@gtms/state-user'
 import {
   IoIosTennisball,
   IoIosNavigate,
@@ -45,24 +46,20 @@ export const Navigation: FC<{}> = () => {
       icon: <IoIosCompass />,
       url: '/group-tags',
     },
-    {
-      id: 5,
-      label: 'Logout',
-      icon: <IoIosFingerPrint />,
-      url: '/logout',
-    },
   ]
 
   const { isLogged } = useAuth()
+  const router = useRouter()
 
   return isLogged ? (
     <div className={styles.wrapper}>
-      <Link href="/account">
-        <UserAvatar
-          additionalStyles={styles.avatar}
-          image="/images/temp_images/avatar-1.png"
-        />
-      </Link>
+      <UserAvatar
+        additionalStyles={styles.avatar}
+        image={userQuery.getAvatar('50x50')}
+        onClick={() => {
+          router.push('/account')
+        }}
+      />
       <nav className={styles.navigation} data-testid="navigation">
         <ul>
           {links.map((value, index) => {
@@ -77,6 +74,14 @@ export const Navigation: FC<{}> = () => {
               </li>
             )
           })}
+          <li>
+            <a href="/logout">
+              <i>
+                <IoIosFingerPrint />
+              </i>
+              <span>Logout</span>
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

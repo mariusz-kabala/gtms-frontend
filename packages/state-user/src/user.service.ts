@@ -17,7 +17,7 @@ import {
 } from '@gtms/api-auth'
 import { IJWT } from '@gtms/api-auth'
 import { userStore } from './user.store'
-import { parseJwt } from '@gtms/commons/helpers/jwt'
+import { parseJwt, FileStatus, parseFiles } from '@gtms/commons'
 
 export const init = ({
   accessToken,
@@ -49,6 +49,13 @@ export const init = ({
     return userStore.getValue()
   }
 
+  if (
+    Array.isArray(parsedToken.avatar?.files) &&
+    parsedToken.avatar?.status === FileStatus.ready
+  ) {
+    parsedToken.avatar.files = parseFiles(parsedToken.avatar.files)
+  }
+
   const update = {
     isInitialized: true,
     id: parsedToken.id,
@@ -59,6 +66,7 @@ export const init = ({
     languageCode: parsedToken.languageCode,
     roles: parsedToken.roles,
     isActive: parsedToken.isActive,
+    avatar: parsedToken.avatar,
     session: {
       accessToken: {
         value: accessToken,
@@ -102,6 +110,13 @@ const updateStoreWithJWT = ({
   const parsedToken = parseJwt<IJWT>(accessToken)
   const parsedRefreshToken = parseJwt<IJWT>(refreshToken)
 
+  if (
+    Array.isArray(parsedToken.avatar?.files) &&
+    parsedToken.avatar?.status === FileStatus.ready
+  ) {
+    parsedToken.avatar.files = parseFiles(parsedToken.avatar.files)
+  }
+
   userStore.update({
     id: parsedToken.id,
     name: parsedToken.name,
@@ -111,6 +126,7 @@ const updateStoreWithJWT = ({
     languageCode: parsedToken.languageCode,
     roles: parsedToken.roles,
     isActive: parsedToken.isActive,
+    avatar: parsedToken.avatar,
     session: {
       accessToken: {
         value: accessToken,
@@ -156,9 +172,7 @@ export const loginUser = async (
 }
 
 export const logoutUser = () => {
-  userStore.update({
-    isInitialized: true,
-  })
+  userStore.destroy()
 }
 
 export const getAccountDetails = async () => {

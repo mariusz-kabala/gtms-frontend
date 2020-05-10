@@ -15,9 +15,8 @@ const withTM = require('next-transpile-modules')([
 ])
 const withImages = require('next-images')
 const withPlugins = require('next-compose-plugins')
-const dotenv = require('dotenv')
 
-dotenv.config()
+require('dotenv').config()
 
 module.exports = withPlugins(
   [withTM, withCustomBabelConfigFile, withSass, withImages],

@@ -27,7 +27,7 @@ export const fetchJSON = <T, R>(
     options.cache = 'no-cache'
   }
 
-  if (addJWT && userQuery.isLogged()) {
+  if (addJWT && userQuery.isLogged() && typeof window === 'undefined') {
     headers['x-access-token'] = userQuery.jwt() || ''
   }
 

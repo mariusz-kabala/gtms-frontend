@@ -38,7 +38,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           <GroupAvatar
             additionalStyles={styles.groupAvatar}
             isEditAllowed={groupQuery.hasAdminRights()}
-            files={groupQuery.getAvatar('200x200')}
+            files={groupQuery.getAvatar('200x200', group)}
+            filesStatus={groupQuery.getAvatarFileStatus()}
           />
           <div>
             <h2 data-tip={t('click-here-to-edit')} data-type="dark">
@@ -47,7 +48,13 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <GroupDescription
               isEditAllowed={groupQuery.hasAdminRights()}
               slug={group.group?.slug || ''}
-              text={group.group?.description || ''}
+              text={
+                group.group?.description === ''
+                  ? groupQuery.hasAdminRights()
+                    ? 'you did not add group description yet, click here to change it'
+                    : ''
+                  : group.group?.description || ''
+              }
             />
             {groupQuery.hasAdminRights() && <ReactTooltip />}
           </div>
