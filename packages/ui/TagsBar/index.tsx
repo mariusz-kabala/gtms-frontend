@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import { Spinner } from '../Spinner'
 import styles from './styles.scss'
-import { useDebounce } from '@gtms/commons'
+import { useDebounce } from '@gtms/commons/hooks/useDebounce'
 
 export const TagsBar: FC<{
   tags: string[]
@@ -9,11 +9,12 @@ export const TagsBar: FC<{
   editMode?: boolean
   isLoading?: boolean
   isSaving?: boolean
+  hintMinLenght?: number
   onLoadSuggestion: (text: string) => void
   onLoadSuggestionCancel: () => void
   onTagAdd: (tag: string) => void
   onTagRemove: (tag: string) => void
-  onSave: () => void
+  onSave: () => Promise<void>
 }> = ({
   tags,
   onLoadSuggestion,
@@ -25,6 +26,7 @@ export const TagsBar: FC<{
   isLoading = false,
   isSaving = false,
   suggestions = [],
+  hintMinLenght = 3,
 }) => {
   const [isInEditMode, setIsInEditMode] = useState<boolean>(editMode)
   const [showSuggestions, setShowSuggestions] = useState<boolean>(
@@ -34,7 +36,7 @@ export const TagsBar: FC<{
   const debouncedValue = useDebounce(value, 500)
 
   useEffect(() => {
-    if (debouncedValue !== '') {
+    if (debouncedValue !== '' && debouncedValue.length >= hintMinLenght) {
       onLoadSuggestion(debouncedValue)
     }
   }, [debouncedValue])
@@ -84,7 +86,15 @@ export const TagsBar: FC<{
                 }
               }}
             />
-            <button type="submit" onClick={onSave} disabled={isSaving}>
+            <button
+              type="submit"
+              onClick={() =>
+                onSave().then(() => {
+                  setIsInEditMode(false)
+                })
+              }
+              disabled={isSaving}
+            >
               save
             </button>
             {isSaving && (

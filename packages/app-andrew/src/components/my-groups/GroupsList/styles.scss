@@ -1,0 +1,56 @@
+.content {
+    color: white;
+    font-size: 18px;
+    padding: 1.5%;
+    display: none;
+  
+    li {
+      text-align: center;
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer;
+      position: relative;
+  
+      i {
+          position: absolute;
+          right: 0;
+          svg {
+              color: red;
+          }
+      }
+  
+      a {
+          color: white;
+          text-decoration: none;
+      }
+  
+      img {
+        max-width: 120px;
+        max-height: 120px;
+      }
+  
+      picture {
+        max-width: 120px;
+        max-height: 120px;
+      }
+  
+      ul {
+          display: block;
+          li {
+              display: inline;
+              text-align: right;
+              a {
+                  color: white;
+                  font-size: 15px;
+                  text-decoration: none;
+  
+                  &:hover {
+                      text-decoration: underline;
+                  }
+              }
+          }
+          
+      }
+    }
+  }
+  

@@ -10,15 +10,15 @@ const PERMANENT_IGNORE = [
 ]
 
 const TEMPORARY_IGNORE = [
-  './packages/ui/PostSingle/index.tsx',
+  './packages/app-andrew/src/pages/group-create/index.tsx',
   './packages/app-andrew/src/pages/group/index.tsx',
   './packages/app-andrew/src/server.ts',
-  './packages/ui/SavedSearch/index.tsx',
+  './packages/app-main/src/components/rules/AcceptRulesButton/index.tsx',
   './packages/app-main/src/pages/rules/index.tsx',
   './packages/app-main/src/providers/Rules/index.tsx',
-  './packages/app-main/src/components/rules/AcceptRulesButton/index.tsx',
-  './projects/gtms-frontend/packages/ui/Forms/ExpandingTextarea/index.tsx',
+  './packages/ui/PostSingle/index.tsx',
   './packages/ui/SearchBar/index.tsx',
+  './projects/gtms-frontend/packages/ui/Forms/ExpandingTextarea/index.tsx',
   './packages/ui/TagsBar/index.tsx',
   './packages/commons/hooks/useDebounce.ts',
 ]

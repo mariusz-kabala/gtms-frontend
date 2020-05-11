@@ -24,7 +24,10 @@ export async function initAuthSession(
       const parsedToken = parseJwt<IJWT>(accessToken)
 
       setCookie(ctx, 'accessToken', accessToken, {
-        maxAge: new Date(parsedToken.exp * 1000).getTime(),
+        maxAge:
+          (new Date(parsedToken.exp * 1000).getTime() - new Date().getTime()) /
+          1000,
+        path: '/',
       })
     } catch (err) {
       return {}

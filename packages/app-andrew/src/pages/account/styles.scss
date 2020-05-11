@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  color: $theme5;
+  color: $theme7;
 
   .content {
     display: flex;
@@ -23,7 +23,7 @@
       display: inline-block;
       padding: 10px;
       margin-bottom: 25px;
-      background: $theme1;
+      background: $theme2;
 
       &:after {
         content: '';
@@ -34,7 +34,7 @@
         height: 0;
         border-style: solid;
         border-width: 5px 5px 0 5px;
-        border-color: $theme1 transparent transparent transparent;
+        border-color: $theme2 transparent transparent transparent;
       }
     }
   }
@@ -43,6 +43,7 @@
     .userImage {
       width: 100%;
       height: 400px;
+      border-radius: $borderRadius;
     }
 
     .desc {
@@ -55,18 +56,28 @@
   }
 
   .userName {
-    position: relative;
-    z-index: 1;
-    @include font-size(xlg);
+    &:hover {
+      div > span {
+        color: $theme5;
+      }
+    }
   }
 
   .visibleForOwner {
-    border-left: 1px solid $theme1;
+    border-left: 1px solid $theme2;
     margin-left: 20px;
     padding-left: 20px;
 
     > div {
       margin-bottom: 20px;
+    }
+  }
+
+  .deleteAccount {
+    &:hover {
+      > button { 
+        color: $theme5;
+      }
     }
   }
 }

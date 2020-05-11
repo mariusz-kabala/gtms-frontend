@@ -1,7 +1,7 @@
 @import '@gtms/styles/scss/variables';
 
-.postSingle {
-  color: $theme5;
+.wrapper {
+  color: $theme7;
   cursor: pointer;
   opacity: 0.9;
 
@@ -14,13 +14,24 @@
     margin-bottom: 10px;
   }
 
-  .user {
+  .header {
     display: flex;
     align-items: center;
 
+    .userAvatar {
+      img {
+        border-radius: 50%;
+      }
+    }
+
     span {
       margin-left: 10px;
-      color: $theme3;
+      color: $theme5;
+    }
+
+    .delete {
+      margin-left: auto;
+      text-transform:  uppercase;
     }
   }
 }

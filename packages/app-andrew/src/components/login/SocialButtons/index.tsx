@@ -5,14 +5,16 @@ import cx from 'classnames'
 import { fbLoginUser, googleLoginUser } from '@gtms/state-user'
 import { useFacebookLogin } from '@gtms/commons/hooks/fbLogin'
 import { Spinner } from '@gtms/ui/Spinner'
+import getConfig from 'next/config'
 
 export const SocialButtons: FC<{
   additionalStyles?: string
   onFailure: () => unknown
 }> = ({ additionalStyles, onFailure }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const { publicRuntimeConfig } = getConfig()
   const { onClick, isProcessing } = useFacebookLogin({
-    appId: process.env.FB_APP_ID,
+    appId: publicRuntimeConfig.FB_APP_ID,
     fields: 'name, email, picture',
     onFailure,
     onSuccess: async (payload) => {
@@ -51,7 +53,7 @@ export const SocialButtons: FC<{
           </div>
           <div data-testid="social-buttons-google-button">
             <GoogleLogin
-              clientId={process.env.GOOGLE_CLIENT_ID}
+              clientId={publicRuntimeConfig.GOOGLE_CLIENT_ID}
               buttonText="Google"
               onSuccess={async (response) => {
                 setIsLoading(true)

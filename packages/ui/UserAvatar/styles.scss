@@ -1,8 +1,9 @@
-.container {
+.wrapper {
   display: flex;
   align-items: center;
   cursor: pointer;
   max-width: 25px;
+  border-radius: 50%;
 
   img {
     width: 100%;

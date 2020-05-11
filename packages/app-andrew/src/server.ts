@@ -16,9 +16,11 @@ const handle = app.getRequestHandler()
   if (!isInProductionMode) {
     // eslint-disable-next-line
     const proxy = require('express-http-proxy')
+
     server.use(
       '/api',
       proxy(API_URL, {
+        limit: '10mb',
         https: USE_PROXY_SSL === '1' ? true : false,
         proxyReqPathResolver: (req: Request) => {
           return `/api${req.url}`
@@ -27,11 +29,20 @@ const handle = app.getRequestHandler()
     )
   }
 
-  server.get('/logout', (req: Request, res: Response) => handle(req, res))
+  server.get('/logout', (_: Request, res: Response) => {
+    res.clearCookie('refreshToken')
+    res.clearCookie('accessToken')
 
-  server.use(nextI18NextMiddleware(nextI18next))
+    res.redirect('/login')
+  })
 
-  server.get('*', (req: Request, res: Response) => handle(req, res))
+  server.get(
+    '*',
+    nextI18NextMiddleware(nextI18next),
+    (req: Request, res: Response) => handle(req, res)
+  )
+
+  server.disable('x-powered-by')
 
   await server.listen(port)
   console.log(`> Ready on http://localhost:${port}`) // eslint-disable-line no-console

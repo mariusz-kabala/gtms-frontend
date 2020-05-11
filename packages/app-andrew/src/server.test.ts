@@ -22,6 +22,7 @@ describe('Server', () => {
     // eslint-disable-next-line
     let proxyParams: any
     const server = {
+      disable: jest.fn(),
       use: jest.fn(),
       get: jest.fn(),
       listen: jest.fn(),

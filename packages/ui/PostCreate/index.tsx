@@ -19,7 +19,9 @@ export const PostCreate: FC<{
       <div className={styles.text}>
         <div className={styles.avatar}>
           <UserAvatar
-            image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
+            image={{
+              jpg: 'https://www.bootdey.com/img/Content/avatar/avatar6.png',
+            }}
             additionalStyles={styles.userAvatar}
           />
           <span>John Lasseter</span>

@@ -23,7 +23,9 @@ describe('<GroupCreateForm />', () => {
   })
 
   it('Should be on the page', () => {
-    const { getByTestId } = render(<GroupCreateForm onError={jest.fn()} />)
+    const { getByTestId } = render(
+      <GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />
+    )
 
     expect(getByTestId('group-create-form')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('groupCreate')
@@ -31,21 +33,22 @@ describe('<GroupCreateForm />', () => {
 
   it('Should have all required fields', () => {
     const { getByPlaceholderText, getByText } = render(
-      <GroupCreateForm onError={jest.fn()} />
+      <GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />
     )
 
     expect(getByPlaceholderText('form.labels.name')).toBeInTheDocument()
-    expect(getByPlaceholderText('form.labels.description')).toBeInTheDocument()
     expect(getByText('form.submitButton')).toBeInTheDocument()
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { queryByTestId } = render(<GroupCreateForm onError={jest.fn()} />)
+    const { queryByTestId } = render(
+      <GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />
+    )
 
     expect(queryByTestId('form-error')).toBeNull()
   })
 
-  it('Should display validation errors for name and description', () => {
+  it('Should display validation errors for name', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
@@ -54,20 +57,16 @@ describe('<GroupCreateForm />', () => {
           name: {
             type: 'required',
           },
-          description: {
-            type: 'required',
-          },
         },
         setError: jest.fn(),
       }
     })
 
-    const { getByText } = render(<GroupCreateForm onError={jest.fn()} />)
+    const { getByText } = render(
+      <GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />
+    )
 
     expect(getByText('form.validation.name.isRequired')).toBeInTheDocument()
-    expect(
-      getByText('form.validation.description.isRequired')
-    ).toBeInTheDocument()
   })
 
   it('Should set errors when clicking on submit button without filling form', () => {
@@ -86,12 +85,12 @@ describe('<GroupCreateForm />', () => {
     })
 
     act(() => {
-      render(<GroupCreateForm onError={jest.fn()} />)
+      render(<GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />)
 
       onSubmit({})
     })
 
-    expect(setError).toBeCalledTimes(2)
+    expect(setError).toBeCalledTimes(1)
   })
 
   it('Should display validation errors returned from BE endpoint', async () => {
@@ -101,9 +100,6 @@ describe('<GroupCreateForm />', () => {
         body: JSON.stringify({
           name: {
             message: 'Name already exists',
-          },
-          description: {
-            message: 'Description is too short',
           },
         }),
       })
@@ -123,17 +119,16 @@ describe('<GroupCreateForm />', () => {
       }
     })
 
-    render(<GroupCreateForm onError={jest.fn()} />)
+    render(<GroupCreateForm onError={jest.fn()} onSuccess={jest.fn()} />)
 
     await act(async () => {
       await onSubmit({
         name: 'test',
-        description: 'lorem ipsum',
       })
     })
 
     expect(fetchMock.mock.calls.length).toEqual(1)
-    expect(setError).toBeCalledTimes(2)
+    expect(setError).toBeCalledTimes(1)
   })
 
   it('Should trigger onError callback when create group endpoint returns 500', async () => {
@@ -158,12 +153,11 @@ describe('<GroupCreateForm />', () => {
       }
     })
 
-    render(<GroupCreateForm onError={onError} />)
+    render(<GroupCreateForm onError={onError} onSuccess={jest.fn()} />)
 
     await act(async () => {
       await onSubmit({
         name: 'test',
-        description: 'lorem ipsum',
       })
     })
 

@@ -3,7 +3,18 @@ import { userStore, UserStore, IUserStore } from './user.store'
 import { map } from 'rxjs/operators'
 import { combineLatest, Observable } from 'rxjs'
 
+export interface IAccountDetails {
+  id: string
+  name?: string
+  surname?: string
+  phone?: string
+  email: string
+  roles: string[]
+  tags: string[]
+}
+
 export class UserQuery extends Query<IUserStore> {
+  public id = (values = this.getValue()): string | undefined => values.id
   public hasData$: Observable<boolean> = this.select((values) =>
     this.hasData(values)
   )
@@ -28,6 +39,14 @@ export class UserQuery extends Query<IUserStore> {
 
   public hasSession = (values = this.getValue()): boolean =>
     !!(values.session?.accessToken && values.session?.refreshToken)
+
+  public jwt = (values = this.getValue()): string | undefined => {
+    if (!this.isLogged(values)) {
+      return
+    }
+
+    return values.session?.accessToken.value
+  }
 
   public hasRoles$ = (rolesToCheck: string[]): Observable<boolean> =>
     this.select((values) => this.hasRoles(rolesToCheck, values))
@@ -73,6 +92,49 @@ export class UserQuery extends Query<IUserStore> {
       (values.session.accessToken.expiresAt > now ||
         values.session.refreshToken.expiresAt > now)
     )
+  }
+
+  public accountDetails = (values = this.getValue()): IAccountDetails => ({
+    id: values.id,
+    name: values.name,
+    surname: values.surname,
+    phone: values.phone,
+    email: values.email,
+    roles: values.roles,
+    tags: values.tags,
+  })
+
+  public accountDetails$: Observable<IAccountDetails> = this.select((values) =>
+    this.accountDetails(values)
+  )
+
+  public hasAvatar = (
+    size: '1300x1300' | '800x800' | '200x200' | '50x50' | '35x35',
+    values = this.getValue()
+  ) => {
+    if (!values.avatar || !values.avatar.files || !values.avatar.files[size]) {
+      return false
+    }
+
+    return true
+  }
+
+  public getAvatar = (
+    size: '35x35' | '50x50' | '200x200',
+    values = this.getValue()
+  ): {
+    jpg: string
+    webp?: string
+  } => {
+    if (this.hasAvatar(size, values)) {
+      const avatar: any = values.avatar?.files || {}
+
+      return avatar[size]
+    }
+
+    return {
+      jpg: `http://via.placeholder.com/${size}`,
+    }
   }
 
   constructor(protected store: UserStore) {

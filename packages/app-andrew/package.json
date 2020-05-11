@@ -6,19 +6,20 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "next build && tsc --project tsconfig.server.json",
-    "dev": "cross-env NODE_ENV=development API_URL=http://localhost:9000 FE_API_URL=/api USE_PROXY_SSL=0 nodemon",
-    "dev:qa-master": "cross-env NODE_ENV=development API_URL=https://master.geotags.pl FE_API_URL=/api USE_PROXY_SSL=1 nodemon",
+    "dev": "cross-env NODE_ENV=development API_URL=http://localhost:9000/api FE_API_URL=/api USE_PROXY_SSL=0 nodemon",
+    "dev:qa-master": "cross-env NODE_ENV=development API_URL=https://master.geotags.pl/api FE_API_URL=/api USE_PROXY_SSL=1 nodemon",
     "dev:qa-stable": "cross-env NODE_ENV=development API_URL=https://geotags.pl FE_API_URL=/api USE_PROXY_SSL=1 nodemon",
-    "start": "cross-env NODE_ENV=production node dist/app-andrew/src/server.js",
+    "start": "cross-env NODE_ENV=production API_URL=http://localhost:9000/api FE_API_URL=/api node dist/app-andrew/src/server.js",
     "setup:ts": "cp-cli tsconfig.json.example tsconfig.json"
   },
   "dependencies": {
-    "@gtms/api-auth": "0.2.0",
-    "@gtms/api-group": "0.1.0",
-    "@gtms/commons": "0.3.0",
-    "@gtms/state-group": "0.1.1",
-    "@gtms/state-user": "0.2.1",
-    "@gtms/styles": "0.5.1",
-    "@gtms/ui": "0.9.0"
+    "@gtms/api-auth": "*",
+    "@gtms/api-group": "*",
+    "@gtms/api-tags": "*",
+    "@gtms/commons": "*",
+    "@gtms/state-group": "*",
+    "@gtms/state-user": "*",
+    "@gtms/styles": "*",
+    "@gtms/ui": "*"
   }
 }

@@ -3,28 +3,29 @@
 @import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
+  position: relative;
   cursor: pointer;
 
   i,
   .content {
-    position: relative;
     @include z-index(expandingItem);
-    @include font-size(xlg);
   }
 
   i {
-    display: flex;
-    justify-content: flex-end;
+    position: absolute;
+    right: 0;
 
     &:hover {
       > svg {
-        color: $theme3;
+        color: $theme5;
       }
     }
   }
 
   .content {
-    padding: 10px;
-    border: 1px solid $theme3;
+    position: absolute;
+    top: 0;
+    padding: 20px;
+    background: $theme0;
   }
 }

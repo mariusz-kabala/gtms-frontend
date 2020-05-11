@@ -1,24 +1,33 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
+import { useTranslation } from '@gtms/commons/i18n'
 
 export const UserCardMini: FC<{
   image: string
-}> = ({ image }) => {
+  name: string
+  desc?: string
+  onClick?: () => unknown
+}> = ({ desc, name, image, onClick }) => {
+  const { t } = useTranslation('userCardMiniComponent')
+
   return (
-    <div className={styles.wrapper} data-testid="user-card-mini">
-      <img className={styles.avatar} src={image} alt="user avatar" />
+    <div
+      className={styles.wrapper}
+      data-testid="user-card-mini"
+      onClick={onClick}
+    >
+      <div
+        className={styles.image}
+        style={{ backgroundImage: `url(${image})` }}
+      />
       <div className={styles.desc}>
-        <h2 className={styles.nameSurname}>Johnny Silverhand</h2>
-        <div className={styles.desc}>
-          <p>
-            Id in veniam sunt labore. Adipisicing proident dolor nulla cillum
-            cupidatat. Do sint labore cupidatat.
-          </p>
-          <p>
-            Id in veniam sunt labore. Adipisicing proident dolor nulla cillum
-            cupidatat. Do sint labore cupidatat.
-          </p>
-        </div>
+        <h2 className={styles.nameSurname}>{name}</h2>
+        <span className={styles.members}>{t('members')}: 201</span>
+        {desc && (
+          <div className={styles.desc}>
+            <p>{desc}</p>
+          </div>
+        )}
       </div>
     </div>
   )

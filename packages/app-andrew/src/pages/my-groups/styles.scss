@@ -1,0 +1,23 @@
+.container {
+  nav {
+    li {
+      font-size: 14px;
+      background-color: white;
+      display: inline-block;
+      padding: 5px 15px;
+      margin: 0 5px;
+
+      &.current {
+        font-weight: bold;
+      }
+
+      a {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.currentList {
+    display: block !important;
+}

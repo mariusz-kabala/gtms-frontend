@@ -3,8 +3,8 @@ import styles from './styles.scss'
 import cx from 'classnames'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
-import { ImageHolder } from '../ImageHolder'
-import { Overlay } from '../Overlay'
+import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
+import { Overlay } from '@gtms/ui/Overlay'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { useTranslation } from '@gtms/commons/i18n'
@@ -24,7 +24,7 @@ export const UserCard: FC<{
     detectKeys: [27],
   })
 
-  const { t } = useTranslation('userCard')
+  const { t } = useTranslation('userCardComponent')
 
   return (
     <>
@@ -34,7 +34,7 @@ export const UserCard: FC<{
       >
         <div className={styles.content}>
           <div className={styles.left}>
-            <ImageHolder
+            <ImageWithLightbox
               additionalStyles={styles.image}
               alt="user avatar"
               src={image}

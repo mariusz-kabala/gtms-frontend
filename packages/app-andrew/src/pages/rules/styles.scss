@@ -4,11 +4,11 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  color: $theme5;
+  color: $theme7;
   padding: 5%;
 
   h2 {
-    @include header(h1, textUppercase, 500);
+    @include header(h1, textUppercase);
   }
 
   > p {

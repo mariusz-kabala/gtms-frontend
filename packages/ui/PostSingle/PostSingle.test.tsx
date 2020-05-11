@@ -6,7 +6,7 @@ describe('<PostSingle />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(<PostSingle />)
 
-    expect(getByTestId('postSingle')).toBeInTheDocument()
+    expect(getByTestId('post-single')).toBeInTheDocument()
   })
 
   it('Should add additional css classes', () => {

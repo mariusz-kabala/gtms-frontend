@@ -1,7 +1,9 @@
 import getConfig from 'next/config'
+import { userQuery } from '@gtms/state-user'
 
 interface IParams<T> {
-  values: T
+  values?: T
+  addJWT?: boolean
   headers?: {
     [key: string]: string
   }
@@ -14,7 +16,7 @@ export const fetchJSON = <T, R>(
   url: string,
   params?: IParams<T>
 ): Promise<R> => {
-  const { values = {}, headers = {} } = params || {}
+  const { values = {}, headers = {}, addJWT = true } = params || {}
   const options: RequestInit & { timeout?: number } = {}
 
   if (values instanceof Object && Object.keys(values).length > 0) {
@@ -23,6 +25,10 @@ export const fetchJSON = <T, R>(
     options.body = JSON.stringify(values)
     options.method = 'POST'
     options.cache = 'no-cache'
+  }
+
+  if (addJWT && userQuery.isLogged() && typeof window === 'undefined') {
+    headers['x-access-token'] = userQuery.jwt() || ''
   }
 
   options.headers = headers

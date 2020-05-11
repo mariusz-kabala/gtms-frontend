@@ -198,7 +198,8 @@ pipeline {
 
                     sh "curl -s -X POST -d '${statusJson}' https://api.github.com/repos/gtms-org/gtms-frontend/statuses/${env.ghprbActualCommit}?access_token=${GITHUB_API_KEY}"
 
-                    sh "yarn test:coverage"
+                    //sh "yarn test:coverage"
+                    sh "yarn test"
                 }
             }
 

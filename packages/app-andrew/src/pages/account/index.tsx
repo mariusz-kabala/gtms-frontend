@@ -1,15 +1,99 @@
-import React from 'react'
-import { NextPage } from 'next'
+import React, { useState, useCallback, useEffect } from 'react'
+import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
+import { ChangePassword } from '../../components/account/ChangePassword'
 import { DeleteAccount } from '../../components/account/DeleteAccount'
+import { UserEmail } from '../../components/account/UserEmail'
 import { UserName } from '../../components/account/UserName'
-import { ImageHolder } from '@gtms/ui/ImageHolder'
-import { Tag } from '@gtms/ui/Tag'
-import { TagGroup } from '@gtms/ui/TagGroup'
+import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
+import { TagsBar } from '@gtms/ui/TagsBar'
+import {
+  userQuery,
+  getAccountDetails,
+  IAccountDetails,
+  updateAccountDetails,
+  initAccountDetails,
+} from '@gtms/state-user'
+import { redirect } from '@gtms/commons/helpers/redirect'
+import { findTagsAPI } from '@gtms/api-tags'
 
-export const AccountPage: NextPage<{}> = () => {
+type AccountPageProps = {
+  namespacesRequired: readonly string[]
+  accountDetails: IAccountDetails
+}
+
+export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
   const { t } = useTranslation('account')
+  const [tags, setTags] = useState<string[]>(accountDetails.tags)
+  const [details, setDetails] = useState<IAccountDetails>(accountDetails)
+  const [isSaving, setIsSaving] = useState<boolean>(false)
+  const [tagsHints, setTagsHints] = useState<{
+    isLoading: boolean
+    tags: string[]
+  }>({
+    isLoading: false,
+    tags: [],
+  })
+  const onTagAdd = useCallback(
+    (tag: string) => {
+      if (tags.indexOf(tag) === -1) {
+        setTags([...tags, tag])
+      }
+    },
+    [tags]
+  )
+  const onTagRemove = useCallback(
+    (tag: string) => {
+      const index = tags.indexOf(tag)
+
+      if (index > -1) {
+        tags.splice(index, 1)
+        setTags([...tags])
+      }
+    },
+    [tags]
+  )
+  const onLoadTagsHints = useCallback((query: string) => {
+    setTagsHints({
+      isLoading: true,
+      tags: [],
+    })
+
+    findTagsAPI(query)
+      .then((tags: string[]) => {
+        setTagsHints({
+          isLoading: false,
+          tags,
+        })
+      })
+      .catch(() => {
+        setTagsHints({
+          isLoading: false,
+          tags: [],
+        })
+      })
+  }, [])
+
+  const onTagsSave = useCallback(() => {
+    setIsSaving(true)
+    return updateAccountDetails({ tags }).then(() => {
+      setIsSaving(false)
+    })
+  }, [tags])
+
+  useEffect(() => {
+    initAccountDetails(accountDetails)
+  }, [accountDetails])
+
+  useEffect(() => {
+    const sub = userQuery.accountDetails$.subscribe((value) => {
+      setDetails(value)
+    })
+    return () => {
+      sub.unsubscribe()
+    }
+  }, [])
 
   return (
     <div className={styles.wrapper} data-testid="account-page">
@@ -21,9 +105,9 @@ export const AccountPage: NextPage<{}> = () => {
           <span className={styles.visibilityLabel}>
             This part is visible for EVERYONE
           </span>
-          <ImageHolder
+          <ImageWithLightbox
             additionalStyles={styles.userImage}
-            src="https://images.unsplash.com/photo-1464863979621-258859e62245"
+            src="/images/temp_images/avatar-1.png"
           />
           <p className={styles.desc}>
             {t('title')}
@@ -32,15 +116,17 @@ export const AccountPage: NextPage<{}> = () => {
             velit et cupidatat quis labore in labore aute excepteur proident
             aliqua id.
           </p>
-          <TagGroup additionalStyles={styles.userTags}>
-            <Tag label="Mechanik" />
-            <Tag label="Oddam" />
-            <Tag label="SerwisRowerowy" />
-            <Tag label="Impreza" />
-            <Tag label="DzienKobiet" />
-            <Tag label="Znaleziono" />
-            <Tag label="Polityka" />
-          </TagGroup>
+          <TagsBar
+            tags={tags}
+            isSaving={isSaving}
+            isLoading={tagsHints.isLoading}
+            suggestions={tagsHints.tags}
+            onLoadSuggestion={onLoadTagsHints}
+            onLoadSuggestionCancel={() => null}
+            onTagAdd={onTagAdd}
+            onTagRemove={onTagRemove}
+            onSave={onTagsSave}
+          />
         </div>
         <div className={styles.divider} />
         <div
@@ -50,16 +136,34 @@ export const AccountPage: NextPage<{}> = () => {
           <span className={styles.visibilityLabel}>
             This part is visible ONLY FOR YOU
           </span>
-          <UserName />
-          <DeleteAccount onConfirm={() => null} />
+          <ChangePassword />
+          <UserName
+            additionalStyles={styles.userName}
+            name={details.name}
+            surname={details.surname}
+          />
+          <UserEmail email={details.email} additionalStyles={styles.userName} />
+          <DeleteAccount
+            additionalStyles={styles.deleteAccount}
+            onConfirm={() => null}
+          />
         </div>
       </div>
     </div>
   )
 }
 
-AccountPage.getInitialProps = () => {
-  return Promise.resolve({ namespacesRequired: ['account'] })
+AccountPage.getInitialProps = async (ctx: NextPageContext) => {
+  if (!userQuery.isLogged()) {
+    redirect('/login', ctx)
+  }
+
+  await getAccountDetails()
+
+  return {
+    namespacesRequired: ['account'],
+    accountDetails: userQuery.accountDetails(),
+  }
 }
 
 export default AccountPage

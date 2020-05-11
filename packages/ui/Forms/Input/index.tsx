@@ -7,6 +7,7 @@ export const Input: FC<{
   defaultValue?: string
   name?: string
   placeholder?: string
+  maxLength?: number
   type?: 'text' | 'email' | 'password'
   reference?: (
     ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
@@ -19,6 +20,7 @@ export const Input: FC<{
   placeholder,
   onClick,
   reference,
+  maxLength,
   type = 'text',
 }) => (
   <input
@@ -28,6 +30,7 @@ export const Input: FC<{
     defaultValue={defaultValue}
     name={name}
     id={name}
+    maxLength={maxLength}
     placeholder={placeholder}
     ref={reference}
     onClick={onClick}

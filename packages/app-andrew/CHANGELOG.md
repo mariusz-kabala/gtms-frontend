@@ -7,17 +7,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/app-andrew
 
-
-
-
-
 ## [0.11.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.11.0...@gtms/app-andrew@0.11.1) (2020-04-27)
 
 **Note:** Version bump only for package @gtms/app-andrew
-
-
-
-
 
 # [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.10.1...@gtms/app-andrew@0.11.0) (2020-04-27)
 

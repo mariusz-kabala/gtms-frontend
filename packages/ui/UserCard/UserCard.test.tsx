@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import { useTranslation } from '@gtms/commons/i18n'
 import { UserCard } from './index'
 
 describe('<UserCard />', () => {
@@ -9,5 +10,6 @@ describe('<UserCard />', () => {
     )
 
     expect(getByTestId('user-card')).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('userCardComponent')
   })
 })

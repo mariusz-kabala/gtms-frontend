@@ -11,10 +11,14 @@ import {
   googleLogin,
   IGoogleLoginData,
   IGoogleLoginResponse,
+  fetchAccountDetails,
+  updateAccountAPI,
+  IAccountUpdatePayload,
 } from '@gtms/api-auth'
 import { IJWT } from '@gtms/api-auth'
 import { userStore } from './user.store'
-import { parseJwt } from '@gtms/commons/helpers/jwt'
+import { IAccountDetails } from './user.query'
+import { parseJwt, FileStatus, parseFiles } from '@gtms/commons'
 
 export const init = ({
   accessToken,
@@ -25,12 +29,33 @@ export const init = ({
 }) => {
   const storeValue = userStore.getValue()
 
-  if (storeValue.isInitialized) {
-    return storeValue
-  }
-
   const parsedToken = parseJwt<IJWT>(accessToken)
   const parsedRefreshToken = parseJwt<IJWT>(refreshToken)
+
+  if (storeValue.isInitialized) {
+    userStore.update({
+      session: {
+        accessToken: {
+          value: accessToken,
+          expiresAt: new Date(parsedToken.exp * 1000).getTime(),
+        },
+        refreshToken: {
+          value: refreshToken,
+          expiresAt: new Date(parsedRefreshToken.exp * 1000).getTime(),
+        },
+        createdAt: new Date().getTime(),
+      },
+    })
+
+    return userStore.getValue()
+  }
+
+  if (
+    Array.isArray(parsedToken.avatar?.files) &&
+    parsedToken.avatar?.status === FileStatus.ready
+  ) {
+    parsedToken.avatar.files = parseFiles(parsedToken.avatar.files)
+  }
 
   const update = {
     isInitialized: true,
@@ -42,6 +67,7 @@ export const init = ({
     languageCode: parsedToken.languageCode,
     roles: parsedToken.roles,
     isActive: parsedToken.isActive,
+    avatar: parsedToken.avatar,
     session: {
       accessToken: {
         value: accessToken,
@@ -85,6 +111,13 @@ const updateStoreWithJWT = ({
   const parsedToken = parseJwt<IJWT>(accessToken)
   const parsedRefreshToken = parseJwt<IJWT>(refreshToken)
 
+  if (
+    Array.isArray(parsedToken.avatar?.files) &&
+    parsedToken.avatar?.status === FileStatus.ready
+  ) {
+    parsedToken.avatar.files = parseFiles(parsedToken.avatar.files)
+  }
+
   userStore.update({
     id: parsedToken.id,
     name: parsedToken.name,
@@ -94,6 +127,7 @@ const updateStoreWithJWT = ({
     languageCode: parsedToken.languageCode,
     roles: parsedToken.roles,
     isActive: parsedToken.isActive,
+    avatar: parsedToken.avatar,
     session: {
       accessToken: {
         value: accessToken,
@@ -139,7 +173,21 @@ export const loginUser = async (
 }
 
 export const logoutUser = () => {
-  userStore.update({
-    isInitialized: true,
-  })
+  userStore.destroy()
+}
+
+export const getAccountDetails = async () => {
+  const details = await fetchAccountDetails()
+
+  userStore.update(details)
+}
+
+export const initAccountDetails = (details: IAccountDetails) => {
+  userStore.update(details)
+}
+
+export const updateAccountDetails = async (payload: IAccountUpdatePayload) => {
+  const details = await updateAccountAPI(payload)
+
+  userStore.update(details)
 }

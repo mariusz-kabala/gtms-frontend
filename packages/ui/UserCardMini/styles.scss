@@ -1,21 +1,44 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
-  color: $theme5;
+  color: $theme7;
+  cursor: pointer;
+
+  .image {
+    width: 100%;
+    height: 200px;
+    border-radius: $borderRadius;
+    @include imageCover();
+  }
+
+  .members {
+    display: block;
+    margin: 5px 0;
+    color: gray;
+  }
 
   .desc {
     > * {
       margin-top: 5px;
     }
 
-    > h2 {
-      @include font-weight(semibold);
+    .nameSurname {
+      @include font-weight(bold);
     }
 
     p {
       line-height: 1.4em;
       color: gray;
+    }
+  }
+
+  &:hover {
+    p,
+    span,
+    .nameSurname {
+      color: $theme7;
     }
   }
 }

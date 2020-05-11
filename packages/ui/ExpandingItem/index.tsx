@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, useEffect } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { Overlay } from '../Overlay'
+import { Overlay } from '@gtms/ui/Overlay'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
 import { IoIosClose } from 'react-icons/io'
@@ -11,15 +11,28 @@ export const ExpandingItem: FC<{
   children: ReactNode
   onClose: () => unknown
   label: ReactNode
+  closeOnClickOutsie?: boolean
   isActive: boolean
-}> = ({ additionalStyles, children, isActive, label, onClose }) => {
+}> = ({
+  additionalStyles,
+  children,
+  isActive,
+  label,
+  onClose,
+  closeOnClickOutsie = true,
+}) => {
   useEffect(() => {
-    disableBodyScroll(document.body)
+    if (isActive) {
+      disableBodyScroll(document.body)
+    }
+  })
 
-    return () => enableBodyScroll(document.body)
-  }, [])
+  const closeActiveMode = () => {
+    onClose()
+    enableBodyScroll(document.body)
+  }
 
-  useKey(() => onClose(), {
+  useKey(() => closeActiveMode(), {
     detectKeys: [27],
   })
 
@@ -28,21 +41,25 @@ export const ExpandingItem: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="expanding-item"
     >
+      <span data-testid="expanding-item-label" className={styles.label}>
+        {label}
+      </span>
       {isActive && (
         <>
-          <i onClick={onClose}>
+          <i onClick={closeActiveMode}>
             <IoIosClose />
           </i>
           <div data-testid="expanding-item-content" className={styles.content}>
             {children}
           </div>
-          <Overlay onClick={onClose} />
+          <Overlay
+            onClick={() => {
+              if (closeOnClickOutsie) {
+                closeActiveMode()
+              }
+            }}
+          />
         </>
-      )}
-      {!isActive && (
-        <span data-testid="expanding-item-label" className={styles.label}>
-          {label}
-        </span>
       )}
     </div>
   )

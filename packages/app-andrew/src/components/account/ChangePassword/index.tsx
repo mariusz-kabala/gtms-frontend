@@ -15,12 +15,13 @@ export const ChangePassword: FC<{
     >
       <ExpandingItem
         isActive={isEditModeActive}
+        closeOnClickOutsie={false}
         label="Change password"
         onClose={() => {
           setIsEditModeActive(false)
         }}
       >
-        <ChangePasswordForm onSuccess={() => alert('success')} />
+        <ChangePasswordForm onSuccess={() => setIsEditModeActive(false)} />
       </ExpandingItem>
     </div>
   )

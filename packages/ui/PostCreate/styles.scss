@@ -10,8 +10,12 @@
     left: 5px;
     display: flex;
 
+    img {
+      border-radius: 50%;
+    }
+
     span {
-      color: $theme4;
+      color: $theme5;
       margin-left: 5px;
     }
   }
@@ -27,6 +31,7 @@
   width: 100%;
   margin-top: 5px;
   @include buttonDefault();
+  @include buttonColorsDefault();
   &:hover {
     @include buttonColorsHoverDefault();
   }

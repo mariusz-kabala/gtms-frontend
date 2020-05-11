@@ -1,0 +1,14 @@
+{
+  "name": "@gtms/api-tags",
+  "version": "0.0.1",
+  "source": "src/index.ts",
+  "module": "src/index.ts",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@gtms/api-common": "*"
+  },
+  "scripts": {
+    "build": "exit 0",
+    "setup:ts": "exit 0"
+  }
+}

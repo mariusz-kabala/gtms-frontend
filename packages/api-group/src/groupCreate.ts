@@ -3,7 +3,7 @@ import { GroupType, GroupVisibility } from '@gtms/commons'
 
 export interface IGroupCreateData {
   name: string
-  description: string
+  description?: string
   type: GroupType
   visibility: GroupVisibility
 }
@@ -15,7 +15,6 @@ export interface IGroupCreateResponse {
   description: string
   type: GroupType
   visibility: GroupVisibility
-  avatar: string
   tags: string[]
   members: string[]
 }
