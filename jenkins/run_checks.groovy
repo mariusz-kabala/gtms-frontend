@@ -204,16 +204,16 @@ pipeline {
             }
 
             post {
-                always {
-                    publishHTML target: [
-                        allowMissing         : false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll              : true,
-                        reportDir            : 'coverage',
-                        reportFiles          : 'index.html',
-                        reportName           : 'TestReport'
-                    ]
-                }
+                // always {
+                //     publishHTML target: [
+                //         allowMissing         : false,
+                //         alwaysLinkToLastBuild: false,
+                //         keepAll              : true,
+                //         reportDir            : 'coverage',
+                //         reportFiles          : 'index.html',
+                //         reportName           : 'TestReport'
+                //     ]
+                // }
                 success {
                     script {
                         def statusJsonSuccess = groovy.json.JsonOutput.toJson([
