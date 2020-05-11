@@ -1,6 +1,6 @@
 {
   "name": "@gtms/styles",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "sass": "./scss/index.scss",
   "scripts": {
     "build": "exit 0",
