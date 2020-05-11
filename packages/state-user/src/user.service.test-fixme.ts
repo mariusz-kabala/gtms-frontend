@@ -30,6 +30,7 @@ jest.mock('./user.store', () => ({
   userStore: {
     getValue: jest.fn(),
     update: jest.fn(),
+    select: jest.fn(),
   },
 }))
 

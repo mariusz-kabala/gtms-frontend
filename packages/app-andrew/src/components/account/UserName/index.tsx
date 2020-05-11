@@ -29,8 +29,8 @@ export const UserName: FC<{
           setIsEditModeActive(false)
         }}
       >
-        <UserNameChangeForm 
-          name={name} 
+        <UserNameChangeForm
+          name={name}
           surname={surname}
           onSaveSuccess={() => {
             setIsEditModeActive(false)

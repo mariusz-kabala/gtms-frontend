@@ -14,6 +14,6 @@ describe('<RecentlyCreatedGroups />', () => {
       <RecentlyCreatedGroups additionalStyles={'testingClass'} />
     )
 
-    expect(container.querySelector('.cssTest')).toBeInTheDocument()
+    expect(container.querySelector('.testingClass')).toBeInTheDocument()
   })
 })

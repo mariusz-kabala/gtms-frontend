@@ -9,7 +9,6 @@ export class MyGroupsQuery extends Query<IMyGroupsStore> {
   }
 
   public favGroups = (values = this.getValue()): IGroup[] => {
-
     if (Array.isArray(values.favs) && values.favs.length > 0) {
       return values.favs.slice(0, 6)
     }
@@ -68,7 +67,7 @@ export class MyGroupsQuery extends Query<IMyGroupsStore> {
     if (!Array.isArray(values.favs)) {
       return false
     }
-    return values.favs.some(g => g.id === group.id)
+    return values.favs.some((g) => g.id === group.id)
   }
 }
 

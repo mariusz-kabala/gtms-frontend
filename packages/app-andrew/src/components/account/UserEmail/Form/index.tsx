@@ -8,8 +8,8 @@ import { Input } from '@gtms/ui/Forms/Input'
 import { Spinner } from '@gtms/ui/Spinner'
 import { updateAccountDetails } from '@gtms/state-user'
 
-export const EmailChangeForm: FC<{ 
-  email: string 
+export const EmailChangeForm: FC<{
+  email: string
   onSaveSuccess: () => unknown
   onSaveFail: () => unknown
 }> = ({ email, onSaveFail, onSaveSuccess }) => {

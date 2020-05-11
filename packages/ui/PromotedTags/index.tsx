@@ -10,7 +10,7 @@ export const PromotedTags: FC<{
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
-      data-testid="recently-added-posts"
+      data-testid="promoted-tags"
     >
       <PostCreate additionalStyles={styles.postCreate} />
       <PostSingle additionalStyles={styles.post} />

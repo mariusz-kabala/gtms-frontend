@@ -22,8 +22,8 @@ export const UserEmail: FC<{
           setIsEditModeActive(false)
         }}
       >
-        <EmailChangeForm 
-          email={email} 
+        <EmailChangeForm
+          email={email}
           onSaveSuccess={() => {
             setIsEditModeActive(false)
           }}

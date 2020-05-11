@@ -4,9 +4,7 @@ import { InviteFriends } from './index'
 
 describe('<InviteFriends />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(
-      <InviteFriends />
-    )
+    const { getByTestId } = render(<InviteFriends />)
 
     expect(getByTestId('invite-friends')).toBeInTheDocument()
   })

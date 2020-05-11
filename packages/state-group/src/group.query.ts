@@ -20,7 +20,7 @@ export class GroupQuery extends Query<IGroupStore> {
     return values.group?.id
   }
 
-  public getAvatarFileStatus = (values=this.getValue()): FileStatus => {
+  public getAvatarFileStatus = (values = this.getValue()): FileStatus => {
     return values.group?.avatar?.status || FileStatus.notExists
   }
 

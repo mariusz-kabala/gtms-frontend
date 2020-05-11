@@ -31,7 +31,7 @@ describe('<EmailChangeForm />', () => {
     )
 
     expect(getByTestId('user-email-change-form')).toBeInTheDocument()
-    expect(useTranslation).toBeCalledWith('UserEmailChangeForm')
+    expect(useTranslation).toBeCalledWith('EmailChangeForm')
   })
 
   it('Should have all required fields', () => {
@@ -111,7 +111,7 @@ describe('<EmailChangeForm />', () => {
       onSubmit({})
     })
 
-    expect(setError).toBeCalledTimes(2)
+    expect(setError).toBeCalledTimes(1)
   })
 
   it('Should show no errors when data is valid', () => {

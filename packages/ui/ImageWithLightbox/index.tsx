@@ -21,7 +21,7 @@ export const ImageWithLightbox: FC<{
       <div
         className={cx(styles.miniature, additionalStyles)}
         style={{ backgroundImage: `url(${src})` }}
-        data-testid="imageWithLightbox"
+        data-testid="image-with-lightbox"
         onClick={() => {
           setIsModalOpen(true)
           onClick()

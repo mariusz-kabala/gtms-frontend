@@ -7,7 +7,7 @@ describe('<GroupNoAccess />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(<GroupNoAccess />)
 
-    expect(getByTestId('group-no-acess')).toBeInTheDocument()
+    expect(getByTestId('group-no-access')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('groupNoAccessComponent')
   })
 })
