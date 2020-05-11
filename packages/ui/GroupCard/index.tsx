@@ -29,8 +29,8 @@ export const GroupCard: FC<{
           <div className={styles.desc}>
             <h2 className={styles.nameSurname}>Johnny Silverhand</h2>
             <p className={styles.desc}>
-              Id in veniam sunt labore. Adipisicing proident dolor nulla
-              cillum cupidatat. Do sint labore cupidatat.
+              Id in veniam sunt labore. Adipisicing proident dolor nulla cillum
+              cupidatat. Do sint labore cupidatat.
             </p>
             <h3>{t('groupTags')}</h3>
             <TagGroup additionalStyles={styles.userTags}>
@@ -49,42 +49,42 @@ export const GroupCard: FC<{
             >
               <li className={styles.user}>
                 <UserAvatar
-                  image="/images/avatars/avatar-1.png"
+                  image={{ jpg: '/images/avatars/avatar-1.png' }}
                   additionalStyles={styles.userAvatar}
                 />
                 <span>Tim Cook</span>
               </li>
               <li className={styles.user}>
                 <UserAvatar
-                  image="/images/avatars/avatar-2.png"
+                  image={{ jpg: '/images/avatars/avatar-2.png' }}
                   additionalStyles={styles.userAvatar}
                 />
                 <span>Larry Ellison</span>
               </li>
               <li className={styles.user}>
                 <UserAvatar
-                  image="/images/avatars/avatar-3.png"
+                  image={{ jpg: '/images/avatars/avatar-3.png' }}
                   additionalStyles={styles.userAvatar}
                 />
                 <span>Sundar Pichai</span>
               </li>
               <li className={styles.user}>
                 <UserAvatar
-                  image="/images/avatars/avatar-4.png"
+                  image={{ jpg: '/images/avatars/avatar-4.png' }}
                   additionalStyles={styles.userAvatar}
                 />
                 <span>Johnatan Ive</span>
               </li>
               <li className={styles.user}>
                 <UserAvatar
-                  image="/images/avatars/avatar-5.png"
+                  image={{ jpg: '/images/avatars/avatar-5.png' }}
                   additionalStyles={styles.userAvatar}
                 />
                 <span>Bill Atkinson</span>
               </li>
               <li className={styles.user}>
                 <UserAvatar
-                  image="/images/avatars/avatar-6.png"
+                  image={{ jpg: '/images/avatars/avatar-6.png' }}
                   additionalStyles={styles.userAvatar}
                 />
                 <span>Bill Fernandez</span>

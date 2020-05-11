@@ -16,10 +16,8 @@ export const InviteFriends: FC<{
       style={{ backgroundImage: `url(/images/temp_images/andrew_bg.jpg)` }}
     >
       <div className={styles.content}>
-        <h2 className={styles.header}>
-          {t('header')}
-        </h2>
-        <ClickToCopy />
+        <h2 className={styles.header}>{t('header')}</h2>
+        <ClickToCopy text="TEXT IS MISSING HERE!!" />
       </div>
     </div>
   )

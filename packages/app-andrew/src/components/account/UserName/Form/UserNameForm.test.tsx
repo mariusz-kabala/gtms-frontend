@@ -2,10 +2,6 @@ import React from 'react'
 import { render, act } from '@testing-library/react'
 import { UserNameChangeForm } from './index'
 import { useForm } from 'react-hook-form'
-
-// where I should this one below?
-import { IUserNameData } from '@gtms/commons/types/userAccount'
-
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 
@@ -26,14 +22,18 @@ describe('<UserNameChangeForm />', () => {
   })
 
   it('Should be on the page', () => {
-    const { getByTestId } = render(<UserNameChangeForm />)
+    const { getByTestId } = render(
+      <UserNameChangeForm onSaveSuccess={jest.fn()} onSaveFail={jest.fn()} />
+    )
 
     expect(getByTestId('user-name-change-form')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('userNameChangeForm')
   })
 
   it('Should have all required fields', () => {
-    const { getByPlaceholderText, getByText } = render(<UserNameChangeForm />)
+    const { getByPlaceholderText, getByText } = render(
+      <UserNameChangeForm onSaveSuccess={jest.fn()} onSaveFail={jest.fn()} />
+    )
 
     expect(getByPlaceholderText('form.labels.name')).toBeInTheDocument()
     expect(getByPlaceholderText('form.labels.surname')).toBeInTheDocument()
@@ -41,7 +41,9 @@ describe('<UserNameChangeForm />', () => {
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { queryByTestId } = render(<UserNameChangeForm />)
+    const { queryByTestId } = render(
+      <UserNameChangeForm onSaveSuccess={jest.fn()} onSaveFail={jest.fn()} />
+    )
 
     expect(queryByTestId('form-error')).toBeNull()
   })
@@ -63,7 +65,9 @@ describe('<UserNameChangeForm />', () => {
       }
     })
 
-    const { getByText } = render(<UserNameChangeForm />)
+    const { getByText } = render(
+      <UserNameChangeForm onSaveSuccess={jest.fn()} onSaveFail={jest.fn()} />
+    )
 
     expect(getByText('form.validation.name.isRequired')).toBeInTheDocument()
     expect(getByText('form.validation.surname.isRequired')).toBeInTheDocument()
@@ -76,7 +80,9 @@ describe('<UserNameChangeForm />', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
-        handleSubmit: (func: (data: IUserNameData) => Promise<void>) => {
+        handleSubmit: (
+          func: (data: { name?: string; surname?: string }) => Promise<void>
+        ) => {
           onSubmit = func
         },
         errors: {},
@@ -85,7 +91,9 @@ describe('<UserNameChangeForm />', () => {
     })
 
     act(() => {
-      render(<UserNameChangeForm />)
+      render(
+        <UserNameChangeForm onSaveSuccess={jest.fn()} onSaveFail={jest.fn()} />
+      )
 
       onSubmit({})
     })
@@ -100,7 +108,9 @@ describe('<UserNameChangeForm />', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
-        handleSubmit: (func: (data: IUserNameData) => Promise<void>) => {
+        handleSubmit: (
+          func: (data: { name?: string; surname?: string }) => Promise<void>
+        ) => {
           onSubmit = func
         },
         errors: {},
@@ -109,7 +119,9 @@ describe('<UserNameChangeForm />', () => {
     })
 
     act(() => {
-      render(<UserNameChangeForm />)
+      render(
+        <UserNameChangeForm onSaveSuccess={jest.fn()} onSaveFail={jest.fn()} />
+      )
 
       onSubmit({
         name: 'Tester',

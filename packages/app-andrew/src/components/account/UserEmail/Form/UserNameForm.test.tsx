@@ -1,8 +1,7 @@
 import React from 'react'
 import { render, act } from '@testing-library/react'
-import { UserEmailChangeForm } from './index'
+import { EmailChangeForm } from './index'
 import { useForm } from 'react-hook-form'
-import { IUserEmailData } from '@gtms/commons/types/userEmail'
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 
@@ -17,27 +16,45 @@ jest.mock('react-hook-form', () => ({
   })),
 }))
 
-describe('<UserEmailChangeForm />', () => {
+describe('<EmailChangeForm />', () => {
   beforeEach(() => {
     fetchMock.resetMocks()
   })
 
   it('Should be on the page', () => {
-    const { getByTestId } = render(<UserEmailChangeForm />)
+    const { getByTestId } = render(
+      <EmailChangeForm
+        email="test@tester.com"
+        onSaveSuccess={jest.fn()}
+        onSaveFail={jest.fn()}
+      />
+    )
 
     expect(getByTestId('user-email-change-form')).toBeInTheDocument()
     expect(useTranslation).toBeCalledWith('UserEmailChangeForm')
   })
 
   it('Should have all required fields', () => {
-    const { getByPlaceholderText, getByText } = render(<UserEmailChangeForm />)
+    const { getByPlaceholderText, getByText } = render(
+      <EmailChangeForm
+        email="test@tester.com"
+        onSaveSuccess={jest.fn()}
+        onSaveFail={jest.fn()}
+      />
+    )
 
     expect(getByPlaceholderText('form.labels.email')).toBeInTheDocument()
     expect(getByText('form.submitButton')).toBeInTheDocument()
   })
 
   it('Should not display any errors when just loaded', () => {
-    const { queryByTestId } = render(<UserEmailChangeForm />)
+    const { queryByTestId } = render(
+      <EmailChangeForm
+        email="test@tester.com"
+        onSaveSuccess={jest.fn()}
+        onSaveFail={jest.fn()}
+      />
+    )
 
     expect(queryByTestId('form-error')).toBeNull()
   })
@@ -56,7 +73,13 @@ describe('<UserEmailChangeForm />', () => {
       }
     })
 
-    const { getByText } = render(<UserEmailChangeForm />)
+    const { getByText } = render(
+      <EmailChangeForm
+        email="test@tester.com"
+        onSaveSuccess={jest.fn()}
+        onSaveFail={jest.fn()}
+      />
+    )
 
     expect(getByText('form.validation.email.isRequired')).toBeInTheDocument()
   })
@@ -68,7 +91,7 @@ describe('<UserEmailChangeForm />', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
-        handleSubmit: (func: (data: IUserEmailData) => Promise<void>) => {
+        handleSubmit: (func: (data: { email?: string }) => Promise<void>) => {
           onSubmit = func
         },
         errors: {},
@@ -77,7 +100,13 @@ describe('<UserEmailChangeForm />', () => {
     })
 
     act(() => {
-      render(<UserEmailChangeForm />)
+      render(
+        <EmailChangeForm
+          email="test@tester.com"
+          onSaveSuccess={jest.fn()}
+          onSaveFail={jest.fn()}
+        />
+      )
 
       onSubmit({})
     })
@@ -92,7 +121,7 @@ describe('<UserEmailChangeForm />', () => {
     ;(useForm as jest.Mock).mockImplementationOnce(() => {
       return {
         register: jest.fn(),
-        handleSubmit: (func: (data: IUserEmailData) => Promise<void>) => {
+        handleSubmit: (func: (data: { email?: string }) => Promise<void>) => {
           onSubmit = func
         },
         errors: {},
@@ -101,7 +130,13 @@ describe('<UserEmailChangeForm />', () => {
     })
 
     act(() => {
-      render(<UserEmailChangeForm />)
+      render(
+        <EmailChangeForm
+          email="test@tester.com"
+          onSaveSuccess={jest.fn()}
+          onSaveFail={jest.fn()}
+        />
+      )
 
       onSubmit({
         email: 'tester@jedziemyna.pl',

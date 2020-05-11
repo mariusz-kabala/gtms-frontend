@@ -19,7 +19,9 @@ export const PostSingle: FC<{
     >
       <div className={styles.header}>
         <UserAvatar
-          image="https://www.bootdey.com/img/Content/avatar/avatar6.png"
+          image={{
+            jpg: 'https://www.bootdey.com/img/Content/avatar/avatar6.png',
+          }}
           additionalStyles={styles.userAvatar}
         />
         <span>Marty Mcfly</span>

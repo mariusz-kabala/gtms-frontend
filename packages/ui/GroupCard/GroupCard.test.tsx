@@ -4,9 +4,7 @@ import { GroupCard } from './index'
 
 describe('<GroupCard />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(
-      <GroupCard onClose={jest.fn()} image="/fake/img.png" />
-    )
+    const { getByTestId } = render(<GroupCard />)
 
     expect(getByTestId('group-card')).toBeInTheDocument()
   })

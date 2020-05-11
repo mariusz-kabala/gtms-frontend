@@ -137,7 +137,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
           )}
           noRecords={
             <div>
-              <p>You do not own any group, maybe it's time to create one?</p>
+              <p>You do not own any group, maybe its time to create one?</p>
               <p>
                 <Link href="/group-create">
                   <a>Create a group!</a>

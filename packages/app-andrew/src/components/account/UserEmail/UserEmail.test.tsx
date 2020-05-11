@@ -1,17 +1,17 @@
 import React from 'react'
 import { act, fireEvent, render } from '@testing-library/react'
-import { UserName } from './index'
+import { UserEmail } from './index'
 
-describe('<UserName />', () => {
+describe('<UserEmail />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<UserName />)
+    const { getByTestId } = render(<UserEmail email="test@tester.com" />)
 
     expect(getByTestId('user-name')).toBeInTheDocument()
     expect(getByTestId('expanding-item')).toBeInTheDocument()
   })
 
-  it('Should open edit mode of user name when clicked on <UserName /> ', () => {
-    const { getByTestId } = render(<UserName />)
+  it('Should open edit mode of user name when clicked on <UserEmail /> ', () => {
+    const { getByTestId } = render(<UserEmail email="test@tester.com" />)
 
     fireEvent.click(getByTestId('user-name'))
 
@@ -26,7 +26,9 @@ describe('<UserName />', () => {
       events[event] = cb
     })
 
-    const { getByTestId, queryByTestId } = render(<UserName />)
+    const { getByTestId, queryByTestId } = render(
+      <UserEmail email="test@tester.com" />
+    )
 
     expect(document.addEventListener).toBeCalled()
 
@@ -46,7 +48,9 @@ describe('<UserName />', () => {
   })
 
   it('Should close edit mode when user cancel editing by clicking on Overlay', () => {
-    const { getByTestId, queryByTestId } = render(<UserName />)
+    const { getByTestId, queryByTestId } = render(
+      <UserEmail email="test@tester.com" />
+    )
 
     fireEvent.click(getByTestId('user-name'))
 

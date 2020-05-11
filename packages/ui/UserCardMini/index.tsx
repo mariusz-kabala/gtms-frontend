@@ -5,7 +5,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 export const UserCardMini: FC<{
   image: string
   name: string
-  desc: string
+  desc?: string
   onClick?: () => unknown
 }> = ({ desc, name, image, onClick }) => {
   const { t } = useTranslation('userCardMiniComponent')
@@ -16,17 +16,18 @@ export const UserCardMini: FC<{
       data-testid="user-card-mini"
       onClick={onClick}
     >
-      <div 
-        alt="user avatar"
+      <div
         className={styles.image}
         style={{ backgroundImage: `url(${image})` }}
       />
       <div className={styles.desc}>
         <h2 className={styles.nameSurname}>{name}</h2>
         <span className={styles.members}>{t('members')}: 201</span>
-        <div className={styles.desc}>
-          <p>{desc}</p>
-        </div>
+        {desc && (
+          <div className={styles.desc}>
+            <p>{desc}</p>
+          </div>
+        )}
       </div>
     </div>
   )

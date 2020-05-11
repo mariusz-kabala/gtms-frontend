@@ -2,11 +2,16 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { GroupAvatar } from './index'
 import { useTranslation } from '@gtms/commons/i18n'
+import { FileStatus } from '@gtms/commons'
 
 describe('<GroupAvatar />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(
-      <GroupAvatar files={{ jpg: '' }} isEditAllowed={false} />
+      <GroupAvatar
+        filesStatus={FileStatus.ready}
+        files={{ jpg: '' }}
+        isEditAllowed={false}
+      />
     )
 
     expect(getByTestId('group-avatar')).toBeInTheDocument()
