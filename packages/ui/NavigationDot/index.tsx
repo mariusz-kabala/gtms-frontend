@@ -2,11 +2,15 @@ import React, { FC, useState, useEffect } from 'react'
 import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup, FileStatus } from '@gtms/commons'
-import { loadMyGroups, myGroupsQuery } from '@gtms/state-user'
+import { loadMyGroups, myGroupsQuery, userQuery } from '@gtms/state-user'
 
 export const NavigationDot: FC = () => {
   const [groups, setGroups] = useState<IGroup[]>(myGroupsQuery.favGroups())
   useEffect(() => {
+    if (!userQuery.isLogged()) {
+      return
+    }
+
     if (!myGroupsQuery.isLoaded()) {
       loadMyGroups()
     }
