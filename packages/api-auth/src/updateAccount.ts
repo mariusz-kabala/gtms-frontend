@@ -3,6 +3,8 @@ import { IAccountDetailsResponse } from './me'
 
 export interface IAccountUpdatePayload {
   name?: string
+  surname?: string
+  password?: string
   email?: string
   countryCode?: string
   languageCode?: string

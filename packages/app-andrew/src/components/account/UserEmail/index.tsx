@@ -4,7 +4,8 @@ import { EmailChangeForm } from './Form'
 
 export const UserEmail: FC<{
   additionalStyles?: string
-}> = ({ additionalStyles }) => {
+  email: string
+}> = ({ additionalStyles, email }) => {
   const [isEditModeActive, setIsEditModeActive] = useState<boolean>(false)
 
   return (
@@ -15,10 +16,22 @@ export const UserEmail: FC<{
     >
       <ExpandingItem
         isActive={isEditModeActive}
-        label="Larry@oracle.com"
-        onClose={() => {setIsEditModeActive(false)}}
+        closeOnClickOutsie={false}
+        label={email}
+        onClose={() => {
+          setIsEditModeActive(false)
+        }}
       >
-        <EmailChangeForm />
+        <EmailChangeForm 
+          email={email} 
+          onSaveSuccess={() => {
+            setIsEditModeActive(false)
+          }}
+          onSaveFail={() => {
+            setIsEditModeActive(false)
+            // todo show here error notification
+          }}
+        />
       </ExpandingItem>
     </div>
   )

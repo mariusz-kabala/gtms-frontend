@@ -17,6 +17,7 @@ import {
 } from '@gtms/api-auth'
 import { IJWT } from '@gtms/api-auth'
 import { userStore } from './user.store'
+import { IAccountDetails } from './user.query'
 import { parseJwt, FileStatus, parseFiles } from '@gtms/commons'
 
 export const init = ({
@@ -178,6 +179,10 @@ export const logoutUser = () => {
 export const getAccountDetails = async () => {
   const details = await fetchAccountDetails()
 
+  userStore.update(details)
+}
+
+export const initAccountDetails = (details: IAccountDetails) => {
   userStore.update(details)
 }
 

@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useState, FC } from 'react'
 import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
-import { NFC } from '@gtms/commons/types/nfc'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IUserEmailData } from '@gtms/commons/types/userAccount'
 import { Button } from '@gtms/ui/Button'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Input } from '@gtms/ui/Forms/Input'
+import { Spinner } from '@gtms/ui/Spinner'
+import { updateAccountDetails } from '@gtms/state-user'
 
-export const EmailChangeForm: NFC<{}> = () => {
+export const EmailChangeForm: FC<{ 
+  email: string 
+  onSaveSuccess: () => unknown
+  onSaveFail: () => unknown
+}> = ({ email, onSaveFail, onSaveSuccess }) => {
   const { t } = useTranslation('EmailChangeForm')
-  const { register, handleSubmit, errors, setError } = useForm<IUserEmailData>()
-  const validate = (data: IUserEmailData): boolean => {
+  const { register, handleSubmit, errors, setError } = useForm<{
+    email: string
+  }>()
+  const [isSaving, setIsSaving] = useState<boolean>(false)
+  const validate = (data: { email: string }): boolean => {
     let hasErrors = false
     if (!data.email) {
       setError('email', 'required')
@@ -20,17 +27,40 @@ export const EmailChangeForm: NFC<{}> = () => {
 
     return !hasErrors
   }
-  const onSubmit = async (data: IUserEmailData) => {
+  const onSubmit = async (data: { email: string }) => {
     if (!validate(data)) {
       return
     }
+
+    setIsSaving(true)
+
+    try {
+      await updateAccountDetails(data)
+      onSaveSuccess()
+    } catch {
+      onSaveFail()
+    } finally {
+      setIsSaving(false)
+    }
+  }
+
+  if (isSaving) {
+    return (
+      <div className={styles.loader}>
+        <Spinner />
+      </div>
+    )
   }
 
   return (
-    <form data-testid="user-email-change-form" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      data-testid="user-email-change-form"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Input
-        type="text"
+        type="email"
         name="email"
+        defaultValue={email}
         placeholder={t('form.labels.email')}
         reference={register}
       />

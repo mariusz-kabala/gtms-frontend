@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import styles from './styles.scss'
@@ -13,6 +13,7 @@ import {
   getAccountDetails,
   IAccountDetails,
   updateAccountDetails,
+  initAccountDetails,
 } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { findTagsAPI } from '@gtms/api-tags'
@@ -25,6 +26,7 @@ type AccountPageProps = {
 export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
   const { t } = useTranslation('account')
   const [tags, setTags] = useState<string[]>(accountDetails.tags)
+  const [details, setDetails] = useState<IAccountDetails>(accountDetails)
   const [isSaving, setIsSaving] = useState<boolean>(false)
   const [tagsHints, setTagsHints] = useState<{
     isLoading: boolean
@@ -80,6 +82,19 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
     })
   }, [tags])
 
+  useEffect(() => {
+    initAccountDetails(accountDetails)
+  }, [accountDetails])
+
+  useEffect(() => {
+    const sub = userQuery.accountDetails$.subscribe((value) => {
+      setDetails(value)
+    })
+    return () => {
+      sub.unsubscribe()
+    }
+  }, [])
+
   return (
     <div className={styles.wrapper} data-testid="account-page">
       <div className={styles.content}>
@@ -122,8 +137,12 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
             This part is visible ONLY FOR YOU
           </span>
           <ChangePassword />
-          <UserName additionalStyles={styles.userName} />
-          <UserEmail additionalStyles={styles.userName} />
+          <UserName
+            additionalStyles={styles.userName}
+            name={details.name}
+            surname={details.surname}
+          />
+          <UserEmail email={details.email} additionalStyles={styles.userName} />
           <DeleteAccount
             additionalStyles={styles.deleteAccount}
             onConfirm={() => null}

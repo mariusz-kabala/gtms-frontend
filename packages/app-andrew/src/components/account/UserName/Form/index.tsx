@@ -1,35 +1,44 @@
-import React from 'react'
+import React, { useState, FC } from 'react'
 import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
-import { NFC } from '@gtms/commons/types/nfc.d'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IUserNameData } from '@gtms/commons/types/userAccount'
-
+import { Spinner } from '@gtms/ui/Spinner'
 import { Button } from '@gtms/ui/Button'
-import { Error } from '@gtms/ui/Forms/Error'
 import { Input } from '@gtms/ui/Forms/Input'
+import { updateAccountDetails } from '@gtms/state-user'
 
-export const UserNameChangeForm: NFC<{}> = () => {
+export const UserNameChangeForm: FC<{
+  name?: string
+  surname?: string
+  onSaveSuccess: () => unknown
+  onSaveFail: () => unknown
+}> = ({ name, surname, onSaveFail, onSaveSuccess }) => {
   const { t } = useTranslation('userNameChangeForm')
-  const { register, handleSubmit, errors, setError } = useForm<IUserNameData>()
-  const validate = (data: IUserNameData): boolean => {
-    let hasErrors = false
-    if (!data.name) {
-      setError('name', 'required')
-      hasErrors = true
-    }
+  const [isSaving, setIsSaving] = useState<boolean>(false)
+  const { register, handleSubmit } = useForm<{
+    name?: string
+    surname?: string
+  }>()
 
-    if (!data.surname) {
-      setError('surname', 'required')
-      hasErrors = true
-    }
+  const onSubmit = async (data: { name?: string; surname?: string }) => {
+    setIsSaving(true)
 
-    return !hasErrors
+    try {
+      await updateAccountDetails(data)
+      onSaveSuccess()
+    } catch {
+      onSaveFail()
+    } finally {
+      setIsSaving(false)
+    }
   }
-  const onSubmit = async (data: IUserNameData) => {
-    if (!validate(data)) {
-      return
-    }
+
+  if (isSaving) {
+    return (
+      <div className={styles.loader}>
+        <Spinner />
+      </div>
+    )
   }
 
   return (
@@ -37,19 +46,21 @@ export const UserNameChangeForm: NFC<{}> = () => {
       <Input
         type="text"
         name="name"
+        defaultValue={name}
+        maxLength={200}
         placeholder={t('form.labels.name')}
         reference={register}
       />
-      {errors.name && <Error text={t('form.validation.name.isRequired')} />}
+
       <Input
         type="text"
         name="surname"
+        maxLength={200}
+        defaultValue={surname}
         placeholder={t('form.labels.surname')}
         reference={register}
       />
-      {errors.surname && (
-        <Error text={t('form.validation.surname.isRequired')} />
-      )}
+
       <Button
         type="submit"
         disabled={false}

@@ -4,9 +4,17 @@ import { UserNameChangeForm } from './Form'
 
 export const UserName: FC<{
   additionalStyles?: string
-}> = ({ additionalStyles }) => {
+  name?: string
+  surname?: string
+}> = ({ additionalStyles, name, surname }) => {
   const [isEditModeActive, setIsEditModeActive] = useState<boolean>(false)
+  const getName = () => {
+    if (!name && !surname) {
+      return 'Your name is missing :('
+    }
 
+    return `${name} ${surname}`.trim()
+  }
   return (
     <div
       className={additionalStyles}
@@ -15,12 +23,23 @@ export const UserName: FC<{
     >
       <ExpandingItem
         isActive={isEditModeActive}
-        label="Larry Ellison"
+        label={getName()}
+        closeOnClickOutsie={false}
         onClose={() => {
           setIsEditModeActive(false)
         }}
       >
-        <UserNameChangeForm />
+        <UserNameChangeForm 
+          name={name} 
+          surname={surname}
+          onSaveSuccess={() => {
+            setIsEditModeActive(false)
+          }}
+          onSaveFail={() => {
+            setIsEditModeActive(false)
+            // todo show here error notification
+          }}
+        />
       </ExpandingItem>
     </div>
   )

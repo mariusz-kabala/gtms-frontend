@@ -5,6 +5,8 @@ import { Input } from '@gtms/ui/Forms/Input'
 import { Button } from '@gtms/ui/Button'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Error } from '@gtms/ui/Forms/Error'
+import { Spinner } from '@gtms/ui/Spinner'
+import { updateAccountDetails } from '@gtms/state-user'
 
 export interface IChangePasswordFormData {
   password: string
@@ -48,10 +50,20 @@ export const ChangePasswordForm: FC<{
     setIsMakingRequest(true)
 
     try {
+      await updateAccountDetails({
+        password: data.password,
+      })
+
       onSuccess()
     } catch (err) {
       setError('password', 'serverError')
+    } finally {
+      setIsMakingRequest(false)
     }
+  }
+
+  if (isMakingRequest) {
+    return <Spinner />
   }
 
   return (
@@ -85,11 +97,7 @@ export const ChangePasswordForm: FC<{
         <Error text={t('form.validation.confirmPassword.notEqual')} />
       )}
 
-      <Button
-        type="submit"
-        disabled={isMakingRequest}
-        additionalStyles={styles.btnSubmit}
-      >
+      <Button type="submit" additionalStyles={styles.btnSubmit}>
         {t('form.submitButton')}
       </Button>
     </form>

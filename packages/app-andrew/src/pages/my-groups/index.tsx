@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IGroup, FileStatus } from '@gtms/commons'
+import { IGroup } from '@gtms/commons'
 import {
   userQuery,
   loadMyGroups,
@@ -13,9 +13,9 @@ import {
 import { redirect } from '@gtms/commons/helpers/redirect'
 import styles from './styles.scss'
 import cn from 'classnames'
-import { Picture } from '@gtms/ui/Picture'
 import { Link } from '@gtms/commons/i18n'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
+import { GroupsList } from '../../components/my-groups/GroupsList'
 
 type MyGroupsPageProps = {
   namespacesRequired: readonly string[]
@@ -118,86 +118,107 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
           </ul>
         </nav>
 
-        <div
-          className={cn(styles.content, {
-            [styles.current]: currentTab === 'owner',
+        <GroupsList
+          additionalStyles={cn({
+            [styles.currentList]: currentTab === 'owner',
           })}
-        >
-          {groups.owner.length === 0 && <p>No records</p>}
-          {groups.owner.length > 0 && (
+          groups={groups.owner}
+          renderFavsIcon={(group) =>
+            myGroupsQuery.isInFavs(group) ? <IoIosHeart /> : <IoIosHeartEmpty />
+          }
+          renderGroupMenu={(group) => (
             <ul>
-              {groups.owner.map((group) => (
-                <li key={`owner-${group.id}`}>
-                  <i
-                    onClick={() => {
-                      if (myGroupsQuery.isInFavs(group)) {
-                        return removeFromFavs(group)
-                      }
-
-                      addToFavs(group)
-                    }}
-                  >
-                    {myGroupsQuery.isInFavs(group) ? (
-                      <IoIosHeart />
-                    ) : (
-                      <IoIosHeartEmpty />
-                    )}
-                  </i>
-                  <Link href={`/group/${group.slug}`}>
-                    <a>
-                      {group.avatar &&
-                      group.avatar.status === FileStatus.ready &&
-                      group.avatar.files['50x50'] ? (
-                        <Picture {...group.avatar.files['200x200']} />
-                      ) : (
-                        <img src="http://via.placeholder.com/200x200" />
-                      )}
-                      <p>{group.name}</p>
-                    </a>
-                  </Link>
-                  <ul>
-                    <li>
-                      <Link href={`/group/${group.slug}/settings`}>
-                        {t('settings')}
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-              ))}
+              <li>
+                <Link href={`/group/${group.slug}/settings`}>
+                  {t('settings')}
+                </Link>
+              </li>
             </ul>
           )}
-        </div>
+          noRecords={
+            <div>
+              <p>You do not own any group, maybe it's time to create one?</p>
+              <p>
+                <Link href="/group-create">
+                  <a>Create a group!</a>
+                </Link>
+              </p>
+            </div>
+          }
+          onFavsClick={(group) => {
+            if (myGroupsQuery.isInFavs(group)) {
+              return removeFromFavs(group)
+            }
 
-        <div
-          className={cn(styles.content, {
-            [styles.current]: currentTab === 'fav',
+            addToFavs(group)
+          }}
+        />
+
+        <GroupsList
+          additionalStyles={cn({
+            [styles.currentList]: currentTab === 'fav',
           })}
-        >
-          {groups.favs.length === 0 && <p>No records</p>}
-          {groups.favs.length > 0 && (
-            <ul>
-              {groups.favs.map((group) => (
-                <li key={`favs-${group.id}`}>
-                  <i onClick={() => removeFromFavs(group)}>
-                    <IoIosHeart />
-                  </i>
-                  <Link href={`/group/${group.slug}`}>
-                    <a>
-                      {group.avatar &&
-                      group.avatar.status === FileStatus.ready &&
-                      group.avatar.files['50x50'] ? (
-                        <Picture {...group.avatar.files['200x200']} />
-                      ) : (
-                        <img src="http://via.placeholder.com/200x200" />
-                      )}
-                      <p>{group.name}</p>
-                    </a>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+          groups={groups.favs}
+          renderFavsIcon={() => <IoIosHeart />}
+          renderGroupMenu={() => null}
+          noRecords={
+            <div>
+              <p>You do not have any favs groups</p>
+              <p>
+                <Link href="/search">
+                  <a>Find some!</a>
+                </Link>
+              </p>
+            </div>
+          }
+          onFavsClick={(group) => removeFromFavs(group)}
+        />
+
+        <GroupsList
+          additionalStyles={cn({
+            [styles.currentList]: currentTab === 'admin',
+          })}
+          groups={groups.admin}
+          renderFavsIcon={(group) =>
+            myGroupsQuery.isInFavs(group) ? <IoIosHeart /> : <IoIosHeartEmpty />
+          }
+          renderGroupMenu={() => null}
+          noRecords={<p>No records</p>}
+          onFavsClick={(group) => {
+            if (myGroupsQuery.isInFavs(group)) {
+              return removeFromFavs(group)
+            }
+
+            addToFavs(group)
+          }}
+        />
+        <GroupsList
+          additionalStyles={cn({
+            [styles.currentList]: currentTab === 'member',
+          })}
+          groups={groups.member}
+          renderFavsIcon={(group) =>
+            myGroupsQuery.isInFavs(group) ? <IoIosHeart /> : <IoIosHeartEmpty />
+          }
+          renderGroupMenu={() => null}
+          noRecords={
+            <div>
+              <p>You do not belong to any group</p>
+              <p>
+                <Link href="/search">
+                  <a>Find a group and join!</a>
+                </Link>
+              </p>
+            </div>
+          }
+          onFavsClick={(group) => {
+            if (myGroupsQuery.isInFavs(group)) {
+              return removeFromFavs(group)
+            }
+
+            addToFavs(group)
+          }}
+        />
       </div>
     </div>
   )
