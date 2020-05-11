@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import { Spinner } from '../Spinner'
 import styles from './styles.scss'
-import { useDebounce } from '@gtms/commons'
+import { useDebounce } from '@gtms/commons/hooks/useDebounce'
 
 export const TagsBar: FC<{
   tags: string[]

@@ -1,1 +1,1 @@
-export * from './group.d'
+export * from './group'

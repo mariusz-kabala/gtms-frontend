@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const tsParser = require('react-docgen-typescript')
 const path = require('path')
-console.log(path.join(process.cwd(), 'packages/styleguide/src/StyleGuide.js'))
+
 module.exports = {
   components: ['packages/ui/**/[a-z]*.{ts,tsx}'],
   serverPort: 6061,
