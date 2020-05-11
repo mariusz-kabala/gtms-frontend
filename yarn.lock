@@ -3834,9 +3834,9 @@ core-js@^2:
   resolved "https://npm.kabala.tech/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
 
-core-js@^3.3.5:
+core-js@^3.6.4:
   version "3.6.5"
-  resolved "https://npm.kabala.tech/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
   integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
@@ -10695,9 +10695,9 @@ react-simple-code-editor@^0.10.0:
   integrity sha512-bL5W5mAxSW6+cLwqqVWY47Silqgy2DKDTR4hDBrLrUqC5BXc29YVx17l2IZk5v36VcDEq1Bszu2oHm1qBwKqBA==
 
 react-styleguidist@^11.0.0:
-  version "11.0.5"
-  resolved "https://npm.kabala.tech/react-styleguidist/-/react-styleguidist-11.0.5.tgz#b1a1eb91f8bf7c538fc0d652f83c2d8cd997f5aa"
-  integrity sha512-LsLZ4aIN1gsBRgRJcEmOAoobdwVMJbnhG+49F4CgKDuuYkPazkJ1l4GuBcMcOSNfiLz/vA2nkl3TpJHH/7CVug==
+  version "11.0.6"
+  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-11.0.6.tgz#bc7c25029fcb835ebee9c9bc7f914c6b7014a537"
+  integrity sha512-jrbCdUW8fUC2IusY12JQb6UrABLixQeW9N7sxwKe7QPzy+qc+cpiaR51LFvcwLeGBigaEzNJcLvlTtxspt1YRQ==
   dependencies:
     "@vxna/mini-html-webpack-template" "^1.0.0"
     acorn "^6.4.1"
@@ -10709,7 +10709,7 @@ react-styleguidist@^11.0.0:
     clsx "^1.0.4"
     common-dir "^3.0.0"
     copy-webpack-plugin "^5.1.0"
-    core-js "^3.3.5"
+    core-js "^3.6.4"
     doctrine "^3.0.0"
     es6-object-assign "~1.1.0"
     es6-promise "^4.2.8"
@@ -10733,7 +10733,7 @@ react-styleguidist@^11.0.0:
     kleur "^3.0.3"
     leven "^3.1.0"
     listify "^1.0.0"
-    loader-utils "^1.2.3"
+    loader-utils "^2.0.0"
     lodash "^4.17.15"
     lowercase-keys "^2.0.0"
     markdown-to-jsx "^6.10.3"
