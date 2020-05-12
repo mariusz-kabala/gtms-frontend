@@ -18,7 +18,6 @@ import {
 import { IJWT } from '@gtms/api-auth'
 import { userStore } from './user.store'
 import { IAccountDetails } from './user.query'
-import { IToken } from './user.model'
 import { parseJwt, FileStatus, parseFiles } from '@gtms/commons'
 
 export const init = ({
