@@ -1,5 +1,11 @@
 import React, { FC, useState, useEffect } from 'react'
-import { myGroupsQuery, addToFavs, removeFromFavs } from '@gtms/state-user'
+import {
+  myGroupsQuery,
+  addToFavs,
+  removeFromFavs,
+  userQuery,
+} from '@gtms/state-user'
+import { openLoginModal } from '../../../state'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -42,6 +48,9 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
     <button
       className={styles.btn}
       onClick={() => {
+        if (!userQuery.isLogged()) {
+          return openLoginModal()
+        }
         if (myGroupsQuery.isInFavs(group)) {
           removeFromFavs(group)
         } else {
