@@ -1,12 +1,12 @@
 {
   "name": "@gtms/state-group",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "dependencies": {
-    "@gtms/api-group": "*",
-    "@gtms/commons": "*"
+    "@gtms/api-group": "0.2.1",
+    "@gtms/commons": "0.4.2"
   },
   "scripts": {
     "build": "exit 0",
