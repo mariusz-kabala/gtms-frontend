@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.4.1...@gtms/state-user@0.4.2) (2020-05-12)
+
+
+### Bug Fixes
+
+* GEOT-245: refresh token when 401 in SPA ([#524](https://github.com/gtms-org/gtms-frontend/issues/524)) ([1a3f524](https://github.com/gtms-org/gtms-frontend/commit/1a3f524d8009a4decc5c8044a3ee53f52c493920))
+
+
+
+
+
 ## [0.4.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.4.0...@gtms/state-user@0.4.1) (2020-05-12)
 
 
