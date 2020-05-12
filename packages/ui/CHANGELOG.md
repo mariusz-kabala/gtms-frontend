@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.0...@gtms/ui@0.10.1) (2020-05-11)
+
+
+### Bug Fixes
+
+* GEOT-244: do not ask about fav groups when logout ([#521](https://github.com/gtms-org/gtms-frontend/issues/521)) ([aa334cd](https://github.com/gtms-org/gtms-frontend/commit/aa334cdff0b4c10a47256fb77371fd6d2518edd0))
+
+
+
+
+
 # [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.9.0...@gtms/ui@0.10.0) (2020-05-11)
 
 
