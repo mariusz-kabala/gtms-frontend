@@ -5,8 +5,8 @@
   "module": "./index.ts",
   "main": "./index.ts",
   "dependencies": {
-    "@gtms/api-auth": "0.3.0",
-    "@gtms/state-user": "0.4.0"
+    "@gtms/api-auth": "*",
+    "@gtms/state-user": "*"
   },
   "scripts": {
     "build": "exit 0",
