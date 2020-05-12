@@ -12,9 +12,20 @@ interface IParams<T> {
 export const fetch =
   typeof window === 'undefined' ? require('node-fetch') : window.fetch
 
+export const makeApiUrl = (url: string): string => {
+  const {
+    publicRuntimeConfig: { API_URL, FE_API_URL },
+  } = getConfig()
+
+  const baseURL = typeof window === 'undefined' ? API_URL : FE_API_URL
+
+  return `${baseURL}/v1/${url}`
+}
+
 export const fetchJSON = <T, R>(
   url: string,
-  params?: IParams<T>
+  params?: IParams<T>,
+  replay = false
 ): Promise<R> => {
   const { values = {}, headers = {}, addJWT = true } = params || {}
   const options: RequestInit & { timeout?: number } = {}
@@ -36,22 +47,39 @@ export const fetchJSON = <T, R>(
   options.timeout = 5000
 
   return fetch(url, options)
-    .then((response: Response) => {
+    .then(async (response: Response) => {
       if (response.ok) {
         return response.json()
+      }
+
+      if (response.status === 401 && typeof window !== 'undefined') {
+        const responseBody = await response.text()
+
+        if (
+          responseBody === 'Access token is invalid' &&
+          replay === false &&
+          userQuery.hasRefreshToken()
+        ) {
+          await fetch(makeApiUrl('auth/refresh-token'), {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ token: userQuery.getRefreshToken() }),
+          })
+
+          return await fetchJSON(url, params, true)
+        }
+
+        if (
+          responseBody === 'Access token is invalid' &&
+          (replay === true || !userQuery.hasRefreshToken())
+        ) {
+          return window.location.replace('/logout')
+        }
       }
 
       throw response
     })
     .then((data: R) => data)
-}
-
-export const makeApiUrl = (url: string): string => {
-  const {
-    publicRuntimeConfig: { API_URL, FE_API_URL },
-  } = getConfig()
-
-  const baseURL = typeof window === 'undefined' ? API_URL : FE_API_URL
-
-  return `${baseURL}/v1/${url}`
 }

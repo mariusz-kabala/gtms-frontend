@@ -1,6 +1,6 @@
 import { FileStatus } from '@gtms/commons'
 
-interface IToken {
+export interface IToken {
   value: string
   expiresAt: number
 }
