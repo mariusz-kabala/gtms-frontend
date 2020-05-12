@@ -90,7 +90,6 @@ export const PolAndRock: FC<{
         <img className={cx(styles.bankPodrozy, styles.icon)} src='/images/polandrock/bank_podrozy.png' />
         <img className={cx(styles.cocaCola, styles.icon)} src='/images/polandrock/cocacola.png' />
         <img className={cx(styles.kostrzynNadOdra, styles.icon)} src='/images/polandrock/kostrzyn_nad_odra.png' />
-        {/* <img className={cx(styles.lech, styles.icon)} src='/images/polandrock/lech.png' /> */}
         <img className={cx(styles.lidl, styles.icon)} src='/images/polandrock/lidl.png' />
         <img className={cx(styles.logo, styles.icon)} src='/images/polandrock/logo.png' />
         <img className={cx(styles.play, styles.icon)} src='/images/polandrock/play.png' />
