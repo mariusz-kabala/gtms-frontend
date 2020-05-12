@@ -4,15 +4,12 @@ import styles from './styles.scss'
 import { Button } from '@gtms/ui/Button'
 import { LoginForm } from '../../components/login/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
-import { parseCookies, destroyCookie } from 'nookies'
 import { SocialButtons } from '../../components/login/SocialButtons'
 import { userQuery } from '@gtms/state-user'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
-export const LoginPage: NextPage<{ redirectTo?: string }> = ({
-  redirectTo,
-}) => {
+export const LoginPage: NextPage<{}> = () => {
   const { t } = useTranslation('login')
   const [error, setError] = useState<string | undefined>()
 
@@ -25,7 +22,7 @@ export const LoginPage: NextPage<{ redirectTo?: string }> = ({
 
     const loggedSub = userQuery.isLogged$.subscribe((isLogged) => {
       if (isLogged) {
-        redirect(redirectTo || '/')
+        redirect('/')
       }
     })
 
@@ -84,11 +81,7 @@ LoginPage.getInitialProps = async (ctx: NextPageContext) => {
     redirect('/', ctx)
   }
 
-  const { redirectTo } = parseCookies(ctx)
-
-  destroyCookie(ctx, 'redirectTo')
-
-  return Promise.resolve({ redirectTo, namespacesRequired: ['login'] })
+  return Promise.resolve({ namespacesRequired: ['login'] })
 }
 
 export default LoginPage
