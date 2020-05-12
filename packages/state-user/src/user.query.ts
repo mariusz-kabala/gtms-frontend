@@ -48,6 +48,17 @@ export class UserQuery extends Query<IUserStore> {
     return values.session?.accessToken.value
   }
 
+  public hasRefreshToken = (values = this.getValue()): boolean => {
+    return (
+      typeof values.session?.refreshToken === 'object' &&
+      values.session?.refreshToken !== null
+    )
+  }
+
+  public getRefreshToken = (values = this.getValue()): string | undefined => {
+    return values.session?.refreshToken.value
+  }
+
   public hasRoles$ = (rolesToCheck: string[]): Observable<boolean> =>
     this.select((values) => this.hasRoles(rolesToCheck, values))
 
