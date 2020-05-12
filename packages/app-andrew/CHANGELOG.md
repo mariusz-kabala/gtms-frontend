@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.13.1...@gtms/app-andrew@0.14.0) (2020-05-12)
+
+
+### Features
+
+* GEOT-248: add login window popup ([#533](https://github.com/gtms-org/gtms-frontend/issues/533)) ([af97148](https://github.com/gtms-org/gtms-frontend/commit/af97148b47555651e4a07b089a8908a2255f1e18))
+
+
+
+
+
 ## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.13.0...@gtms/app-andrew@0.13.1) (2020-05-12)
 
 
