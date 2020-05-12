@@ -7,6 +7,7 @@ import { Navigation } from '@gtms/ui/Navigation'
 import { NavigationDot } from '@gtms/ui/NavigationDot'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { init } from '@gtms/state-user'
+import { LoginWindow } from '../components/commons/LoginWindow'
 
 interface GTMSAppProps {
   auth?: {
@@ -40,6 +41,7 @@ class GTMSApp extends App<GTMSAppProps> {
           <Component {...pageProps} />
         </div>
         <NavigationDot />
+        <LoginWindow />
       </>
     )
   }
