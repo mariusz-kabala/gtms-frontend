@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.12.2...@gtms/app-andrew@0.13.0) (2020-05-12)
+
+
+### Features
+
+* GEOT-247: add to favs button ([#525](https://github.com/gtms-org/gtms-frontend/issues/525)) ([1a27c9c](https://github.com/gtms-org/gtms-frontend/commit/1a27c9cf4fb1a5131615e59f1b7f746219c577ac))
+
+
+
+
+
 ## [0.12.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.12.1...@gtms/app-andrew@0.12.2) (2020-05-11)
 
 **Note:** Version bump only for package @gtms/app-andrew
