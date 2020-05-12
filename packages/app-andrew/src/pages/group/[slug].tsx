@@ -11,6 +11,7 @@ import { GroupDescription } from '../../components/groups/GroupDescription'
 import { GroupNoAccess } from '../../components/groups/GroupNoAccess'
 import { GroupNotFound } from '../../components/groups/GroupNotFound'
 import { GroupAvatar } from '../../components/groups/GroupAvatar'
+import { FavsButton } from '../../components/groups/FavsButton'
 import ReactTooltip from 'react-tooltip'
 
 type GroupPageProps = {
@@ -72,9 +73,13 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
         )}
         {group.notFound && <GroupNotFound />}
         {group.hasNoAccess && <GroupNoAccess />}
+
         {group.group && (
           <div className={styles.columns}>
             <div className={styles.column}>
+              <div className={styles.actionButtons}>
+                <FavsButton group={group.group} />
+              </div>
               <section>
                 <h2 className={styles.header}>{t('recentlyCreatedGroups')}</h2>
                 <RecentlyCreatedGroups />

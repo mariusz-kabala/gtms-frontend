@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.2...@gtms/ui@0.10.3) (2020-05-12)
+
+
+### Bug Fixes
+
+* GEOT-249: use only the latest monorepo deps ([#534](https://github.com/gtms-org/gtms-frontend/issues/534)) ([353b236](https://github.com/gtms-org/gtms-frontend/commit/353b2363f3c4530fa9dc51067c76718445784699))
+
+
+
+
+
+## [0.10.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.1...@gtms/ui@0.10.2) (2020-05-12)
+
+**Note:** Version bump only for package @gtms/ui
+
+
+
+
+
 ## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.0...@gtms/ui@0.10.1) (2020-05-11)
 
 
