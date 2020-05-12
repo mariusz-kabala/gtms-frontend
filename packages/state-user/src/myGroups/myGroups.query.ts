@@ -63,7 +63,20 @@ export class MyGroupsQuery extends Query<IMyGroupsStore> {
     return values.isLoaded
   }
 
-  public isInFavs = (group: IGroup, values = this.getValue()): boolean => {
+  public status = (values = this.getValue()) => ({
+    isLoading: values.isLoading,
+    errorOccurred: values.errorOccurred,
+  })
+
+  public status$: Observable<{
+    isLoading: boolean
+    errorOccurred: boolean
+  }> = this.select((values) => this.status(values))
+
+  public isInFavs = (
+    group: IGroup | { id: string },
+    values = this.getValue()
+  ): boolean => {
     if (!Array.isArray(values.favs)) {
       return false
     }
