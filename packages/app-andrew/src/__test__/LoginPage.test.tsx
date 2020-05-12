@@ -108,37 +108,6 @@ describe('<LoginPage />', () => {
     })
   })
 
-  it('Should redirect to /fake/url when store has valid auth session and param redirectTo is provided', async () => {
-    render(<LoginPage redirectTo="/fake/url" />)
-
-    act(() => {
-      const now = new Date().getTime()
-      const update: Partial<IUserStore> = {
-        isInitialized: true,
-        isActive: true,
-        isBlocked: false,
-        session: {
-          accessToken: {
-            expiresAt: now + 100,
-            value: '',
-          },
-          refreshToken: {
-            expiresAt: now + 100,
-            value: '',
-          },
-          createdAt: now,
-        },
-      }
-
-      userStore.update(update)
-    })
-
-    await wait(() => {
-      expect(redirect).toBeCalledTimes(1)
-      expect(redirect).toBeCalledWith('/fake/url')
-    })
-  })
-
   it('Should redirect to /registration/success when auth store has data but account is not active', async () => {
     render(<LoginPage />)
 
@@ -174,33 +143,6 @@ describe('<LoginPage />', () => {
 
     expect(props).toHaveProperty('namespacesRequired')
     expect(props.namespacesRequired).toEqual(['login'])
-    expect(props).toHaveProperty('redirectTo')
-    done()
-  })
-
-  it('Should parse cookies to return proper redirection after login URL from getInitialProps', async (done) => {
-    if (!LoginPage.getInitialProps) {
-      return done()
-    }
-
-    // eslint-disable-next-line
-    const ctx = {} as NextPageContext
-
-    const props: {
-      namespacesRequired?: string[]
-      redirectTo?: string
-    } = await LoginPage.getInitialProps(ctx)
-
-    expect(props).toHaveProperty('redirectTo')
-    expect(props.redirectTo).toEqual('/fake/redirect')
-
-    expect(destroyCookie).toBeCalledTimes(1)
-    expect(parseCookies).toBeCalledTimes(1)
-
-    expect(destroyCookie).toBeCalledWith(ctx, 'redirectTo')
-
-    expect(redirect).not.toBeCalled()
-
     done()
   })
 
