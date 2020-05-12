@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.13.0...@gtms/app-andrew@0.13.1) (2020-05-12)
+
+
+### Bug Fixes
+
+* GEOT-249: use only the latest monorepo deps ([#534](https://github.com/gtms-org/gtms-frontend/issues/534)) ([353b236](https://github.com/gtms-org/gtms-frontend/commit/353b2363f3c4530fa9dc51067c76718445784699))
+
+
+
+
+
 # [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.12.2...@gtms/app-andrew@0.13.0) (2020-05-12)
 
 
