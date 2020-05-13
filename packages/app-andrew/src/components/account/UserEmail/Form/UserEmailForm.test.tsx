@@ -139,7 +139,7 @@ describe('<EmailChangeForm />', () => {
       )
 
       onSubmit({
-        email: 'tester@jedziemyna.pl',
+        email: 'tester@geotags.pl',
       })
     })
 

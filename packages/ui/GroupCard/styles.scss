@@ -12,7 +12,7 @@
   right: 0;
   margin: auto;
 
-  width: 700px;
+  width: 980px;
   height: 500px;
   border-radius: $borderRadius;
   background: $theme5;
@@ -40,7 +40,7 @@
 
     .image {
       border-radius: $borderRadius;
-      width: 300px;
+      width: 500px;
       height: 100%;
       padding: 15px;
     }
@@ -75,17 +75,17 @@
       opacity: 0.9;
       cursor: pointer;
       color: $theme7;
-  
+
       .userAvatar {
         display: flex;
         flex-direction: column;
         max-width: 80px;
-  
+
         img {
           border-radius: 50%;
         }
       }
-  
+
       span {
         display: block;
         @include font-size(md);

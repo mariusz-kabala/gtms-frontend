@@ -3,8 +3,6 @@
 @import '~@gtms/styles/scss/mixins/header.scss';
 
 .wrapper {
-  padding: 20px;
-
   h2 {
     @include header(h4);
     color: $theme7;

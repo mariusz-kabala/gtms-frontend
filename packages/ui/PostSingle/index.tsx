@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
-import { UserAvatar } from '../UserAvatar'
-import { TagGroup } from '../TagGroup'
+import { DeletePost } from './DeletePost'
 import { Tag } from '../Tag'
-import { Button } from '../Button'
+import { TagGroup } from '../TagGroup'
+import { UserAvatar } from '../UserAvatar'
 
 export const PostSingle: FC<{
   additionalStyles?: string
@@ -25,7 +25,8 @@ export const PostSingle: FC<{
           additionalStyles={styles.userAvatar}
         />
         <span>Marty Mcfly</span>
-        <Button additionalStyles={styles.delete}>{t('deletePost')}</Button>
+        <span>10 {t('hoursAgo')}</span>
+        <DeletePost additionalStyles={styles.deleteBtn} />
       </div>
       <div className={styles.text}>
         <p>

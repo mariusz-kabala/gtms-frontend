@@ -14,7 +14,7 @@ export const RecentlyRegisteredUsers: FC<{
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
-    <div className={styles.wrapper}>
+    <div className={cx(styles.wrapper, additionalStyles)}>
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
           <InviteFriends />
@@ -23,10 +23,7 @@ export const RecentlyRegisteredUsers: FC<{
       <div className={styles.invite}>
         <Button onClick={() => setIsModalOpen(true)}>{t('btn')}</Button>
       </div>
-      <ul
-        className={cx(styles.users, additionalStyles)}
-        data-testid="recently-registered-users"
-      >
+      <ul className={styles.users} data-testid="recently-registered-users">
         <li className={styles.user}>
           <UserAvatar
             image={{ jpg: '/images/avatars/avatar-1.png' }}

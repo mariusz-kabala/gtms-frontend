@@ -1,0 +1,16 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
+
+.wrapper {
+  position: relative;
+  height: 600px;
+  @include imageCover();
+  overflow: hidden;
+
+  .shadow {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px 0px 60px 80px $theme1;
+  }
+}

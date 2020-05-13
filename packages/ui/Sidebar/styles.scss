@@ -14,10 +14,6 @@
     transition: all 300ms ease-in;
   }
 
-  .pushedContent {
-    transition: all 300ms ease-in;
-  }
-
   &.leftSide {
     .sidebarContent {
       left: -250px;

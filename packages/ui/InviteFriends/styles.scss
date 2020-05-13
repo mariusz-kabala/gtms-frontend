@@ -6,27 +6,33 @@
 .wrapper {
   position: fixed;
   z-index: 11;
-
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   margin: auto;
-
+  padding: 40px;
   width: 700px;
-  height: 500px;
+  max-height: 85%;
   border-radius: $borderRadius;
-  background: $theme5;
-  background: #252230;
-  color: $theme7;
+  background: #bdd3eb;
+  color: #584147;
+  @include imageCover();
   box-shadow: 0px 0px 28px 3px rgba(0, 0, 0, 0.64);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @include imageCover();
+  h2 {
+    @include font-weight(bold);
+    @include font-size(xlg);
+    text-transform: uppercase;
 
-  .content {
-  
+    .subheader {
+      display: block;
+      @include font-size(lg);
+      text-transform: initial;
+    }
+  }
+
+  .btn {
+    display: inline-block;
   }
 }

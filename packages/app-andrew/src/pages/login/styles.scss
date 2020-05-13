@@ -6,6 +6,8 @@
 .wrapper {
   display: flex;
   background: $theme0;
+  width: 100%;
+  height: 100vh;
 
   .left {
     position: relative;
