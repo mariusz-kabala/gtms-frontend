@@ -36,8 +36,7 @@ export const UserCard: FC<{
           <div className={styles.left}>
             <ImageWithLightbox
               additionalStyles={styles.image}
-              alt="user avatar"
-              src={image}
+              src={{ jpg: image }}
             />
           </div>
           <div className={styles.right}>

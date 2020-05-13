@@ -49,12 +49,14 @@
   .right {
     .desc {
       > * {
+        cursor: pointer;
         margin-top: 5px;
       }
 
       > h2 {
         @include font-weight(semibold);
         @include font-size(lg);
+        cursor: pointer;
       }
 
       > h3 {
@@ -75,17 +77,17 @@
       opacity: 0.9;
       cursor: pointer;
       color: $theme7;
-  
+
       .userAvatar {
         display: flex;
         flex-direction: column;
         max-width: 80px;
-  
+
         img {
           border-radius: 50%;
         }
       }
-  
+
       span {
         display: block;
         @include font-size(md);

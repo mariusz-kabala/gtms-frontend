@@ -51,7 +51,7 @@ export class GroupQuery extends Query<IGroupStore> {
     }
 
     return {
-      jpg: `http://via.placeholder.com/${size}`,
+      jpg: `//via.placeholder.com/${size}`,
     }
   }
 
