@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.4.0...@gtms/api-group@0.5.0) (2020-05-13)
+
+
+### Features
+
+* GEOT-252: add recent groups ([#548](https://github.com/gtms-org/gtms-frontend/issues/548)) ([24efbb3](https://github.com/gtms-org/gtms-frontend/commit/24efbb36c44eaa2320a3714fa98bc135683fd36b))
+
+
+
+
+
 # [0.4.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.3.0...@gtms/api-group@0.4.0) (2020-05-13)
 
 
