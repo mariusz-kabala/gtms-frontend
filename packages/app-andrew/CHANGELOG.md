@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.15.0...@gtms/app-andrew@0.16.0) (2020-05-13)
+
+
+### Features
+
+* GEOT-252: recent users ([#547](https://github.com/gtms-org/gtms-frontend/issues/547)) ([07264dc](https://github.com/gtms-org/gtms-frontend/commit/07264dc1357ee02326798952f31b9d797576bb3f))
+
+
+
+
+
 # [0.15.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.14.2...@gtms/app-andrew@0.15.0) (2020-05-13)
 
 

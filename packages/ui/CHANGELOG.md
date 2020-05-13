@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.5...@gtms/ui@0.11.0) (2020-05-13)
+
+
+### Features
+
+* GEOT-252: recent users ([#547](https://github.com/gtms-org/gtms-frontend/issues/547)) ([07264dc](https://github.com/gtms-org/gtms-frontend/commit/07264dc1357ee02326798952f31b9d797576bb3f))
+
+
+
+
+
 ## [0.10.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.4...@gtms/ui@0.10.5) (2020-05-13)
 
 **Note:** Version bump only for package @gtms/ui
