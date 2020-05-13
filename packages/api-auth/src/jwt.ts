@@ -1,6 +1,6 @@
-import { IUser } from '@gtms/state-user'
+import { IUserState } from '@gtms/state-user'
 
-export interface IJWT extends IUser {
+export interface IJWT extends IUserState {
   iat: number
   exp: number
 }

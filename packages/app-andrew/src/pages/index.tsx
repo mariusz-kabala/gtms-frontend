@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { NextPage } from 'next'
 import styles from './appStyles.scss'
 import { useAuth } from '@gtms/commons/hooks/auth'
-import { useTranslation } from '@gtms/commons/i18n'
+import { useTranslation, Link } from '@gtms/commons/i18n'
+import { IUser } from '@gtms/commons/models'
 import { Button } from '@gtms/ui/Button'
 import { PolAndRock } from '@gtms/ui/PolAndRock'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
@@ -11,8 +12,14 @@ import { Logout } from '@gtms/ui/Logout'
 import { RecentlyCreatedGroups } from '@gtms/ui/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
 import { IoIosSearch } from 'react-icons/io'
+import { getRecentUsers, recentUsersQuery } from '@gtms/state-user'
 
-export const HomePage: NextPage<{}> = () => {
+type HomePageProps = {
+  namespacesRequired: readonly string[]
+  users: IUser[]
+}
+
+export const HomePage: NextPage<HomePageProps> = ({ users }) => {
   const { t } = useTranslation('homePage')
   const { isLogged } = useAuth()
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
@@ -48,15 +55,27 @@ export const HomePage: NextPage<{}> = () => {
       </section>
       <section>
         <h2 className={styles.header}>{t('Zaproś znajomych')}</h2>
-        <RecentlyRegisteredUsers additionalStyles={styles.temporary} />
+        <RecentlyRegisteredUsers users={users} />
         {isLogged && <Logout />}
       </section>
     </div>
   )
 }
 
-HomePage.getInitialProps = () => {
-  return Promise.resolve({ namespacesRequired: ['homePage'] })
+HomePage.getInitialProps = async () => {
+  const [users] = await Promise.all([
+    getRecentUsers(0, 10)
+      .then(() => {
+        return recentUsersQuery.getAll()
+      })
+      .catch(() => {
+        return []
+      }),
+  ])
+  return {
+    namespacesRequired: ['homePage'],
+    users,
+  }
 }
 
 export default HomePage
