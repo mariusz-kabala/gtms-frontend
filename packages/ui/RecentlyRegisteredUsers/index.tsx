@@ -6,10 +6,13 @@ import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
 import { UserAvatar } from '../UserAvatar'
 import { useTranslation } from '@gtms/commons/i18n'
+import { IUser } from '@gtms/commons/models'
+import { FileStatus } from '@gtms/commons/enums'
 
 export const RecentlyRegisteredUsers: FC<{
   additionalStyles?: string
-}> = ({ additionalStyles }) => {
+  users: IUser[]
+}> = ({ additionalStyles, users }) => {
   const { t } = useTranslation('recentlyRegisteredUsersComponent')
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
@@ -27,76 +30,23 @@ export const RecentlyRegisteredUsers: FC<{
         className={cx(styles.users, additionalStyles)}
         data-testid="recently-registered-users"
       >
-        <li className={styles.user}>
-          <UserAvatar
-            image={{ jpg: '/images/avatars/avatar-1.png' }}
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Tim Cook</span>
-        </li>
-        <li className={styles.user}>
-          <UserAvatar
-            image={{ jpg: '/images/avatars/avatar-2.png' }}
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Larry Ellison</span>
-        </li>
-        <li className={styles.user}>
-          <UserAvatar
-            image={{ jpg: '/images/avatars/avatar-3.png' }}
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Sundar Pichai</span>
-        </li>
-        <li className={styles.user}>
-          <UserAvatar
-            image={{ jpg: '/images/avatars/avatar-4.png' }}
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Johnatan Ive</span>
-        </li>
-        <li className={styles.user}>
-          <UserAvatar
-            image={{ jpg: '/images/avatars/avatar-5.png' }}
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Bill Atkinson</span>
-        </li>
-        <li className={styles.user}>
-          <UserAvatar
-            image={{ jpg: '/images/avatars/avatar-6.png' }}
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Bill Fernandez</span>
-        </li>
-        <li className={styles.user}>
-          <UserAvatar
-            image={{ jpg: '/images/avatars/avatar-7.png' }}
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Brad Silvenberg</span>
-        </li>
-        <li className={styles.user}>
-          <UserAvatar
-            image={{ jpg: '/images/avatars/avatar-8.png' }}
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Chris Espinosa</span>
-        </li>
-        <li className={styles.user}>
-          <UserAvatar
-            image={{ jpg: '/images/avatars/avatar-9.png' }}
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Daniel Kotke</span>
-        </li>
-        <li className={styles.user}>
-          <UserAvatar
-            image={{ jpg: '/images/avatars/avatar-10.png' }}
-            additionalStyles={styles.userAvatar}
-          />
-          <span>Mike Markkula</span>
-        </li>
+        {users.map((user) => (
+          <li key={`recent-user-${user.id}`} className={styles.user}>
+            <UserAvatar
+              image={
+                user.avatar &&
+                user.avatar.status === FileStatus.ready &&
+                user.avatar.files['200x200']
+                  ? user.avatar?.files['200x200']
+                  : { jpg: 'http://via.placeholder.com/200x200' }
+              }
+              additionalStyles={styles.userAvatar}
+            />
+            {(user.name || user.surname) && (
+              <span>{`${user.name || ''} ${user.surname || ''}`.trim()}</span>
+            )}
+          </li>
+        ))}
       </ul>
     </div>
   )

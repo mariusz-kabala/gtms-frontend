@@ -1,7 +1,7 @@
 import { Store } from '@datorama/akita'
-import { IUser } from './user.model'
+import { IUserState } from './user.model'
 
-export type IUserStore = IUser & { isInitialized: boolean }
+export type IUserStore = IUserState & { isInitialized: boolean }
 
 export class UserStore extends Store<IUserStore> {
   constructor() {
