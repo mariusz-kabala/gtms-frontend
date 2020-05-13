@@ -1,4 +1,4 @@
-import { Store, StoreConfig } from '@datorama/akita'
+import { Store } from '@datorama/akita'
 import { IMyGroups } from './myGroups.model'
 
 export type IMyGroupsStore = IMyGroups & {
@@ -7,7 +7,6 @@ export type IMyGroupsStore = IMyGroups & {
   isLoaded: boolean
 }
 
-@StoreConfig({ name: 'myGroups' })
 export class MyGroupsStore extends Store<IMyGroupsStore> {
   constructor() {
     super(
@@ -18,6 +17,7 @@ export class MyGroupsStore extends Store<IMyGroupsStore> {
       },
       {
         resettable: true,
+        name: 'myGroups',
       }
     )
   }

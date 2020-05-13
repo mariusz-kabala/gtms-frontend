@@ -25,7 +25,7 @@ export const createNewGroup = async (payload: {
 }): Promise<IGroupCreateResponse> => {
   const data: IGroupCreateData = {
     ...payload,
-    type: GroupType.default,
+    type: GroupType.public,
     visibility: GroupVisibility.public,
   }
 

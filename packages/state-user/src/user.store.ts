@@ -1,9 +1,8 @@
-import { Store, StoreConfig } from '@datorama/akita'
+import { Store } from '@datorama/akita'
 import { IUser } from './user.model'
 
 export type IUserStore = IUser & { isInitialized: boolean }
 
-@StoreConfig({ name: 'user' })
 export class UserStore extends Store<IUserStore> {
   constructor() {
     super(
@@ -12,6 +11,7 @@ export class UserStore extends Store<IUserStore> {
       },
       {
         resettable: true,
+        name: 'user',
       }
     )
   }
