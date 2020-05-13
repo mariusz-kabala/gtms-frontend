@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.6.2...@gtms/commons@0.6.3) (2020-05-13)
+
+
+### Bug Fixes
+
+* master: deps fix ([78a67d4](https://github.com/gtms-org/gtms-frontend/commit/78a67d4fdf70c72a0b21c53b6a9185658bb61864))
+
+
+
+
+
 ## [0.6.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.6.1...@gtms/commons@0.6.2) (2020-05-13)
 
 **Note:** Version bump only for package @gtms/commons
