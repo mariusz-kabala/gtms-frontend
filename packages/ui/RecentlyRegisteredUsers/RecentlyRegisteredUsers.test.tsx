@@ -5,7 +5,9 @@ import styles from './styles.scss'
 
 describe('<RecentlyRegisteredUsers />', () => {
   it('Should be on the page', () => {
-    const { getByTestId, container } = render(<RecentlyRegisteredUsers />)
+    const { getByTestId, container } = render(
+      <RecentlyRegisteredUsers users={[]} />
+    )
 
     expect(getByTestId('recently-registered-users')).toBeInTheDocument()
     expect(container.querySelector(`.${styles.wrapper}`)).toBeInTheDocument()
