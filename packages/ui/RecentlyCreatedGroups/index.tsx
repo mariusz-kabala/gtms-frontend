@@ -4,12 +4,15 @@ import cx from 'classnames'
 import { GroupCard } from '@gtms/ui/GroupCard'
 import { Modal } from '@gtms/ui/Modal'
 import { UserCardMini } from '@gtms/ui/UserCardMini'
+import { IGroup } from '@gtms/commons/models'
+import { FileStatus } from '@gtms/commons/enums'
 
 export const RecentlyCreatedGroups: FC<{
+  groups: IGroup[]
   additionalStyles?: string
-}> = ({ additionalStyles }) => {
+}> = ({ additionalStyles, groups }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-
+  const [currentGroup, setCurrentGroup] = useState<IGroup | null>(null)
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -20,153 +23,41 @@ export const RecentlyCreatedGroups: FC<{
           additionalStyles={styles.modalContent}
           onClose={() => setIsModalOpen(false)}
         >
-          <GroupCard />
+          {currentGroup && (
+            <GroupCard
+              name={currentGroup.name}
+              description={currentGroup.description}
+              tags={currentGroup.tags || []}
+              slug={currentGroup.slug}
+              avatar={
+                currentGroup.avatar &&
+                currentGroup.avatar.status === FileStatus.ready &&
+                currentGroup.avatar.files['200x200']
+                  ? currentGroup.avatar?.files['200x200']
+                  : { jpg: '//via.placeholder.com/200x200' }
+              }
+            />
+          )}
         </Modal>
       )}
-      <UserCardMini
-        name="Wioska Andrzeja"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-1.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Kurwa Moje Pole"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-2.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Lecha"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-3.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Onet.pl"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-4.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Zgon Town"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-5.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Ministerstwo Wódki"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-6.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Krishny"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-7.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Playa"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-8.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Allegro"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-9.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Narniostock"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-10.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Kurwa Moje Pole"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wioska-11.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Onet.pl"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-patrol-1.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Krishny"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-patrol-2.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Ministerstwo Wódki"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-sztab-1.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Lecha"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-sztab-2.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Zgon Town"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-sztab-3.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska Allegro"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-uczymy-ratowac.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
-      <UserCardMini
-        name="Wioska MAstercard"
-        desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
-        image={'/images/temp_images/logo-wielki-mecz.png'}
-        onClick={() => {
-          setIsModalOpen(true)
-        }}
-      />
+      {groups.map((group) => (
+        <UserCardMini
+          onClick={() => {
+            setCurrentGroup(group)
+            setIsModalOpen(true)
+          }}
+          key={`recent-group-${group.id}`}
+          name={group.name}
+          desc={group.description}
+          image={
+            group.avatar &&
+            group.avatar.status === FileStatus.ready &&
+            group.avatar.files['200x200']
+              ? group.avatar?.files['200x200']
+              : { jpg: '//via.placeholder.com/200x200' }
+          }
+        />
+      ))}
     </div>
   )
 }

@@ -6,10 +6,19 @@ import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { useTranslation } from '@gtms/commons/i18n'
 import { UserAvatar } from '../UserAvatar'
+import { Link } from '@gtms/commons/i18n'
 
 export const GroupCard: FC<{
+  name: string
+  description?: string
+  slug: string
+  tags: string[]
+  avatar: {
+    jpg: string
+    webp?: string
+  }
   additionalStyles?: string
-}> = ({ additionalStyles }) => {
+}> = ({ additionalStyles, name, description, tags, avatar, slug }) => {
   const { t } = useTranslation('groupCardComponent')
 
   return (
@@ -19,29 +28,31 @@ export const GroupCard: FC<{
     >
       <div className={styles.content}>
         <div className={styles.left}>
-          <ImageWithLightbox
-            additionalStyles={styles.image}
-            alt="user avatar"
-            src={'/images/temp_images/logo-patrol-2.png'}
-          />
+          <Link href={`/group/${slug}`}>
+            {/* THIS SHOULD BE A REGURAL IMAGE SO USER CAN CLICK AND OPEN GROUP PAGE */}
+            <ImageWithLightbox additionalStyles={styles.image} src={avatar} />
+          </Link>
         </div>
         <div className={styles.right}>
           <div className={styles.desc}>
-            <h2 className={styles.nameSurname}>Johnny Silverhand</h2>
-            <p className={styles.desc}>
-              Id in veniam sunt labore. Adipisicing proident dolor nulla cillum
-              cupidatat. Do sint labore cupidatat.
-            </p>
+            <Link href={`/group/${slug}`}>
+              <h2 className={styles.nameSurname}>{name}</h2>
+            </Link>
+            {description && (
+              <Link href={`/group/${slug}`}>
+                <p className={styles.desc}>{description}</p>
+              </Link>
+            )}
             <h3>{t('groupTags')}</h3>
-            <TagGroup additionalStyles={styles.userTags}>
-              <Tag label="Mechanik" />
-              <Tag label="Oddam" />
-              <Tag label="SerwisRowerowy" />
-              <Tag label="Impreza" />
-              <Tag label="DzienKobiet" />
-              <Tag label="Znaleziono" />
-              <Tag label="Polityka" />
-            </TagGroup>
+            {Array.isArray(tags) && tags.length > 0 ? (
+              <TagGroup additionalStyles={styles.userTags}>
+                {tags.map((tag) => (
+                  <Tag key={`tag-${tag}`} label={tag} />
+                ))}
+              </TagGroup>
+            ) : (
+              <p>{t('tags-not-added-yet')}</p>
+            )}
             <h3>{t('groupsMembers')}</h3>
             <ul
               className={cx(styles.users, additionalStyles)}

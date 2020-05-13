@@ -84,7 +84,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </div>
               <section>
                 <h2 className={styles.header}>{t('recentlyCreatedGroups')}</h2>
-                <RecentlyCreatedGroups />
+                <RecentlyCreatedGroups groups={[]} />
               </section>
             </div>
             <div className={styles.column}>

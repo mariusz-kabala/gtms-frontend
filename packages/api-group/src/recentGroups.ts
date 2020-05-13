@@ -1,8 +1,16 @@
 import { fetchJSON, makeApiUrl } from '@gtms/api-common'
 import { IGroup } from '@gtms/commons/models'
+import { FileStatus } from '@gtms/commons/enums'
+
+export interface IResponseGroup extends IGroup {
+  avatar: {
+    status: FileStatus
+    files: any
+  }
+}
 
 export interface IRecentGroupsResponse {
-  docs: IGroup[]
+  docs: IResponseGroup[]
   total: number
   limit: number
   offset: number

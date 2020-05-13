@@ -6,7 +6,7 @@ import styles from './styles.scss'
 describe('<ImageWithLightbox />', () => {
   it('Should be on the page', () => {
     const { getByTestId, container } = render(
-      <ImageWithLightbox src={'url'} additionalStyles="loremIpsum" />
+      <ImageWithLightbox src={{ jpg: 'url' }} additionalStyles="loremIpsum" />
     )
 
     expect(getByTestId('image-with-lightbox')).toBeInTheDocument()
@@ -16,7 +16,7 @@ describe('<ImageWithLightbox />', () => {
   it('Should trigger onClick callback when clicking on image', () => {
     const onClick = jest.fn()
     const { getByTestId } = render(
-      <ImageWithLightbox src={'url'} onClick={onClick} />
+      <ImageWithLightbox src={{ jpg: 'url' }} onClick={onClick} />
     )
     fireEvent.click(getByTestId('image-with-lightbox'))
 
@@ -26,7 +26,7 @@ describe('<ImageWithLightbox />', () => {
   it('Should open a modal when clicking on image', () => {
     const onClick = jest.fn()
     const { getByTestId, queryByTestId } = render(
-      <ImageWithLightbox src={'url'} onClick={onClick} />
+      <ImageWithLightbox src={{ jpg: 'url' }} onClick={onClick} />
     )
 
     fireEvent.click(getByTestId('image-with-lightbox'))
@@ -37,7 +37,7 @@ describe('<ImageWithLightbox />', () => {
   })
 
   it('Should trigger fallback when clicking on image and onClick func is not provided', () => {
-    const { getByTestId } = render(<ImageWithLightbox src={'url'} />)
+    const { getByTestId } = render(<ImageWithLightbox src={{ jpg: 'url' }} />)
     fireEvent.click(getByTestId('image-with-lightbox'))
   })
 })

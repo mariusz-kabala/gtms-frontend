@@ -144,7 +144,7 @@ export class UserQuery extends Query<IUserStore> {
     }
 
     return {
-      jpg: `http://via.placeholder.com/${size}`,
+      jpg: `//via.placeholder.com/${size}`,
     }
   }
 
