@@ -1,12 +1,12 @@
 {
   "name": "@gtms/ui",
-  "version": "0.10.4",
+  "version": "0.10.5",
   "source": "./index.ts",
   "module": "./index.ts",
   "main": "./index.ts",
   "dependencies": {
-    "@gtms/commons": "0.4.3",
-    "@gtms/state-user": "0.4.2",
+    "@gtms/commons": "0.5.0",
+    "@gtms/state-user": "0.5.0",
     "@gtms/styles": "*",
     "react-dropzone": "^10.2.2",
     "react-use-clipboard": "^1.0.0"

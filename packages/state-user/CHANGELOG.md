@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.4.2...@gtms/state-user@0.5.0) (2020-05-13)
+
+
+### Features
+
+* GEOT-251: allow user to join / leave public groups ([#536](https://github.com/gtms-org/gtms-frontend/issues/536)) ([27e57f8](https://github.com/gtms-org/gtms-frontend/commit/27e57f81912c3d11c2f4547e32979082e60d5776))
+
+
+
+
+
 ## [0.4.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.4.1...@gtms/state-user@0.4.2) (2020-05-12)
 
 
