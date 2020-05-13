@@ -1,5 +1,5 @@
 export enum GroupType {
-  default = 'default',
+  public = 'public',
 }
 
 export enum GroupVisibility {

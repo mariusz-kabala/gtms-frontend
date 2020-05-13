@@ -29,6 +29,5 @@ export interface IGroup {
     files: string[]
   }
   tags?: string[]
-  members?: string[]
   owner: string
 }

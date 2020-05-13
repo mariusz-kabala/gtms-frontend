@@ -1,4 +1,4 @@
-import { Store, StoreConfig } from '@datorama/akita'
+import { Store } from '@datorama/akita'
 import { IGroup } from '@gtms/commons'
 
 export interface IGroupStore {
@@ -8,16 +8,21 @@ export interface IGroupStore {
   errorOccured: boolean
   group: IGroup | null
 }
-@StoreConfig({ name: 'groups' })
+
 export class GroupsStore extends Store<IGroupStore> {
   constructor() {
-    super({
-      isLoading: true,
-      hasNoAccess: false,
-      notFound: false,
-      errorOccured: false,
-      group: null,
-    })
+    super(
+      {
+        isLoading: true,
+        hasNoAccess: false,
+        notFound: false,
+        errorOccured: false,
+        group: null,
+      },
+      {
+        name: 'groups',
+      }
+    )
   }
 }
 

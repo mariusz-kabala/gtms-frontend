@@ -1,4 +1,5 @@
 import { fetchMyGroups } from '@gtms/api-auth'
+import { joinGroupAPI, leaveGroupAPI } from '@gtms/api-group'
 import { myGroupsStore } from './myGroups.store'
 import { parseFiles, IGroup, FileStatus } from '@gtms/commons'
 
@@ -14,6 +15,10 @@ const parseGroupAvatars = (group: IGroup) => {
 }
 
 export const loadMyGroups = async () => {
+  if (myGroupsStore.getValue().isLoading === true) {
+    return
+  }
+
   myGroupsStore.update({
     isLoading: true,
     errorOccurred: false,
@@ -88,5 +93,38 @@ export const removeFromFavs = (group: IGroup) => {
 
   myGroupsStore.update({
     favs: [...favs],
+  })
+}
+
+export const joinGroup = async (group: IGroup) => {
+  const groupMember: IGroup[] = myGroupsStore.getValue().member || []
+
+  if (groupMember.some((g) => g.id === group.id)) {
+    return
+  }
+
+  await joinGroupAPI(group.slug)
+
+  groupMember.push(group)
+
+  myGroupsStore.update({
+    member: [...groupMember],
+  })
+}
+
+export const leaveGroup = async (group: IGroup) => {
+  const groupMember: IGroup[] = myGroupsStore.getValue().member || []
+  const index = groupMember.findIndex((g) => g.id === group.id)
+
+  if (index === -1) {
+    return
+  }
+
+  await leaveGroupAPI(group.slug)
+
+  groupMember.splice(index, 1)
+
+  myGroupsStore.update({
+    member: [...groupMember],
   })
 }

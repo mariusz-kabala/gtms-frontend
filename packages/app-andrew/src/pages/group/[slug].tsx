@@ -12,6 +12,7 @@ import { GroupNoAccess } from '../../components/groups/GroupNoAccess'
 import { GroupNotFound } from '../../components/groups/GroupNotFound'
 import { GroupAvatar } from '../../components/groups/GroupAvatar'
 import { FavsButton } from '../../components/groups/FavsButton'
+import { JoinLeaveButton } from '../../components/groups/JoinLeaveButton'
 import ReactTooltip from 'react-tooltip'
 
 type GroupPageProps = {
@@ -50,7 +51,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               isEditAllowed={groupQuery.hasAdminRights()}
               slug={group.group?.slug || ''}
               text={
-                group.group?.description === ''
+                !group.group?.description
                   ? groupQuery.hasAdminRights()
                     ? 'you did not add group description yet, click here to change it'
                     : ''
@@ -79,6 +80,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <div className={styles.column}>
               <div className={styles.actionButtons}>
                 <FavsButton group={group.group} />
+                <JoinLeaveButton group={group.group} />
               </div>
               <section>
                 <h2 className={styles.header}>{t('recentlyCreatedGroups')}</h2>

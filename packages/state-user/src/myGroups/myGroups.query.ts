@@ -73,6 +73,71 @@ export class MyGroupsQuery extends Query<IMyGroupsStore> {
     errorOccurred: boolean
   }> = this.select((values) => this.status(values))
 
+  public isGroupOwner = (groupId: string, values = this.getValue()) => {
+    if (
+      !values.isLoaded ||
+      values.errorOccurred ||
+      !Array.isArray(values.owner)
+    ) {
+      return false
+    }
+
+    return values.owner.some((group: IGroup) => group.id === groupId)
+  }
+
+  public isGroupAdmin = (groupId: string, values = this.getValue()) => {
+    if (
+      !values.isLoaded ||
+      values.errorOccurred ||
+      !Array.isArray(values.admin)
+    ) {
+      return false
+    }
+
+    return values.admin.some((group: IGroup) => group.id === groupId)
+  }
+
+  public isGroupMember = (groupId: string, values = this.getValue()) => {
+    if (
+      !values.isLoaded ||
+      values.errorOccurred ||
+      !Array.isArray(values.member)
+    ) {
+      return false
+    }
+
+    return values.member.some((group: IGroup) => group.id === groupId)
+  }
+
+  public canJoinGroup = (groupId: string, values = this.getValue()) => {
+    if (!values.isLoaded || values.errorOccurred) {
+      return false
+    }
+
+    if (
+      this.isGroupAdmin(groupId) ||
+      this.isGroupOwner(groupId) ||
+      this.isGroupMember(groupId)
+    ) {
+      return false
+    }
+
+    return true
+  }
+
+  public canJoinGroup$ = (groupId: string) =>
+    this.select((values) => this.canJoinGroup(groupId, values))
+
+  public groupStatus = (groupId: string, values = this.getValue()) => ({
+    isGroupAdmin: this.isGroupAdmin(groupId, values),
+    isGroupOwner: this.isGroupOwner(groupId, values),
+    isGroupMember: this.isGroupMember(groupId, values),
+    canJoinGroup: this.canJoinGroup(groupId, values),
+  })
+
+  public groupStatus$ = (groupId: string) =>
+    this.select((values) => this.groupStatus(groupId, values))
+
   public isInFavs = (
     group: IGroup | { id: string },
     values = this.getValue()

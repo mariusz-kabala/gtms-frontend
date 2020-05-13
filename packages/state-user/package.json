@@ -5,8 +5,9 @@
   "module": "src/index.ts",
   "main": "src/index.ts",
   "dependencies": {
-    "@gtms/api-auth": "0.3.2",
-    "@gtms/commons": "0.4.3"
+    "@gtms/api-auth": "*",
+    "@gtms/commons": "*",
+    "@gtms/api-group": "*"
   },
   "scripts": {
     "build": "exit 0",
