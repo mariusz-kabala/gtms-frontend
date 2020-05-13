@@ -8,8 +8,8 @@
     "@types/react-custom-scrollbars": "^4.0.6"
   },
   "dependencies": {
-    "@gtms/commons": "0.6.1",
-    "@gtms/state-user": "0.7.0",
+    "@gtms/commons": "*",
+    "@gtms/state-user": "*",
     "@gtms/styles": "*",
     "react-custom-scrollbars": "^4.2.1",
     "react-dropzone": "^10.2.2",
