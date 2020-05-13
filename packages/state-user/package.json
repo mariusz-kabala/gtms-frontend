@@ -7,7 +7,7 @@
   "dependencies": {
     "@gtms/api-auth": "*",
     "@gtms/commons": "*",
-    "@gtms/api-groups": "*"
+    "@gtms/api-group": "*"
   },
   "scripts": {
     "build": "exit 0",
