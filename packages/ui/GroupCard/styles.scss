@@ -49,12 +49,14 @@
   .right {
     .desc {
       > * {
+        cursor: pointer;
         margin-top: 5px;
       }
 
       > h2 {
         @include font-weight(semibold);
         @include font-size(lg);
+        cursor: pointer;
       }
 
       > h3 {

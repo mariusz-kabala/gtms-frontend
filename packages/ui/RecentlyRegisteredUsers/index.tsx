@@ -38,7 +38,7 @@ export const RecentlyRegisteredUsers: FC<{
                 user.avatar.status === FileStatus.ready &&
                 user.avatar.files['200x200']
                   ? user.avatar?.files['200x200']
-                  : { jpg: 'http://via.placeholder.com/200x200' }
+                  : { jpg: '//via.placeholder.com/200x200' }
               }
               additionalStyles={styles.userAvatar}
             />

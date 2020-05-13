@@ -15,39 +15,6 @@ import {
 } from 'react-icons/io'
 
 export const Navigation: FC<{}> = () => {
-  const links = [
-    {
-      id: 0,
-      label: 'Main Page',
-      icon: <IoIosTennisball />,
-      url: '/account',
-    },
-    {
-      id: 1,
-      label: 'Posts',
-      icon: <IoIosNavigate />,
-      url: '/group/owsiak',
-    },
-    {
-      id: 2,
-      label: 'Users',
-      icon: <IoIosCart />,
-      url: '/group-members',
-    },
-    {
-      id: 3,
-      label: 'Settings',
-      icon: <IoIosCloudUpload />,
-      url: '/group-settings',
-    },
-    {
-      id: 4,
-      label: 'Invite friends',
-      icon: <IoIosCompass />,
-      url: '/group-tags',
-    },
-  ]
-
   const { isLogged } = useAuth()
   const router = useRouter()
 
@@ -62,7 +29,38 @@ export const Navigation: FC<{}> = () => {
       />
       <nav className={styles.navigation} data-testid="navigation">
         <ul>
-          {links.map((value, index) => {
+          {[
+            {
+              id: 0,
+              label: 'Main Page',
+              icon: <IoIosTennisball />,
+              url: '/account',
+            },
+            {
+              id: 1,
+              label: 'Posts',
+              icon: <IoIosNavigate />,
+              url: '/group/owsiak',
+            },
+            {
+              id: 2,
+              label: 'Users',
+              icon: <IoIosCart />,
+              url: '/group-members',
+            },
+            {
+              id: 3,
+              label: 'Settings',
+              icon: <IoIosCloudUpload />,
+              url: '/group-settings',
+            },
+            {
+              id: 4,
+              label: 'Invite friends',
+              icon: <IoIosCompass />,
+              url: '/group-tags',
+            },
+          ].map((value, index) => {
             return (
               <li className={styles.link} key={index}>
                 <Link href={value.url}>

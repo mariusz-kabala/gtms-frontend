@@ -107,7 +107,7 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
           </span>
           <ImageWithLightbox
             additionalStyles={styles.userImage}
-            src="/images/temp_images/avatar-1.png"
+            src={{ jpg: '/images/temp_images/avatar-1.png' }}
           />
           <p className={styles.desc}>
             {t('title')}

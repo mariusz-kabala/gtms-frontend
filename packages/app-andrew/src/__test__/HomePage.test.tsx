@@ -6,7 +6,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 describe('<HomePage />', () => {
   it('Should render group main page', () => {
     const { getByTestId } = render(
-      <HomePage users={[]} namespacesRequired={[]} />
+      <HomePage groups={[]} users={[]} namespacesRequired={[]} />
     )
 
     expect(getByTestId('home-page')).toBeInTheDocument()
