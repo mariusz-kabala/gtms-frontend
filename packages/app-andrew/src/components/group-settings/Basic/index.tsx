@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Input } from '@gtms/ui/Forms/Input'
@@ -9,32 +9,74 @@ import styles from './styles.scss'
 import { IoIosHelpCircle } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { GroupType, GroupVisibility } from '@gtms/commons/enums'
+import { updateGroup } from '@gtms/state-group'
+import { Spinner } from '@gtms/ui/Spinner'
+
+interface IFormData {
+  name?: string
+  description?: string
+}
 
 export const BasicSettings: FC<{
   name: string
   description?: string
+  slug: string
   type: GroupType
   visibility: GroupVisibility
-}> = ({ name, description, type, visibility }) => {
+}> = ({ name, description, type, visibility, slug }) => {
   const { t } = useTranslation('groupSettings')
-  const { register, handleSubmit, errors } = useForm<{
-    email: string
-  }>()
+  const { register, handleSubmit, errors, setError } = useForm<IFormData>()
+  const [isSaving, setIsSaving] = useState<boolean>(false)
+  const [settings, setSettings] = useState<{
+    type: GroupType
+    visibility: GroupVisibility
+  }>({
+    type,
+    visibility,
+  })
+  const validate = (data: IFormData) => {
+    let hasErrors = false
+
+    if (!data.name) {
+      setError('name', 'required')
+      hasErrors = true
+    }
+
+    return !hasErrors
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  const onSubmit = async () => {}
+  const onSubmit = async (data: IFormData) => {
+    if (!validate(data)) {
+      return
+    }
+
+    setIsSaving(true)
+
+    try {
+      await updateGroup(
+        {
+          ...data,
+          ...settings,
+        },
+        slug
+      )
+    } finally {
+      setIsSaving(false)
+    }
+  }
 
   return (
     <div data-testid="group-settings-basic">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} method="post">
         <Input
           type="text"
-          name="text"
+          name="name"
           defaultValue={name}
           placeholder={t('form.labels.name')}
           reference={register}
         />
-        {errors.email && <Error text={t('form.validation.email.isRequired')} />}
+        {errors.name && <Error text={t('form.validation.name.isRequired')} />}
         <ExpandingTextarea
           placeholder={t('form.labels.description')}
           name="description"
@@ -60,8 +102,13 @@ export const BasicSettings: FC<{
             </div>
             <div className={styles.formEl}>
               <Switch
-                onChange={() => null}
-                checked={type === GroupType.public}
+                onChange={(value) =>
+                  setSettings({
+                    ...settings,
+                    type: value ? GroupType.public : GroupType.private,
+                  })
+                }
+                checked={settings.type === GroupType.public}
               />
             </div>
           </div>
@@ -84,13 +131,23 @@ export const BasicSettings: FC<{
             </div>
             <div className={styles.formEl}>
               <Switch
-                onChange={() => null}
-                checked={visibility === GroupVisibility.public}
+                onChange={(value) =>
+                  setSettings({
+                    ...settings,
+                    visibility: value
+                      ? GroupVisibility.public
+                      : GroupVisibility.private,
+                  })
+                }
+                checked={settings.visibility === GroupVisibility.public}
               />
             </div>
           </div>
         </div>
-        <Button additionalStyles={styles.btn}>Save</Button>
+        {isSaving && <Spinner />}
+        <Button type="submit" disabled={isSaving} additionalStyles={styles.btn}>
+          Save
+        </Button>
       </form>
     </div>
   )

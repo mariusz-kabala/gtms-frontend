@@ -3,8 +3,9 @@ import styles from './styles.scss'
 
 export const Tag: FC<{
   label: string
-}> = ({ label }) => (
-  <div data-testid="tag" className={styles.tag}>
+  onClick?: () => unknown
+}> = ({ label, onClick }) => (
+  <div onClick={onClick} data-testid="tag" className={styles.tag}>
     #{label}
   </div>
 )

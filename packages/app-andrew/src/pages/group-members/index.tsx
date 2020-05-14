@@ -126,7 +126,6 @@ export const GroupMembersPage: NextPage<{}> = () => {
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-
           image={{ jpg: '/images/temp_images/logo-patrol-2.png' }}
         />
         <Button additionalStyles={styles.btn}>See more</Button>

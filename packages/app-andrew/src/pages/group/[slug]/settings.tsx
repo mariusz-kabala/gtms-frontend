@@ -106,13 +106,19 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
         <div className={styles.content}>
           {tab === Tabs.general && (
             <BasicSettings
+              slug={group.group?.slug || ''}
               name={group.group?.name || ''}
               description={group.group?.description || ''}
               visibility={group.group?.visibility || GroupVisibility.public}
               type={group.group?.type || GroupType.public}
             />
           )}
-          {tab === Tabs.tags && <TagsSettings tags={group.group?.tags || []} />}
+          {tab === Tabs.tags && (
+            <TagsSettings
+              id={group.group?.id || ''}
+              tags={group.group?.tags || []}
+            />
+          )}
           {tab === Tabs.delete && (
             <GroupDeleteGroup
               additionalStyles={styles.btn}
