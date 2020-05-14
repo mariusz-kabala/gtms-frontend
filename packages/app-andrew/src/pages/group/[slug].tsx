@@ -13,7 +13,6 @@ import { GroupNotFound } from '../../components/groups/GroupNotFound'
 import { GroupAvatar } from '../../components/groups/GroupAvatar'
 import { FavsButton } from '../../components/groups/FavsButton'
 import { JoinLeaveButton } from '../../components/groups/JoinLeaveButton'
-import ReactTooltip from 'react-tooltip'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
@@ -58,7 +57,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   : group.group?.description || ''
               }
             />
-            {groupQuery.hasAdminRights() && <ReactTooltip />}
           </div>
         </div>
 

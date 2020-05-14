@@ -1,0 +1,31 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+
+.header {
+  @include font-weight('semiBold');
+  @include font-size('md');
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  border-bottom: 3px solid $theme4;
+  margin-bottom: 15px;
+}
+
+.container {
+  section {
+    margin-bottom: 20px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.imagePreview {
+  margin-left: 20px;
+  > div > div {
+    height: 200px;
+    width: 200px;
+  }
+}

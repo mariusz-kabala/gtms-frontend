@@ -10764,6 +10764,13 @@ react-styleguidist@^11.0.0:
     webpack-dev-server "^3.9.0"
     webpack-merge "^4.2.2"
 
+react-switch@^5.0.1:
+  version "5.0.1"
+  resolved "https://npm.kabala.tech/react-switch/-/react-switch-5.0.1.tgz#449277f4c3aed5286fffd0f50d5cbc2a23330406"
+  integrity sha512-Pa5kvqRfX85QUCK1Jv0rxyeElbC3aNpCP5hV0LoJpU/Y6kydf0t4kRriQ6ZYA4kxWwAYk/cH51T4/sPzV9mCgQ==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-test-renderer@^16.12.0:
   version "16.13.1"
   resolved "https://npm.kabala.tech/react-test-renderer/-/react-test-renderer-16.13.1.tgz#de25ea358d9012606de51e012d9742e7f0deabc1"
