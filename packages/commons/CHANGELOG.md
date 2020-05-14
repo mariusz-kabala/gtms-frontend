@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.7.0...@gtms/commons@0.8.0) (2020-05-14)
+
+
+### Features
+
+* GEOT-137: saving basic group settings, group files upload ([#560](https://github.com/gtms-org/gtms-frontend/issues/560)) ([647e857](https://github.com/gtms-org/gtms-frontend/commit/647e85738d1921e181f447b1969584312596ca1f))
+
+
+
+
+
 # [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.6.3...@gtms/commons@0.7.0) (2020-05-14)
 
 
