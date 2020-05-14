@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.6.3...@gtms/commons@0.7.0) (2020-05-14)
+
+
+### Features
+
+* GEOT-137: add group settings ([#556](https://github.com/gtms-org/gtms-frontend/issues/556)) ([3a7fa68](https://github.com/gtms-org/gtms-frontend/commit/3a7fa6812452db6e6100f65a0156ed7c23ad65e5))
+
+
+
+
+
 ## [0.6.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.6.2...@gtms/commons@0.6.3) (2020-05-13)
 
 
