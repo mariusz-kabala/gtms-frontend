@@ -8,7 +8,7 @@ import { updateGroup } from '@gtms/state-group'
 import { Spinner } from '@gtms/ui'
 import styles from './styles.scss'
 
-interface IFromData {
+interface IFormData {
   description: string
 }
 
@@ -19,9 +19,9 @@ export const GroupDescriptionForm: FC<{
   onSuccess: () => unknown
 }> = ({ onError, onSuccess, slug, text = '' }) => {
   const { t } = useTranslation('groupDescription')
-  const { register, handleSubmit, errors, setError } = useForm<IFromData>()
+  const { register, handleSubmit, errors, setError } = useForm<IFormData>()
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
-  const validate = (data: IFromData) => {
+  const validate = (data: IFormData) => {
     let hasErrors = false
 
     if (!data.description) {
@@ -31,7 +31,7 @@ export const GroupDescriptionForm: FC<{
 
     return !hasErrors
   }
-  const onSubmit = async (data: IFromData) => {
+  const onSubmit = async (data: IFormData) => {
     if (!validate(data)) {
       return
     }
