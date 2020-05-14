@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.20.0...@gtms/app-andrew@0.20.1) (2020-05-14)
+
+
+### Bug Fixes
+
+* GEOT-255: set no-cache headers in prod mode ([#561](https://github.com/gtms-org/gtms-frontend/issues/561)) ([d52ac93](https://github.com/gtms-org/gtms-frontend/commit/d52ac93eb751ae81f760d4c1d78f2febf957418c))
+
+
+
+
+
 # [0.20.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.19.0...@gtms/app-andrew@0.20.0) (2020-05-14)
 
 
