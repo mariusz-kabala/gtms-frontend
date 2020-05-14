@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.12.1...@gtms/ui@0.13.0) (2020-05-14)
+
+
+### Features
+
+* GEOT-246: delete post feature ([#537](https://github.com/gtms-org/gtms-frontend/issues/537)) ([25bd3c8](https://github.com/gtms-org/gtms-frontend/commit/25bd3c8edb5f5f459999b3c42313b87cc9e8f265))
+
+
+
+
+
 ## [0.12.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.12.0...@gtms/ui@0.12.1) (2020-05-13)
 
 

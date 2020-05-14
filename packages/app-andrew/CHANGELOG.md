@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.17.2...@gtms/app-andrew@0.18.0) (2020-05-14)
+
+
+### Features
+
+* GEOT-246: delete post feature ([#537](https://github.com/gtms-org/gtms-frontend/issues/537)) ([25bd3c8](https://github.com/gtms-org/gtms-frontend/commit/25bd3c8edb5f5f459999b3c42313b87cc9e8f265))
+
+
+
+
+
 ## [0.17.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.17.1...@gtms/app-andrew@0.17.2) (2020-05-13)
 
 
