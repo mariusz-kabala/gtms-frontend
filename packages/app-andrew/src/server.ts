@@ -27,6 +27,15 @@ const handle = app.getRequestHandler()
         },
       })
     )
+  } else {
+    // set no cache headers
+    server.use((_, res, nextHandler) => {
+      res.setHeader(
+        'Cache-Control',
+        'must-revalidate, no-cache, private, s-maxage=0'
+      )
+      nextHandler()
+    })
   }
 
   server.get('/logout', (_: Request, res: Response) => {
