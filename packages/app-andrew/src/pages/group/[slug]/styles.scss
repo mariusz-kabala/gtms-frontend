@@ -1,8 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 @import '~@gtms/styles/scss/mixins/header.scss';
-
 
 .wrapper {
   display: flex;
@@ -19,21 +18,28 @@
     display: flex;
     margin-top: 20px;
 
-    ul {  
+    ul {
       min-width: 200px;
 
       li {
+        cursor: pointer;
         padding: 5px 0;
         padding-left: 10px;
         border-left: 4px solid $theme3;
         @include font-size(md);
-  
+
         &:hover {
           border-color: $theme7;
         }
+
+        &.current {
+          @include font-weight('bold');
+          color: $theme5;
+          border-color: $theme5;
+        }
       }
     }
-  
+
     .content {
       p {
         margin-bottom: 20px;
@@ -42,17 +48,6 @@
           margin-bottom: 0;
         }
       }
-    }
-  }
-
-  .btn {
-    @include buttonDefault();
-    @include buttonColorsDefault();
-    margin: auto;
-    margin-top: 40px;
-
-    &:hover {
-      @include buttonColorsHoverDefault();
     }
   }
 }

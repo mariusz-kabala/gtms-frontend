@@ -1,0 +1,31 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/buttons';
+
+.header {
+  @include font-weight('semiBold');
+  @include font-size('md');
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  border-bottom: 3px solid $theme4;
+  margin-bottom: 15px;
+
+  .btn {
+    @include buttonDefault();
+    @include buttonColorsDefault();
+    padding: 3px 8px;
+    float: right;
+
+    &:hover {
+      @include buttonColorsHoverDefault();
+    }
+  }
+}
+
+.container {
+  section {
+    margin-bottom: 20px;
+    min-width: 700px;
+  }
+}

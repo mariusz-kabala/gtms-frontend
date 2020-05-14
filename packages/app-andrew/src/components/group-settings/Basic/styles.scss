@@ -1,0 +1,41 @@
+@import '~@gtms/styles/scss/mixins/buttons';
+
+.bools {
+  display: flex;
+  flex-direction: column;
+
+  .element {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .help {
+    flex-basis: 40px;
+    flex-grow: 1;
+    i {
+      font-size: 32px;
+    }
+  }
+
+  .label {
+    flex-grow: 3;
+  }
+
+  .formEl {
+    flex-grow: 2;
+  }
+}
+
+.btn {
+  @include buttonDefault();
+  @include buttonColorsDefault();
+  margin: auto;
+  margin-top: 40px;
+
+  &:hover {
+    @include buttonColorsHoverDefault();
+  }
+}

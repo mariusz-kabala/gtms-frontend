@@ -9,7 +9,6 @@ import {
   IoIosTennisball,
   IoIosNavigate,
   IoIosCart,
-  IoIosCloudUpload,
   IoIosCompass,
   IoIosFingerPrint,
 } from 'react-icons/io'
@@ -31,41 +30,41 @@ export const Navigation: FC<{}> = () => {
         <ul>
           {[
             {
+              id: 4,
+              label: 'Search',
+              icon: <IoIosCompass />,
+              url: '/search',
+            },
+            {
               id: 0,
-              label: 'Main Page',
+              label: 'Account',
               icon: <IoIosTennisball />,
               url: '/account',
             },
             {
               id: 1,
-              label: 'Posts',
+              label: 'Create group',
               icon: <IoIosNavigate />,
-              url: '/group/owsiak',
+              url: '/group-create',
             },
             {
               id: 2,
-              label: 'Users',
+              label: 'My groups',
               icon: <IoIosCart />,
-              url: '/group-members',
-            },
-            {
-              id: 3,
-              label: 'Settings',
-              icon: <IoIosCloudUpload />,
-              url: '/group-settings',
-            },
-            {
-              id: 4,
-              label: 'Invite friends',
-              icon: <IoIosCompass />,
-              url: '/group-tags',
+              url: '/my-groups',
             },
           ].map((value, index) => {
             return (
               <li className={styles.link} key={index}>
                 <Link href={value.url}>
                   <a>
-                    <i>{value.icon}</i>
+                    <i
+                      data-tip={value.label}
+                      data-background-color="black"
+                      data-text-color="white"
+                    >
+                      {value.icon}
+                    </i>
                     <span>{value.label}</span>
                   </a>
                 </Link>
