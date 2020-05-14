@@ -1,5 +1,6 @@
 @import '@gtms/styles/scss/variables';
-@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 @import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
@@ -14,24 +15,23 @@
   }
 
   .members {
-    display: block;
-    margin: 5px 0;
-    color: gray;
+    display: flex;
+    align-items: center;
+    @include font-weight(bold);
+
+    > svg {
+      margin-right: 3px;
+      @include font-size(lg);
+    }
   }
 
-  .desc {
-    > * {
-      margin-top: 5px;
-    }
+  .header {
+    @include font-size(md) margin-top: 10px;
+  }
 
-    .nameSurname {
-      @include font-weight(bold);
-    }
-
-    p {
-      line-height: 1.4em;
-      color: gray;
-    }
+  p {
+    line-height: 1.4em;
+    color: gray;
   }
 
   &:hover {

@@ -23,6 +23,11 @@
   color: $theme7;
 }
 
+@mixin buttonColorsPrimary() {
+  background: $theme4;
+  color: $theme7;
+}
+
 @mixin buttonColorsHoverDefault() {
   background: $theme5;
   color: $theme7;

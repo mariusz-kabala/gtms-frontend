@@ -2,14 +2,16 @@ import React, { useState } from 'react'
 import { NextPage } from 'next'
 import styles from './appStyles.scss'
 import { useAuth } from '@gtms/commons/hooks/auth'
-import { useTranslation, Link } from '@gtms/commons/i18n'
+import { useTranslation } from '@gtms/commons/i18n'
 import { IUser, IGroup } from '@gtms/commons/models'
 import { Button } from '@gtms/ui/Button'
+import { PolAndRock } from '@gtms/ui/PolAndRock'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
 import { Logout } from '@gtms/ui/Logout'
 import { RecentlyCreatedGroups } from '@gtms/ui/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
+import { IoIosSearch } from 'react-icons/io'
 import { getRecentUsers, recentUsersQuery } from '@gtms/state-user'
 import { getRecentGroups, recentGroupsQuery } from '@gtms/state-group'
 
@@ -31,15 +33,14 @@ export const HomePage: NextPage<HomePageProps> = ({ users, groups }) => {
           <InviteFriends />
         </Modal>
       )}
-      <div
-        className={styles.banner}
-        style={{
-          backgroundImage: `url('/images/temp_images/cover-image-girls.jpg')`,
-        }}
-      >
-        <div className={styles.desc}>
-          <h2 className={styles.header}>{t('header')}</h2>
-          <p>{t('subheader')}</p>
+      <PolAndRock />
+      <div className={styles.desc}>
+        <h2 className={styles.header}>
+          <IoIosSearch />
+          {t('header')}
+        </h2>
+        <p>
+          {t('subheaderone')}
           <Button
             additionalStyles={styles.btn}
             onClick={() => setIsModalOpen(true)}
@@ -47,13 +48,8 @@ export const HomePage: NextPage<HomePageProps> = ({ users, groups }) => {
           >
             {t('btn')}
           </Button>
-          {!isLogged && (
-            <Link href="/login">
-              <Button additionalStyles={styles.btn}>{t('bntLogin')}</Button>
-            </Link>
-          )}
-        </div>
-        <div className={styles.shadow} />
+          {t('subheadertwo')}
+        </p>
       </div>
       <section className={styles.recentPosts}>
         <h2 className={styles.header}>{t('header')}</h2>

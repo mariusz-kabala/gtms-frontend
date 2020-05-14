@@ -4,10 +4,14 @@
   "source": "./index.ts",
   "module": "./index.ts",
   "main": "./index.ts",
+  "devDependencies": {
+    "@types/react-custom-scrollbars": "^4.0.6"
+  },
   "dependencies": {
     "@gtms/commons": "0.6.3",
     "@gtms/state-user": "0.7.2",
     "@gtms/styles": "*",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dropzone": "^10.2.2",
     "react-use-clipboard": "^1.0.0"
   },

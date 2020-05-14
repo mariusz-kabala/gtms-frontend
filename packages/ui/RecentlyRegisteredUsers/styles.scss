@@ -13,18 +13,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(18, 16, 24, 0.75);
     z-index: 1;
 
     > button {
       color: white;
       @include buttonDefault();
-      @include font-size(md);
+      @include font-size(lg);
       @include font-weight(bold);
 
       &:hover {
         @include buttonColorsHoverDefault();
       }
+    }
+
+    & + ul {
+      opacity: 0.4;
     }
   }
 
