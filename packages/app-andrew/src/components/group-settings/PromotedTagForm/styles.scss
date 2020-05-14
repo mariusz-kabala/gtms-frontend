@@ -1,0 +1,41 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/buttons';
+
+.header {
+  @include font-weight('semiBold');
+  @include font-size('md');
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  border-bottom: 3px solid $theme4;
+  margin-bottom: 15px;
+}
+
+.container {
+  min-width: 600px;
+}
+
+.promoted {
+  margin-bottom: 15px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: flex-start;
+  margin-top: 10px;
+}
+
+.btn {
+  @include buttonDefault();
+  @include buttonColorsDefault();
+  max-width: 200px;
+  margin-right: 20px;
+
+  &:hover {
+    @include buttonColorsHoverDefault();
+  }
+}

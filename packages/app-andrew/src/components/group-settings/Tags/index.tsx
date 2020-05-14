@@ -3,11 +3,20 @@ import { TagsBar } from '@gtms/ui/TagsBar'
 import { findTagsAPI } from '@gtms/api-tags'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
+import { Modal } from '@gtms/ui/Modal'
+import { PromotedTagsForm } from '../PromotedTagForm'
 import styles from './styles.scss'
 
-export const TagsSettings: FC<{ tags: string[] }> = (props) => {
+export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
   const [tags, setTags] = useState<string[]>(props.tags)
   const [promoted] = useState<any[]>([])
+  const [promotedTagEditor, setPromotedTagEditor] = useState<{
+    isOpen: boolean
+    tag: string
+  }>({
+    isOpen: false,
+    tag: '',
+  })
   const [isInEditMode, setIsInEditMode] = useState<boolean>(false)
   const [tagsHints, setTagsHints] = useState<{
     isLoading: boolean
@@ -74,7 +83,16 @@ export const TagsSettings: FC<{ tags: string[] }> = (props) => {
             <p>Click on tag to add to promoted</p>
             <TagGroup>
               {tags.map((tag) => (
-                <Tag label={tag} key={`tag-${tag}`} />
+                <Tag
+                  onClick={() =>
+                    setPromotedTagEditor({
+                      isOpen: true,
+                      tag,
+                    })
+                  }
+                  label={tag}
+                  key={`tag-${tag}`}
+                />
               ))}
             </TagGroup>
           </>
@@ -103,6 +121,18 @@ export const TagsSettings: FC<{ tags: string[] }> = (props) => {
           <p>Group does not have any promoted tags. You should add some</p>
         )}
       </section>
+      {promotedTagEditor.isOpen && (
+        <Modal
+          onClose={() => {
+            setPromotedTagEditor({
+              tag: '',
+              isOpen: false,
+            })
+          }}
+        >
+          <PromotedTagsForm id={props.id} tag={promotedTagEditor.tag} />
+        </Modal>
+      )}
     </div>
   )
 }

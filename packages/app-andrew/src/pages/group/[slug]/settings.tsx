@@ -29,7 +29,7 @@ enum Tabs {
 export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
   const { t } = useTranslation('groupSettingsPage')
   const [group, setGroup] = useState<IGroupStore>(props.group)
-  const [tab, setTab] = useState<Tabs>(Tabs.general)
+  const [tab, setTab] = useState<Tabs>(Tabs.tags)
 
   useEffect(() => {
     initGroup(props.group)
@@ -113,7 +113,12 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
               type={group.group?.type || GroupType.public}
             />
           )}
-          {tab === Tabs.tags && <TagsSettings tags={group.group?.tags || []} />}
+          {tab === Tabs.tags && (
+            <TagsSettings
+              id={group.group?.id || ''}
+              tags={group.group?.tags || []}
+            />
+          )}
           {tab === Tabs.delete && (
             <GroupDeleteGroup
               additionalStyles={styles.btn}
