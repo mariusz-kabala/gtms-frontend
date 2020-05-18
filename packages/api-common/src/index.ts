@@ -131,5 +131,5 @@ export const deleteRequest = (url: string, replay = false) => {
 
       throw response
     })
-    .then((data: R) => data)
+    .then((data: any) => data)
 }
