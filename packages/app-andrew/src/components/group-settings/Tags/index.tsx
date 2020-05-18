@@ -5,14 +5,21 @@ import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { Modal } from '@gtms/ui/Modal'
 import { PromotedTagsForm } from '../PromotedTagForm'
+import { PromotedTags } from './PromotedTags'
 import styles from './styles.scss'
+import {
+  loadGroupPromotedTags,
+  promotedTagsQuery,
+  deletePromotedTag,
+} from '@gtms/state-tag'
 
 export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
   const [tags, setTags] = useState<string[]>(props.tags)
-  const [promoted] = useState<any[]>([])
   const [promotedTagEditor, setPromotedTagEditor] = useState<{
     isOpen: boolean
     tag: string
+    id?: string
+    description?: string
   }>({
     isOpen: false,
     tag: '',
@@ -84,12 +91,21 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
             <TagGroup>
               {tags.map((tag) => (
                 <Tag
-                  onClick={() =>
+                  onClick={() => {
+                    if (
+                      promotedTagsQuery.hasEntity(
+                        (promoted) => promoted.tag === tag
+                      )
+                    ) {
+                      // add a message here later
+                      return
+                    }
+
                     setPromotedTagEditor({
                       isOpen: true,
                       tag,
                     })
-                  }
+                  }}
                   label={tag}
                   key={`tag-${tag}`}
                 />
@@ -116,10 +132,22 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
         )}
       </section>
       <section>
-        <h3 className={styles.header}>Promoted tags</h3>
-        {promoted.length === 0 && (
-          <p>Group does not have any promoted tags. You should add some</p>
-        )}
+        <h3 className={styles.header}>
+          Promoted tags<button className={styles.btn}>Change order</button>
+        </h3>
+        <PromotedTags
+          onEdit={(id) => {
+            const promotedTag = promotedTagsQuery.getEntity(id as any)
+            setPromotedTagEditor({
+              id: promotedTag.id,
+              description: promotedTag.description,
+              tag: promotedTag.tag,
+              isOpen: true,
+            })
+          }}
+          onDelete={(id) => deletePromotedTag(id)}
+          id={props.id}
+        />
       </section>
       {promotedTagEditor.isOpen && (
         <Modal
@@ -130,7 +158,19 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
             })
           }}
         >
-          <PromotedTagsForm id={props.id} tag={promotedTagEditor.tag} />
+          <PromotedTagsForm
+            onSuccess={() => {
+              setPromotedTagEditor({
+                tag: '',
+                isOpen: false,
+              })
+              loadGroupPromotedTags(props.id)
+            }}
+            groupId={props.id}
+            id={promotedTagEditor.id}
+            description={promotedTagEditor.description}
+            tag={promotedTagEditor.tag}
+          />
         </Modal>
       )}
     </div>

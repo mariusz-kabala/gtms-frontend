@@ -33,3 +33,15 @@ export const UserAvatarNoImage = Object.freeze({
     jpg: '//via.placeholder.com/200x200',
   },
 })
+
+export const PromotedTagNoImage = Object.freeze({
+  '35x35': {
+    jpg: '//via.placeholder.com/35x35',
+  },
+  '50x50': {
+    jpg: '//via.placeholder.com/50x50',
+  },
+  '200x200': {
+    jpg: '//via.placeholder.com/200x200',
+  },
+})

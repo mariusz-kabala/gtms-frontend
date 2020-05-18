@@ -1,0 +1,31 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+
+.container {
+  display: inline-block;
+  position: relative;
+
+  p {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    padding: 5px 0;
+    color: $theme5;
+    @include font-weight('bold');
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    line-height: 22px;
+
+    i {
+      font-size: 25px;
+      cursor: pointer;
+    }
+  }
+}
