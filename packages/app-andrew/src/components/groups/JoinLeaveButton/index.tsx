@@ -1,8 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IGroup } from '@gtms/commons'
+import { IGroup } from '@gtms/commons/models'
 import {
-  loadMyGroups,
   myGroupsQuery,
   userQuery,
   joinGroup,
@@ -25,13 +24,10 @@ export const JoinLeaveButton: FC<{ group: IGroup }> = ({ group }) => {
     ...myGroupsQuery.status(),
     ...myGroupsQuery.groupStatus(group.id),
   })
+
   useEffect(() => {
     if (!userQuery.isLogged()) {
       return
-    }
-
-    if (!myGroupsQuery.isLoaded()) {
-      loadMyGroups()
     }
 
     const sub = myGroupsQuery.groupStatus$(group.id).subscribe((value) =>

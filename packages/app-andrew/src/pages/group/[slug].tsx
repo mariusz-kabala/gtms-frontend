@@ -12,6 +12,7 @@ import { GroupNoAccess } from '../../components/groups/GroupNoAccess'
 import { GroupNotFound } from '../../components/groups/GroupNotFound'
 import { GroupAvatar } from '../../components/groups/GroupAvatar'
 import { FavsButton } from '../../components/groups/FavsButton'
+import { SettingsButton } from '../../components/groups/SettingsButton'
 import { JoinLeaveButton } from '../../components/groups/JoinLeaveButton'
 
 type GroupPageProps = {
@@ -79,6 +80,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               <div className={styles.actionButtons}>
                 <FavsButton group={group.group} />
                 <JoinLeaveButton group={group.group} />
+                <SettingsButton group={group.group} />
               </div>
               <section>
                 <h2 className={styles.header}>{t('recentlyCreatedGroups')}</h2>
