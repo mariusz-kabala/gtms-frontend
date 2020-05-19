@@ -3,9 +3,9 @@ import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
 import { useTranslation } from '@gtms/commons/i18n'
+import { IPromotedTag } from '@gtms/commons/models'
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
-import { RecentlyCreatedGroups } from '@gtms/ui/RecentlyCreatedGroups'
 import { Spinner } from '@gtms/ui/Spinner'
 import { GroupDescription } from '../../components/groups/GroupDescription'
 import { GroupNoAccess } from '../../components/groups/GroupNoAccess'
@@ -14,6 +14,10 @@ import { GroupAvatar } from '../../components/groups/GroupAvatar'
 import { FavsButton } from '../../components/groups/FavsButton'
 import { SettingsButton } from '../../components/groups/SettingsButton'
 import { JoinLeaveButton } from '../../components/groups/JoinLeaveButton'
+import { PromotedTags } from '@gtms/ui/PromotedTags'
+import { promotedTagsQuery, loadGroupPromotedTags } from '@gtms/state-tag'
+import { PromotedTagNoImage } from '../../enums'
+import { useRouter } from 'next/router'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
@@ -22,14 +26,37 @@ type GroupPageProps = {
 
 const GroupPage: NextPage<GroupPageProps> = (props) => {
   const { t } = useTranslation('groupPage')
+  const router = useRouter()
   const [group, setGroup] = useState<IGroupStore>(props.group)
+  const [promoted, setPromoted] = useState<IPromotedTag[]>(
+    promotedTagsQuery.getAll()
+  )
+  const [isLoadingPromotedTags, setIsLoadingPromotedTags] = useState<boolean>(
+    false
+  )
 
   useEffect(() => {
     initGroup(props.group)
+
+    if (props.group.group?.id) {
+      loadGroupPromotedTags(props.group.group.id)
+    }
+
     const groupSub = groupQuery.allState$.subscribe((value) => setGroup(value))
+    const promotedSub = promotedTagsQuery
+      .selectAll()
+      .subscribe((value) => setPromoted(value))
+
+    const promotedLoadingSub = promotedTagsQuery
+      .selectLoading()
+      .subscribe((value) => {
+        setIsLoadingPromotedTags(value)
+      })
 
     return () => {
       groupSub.unsubscribe()
+      promotedSub.unsubscribe()
+      promotedLoadingSub.unsubscribe()
     }
   }, [])
 
@@ -83,8 +110,16 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <SettingsButton group={group.group} />
               </div>
               <section>
-                <h2 className={styles.header}>{t('recentlyCreatedGroups')}</h2>
-                <RecentlyCreatedGroups groups={[]} />
+                <h2 className={styles.header}>{t('promotedTags')}</h2>
+                <PromotedTags
+                  tags={promoted}
+                  isLoading={isLoadingPromotedTags}
+                  noImage={PromotedTagNoImage}
+                  isAdmin={groupQuery.hasAdminRights()}
+                  onNoRecordsClick={() =>
+                    router.push(`/group/${group.group?.slug}/settings#tags`)
+                  }
+                />
               </section>
             </div>
             <div className={styles.column}>

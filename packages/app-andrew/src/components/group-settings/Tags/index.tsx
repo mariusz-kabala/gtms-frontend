@@ -88,29 +88,36 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
         {!isInEditMode && (
           <>
             <p>Click on tag to add to promoted</p>
-            <TagGroup>
-              {tags.map((tag) => (
-                <Tag
-                  onClick={() => {
-                    if (
-                      promotedTagsQuery.hasEntity(
-                        (promoted) => promoted.tag === tag
-                      )
-                    ) {
-                      // add a message here later
-                      return
-                    }
+            {tags.length > 0 && (
+              <TagGroup>
+                {tags.map((tag) => (
+                  <Tag
+                    onClick={() => {
+                      if (
+                        promotedTagsQuery.hasEntity(
+                          (promoted) => promoted.tag === tag
+                        )
+                      ) {
+                        // add a message here later
+                        return
+                      }
 
-                    setPromotedTagEditor({
-                      isOpen: true,
-                      tag,
-                    })
-                  }}
-                  label={tag}
-                  key={`tag-${tag}`}
-                />
-              ))}
-            </TagGroup>
+                      setPromotedTagEditor({
+                        isOpen: true,
+                        tag,
+                      })
+                    }}
+                    label={tag}
+                    key={`tag-${tag}`}
+                  />
+                ))}
+              </TagGroup>
+            )}
+            {tags.length === 0 && (
+              <p className={styles.noTags}>
+                Group has no tags, you should add some ASAP!
+              </p>
+            )}
           </>
         )}
         {isInEditMode && (
