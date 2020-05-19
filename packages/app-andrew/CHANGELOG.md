@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.20.1...@gtms/app-andrew@0.21.0) (2020-05-19)
+
+
+### Features
+
+* GEOT-260: add promoted tags settings ([#563](https://github.com/gtms-org/gtms-frontend/issues/563)) ([befcc3e](https://github.com/gtms-org/gtms-frontend/commit/befcc3e231a007379e860199bdfeb876854f53b7))
+
+
+
+
+
 ## [0.20.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.20.0...@gtms/app-andrew@0.20.1) (2020-05-14)
 
 

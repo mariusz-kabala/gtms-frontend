@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.7.4...@gtms/state-user@0.7.5) (2020-05-19)
+
+**Note:** Version bump only for package @gtms/state-user
+
+
+
+
+
 ## [0.7.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.7.3...@gtms/state-user@0.7.4) (2020-05-14)
 
 **Note:** Version bump only for package @gtms/state-user
