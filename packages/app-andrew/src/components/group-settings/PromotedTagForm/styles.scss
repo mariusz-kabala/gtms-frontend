@@ -39,3 +39,10 @@
     @include buttonColorsHoverDefault();
   }
 }
+
+.uploadArea {
+  width: 100%;
+  div {
+    width: auto !important;
+  }
+}

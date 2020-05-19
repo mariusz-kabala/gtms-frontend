@@ -19,6 +19,7 @@
     "@gtms/commons": "0.8.0",
     "@gtms/state-group": "0.5.3",
     "@gtms/state-user": "0.7.4",
+    "@gtms/state-tag": "*",
     "@gtms/styles": "0.7.0",
     "@gtms/ui": "0.15.0"
   }

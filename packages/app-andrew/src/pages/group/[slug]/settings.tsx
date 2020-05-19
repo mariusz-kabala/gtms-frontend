@@ -26,12 +26,24 @@ enum Tabs {
   delete = 'delete',
 }
 
+const getInitialTab = () => {
+  if (typeof window === 'undefined') {
+    return Tabs.general
+  }
+  const urlTab = window.location.hash.substr(1)
+
+  return Object.values(Tabs).includes(urlTab as any)
+    ? Tabs[urlTab as Tabs]
+    : Tabs.general
+}
+
 export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
   const { t } = useTranslation('groupSettingsPage')
   const [group, setGroup] = useState<IGroupStore>(props.group)
-  const [tab, setTab] = useState<Tabs>(Tabs.tags)
+  const [tab, setTab] = useState<Tabs>(Tabs.general)
 
   useEffect(() => {
+    setTab(getInitialTab())
     initGroup(props.group)
     const groupSub = groupQuery.allState$.subscribe((value) => setGroup(value))
 
@@ -58,49 +70,63 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
               [styles.current]: tab === Tabs.general,
             })}
           >
-            <a onClick={() => setTab(Tabs.general)}>General Settings</a>
+            <a href="#general" onClick={() => setTab(Tabs.general)}>
+              General Settings
+            </a>
           </li>
           <li
             className={cn({
               [styles.current]: tab === Tabs.images,
             })}
           >
-            <a onClick={() => setTab(Tabs.images)}>Images</a>
+            <a onClick={() => setTab(Tabs.images)} href="#images">
+              Images
+            </a>
           </li>
           <li
             className={cn({
               [styles.current]: tab === Tabs.tags,
             })}
           >
-            <a onClick={() => setTab(Tabs.tags)}>Tags</a>
+            <a href="#tags" onClick={() => setTab(Tabs.tags)}>
+              Tags
+            </a>
           </li>
           <li
             className={cn({
               [styles.current]: tab === Tabs.invitations,
             })}
           >
-            <a onClick={() => setTab(Tabs.invitations)}>Invitations</a>
+            <a href="#invitations" onClick={() => setTab(Tabs.invitations)}>
+              Invitations
+            </a>
           </li>
           <li
             className={cn({
               [styles.current]: tab === Tabs.admins,
             })}
           >
-            <a onClick={() => setTab(Tabs.admins)}>Admins</a>
+            <a href="#admins" onClick={() => setTab(Tabs.admins)}>
+              Admins
+            </a>
           </li>
           <li
             className={cn({
               [styles.current]: tab === Tabs.members,
             })}
           >
-            <a onClick={() => setTab(Tabs.members)}>Members</a>
+            <a href="#members" onClick={() => setTab(Tabs.members)}>
+              Members
+            </a>
           </li>
           <li
             className={cn({
               [styles.current]: tab === Tabs.delete,
             })}
           >
-            <a onClick={() => setTab(Tabs.delete)}>Delete Group</a>
+            <a href="#delete" onClick={() => setTab(Tabs.delete)}>
+              Delete Group
+            </a>
           </li>
         </ul>
         <div className={styles.content}>

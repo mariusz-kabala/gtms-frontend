@@ -83,3 +83,53 @@ export const fetchJSON = <T, R>(
     })
     .then((data: R) => data)
 }
+
+export const deleteRequest = (url: string, replay = false) => {
+  const headers: {
+    'x-access-token'?: string
+  } = {}
+
+  if (userQuery.isLogged() && typeof window === 'undefined') {
+    headers['x-access-token'] = userQuery.jwt() || ''
+  }
+
+  return fetch(url, {
+    method: 'DELETE',
+    headers,
+  })
+    .then(async (response: Response) => {
+      if (response.ok) {
+        return response.json().catch(() => null)
+      }
+
+      if (response.status === 401 && typeof window !== 'undefined') {
+        const responseBody = await response.text()
+
+        if (
+          responseBody === 'Access token is invalid' &&
+          replay === false &&
+          userQuery.hasRefreshToken()
+        ) {
+          await fetch(makeApiUrl('auth/refresh-token'), {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ token: userQuery.getRefreshToken() }),
+          })
+
+          return await deleteRequest(url, true)
+        }
+
+        if (
+          responseBody === 'Access token is invalid' &&
+          (replay === true || !userQuery.hasRefreshToken())
+        ) {
+          return window.location.replace('/logout')
+        }
+      }
+
+      throw response
+    })
+    .then((data: any) => data)
+}

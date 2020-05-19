@@ -1,0 +1,50 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+
+.loader {
+  padding: 15px;
+  text-align: center;
+}
+
+.noRecords {
+  text-align: center;
+}
+
+.uploadedImage {
+  picture {
+    max-width: 50px;
+    max-height: 50px;
+  }
+  float: left;
+
+  p {
+    display: none;
+  }
+}
+
+.promotedList {
+  li {
+    border: none !important;
+    cursor: auto !important;
+
+    picture {
+      float: left;
+      margin: 0 10px 5px 0;
+    }
+
+    h3 {
+      @include font-weight('bold');
+    }
+
+    p {
+      color: $theme4;
+      margin: 5px 0 !important;
+    }
+
+    i {
+      cursor: pointer;
+    }
+
+    clear: left;
+  }
+}

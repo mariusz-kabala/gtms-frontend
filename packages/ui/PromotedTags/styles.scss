@@ -1,9 +1,40 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/fontSize';
+
 .wrapper {
-  .postCreate {
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  > div {
+    margin-right: 5px;
   }
 
-  .post {
-    margin-bottom: 20px;
+  a {
+    cursor: pointer;
+    @include font-weight(bold);
+    color: $theme5;
+  }
+
+  h3 {
+    color: $theme5;
+    @include font-size(md);
+    @include font-weight(bold);
+    text-align: center;
+  }
+}
+
+.manager {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+
+  i {
+    font-size: 40px;
   }
 }

@@ -29,3 +29,8 @@
     min-width: 700px;
   }
 }
+
+.noTags {
+  @include font-size('md');
+  text-align: center;
+}

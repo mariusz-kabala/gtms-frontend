@@ -28,13 +28,20 @@
         border-left: 4px solid $theme3;
         @include font-size(md);
 
+        a {
+          color: white;
+          text-decoration: none;
+        }
+
         &:hover {
           border-color: $theme7;
         }
 
         &.current {
           @include font-weight('bold');
-          color: $theme5;
+          a {
+            color: $theme5;
+          }
           border-color: $theme5;
         }
       }
