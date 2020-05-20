@@ -37,9 +37,9 @@ export const NotificationsSidebar: FC<{
           </div>
           <ul>
             <NotificationSingle
-              additionalStyles={'testingClass'}
+              additionalStyles={styles.notification}
               text="3 new users in your group"
-              icon={{ jpg: '/images/temp_images/questionMark.png' }}
+              icon={{ jpg: '/images/icons/iconCelebrate.png' }}
             />
           </ul>
         </Scrollbars>
