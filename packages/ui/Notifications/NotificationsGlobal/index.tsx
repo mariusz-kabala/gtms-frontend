@@ -16,17 +16,17 @@ export const NotificationsGlobal: FC<{
       <NotificationSingle
         additionalStyles={styles.notification}
         text="3 new users in your group"
-        icon="/images/icons/questionMark.png"
+        icon={{ jpg: '/images/temp_images/questionMark.png' }}
       />
       <NotificationSingle
         additionalStyles={styles.notification}
         text="3 new users in your group"
-        icon="/images/icons/questionMark.png"
+        icon={{ jpg: '/images/temp_images/questionMark.png' }}
       />
       <NotificationSingle
         additionalStyles={styles.notification}
         text="3 new users in your group"
-        icon="/images/icons/questionMark.png"
+        icon={{ jpg: '/images/temp_images/questionMark.png' }}
       />
     </div>
   )

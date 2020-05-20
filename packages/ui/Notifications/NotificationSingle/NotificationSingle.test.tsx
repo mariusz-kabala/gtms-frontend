@@ -9,7 +9,7 @@ describe('<NotificationSingle />', () => {
       <NotificationSingle isActive={false} onClose={jest.fn()} />
     )
 
-    expect(getByTestId('NotificationSingle')).toBeInTheDocument()
+    expect(getByTestId('notification-single')).toBeInTheDocument()
   })
 
   it('Should have additional css classes', () => {
@@ -22,17 +22,5 @@ describe('<NotificationSingle />', () => {
     )
 
     expect(container.querySelector('.testingClass')).toBeInTheDocument()
-  })
-
-  it('Should have opened class when isActive prop is present', () => {
-    const { container } = render(
-      <NotificationSingle
-        additionalStyles={'cssTest'}
-        isActive={true}
-        onClose={jest.fn()}
-      />
-    )
-
-    expect(container.querySelector(`.${styles.opened}`)).toBeInTheDocument()
   })
 })

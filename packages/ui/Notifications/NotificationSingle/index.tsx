@@ -8,16 +8,12 @@ import { CircularProgressbar } from 'react-circular-progressbar'
 export const NotificationSingle: FC<{
   additionalStyles?: string
   icon: { jpg: string; webp?: string }
-  isActive: boolean
-  onClose: () => unknown
   text: string
-}> = ({ additionalStyles, icon, isActive, onClose, text }) => {
+}> = ({ additionalStyles, icon, text }) => {
   return (
     <li
-      data-testid={'notificationSingle'}
-      className={cx(styles.wrapper, additionalStyles, {
-        [styles.opened]: isActive,
-      })}
+      data-testid={'notification-single'}
+      className={cx(styles.wrapper, additionalStyles)}
     >
       <Picture additionalStyles={styles.notificationIcon} jpg={icon} />
       <div>
@@ -25,7 +21,7 @@ export const NotificationSingle: FC<{
       </div>
       <div className={styles.close}>
         <i className={styles.iconClose}>
-          <IoMdCloseCircle onClick={() => onClose()} />
+          <IoMdCloseCircle />
         </i>
         <CircularProgressbar
           className={styles.CircularProgressbar}

@@ -22,7 +22,7 @@ export const NotificationsSidebar: FC<{
 
   return (
     <div
-      data-testid={'notifications'}
+      data-testid={'notifications-sidebar'}
       className={cx(styles.wrapper, additionalStyles, {
         [styles.opened]: isActive,
       })}

@@ -1,20 +1,17 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { NotificationsSidebar } from './index'
-import styles from './styles.scss'
+import { NotificationsGlobal } from './index'
 
 describe('<NotificationsSidebar />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(
-      <NotificationsSidebar isActive={false} onClose={jest.fn()} />
-    )
+    const { getByTestId } = render(<NotificationsGlobal onClose={jest.fn()} />)
 
-    expect(getByTestId('notifications')).toBeInTheDocument()
+    expect(getByTestId('notifications-global')).toBeInTheDocument()
   })
 
   it('Should have additional css classes', () => {
     const { container } = render(
-      <NotificationsSidebar
+      <NotificationsGlobal
         additionalStyles={'testingClass'}
         isActive={false}
         onClose={jest.fn()}
@@ -22,17 +19,5 @@ describe('<NotificationsSidebar />', () => {
     )
 
     expect(container.querySelector('.testingClass')).toBeInTheDocument()
-  })
-
-  it('Should have opened class when isActive prop is present', () => {
-    const { container } = render(
-      <NotificationsSidebar
-        additionalStyles={'cssTest'}
-        isActive={true}
-        onClose={jest.fn()}
-      />
-    )
-
-    expect(container.querySelector(`.${styles.opened}`)).toBeInTheDocument()
   })
 })

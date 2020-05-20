@@ -9,7 +9,7 @@ describe('<NotificationsSidebar />', () => {
       <NotificationsSidebar isActive={false} onClose={jest.fn()} />
     )
 
-    expect(getByTestId('notifications')).toBeInTheDocument()
+    expect(getByTestId('notifications-sidebar')).toBeInTheDocument()
   })
 
   it('Should have additional css classes', () => {
