@@ -19,6 +19,10 @@
     margin: 0 8px;
   }
 
+  .desc {
+    margin-right: auto;
+  }
+
   &:hover {
     border-color: $theme5;
 
@@ -34,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
+  margin-left: 10px;
 
   .iconClose {
     position: absolute;

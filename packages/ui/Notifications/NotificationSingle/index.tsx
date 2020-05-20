@@ -20,9 +20,7 @@ export const NotificationSingle: FC<{
         jpg={icon.jpg}
         webp={icon.webp ?? icon.webp}
       />
-      <div>
-        <p className={styles.desc}>{text}</p>
-      </div>
+      <p className={styles.desc}>{text}</p>
       <div className={styles.close}>
         <i className={styles.iconClose}>
           <IoMdCloseCircle />

@@ -2,11 +2,10 @@
 @import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
-  position: fixed;
+  position: absolute;
   @include z-index(modalContent);
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
   height: 100%;
   padding: 10px;
 
