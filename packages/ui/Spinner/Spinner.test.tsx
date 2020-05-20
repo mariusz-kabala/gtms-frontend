@@ -8,7 +8,7 @@ describe('<Spinner />', () => {
     const { getByTestId, container } = render(<Spinner />)
 
     expect(getByTestId('spinner')).toBeInTheDocument()
-    expect(container.querySelector(`.${styles.spinner}`)).toBeInTheDocument()
+    expect(container.querySelector(`.${styles.wrapper}`)).toBeInTheDocument()
   })
 
   it('Should add additional css classes', () => {

@@ -4,18 +4,14 @@ import { NotificationsGlobal } from './index'
 
 describe('<NotificationsSidebar />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<NotificationsGlobal onClose={jest.fn()} />)
+    const { getByTestId } = render(<NotificationsGlobal />)
 
     expect(getByTestId('notifications-global')).toBeInTheDocument()
   })
 
   it('Should have additional css classes', () => {
     const { container } = render(
-      <NotificationsGlobal
-        additionalStyles={'testingClass'}
-        isActive={false}
-        onClose={jest.fn()}
-      />
+      <NotificationsGlobal additionalStyles={'testingClass'} />
     )
 
     expect(container.querySelector('.testingClass')).toBeInTheDocument()

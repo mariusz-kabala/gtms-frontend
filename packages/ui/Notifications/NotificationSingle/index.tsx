@@ -15,7 +15,11 @@ export const NotificationSingle: FC<{
       data-testid={'notification-single'}
       className={cx(styles.wrapper, additionalStyles)}
     >
-      <Picture additionalStyles={styles.notificationIcon} jpg={icon} />
+      <Picture
+        additionalStyles={styles.notificationIcon}
+        jpg={icon.jpg}
+        webp={icon.webp}
+      />
       <div>
         <p className={styles.desc}>{text}</p>
       </div>

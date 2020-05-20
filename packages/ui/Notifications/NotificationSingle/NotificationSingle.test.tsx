@@ -1,12 +1,14 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { NotificationSingle } from './index'
-import styles from './styles.scss'
 
 describe('<NotificationSingle />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(
-      <NotificationSingle isActive={false} onClose={jest.fn()} />
+      <NotificationSingle
+        text="3 new users in your group"
+        icon={{ jpg: '/images/temp_images/questionMark.png' }}
+      />
     )
 
     expect(getByTestId('notification-single')).toBeInTheDocument()
@@ -16,8 +18,8 @@ describe('<NotificationSingle />', () => {
     const { container } = render(
       <NotificationSingle
         additionalStyles={'testingClass'}
-        isActive={false}
-        onClose={jest.fn()}
+        text="3 new users in your group"
+        icon={{ jpg: '/images/temp_images/questionMark.png' }}
       />
     )
 
