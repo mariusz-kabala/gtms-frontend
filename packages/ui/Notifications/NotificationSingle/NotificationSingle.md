@@ -8,7 +8,7 @@ const [state, setState] = React.useState('')
     state &&
     <NotificationSingle
       text="3 new users in your group"
-      icon={{ png: '/images/temp_images/questionMark.png' }}
+      icon={{ png: '/images/temp_images/iconQuestionMark.png' }}
     />
   }
 </>

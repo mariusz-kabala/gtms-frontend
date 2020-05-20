@@ -7,7 +7,7 @@ describe('<NotificationSingle />', () => {
     const { getByTestId } = render(
       <NotificationSingle
         text="3 new users in your group"
-        icon={{ jpg: '/images/temp_images/questionMark.png' }}
+        icon={{ jpg: '/images/temp_images/iconQuestionMark.png' }}
       />
     )
 
@@ -19,7 +19,7 @@ describe('<NotificationSingle />', () => {
       <NotificationSingle
         additionalStyles={'testingClass'}
         text="3 new users in your group"
-        icon={{ jpg: '/images/temp_images/questionMark.png' }}
+        icon={{ jpg: '/images/temp_images/iconQuestionMark.png' }}
       />
     )
 
