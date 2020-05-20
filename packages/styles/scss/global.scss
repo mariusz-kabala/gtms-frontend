@@ -1,7 +1,6 @@
 @import '~reset-css/sass/reset';
 @import './variables.scss';
 @import './customReset.scss';
-@import './customReset.scss';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 html {
@@ -15,16 +14,16 @@ html {
 }
 
 body {
-  background-color: $theme1;
   font-family: 'Lato,sans-serif', 'Open Sans', 'Helvetica Neue', sans-serif;
   @include font-size(default);
   line-height: normal;
+  background-color: $theme1;
 }
 
-html,
-body,
 body > div:first-of-type {
-  height: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 img {

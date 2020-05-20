@@ -34,22 +34,24 @@ export const HomePage: NextPage<HomePageProps> = ({ users, groups }) => {
         </Modal>
       )}
       <PolAndRock />
-      <div className={styles.desc}>
-        <h2 className={styles.header}>
-          <IoIosSearch />
-          {t('header')}
-        </h2>
-        <p>
-          {t('subheaderone')}
-          <Button
-            additionalStyles={styles.btn}
-            onClick={() => setIsModalOpen(true)}
-            type="submit"
-          >
-            {t('btn')}
-          </Button>
-          {t('subheadertwo')}
-        </p>
+      <div className={styles.search}>
+        <div>
+          <h2 className={styles.header}>
+            <IoIosSearch />
+            {t('header')}
+          </h2>
+          <p>
+            {t('subheaderone')}
+            <Button
+              additionalStyles={styles.btn}
+              onClick={() => setIsModalOpen(true)}
+              type="submit"
+            >
+              {t('btn')}
+            </Button>
+            {t('subheadertwo')}
+          </p>
+        </div>
       </div>
       <section className={styles.recentPosts}>
         <h2 className={styles.header}>{t('header')}</h2>

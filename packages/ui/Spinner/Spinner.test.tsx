@@ -10,4 +10,10 @@ describe('<Spinner />', () => {
     expect(getByTestId('spinner')).toBeInTheDocument()
     expect(container.querySelector(`.${styles.spinner}`)).toBeInTheDocument()
   })
+
+  it('Should add additional css classes', () => {
+    const { container } = render(<Spinner additionalStyles={'testingClass'} />)
+
+    expect(container.querySelector('.testingClass')).toBeInTheDocument()
+  })
 })

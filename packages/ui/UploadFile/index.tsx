@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
+import { useTranslation } from '@gtms/commons/i18n'
 import { useDropzone, DropEvent } from 'react-dropzone'
 import { IoIosCloudUpload } from 'react-icons/io'
 import { Spinner } from '../Spinner'
@@ -23,6 +24,7 @@ export const UploadFile: FC<{
   isError = false,
 }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+  const { t } = useTranslation('uploadFileComponent')
 
   return (
     <div
@@ -40,11 +42,9 @@ export const UploadFile: FC<{
               <IoIosCloudUpload />
             </i>
             {isDragActive ? (
-              <>
-                <p>Drop the files here ...</p>
-              </>
+              <p>{t('dropFilesHere')}</p>
             ) : (
-              <p>Drag and drop some files here, or click to select files</p>
+              <p>{t('dragAndDropFilesHere')}</p>
             )}
           </>
         )}

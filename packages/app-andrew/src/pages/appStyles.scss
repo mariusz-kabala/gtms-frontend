@@ -9,42 +9,49 @@
   width: 100%;
   background: #7f993d;
 
-  section {
+  > section {
     position: relative;
-    padding: 0 40px;
+    margin: 0 20px;
+    padding: 40px;
     margin-bottom: 20px;
+    border-radius: $borderRadius;
+    background: $theme1;
 
     .header {
       @include header(h3, textUppercase);
       @include font-weight(bold);
       margin-bottom: 20px;
     }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
-  .desc {
-    margin: 20px auto;
+  .search {
+    padding: 20px 0 50px 0;
     text-align: center;
-    max-width: 60%;
     color: $theme7;
     @include font-size(lg);
 
-    h2 {
-      display: inline-block;
+    > div {
       width: 70%;
-      @include font-size(xxlg);
-      border-bottom: 3px solid $theme7;
-      margin-bottom: 10px;
-      text-align: initial;
-    }
+      margin: auto;
 
-    svg {
-      font-size: 50px;
-      margin-bottom: -10px;
+      h2 {
+        display: inline-block;
+        width: 70%;
+        @include font-size(xxlg);
+        border-bottom: 3px solid $theme7;
+        margin-bottom: 10px;
+        text-align: initial;
+      }
+
+      svg {
+        font-size: 50px;
+        margin-bottom: -10px;
+      }
     }
+  }
+
+  .recentPosts {
+    margin-top: 20px;
   }
 
   .btn {
@@ -56,12 +63,5 @@
     &:hover {
       @include buttonColorsHoverDefault();
     }
-  }
-}
-
-.temporary {
-  & div > p,
-  div > span {
-    color: $theme0 !important;
   }
 }

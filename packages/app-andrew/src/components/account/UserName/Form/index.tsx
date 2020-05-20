@@ -35,7 +35,7 @@ export const UserNameChangeForm: FC<{
 
   if (isSaving) {
     return (
-      <div className={styles.loader}>
+      <div className={styles.spinner}>
         <Spinner />
       </div>
     )

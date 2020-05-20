@@ -1,7 +1,18 @@
-.container {
-    position: relative;
-}
+@import '~@gtms/styles/scss/variables';
 
-.loader {
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .spinner {
     position: absolute;
+  }
+
+  .avatar {
+    > * {
+      border-radius: $borderRadius;
+    }
+  }
 }

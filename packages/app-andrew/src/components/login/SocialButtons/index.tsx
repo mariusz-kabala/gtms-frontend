@@ -38,7 +38,7 @@ export const SocialButtons: FC<{
   return (
     <div
       data-testid="social-buttons"
-      className={cx(styles.container, additionalStyles)}
+      className={cx(styles.wrapper, additionalStyles)}
     >
       {!isProcessing && !isLoading && (
         <>

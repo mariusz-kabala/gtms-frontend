@@ -58,14 +58,6 @@ export const GroupAvatar: FC<{
         }
       }}
     >
-      <div className={styles.container} data-tip={t('clickToUploadNewImage')}>
-        {[FileStatus.uploaded, FileStatus.processing].includes(filesStatus) && (
-          <div className={styles.loader}>
-            <Spinner />
-          </div>
-        )}
-        <Picture {...files} />
-      </div>
       {isEditModeActive && (
         <Modal onClose={() => setIsEditModeActive(false)}>
           <UploadFile
@@ -75,6 +67,16 @@ export const GroupAvatar: FC<{
           />
         </Modal>
       )}
+
+      <div
+        className={styles.wrapper}
+        data-tip={isEditAllowed ? t('clickToUploadNewImage') : ''}
+      >
+        {[FileStatus.uploaded, FileStatus.processing].includes(filesStatus) && (
+          <Spinner additionalStyles={styles.spinner} />
+        )}
+        <Picture additionalStyles={styles.avatar} {...files} />
+      </div>
     </div>
   )
 }

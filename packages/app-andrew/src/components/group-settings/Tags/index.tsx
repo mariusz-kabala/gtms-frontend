@@ -73,7 +73,7 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
   )
 
   return (
-    <div data-testid="group-settings-tags" className={styles.container}>
+    <div data-testid="group-settings-tags" className={styles.wrapper}>
       <section>
         <h3 className={styles.header}>
           Tags{' '}
