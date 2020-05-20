@@ -18,7 +18,7 @@ export const NotificationSingle: FC<{
       <Picture
         additionalStyles={styles.notificationIcon}
         jpg={icon.jpg}
-        webp={icon.webp}
+        webp={icon.webp ?? icon.webp}
       />
       <div>
         <p className={styles.desc}>{text}</p>
