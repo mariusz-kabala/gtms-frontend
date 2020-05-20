@@ -21,7 +21,7 @@ export const NotificationsGlobal: FC<{
       <NotificationSingle
         additionalStyles={styles.notification}
         text="3 new users in your group"
-        icon={{ jpg: '/images/icons/iconCelebrate.png' }}
+        icon={{ jpg: '/images/icons/iconExclamationMark.png' }}
       />
       <NotificationSingle
         additionalStyles={styles.notification}
