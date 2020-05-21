@@ -40,10 +40,7 @@ class GTMSApp extends App<GTMSAppProps> {
       <>
         <div className={styles.wrapper}>
           <Navigation />
-          <NotificationsSidebar
-            onClose={() => console.log('close')}
-            isActive={true}
-          />
+          <NotificationsSidebar onClose={() => null} isActive={true} />
           <Component {...pageProps} />
         </div>
         <NavigationDot />
