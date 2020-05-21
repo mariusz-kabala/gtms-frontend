@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import { Spinner } from '../Spinner'
 import styles from './styles.scss'
 import { useDebounce } from '@gtms/commons/hooks/useDebounce'
+import { useTranslation } from '@gtms/commons/i18n'
 
 export const TagsBar: FC<{
   tags: string[]
@@ -28,6 +29,7 @@ export const TagsBar: FC<{
   suggestions = [],
   hintMinLenght = 3,
 }) => {
+  const { t } = useTranslation('tagsBarComponent')
   const [isInEditMode, setIsInEditMode] = useState<boolean>(editMode)
   const [showSuggestions, setShowSuggestions] = useState<boolean>(
     suggestions.length > 0
@@ -95,10 +97,10 @@ export const TagsBar: FC<{
               }
               disabled={isSaving}
             >
-              save
+              {t('save')}
             </button>
             {isSaving && (
-              <div className={styles.loader}>
+              <div className={styles.spinner}>
                 <Spinner />
               </div>
             )}
@@ -124,7 +126,7 @@ export const TagsBar: FC<{
 
             {isLoading && value !== '' && (
               <div className={styles.suggestions}>
-                <div className={styles.loader}>
+                <div className={styles.spinner}>
                   <Spinner />
                 </div>
               </div>
@@ -146,15 +148,15 @@ export const TagsBar: FC<{
         </>
       )}
       {!isInEditMode && tags.length === 0 && (
-        <p className={styles.noRecords}>
-          No tags have been added{' '}
+        <span className={styles.noRecords}>
+          {t('noTagsHaveBeenAdded')}
           <a
             className={styles.actionButton}
             onClick={() => setIsInEditMode(true)}
           >
-            Click here to add a new tag
+            {t('clickHereToAddNewTag')}
           </a>
-        </p>
+        </span>
       )}
       {!isInEditMode && tags.length > 0 && (
         <div className={styles.tagsList}>
@@ -167,7 +169,7 @@ export const TagsBar: FC<{
             className={styles.actionButton}
             onClick={() => setIsInEditMode(true)}
           >
-            Click here to edit
+            {t('clickHereToEdit')}
           </a>
         </div>
       )}

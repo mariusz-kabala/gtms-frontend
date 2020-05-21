@@ -9,6 +9,7 @@ import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { init } from '@gtms/state-user'
 import { LoginWindow } from '../components/commons/LoginWindow'
 import ReactTooltip from 'react-tooltip'
+import { NotificationsSidebar } from '@gtms/ui/Notifications/NotificationsSidebar'
 
 interface GTMSAppProps {
   auth?: {
@@ -39,6 +40,7 @@ class GTMSApp extends App<GTMSAppProps> {
       <>
         <div className={styles.wrapper}>
           <Navigation />
+          <NotificationsSidebar onClose={() => null} isActive={true} />
           <Component {...pageProps} />
         </div>
         <NavigationDot />

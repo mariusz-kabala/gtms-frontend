@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
+import cx from 'classnames'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
@@ -9,7 +10,6 @@ import { TagsSettings } from '../../../components/group-settings/Tags'
 import { ImagesSettings } from '../../../components/group-settings/Images'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { GroupType, GroupVisibility } from '@gtms/commons/enums'
-import cn from 'classnames'
 
 type GroupSettingsPageProps = {
   namespacesRequired: readonly string[]
@@ -66,7 +66,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
       <div>
         <ul>
           <li
-            className={cn({
+            className={cx({
               [styles.current]: tab === Tabs.general,
             })}
           >
@@ -75,7 +75,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
             </a>
           </li>
           <li
-            className={cn({
+            className={cx({
               [styles.current]: tab === Tabs.images,
             })}
           >
@@ -84,7 +84,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
             </a>
           </li>
           <li
-            className={cn({
+            className={cx({
               [styles.current]: tab === Tabs.tags,
             })}
           >
@@ -93,7 +93,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
             </a>
           </li>
           <li
-            className={cn({
+            className={cx({
               [styles.current]: tab === Tabs.invitations,
             })}
           >
@@ -102,7 +102,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
             </a>
           </li>
           <li
-            className={cn({
+            className={cx({
               [styles.current]: tab === Tabs.admins,
             })}
           >
@@ -111,7 +111,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
             </a>
           </li>
           <li
-            className={cn({
+            className={cx({
               [styles.current]: tab === Tabs.members,
             })}
           >
@@ -120,7 +120,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
             </a>
           </li>
           <li
-            className={cn({
+            className={cx({
               [styles.current]: tab === Tabs.delete,
             })}
           >

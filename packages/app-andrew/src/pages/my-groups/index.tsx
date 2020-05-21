@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
+import styles from './styles.scss'
+import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons'
 import {
@@ -11,8 +13,6 @@ import {
   removeFromFavs,
 } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import styles from './styles.scss'
-import cn from 'classnames'
 import { Link } from '@gtms/commons/i18n'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 import { GroupsList } from '../../components/my-groups/GroupsList'
@@ -70,14 +70,22 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
   >(getInitialTab(groups))
 
   return (
-    <div className={styles.container}>
-      <h1>{t('header')}</h1>
+    <div className={styles.wrapper}>
+      <div className={styles.notFound}>
+        <div className={styles.desc}>
+          <h2>{t('header')}</h2>
+          <p>
+            Nisi officia incididunt adipisicing commodo eiusmod exercitation.
+          </p>
+        </div>
+        <img src="/images/polandrock/camping-image.png" />
+      </div>
       <div>
         <nav>
           <ul>
             <li
               onClick={() => setCurrentTab('owner')}
-              className={cn({
+              className={cx({
                 [styles.current]: currentTab === 'owner',
               })}
             >
@@ -87,7 +95,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
             </li>
             <li
               onClick={() => setCurrentTab('admin')}
-              className={cn({
+              className={cx({
                 [styles.current]: currentTab === 'admin',
               })}
             >
@@ -97,7 +105,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
             </li>
             <li
               onClick={() => setCurrentTab('member')}
-              className={cn({
+              className={cx({
                 [styles.current]: currentTab === 'member',
               })}
             >
@@ -107,7 +115,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
             </li>
             <li
               onClick={() => setCurrentTab('fav')}
-              className={cn({
+              className={cx({
                 [styles.current]: currentTab === 'fav',
               })}
             >
@@ -119,7 +127,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
         </nav>
 
         <GroupsList
-          additionalStyles={cn({
+          additionalStyles={cx({
             [styles.currentList]: currentTab === 'owner',
           })}
           groups={groups.owner}
@@ -155,7 +163,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
         />
 
         <GroupsList
-          additionalStyles={cn({
+          additionalStyles={cx({
             [styles.currentList]: currentTab === 'fav',
           })}
           groups={groups.favs}
@@ -175,7 +183,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
         />
 
         <GroupsList
-          additionalStyles={cn({
+          additionalStyles={cx({
             [styles.currentList]: currentTab === 'admin',
           })}
           groups={groups.admin}
@@ -193,7 +201,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
           }}
         />
         <GroupsList
-          additionalStyles={cn({
+          additionalStyles={cx({
             [styles.currentList]: currentTab === 'member',
           })}
           groups={groups.member}

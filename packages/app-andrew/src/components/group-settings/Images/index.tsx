@@ -67,7 +67,7 @@ export const ImagesSettings: FC<{ avatar?: IGroupAvatar; bg?: IGroupBg }> = ({
   }, [])
 
   return (
-    <div data-testid="group-settings-images" className={styles.container}>
+    <div data-testid="group-settings-images" className={styles.wrapper}>
       <section>
         <h3 className={styles.header}>Group avatar</h3>
         <div className={styles.content}>

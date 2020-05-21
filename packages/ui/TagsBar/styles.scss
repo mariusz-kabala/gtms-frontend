@@ -21,8 +21,8 @@
       border: none;
       font-size: 14px;
       background: none;
-      color: #fff;
-      border-bottom: 2px solid #fff;
+      color: $theme7;
+      border-bottom: 2px solid $theme7;
 
       &:active,
       &:focus,
@@ -33,7 +33,7 @@
 
     button[type='submit'] {
       flex: 1;
-      color: #fff;
+      color: $theme7;
       background-color: $theme3;
       cursor: pointer;
       padding: 5px 10px;
@@ -41,7 +41,7 @@
       @include font-size(md);
     }
 
-    .loader {
+    .spinner {
       flex: 1;
       flex-basis: 55px;
       margin-left: 10px;
@@ -55,14 +55,12 @@
   }
 
   .noRecords {
-    flex: 1;
-    padding: 5%;
     text-align: center;
-    color: #fff;
+    color: $theme7;
 
     a.actionButton {
-      display: inline;
-      color: #fff;
+      display: block;
+      color: $theme7;
       background-color: $theme3;
       padding: 5px;
       cursor: pointer;
@@ -80,7 +78,7 @@
     border-radius: 4px;
     padding: 5px;
     background: #595272;
-    color: #fff;
+    color: $theme7;
     cursor: pointer;
     font-size: 14px;
 
@@ -102,7 +100,7 @@
     width: 100%;
     padding: 10px;
     min-height: 50px;
-    background-color: #fff;
+    background-color: $theme7;
 
     button.tag {
       &:first-child {

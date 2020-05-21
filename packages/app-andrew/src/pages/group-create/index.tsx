@@ -18,10 +18,12 @@ export const GroupCreatePage: NextPage<{}> = () => {
           <GroupCreate />
         </div>
       </div>
-      <div
-        className={styles.right}
-        style={{ backgroundImage: `url('/images/temp_images/group_bg_2.png')` }}
-      />
+      <div className={styles.right}>
+        <img
+          src="/images/polandrock/virtual-village-create.png"
+          alt="group create image"
+        />
+      </div>
     </div>
   )
 }

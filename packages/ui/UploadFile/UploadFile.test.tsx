@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { UploadFile } from './index'
 import styles from './styles.scss'
+import { useTranslation } from '@gtms/commons/i18n'
 
 describe('<UploadFile />', () => {
   it('Should be on the page', () => {
@@ -11,6 +12,7 @@ describe('<UploadFile />', () => {
 
     expect(getByTestId('upload-file')).toBeInTheDocument()
     expect(container.querySelector(`.${styles.wrapper}`)).toBeInTheDocument()
+    expect(useTranslation).toBeCalledWith('uploadFileComponent')
   })
 
   it('Should add additional css classes', () => {

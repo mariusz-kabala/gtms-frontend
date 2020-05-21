@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react'
-import cn from 'classnames'
+import styles from './styles.scss'
+import cx from 'classnames'
 import { IGroup, FileStatus } from '@gtms/commons'
 import { Link } from '@gtms/commons/i18n'
 import { Picture } from '@gtms/ui/Picture'
-import styles from './styles.scss'
 
 export const GroupsList: FC<{
   additionalStyles?: string
@@ -21,7 +21,7 @@ export const GroupsList: FC<{
   onFavsClick,
 }) => {
   return (
-    <div className={cn(styles.content, additionalStyles)}>
+    <div className={cx(styles.wrapper, additionalStyles)}>
       {groups.length === 0 && noRecords}
       {groups.length > 0 && (
         <ul>

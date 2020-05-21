@@ -72,7 +72,7 @@ export const PromotedTagsForm: FC<{
   )
 
   return (
-    <div className={styles.container}>
+    <div className={styles.wrapper}>
       <h3 className={styles.header}>Promoted tag</h3>
       <div className={styles.promoted}>
         <TagGroup>

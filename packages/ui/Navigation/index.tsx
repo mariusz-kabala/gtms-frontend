@@ -6,11 +6,11 @@ import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { useRouter } from 'next/router'
 import { userQuery } from '@gtms/state-user'
 import {
-  IoIosTennisball,
-  IoIosNavigate,
-  IoIosCart,
-  IoIosCompass,
-  IoIosFingerPrint,
+  IoIosSearch,
+  IoMdPerson,
+  IoIosAddCircle,
+  IoIosKeypad,
+  IoIosLogOut,
 } from 'react-icons/io'
 
 export const Navigation: FC<{}> = () => {
@@ -19,6 +19,11 @@ export const Navigation: FC<{}> = () => {
 
   return isLogged ? (
     <div className={styles.wrapper}>
+      <style global jsx>{`
+        body {
+          padding-left: 45px;
+        }
+      `}</style>
       <UserAvatar
         additionalStyles={styles.avatar}
         image={userQuery.getAvatar('50x50')}
@@ -32,25 +37,25 @@ export const Navigation: FC<{}> = () => {
             {
               id: 4,
               label: 'Search',
-              icon: <IoIosCompass />,
+              icon: <IoIosSearch />,
               url: '/search',
             },
             {
               id: 0,
               label: 'Account',
-              icon: <IoIosTennisball />,
+              icon: <IoMdPerson />,
               url: '/account',
             },
             {
               id: 1,
               label: 'Create group',
-              icon: <IoIosNavigate />,
+              icon: <IoIosAddCircle />,
               url: '/group-create',
             },
             {
               id: 2,
               label: 'My groups',
-              icon: <IoIosCart />,
+              icon: <IoIosKeypad />,
               url: '/my-groups',
             },
           ].map((value, index) => {
@@ -74,7 +79,7 @@ export const Navigation: FC<{}> = () => {
           <li>
             <a href="/logout">
               <i>
-                <IoIosFingerPrint />
+                <IoIosLogOut />
               </i>
               <span>Logout</span>
             </a>
