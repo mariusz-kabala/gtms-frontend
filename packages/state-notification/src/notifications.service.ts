@@ -4,9 +4,7 @@ import { notificationsQuery } from './notifications.query'
 
 let timer: any
 
-function startTimerIfNeeded() {
-
-}
+function startTimerIfNeeded() {}
 
 export const addNotification = (notification: Partial<INotification>) => {
   const last = notificationsQuery.getCount()

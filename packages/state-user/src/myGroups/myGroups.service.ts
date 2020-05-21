@@ -2,7 +2,10 @@ import { fetchMyGroups } from '@gtms/api-auth'
 import { joinGroupAPI, leaveGroupAPI } from '@gtms/api-group'
 import { myGroupsStore } from './myGroups.store'
 import { parseFiles, IGroup, FileStatus } from '@gtms/commons'
-import { addSuccessNotification, addErrorNotification } from '@gtms/state-notification'
+import {
+  addSuccessNotification,
+  addErrorNotification,
+} from '@gtms/state-notification'
 
 const parseGroupAvatars = (group: IGroup) => {
   if (
