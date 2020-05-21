@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.16.0...@gtms/ui@0.16.1) (2020-05-21)
+
+
+### Bug Fixes
+
+* GEOT-261: initial styling ([#573](https://github.com/gtms-org/gtms-frontend/issues/573)) ([5d97c70](https://github.com/gtms-org/gtms-frontend/commit/5d97c70a3cfbcd64a80e2c0854f08c5d900916fd))
+
+
+
+
+
 # [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.15.0...@gtms/ui@0.16.0) (2020-05-19)
 
 
