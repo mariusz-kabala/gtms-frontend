@@ -4,6 +4,7 @@ import '@gtms/styles/scss/global.scss'
 import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
 import { Navigation } from 'components/commons/Navigation'
+import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { NavigationDots } from 'components/commons/NavigationDots'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { init } from '@gtms/state-user'
@@ -43,6 +44,7 @@ class GTMSApp extends App<GTMSAppProps> {
         <div className={styles.wrapper}>
           <Navigation />
           <NotificationsSidebar onClose={() => null} isActive={true} />
+          <NotificationsActive />
           <Component {...pageProps} />
         </div>
         <NavigationDots />

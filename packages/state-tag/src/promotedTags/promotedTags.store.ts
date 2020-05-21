@@ -1,7 +1,7 @@
 import { EntityState, EntityStore } from '@datorama/akita'
 import { IPromotedTag } from '@gtms/commons/models'
 
-export type PromotedTagsState = EntityState<IPromotedTag, number>
+export type PromotedTagsState = EntityState<IPromotedTag, string>
 
 export class PromotedTagsStore extends EntityStore<PromotedTagsState> {
   constructor() {

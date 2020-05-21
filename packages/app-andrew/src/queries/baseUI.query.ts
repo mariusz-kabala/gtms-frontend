@@ -4,6 +4,11 @@ import {
   MyGroupsQuery,
   myGroupsQuery,
 } from '@gtms/state-user'
+import {
+  notificationsQuery,
+  NotificationsQuery,
+  INotification,
+} from '@gtms/state-notification'
 import { IGroup } from '@gtms/commons'
 import { uiQuery, UIQuery } from 'state'
 import { Observable, combineLatest } from 'rxjs'
@@ -28,11 +33,17 @@ export interface INavigationDotsProps {
   groups: IGroup[]
 }
 
+export interface INotificationsActiveState {
+  isVisible: boolean
+  notifications: INotification[]
+}
+
 export class BaseUIQuery {
   constructor(
     private userQuery: UserQuery,
     private uiQuery: UIQuery,
-    private myGroupsQuery: MyGroupsQuery
+    private myGroupsQuery: MyGroupsQuery,
+    private notificationsQuery: NotificationsQuery
   ) {}
 
   public navigation = (): INavigationProps => {
@@ -83,6 +94,22 @@ export class BaseUIQuery {
     this.myGroupsQuery.status$,
     this.myGroupsQuery.favGroups$
   ).pipe(map(() => this.navigationDots()))
-}
 
-export const baseUIQuery = new BaseUIQuery(userQuery, uiQuery, myGroupsQuery)
+  public notificationsActive = (): INotificationsActiveState => {
+    return {
+      isVisible: this.notificationsQuery.hasUnread(),
+      notifications: this.notificationsQuery.unread(),
+    }
+  }
+
+  public notificationsActive$: Observable<
+    INotificationsActiveState
+  > = this.notificationsQuery.
+}
+//
+export const baseUIQuery = new BaseUIQuery(
+  userQuery,
+  uiQuery,
+  myGroupsQuery,
+  notificationsQuery
+)
