@@ -19,6 +19,14 @@ export class UIQuery extends Query<IUI> {
     })
   )
 
+  public isNotificationsBarOpen = (values = this.getValue()) => {
+    return values.isNotificationsBarOpen
+  }
+
+  public isNotificationsBarOpen$: Observable<boolean> = this.select((values) =>
+    this.isNotificationsBarOpen(values)
+  )
+
   constructor(protected store: UIStore, private userQuery: UserQuery) {
     super(store)
   }

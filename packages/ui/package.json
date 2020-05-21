@@ -4,6 +4,7 @@
   "source": "./index.ts",
   "module": "./index.ts",
   "main": "./index.ts",
+  "license": "ISC",
   "devDependencies": {
     "@types/react-custom-scrollbars": "^4.0.6"
   },
@@ -18,6 +19,7 @@
   },
   "scripts": {
     "build": "exit 0",
-    "setup:ts": "exit 0"
+    "setup:ts": "exit 0",
+    "check:ts": "exit 0"
   }
 }

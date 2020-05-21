@@ -15,7 +15,7 @@ function isRedirectedFromFb(): boolean {
 }
 
 function checkIfSDKIsLoaded(): boolean {
-  return process.browser && !!document.getElementById(FB_SDK_ID)
+  return (process as any).browser && !!document.getElementById(FB_SDK_ID)
 }
 
 function setFbAsyncInit({
@@ -48,7 +48,7 @@ function setFbAsyncInit({
 }
 
 function loadSDK(language: string) {
-  if (!process.browser) {
+  if (!(process as any).browser) {
     return
   }
 

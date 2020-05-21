@@ -14,3 +14,18 @@ export const toggleLoginModal = () =>
   uiStore.update((values) => ({
     isLoginModalOpen: !values.isLoginModalOpen,
   }))
+
+export const openSidebarNotifications = () =>
+  uiStore.update({
+    isNotificationsBarOpen: true,
+  })
+
+export const closeSidebarNotifications = () =>
+  uiStore.update({
+    isNotificationsBarOpen: false,
+  })
+
+export const toggleSidebarNotifications = () =>
+  uiStore.update((values) => ({
+    isNotificationsBarOpen: !values.isNotificationsBarOpen,
+  }))

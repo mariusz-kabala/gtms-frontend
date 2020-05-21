@@ -4,6 +4,7 @@
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
+  "license": "ISC",
   "dependencies": {
     "@gtms/api-auth": "0.4.5",
     "@gtms/api-group": "0.5.4",
@@ -11,6 +12,7 @@
   },
   "scripts": {
     "build": "exit 0",
-    "setup:ts": "exit 0"
+    "setup:ts": "exit 0",
+    "check:ts": "exit 0"
   }
 }

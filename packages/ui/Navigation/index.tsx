@@ -1,10 +1,7 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
-import { useAuth } from '@gtms/commons/hooks/auth'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
-import { useRouter } from 'next/router'
-import { userQuery } from '@gtms/state-user'
 import {
   IoIosSearch,
   IoMdPerson,
@@ -13,24 +10,24 @@ import {
   IoIosLogOut,
 } from 'react-icons/io'
 
-export const Navigation: FC<{}> = () => {
-  const { isLogged } = useAuth()
-  const router = useRouter()
-
-  return isLogged ? (
+export const Navigation: FC<{
+  onAvatarClick?: () => unknown
+  avatar: { jpg: string; webp?: string } | null
+}> = ({ onAvatarClick, avatar }) => {
+  return (
     <div className={styles.wrapper}>
       <style global jsx>{`
         body {
           padding-left: 45px;
         }
       `}</style>
-      <UserAvatar
-        additionalStyles={styles.avatar}
-        image={userQuery.getAvatar('50x50')}
-        onClick={() => {
-          router.push('/account')
-        }}
-      />
+      {avatar && (
+        <UserAvatar
+          additionalStyles={styles.avatar}
+          image={avatar}
+          onClick={onAvatarClick}
+        />
+      )}
       <nav className={styles.navigation} data-testid="navigation">
         <ul>
           {[
@@ -87,5 +84,5 @@ export const Navigation: FC<{}> = () => {
         </ul>
       </nav>
     </div>
-  ) : null
+  )
 }

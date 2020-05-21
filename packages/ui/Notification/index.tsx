@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { IoMdCloseCircle } from 'react-icons/io'
-import { Picture } from '../../Picture'
+import { Picture } from '../Picture'
 import { CircularProgressbar } from 'react-circular-progressbar'
 
-export const NotificationSingle: FC<{
+export const Notification: FC<{
   additionalStyles?: string
   icon: { jpg: string; webp?: string }
   text: string
@@ -15,11 +15,7 @@ export const NotificationSingle: FC<{
       data-testid={'notification-single'}
       className={cx(styles.wrapper, additionalStyles)}
     >
-      <Picture
-        additionalStyles={styles.notificationIcon}
-        jpg={icon.jpg}
-        webp={icon.webp ?? icon.webp}
-      />
+      <Picture additionalStyles={styles.notificationIcon} {...icon} />
       <p className={styles.desc}>{text}</p>
       <div className={styles.close}>
         <i className={styles.iconClose}>

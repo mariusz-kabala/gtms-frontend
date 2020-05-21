@@ -3,13 +3,13 @@ import App, { AppContext } from 'next/app'
 import '@gtms/styles/scss/global.scss'
 import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
-import { Navigation } from '@gtms/ui/Navigation'
-import { NavigationDot } from '@gtms/ui/NavigationDot'
+import { Navigation } from 'components/commons/Navigation'
+import { NavigationDots } from 'components/commons/NavigationDots'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { init } from '@gtms/state-user'
-import { LoginWindow } from '../components/commons/LoginWindow'
+import { LoginWindow } from 'components/commons/LoginWindow'
 import ReactTooltip from 'react-tooltip'
-import { NotificationsSidebar } from '@gtms/ui/Notifications/NotificationsSidebar'
+import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 
 interface GTMSAppProps {
   auth?: {
@@ -21,7 +21,9 @@ interface GTMSAppProps {
 }
 
 class GTMSApp extends App<GTMSAppProps> {
-  componentWillMount() {
+  constructor(props: any) {
+    super(props)
+
     const { auth } = this.props
 
     if (auth?.accessToken && auth.refreshToken) {
@@ -33,9 +35,9 @@ class GTMSApp extends App<GTMSAppProps> {
       )
     }
   }
+
   render() {
     const { Component, pageProps } = this.props
-
     return (
       <>
         <div className={styles.wrapper}>
@@ -43,7 +45,7 @@ class GTMSApp extends App<GTMSAppProps> {
           <NotificationsSidebar onClose={() => null} isActive={true} />
           <Component {...pageProps} />
         </div>
-        <NavigationDot />
+        <NavigationDots />
         <LoginWindow />
         <ReactTooltip />
       </>

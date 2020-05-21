@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { NotificationSingle } from './index'
+import { Notification } from './index'
 
-describe('<NotificationSingle />', () => {
+describe('<Notification />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(
-      <NotificationSingle
+      <Notification
         text="3 new users in your group"
         icon={{ jpg: '/images/temp_images/iconQuestionMark.png' }}
       />
@@ -16,7 +16,7 @@ describe('<NotificationSingle />', () => {
 
   it('Should have additional css classes', () => {
     const { container } = render(
-      <NotificationSingle
+      <Notification
         additionalStyles={'testingClass'}
         text="3 new users in your group"
         icon={{ jpg: '/images/temp_images/iconQuestionMark.png' }}

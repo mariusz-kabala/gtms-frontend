@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { NotificationSingle } from '../NotificationSingle'
+import { Notification } from '@gtms/ui/Notification'
 
-export const NotificationsGlobal: FC<{
+export const NotificationsActive: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
   return (
@@ -13,17 +13,17 @@ export const NotificationsGlobal: FC<{
         [styles.opened]: true,
       })}
     >
-      <NotificationSingle
+      <Notification
         additionalStyles={styles.notification}
         text="3 new users in your group"
         icon={{ jpg: '/images/icons/iconCelebrate.png' }}
       />
-      <NotificationSingle
+      <Notification
         additionalStyles={styles.notification}
         text="3 new users in your group"
         icon={{ jpg: '/images/icons/iconExclamationMark.png' }}
       />
-      <NotificationSingle
+      <Notification
         additionalStyles={styles.notification}
         text="3 new users in your group"
         icon={{ jpg: '/images/icons/iconQuestionMark.png' }}
