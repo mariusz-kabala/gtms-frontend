@@ -66,11 +66,13 @@ export class MyGroupsQuery extends Query<IMyGroupsStore> {
   public status = (values = this.getValue()) => ({
     isLoading: values.isLoading,
     errorOccurred: values.errorOccurred,
+    isLoaded: values.isLoaded,
   })
 
   public status$: Observable<{
     isLoading: boolean
     errorOccurred: boolean
+    isLoaded: boolean
   }> = this.select((values) => this.status(values))
 
   public isGroupOwner = (groupId: string, values = this.getValue()) => {

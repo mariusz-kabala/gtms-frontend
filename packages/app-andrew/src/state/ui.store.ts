@@ -6,6 +6,7 @@ export class UIStore extends Store<IUI> {
   constructor() {
     super({
       isLoginModalOpen: false,
+      isNotificationsBarOpen: false,
     })
   }
 }

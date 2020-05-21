@@ -20,6 +20,7 @@
     "@gtms/state-group": "0.5.4",
     "@gtms/state-tag": "0.1.0",
     "@gtms/state-user": "0.7.5",
+    "@gtms/state-notification": "*",
     "@gtms/styles": "0.7.1",
     "@gtms/ui": "0.16.1"
   }
