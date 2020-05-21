@@ -122,7 +122,7 @@
     "prettier": "prettier --write '**/*.{js,jsx,json,css,scss,less,md,ts,tsx}'",
     "preversion": "yarn check:ts && yarn eslint && yarn test:coverage",
     "eslint": "eslint \"**/*.ts\" \"**/*.tsx\"",
-    "check:ts": "tsc --noEmit -p tsconfig.json",
+    "check:ts": "yarn workspaces run check:ts",
     "fake-api": "dyson .fakeAPI",
     "fake-api:watch": "nodemon --watch .fakeAPI --exec dyson .fakeAPI",
     "release": "standard-version",

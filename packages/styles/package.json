@@ -2,8 +2,10 @@
   "name": "@gtms/styles",
   "version": "0.7.1",
   "sass": "./scss/index.scss",
+  "license": "ISC",
   "scripts": {
     "build": "exit 0",
-    "setup:ts": "exit 0"
+    "setup:ts": "exit 0",
+    "check:ts": "exit 0"
   }
 }

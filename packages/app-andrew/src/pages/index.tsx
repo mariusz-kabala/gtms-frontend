@@ -8,7 +8,7 @@ import { Button } from '@gtms/ui/Button'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Logout } from '@gtms/ui/Logout'
 import { Modal } from '@gtms/ui/Modal'
-import { NotificationsGlobal } from '@gtms/ui/Notifications/NotificationsGlobal'
+// import { NotificationsGlobal } from '@gtms/ui/Notifications/NotificationsGlobal'
 import { PolAndRock } from '@gtms/ui/PolAndRock'
 import { RecentlyCreatedGroups } from '@gtms/ui/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
@@ -29,7 +29,7 @@ export const HomePage: NextPage<HomePageProps> = ({ users, groups }) => {
 
   return (
     <div className={styles.wrapper} data-testid="home-page">
-      <NotificationsGlobal />
+      {/* <NotificationsGlobal /> */}
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
           <InviteFriends />
