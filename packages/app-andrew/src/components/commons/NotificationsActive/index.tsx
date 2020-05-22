@@ -23,15 +23,11 @@ export const NotificationsActive: FC<{
     return sub.unsubscribe
   }, [])
 
-  if (notifications.length === 0) {
-    return null
-  }
-
   return (
     <div
       data-testid={'notifications-global'}
       className={cx(styles.wrapper, additionalStyles, {
-        [styles.opened]: true,
+        [styles.opened]: notifications.length > 0,
       })}
     >
       {notifications.map((notification) => (
