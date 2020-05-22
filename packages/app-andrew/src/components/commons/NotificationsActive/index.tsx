@@ -2,31 +2,28 @@ import React, { FC, useState, useEffect } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { Notification } from '@gtms/ui/Notification'
-import { baseUIQuery, INotificationsActiveState } from 'queries'
-
-import { notificationsQuery } from '@gtms/state-notification'
+import {
+  notificationsQuery,
+  INotification,
+  markAsRead,
+} from '@gtms/state-notification'
+import { NotificationIcons } from 'enums'
 
 export const NotificationsActive: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
-  const [state, setState] = useState<INotificationsActiveState>(
-    baseUIQuery.notificationsActive()
+  const [notifications, setNotifications] = useState<INotification[]>(
+    notificationsQuery.unread()
   )
 
   useEffect(() => {
-    const sub = baseUIQuery.notificationsActive$.subscribe((values) => {
-      console.log('on sub!')
-      setState(values)
-    })
-
-    const sub2 = notificationsQuery.unread$.subscribe((values) => {
-      console.log('update is here', values)
-    })
-
-    return sub.unsubscribe()
+    const sub = notificationsQuery.unread$.subscribe((values) =>
+      setNotifications(values)
+    )
+    return sub.unsubscribe
   }, [])
-  console.log('RENDER', state)
-  if (!state.isVisible) {
+
+  if (notifications.length === 0) {
     return null
   }
 
@@ -37,21 +34,16 @@ export const NotificationsActive: FC<{
         [styles.opened]: true,
       })}
     >
-      <Notification
-        additionalStyles={styles.notification}
-        text="3 new users in your group"
-        icon={{ jpg: '/images/icons/iconCelebrate.png' }}
-      />
-      <Notification
-        additionalStyles={styles.notification}
-        text="3 new users in your group"
-        icon={{ jpg: '/images/icons/iconExclamationMark.png' }}
-      />
-      <Notification
-        additionalStyles={styles.notification}
-        text="3 new users in your group"
-        icon={{ jpg: '/images/icons/iconQuestionMark.png' }}
-      />
+      {notifications.map((notification) => (
+        <Notification
+          key={`notification-${notification.id}`}
+          onClick={() => markAsRead(notification.id)}
+          additionalStyles={styles.notification}
+          text={notification.text}
+          left={notification.left}
+          icon={NotificationIcons[notification.type]}
+        />
+      ))}
     </div>
   )
 }

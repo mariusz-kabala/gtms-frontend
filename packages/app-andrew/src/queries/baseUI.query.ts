@@ -24,6 +24,8 @@ export interface INavigationProps {
 
 export interface INotificationsSidebarProps {
   isOpen: boolean
+  notifications: INotification[]
+  unreadCount: number
 }
 
 export interface INavigationDotsProps {
@@ -31,11 +33,6 @@ export interface INavigationDotsProps {
   isLogged: boolean
   isLoaded: boolean
   groups: IGroup[]
-}
-
-export interface INotificationsActiveState {
-  isVisible: boolean
-  notifications: INotification[]
 }
 
 export class BaseUIQuery {
@@ -63,6 +60,8 @@ export class BaseUIQuery {
     return {
       isOpen:
         this.userQuery.isLogged() && this.uiQuery.isNotificationsBarOpen(),
+      notifications: this.notificationsQuery.getAll(),
+      unreadCount: this.notificationsQuery.unread().length,
     }
   }
 
@@ -70,7 +69,8 @@ export class BaseUIQuery {
     INotificationsSidebarProps
   > = combineLatest(
     this.userQuery.isLogged$,
-    this.uiQuery.isNotificationsBarOpen$
+    this.uiQuery.isNotificationsBarOpen$,
+    this.notificationsQuery.select()
   ).pipe(map(() => this.notificationsSidebar()))
 
   public navigationDots = (): INavigationDotsProps => {
@@ -94,17 +94,6 @@ export class BaseUIQuery {
     this.myGroupsQuery.status$,
     this.myGroupsQuery.favGroups$
   ).pipe(map(() => this.navigationDots()))
-
-  public notificationsActive = (): INotificationsActiveState => {
-    return {
-      isVisible: this.notificationsQuery.hasUnread(),
-      notifications: this.notificationsQuery.unread(),
-    }
-  }
-
-  public notificationsActive$: Observable<
-    INotificationsActiveState
-  > = this.notificationsQuery.
 }
 //
 export const baseUIQuery = new BaseUIQuery(

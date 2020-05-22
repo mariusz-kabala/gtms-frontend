@@ -97,6 +97,8 @@ export const removeFromFavs = (group: IGroup) => {
 
   favs.splice(index, 1)
 
+  addSuccessNotification('Group has been removed to your favs')
+
   myGroupsStore.update({
     favs: [...favs],
   })
@@ -109,13 +111,21 @@ export const joinGroup = async (group: IGroup) => {
     return
   }
 
-  await joinGroupAPI(group.slug)
+  try {
+    await joinGroupAPI(group.slug)
 
-  groupMember.push(group)
+    addSuccessNotification(`You have joined ${group.name}!`)
 
-  myGroupsStore.update({
-    member: [...groupMember],
-  })
+    groupMember.push(group)
+
+    myGroupsStore.update({
+      member: [...groupMember],
+    })
+  } catch {
+    addErrorNotification(
+      `Error occured, you can not join this group now. Try later`
+    )
+  }
 }
 
 export const leaveGroup = async (group: IGroup) => {
@@ -126,11 +136,19 @@ export const leaveGroup = async (group: IGroup) => {
     return
   }
 
-  await leaveGroupAPI(group.slug)
+  try {
+    await leaveGroupAPI(group.slug)
 
-  groupMember.splice(index, 1)
+    addSuccessNotification(`You successfully left ${group.name}!`)
 
-  myGroupsStore.update({
-    member: [...groupMember],
-  })
+    groupMember.splice(index, 1)
+
+    myGroupsStore.update({
+      member: [...groupMember],
+    })
+  } catch {
+    addErrorNotification(
+      `Error occured, you can not leave this group now. Try later`
+    )
+  }
 }
