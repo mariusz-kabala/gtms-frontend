@@ -43,7 +43,7 @@ class GTMSApp extends App<GTMSAppProps> {
       <>
         <div className={styles.wrapper}>
           <Navigation />
-          <NotificationsSidebar isActive={true} />
+          <NotificationsSidebar />
           <NotificationsActive />
           <Component {...pageProps} />
         </div>
