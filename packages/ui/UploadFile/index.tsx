@@ -11,6 +11,7 @@ export const UploadFile: FC<{
   onClick?: () => unknown
   isLoading?: boolean
   isError?: boolean
+  accept?: string[]
   onDrop: (
     acceptedFiles: File[],
     rejectedFiles: File[],
@@ -22,8 +23,12 @@ export const UploadFile: FC<{
   onDrop,
   isLoading = false,
   isError = false,
+  accept = [],
 }) => {
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept,
+  })
   const { t } = useTranslation('uploadFileComponent')
 
   return (

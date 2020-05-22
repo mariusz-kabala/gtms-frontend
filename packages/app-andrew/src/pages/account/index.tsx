@@ -1,12 +1,15 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
+import { FileStatus } from '@gtms/commons/enums'
 import styles from './styles.scss'
-import { ChangePassword } from '../../components/account/ChangePassword'
-import { DeleteAccount } from '../../components/account/DeleteAccount'
-import { UserEmail } from '../../components/account/UserEmail'
-import { UserName } from '../../components/account/UserName'
-import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
+import { ChangePassword } from 'components/account/ChangePassword'
+import { DeleteAccount } from 'components/account/DeleteAccount'
+import { UserEmail } from 'components/account/UserEmail'
+import { UserName } from 'components/account/UserName'
+import { ImageEditor } from '@gtms/ui/ImageEditor'
+import { Spinner } from '@gtms/ui/Spinner'
+import { Picture } from '@gtms/ui/Picture'
 import { TagsBar } from '@gtms/ui/TagsBar'
 import {
   userQuery,
@@ -14,9 +17,11 @@ import {
   IAccountDetails,
   updateAccountDetails,
   initAccountDetails,
+  updateAccountAvatar,
 } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { findTagsAPI } from '@gtms/api-tags'
+import { UserAvatarNoImage } from 'enums'
 
 type AccountPageProps = {
   namespacesRequired: readonly string[]
@@ -25,6 +30,9 @@ type AccountPageProps = {
 
 export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
   const { t } = useTranslation('account')
+  const [isAvatarEditorVisible, setIsAvatarEditorVisible] = useState<boolean>(
+    false
+  )
   const [tags, setTags] = useState<string[]>(accountDetails.tags)
   const [details, setDetails] = useState<IAccountDetails>(accountDetails)
   const [isSaving, setIsSaving] = useState<boolean>(false)
@@ -94,7 +102,7 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
       sub.unsubscribe()
     }
   }, [])
-
+  details
   return (
     <div className={styles.wrapper} data-testid="account-page">
       <div className={styles.content}>
@@ -105,10 +113,24 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
           <span className={styles.visibilityLabel}>
             This part is visible for EVERYONE
           </span>
-          <ImageWithLightbox
-            additionalStyles={styles.userImage}
-            src={{ jpg: '/images/temp_images/avatar-1.png' }}
+          <ImageEditor
+            isVisible={isAvatarEditorVisible}
+            onSave={(file: File) => {
+              updateAccountAvatar(file)
+              setIsAvatarEditorVisible(false)
+            }}
+            onClose={() => setIsAvatarEditorVisible(false)}
           />
+          <a onClick={() => setIsAvatarEditorVisible(true)}>
+            {[FileStatus.uploaded, FileStatus.processing].includes(
+              details.avatar.status
+            ) && <Spinner />}
+            <Picture
+              {...(userQuery.hasAvatar('200x200')
+                ? userQuery.getAvatar('200x200')
+                : UserAvatarNoImage['200x200'])}
+            />
+          </a>
           <p className={styles.desc}>
             {t('title')}
             Dolore tempor reprehenderit dolor deserunt et. Consequat occaecat

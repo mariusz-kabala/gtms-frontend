@@ -2,6 +2,7 @@ import { Query } from '@datorama/akita'
 import { userStore, UserStore, IUserStore } from './user.store'
 import { map } from 'rxjs/operators'
 import { combineLatest, Observable } from 'rxjs'
+import { IUserAvatar } from '@gtms/commons/models'
 
 export interface IAccountDetails {
   id: string
@@ -11,6 +12,7 @@ export interface IAccountDetails {
   email: string
   roles: string[]
   tags: string[]
+  avatar: IUserAvatar
 }
 
 export class UserQuery extends Query<IUserStore> {
@@ -113,6 +115,7 @@ export class UserQuery extends Query<IUserStore> {
     email: values.email,
     roles: values.roles,
     tags: values.tags,
+    avatar: values.avatar,
   })
 
   public accountDetails$: Observable<IAccountDetails> = this.select((values) =>

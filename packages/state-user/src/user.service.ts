@@ -14,6 +14,7 @@ import {
   fetchAccountDetails,
   updateAccountAPI,
   IAccountUpdatePayload,
+  uploadUserAvatar,
 } from '@gtms/api-auth'
 import { IJWT } from '@gtms/api-auth'
 import { userStore } from './user.store'
@@ -179,7 +180,14 @@ export const logoutUser = () => {
 export const getAccountDetails = async () => {
   const details = await fetchAccountDetails()
 
-  userStore.update(details)
+  if (
+    Array.isArray(details.avatar?.files) &&
+    details.avatar?.status === FileStatus.ready
+  ) {
+    details.avatar.files = parseFiles(details.avatar.files)
+  }
+
+  userStore.update(details as IAccountDetails)
 }
 
 export const initAccountDetails = (details: IAccountDetails) => {
@@ -189,5 +197,20 @@ export const initAccountDetails = (details: IAccountDetails) => {
 export const updateAccountDetails = async (payload: IAccountUpdatePayload) => {
   const details = await updateAccountAPI(payload)
 
-  userStore.update(details)
+  userStore.update(details as IAccountDetails)
+}
+
+export const updateAccountAvatar = async (file: File) => {
+  const state = userStore.getValue()
+
+  userStore.update({
+    avatar: {
+      ...state.avatar,
+      status: FileStatus.uploaded,
+    },
+  })
+
+  await uploadUserAvatar(state.id, file)
+
+  setTimeout(getAccountDetails, 2500)
 }
