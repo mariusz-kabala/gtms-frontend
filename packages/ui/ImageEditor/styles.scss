@@ -1,0 +1,41 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/buttons';
+
+.wrapper {
+  min-width: 800px;
+}
+
+.editor {
+  display: flex;
+  flex-direction: row;
+
+  .tools {
+    display: flex;
+    flex-direction: column;
+
+    .option {
+      margin: 5px 0;
+      label {
+        @include font-weight('bold');
+        @include font-size('default');
+        display: block;
+        margin-bottom: 5px;
+        color: $theme5;
+      }
+      button {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.btn {
+  @include buttonDefault();
+  @include buttonColorsDefault();
+
+  &:hover {
+    @include buttonColorsHoverDefault();
+  }
+}

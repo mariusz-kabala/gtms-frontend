@@ -1,4 +1,5 @@
 import { fetchJSON, makeApiUrl } from '@gtms/api-common'
+import { FileStatus } from '@gtms/commons/enums'
 
 export interface IAccountDetailsResponse {
   id: string
@@ -8,6 +9,10 @@ export interface IAccountDetailsResponse {
   languageCode: string
   tags: string[]
   roles: string[]
+  avatar?: {
+    status: FileStatus
+    files: string[]
+  }
 }
 
 export const fetchAccountDetails = () =>
