@@ -9,7 +9,9 @@ export const Notification: FC<{
   additionalStyles?: string
   icon: { jpg: string; webp?: string }
   text: string
-}> = ({ additionalStyles, icon, text }) => {
+  left: number
+  onClick?: () => unknown
+}> = ({ additionalStyles, icon, text, left, onClick }) => {
   return (
     <li
       data-testid={'notification-single'}
@@ -18,12 +20,12 @@ export const Notification: FC<{
       <Picture additionalStyles={styles.notificationIcon} {...icon} />
       <p className={styles.desc}>{text}</p>
       <div className={styles.close}>
-        <i className={styles.iconClose}>
+        <i onClick={onClick} className={styles.iconClose}>
           <IoMdCloseCircle />
         </i>
         <CircularProgressbar
           className={styles.CircularProgressbar}
-          value={66}
+          value={left}
         />
       </div>
     </li>

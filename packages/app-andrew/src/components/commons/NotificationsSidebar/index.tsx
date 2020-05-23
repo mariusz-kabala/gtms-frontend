@@ -6,12 +6,13 @@ import { Scrollbars } from 'react-custom-scrollbars'
 import { IoMdCloseCircle } from 'react-icons/io'
 import { Notification } from '@gtms/ui/Notification'
 import { INotificationsSidebarProps, baseUIQuery } from 'queries'
+import { NotificationIcons } from 'enums'
+import { INotification, deleteNotification } from '@gtms/state-notification'
+import { closeSidebarNotifications } from 'state'
 
 export const NotificationsSidebar: FC<{
   additionalStyles?: string
-  isActive: boolean
-  onClose: () => unknown
-}> = ({ additionalStyles, isActive, onClose }) => {
+}> = ({ additionalStyles }) => {
   const [state, setState] = useState<INotificationsSidebarProps>(
     baseUIQuery.notificationsSidebar()
   )
@@ -26,7 +27,7 @@ export const NotificationsSidebar: FC<{
 
   useKey(
     () => {
-      onClose()
+      closeSidebarNotifications()
     },
     {
       detectKeys: [27],
@@ -41,23 +42,28 @@ export const NotificationsSidebar: FC<{
     <div
       data-testid={'notifications-sidebar'}
       className={cx(styles.wrapper, additionalStyles, {
-        [styles.opened]: isActive,
+        [styles.opened]: state.isOpen,
       })}
     >
       <div className={styles.content}>
         <Scrollbars style={{ height: '100vh' }}>
           <div className={styles.header}>
-            <h2>Powiadomienia (nowe: 34)</h2>
+            <h2>Powiadomienia (nowe: {state.unreadCount})</h2>
             <i className={styles.iconClose}>
-              <IoMdCloseCircle onClick={() => onClose()} />
+              <IoMdCloseCircle onClick={closeSidebarNotifications} />
             </i>
           </div>
           <ul>
-            <Notification
-              additionalStyles={styles.notification}
-              text="3 new users in your group"
-              icon={{ jpg: '/images/icons/iconCelebrate.png' }}
-            />
+            {state.notifications.map((notification: INotification) => (
+              <Notification
+                key={`notification-${notification.id}`}
+                onClick={() => deleteNotification(notification.id)}
+                additionalStyles={styles.notification}
+                text={notification.text}
+                left={notification.left}
+                icon={NotificationIcons[notification.type]}
+              />
+            ))}
           </ul>
         </Scrollbars>
       </div>

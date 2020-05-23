@@ -1,33 +1,45 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { Notification } from '@gtms/ui/Notification'
+import {
+  notificationsQuery,
+  INotification,
+  markAsRead,
+} from '@gtms/state-notification'
+import { NotificationIcons } from 'enums'
 
 export const NotificationsActive: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
+  const [notifications, setNotifications] = useState<INotification[]>(
+    notificationsQuery.unread()
+  )
+
+  useEffect(() => {
+    const sub = notificationsQuery.unread$.subscribe((values) =>
+      setNotifications(values)
+    )
+    return sub.unsubscribe
+  }, [])
+
   return (
     <div
       data-testid={'notifications-global'}
       className={cx(styles.wrapper, additionalStyles, {
-        [styles.opened]: true,
+        [styles.opened]: notifications.length > 0,
       })}
     >
-      <Notification
-        additionalStyles={styles.notification}
-        text="3 new users in your group"
-        icon={{ jpg: '/images/icons/iconCelebrate.png' }}
-      />
-      <Notification
-        additionalStyles={styles.notification}
-        text="3 new users in your group"
-        icon={{ jpg: '/images/icons/iconExclamationMark.png' }}
-      />
-      <Notification
-        additionalStyles={styles.notification}
-        text="3 new users in your group"
-        icon={{ jpg: '/images/icons/iconQuestionMark.png' }}
-      />
+      {notifications.map((notification) => (
+        <Notification
+          key={`notification-${notification.id}`}
+          onClick={() => markAsRead(notification.id)}
+          additionalStyles={styles.notification}
+          text={notification.text}
+          left={notification.left}
+          icon={NotificationIcons[notification.type]}
+        />
+      ))}
     </div>
   )
 }

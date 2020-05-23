@@ -17,6 +17,10 @@ import {
   FileStatus,
   parseFiles,
 } from '@gtms/commons'
+import {
+  addSuccessNotification,
+  addErrorNotification,
+} from '@gtms/state-notification'
 
 export const createNewGroup = async (payload: {
   name: string
@@ -30,6 +34,8 @@ export const createNewGroup = async (payload: {
   }
 
   const response = await createGroupAPI(data)
+
+  addSuccessNotification(`Your new group is ready!`)
 
   return response
 }
@@ -86,15 +92,24 @@ export const getGroup = async (slug: string) => {
 }
 
 export const updateGroup = async (data: IGroupData, slug: string) => {
-  const group = (await updateGroupAPI(data, slug)) as IGroupDetailsResponse
+  try {
+    const group = (await updateGroupAPI(data, slug)) as IGroupDetailsResponse
 
-  if (Array.isArray(group.avatar?.files) && group.avatar?.status === 'ready') {
-    group.avatar.files = parseFiles(group.avatar.files)
+    addSuccessNotification(`Group settings has been updated`)
+
+    if (
+      Array.isArray(group.avatar?.files) &&
+      group.avatar?.status === 'ready'
+    ) {
+      group.avatar.files = parseFiles(group.avatar.files)
+    }
+
+    groupStore.update({
+      group: group as IGroup,
+    })
+  } catch {
+    addErrorNotification('Error occured, try again later')
   }
-
-  groupStore.update({
-    group: group as IGroup,
-  })
 }
 
 export const updateGroupAvatar = async (file: File, id?: string) => {
@@ -106,7 +121,13 @@ export const updateGroupAvatar = async (file: File, id?: string) => {
     throw new Error('Group id has to be defined')
   }
 
-  await uploadGroupAvatar(id, file)
+  try {
+    await uploadGroupAvatar(id, file)
+    addSuccessNotification(`Group's avatar has been updated`)
+  } catch {
+    addErrorNotification('Error occured, try again later')
+    return
+  }
 
   const group = groupStore.getValue().group as IGroup
 

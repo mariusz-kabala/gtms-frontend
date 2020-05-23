@@ -4,6 +4,11 @@ import {
   MyGroupsQuery,
   myGroupsQuery,
 } from '@gtms/state-user'
+import {
+  notificationsQuery,
+  NotificationsQuery,
+  INotification,
+} from '@gtms/state-notification'
 import { IGroup } from '@gtms/commons'
 import { uiQuery, UIQuery } from 'state'
 import { Observable, combineLatest } from 'rxjs'
@@ -19,6 +24,8 @@ export interface INavigationProps {
 
 export interface INotificationsSidebarProps {
   isOpen: boolean
+  notifications: INotification[]
+  unreadCount: number
 }
 
 export interface INavigationDotsProps {
@@ -32,7 +39,8 @@ export class BaseUIQuery {
   constructor(
     private userQuery: UserQuery,
     private uiQuery: UIQuery,
-    private myGroupsQuery: MyGroupsQuery
+    private myGroupsQuery: MyGroupsQuery,
+    private notificationsQuery: NotificationsQuery
   ) {}
 
   public navigation = (): INavigationProps => {
@@ -52,6 +60,8 @@ export class BaseUIQuery {
     return {
       isOpen:
         this.userQuery.isLogged() && this.uiQuery.isNotificationsBarOpen(),
+      notifications: this.notificationsQuery.getAll(),
+      unreadCount: this.notificationsQuery.unread().length,
     }
   }
 
@@ -59,7 +69,8 @@ export class BaseUIQuery {
     INotificationsSidebarProps
   > = combineLatest(
     this.userQuery.isLogged$,
-    this.uiQuery.isNotificationsBarOpen$
+    this.uiQuery.isNotificationsBarOpen$,
+    this.notificationsQuery.select()
   ).pipe(map(() => this.notificationsSidebar()))
 
   public navigationDots = (): INavigationDotsProps => {
@@ -84,5 +95,10 @@ export class BaseUIQuery {
     this.myGroupsQuery.favGroups$
   ).pipe(map(() => this.navigationDots()))
 }
-
-export const baseUIQuery = new BaseUIQuery(userQuery, uiQuery, myGroupsQuery)
+//
+export const baseUIQuery = new BaseUIQuery(
+  userQuery,
+  uiQuery,
+  myGroupsQuery,
+  notificationsQuery
+)

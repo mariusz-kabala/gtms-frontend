@@ -7,5 +7,9 @@ export enum NotificationTypes {
 export interface INotification {
   type: NotificationTypes
   text: string
-  createdAt: string
+  createdAt: number
+  expiresAt: number
+  left: number
+  id: number
+  isRead: boolean
 }

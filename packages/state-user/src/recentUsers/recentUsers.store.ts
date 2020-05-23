@@ -1,7 +1,7 @@
 import { EntityState, EntityStore } from '@datorama/akita'
 import { IUser } from '@gtms/commons/models'
 
-export type RecentUsersState = EntityState<IUser, number>
+export type RecentUsersState = EntityState<IUser, string>
 
 export class RecentUsersStore extends EntityStore<RecentUsersState> {
   constructor() {
