@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.10.0...@gtms/commons@0.11.0) (2020-05-23)
+
+
+### Features
+
+* GEOT-221: add image editor ([#577](https://github.com/gtms-org/gtms-frontend/issues/577)) ([9f049bf](https://github.com/gtms-org/gtms-frontend/commit/9f049bf4cd0cde62ff2b4df8ff6635ba4ed1bcfe))
+
+
+
+
+
 # [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.9.0...@gtms/commons@0.10.0) (2020-05-21)
 
 

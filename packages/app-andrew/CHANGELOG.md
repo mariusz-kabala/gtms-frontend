@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.22.0...@gtms/app-andrew@0.23.0) (2020-05-23)
+
+
+### Features
+
+* GEOT-221: add image editor ([#577](https://github.com/gtms-org/gtms-frontend/issues/577)) ([9f049bf](https://github.com/gtms-org/gtms-frontend/commit/9f049bf4cd0cde62ff2b4df8ff6635ba4ed1bcfe))
+* GEOT-262 fully working notification system ([#575](https://github.com/gtms-org/gtms-frontend/issues/575)) ([8f23636](https://github.com/gtms-org/gtms-frontend/commit/8f23636bec59543f1e98612f0aad870e0da27781))
+
+
+
+
+
 # [0.22.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.21.1...@gtms/app-andrew@0.22.0) (2020-05-21)
 
 

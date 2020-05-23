@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.6.0...@gtms/state-group@0.7.0) (2020-05-23)
+
+
+### Features
+
+* GEOT-262 fully working notification system ([#575](https://github.com/gtms-org/gtms-frontend/issues/575)) ([8f23636](https://github.com/gtms-org/gtms-frontend/commit/8f23636bec59543f1e98612f0aad870e0da27781))
+
+
+
+
+
 # [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.5.4...@gtms/state-group@0.6.0) (2020-05-21)
 
 
