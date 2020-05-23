@@ -102,7 +102,7 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
       sub.unsubscribe()
     }
   }, [])
-  details
+
   return (
     <div className={styles.wrapper} data-testid="account-page">
       <div className={styles.content}>
