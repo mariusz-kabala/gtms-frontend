@@ -7,18 +7,34 @@ import { TagGroup } from '@gtms/ui/TagGroup'
 import { useTranslation } from '@gtms/commons/i18n'
 import { UserAvatar } from '../UserAvatar'
 import { Link } from '@gtms/commons/i18n'
+import { IUser } from '@gtms/commons/models'
+import { getImage } from '@gtms/commons/helpers'
+import { Spinner } from '../Spinner'
 
 export const GroupCard: FC<{
   name: string
   description?: string
   slug: string
   tags: string[]
-  avatar: {
+  logo: {
     jpg: string
     webp?: string
   }
+  noUserAvatar: { [key: string]: { jpg: string; webp?: string } }
+  isLoading: boolean
+  members: IUser[]
   additionalStyles?: string
-}> = ({ additionalStyles, name, description, tags, avatar, slug }) => {
+}> = ({
+  additionalStyles,
+  name,
+  description,
+  tags,
+  logo,
+  slug,
+  isLoading,
+  members,
+  noUserAvatar,
+}) => {
   const { t } = useTranslation('groupCardComponent')
 
   return (
@@ -30,7 +46,7 @@ export const GroupCard: FC<{
         <div className={styles.left}>
           <Link href={`/group/${slug}`}>
             {/* THIS SHOULD BE A REGURAL IMAGE SO USER CAN CLICK AND OPEN GROUP PAGE */}
-            <ImageWithLightbox additionalStyles={styles.image} src={avatar} />
+            <ImageWithLightbox additionalStyles={styles.image} src={logo} />
           </Link>
         </div>
         <div className={styles.right}>
@@ -54,53 +70,27 @@ export const GroupCard: FC<{
               <p>{t('tags-not-added-yet')}</p>
             )}
             <h3>{t('groupsMembers')}</h3>
-            <ul
-              className={cx(styles.users, additionalStyles)}
-              data-testid="recently-registered-users"
-            >
-              <li className={styles.user}>
-                <UserAvatar
-                  image={{ jpg: '/images/avatars/avatar-1.png' }}
-                  additionalStyles={styles.userAvatar}
-                />
-                <span>Tim Cook</span>
-              </li>
-              <li className={styles.user}>
-                <UserAvatar
-                  image={{ jpg: '/images/avatars/avatar-2.png' }}
-                  additionalStyles={styles.userAvatar}
-                />
-                <span>Larry Ellison</span>
-              </li>
-              <li className={styles.user}>
-                <UserAvatar
-                  image={{ jpg: '/images/avatars/avatar-3.png' }}
-                  additionalStyles={styles.userAvatar}
-                />
-                <span>Sundar Pichai</span>
-              </li>
-              <li className={styles.user}>
-                <UserAvatar
-                  image={{ jpg: '/images/avatars/avatar-4.png' }}
-                  additionalStyles={styles.userAvatar}
-                />
-                <span>Johnatan Ive</span>
-              </li>
-              <li className={styles.user}>
-                <UserAvatar
-                  image={{ jpg: '/images/avatars/avatar-5.png' }}
-                  additionalStyles={styles.userAvatar}
-                />
-                <span>Bill Atkinson</span>
-              </li>
-              <li className={styles.user}>
-                <UserAvatar
-                  image={{ jpg: '/images/avatars/avatar-6.png' }}
-                  additionalStyles={styles.userAvatar}
-                />
-                <span>Bill Fernandez</span>
-              </li>
-            </ul>
+            {isLoading && (
+              <p className={styles.spinner}>
+                <Spinner />
+              </p>
+            )}
+            {!isLoading && members.length > 0 && (
+              <ul
+                className={cx(styles.users, additionalStyles)}
+                data-testid="recently-registered-users"
+              >
+                {members.map((member) => (
+                  <li className={styles.user} key={`member-${member.id}`}>
+                    <UserAvatar
+                      image={getImage('50x50', member.avatar, noUserAvatar)}
+                      additionalStyles={styles.userAvatar}
+                    />
+                    <span />
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </div>

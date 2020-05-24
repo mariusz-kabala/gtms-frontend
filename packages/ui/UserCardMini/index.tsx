@@ -23,11 +23,10 @@ export const UserCardMini: FC<{
       />
       <h2 className={styles.header}>{name}</h2>
       <span className={styles.members}>
-        <IoIosPeople /> {t('members')}: 201
+        <IoIosPeople /> {t('members')}: ??
       </span>
       <div className={styles.desc}>
         <h2 className={styles.nameSurname}>{name}</h2>
-        <span className={styles.members}>{t('members')}: ??</span>
         {desc && (
           <div className={styles.desc}>
             <p>{desc}</p>
