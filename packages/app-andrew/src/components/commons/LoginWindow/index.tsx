@@ -1,9 +1,9 @@
 import React, { FC, useState, useEffect } from 'react'
 import { Modal } from '@gtms/ui/Modal'
-import { LoginForm } from '../../login/Form'
-import { SocialButtons } from '../../login/SocialButtons'
+import { LoginForm } from 'components/login/Form'
+import { SocialButtons } from 'components/login/SocialButtons'
 import styles from './styles.scss'
-import { uiQuery } from '../../../state'
+import { uiQuery } from 'state'
 import { Link } from '@gtms/commons/i18n'
 
 export const LoginWindow: FC<{}> = () => {

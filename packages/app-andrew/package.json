@@ -23,6 +23,7 @@
     "@gtms/state-notification": "0.2.0",
     "@gtms/state-tag": "0.3.0",
     "@gtms/state-user": "0.9.0",
+    "@gtms/state-post": "*",
     "@gtms/styles": "0.8.0",
     "@gtms/ui": "0.18.0"
   }

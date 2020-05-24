@@ -1,11 +1,11 @@
 import { QueryEntity } from '@datorama/akita'
 import {
-  PromotedTagsState,
+  IPromotedTagsState,
   PromotedTagsStore,
   promotedTagsStore,
 } from './promotedTags.store'
 
-export class PromotedTagsQuery extends QueryEntity<PromotedTagsState> {
+export class PromotedTagsQuery extends QueryEntity<IPromotedTagsState> {
   constructor(protected store: PromotedTagsStore) {
     super(store)
   }

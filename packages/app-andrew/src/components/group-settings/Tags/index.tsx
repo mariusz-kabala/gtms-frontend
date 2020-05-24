@@ -12,6 +12,7 @@ import {
   promotedTagsQuery,
   deletePromotedTag,
 } from '@gtms/state-tag'
+import { IPromotedTag } from '@gtms/commons/models'
 
 export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
   const [tags, setTags] = useState<string[]>(props.tags)
@@ -95,7 +96,7 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
                     onClick={() => {
                       if (
                         promotedTagsQuery.hasEntity(
-                          (promoted) => promoted.tag === tag
+                          (promoted: IPromotedTag) => promoted.tag === tag
                         )
                       ) {
                         // add a message here later
@@ -144,7 +145,7 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
         </h3>
         <PromotedTags
           onEdit={(id) => {
-            const promotedTag = promotedTagsQuery.getEntity(id as any)
+            const promotedTag = promotedTagsQuery.getEntity(id)
             setPromotedTagEditor({
               id: promotedTag.id,
               description: promotedTag.description,

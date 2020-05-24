@@ -1,7 +1,7 @@
 import { Store } from '@datorama/akita'
 import { IGroup } from '@gtms/commons'
 
-export interface IGroupStore {
+export interface IGroupState {
   isLoading: boolean
   hasNoAccess: boolean
   notFound: boolean
@@ -9,7 +9,7 @@ export interface IGroupStore {
   group: IGroup | null
 }
 
-export class GroupsStore extends Store<IGroupStore> {
+export class GroupsStore extends Store<IGroupState> {
   constructor() {
     super(
       {
