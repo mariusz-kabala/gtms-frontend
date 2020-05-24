@@ -8,7 +8,7 @@ import {
   IGroupData,
   uploadGroupAvatar,
 } from '@gtms/api-group'
-import { groupStore, IGroupStore } from './group.store'
+import { groupStore, IGroupState } from './group.store'
 import { groupQuery } from './group.query'
 import {
   IGroup,
@@ -40,7 +40,7 @@ export const createNewGroup = async (payload: {
   return response
 }
 
-export const initGroup = (data: IGroupStore) => groupStore.update(data)
+export const initGroup = (data: IGroupState) => groupStore.update(data)
 
 export const getGroup = async (slug: string) => {
   groupStore.update({

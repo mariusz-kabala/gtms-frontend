@@ -4,7 +4,7 @@ import {
   createPromotedTagAPI,
   updatePromotedTagAPI,
 } from '@gtms/api-tags'
-import { promotedTagsStore } from './promotedTags.store'
+import { promotedTagsStore, IPromotedTagsState } from './promotedTags.store'
 import { promotedTagsQuery } from './promotedTags.query'
 import { parseFiles } from '@gtms/commons/helpers'
 import { FileStatus } from '@gtms/commons/enums'
@@ -12,6 +12,10 @@ import {
   addSuccessNotification,
   addErrorNotification,
 } from '@gtms/state-notification'
+
+export const initPromoted = (data: IPromotedTagsState) => {
+  promotedTagsStore.update(data)
+}
 
 export const loadGroupPromotedTags = async (id: string) => {
   promotedTagsStore.setLoading(true)

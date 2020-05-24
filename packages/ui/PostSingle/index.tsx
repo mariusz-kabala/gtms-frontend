@@ -1,17 +1,23 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { useTranslation } from '@gtms/commons/i18n'
 import { DeletePost } from './DeletePost'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
+import ReactMarkdown from 'react-markdown'
+import { formatDistance } from 'date-fns'
+import { pl } from 'date-fns/locale'
+import { IUser } from '@gtms/commons/models'
+import { FileStatus } from '@gtms/commons/enums'
 
 export const PostSingle: FC<{
+  text: string
+  createdAt: string
   additionalStyles?: string
-}> = ({ additionalStyles }) => {
-  const { t } = useTranslation('postSingleComponent')
-
+  owner: IUser
+  noImage: { [key: string]: { jpg: string; webp?: string } }
+}> = ({ additionalStyles, text, createdAt, owner, noImage }) => {
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -19,20 +25,22 @@ export const PostSingle: FC<{
     >
       <div className={styles.header}>
         <UserAvatar
-          image={{
-            jpg: 'https://www.bootdey.com/img/Content/avatar/avatar6.png',
-          }}
+          image={
+            owner.avatar?.status === FileStatus.ready
+              ? (owner.avatar.files['35x35'] as { jpg: string })
+              : noImage['35x35']
+          }
           additionalStyles={styles.userAvatar}
         />
-        <span>Marty Mcfly</span>
-        <span>10 {t('hoursAgo')}</span>
+        <span>{`${owner.name || ''} ${owner.surname || ''}`.trim()}</span>
+        <span>
+          {formatDistance(new Date(createdAt), new Date(), { locale: pl })}
+        </span>
         <DeletePost additionalStyles={styles.deleteBtn} />
       </div>
       <div className={styles.text}>
         <p>
-          Ex sint non nisi laborum ex in esse aliquip non veniam. Excepteur
-          irure nisi enim laboris fugiat nostrud consequat do in ea. Et minim
-          pariatur proident esse irure nisi ea non sint qui eu incididunt.
+          <ReactMarkdown source={text} />
         </p>
       </div>
       <TagGroup>

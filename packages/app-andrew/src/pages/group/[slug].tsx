@@ -1,63 +1,70 @@
 import React, { useState, useEffect } from 'react'
-import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
-import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
+import { useRouter } from 'next/router'
+import { PromotedTagNoImage, UserAvatarNoImage } from 'enums'
+import {
+  IGroupPageState,
+  groupPageState,
+  groupPageState$,
+} from 'queries/groupPage.query'
+import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IPromotedTag } from '@gtms/commons/models'
+// components
+import { GroupDescription } from 'components/groups/GroupDescription'
+import { GroupNoAccess } from 'components/groups/GroupNoAccess'
+import { GroupNotFound } from 'components/groups/GroupNotFound'
+import { GroupAvatar } from 'components/groups/GroupAvatar'
+import { FavsButton } from 'components/groups/FavsButton'
+import { SettingsButton } from 'components/groups/SettingsButton'
+import { JoinLeaveButton } from 'components/groups/JoinLeaveButton'
+// ui
+import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { Spinner } from '@gtms/ui/Spinner'
-import { GroupDescription } from '../../components/groups/GroupDescription'
-import { GroupNoAccess } from '../../components/groups/GroupNoAccess'
-import { GroupNotFound } from '../../components/groups/GroupNotFound'
-import { GroupAvatar } from '../../components/groups/GroupAvatar'
-import { FavsButton } from '../../components/groups/FavsButton'
-import { SettingsButton } from '../../components/groups/SettingsButton'
-import { JoinLeaveButton } from '../../components/groups/JoinLeaveButton'
-import { PromotedTags } from '@gtms/ui/PromotedTags'
-import { promotedTagsQuery, loadGroupPromotedTags } from '@gtms/state-tag'
-import { PromotedTagNoImage } from '../../enums'
-import { useRouter } from 'next/router'
+import { PostCreate } from '@gtms/ui/PostCreate'
+// state
+import { groupQuery, IGroupState, getGroup, initGroup } from '@gtms/state-group'
+import {
+  promotedTagsQuery,
+  loadGroupPromotedTags,
+  IPromotedTagsState,
+  initPromoted,
+} from '@gtms/state-tag'
+import {
+  createNewPost,
+  getGroupPosts,
+  postsQuery,
+  IPostsState,
+  initPostsStore,
+} from '@gtms/state-post'
+//styles
+import styles from './styles.scss'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
-  group: IGroupStore
+  group?: IGroupState
+  posts?: IPostsState
+  promoted?: IPromotedTagsState
+}
+
+const getInitData = ({ group, posts, promoted }: GroupPageProps) => () => {
+  group && initGroup(group)
+  posts && initPostsStore(posts)
+  promoted && initPromoted(promoted)
 }
 
 const GroupPage: NextPage<GroupPageProps> = (props) => {
+  useInitState(getInitData(props))
+
   const { t } = useTranslation('groupPage')
   const router = useRouter()
-  const [group, setGroup] = useState<IGroupStore>(props.group)
-  const [promoted, setPromoted] = useState<IPromotedTag[]>(
-    promotedTagsQuery.getAll()
-  )
-  const [isLoadingPromotedTags, setIsLoadingPromotedTags] = useState<boolean>(
-    false
-  )
+  const [state, setState] = useState<IGroupPageState>(groupPageState())
 
   useEffect(() => {
-    initGroup(props.group)
+    const sub = groupPageState$.subscribe((value) => setState(value))
 
-    if (props.group.group?.id) {
-      loadGroupPromotedTags(props.group.group.id)
-    }
-
-    const groupSub = groupQuery.allState$.subscribe((value) => setGroup(value))
-    const promotedSub = promotedTagsQuery
-      .selectAll()
-      .subscribe((value) => setPromoted(value))
-
-    const promotedLoadingSub = promotedTagsQuery
-      .selectLoading()
-      .subscribe((value) => {
-        setIsLoadingPromotedTags(value)
-      })
-
-    return () => {
-      groupSub.unsubscribe()
-      promotedSub.unsubscribe()
-      promotedLoadingSub.unsubscribe()
-    }
+    return sub.unsubscribe
   }, [])
 
   return (
@@ -67,30 +74,30 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           <GroupAvatar
             additionalStyles={styles.groupAvatar}
             isEditAllowed={groupQuery.hasAdminRights()}
-            files={groupQuery.getAvatar('200x200', group)}
+            files={groupQuery.getAvatar('200x200', state)}
             filesStatus={groupQuery.getAvatarFileStatus()}
           />
           <div>
             <h2 data-tip={t('click-here-to-edit')} data-type="dark">
-              {group.group?.name}
+              {state.group?.name}
             </h2>
             <GroupDescription
               isEditAllowed={groupQuery.hasAdminRights()}
-              slug={group.group?.slug || ''}
+              slug={state.group?.slug || ''}
               text={
-                !group.group?.description
+                !state.group?.description
                   ? groupQuery.hasAdminRights()
                     ? 'you did not add group description yet, click here to change it'
                     : ''
-                  : group.group?.description || ''
+                  : state.group?.description || ''
               }
             />
           </div>
         </div>
 
-        {group.isLoading && <Spinner />}
+        {state.isLoading && <Spinner />}
 
-        {group.errorOccured && (
+        {state.errorOccured && (
           <ErrorInfo>
             <h1>ERROR OCCURED</h1>
             <p>
@@ -98,26 +105,26 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             </p>
           </ErrorInfo>
         )}
-        {group.notFound && <GroupNotFound />}
-        {group.hasNoAccess && <GroupNoAccess />}
+        {state.notFound && <GroupNotFound />}
+        {state.hasNoAccess && <GroupNoAccess />}
 
-        {group.group && (
+        {state.group && (
           <div className={styles.columns}>
             <div className={styles.column}>
               <div className={styles.actionButtons}>
-                <FavsButton group={group.group} />
-                <JoinLeaveButton group={group.group} />
-                <SettingsButton group={group.group} />
+                <FavsButton group={state.group} />
+                <JoinLeaveButton group={state.group} />
+                <SettingsButton group={state.group} />
               </div>
               <section>
                 <h2 className={styles.header}>{t('promotedTags')}</h2>
                 <PromotedTags
-                  tags={promoted}
-                  isLoading={isLoadingPromotedTags}
+                  tags={state.promotedTags.tags}
+                  isLoading={state.promotedTags.isLoading}
                   noImage={PromotedTagNoImage}
                   isAdmin={groupQuery.hasAdminRights()}
                   onNoRecordsClick={() =>
-                    router.push(`/group/${group.group?.slug}/settings#tags`)
+                    router.push(`/group/${state.group?.slug}/settings#tags`)
                   }
                 />
               </section>
@@ -125,7 +132,23 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <div className={styles.column}>
               <section>
                 <h2 className={styles.header}>{t('recentlyAddedPosts')}</h2>
-                <RecentlyAddedPosts />
+                {state.user && (
+                  <PostCreate
+                    user={state.user}
+                    noImage={UserAvatarNoImage}
+                    onSubmit={(text: string) => {
+                      createNewPost({
+                        group: state.group?.id || '',
+                        text,
+                      })
+                    }}
+                    additionalStyles={styles.postCreate}
+                  />
+                )}
+                <RecentlyAddedPosts
+                  noImage={UserAvatarNoImage}
+                  posts={state.posts}
+                />
               </section>
             </div>
           </div>
@@ -137,18 +160,24 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
 GroupPage.getInitialProps = async (
   ctx: NextPageContext
-): Promise<{
-  namespacesRequired: string[]
-  group: IGroupStore
-}> => {
+): Promise<GroupPageProps> => {
   const { slug } = ctx?.query
 
   await getGroup(slug as string)
 
-  return {
-    namespacesRequired: ['groupPage', 'postCreate'],
-    group: groupQuery.getValue(),
-  }
+  const id = groupQuery.getId() || ''
+
+  return Promise.all([
+    getGroupPosts(id).catch(() => null),
+    loadGroupPromotedTags(id).catch(() => null),
+  ]).then(() => {
+    return {
+      namespacesRequired: ['groupPage', 'postCreate'],
+      group: groupQuery.getValue(),
+      posts: postsQuery.getValue(),
+      promoted: promotedTagsQuery.getValue(),
+    }
+  })
 }
 
 export default GroupPage

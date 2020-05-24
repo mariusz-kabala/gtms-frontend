@@ -1,9 +1,9 @@
 import { Query } from '@datorama/akita'
 import { UserQuery, userQuery } from '@gtms/state-user'
-import { IGroupStore, groupStore, GroupsStore } from './group.store'
+import { IGroupState, groupStore, GroupsStore } from './group.store'
 import { FileStatus } from '@gtms/commons'
 
-export class GroupQuery extends Query<IGroupStore> {
+export class GroupQuery extends Query<IGroupState> {
   public allState$ = this.select()
 
   public hasAdminRights = (values = this.getValue()) => {

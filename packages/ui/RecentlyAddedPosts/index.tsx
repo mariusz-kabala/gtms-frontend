@@ -1,24 +1,27 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostSingle } from '@gtms/ui/PostSingle'
+import { IPost } from '@gtms/commons/models'
 
 export const RecentlyAddedPosts: FC<{
   additionalStyles?: string
-}> = ({ additionalStyles }) => {
+  posts: IPost[]
+  noImage: { [key: string]: { jpg: string; webp?: string } }
+}> = ({ additionalStyles, posts, noImage }) => {
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="recently-added-posts"
     >
-      <PostCreate additionalStyles={styles.postCreate} />
-      <PostSingle additionalStyles={styles.post} />
-      <PostSingle additionalStyles={styles.post} />
-      <PostSingle additionalStyles={styles.post} />
-      <PostSingle additionalStyles={styles.post} />
-      <PostSingle additionalStyles={styles.post} />
-      <PostSingle additionalStyles={styles.post} />
+      {posts.map((post) => (
+        <PostSingle
+          key={`post-${post.id}`}
+          additionalStyles={styles.post}
+          {...post}
+          noImage={noImage}
+        />
+      ))}
     </div>
   )
 }

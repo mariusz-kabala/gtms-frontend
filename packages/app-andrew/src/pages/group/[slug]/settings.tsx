@@ -3,17 +3,17 @@ import { NextPage, NextPageContext } from 'next'
 import cx from 'classnames'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
-import { groupQuery, IGroupStore, getGroup, initGroup } from '@gtms/state-group'
-import { GroupDeleteGroup } from '../../../components/groups/GroupDeleteGroup'
-import { BasicSettings } from '../../../components/group-settings/Basic'
-import { TagsSettings } from '../../../components/group-settings/Tags'
-import { ImagesSettings } from '../../../components/group-settings/Images'
+import { groupQuery, IGroupState, getGroup, initGroup } from '@gtms/state-group'
+import { GroupDeleteGroup } from 'components/groups/GroupDeleteGroup'
+import { BasicSettings } from 'components/group-settings/Basic'
+import { TagsSettings } from 'components/group-settings/Tags'
+import { ImagesSettings } from 'components/group-settings/Images'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { GroupType, GroupVisibility } from '@gtms/commons/enums'
 
 type GroupSettingsPageProps = {
   namespacesRequired: readonly string[]
-  group: IGroupStore
+  group: IGroupState
 }
 
 enum Tabs {
@@ -39,7 +39,7 @@ const getInitialTab = () => {
 
 export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
   const { t } = useTranslation('groupSettingsPage')
-  const [group, setGroup] = useState<IGroupStore>(props.group)
+  const [group, setGroup] = useState<IGroupState>(props.group)
   const [tab, setTab] = useState<Tabs>(Tabs.general)
 
   useEffect(() => {

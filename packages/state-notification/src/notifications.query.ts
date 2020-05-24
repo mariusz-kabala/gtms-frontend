@@ -1,4 +1,4 @@
-import { QueryEntity, toBoolean } from '@datorama/akita'
+import { QueryEntity, Order, toBoolean } from '@datorama/akita'
 import {
   NotificationsState,
   NotificationsStore,
@@ -7,7 +7,10 @@ import {
 
 export class NotificationsQuery extends QueryEntity<NotificationsState> {
   constructor(protected store: NotificationsStore) {
-    super(store)
+    super(store, {
+      sortBy: 'id',
+      sortByOrder: Order.DESC,
+    })
   }
 
   public hasUnread = () =>
