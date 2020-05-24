@@ -1,3 +1,5 @@
+import { FileStatus } from '../enums'
+
 export function parseFile(file: string) {
   const [, path] = file
     .replace('http://', '')
@@ -25,4 +27,34 @@ export function parseFiles(files: string[]) {
 
     return filesObj
   }, {})
+}
+
+export function getImage(
+  size: string,
+  obj?: {
+    status?: FileStatus
+    files?: string[] | any
+  },
+  fallback?: { [key: string]: { jpg: string; webp?: string } }
+): {
+  jpg: string
+  webp?: string
+} {
+  const getFallback = () => {
+    if (fallback && fallback[size]) {
+      return fallback[size]
+    }
+
+    return {
+      jpg: `//via.placeholder.com/${size}`,
+    }
+  }
+
+  if (obj && obj.status === FileStatus.ready) {
+    const files = Array.isArray(obj.files) ? parseFiles(obj.files) : obj.files
+
+    return files[size] ?? getFallback()
+  }
+
+  return getFallback()
 }

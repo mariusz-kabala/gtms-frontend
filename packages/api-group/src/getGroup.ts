@@ -21,20 +21,6 @@ export interface IGroupDetailsResponse {
   owner: string
 }
 
-export const fetchGroupDetails = (slug: string, JWT?: string) => {
-  const params = {
-    values: null,
-    headers: {},
-  }
-
-  if (JWT) {
-    params.headers = {
-      'x-access-token': JWT,
-    }
-  }
-
-  return fetchJSON<null, IGroupDetailsResponse>(
-    makeApiUrl(`groups/${slug}`),
-    params
-  )
+export const fetchGroupDetails = (slug: string) => {
+  return fetchJSON<null, IGroupDetailsResponse>(makeApiUrl(`groups/${slug}`))
 }
