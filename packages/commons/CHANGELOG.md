@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.12.0...@gtms/commons@0.13.0) (2020-05-24)
+
+
+### Features
+
+* show group members ([#579](https://github.com/gtms-org/gtms-frontend/issues/579)) ([191df71](https://github.com/gtms-org/gtms-frontend/commit/191df714ad52877b489a4262e10ee2e019a05736))
+
+
+
+
+
 # [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.11.0...@gtms/commons@0.12.0) (2020-05-24)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.6.2...@gtms/api-group@0.7.0) (2020-05-24)
+
+
+### Features
+
+* show group members ([#579](https://github.com/gtms-org/gtms-frontend/issues/579)) ([191df71](https://github.com/gtms-org/gtms-frontend/commit/191df714ad52877b489a4262e10ee2e019a05736))
+
+
+
+
+
 ## [0.6.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.6.1...@gtms/api-group@0.6.2) (2020-05-24)
 
 **Note:** Version bump only for package @gtms/api-group

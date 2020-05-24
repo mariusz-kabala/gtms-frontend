@@ -1,13 +1,13 @@
 {
   "name": "@gtms/api-post",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
     "@gtms/api-common": "*",
-    "@gtms/commons": "0.12.0"
+    "@gtms/commons": "0.13.0"
   },
   "scripts": {
     "build": "exit 0",
