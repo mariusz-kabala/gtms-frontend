@@ -1,4 +1,4 @@
-export * from './group.service'
-export * from './group.store'
-export * from './group.query'
+export * from './group'
 export * from './recentGroups'
+export * from './groupAdmins'
+export * from './groupMembers'
