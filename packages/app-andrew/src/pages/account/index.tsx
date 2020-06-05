@@ -99,7 +99,7 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
       setDetails(value)
     })
     return () => {
-      sub.unsubscribe()
+      sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
 

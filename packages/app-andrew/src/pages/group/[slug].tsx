@@ -64,7 +64,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   useEffect(() => {
     const sub = groupPageState$.subscribe((value) => setState(value))
 
-    return sub.unsubscribe
+    return () => {
+      sub && !sub.closed && sub.unsubscribe()
+    }
   }, [])
 
   return (

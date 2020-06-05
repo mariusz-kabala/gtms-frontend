@@ -9,7 +9,9 @@ export const Navigation: FC<{}> = () => {
   useEffect(() => {
     const sub = baseUIQuery.navigation$.subscribe((values) => setState(values))
 
-    return sub.unsubscribe
+    return () => {
+      sub && !sub.closed && sub.unsubscribe()
+    }
   }, [])
 
   if (!state.isLogged) {

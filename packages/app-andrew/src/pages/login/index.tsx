@@ -27,8 +27,8 @@ export const LoginPage: NextPage<{}> = () => {
     })
 
     return () => {
-      sub.unsubscribe()
-      loggedSub.unsubscribe()
+      sub && !sub.closed && sub.unsubscribe()
+      loggedSub && !loggedSub.closed && loggedSub.unsubscribe()
     }
   }, [])
 

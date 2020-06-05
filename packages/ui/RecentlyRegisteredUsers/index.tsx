@@ -8,6 +8,7 @@ import { UserAvatar } from '../UserAvatar'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IUser } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
+import { getDisplayName } from '@gtms/commons/helpers'
 
 export const RecentlyRegisteredUsers: FC<{
   additionalStyles?: string
@@ -42,9 +43,7 @@ export const RecentlyRegisteredUsers: FC<{
               }
               additionalStyles={styles.userAvatar}
             />
-            {(user.name || user.surname) && (
-              <span>{`${user.name || ''} ${user.surname || ''}`.trim()}</span>
-            )}
+            {(user.name || user.surname) && <span>{getDisplayName(user)}</span>}
           </li>
         ))}
       </ul>

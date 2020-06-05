@@ -14,7 +14,9 @@ export const LoginWindow: FC<{}> = () => {
       setIsOpen(value)
     )
 
-    return sub.unsubscribe
+    return () => {
+      sub && !sub.closed && sub.unsubscribe()
+    }
   }, [])
 
   if (!isOpen) {
