@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.20.0...@gtms/ui@0.21.0) (2020-06-05)
+
+
+### Features
+
+* GEOT-268 members managment ([#590](https://github.com/gtms-org/gtms-frontend/issues/590)) ([b159ad4](https://github.com/gtms-org/gtms-frontend/commit/b159ad4e06332d72d9372cbf4d6a2f1531526ba1))
+
+
+
+
+
 # [0.20.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.19.0...@gtms/ui@0.20.0) (2020-05-24)
 
 
