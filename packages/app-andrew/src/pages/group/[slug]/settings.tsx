@@ -8,8 +8,11 @@ import { GroupDeleteGroup } from 'components/groups/GroupDeleteGroup'
 import { BasicSettings } from 'components/group-settings/Basic'
 import { TagsSettings } from 'components/group-settings/Tags'
 import { ImagesSettings } from 'components/group-settings/Images'
+import { AdminsSettings } from 'components/group-settings/Admins'
+import { MembersSettings } from 'components/group-settings/Members'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { GroupType, GroupVisibility } from '@gtms/commons/enums'
+import { IGroup } from '@gtms/commons/models'
 
 type GroupSettingsPageProps = {
   namespacesRequired: readonly string[]
@@ -48,7 +51,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
     const groupSub = groupQuery.allState$.subscribe((value) => setGroup(value))
 
     return () => {
-      groupSub.unsubscribe()
+      groupSub && !groupSub.closed && groupSub.unsubscribe()
     }
   }, [])
 
@@ -153,6 +156,12 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = (props) => {
           )}
           {tab === Tabs.images && (
             <ImagesSettings avatar={group.group?.avatar} />
+          )}
+          {tab === Tabs.admins && (
+            <AdminsSettings group={group.group as IGroup} />
+          )}
+          {tab === Tabs.members && (
+            <MembersSettings group={group.group as IGroup} />
           )}
         </div>
       </div>

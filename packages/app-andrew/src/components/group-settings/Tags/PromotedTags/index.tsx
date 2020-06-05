@@ -29,8 +29,8 @@ export const PromotedTags: FC<{
       .subscribe((value) => setIsLoading(value))
 
     return () => {
-      sub.unsubscribe()
-      loadingSub.unsubscribe()
+      sub && !sub.closed && sub.unsubscribe()
+      loadingSub && !loadingSub.closed && loadingSub.unsubscribe()
     }
   }, [])
 

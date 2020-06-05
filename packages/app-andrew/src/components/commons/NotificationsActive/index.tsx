@@ -20,7 +20,9 @@ export const NotificationsActive: FC<{
     const sub = notificationsQuery.unread$.subscribe((values) =>
       setNotifications(values)
     )
-    return sub.unsubscribe
+    return () => {
+      sub && !sub.closed && sub.unsubscribe()
+    }
   }, [])
 
   return (

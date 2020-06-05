@@ -13,7 +13,9 @@ export const NavigationDots: FC = () => {
       setState(values)
     })
 
-    return sub.unsubscribe
+    return () => {
+      sub && !sub.closed && sub.unsubscribe()
+    }
   }, [])
 
   useEffect(() => {

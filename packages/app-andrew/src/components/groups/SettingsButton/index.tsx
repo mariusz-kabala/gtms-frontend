@@ -28,7 +28,7 @@ export const SettingsButton: FC<{ group: IGroup }> = ({ group }) => {
       })
     )
     return () => {
-      sub.unsubscribe()
+      sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
 

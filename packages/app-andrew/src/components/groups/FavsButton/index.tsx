@@ -32,7 +32,7 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
     )
 
     return () => {
-      statusSub.unsubscribe()
+      statusSub && !statusSub.closed && statusSub.unsubscribe()
     }
   }, [group])
 

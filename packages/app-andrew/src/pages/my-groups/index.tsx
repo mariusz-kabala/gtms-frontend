@@ -60,7 +60,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = (props) => {
       setGroups(value)
     )
     return () => {
-      groupSub.unsubscribe()
+      groupSub && !groupSub.closed && groupSub.unsubscribe()
     }
   }, [])
 

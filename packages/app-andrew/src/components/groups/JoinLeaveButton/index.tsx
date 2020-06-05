@@ -37,7 +37,7 @@ export const JoinLeaveButton: FC<{ group: IGroup }> = ({ group }) => {
       })
     )
     return () => {
-      sub.unsubscribe()
+      sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
   const { t } = useTranslation('groupPage')

@@ -19,7 +19,9 @@ export const RegistrationPage: NextPage<{}> = () => {
         redirect('/registration/success')
       }
     })
-    return () => sub.unsubscribe()
+    return () => {
+      sub && !sub.closed && sub.unsubscribe()
+    }
   }, [])
 
   return (
