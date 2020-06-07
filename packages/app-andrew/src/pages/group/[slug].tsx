@@ -10,13 +10,14 @@ import {
 import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
 // components
-import { GroupDescription } from 'components/groups/GroupDescription'
-import { GroupNoAccess } from 'components/groups/GroupNoAccess'
-import { GroupNotFound } from 'components/groups/GroupNotFound'
-import { GroupAvatar } from 'components/groups/GroupAvatar'
-import { FavsButton } from 'components/groups/FavsButton'
-import { SettingsButton } from 'components/groups/SettingsButton'
-import { JoinLeaveButton } from 'components/groups/JoinLeaveButton'
+import { GroupDescription } from 'components/group/GroupDescription'
+import { GroupNoAccess } from 'components/group/GroupNoAccess'
+import { GroupNotFound } from 'components/group/GroupNotFound'
+import { GroupAvatar } from 'components/group/GroupAvatar'
+import { FavsButton } from 'components/group/FavsButton'
+import { SettingsButton } from 'components/group/SettingsButton'
+import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
+import { GroupMembers } from 'components/group/GroupMembers'
 // ui
 import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
@@ -24,7 +25,13 @@ import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { Spinner } from '@gtms/ui/Spinner'
 import { PostCreate } from '@gtms/ui/PostCreate'
 // state
-import { groupQuery, IGroupState, getGroup, initGroup } from '@gtms/state-group'
+import {
+  groupQuery,
+  IGroupState,
+  getGroup,
+  initGroup,
+  getGroupMembers,
+} from '@gtms/state-group'
 import {
   promotedTagsQuery,
   loadGroupPromotedTags,
@@ -62,6 +69,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const [state, setState] = useState<IGroupPageState>(groupPageState())
 
   useEffect(() => {
+    if (state.group) {
+      getGroupMembers(state.group.slug, 0, 8)
+    }
     const sub = groupPageState$.subscribe((value) => setState(value))
 
     return () => {
@@ -129,6 +139,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     router.push(`/group/${state.group?.slug}/settings#tags`)
                   }
                 />
+              </section>
+              <section>
+                <GroupMembers {...state.members} />
               </section>
             </div>
             <div className={styles.column}>

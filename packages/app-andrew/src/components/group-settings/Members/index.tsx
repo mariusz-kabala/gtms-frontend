@@ -3,7 +3,7 @@ import { IGroup } from '@gtms/commons/models'
 import {
   groupMembersQuery,
   IGroupMembers,
-  getGroupmembers,
+  getGroupMembers,
 } from '@gtms/state-group'
 import { Spinner } from '@gtms/ui/Spinner'
 
@@ -15,7 +15,7 @@ export const MembersSettings: FC<{ group: IGroup }> = ({ group }) => {
   )
 
   useEffect(() => {
-    getGroupmembers(group.slug, 0, RECORDS_PER_PAGE)
+    getGroupMembers(group.slug, 0, RECORDS_PER_PAGE)
     const sub = groupMembersQuery.getGroupMembers$.subscribe((values) =>
       setState(values)
     )

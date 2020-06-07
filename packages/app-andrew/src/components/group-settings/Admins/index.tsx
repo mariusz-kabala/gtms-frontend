@@ -4,10 +4,9 @@ import {
   groupAdminsQuery,
   getGroupAdmins,
 } from '@gtms/state-group'
-import { getDisplayName } from '@gtms/commons/helpers'
+import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { Spinner } from '@gtms/ui/Spinner'
 import { IGroup } from '@gtms/commons/models'
-import { getImage } from '@gtms/commons/helpers'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import styles from './styles.scss'
 

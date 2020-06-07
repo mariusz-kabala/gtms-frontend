@@ -1,7 +1,7 @@
 import { fetchGroupMembers } from '@gtms/api-group'
 import { groupMembersStore } from './groupMembers.store'
 
-export async function getGroupmembers(
+export async function getGroupMembers(
   slug: string,
   requestedOffset = 0,
   requestedLimit = 25

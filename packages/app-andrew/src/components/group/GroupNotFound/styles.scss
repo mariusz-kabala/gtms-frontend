@@ -17,7 +17,7 @@
   .btn {
     @include buttonDefault();
     @include buttonColorsDefault();
-    
+
     &:hover {
       @include buttonColorsHoverDefault();
     }
