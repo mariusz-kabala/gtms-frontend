@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.26.0...@gtms/app-andrew@0.27.0) (2020-06-07)
+
+
+### Features
+
+* GEOT-269: group members component ([#595](https://github.com/gtms-org/gtms-frontend/issues/595)) ([f363d48](https://github.com/gtms-org/gtms-frontend/commit/f363d488057667e7ad42ce6bb5807d930d3ec572))
+
+
+
+
+
 # [0.26.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.25.0...@gtms/app-andrew@0.26.0) (2020-06-05)
 
 
