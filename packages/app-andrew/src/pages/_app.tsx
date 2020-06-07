@@ -9,7 +9,7 @@ import { NavigationDots } from 'components/commons/NavigationDots'
 import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { init } from '@gtms/state-user'
 import { LoginWindow } from 'components/commons/LoginWindow'
-import ReactTooltip from 'react-tooltip'
+// import ReactTooltip from 'react-tooltip' // todo - make sure that we actually needed it, as it creates some issues with SSR
 import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 
 interface GTMSAppProps {
@@ -49,7 +49,7 @@ class GTMSApp extends App<GTMSAppProps> {
         </div>
         <NavigationDots />
         <LoginWindow />
-        <ReactTooltip />
+        {/* <ReactTooltip /> */}
       </>
     )
   }
