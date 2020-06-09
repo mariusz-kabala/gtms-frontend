@@ -1,5 +1,6 @@
 import { fetchUserDetails } from '@gtms/api-auth'
 import { userDetailsStore } from './userDetails.store'
+import { IUserDetailsState } from './userDetails.model'
 
 export const getUserDetails = async (id: string) => {
   userDetailsStore.reset()
@@ -23,3 +24,6 @@ export const getUserDetails = async (id: string) => {
     })
   }
 }
+
+export const initialize = (data: IUserDetailsState) =>
+  userDetailsStore.update(data)
