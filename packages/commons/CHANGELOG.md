@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.14.0...@gtms/commons@0.14.1) (2020-06-15)
+
+**Note:** Version bump only for package @gtms/commons
+
+
+
+
+
 # [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.13.0...@gtms/commons@0.14.0) (2020-06-05)
 
 

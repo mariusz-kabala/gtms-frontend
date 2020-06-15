@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.0...@gtms/app-andrew@0.27.1) (2020-06-15)
+
+
+### Bug Fixes
+
+* GEOT-274: fixes in reset pass flow ([#604](https://github.com/gtms-org/gtms-frontend/issues/604)) ([ae3d72b](https://github.com/gtms-org/gtms-frontend/commit/ae3d72bf7bbf7947e6beb9f5ae04002e96d58c6f))
+
+
+
+
+
 # [0.27.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.26.0...@gtms/app-andrew@0.27.0) (2020-06-07)
 
 

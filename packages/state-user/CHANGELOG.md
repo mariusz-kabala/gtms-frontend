@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.9.3...@gtms/state-user@0.9.4) (2020-06-15)
+
+
+### Bug Fixes
+
+* GEOT-274: fixes in reset pass flow ([#604](https://github.com/gtms-org/gtms-frontend/issues/604)) ([ae3d72b](https://github.com/gtms-org/gtms-frontend/commit/ae3d72bf7bbf7947e6beb9f5ae04002e96d58c6f))
+
+
+
+
+
 ## [0.9.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.9.2...@gtms/state-user@0.9.3) (2020-06-05)
 
 **Note:** Version bump only for package @gtms/state-user
