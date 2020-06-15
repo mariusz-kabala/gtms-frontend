@@ -111,7 +111,7 @@ describe('<ResetPasswordForm />', () => {
       onSubmit({})
     })
 
-    expect(setError).toBeCalledTimes(2)
+    expect(setError).toBeCalledTimes(3)
   })
 
   it('Should set errors when passwords are not equal', () => {
@@ -134,7 +134,7 @@ describe('<ResetPasswordForm />', () => {
     act(() => {
       renderComponent()
       onSubmit({
-        password: 'passwordsAre',
+        password: 'passwordsAre1234',
         confirmPassword: 'different',
       })
     })
@@ -167,8 +167,8 @@ describe('<ResetPasswordForm />', () => {
     await act(
       async () =>
         await onSubmit({
-          password: 'testing1234',
-          confirmPassword: 'testing1234',
+          password: 'Testing1234',
+          confirmPassword: 'Testing1234',
         })
     )
 
@@ -200,8 +200,8 @@ describe('<ResetPasswordForm />', () => {
     await act(
       async () =>
         await onSubmit({
-          password: 'testing1234',
-          confirmPassword: 'testing1234',
+          password: 'Testing1234',
+          confirmPassword: 'Testing1234',
         })
     )
     expect(fetchMock.mock.calls.length).toEqual(1)
