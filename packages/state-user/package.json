@@ -1,14 +1,14 @@
 {
   "name": "@gtms/state-user",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-auth": "0.6.6",
-    "@gtms/api-group": "0.8.2",
-    "@gtms/commons": "0.14.5"
+    "@gtms/api-auth": "0.6.7",
+    "@gtms/api-group": "0.8.3",
+    "@gtms/commons": "0.14.6"
   },
   "scripts": {
     "build": "exit 0",
