@@ -3,7 +3,7 @@ import { NextPage, NextPageContext } from 'next'
 import styles from './styles.scss'
 import { useState } from 'react'
 import { useTranslation, Link } from '@gtms/commons/i18n'
-import { userQuery, initAuthSession } from '@gtms/state-user'
+import { userQuery, hasAuthSessionCookies } from '@gtms/state-user'
 import { RegistrationForm } from '../../components/registration/Form'
 import { SocialButtons } from '../../components/login/SocialButtons'
 import { redirect } from '@gtms/commons/helpers/redirect'
@@ -58,14 +58,8 @@ export const RegistrationPage: NextPage<{}> = () => {
 }
 
 RegistrationPage.getInitialProps = async (ctx: NextPageContext) => {
-  await initAuthSession(ctx)
-
-  if (userQuery.isLogged()) {
+  if (hasAuthSessionCookies(ctx)) {
     redirect('/', ctx)
-  }
-
-  if (userQuery.hasData() && !userQuery.isActive()) {
-    redirect('/registration/success', ctx)
   }
 
   return Promise.resolve({ namespacesRequired: ['registration'] })

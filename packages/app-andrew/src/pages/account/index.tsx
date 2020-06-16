@@ -13,28 +13,30 @@ import { Picture } from '@gtms/ui/Picture'
 import { TagsBar } from '@gtms/ui/TagsBar'
 import {
   userQuery,
+  markAsLoading,
+  hasAuthSessionCookies,
   getAccountDetails,
-  IAccountDetails,
   updateAccountDetails,
-  initAccountDetails,
   updateAccountAvatar,
 } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
+import { useInitState } from '@gtms/commons/hooks'
 import { findTagsAPI } from '@gtms/api-tags'
 import { UserAvatarNoImage } from 'enums'
+import { accountPageState, accountPageState$, IAccountPageState } from 'queries'
 
 type AccountPageProps = {
   namespacesRequired: readonly string[]
-  accountDetails: IAccountDetails
 }
 
-export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
+export const AccountPage: NextPage<AccountPageProps> = () => {
+  useInitState(markAsLoading)
   const { t } = useTranslation('account')
   const [isAvatarEditorVisible, setIsAvatarEditorVisible] = useState<boolean>(
     false
   )
-  const [tags, setTags] = useState<string[]>(accountDetails.tags)
-  const [details, setDetails] = useState<IAccountDetails>(accountDetails)
+  const [tags, setTags] = useState<string[]>([])
+  const [state, setState] = useState<IAccountPageState>(accountPageState())
   const [isSaving, setIsSaving] = useState<boolean>(false)
   const [tagsHints, setTagsHints] = useState<{
     isLoading: boolean
@@ -91,12 +93,9 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
   }, [tags])
 
   useEffect(() => {
-    initAccountDetails(accountDetails)
-  }, [accountDetails])
-
-  useEffect(() => {
-    const sub = userQuery.accountDetails$.subscribe((value) => {
-      setDetails(value)
+    getAccountDetails()
+    const sub = accountPageState$.subscribe((value) => {
+      setState(value)
     })
     return () => {
       sub && !sub.closed && sub.unsubscribe()
@@ -105,87 +104,96 @@ export const AccountPage: NextPage<AccountPageProps> = ({ accountDetails }) => {
 
   return (
     <div className={styles.wrapper} data-testid="account-page">
-      <div className={styles.content}>
-        <div
-          data-testid="account-page-public"
-          className={styles.visibleForEveryone}
-        >
-          <span className={styles.visibilityLabel}>
-            This part is visible for EVERYONE
-          </span>
-          <ImageEditor
-            isVisible={isAvatarEditorVisible}
-            onSave={(file: File) => {
-              updateAccountAvatar(file)
-              setIsAvatarEditorVisible(false)
-            }}
-            onClose={() => setIsAvatarEditorVisible(false)}
-          />
-          <a onClick={() => setIsAvatarEditorVisible(true)}>
-            {[FileStatus.uploaded, FileStatus.processing].includes(
-              details.avatar.status
-            ) && <Spinner />}
-            <Picture
-              {...(userQuery.hasAvatar('200x200')
-                ? userQuery.getAvatar('200x200')
-                : UserAvatarNoImage['200x200'])}
+      {state.isLoading && (
+        <div>
+          <Spinner />
+        </div>
+      )}
+      {!state.isLoading && state.errorOccured && (
+        <div>
+          <p>Can not fetch account details right now, try later</p>
+        </div>
+      )}
+      {!state.isLoading && !state.errorOccured && (
+        <div className={styles.content}>
+          <div
+            data-testid="account-page-public"
+            className={styles.visibleForEveryone}
+          >
+            <span className={styles.visibilityLabel}>
+              This part is visible for EVERYONE
+            </span>
+            <ImageEditor
+              isVisible={isAvatarEditorVisible}
+              onSave={(file: File) => {
+                updateAccountAvatar(file)
+                setIsAvatarEditorVisible(false)
+              }}
+              onClose={() => setIsAvatarEditorVisible(false)}
             />
-          </a>
-          <p className={styles.desc}>
-            {t('title')}
-            Dolore tempor reprehenderit dolor deserunt et. Consequat occaecat
-            sit est ipsum eu nisi nostrud consectetur est magna enim sit. Aute
-            velit et cupidatat quis labore in labore aute excepteur proident
-            aliqua id.
-          </p>
-          <TagsBar
-            tags={tags}
-            isSaving={isSaving}
-            isLoading={tagsHints.isLoading}
-            suggestions={tagsHints.tags}
-            onLoadSuggestion={onLoadTagsHints}
-            onLoadSuggestionCancel={() => null}
-            onTagAdd={onTagAdd}
-            onTagRemove={onTagRemove}
-            onSave={onTagsSave}
-          />
+            <a onClick={() => setIsAvatarEditorVisible(true)}>
+              {[FileStatus.uploaded, FileStatus.processing].includes(
+                state.avatar.status
+              ) && <Spinner />}
+              <Picture
+                {...(userQuery.hasAvatar('200x200')
+                  ? userQuery.getAvatar('200x200')
+                  : UserAvatarNoImage['200x200'])}
+              />
+            </a>
+            <p className={styles.desc}>
+              {t('title')}
+              Dolore tempor reprehenderit dolor deserunt et. Consequat occaecat
+              sit est ipsum eu nisi nostrud consectetur est magna enim sit. Aute
+              velit et cupidatat quis labore in labore aute excepteur proident
+              aliqua id.
+            </p>
+            <TagsBar
+              tags={tags}
+              isSaving={isSaving}
+              isLoading={tagsHints.isLoading}
+              suggestions={tagsHints.tags}
+              onLoadSuggestion={onLoadTagsHints}
+              onLoadSuggestionCancel={() => null}
+              onTagAdd={onTagAdd}
+              onTagRemove={onTagRemove}
+              onSave={onTagsSave}
+            />
+          </div>
+          <div className={styles.divider} />
+          <div
+            data-testid="account-page-private"
+            className={styles.visibleForOwner}
+          >
+            <span className={styles.visibilityLabel}>
+              This part is visible ONLY FOR YOU
+            </span>
+            <ChangePassword />
+            <UserName
+              additionalStyles={styles.userName}
+              name={state.name}
+              surname={state.surname}
+            />
+            <UserEmail email={state.email} additionalStyles={styles.userName} />
+            <DeleteAccount
+              additionalStyles={styles.deleteAccount}
+              onConfirm={() => null}
+            />
+          </div>
         </div>
-        <div className={styles.divider} />
-        <div
-          data-testid="account-page-private"
-          className={styles.visibleForOwner}
-        >
-          <span className={styles.visibilityLabel}>
-            This part is visible ONLY FOR YOU
-          </span>
-          <ChangePassword />
-          <UserName
-            additionalStyles={styles.userName}
-            name={details.name}
-            surname={details.surname}
-          />
-          <UserEmail email={details.email} additionalStyles={styles.userName} />
-          <DeleteAccount
-            additionalStyles={styles.deleteAccount}
-            onConfirm={() => null}
-          />
-        </div>
-      </div>
+      )}
     </div>
   )
 }
 
 AccountPage.getInitialProps = async (ctx: NextPageContext) => {
-  if (!userQuery.isLogged()) {
+  if (!hasAuthSessionCookies(ctx)) {
     redirect('/login', ctx)
   }
 
-  await getAccountDetails()
-
-  return {
+  return Promise.resolve({
     namespacesRequired: ['account'],
-    accountDetails: userQuery.accountDetails(),
-  }
+  })
 }
 
 export default AccountPage

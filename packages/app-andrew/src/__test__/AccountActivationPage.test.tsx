@@ -3,8 +3,7 @@ import { render, wait, waitForElement } from '@testing-library/react'
 import { ActivateAccountPage } from '../pages/activate-account/[code]'
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
-import { userStore, IUserStore } from '@gtms/state-user'
-import { initAuthSession } from '@gtms/state-user/src/helpers'
+import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
 import { NextPageContext } from 'next'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
@@ -20,7 +19,7 @@ jest.mock('next/router', () => {
 })
 
 jest.mock('@gtms/state-user/src/helpers', () => ({
-  initAuthSession: jest.fn().mockImplementation(() => Promise.resolve()),
+  hasAuthSessionCookies: jest.fn().mockImplementation(() => false),
 }))
 
 jest.mock('@gtms/commons/helpers/redirect', () => ({
@@ -29,7 +28,7 @@ jest.mock('@gtms/commons/helpers/redirect', () => ({
 
 describe('<ActivateAccountPage />', () => {
   beforeEach(() => {
-    ;(initAuthSession as jest.Mock).mockClear()
+    ;(hasAuthSessionCookies as jest.Mock).mockClear()
     ;(redirect as jest.Mock).mockClear()
   })
 
@@ -88,8 +87,8 @@ describe('<ActivateAccountPage />', () => {
 
     const props = await ActivateAccountPage.getInitialProps(ctx)
 
-    expect(initAuthSession).toBeCalledTimes(1)
-    expect(initAuthSession).toBeCalledWith(ctx)
+    expect(hasAuthSessionCookies).toBeCalledTimes(1)
+    expect(hasAuthSessionCookies).toBeCalledWith(ctx)
     expect(redirect).not.toBeCalled()
 
     expect(props).toHaveProperty('namespacesRequired')
@@ -101,32 +100,14 @@ describe('<ActivateAccountPage />', () => {
       return done()
     }
 
-    const now = new Date().getTime()
-    const update: Partial<IUserStore> = {
-      isInitialized: true,
-      isActive: true,
-      isBlocked: false,
-      session: {
-        accessToken: {
-          expiresAt: now + 100,
-          value: '',
-        },
-        refreshToken: {
-          expiresAt: now + 100,
-          value: '',
-        },
-        createdAt: now,
-      },
-    }
-
-    userStore.update(update)
+    ;(hasAuthSessionCookies as jest.Mock).mockImplementation(() => true)
 
     const ctx = {} as NextPageContext
 
     await ActivateAccountPage.getInitialProps(ctx)
 
-    expect(initAuthSession).toBeCalledTimes(1)
-    expect(initAuthSession).toBeCalledWith(ctx)
+    expect(hasAuthSessionCookies).toBeCalledTimes(1)
+    expect(hasAuthSessionCookies).toBeCalledWith(ctx)
     expect(redirect).toBeCalledTimes(1)
     expect(redirect).toBeCalledWith('/', ctx)
 

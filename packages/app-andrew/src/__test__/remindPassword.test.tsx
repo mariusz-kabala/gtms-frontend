@@ -4,12 +4,12 @@ import { RemindPasswordPage } from '../pages/remind-password'
 import { RemindPasswordForm } from '../components/remind-password/Form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { userStore, IUserStore } from '@gtms/state-user'
-import { initAuthSession } from '@gtms/state-user/src/helpers'
+import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
 import { NextPageContext } from 'next'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
 jest.mock('@gtms/state-user/src/helpers', () => ({
-  initAuthSession: jest.fn().mockImplementation(() => Promise.resolve()),
+  hasAuthSessionCookies: jest.fn().mockImplementation(() => Promise.resolve()),
 }))
 
 jest.mock('@gtms/commons/helpers/redirect', () => ({
@@ -22,7 +22,7 @@ jest.mock('../components/remind-password/Form', () => ({
 
 describe('<RemindPasswordPage />', () => {
   beforeEach(() => {
-    ;(initAuthSession as jest.Mock).mockClear()
+    ;(hasAuthSessionCookies as jest.Mock).mockClear()
     ;(redirect as jest.Mock).mockClear()
   })
 
@@ -104,8 +104,8 @@ describe('<RemindPasswordPage />', () => {
 
     await RemindPasswordPage.getInitialProps(ctx)
 
-    expect(initAuthSession).toBeCalledTimes(1)
-    expect(initAuthSession).toBeCalledWith(ctx)
+    expect(hasAuthSessionCookies).toBeCalledTimes(1)
+    expect(hasAuthSessionCookies).toBeCalledWith(ctx)
     expect(redirect).toBeCalledTimes(1)
     expect(redirect).toBeCalledWith('/', ctx)
 
