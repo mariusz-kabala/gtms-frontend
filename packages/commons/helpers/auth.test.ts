@@ -3,7 +3,6 @@ import { FetchMock } from 'jest-fetch-mock'
 import { parseCookies, setCookie } from 'nookies'
 import { parseJwt } from './jwt'
 import { NextPageContext } from 'next'
-import { init } from '@gtms/state-user'
 
 const fetchMock = fetch as FetchMock
 
@@ -18,16 +17,11 @@ jest.mock('./jwt', () => ({
   })),
 }))
 
-jest.mock('@gtms/state-user', () => ({
-  init: jest.fn(),
-}))
-
 describe('Auth helper', () => {
   beforeEach(() => {
     fetchMock.mockClear()
     ;(parseCookies as jest.Mock).mockClear()
     ;(setCookie as jest.Mock).mockClear()
-    ;(init as jest.Mock).mockClear()
     ;(parseJwt as jest.Mock).mockClear()
   })
 
@@ -39,21 +33,6 @@ describe('Auth helper', () => {
     expect(await initAuthSession(ctx)).toEqual({})
     expect(parseCookies).toBeCalledTimes(1)
     expect(parseCookies).toBeCalledWith(ctx)
-  })
-
-  it('Should init the store and return accessToken and refreshToken from cookie', async () => {
-    const cookies = {
-      refreshToken: 'fake-refreshToken',
-      accessToken: 'fake-accessToken',
-    }
-    ;(parseCookies as jest.Mock).mockImplementation(() => cookies)
-
-    const ctx = {} as NextPageContext
-
-    expect(await initAuthSession(ctx)).toEqual(cookies)
-
-    expect(init).toBeCalledTimes(1)
-    expect(init).toBeCalledWith(cookies)
   })
 
   it.skip('Should fetch a new accessToken if current one expired', async () => {
@@ -77,12 +56,6 @@ describe('Auth helper', () => {
     expect((fetchMock.mock.calls[0][1] as { body: string }).body).toBe(
       '{"token":"fake-refreshToken"}'
     )
-
-    expect(init).toBeCalledTimes(1)
-    expect(init).toBeCalledWith({
-      refreshToken: 'fake-refreshToken',
-      accessToken: 'fake-access-token',
-    })
   })
 
   it.skip('Should return an empty object if fetching a new accessToken failed', async () => {
@@ -97,6 +70,5 @@ describe('Auth helper', () => {
     expect(fetchMock).toBeCalledTimes(1)
     expect(parseJwt).not.toBeCalled()
     expect(setCookie).not.toBeCalled()
-    expect(init).not.toBeCalled()
   })
 })

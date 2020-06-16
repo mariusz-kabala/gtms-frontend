@@ -2,7 +2,6 @@ import { NextPageContext } from 'next'
 import { parseCookies, setCookie } from 'nookies'
 import { fetchNewToken, IJWT } from '@gtms/api-auth'
 import { parseJwt } from './jwt'
-import { init } from '@gtms/state-user'
 
 export async function initAuthSession(
   ctx: NextPageContext
@@ -33,11 +32,6 @@ export async function initAuthSession(
       return {}
     }
   }
-
-  init({
-    accessToken,
-    refreshToken,
-  })
 
   return {
     accessToken,
