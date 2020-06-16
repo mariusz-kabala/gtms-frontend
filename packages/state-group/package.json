@@ -1,6 +1,6 @@
 {
   "name": "@gtms/state-group",
-  "version": "0.10.5",
+  "version": "0.10.6",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",

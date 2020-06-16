@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.10.5...@gtms/state-group@0.10.6) (2020-06-16)
+
+
+### Bug Fixes
+
+* GEOT-276: proper flow after login ([#648](https://github.com/gtms-org/gtms-frontend/issues/648)) ([021088b](https://github.com/gtms-org/gtms-frontend/commit/021088b378975f5f216a122a94cad44cd641c22a))
+
+
+
+
+
 ## [0.10.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.10.4...@gtms/state-group@0.10.5) (2020-06-16)
 
 

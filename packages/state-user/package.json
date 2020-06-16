@@ -1,6 +1,6 @@
 {
   "name": "@gtms/state-user",
-  "version": "0.9.12",
+  "version": "0.9.13",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
