@@ -5,7 +5,7 @@ import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
 import { NavigationGroup } from 'components/commons/NavigationGroup'
 import { NotificationsActive } from 'components/commons/NotificationsActive'
-import { NavigationDots } from 'components/commons/NavigationDots'
+import { NavigationMain } from 'components/commons/NavigationMain'
 import { init, initAuthSession } from '@gtms/state-user'
 import { LoginWindow } from 'components/commons/LoginWindow'
 // import ReactTooltip from 'react-tooltip' // todo - make sure that we actually needed it, as it creates some issues with SSR
@@ -48,7 +48,7 @@ class GTMSApp extends App<GTMSAppProps> {
           <NotificationsActive />
           <Component {...pageProps} />
         </div>
-        <NavigationDots />
+        <NavigationMain />
         <LoginWindow />
         {/* <ReactTooltip /> */}
       </>

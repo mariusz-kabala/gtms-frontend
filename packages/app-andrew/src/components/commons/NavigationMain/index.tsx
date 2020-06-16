@@ -1,15 +1,15 @@
 import React, { FC, useState, useEffect } from 'react'
-import { NavigationDots as NavigationDotsUI } from '@gtms/ui/NavigationDots'
-import { INavigationDotsProps, baseUIQuery } from 'queries'
+import { NavigationMain as NavigationMainUI } from '@gtms/ui/NavigationMain'
+import { INavigationMainProps, baseUIQuery } from 'queries'
 import { loadMyGroups } from '@gtms/state-user'
 
-export const NavigationDots: FC = () => {
-  const [state, setState] = useState<INavigationDotsProps>(
-    baseUIQuery.navigationDots()
+export const NavigationMain: FC = () => {
+  const [state, setState] = useState<INavigationMainProps>(
+    baseUIQuery.navigationMain()
   )
 
   useEffect(() => {
-    const sub = baseUIQuery.navigationDots$.subscribe((values) => {
+    const sub = baseUIQuery.navigationMain$.subscribe((values) => {
       setState(values)
     })
 
@@ -28,5 +28,5 @@ export const NavigationDots: FC = () => {
     return null
   }
 
-  return <NavigationDotsUI groups={state.groups} />
+  return <NavigationMainUI groups={state.groups} />
 }

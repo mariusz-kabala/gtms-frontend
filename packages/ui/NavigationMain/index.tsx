@@ -3,13 +3,13 @@ import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup, FileStatus } from '@gtms/commons'
 
-export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
+export const NavigationMain: FC<{ groups: IGroup[] }> = ({ groups }) => {
   if (groups.length === 0) {
     return null
   }
 
   return (
-    <ul className={styles.navigationDot} data-testid="navigationDot">
+    <ul className={styles.navigationMain} data-testid="navigationMain">
       {groups.map((value) => (
         <li key={value.id}>
           <Link href={`/group/${value.slug}`}>
