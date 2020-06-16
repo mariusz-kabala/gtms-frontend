@@ -9,9 +9,9 @@
     "@types/react-custom-scrollbars": "^4.0.6"
   },
   "dependencies": {
-    "@gtms/commons": "0.14.1",
-    "@gtms/state-user": "0.9.4",
-    "@gtms/styles": "0.8.0",
+    "@gtms/commons": "*",
+    "@gtms/state-user": "*",
+    "@gtms/styles": "*",
     "react-avatar-editor": "^12.0.0-beta.0",
     "react-circular-progressbar": "^2.0.3",
     "react-custom-scrollbars": "^4.2.1",

@@ -6,9 +6,9 @@
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-post": "0.1.2",
-    "@gtms/commons": "0.14.0",
-    "@gtms/state-notification": "0.3.0"
+    "@gtms/api-post": "*",
+    "@gtms/commons": "*",
+    "@gtms/state-notification": "*"
   },
   "scripts": {
     "build": "exit 0",

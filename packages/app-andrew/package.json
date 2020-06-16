@@ -15,16 +15,16 @@
     "check:ts": "tsc --noEmit -p ./tsconfig.json"
   },
   "dependencies": {
-    "@gtms/api-auth": "0.6.4",
-    "@gtms/api-group": "0.8.0",
-    "@gtms/api-tags": "0.4.0",
-    "@gtms/commons": "0.14.1",
-    "@gtms/state-group": "0.10.0",
-    "@gtms/state-notification": "0.3.0",
-    "@gtms/state-post": "0.1.2",
-    "@gtms/state-tag": "0.4.2",
-    "@gtms/state-user": "0.9.4",
-    "@gtms/styles": "0.8.0",
-    "@gtms/ui": "0.21.1"
+    "@gtms/api-auth": "*",
+    "@gtms/api-group": "*",
+    "@gtms/api-tags": "*",
+    "@gtms/commons": "*",
+    "@gtms/state-group": "*",
+    "@gtms/state-notification": "*",
+    "@gtms/state-post": "*",
+    "@gtms/state-tag": "*",
+    "@gtms/state-user": "*",
+    "@gtms/styles": "*",
+    "@gtms/ui": "*"
   }
 }
