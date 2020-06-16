@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { RemindPasswordForm } from '../../components/remind-password/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import { userQuery } from '@gtms/state-user'
+import { userQuery, initAuthSession } from '@gtms/state-user'
 import styles from './styles.scss'
 
 export const RemindPasswordPage: NextPage<{}> = () => {

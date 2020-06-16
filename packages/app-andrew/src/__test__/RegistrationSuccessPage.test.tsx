@@ -5,9 +5,9 @@ import { RegistrationSuccessPage } from '../pages/registration/success'
 import { NextPageContext } from 'next'
 import { userStore, IUserStore } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
+import { initAuthSession } from '@gtms/state-user/src/helpers'
 
-jest.mock('@gtms/commons/helpers/auth', () => ({
+jest.mock('@gtms/state-user/src/helpers', () => ({
   initAuthSession: jest.fn().mockImplementation(() => Promise.resolve()),
 }))
 

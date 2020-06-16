@@ -6,13 +6,13 @@ import { ResetPasswordForm } from '../components/reset-password/Form'
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 import { userStore, IUserStore } from '@gtms/state-user'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
+import { initAuthSession } from '@gtms/state-user/src/helpers'
 import { NextPageContext } from 'next'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
 const fetchMock = fetch as FetchMock
 
-jest.mock('@gtms/commons/helpers/auth', () => ({
+jest.mock('@gtms/state-user/src/helpers', () => ({
   initAuthSession: jest.fn().mockImplementation(() => Promise.resolve()),
 }))
 

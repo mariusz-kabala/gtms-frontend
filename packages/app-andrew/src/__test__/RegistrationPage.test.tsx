@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, act, wait } from '@testing-library/react'
 import { RegistrationPage } from '../pages/registration'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
+import { initAuthSession } from '@gtms/state-user/src/helpers'
 import { NextPageContext } from 'next'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { RegistrationForm } from '../components/registration/Form'
@@ -24,7 +24,7 @@ jest.mock('../components/login/SocialButtons', () => ({
   SocialButtons: jest.fn().mockImplementation(() => <></>),
 }))
 
-jest.mock('@gtms/commons/helpers/auth', () => ({
+jest.mock('@gtms/state-user/src/helpers', () => ({
   initAuthSession: jest.fn().mockImplementation(() => Promise.resolve()),
 }))
 

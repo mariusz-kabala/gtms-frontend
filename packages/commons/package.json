@@ -5,10 +5,6 @@
   "module": "./index.ts",
   "main": "./index.ts",
   "license": "ISC",
-  "dependencies": {
-    "@gtms/api-auth": "0.6.7",
-    "@gtms/state-user": "0.9.9"
-  },
   "scripts": {
     "build": "exit 0",
     "setup:ts": "exit 0",

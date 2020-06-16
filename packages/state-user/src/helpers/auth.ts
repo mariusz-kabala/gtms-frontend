@@ -1,7 +1,7 @@
 import { NextPageContext } from 'next'
 import { parseCookies, setCookie } from 'nookies'
 import { fetchNewToken, IJWT } from '@gtms/api-auth'
-import { parseJwt } from './jwt'
+import { parseJwt } from '@gtms/commons/helpers/jwt'
 
 export async function initAuthSession(
   ctx: NextPageContext

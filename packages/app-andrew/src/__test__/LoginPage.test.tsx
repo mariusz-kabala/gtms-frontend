@@ -6,7 +6,7 @@ import { SocialButtons } from '../components/login/SocialButtons'
 import { Router, useTranslation } from '@gtms/commons/i18n'
 import { parseCookies, destroyCookie } from 'nookies'
 import { userStore, IUserStore } from '@gtms/state-user'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
+import { initAuthSession } from '@gtms/state-user/src/helpers'
 import { NextPageContext } from 'next'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
@@ -25,7 +25,7 @@ jest.mock('../components/login/SocialButtons', () => ({
   SocialButtons: jest.fn().mockImplementation(() => <></>),
 }))
 
-jest.mock('@gtms/commons/helpers/auth', () => ({
+jest.mock('@gtms/state-user/src/helpers', () => ({
   initAuthSession: jest.fn().mockImplementation(() => Promise.resolve()),
 }))
 

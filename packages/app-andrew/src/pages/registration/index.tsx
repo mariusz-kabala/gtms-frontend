@@ -3,10 +3,9 @@ import { NextPage, NextPageContext } from 'next'
 import styles from './styles.scss'
 import { useState } from 'react'
 import { useTranslation, Link } from '@gtms/commons/i18n'
-import { userQuery } from '@gtms/state-user'
+import { userQuery, initAuthSession } from '@gtms/state-user'
 import { RegistrationForm } from '../../components/registration/Form'
 import { SocialButtons } from '../../components/login/SocialButtons'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
 export const RegistrationPage: NextPage<{}> = () => {
