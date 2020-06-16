@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import { Navigation as NavigationUI } from '@gtms/ui/Navigation'
 import { INavigationProps, baseUIQuery } from 'queries'
 import { toggleSidebarNotifications } from 'state'
+import { logoutUser } from '@gtms/state-user'
 
 export const Navigation: FC<{}> = () => {
   const [state, setState] = useState<INavigationProps>(baseUIQuery.navigation())
@@ -21,6 +22,7 @@ export const Navigation: FC<{}> = () => {
   return (
     <NavigationUI
       onAvatarClick={toggleSidebarNotifications}
+      onLogout={logoutUser}
       avatar={state.userAvatar}
     />
   )

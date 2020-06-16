@@ -12,8 +12,9 @@ import {
 
 export const Navigation: FC<{
   onAvatarClick?: () => unknown
+  onLogout?: () => unknown
   avatar: { jpg: string; webp?: string } | null
-}> = ({ onAvatarClick, avatar }) => {
+}> = ({ onAvatarClick, onLogout, avatar }) => {
   return (
     <div className={styles.wrapper}>
       <style global jsx>{`
@@ -74,7 +75,12 @@ export const Navigation: FC<{
             )
           })}
           <li>
-            <a href="/logout">
+            <a
+              onClick={() => {
+                onLogout && onLogout()
+              }}
+              href="/logout"
+            >
               <i>
                 <IoIosLogOut />
               </i>
