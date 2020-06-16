@@ -5,7 +5,7 @@ import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
 import { NavigationMain } from 'components/commons/NavigationMain'
 import { NotificationsActive } from 'components/commons/NotificationsActive'
-import { NavigationOooo } from 'components/commons/NavigationOooo'
+import { NavigationGroup } from 'components/commons/NavigationGroup'
 import { init, initAuthSession } from '@gtms/state-user'
 import { LoginWindow } from 'components/commons/LoginWindow'
 // import ReactTooltip from 'react-tooltip' // todo - make sure that we actually needed it, as it creates some issues with SSR
@@ -41,17 +41,20 @@ class GTMSApp extends App<GTMSAppProps> {
   render() {
     const { Component, pageProps } = this.props
     return (
-      <>
-        <div className={styles.wrapper}>
-          <NavigationMain />
+      <div className={styles.wrapper}>
+        <div
+          className={styles.bg}
+          style={{ backgroundImage: `url('/images/temp_images/group_bg.png')` }} />
+        <NavigationMain />
+        <div className={styles.wrapperTwo}>
+          <NavigationGroup />
           <NotificationsSidebar />
           <NotificationsActive />
           <Component {...pageProps} />
         </div>
-        <NavigationOooo />
         <LoginWindow />
         {/* <ReactTooltip /> */}
-      </>
+      </div>
     )
   }
 }

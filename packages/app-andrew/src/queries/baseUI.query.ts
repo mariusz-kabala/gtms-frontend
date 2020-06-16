@@ -28,7 +28,7 @@ export interface INotificationsSidebarProps {
   unreadCount: number
 }
 
-export interface INavigationOoooProps {
+export interface INavigationGroupProps {
   isVisible: boolean
   isLogged: boolean
   isLoaded: boolean
@@ -73,7 +73,7 @@ export class BaseUIQuery {
     this.notificationsQuery.select()
   ).pipe(map(() => this.notificationsSidebar()))
 
-  public navigationOooo = (): INavigationOoooProps => {
+  public navigationGroup = (): INavigationGroupProps => {
     const status = this.myGroupsQuery.status()
     const isLogged = this.userQuery.isLogged()
 
@@ -89,11 +89,11 @@ export class BaseUIQuery {
     }
   }
 
-  public navigationOooo$: Observable<INavigationOoooProps> = combineLatest(
+  public navigationGroup$: Observable<INavigationGroupProps> = combineLatest(
     this.userQuery.isLogged$,
     this.myGroupsQuery.status$,
     this.myGroupsQuery.favGroups$
-  ).pipe(map(() => this.navigationOooo()))
+  ).pipe(map(() => this.navigationGroup()))
 }
 //
 export const baseUIQuery = new BaseUIQuery(

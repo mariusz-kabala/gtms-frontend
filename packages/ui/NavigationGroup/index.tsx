@@ -3,18 +3,18 @@ import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup, FileStatus } from '@gtms/commons'
 
-export const NavigationOooo: FC<{ groups: IGroup[] }> = ({ groups }) => {
+export const NavigationGroup: FC<{ groups: IGroup[] }> = ({ groups }) => {
   if (groups.length === 0) {
     return null
   }
 
   return (
-    <ul className={styles.navigationOooo} data-testid="navigationOooo">
+    <ul className={styles.navigationGroup} data-testid="navigationGroup">
       {groups.map((value) => (
         <li key={value.id}>
           <Link href={`/group/${value.slug}`}>
             <div
-              className={styles.circle}
+              className={styles.item}
               style={{
                 backgroundImage: `url(${
                   value.avatar &&
