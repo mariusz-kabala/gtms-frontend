@@ -23,7 +23,9 @@ interface GTMSAppProps {
 class GTMSApp extends App<GTMSAppProps> {
   constructor(props: any) {
     super(props)
+  }
 
+  componentDidMount() {
     const { auth } = this.props
 
     if (auth?.accessToken && auth.refreshToken) {

@@ -111,7 +111,6 @@ const updateStoreWithJWT = ({
 }) => {
   const parsedToken = parseJwt<IJWT>(accessToken)
   const parsedRefreshToken = parseJwt<IJWT>(refreshToken)
-
   if (
     Array.isArray(parsedToken.avatar?.files) &&
     parsedToken.avatar?.status === FileStatus.ready
