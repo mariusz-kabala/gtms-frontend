@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { NextPage } from 'next'
 import styles from './appStyles.scss'
-import { useAuth } from '@gtms/commons/hooks/auth'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IUser, IGroup } from '@gtms/commons/models'
 import { Button } from '@gtms/ui/Button'
@@ -12,7 +11,7 @@ import { PolAndRock } from '@gtms/ui/PolAndRock'
 import { RecentlyCreatedGroups } from 'components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
 import { IoIosSearch } from 'react-icons/io'
-import { getRecentUsers, recentUsersQuery } from '@gtms/state-user'
+import { getRecentUsers, recentUsersQuery, useAuth } from '@gtms/state-user'
 import { getRecentGroups, recentGroupsQuery } from '@gtms/state-group'
 
 type HomePageProps = {

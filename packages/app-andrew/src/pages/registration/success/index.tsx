@@ -3,8 +3,7 @@ import { NextPage, NextPageContext } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Logout } from '@gtms/ui/Logout'
-import { userQuery } from '@gtms/state-user'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
+import { userQuery, initAuthSession } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
 export const RegistrationSuccessPage: NextPage<{}> = () => {

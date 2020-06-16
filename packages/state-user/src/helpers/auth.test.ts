@@ -1,7 +1,7 @@
 import { initAuthSession } from './auth'
 import { FetchMock } from 'jest-fetch-mock'
 import { parseCookies, setCookie } from 'nookies'
-import { parseJwt } from './jwt'
+import { parseJwt } from '@gtms/commons/helpers'
 import { NextPageContext } from 'next'
 
 const fetchMock = fetch as FetchMock
@@ -11,7 +11,7 @@ jest.mock('nookies', () => ({
   setCookie: jest.fn(),
 }))
 
-jest.mock('./jwt', () => ({
+jest.mock('@gtms/commons/helpers', () => ({
   parseJwt: jest.fn().mockImplementation(() => ({
     exp: 4000,
   })),

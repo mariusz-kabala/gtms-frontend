@@ -5,8 +5,7 @@ import { Button } from '@gtms/ui/Button'
 import { LoginForm } from '../../components/login/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { SocialButtons } from '../../components/login/SocialButtons'
-import { userQuery } from '@gtms/state-user'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
+import { userQuery, initAuthSession } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
 export const LoginPage: NextPage<{}> = () => {

@@ -4,7 +4,7 @@ import { ActivateAccountPage } from '../pages/activate-account/[code]'
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 import { userStore, IUserStore } from '@gtms/state-user'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
+import { initAuthSession } from '@gtms/state-user/src/helpers'
 import { NextPageContext } from 'next'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
@@ -19,7 +19,7 @@ jest.mock('next/router', () => {
   }
 })
 
-jest.mock('@gtms/commons/helpers/auth', () => ({
+jest.mock('@gtms/state-user/src/helpers', () => ({
   initAuthSession: jest.fn().mockImplementation(() => Promise.resolve()),
 }))
 

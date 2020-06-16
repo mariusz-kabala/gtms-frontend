@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { userQuery, init } from '@gtms/state-user'
+import { userQuery } from '../user.query'
+import { init } from '../user.service'
 
 export function useAuth(tokens?: {
   accessToken?: string
