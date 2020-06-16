@@ -32,7 +32,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
   const [state, setState] = useState<IMyGroupsPageState>(myGroupsPageState())
 
   useEffect(() => {
-    loadMyGroups()
+    loadMyGroups(true)
     const sub = myGroupsPageState$.subscribe((value) => setState(value))
     return () => {
       sub && !sub.closed && sub.unsubscribe()

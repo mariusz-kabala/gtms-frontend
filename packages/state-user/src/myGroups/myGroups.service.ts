@@ -25,7 +25,11 @@ export const markMyGroupsAsLoading = () =>
     isLoaded: false,
   })
 
-export const loadMyGroups = async () => {
+export const loadMyGroups = async (force = false) => {
+  if (!force && myGroupsStore.getValue().isLoading === true) {
+    return
+  }
+
   myGroupsStore.update({
     isLoading: true,
     errorOccurred: false,

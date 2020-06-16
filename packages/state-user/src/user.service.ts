@@ -176,10 +176,11 @@ export const logoutUser = () => {
   userStore.destroy()
 }
 
-export const markAsLoading = () => userStore.update({
-  isLoadingDetails: true,
-  errorOccured: false,
-})
+export const markAsLoading = () =>
+  userStore.update({
+    isLoadingDetails: true,
+    errorOccured: false,
+  })
 
 export const getAccountDetails = async () => {
   userStore.update({
