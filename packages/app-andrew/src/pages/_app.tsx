@@ -3,9 +3,9 @@ import App, { AppContext } from 'next/app'
 import '@gtms/styles/scss/global.scss'
 import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
-import { NavigationGroup } from 'components/commons/NavigationGroup'
-import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { NavigationMain } from 'components/commons/NavigationMain'
+import { NotificationsActive } from 'components/commons/NotificationsActive'
+import { NavigationOooo } from 'components/commons/NavigationOooo'
 import { init, initAuthSession } from '@gtms/state-user'
 import { LoginWindow } from 'components/commons/LoginWindow'
 // import ReactTooltip from 'react-tooltip' // todo - make sure that we actually needed it, as it creates some issues with SSR
@@ -43,12 +43,12 @@ class GTMSApp extends App<GTMSAppProps> {
     return (
       <>
         <div className={styles.wrapper}>
-          <NavigationGroup />
+          <NavigationMain />
           <NotificationsSidebar />
           <NotificationsActive />
           <Component {...pageProps} />
         </div>
-        <NavigationMain />
+        <NavigationOooo />
         <LoginWindow />
         {/* <ReactTooltip /> */}
       </>

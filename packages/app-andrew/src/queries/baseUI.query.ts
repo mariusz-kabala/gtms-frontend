@@ -14,7 +14,7 @@ import { uiQuery, UIQuery } from 'state'
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
 
-export interface INavigationGroupProps {
+export interface INavigationMainProps {
   isLogged: boolean
   userAvatar: {
     jpg: string
@@ -28,7 +28,7 @@ export interface INotificationsSidebarProps {
   unreadCount: number
 }
 
-export interface INavigationMainProps {
+export interface INavigationOoooProps {
   isVisible: boolean
   isLogged: boolean
   isLoaded: boolean
@@ -43,7 +43,7 @@ export class BaseUIQuery {
     private notificationsQuery: NotificationsQuery
   ) {}
 
-  public navigationGroup = (): INavigationGroupProps => {
+  public navigationMain = (): INavigationMainProps => {
     const isLogged = this.userQuery.isLogged()
 
     return {
@@ -52,8 +52,8 @@ export class BaseUIQuery {
     }
   }
 
-  public navigationGroup$: Observable<INavigationGroupProps> = this.userQuery.select(() =>
-    this.navigationGroup()
+  public navigationMain$: Observable<INavigationMainProps> = this.userQuery.select(() =>
+    this.navigationMain()
   )
 
   public notificationsSidebar = (): INotificationsSidebarProps => {
@@ -73,7 +73,7 @@ export class BaseUIQuery {
     this.notificationsQuery.select()
   ).pipe(map(() => this.notificationsSidebar()))
 
-  public navigationMain = (): INavigationMainProps => {
+  public navigationOooo = (): INavigationOoooProps => {
     const status = this.myGroupsQuery.status()
     const isLogged = this.userQuery.isLogged()
 
@@ -89,11 +89,11 @@ export class BaseUIQuery {
     }
   }
 
-  public navigationMain$: Observable<INavigationMainProps> = combineLatest(
+  public navigationOooo$: Observable<INavigationOoooProps> = combineLatest(
     this.userQuery.isLogged$,
     this.myGroupsQuery.status$,
     this.myGroupsQuery.favGroups$
-  ).pipe(map(() => this.navigationMain()))
+  ).pipe(map(() => this.navigationOooo()))
 }
 //
 export const baseUIQuery = new BaseUIQuery(
