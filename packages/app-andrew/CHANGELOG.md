@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.1...@gtms/app-andrew@0.27.2) (2020-06-16)
+
+
+### Bug Fixes
+
+* master: add http status code to the redirection during log ([b04ccd7](https://github.com/gtms-org/gtms-frontend/commit/b04ccd746732f7c47f4323c497cfb276cbaa9b06))
+
+
+
+
+
 ## [0.27.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.0...@gtms/app-andrew@0.27.1) (2020-06-15)
 
 
