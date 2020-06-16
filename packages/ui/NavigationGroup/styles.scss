@@ -1,11 +1,9 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
-@import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
   position: fixed;
   left: 0;
-  @include z-index(navigationDot);
   width: 100%;
   min-height: 100%;
   background: $theme1;
@@ -21,7 +19,7 @@
     max-width: 50px;
   }
 
-  .navigation {
+  .navigationGroup {
     height: 100%;
     padding: 0 1em;
     color: $theme7;

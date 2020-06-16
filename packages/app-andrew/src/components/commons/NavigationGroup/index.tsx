@@ -1,14 +1,14 @@
 import React, { FC, useState, useEffect } from 'react'
-import { Navigation as NavigationUI } from '@gtms/ui/Navigation'
-import { INavigationProps, baseUIQuery } from 'queries'
+import { NavigationGroup as NavigationGroupUI } from '@gtms/ui/NavigationGroup'
+import { INavigationGroupProps, baseUIQuery } from 'queries'
 import { toggleSidebarNotifications } from 'state'
 import { logoutUser } from '@gtms/state-user'
 
-export const Navigation: FC<{}> = () => {
-  const [state, setState] = useState<INavigationProps>(baseUIQuery.navigation())
+export const NavigationGroup: FC<{}> = () => {
+  const [state, setState] = useState<INavigationGroupProps>(baseUIQuery.navigationGroup())
 
   useEffect(() => {
-    const sub = baseUIQuery.navigation$.subscribe((values) => setState(values))
+    const sub = baseUIQuery.navigationGroup$.subscribe((values) => setState(values))
 
     return () => {
       sub && !sub.closed && sub.unsubscribe()
@@ -20,7 +20,7 @@ export const Navigation: FC<{}> = () => {
   }
 
   return (
-    <NavigationUI
+    <NavigationGroupUI
       onAvatarClick={toggleSidebarNotifications}
       onLogout={logoutUser}
       avatar={state.userAvatar}

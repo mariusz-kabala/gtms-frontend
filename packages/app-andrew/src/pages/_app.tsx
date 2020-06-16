@@ -3,7 +3,7 @@ import App, { AppContext } from 'next/app'
 import '@gtms/styles/scss/global.scss'
 import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
-import { Navigation } from 'components/commons/Navigation'
+import { NavigationGroup } from 'components/commons/NavigationGroup'
 import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { NavigationDots } from 'components/commons/NavigationDots'
 import { init, initAuthSession } from '@gtms/state-user'
@@ -43,7 +43,7 @@ class GTMSApp extends App<GTMSAppProps> {
     return (
       <>
         <div className={styles.wrapper}>
-          <Navigation />
+          <NavigationGroup />
           <NotificationsSidebar />
           <NotificationsActive />
           <Component {...pageProps} />

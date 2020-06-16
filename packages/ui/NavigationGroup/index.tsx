@@ -10,7 +10,7 @@ import {
   IoIosLogOut,
 } from 'react-icons/io'
 
-export const Navigation: FC<{
+export const NavigationGroup: FC<{
   onAvatarClick?: () => unknown
   onLogout?: () => unknown
   avatar: { jpg: string; webp?: string } | null
@@ -29,7 +29,7 @@ export const Navigation: FC<{
           onClick={onAvatarClick}
         />
       )}
-      <nav className={styles.navigation} data-testid="navigation">
+      <nav className={styles.navigationGroup} data-testid="navigationGroup">
         <ul>
           {[
             {

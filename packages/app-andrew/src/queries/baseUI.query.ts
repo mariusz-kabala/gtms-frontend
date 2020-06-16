@@ -14,7 +14,7 @@ import { uiQuery, UIQuery } from 'state'
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
 
-export interface INavigationProps {
+export interface INavigationGroupProps {
   isLogged: boolean
   userAvatar: {
     jpg: string
@@ -43,7 +43,7 @@ export class BaseUIQuery {
     private notificationsQuery: NotificationsQuery
   ) {}
 
-  public navigation = (): INavigationProps => {
+  public navigationGroup = (): INavigationGroupProps => {
     const isLogged = this.userQuery.isLogged()
 
     return {
@@ -52,8 +52,8 @@ export class BaseUIQuery {
     }
   }
 
-  public navigation$: Observable<INavigationProps> = this.userQuery.select(() =>
-    this.navigation()
+  public navigationGroup$: Observable<INavigationGroupProps> = this.userQuery.select(() =>
+    this.navigationGroup()
   )
 
   public notificationsSidebar = (): INotificationsSidebarProps => {

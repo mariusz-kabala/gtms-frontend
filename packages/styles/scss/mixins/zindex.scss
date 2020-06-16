@@ -6,7 +6,7 @@ $z-index: (
   modal: 11,
   overlay: 10,
   navigationDot: 9,
-  navigation: 8,
+  navigationGroup: 8,
 );
 
 @function z-index($key) {
