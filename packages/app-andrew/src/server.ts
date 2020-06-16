@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express'
 import next from 'next'
 import nextI18NextMiddleware from 'next-i18next/middleware'
 import nextI18next from '../../commons/i18n'
+import { userStore } from '@gtms/state-user/src/user.store'
 
 const { NODE_ENV, API_URL, PORT, USE_PROXY_SSL } = process.env
 
@@ -41,6 +42,8 @@ const handle = app.getRequestHandler()
   server.get('/logout', (_: Request, res: Response) => {
     res.clearCookie('refreshToken')
     res.clearCookie('accessToken')
+
+    userStore.destroy()
 
     res.status(200).redirect('/login')
   })
