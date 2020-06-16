@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.8.4...@gtms/api-group@0.8.5) (2020-06-16)
+
+
+### Bug Fixes
+
+* GEOT-276: try to not init store on server side, to fix issue ([#646](https://github.com/gtms-org/gtms-frontend/issues/646)) ([670a93c](https://github.com/gtms-org/gtms-frontend/commit/670a93c770a56a414086ebb92c7d460d2d638912))
+
+
+
+
+
 ## [0.8.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.8.3...@gtms/api-group@0.8.4) (2020-06-16)
 
 **Note:** Version bump only for package @gtms/api-group

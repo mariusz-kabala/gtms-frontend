@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.11](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.9.10...@gtms/state-user@0.9.11) (2020-06-16)
+
+
+### Bug Fixes
+
+* GEOT-276: try to not init store on server side, to fix issue ([#646](https://github.com/gtms-org/gtms-frontend/issues/646)) ([670a93c](https://github.com/gtms-org/gtms-frontend/commit/670a93c770a56a414086ebb92c7d460d2d638912))
+
+
+
+
+
 ## [0.9.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.9.9...@gtms/state-user@0.9.10) (2020-06-16)
 
 **Note:** Version bump only for package @gtms/state-user
