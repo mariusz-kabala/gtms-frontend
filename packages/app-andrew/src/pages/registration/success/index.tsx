@@ -3,7 +3,7 @@ import { NextPage, NextPageContext } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Logout } from '@gtms/ui/Logout'
-import { userQuery, initAuthSession } from '@gtms/state-user'
+import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
 export const RegistrationSuccessPage: NextPage<{}> = () => {
@@ -20,15 +20,13 @@ export const RegistrationSuccessPage: NextPage<{}> = () => {
 }
 
 RegistrationSuccessPage.getInitialProps = async (ctx: NextPageContext) => {
-  await initAuthSession(ctx)
-
-  if (userQuery.isLogged()) {
+  if (hasAuthSessionCookies(ctx)) {
     redirect('/', ctx)
   }
 
-  if (!userQuery.hasData()) {
-    redirect('/registration', ctx)
-  }
+  // if (!userQuery.hasData()) {
+  //   redirect('/registration', ctx)
+  // }
 
   return Promise.resolve({ namespacesRequired: ['registration'] })
 }

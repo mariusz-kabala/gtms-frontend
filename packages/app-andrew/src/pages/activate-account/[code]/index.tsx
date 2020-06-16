@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Spinner } from '@gtms/ui/Spinner'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import { hasAuthSessionCookies } from '@gtms/state-user'
+import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
 import styles from './styles.scss'
 
 export const ActivateAccountPage: NextPage<{}> = () => {
