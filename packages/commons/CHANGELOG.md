@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.14.6...@gtms/commons@0.14.7) (2020-06-16)
+
+
+### Bug Fixes
+
+* trying to fix logout issues on server side ([f08d45c](https://github.com/gtms-org/gtms-frontend/commit/f08d45c5c6c692da9daa89fb92f5a28ceee3ac3a))
+
+
+
+
+
 ## [0.14.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.14.5...@gtms/commons@0.14.6) (2020-06-16)
 
 **Note:** Version bump only for package @gtms/commons
