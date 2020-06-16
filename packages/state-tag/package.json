@@ -7,7 +7,7 @@
   "license": "ISC",
   "dependencies": {
     "@gtms/api-tags": "0.4.1",
-    "@gtms/commons": "0.14.4"
+    "@gtms/commons": "*"
   },
   "scripts": {
     "build": "exit 0",
