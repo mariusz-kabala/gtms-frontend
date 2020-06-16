@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.9.5...@gtms/state-user@0.9.6) (2020-06-16)
+
+
+### Bug Fixes
+
+* destroy session during logout ([4617e45](https://github.com/gtms-org/gtms-frontend/commit/4617e4507ccacc3923994ecdf0f225f68d63555e))
+
+
+
+
+
 ## [0.9.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.9.4...@gtms/state-user@0.9.5) (2020-06-16)
 
 **Note:** Version bump only for package @gtms/state-user

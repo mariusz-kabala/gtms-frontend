@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.2...@gtms/app-andrew@0.27.3) (2020-06-16)
+
+
+### Bug Fixes
+
+* destroy session during logout ([4617e45](https://github.com/gtms-org/gtms-frontend/commit/4617e4507ccacc3923994ecdf0f225f68d63555e))
+
+
+
+
+
 ## [0.27.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.1...@gtms/app-andrew@0.27.2) (2020-06-16)
 
 
