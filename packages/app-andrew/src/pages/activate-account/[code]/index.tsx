@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Spinner } from '@gtms/ui/Spinner'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import { userQuery, initAuthSession } from '@gtms/state-user'
+import { hasAuthSessionCookies } from '@gtms/state-user'
 import styles from './styles.scss'
 
 export const ActivateAccountPage: NextPage<{}> = () => {
@@ -42,9 +42,7 @@ export const ActivateAccountPage: NextPage<{}> = () => {
 }
 
 ActivateAccountPage.getInitialProps = async (ctx: NextPageContext) => {
-  await initAuthSession(ctx)
-
-  if (userQuery.isLogged()) {
+  if (hasAuthSessionCookies(ctx)) {
     redirect('/', ctx)
   }
 

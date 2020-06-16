@@ -6,7 +6,7 @@ import { Spinner } from '@gtms/ui/Spinner'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { checkCodeReq } from '@gtms/api-auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import { userQuery, initAuthSession } from '@gtms/state-user'
+import { hasAuthSessionCookies } from '@gtms/state-user'
 import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
@@ -61,9 +61,7 @@ export const ResetPasswordPage: NextPage<{}> = () => {
 }
 
 ResetPasswordPage.getInitialProps = async (ctx: NextPageContext) => {
-  await initAuthSession(ctx)
-
-  if (userQuery.isLogged()) {
+  if (hasAuthSessionCookies(ctx)) {
     redirect('/', ctx)
   }
 

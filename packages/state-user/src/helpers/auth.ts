@@ -42,12 +42,6 @@ export async function initAuthSession(
 export function hasAuthSessionCookies(ctx: NextPageContext) {
   const cookies = parseCookies(ctx)
   const refreshToken = cookies.refreshToken
-  const accessToken = cookies.accessToken
 
-  return (
-    typeof refreshToken === 'string' &&
-    refreshToken !== '' &&
-    typeof accessToken === 'string' &&
-    accessToken !== ''
-  )
+  return typeof refreshToken === 'string' && refreshToken !== ''
 }
