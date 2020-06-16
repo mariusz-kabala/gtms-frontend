@@ -7,7 +7,7 @@
   "license": "ISC",
   "dependencies": {
     "@gtms/api-post": "0.1.3",
-    "@gtms/commons": "0.14.2",
+    "@gtms/commons": "0.14.3",
     "@gtms/state-notification": "*"
   },
   "scripts": {
