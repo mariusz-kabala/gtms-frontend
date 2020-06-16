@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.7...@gtms/app-andrew@0.27.8) (2020-06-16)
+
+
+### Bug Fixes
+
+* proper import ([6393f96](https://github.com/gtms-org/gtms-frontend/commit/6393f965c463c188d031bef66289ae4a58b745d7))
+
+
+
+
+
 ## [0.27.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.6...@gtms/app-andrew@0.27.7) (2020-06-16)
 
 **Note:** Version bump only for package @gtms/app-andrew
