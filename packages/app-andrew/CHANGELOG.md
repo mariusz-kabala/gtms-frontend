@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.11](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.10...@gtms/app-andrew@0.27.11) (2020-06-16)
+
+
+### Bug Fixes
+
+* master: do not init user session in constructor ([79b51a2](https://github.com/gtms-org/gtms-frontend/commit/79b51a23089f31e8622bbce68c35655b5f12b88c))
+
+
+
+
+
 ## [0.27.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.9...@gtms/app-andrew@0.27.10) (2020-06-16)
 
 

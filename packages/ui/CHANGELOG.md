@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.8...@gtms/ui@0.21.9) (2020-06-16)
+
+**Note:** Version bump only for package @gtms/ui
+
+
+
+
+
 ## [0.21.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.7...@gtms/ui@0.21.8) (2020-06-16)
 
 
