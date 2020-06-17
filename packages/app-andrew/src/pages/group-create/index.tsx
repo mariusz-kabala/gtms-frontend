@@ -3,7 +3,7 @@ import { NextPage, NextPageContext } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 import { GroupCreate } from '../../components/group/GroupCreate'
-import { userQuery } from '@gtms/state-user'
+import { hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
 export const GroupCreatePage: NextPage<{}> = () => {
@@ -29,7 +29,7 @@ export const GroupCreatePage: NextPage<{}> = () => {
 }
 
 GroupCreatePage.getInitialProps = async (ctx: NextPageContext) => {
-  if (!userQuery.isLogged()) {
+  if (!hasAuthSessionCookies(ctx)) {
     redirect('/login', ctx)
   }
 

@@ -18,8 +18,15 @@ const parseGroupAvatars = (group: IGroup) => {
   return group
 }
 
-export const loadMyGroups = async () => {
-  if (myGroupsStore.getValue().isLoading === true) {
+export const markMyGroupsAsLoading = () =>
+  myGroupsStore.update({
+    isLoading: true,
+    errorOccurred: false,
+    isLoaded: false,
+  })
+
+export const loadMyGroups = async (force = false) => {
+  if (!force && myGroupsStore.getValue().isLoading === true) {
     return
   }
 

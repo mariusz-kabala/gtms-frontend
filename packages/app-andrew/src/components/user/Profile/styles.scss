@@ -1,0 +1,24 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .profileImage {
+    max-width: 350px;
+  }
+
+  .right {
+    margin-left: 20px;
+    color: $theme7;
+  }
+
+  h2 {
+    @include font-size(lg);
+    @include font-weight(semiBold);
+  }
+}

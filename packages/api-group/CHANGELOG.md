@@ -3,16 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.8.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.8.4...@gtms/api-group@0.8.5) (2020-06-16)
+# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.8.5...@gtms/api-group@0.9.0) (2020-06-17)
 
+
+### Features
+
+* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
+
+
+
+
+
+## [0.8.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.8.4...@gtms/api-group@0.8.5) (2020-06-16)
 
 ### Bug Fixes
 
-* GEOT-276: try to not init store on server side, to fix issue ([#646](https://github.com/gtms-org/gtms-frontend/issues/646)) ([670a93c](https://github.com/gtms-org/gtms-frontend/commit/670a93c770a56a414086ebb92c7d460d2d638912))
-
-
-
-
+- GEOT-276: try to not init store on server side, to fix issue ([#646](https://github.com/gtms-org/gtms-frontend/issues/646)) ([670a93c](https://github.com/gtms-org/gtms-frontend/commit/670a93c770a56a414086ebb92c7d460d2d638912))
 
 ## [0.8.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.8.3...@gtms/api-group@0.8.4) (2020-06-16)
 

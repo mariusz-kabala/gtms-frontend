@@ -5,7 +5,7 @@ import { Button } from '@gtms/ui/Button'
 import { LoginForm } from '../../components/login/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { SocialButtons } from '../../components/login/SocialButtons'
-import { userQuery, initAuthSession } from '@gtms/state-user'
+import { userQuery, hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
 export const LoginPage: NextPage<{}> = () => {
@@ -74,9 +74,7 @@ export const LoginPage: NextPage<{}> = () => {
 }
 
 LoginPage.getInitialProps = async (ctx: NextPageContext) => {
-  await initAuthSession(ctx)
-
-  if (userQuery.isLogged()) {
+  if (hasAuthSessionCookies(ctx)) {
     redirect('/', ctx)
   }
 

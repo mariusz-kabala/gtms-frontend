@@ -38,3 +38,10 @@ export async function initAuthSession(
     refreshToken,
   }
 }
+
+export function hasAuthSessionCookies(ctx: NextPageContext) {
+  const cookies = parseCookies(ctx)
+  const refreshToken = cookies.refreshToken
+
+  return typeof refreshToken === 'string' && refreshToken !== ''
+}

@@ -42,7 +42,7 @@ export const createNewGroup = async (payload: {
 
 export const initGroup = (data: IGroupState) => groupStore.update(data)
 
-export const getGroup = async (slug: string) => {
+export const markAsLoading = () =>
   groupStore.update({
     isLoading: true,
     hasNoAccess: false,
@@ -50,6 +50,9 @@ export const getGroup = async (slug: string) => {
     errorOccured: false,
     group: null,
   })
+
+export const getGroup = async (slug: string) => {
+  markAsLoading()
 
   try {
     const group = (await fetchGroupDetails(slug)) as IGroupDetailsResponse

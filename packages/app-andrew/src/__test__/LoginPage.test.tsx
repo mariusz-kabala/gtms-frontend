@@ -6,7 +6,7 @@ import { SocialButtons } from '../components/login/SocialButtons'
 import { Router, useTranslation } from '@gtms/commons/i18n'
 import { parseCookies, destroyCookie } from 'nookies'
 import { userStore, IUserStore } from '@gtms/state-user'
-import { initAuthSession } from '@gtms/state-user/src/helpers'
+import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
 import { NextPageContext } from 'next'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
@@ -26,7 +26,7 @@ jest.mock('../components/login/SocialButtons', () => ({
 }))
 
 jest.mock('@gtms/state-user/src/helpers', () => ({
-  initAuthSession: jest.fn().mockImplementation(() => Promise.resolve()),
+  hasAuthSessionCookies: jest.fn().mockImplementation(() => Promise.resolve()),
 }))
 
 jest.mock('@gtms/commons/helpers/redirect', () => ({
@@ -41,7 +41,7 @@ describe('<LoginPage />', () => {
     ;(Router.push as jest.Mock).mockClear()
     ;(destroyCookie as jest.Mock).mockClear()
     ;(parseCookies as jest.Mock).mockClear()
-    ;(initAuthSession as jest.Mock).mockClear()
+    ;(hasAuthSessionCookies as jest.Mock).mockClear()
     ;(redirect as jest.Mock).mockClear()
 
     userStore.reset()
@@ -143,23 +143,6 @@ describe('<LoginPage />', () => {
 
     expect(props).toHaveProperty('namespacesRequired')
     expect(props.namespacesRequired).toEqual(['login'])
-    done()
-  })
-
-  it('Should initialize user auth session from JWT cookie', async (done) => {
-    if (!LoginPage.getInitialProps) {
-      return done()
-    }
-
-    const ctx = {} as NextPageContext
-
-    await LoginPage.getInitialProps(ctx)
-
-    expect(initAuthSession).toBeCalledTimes(1)
-    expect(initAuthSession).toBeCalledWith(ctx)
-
-    expect(redirect).not.toBeCalled()
-
     done()
   })
 
