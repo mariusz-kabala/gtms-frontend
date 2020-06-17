@@ -33,7 +33,7 @@ export const Profile: FC<{
       <div className={styles.right}>
         <section className={styles.info}>
           <h2>{getDisplayName(user)}</h2>
-          <p>user did not add any description yet</p>
+          <p>{user.description || 'user did not add any description yet'}</p>
         </section>
 
         <section className={styles.tags}>

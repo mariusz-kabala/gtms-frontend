@@ -7,6 +7,7 @@ import { ChangePassword } from 'components/account/ChangePassword'
 import { DeleteAccount } from 'components/account/DeleteAccount'
 import { UserEmail } from 'components/account/UserEmail'
 import { UserName } from 'components/account/UserName'
+import { UserDescription } from 'components/account/UserDescription'
 import { ImageEditor } from '@gtms/ui/ImageEditor'
 import { Spinner } from '@gtms/ui/Spinner'
 import { Picture } from '@gtms/ui/Picture'
@@ -121,7 +122,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             className={styles.visibleForEveryone}
           >
             <span className={styles.visibilityLabel}>
-              This part is visible for EVERYONE
+              {t('This part is visible for EVERYONE')}
             </span>
             <ImageEditor
               isVisible={isAvatarEditorVisible}
@@ -141,13 +142,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                   : UserAvatarNoImage['200x200'])}
               />
             </a>
-            <p className={styles.desc}>
-              {t('title')}
-              Dolore tempor reprehenderit dolor deserunt et. Consequat occaecat
-              sit est ipsum eu nisi nostrud consectetur est magna enim sit. Aute
-              velit et cupidatat quis labore in labore aute excepteur proident
-              aliqua id.
-            </p>
+            <UserDescription description={state.description} />
             <TagsBar
               tags={tags}
               isSaving={isSaving}

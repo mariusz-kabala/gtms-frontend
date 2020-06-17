@@ -4,6 +4,7 @@ import { IAccountDetailsResponse } from './me'
 export interface IAccountUpdatePayload {
   name?: string
   surname?: string
+  description?: string
   password?: string
   email?: string
   countryCode?: string
