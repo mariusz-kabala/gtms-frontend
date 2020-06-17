@@ -20,10 +20,7 @@ export const NavigationMain: FC<{
     <div className={styles.wrapper}>
       <nav className={styles.navigationMain} data-testid="navigationMain">
         {avatar && (
-          <UserAvatar
-            additionalStyles={styles.avatar}
-            image={avatar}
-          />
+          <UserAvatar additionalStyles={styles.avatar} image={avatar} />
         )}
         <ul>
           {[
@@ -60,7 +57,7 @@ export const NavigationMain: FC<{
           ].map((value, index) => {
             return (
               <li className={styles.link} key={index}>
-                { value.fn &&
+                {value?.fn && (
                   <a onClick={() => value.fn()}>
                     <i
                       data-tip={value.label}
@@ -70,9 +67,9 @@ export const NavigationMain: FC<{
                       {value.icon}
                     </i>
                   </a>
-                }
-                { !value.fn &&
-                  <Link href={value.url}>
+                )}
+                {!value.fn && (
+                  <Link href={value.url || '#'}>
                     <a>
                       <i
                         data-tip={value.label}
@@ -83,7 +80,7 @@ export const NavigationMain: FC<{
                       </i>
                     </a>
                   </Link>
-                }
+                )}
               </li>
             )
           })}

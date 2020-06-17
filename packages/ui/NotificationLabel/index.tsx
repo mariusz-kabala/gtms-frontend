@@ -5,7 +5,7 @@ import { IoMdCloseCircle } from 'react-icons/io'
 import { Picture } from '../Picture'
 import { CircularProgressbar } from 'react-circular-progressbar'
 
-export const Notification: FC<{
+export const NotificationLabel: FC<{
   additionalStyles?: string
   icon: { jpg: string; webp?: string }
   text: string
@@ -14,7 +14,7 @@ export const Notification: FC<{
 }> = ({ additionalStyles, icon, text, left, onClick }) => {
   return (
     <li
-      data-testid={'notification-single'}
+      data-testid={'notification-label'}
       className={cx(styles.wrapper, additionalStyles)}
     >
       <Picture additionalStyles={styles.notificationIcon} {...icon} />

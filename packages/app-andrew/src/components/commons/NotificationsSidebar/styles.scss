@@ -1,17 +1,15 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
+$notificationSidebarWrapperWidth: 350px;
+
 .wrapper {
   display: flex;
-  width: 0;
   height: 100%;
-  // @todo better animation is needed here, some mixin should be good
-  transition: all 100ms linear;
-  opacity: 0;
+  margin-right: 10px;
 
   &.opened {
-    width: 350px;
-    opacity: 1;
+    width: $notificationSidebarWrapperWidth;
   }
 
   .header {
@@ -37,7 +35,8 @@
   }
 
   .content {
-    width: 100%;
+    position: fixed;
+    width: $notificationSidebarWrapperWidth;
     height: 100%;
     background-color: $theme1;
     padding: 10px;

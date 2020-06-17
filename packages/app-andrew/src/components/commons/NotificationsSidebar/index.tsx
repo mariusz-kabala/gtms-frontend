@@ -4,10 +4,13 @@ import cx from 'classnames'
 import useKey from 'use-key-hook'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { IoMdCloseCircle } from 'react-icons/io'
-import { Notification } from '@gtms/ui/Notification'
+import { NotificationLabel } from '@gtms/ui/NotificationLabel'
 import { INotificationsSidebarProps, baseUIQuery } from 'queries'
 import { NotificationIcons } from 'enums'
-import { INotification, deleteNotification } from '@gtms/state-notification'
+import {
+  INotificationLabel,
+  deleteNotification,
+} from '@gtms/state-notification'
 import { closeSidebarNotifications } from 'state'
 
 export const NotificationsSidebar: FC<{
@@ -42,10 +45,10 @@ export const NotificationsSidebar: FC<{
 
   return (
     <div
-      data-testid={'notifications-sidebar'}
       className={cx(styles.wrapper, additionalStyles, {
         [styles.opened]: state.isOpen,
       })}
+      data-testid={'notifications-sidebar'}
     >
       <div className={styles.content}>
         <Scrollbars style={{ height: '100vh' }}>
@@ -56,8 +59,8 @@ export const NotificationsSidebar: FC<{
             </i>
           </div>
           <ul>
-            {state.notifications.map((notification: INotification) => (
-              <Notification
+            {state.notifications.map((notification: INotificationLabel) => (
+              <NotificationLabel
                 key={`notification-${notification.id}`}
                 onClick={() => deleteNotification(notification.id)}
                 additionalStyles={styles.notification}

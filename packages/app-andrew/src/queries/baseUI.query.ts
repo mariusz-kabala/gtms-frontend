@@ -7,7 +7,7 @@ import {
 import {
   notificationsQuery,
   NotificationsQuery,
-  INotification,
+  INotificationLabel,
 } from '@gtms/state-notification'
 import { IGroup } from '@gtms/commons'
 import { uiQuery, UIQuery } from 'state'
@@ -24,7 +24,7 @@ export interface INavigationMainProps {
 
 export interface INotificationsSidebarProps {
   isOpen: boolean
-  notifications: INotification[]
+  notifications: INotificationLabel[]
   unreadCount: number
 }
 

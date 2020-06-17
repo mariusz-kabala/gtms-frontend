@@ -46,9 +46,9 @@ class GTMSApp extends App<GTMSAppProps> {
           className={styles.bg}
           style={{ backgroundImage: `url('/images/temp_images/group_bg.png')` }} />
         <NavigationMain />
+        <NotificationsSidebar />
         <div className={styles.wrapperTwo}>
           <NavigationGroup />
-          <NotificationsSidebar />
           <NotificationsActive />
           <Component {...pageProps} />
         </div>

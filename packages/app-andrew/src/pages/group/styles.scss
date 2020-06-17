@@ -15,40 +15,31 @@
   .content {
     position: relative;
     width: 100%;
+    padding: 10px;
     color: $theme7;
 
-    .coverImage {
+    .groupHeader {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
+      max-width: 650px;
 
-      .groupHeader {
-        display: flex;
-        align-items: center;
-        max-width: 650px;
-        margin-left: 20px;
-        margin-bottom: 80px;
+      .groupAvatar {
+        margin-right: 10px;
+      }
 
-        .groupAvatar {
-          margin-top: 10px;
-          margin-bottom: 10px;
-          margin-right: 10px;
-        }
+      h2 {
+        @include font-size('lg');
+      }
 
-        h2 {
-          @include font-size('lg');
-          margin-bottom: 5px;
-        }
+      picture {
+        cursor: pointer;
 
-        picture {
-          cursor: pointer;
-
-          > * {
-            width: 70px;
-            min-width: 70px;
-            height: 70px;
-            min-height: 70px;
-            border-radius: $borderRadius;
-          }
+        > * {
+          width: 70px;
+          min-width: 70px;
+          height: 70px;
+          min-height: 70px;
+          border-radius: $borderRadius;
         }
       }
     }

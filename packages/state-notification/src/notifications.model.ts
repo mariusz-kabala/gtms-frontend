@@ -4,7 +4,7 @@ export enum NotificationTypes {
   question,
 }
 
-export interface INotification {
+export interface INotificationLabel {
   type: NotificationTypes
   text: string
   createdAt: number

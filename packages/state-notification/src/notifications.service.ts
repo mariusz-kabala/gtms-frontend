@@ -1,4 +1,4 @@
-import { INotification, NotificationTypes } from './notifications.model'
+import { INotificationLabel, NotificationTypes } from './notifications.model'
 import { notificationsStore } from './notifications.store'
 import { notificationsQuery } from './notifications.query'
 
@@ -17,7 +17,7 @@ function startTimerIfNeeded() {
       const timeout = n.expiresAt - n.createdAt
       const current = n.expiresAt - now
       const left = (current * 100) / timeout
-      let update: Partial<INotification>
+      let update: Partial<INotificationLabel>
 
       if (left > 0 && n.isRead === false) {
         foundUnread = true
@@ -41,7 +41,7 @@ function startTimerIfNeeded() {
   }, 100)
 }
 
-export const addNotification = (notification: Partial<INotification>) => {
+export const addNotification = (notification: Partial<INotificationLabel>) => {
   const last =
     notificationsQuery.getCount() > 0
       ? notificationsQuery.getAll().splice(-1).pop()
@@ -56,7 +56,7 @@ export const addNotification = (notification: Partial<INotification>) => {
     expiresAt: now + 15000, // 15s
     left: 100,
     isRead: false,
-  } as INotification)
+  } as INotificationLabel)
 
   startTimerIfNeeded()
 }

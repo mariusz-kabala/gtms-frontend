@@ -1,10 +1,10 @@
 import React, { FC, useState, useEffect } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { Notification } from '@gtms/ui/Notification'
+import { NotificationLabel } from '@gtms/ui/NotificationLabel'
 import {
   notificationsQuery,
-  INotification,
+  INotificationLabel,
   markAsRead,
 } from '@gtms/state-notification'
 import { NotificationIcons } from 'enums'
@@ -12,7 +12,7 @@ import { NotificationIcons } from 'enums'
 export const NotificationsActive: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
-  const [notifications, setNotifications] = useState<INotification[]>(
+  const [notifications, setNotifications] = useState<INotificationLabel[]>(
     notificationsQuery.unread()
   )
 
@@ -33,7 +33,7 @@ export const NotificationsActive: FC<{
       })}
     >
       {notifications.map((notification) => (
-        <Notification
+        <NotificationLabel
           key={`notification-${notification.id}`}
           onClick={() => markAsRead(notification.id)}
           additionalStyles={styles.notification}

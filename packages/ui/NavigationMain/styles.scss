@@ -20,7 +20,8 @@
 
     .avatar {
       width: 40px;
-      margin-top: 20px;
+      margin-top: 25px;
+      margin-bottom: 5px;
       
       img {
         border-radius: 50%;
@@ -35,7 +36,6 @@
       li {
         position: relative;
         background: $theme1;
-        padding: 10px;
         margin-bottom: 5px;
         border-radius: 5px;
 
@@ -44,8 +44,11 @@
         }
   
         a {
+          display: block;
+          padding: 10px;
           text-decoration: none;
           color: $theme7;
+
           i {
             line-height: 0;
             display: block;
