@@ -13,7 +13,7 @@ export const UserName: FC<{
       return 'Your name is missing :('
     }
 
-    return `${name} ${surname}`.trim()
+    return `${name || ''} ${surname || ''}`.trim()
   }
   return (
     <div
@@ -32,13 +32,8 @@ export const UserName: FC<{
         <UserNameChangeForm
           name={name}
           surname={surname}
-          onSaveSuccess={() => {
-            setIsEditModeActive(false)
-          }}
-          onSaveFail={() => {
-            setIsEditModeActive(false)
-            // todo show here error notification
-          }}
+          onSaveSuccess={() => setIsEditModeActive(false)}
+          onSaveFail={() => setIsEditModeActive(false)}
         />
       </ExpandingItem>
     </div>
