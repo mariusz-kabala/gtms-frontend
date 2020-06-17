@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { Picture } from '@gtms/ui/Picture'
 import { Tag } from '@gtms/ui/Tag'
 import { UserAvatarNoImage } from 'enums'
@@ -6,10 +6,23 @@ import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { InviteToGroupButton } from '../InviteToGroupButton'
 import { IUser } from '@gtms/commons/models'
 import styles from './styles.scss'
+import { IAccountDetails, userQuery } from '@gtms/state-user'
 
 export const Profile: FC<{
   user: IUser
 }> = ({ user }) => {
+  const [state, setState] = useState<IAccountDetails>(
+    userQuery.accountDetails()
+  )
+
+  useEffect(() => {
+    const sub = userQuery.accountDetails$.subscribe((value) => setState(value))
+
+    return () => {
+      sub && !sub.closed && sub.unsubscribe()
+    }
+  }, [])
+
   return (
     <div className={styles.wrapper} data-testid="user-profile">
       <div className={styles.left}>
@@ -34,9 +47,11 @@ export const Profile: FC<{
           </div>
         </section>
 
-        <section className={styles.actions}>
-          <InviteToGroupButton />
-        </section>
+        {state.id !== user.id && (
+          <section className={styles.actions}>
+            <InviteToGroupButton userId={user.id} />
+          </section>
+        )}
       </div>
     </div>
   )

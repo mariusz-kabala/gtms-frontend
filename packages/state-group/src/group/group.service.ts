@@ -7,6 +7,8 @@ import {
   updateGroupAPI,
   IGroupData,
   uploadGroupAvatar,
+  IInvitationData,
+  inviteToGroupAPI,
 } from '@gtms/api-group'
 import { groupStore, IGroupState } from './group.store'
 import { groupQuery } from './group.query'
@@ -151,4 +153,16 @@ export const updateGroupAvatar = async (file: File, id?: string) => {
   setTimeout(() => {
     getGroup(group.slug)
   }, 2500)
+}
+
+export const inviteToGroup = (payload: IInvitationData, slug: string) => {
+  return inviteToGroupAPI(payload, slug)
+    .then(() => {
+      addSuccessNotification('Invitation has been sent')
+    })
+    .catch(() => {
+      addErrorNotification(
+        'Can not send the invitation right now, please try later'
+      )
+    })
 }
