@@ -3,206 +3,158 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.21.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.20.0...@gtms/ui@0.21.0) (2020-06-05)
+## [0.21.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.9...@gtms/ui@0.21.10) (2020-06-16)
 
+**Note:** Version bump only for package @gtms/ui
+
+## [0.21.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.8...@gtms/ui@0.21.9) (2020-06-16)
+
+**Note:** Version bump only for package @gtms/ui
+
+## [0.21.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.7...@gtms/ui@0.21.8) (2020-06-16)
+
+### Bug Fixes
+
+- GEOT-276: try to not init store on server side, to fix issue ([#646](https://github.com/gtms-org/gtms-frontend/issues/646)) ([670a93c](https://github.com/gtms-org/gtms-frontend/commit/670a93c770a56a414086ebb92c7d460d2d638912))
+
+## [0.21.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.6...@gtms/ui@0.21.7) (2020-06-16)
+
+**Note:** Version bump only for package @gtms/ui
+
+## [0.21.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.5...@gtms/ui@0.21.6) (2020-06-16)
+
+**Note:** Version bump only for package @gtms/ui
+
+## [0.21.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.4...@gtms/ui@0.21.5) (2020-06-16)
+
+**Note:** Version bump only for package @gtms/ui
+
+## [0.21.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.3...@gtms/ui@0.21.4) (2020-06-16)
+
+**Note:** Version bump only for package @gtms/ui
+
+## [0.21.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.2...@gtms/ui@0.21.3) (2020-06-16)
+
+### Bug Fixes
+
+- destroy session during logout ([4617e45](https://github.com/gtms-org/gtms-frontend/commit/4617e4507ccacc3923994ecdf0f225f68d63555e))
+
+## [0.21.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.1...@gtms/ui@0.21.2) (2020-06-16)
+
+**Note:** Version bump only for package @gtms/ui
+
+## [0.21.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.0...@gtms/ui@0.21.1) (2020-06-15)
+
+**Note:** Version bump only for package @gtms/ui
+
+# [0.21.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.20.0...@gtms/ui@0.21.0) (2020-06-05)
 
 ### Features
 
-* GEOT-268 members managment ([#590](https://github.com/gtms-org/gtms-frontend/issues/590)) ([b159ad4](https://github.com/gtms-org/gtms-frontend/commit/b159ad4e06332d72d9372cbf4d6a2f1531526ba1))
-
-
-
-
+- GEOT-268 members managment ([#590](https://github.com/gtms-org/gtms-frontend/issues/590)) ([b159ad4](https://github.com/gtms-org/gtms-frontend/commit/b159ad4e06332d72d9372cbf4d6a2f1531526ba1))
 
 # [0.20.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.19.0...@gtms/ui@0.20.0) (2020-05-24)
 
-
 ### Features
 
-* show group members ([#579](https://github.com/gtms-org/gtms-frontend/issues/579)) ([191df71](https://github.com/gtms-org/gtms-frontend/commit/191df714ad52877b489a4262e10ee2e019a05736))
-
-
-
-
+- show group members ([#579](https://github.com/gtms-org/gtms-frontend/issues/579)) ([191df71](https://github.com/gtms-org/gtms-frontend/commit/191df714ad52877b489a4262e10ee2e019a05736))
 
 # [0.19.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.18.0...@gtms/ui@0.19.0) (2020-05-24)
 
-
 ### Features
 
-* GEOT-262: add and show group posts ([#578](https://github.com/gtms-org/gtms-frontend/issues/578)) ([577d297](https://github.com/gtms-org/gtms-frontend/commit/577d29703b3e58e167a7e8ca5c39e0cd84220811))
-
-
-
-
+- GEOT-262: add and show group posts ([#578](https://github.com/gtms-org/gtms-frontend/issues/578)) ([577d297](https://github.com/gtms-org/gtms-frontend/commit/577d29703b3e58e167a7e8ca5c39e0cd84220811))
 
 # [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.17.0...@gtms/ui@0.18.0) (2020-05-23)
 
-
 ### Features
 
-* GEOT-221: add image editor ([#577](https://github.com/gtms-org/gtms-frontend/issues/577)) ([9f049bf](https://github.com/gtms-org/gtms-frontend/commit/9f049bf4cd0cde62ff2b4df8ff6635ba4ed1bcfe))
-* GEOT-262 fully working notification system ([#575](https://github.com/gtms-org/gtms-frontend/issues/575)) ([8f23636](https://github.com/gtms-org/gtms-frontend/commit/8f23636bec59543f1e98612f0aad870e0da27781))
-
-
-
-
+- GEOT-221: add image editor ([#577](https://github.com/gtms-org/gtms-frontend/issues/577)) ([9f049bf](https://github.com/gtms-org/gtms-frontend/commit/9f049bf4cd0cde62ff2b4df8ff6635ba4ed1bcfe))
+- GEOT-262 fully working notification system ([#575](https://github.com/gtms-org/gtms-frontend/issues/575)) ([8f23636](https://github.com/gtms-org/gtms-frontend/commit/8f23636bec59543f1e98612f0aad870e0da27781))
 
 # [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.16.1...@gtms/ui@0.17.0) (2020-05-21)
 
-
 ### Features
 
-* GEOT-262 notification system ([#574](https://github.com/gtms-org/gtms-frontend/issues/574)) ([47c0fcd](https://github.com/gtms-org/gtms-frontend/commit/47c0fcd55c9a2d72b6498b1fc3171862f7d8c9c4))
-
-
-
-
+- GEOT-262 notification system ([#574](https://github.com/gtms-org/gtms-frontend/issues/574)) ([47c0fcd](https://github.com/gtms-org/gtms-frontend/commit/47c0fcd55c9a2d72b6498b1fc3171862f7d8c9c4))
 
 ## [0.16.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.16.0...@gtms/ui@0.16.1) (2020-05-21)
 
-
 ### Bug Fixes
 
-* GEOT-261: initial styling ([#573](https://github.com/gtms-org/gtms-frontend/issues/573)) ([5d97c70](https://github.com/gtms-org/gtms-frontend/commit/5d97c70a3cfbcd64a80e2c0854f08c5d900916fd))
-
-
-
-
+- GEOT-261: initial styling ([#573](https://github.com/gtms-org/gtms-frontend/issues/573)) ([5d97c70](https://github.com/gtms-org/gtms-frontend/commit/5d97c70a3cfbcd64a80e2c0854f08c5d900916fd))
 
 # [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.15.0...@gtms/ui@0.16.0) (2020-05-19)
 
-
 ### Features
 
-* GEOT-260: add promoted tags settings ([#563](https://github.com/gtms-org/gtms-frontend/issues/563)) ([befcc3e](https://github.com/gtms-org/gtms-frontend/commit/befcc3e231a007379e860199bdfeb876854f53b7))
-
-
-
-
+- GEOT-260: add promoted tags settings ([#563](https://github.com/gtms-org/gtms-frontend/issues/563)) ([befcc3e](https://github.com/gtms-org/gtms-frontend/commit/befcc3e231a007379e860199bdfeb876854f53b7))
 
 # [0.15.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.14.0...@gtms/ui@0.15.0) (2020-05-14)
 
-
 ### Features
 
-* GEOT-137: saving basic group settings, group files upload ([#560](https://github.com/gtms-org/gtms-frontend/issues/560)) ([647e857](https://github.com/gtms-org/gtms-frontend/commit/647e85738d1921e181f447b1969584312596ca1f))
-
-
-
-
+- GEOT-137: saving basic group settings, group files upload ([#560](https://github.com/gtms-org/gtms-frontend/issues/560)) ([647e857](https://github.com/gtms-org/gtms-frontend/commit/647e85738d1921e181f447b1969584312596ca1f))
 
 # [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.13.0...@gtms/ui@0.14.0) (2020-05-14)
 
-
 ### Features
 
-* GEOT-137: add group settings ([#556](https://github.com/gtms-org/gtms-frontend/issues/556)) ([3a7fa68](https://github.com/gtms-org/gtms-frontend/commit/3a7fa6812452db6e6100f65a0156ed7c23ad65e5))
-
-
-
-
+- GEOT-137: add group settings ([#556](https://github.com/gtms-org/gtms-frontend/issues/556)) ([3a7fa68](https://github.com/gtms-org/gtms-frontend/commit/3a7fa6812452db6e6100f65a0156ed7c23ad65e5))
 
 # [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.12.1...@gtms/ui@0.13.0) (2020-05-14)
 
-
 ### Features
 
-* GEOT-246: delete post feature ([#537](https://github.com/gtms-org/gtms-frontend/issues/537)) ([25bd3c8](https://github.com/gtms-org/gtms-frontend/commit/25bd3c8edb5f5f459999b3c42313b87cc9e8f265))
-
-
-
-
+- GEOT-246: delete post feature ([#537](https://github.com/gtms-org/gtms-frontend/issues/537)) ([25bd3c8](https://github.com/gtms-org/gtms-frontend/commit/25bd3c8edb5f5f459999b3c42313b87cc9e8f265))
 
 ## [0.12.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.12.0...@gtms/ui@0.12.1) (2020-05-13)
 
-
 ### Bug Fixes
 
-* master: deps fix ([78a67d4](https://github.com/gtms-org/gtms-frontend/commit/78a67d4fdf70c72a0b21c53b6a9185658bb61864))
-
-
-
-
+- master: deps fix ([78a67d4](https://github.com/gtms-org/gtms-frontend/commit/78a67d4fdf70c72a0b21c53b6a9185658bb61864))
 
 # [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.11.0...@gtms/ui@0.12.0) (2020-05-13)
 
-
 ### Features
 
-* GEOT-252: add recent groups ([#548](https://github.com/gtms-org/gtms-frontend/issues/548)) ([24efbb3](https://github.com/gtms-org/gtms-frontend/commit/24efbb36c44eaa2320a3714fa98bc135683fd36b))
-
-
-
-
+- GEOT-252: add recent groups ([#548](https://github.com/gtms-org/gtms-frontend/issues/548)) ([24efbb3](https://github.com/gtms-org/gtms-frontend/commit/24efbb36c44eaa2320a3714fa98bc135683fd36b))
 
 # [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.5...@gtms/ui@0.11.0) (2020-05-13)
 
-
 ### Features
 
-* GEOT-252: recent users ([#547](https://github.com/gtms-org/gtms-frontend/issues/547)) ([07264dc](https://github.com/gtms-org/gtms-frontend/commit/07264dc1357ee02326798952f31b9d797576bb3f))
-
-
-
-
+- GEOT-252: recent users ([#547](https://github.com/gtms-org/gtms-frontend/issues/547)) ([07264dc](https://github.com/gtms-org/gtms-frontend/commit/07264dc1357ee02326798952f31b9d797576bb3f))
 
 ## [0.10.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.4...@gtms/ui@0.10.5) (2020-05-13)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.10.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.3...@gtms/ui@0.10.4) (2020-05-12)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.10.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.2...@gtms/ui@0.10.3) (2020-05-12)
-
 
 ### Bug Fixes
 
-* GEOT-249: use only the latest monorepo deps ([#534](https://github.com/gtms-org/gtms-frontend/issues/534)) ([353b236](https://github.com/gtms-org/gtms-frontend/commit/353b2363f3c4530fa9dc51067c76718445784699))
-
-
-
-
+- GEOT-249: use only the latest monorepo deps ([#534](https://github.com/gtms-org/gtms-frontend/issues/534)) ([353b236](https://github.com/gtms-org/gtms-frontend/commit/353b2363f3c4530fa9dc51067c76718445784699))
 
 ## [0.10.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.1...@gtms/ui@0.10.2) (2020-05-12)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.10.0...@gtms/ui@0.10.1) (2020-05-11)
-
 
 ### Bug Fixes
 
-* GEOT-244: do not ask about fav groups when logout ([#521](https://github.com/gtms-org/gtms-frontend/issues/521)) ([aa334cd](https://github.com/gtms-org/gtms-frontend/commit/aa334cdff0b4c10a47256fb77371fd6d2518edd0))
-
-
-
-
+- GEOT-244: do not ask about fav groups when logout ([#521](https://github.com/gtms-org/gtms-frontend/issues/521)) ([aa334cd](https://github.com/gtms-org/gtms-frontend/commit/aa334cdff0b4c10a47256fb77371fd6d2518edd0))
 
 # [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.9.0...@gtms/ui@0.10.0) (2020-05-11)
 
-
 ### Features
 
-* GEOT-218: create group  ([7d2de63](https://github.com/gtms-org/gtms-frontend/commit/7d2de6340d0fbae9a44d685b863a65d699241571)), closes [#479](https://github.com/gtms-org/gtms-frontend/issues/479) [#460](https://github.com/gtms-org/gtms-frontend/issues/460) [#490](https://github.com/gtms-org/gtms-frontend/issues/490) [#502](https://github.com/gtms-org/gtms-frontend/issues/502) [#509](https://github.com/gtms-org/gtms-frontend/issues/509) [#515](https://github.com/gtms-org/gtms-frontend/issues/515)
-
-
-
-
+- GEOT-218: create group ([7d2de63](https://github.com/gtms-org/gtms-frontend/commit/7d2de6340d0fbae9a44d685b863a65d699241571)), closes [#479](https://github.com/gtms-org/gtms-frontend/issues/479) [#460](https://github.com/gtms-org/gtms-frontend/issues/460) [#490](https://github.com/gtms-org/gtms-frontend/issues/490) [#502](https://github.com/gtms-org/gtms-frontend/issues/502) [#509](https://github.com/gtms-org/gtms-frontend/issues/509) [#515](https://github.com/gtms-org/gtms-frontend/issues/515)
 
 # [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.8.1...@gtms/ui@0.9.0) (2020-05-07)
 

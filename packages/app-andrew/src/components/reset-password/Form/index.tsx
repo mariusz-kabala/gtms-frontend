@@ -5,6 +5,7 @@ import { Button } from '@gtms/ui/Button'
 import { useTranslation } from '@gtms/commons/i18n'
 import { resetPasswordReq } from '@gtms/api-auth'
 import { Error } from '@gtms/ui/Forms/Error'
+import { validatePassword } from '@gtms/state-user'
 
 export interface IResetPasswordFormData {
   password: string
@@ -30,6 +31,11 @@ export const ResetPasswordForm: FC<{
 
     if (!data.confirmPassword) {
       setError('confirmPassword', 'required')
+      hasErrors = true
+    }
+
+    if (!validatePassword(data.password)) {
+      setError('password', 'invalidFormat')
       hasErrors = true
     }
 
@@ -69,6 +75,9 @@ export const ResetPasswordForm: FC<{
       />
       {errors.password && errors.password.type === 'required' && (
         <Error text={t('form.validation.password.isRequired')} />
+      )}
+      {errors.password && errors.password.type === 'invalidFormat' && (
+        <Error text={t('form.validation.password.invalidFormat')} />
       )}
       {errors.password && errors.password.type === 'serverError' && (
         <Error text={t('serverError')} />

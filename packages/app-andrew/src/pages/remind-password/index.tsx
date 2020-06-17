@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { RemindPasswordForm } from '../../components/remind-password/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import { userQuery } from '@gtms/state-user'
+import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
 import styles from './styles.scss'
 
 export const RemindPasswordPage: NextPage<{}> = () => {
@@ -39,9 +38,7 @@ export const RemindPasswordPage: NextPage<{}> = () => {
 }
 
 RemindPasswordPage.getInitialProps = async (ctx: NextPageContext) => {
-  await initAuthSession(ctx)
-
-  if (userQuery.isLogged()) {
+  if (hasAuthSessionCookies(ctx)) {
     redirect('/', ctx)
   }
 

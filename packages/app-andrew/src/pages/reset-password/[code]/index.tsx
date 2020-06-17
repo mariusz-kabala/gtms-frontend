@@ -3,11 +3,11 @@ import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import { ResetPasswordForm } from '../../../components/reset-password/Form'
 import { Spinner } from '@gtms/ui/Spinner'
-import { useTranslation } from '@gtms/commons/i18n'
+import { useTranslation, Link } from '@gtms/commons/i18n'
 import { checkCodeReq } from '@gtms/api-auth'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import { userQuery } from '@gtms/state-user'
+import { hasAuthSessionCookies } from '@gtms/state-user'
+import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
 export const ResetPasswordPage: NextPage<{}> = () => {
@@ -34,7 +34,7 @@ export const ResetPasswordPage: NextPage<{}> = () => {
       <div>
         <h2>
           {/* @todo GEOT-109 - put proper translations everywhere */}
-          {t('Momencik resetujemy hasło...')}
+          {t('Podaj nowe haslo do swojego konta')}
         </h2>
         {isLoading && <Spinner />}
         {!isLoading && !isPasswordChanged && (
@@ -44,9 +44,16 @@ export const ResetPasswordPage: NextPage<{}> = () => {
           />
         )}
         {!isLoading && isPasswordChanged && (
-          <p data-testid="reset-password-changed-confirmation">
-            {t('passwordHasBeenChanged')}
-          </p>
+          <div>
+            <p data-testid="reset-password-changed-confirmation">
+              {t('passwordHasBeenChanged')}
+            </p>
+            <p>
+              <Link href="/login">
+                <Button>{t('goToLogin')}</Button>
+              </Link>
+            </p>
+          </div>
         )}
       </div>
     </div>
@@ -54,9 +61,7 @@ export const ResetPasswordPage: NextPage<{}> = () => {
 }
 
 ResetPasswordPage.getInitialProps = async (ctx: NextPageContext) => {
-  await initAuthSession(ctx)
-
-  if (userQuery.isLogged()) {
+  if (hasAuthSessionCookies(ctx)) {
     redirect('/', ctx)
   }
 

@@ -1,6 +1,6 @@
 import { userDetailsQuery } from '@gtms/state-user'
 import { IUser, IGroup } from '@gtms/commons'
-import { Observable, combineLatest } from 'rxjs'
+import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
 export interface IUserPageState extends IUser {
@@ -19,6 +19,6 @@ export const userPageState = (): IUserPageState => {
   }
 }
 
-export const userPageState$: Observable<IUserPageState> = combineLatest(
-  userDetailsQuery.select()
-).pipe(map(() => userPageState()))
+export const userPageState$: Observable<IUserPageState> = userDetailsQuery
+  .select()
+  .pipe(map(() => userPageState()))

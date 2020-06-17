@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks'
-import { userStore, IUserStore } from '@gtms/state-user'
+import { userStore, IUserStore } from '../account/user.store'
 import { useAuth } from './auth'
 
 describe('useAuth hook', () => {

@@ -8,6 +8,8 @@ describe('User store', () => {
   it('Should not be initialized after creation', () => {
     expect(userStore.getValue()).toEqual({
       isInitialized: false,
+      errorOccured: false,
+      isLoadingDetails: false,
     })
   })
 })

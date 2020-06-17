@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { IUserPageState, userPageState, userPageState$ } from 'queries'
 import { getUserDetails, initialize } from '@gtms/state-user'
+import { Profile } from 'components/user/Profile'
+import { Groups } from 'components/user/Groups'
 
 type UserPageProps = {
   namespacesRequired: readonly string[]
@@ -20,7 +22,16 @@ const UserPage: NextPage<UserPageProps> = ({ initialState }) => {
     }
   }, [])
 
-  return <div>USER PAGE {state.name}</div>
+  return (
+    <div>
+      <Profile user={state} />
+      <Groups
+        groupsMember={state.groupsMember}
+        groupsAdmin={state.groupsAdmin}
+        groupsOwner={state.groupsOwner}
+      />
+    </div>
+  )
 }
 
 UserPage.getInitialProps = async (

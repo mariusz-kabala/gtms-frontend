@@ -39,4 +39,6 @@ export interface IGroup {
   bg?: IGroupBg
   tags?: string[]
   owner: string
+  membersCounter: number
+  postsCounter: number
 }

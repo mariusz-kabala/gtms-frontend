@@ -4,9 +4,8 @@ import { activateAccount } from '@gtms/api-auth'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Spinner } from '@gtms/ui/Spinner'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import { userQuery } from '@gtms/state-user'
+import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
 import styles from './styles.scss'
 
 export const ActivateAccountPage: NextPage<{}> = () => {
@@ -43,9 +42,7 @@ export const ActivateAccountPage: NextPage<{}> = () => {
 }
 
 ActivateAccountPage.getInitialProps = async (ctx: NextPageContext) => {
-  await initAuthSession(ctx)
-
-  if (userQuery.isLogged()) {
+  if (hasAuthSessionCookies(ctx)) {
     redirect('/', ctx)
   }
 

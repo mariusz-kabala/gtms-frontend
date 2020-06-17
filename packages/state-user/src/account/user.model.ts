@@ -1,4 +1,4 @@
-import { IUser } from '@gtms/commons'
+import { IUser } from '@gtms/commons/models'
 
 export interface IToken {
   value: string

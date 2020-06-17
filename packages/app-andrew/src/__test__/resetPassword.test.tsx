@@ -6,14 +6,14 @@ import { ResetPasswordForm } from '../components/reset-password/Form'
 import { FetchMock } from 'jest-fetch-mock'
 import { useTranslation } from '@gtms/commons/i18n'
 import { userStore, IUserStore } from '@gtms/state-user'
-import { initAuthSession } from '@gtms/commons/helpers/auth'
+import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
 import { NextPageContext } from 'next'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
 const fetchMock = fetch as FetchMock
 
-jest.mock('@gtms/commons/helpers/auth', () => ({
-  initAuthSession: jest.fn().mockImplementation(() => Promise.resolve()),
+jest.mock('@gtms/state-user/src/helpers', () => ({
+  hasAuthSessionCookies: jest.fn().mockImplementation(() => Promise.resolve()),
 }))
 
 jest.mock('@gtms/commons/helpers/redirect', () => ({
@@ -43,7 +43,7 @@ describe('<ResetPasswordPage />', () => {
   beforeEach(() => {
     fetchMock.resetMocks()
     ;(ResetPasswordForm as jest.Mock).mockClear()
-    ;(initAuthSession as jest.Mock).mockClear()
+    ;(hasAuthSessionCookies as jest.Mock).mockClear()
     ;(redirect as jest.Mock).mockClear()
   })
 
@@ -164,8 +164,8 @@ describe('<ResetPasswordPage />', () => {
 
     await ResetPasswordPage.getInitialProps(ctx)
 
-    expect(initAuthSession).toBeCalledTimes(1)
-    expect(initAuthSession).toBeCalledWith(ctx)
+    expect(hasAuthSessionCookies).toBeCalledTimes(1)
+    expect(hasAuthSessionCookies).toBeCalledWith(ctx)
     expect(redirect).toBeCalledTimes(1)
     expect(redirect).toBeCalledWith('/', ctx)
 

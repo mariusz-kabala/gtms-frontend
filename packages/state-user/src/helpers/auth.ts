@@ -1,8 +1,7 @@
 import { NextPageContext } from 'next'
 import { parseCookies, setCookie } from 'nookies'
 import { fetchNewToken, IJWT } from '@gtms/api-auth'
-import { parseJwt } from './jwt'
-import { init } from '@gtms/state-user'
+import { parseJwt } from '@gtms/commons/helpers/jwt'
 
 export async function initAuthSession(
   ctx: NextPageContext
@@ -34,13 +33,15 @@ export async function initAuthSession(
     }
   }
 
-  init({
-    accessToken,
-    refreshToken,
-  })
-
   return {
     accessToken,
     refreshToken,
   }
+}
+
+export function hasAuthSessionCookies(ctx: NextPageContext) {
+  const cookies = parseCookies(ctx)
+  const refreshToken = cookies.refreshToken
+
+  return typeof refreshToken === 'string' && refreshToken !== ''
 }

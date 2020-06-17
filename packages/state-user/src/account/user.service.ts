@@ -111,7 +111,6 @@ const updateStoreWithJWT = ({
 }) => {
   const parsedToken = parseJwt<IJWT>(accessToken)
   const parsedRefreshToken = parseJwt<IJWT>(refreshToken)
-
   if (
     Array.isArray(parsedToken.avatar?.files) &&
     parsedToken.avatar?.status === FileStatus.ready
@@ -177,17 +176,38 @@ export const logoutUser = () => {
   userStore.destroy()
 }
 
+export const markAsLoading = () =>
+  userStore.update({
+    isLoadingDetails: true,
+    errorOccured: false,
+  })
+
 export const getAccountDetails = async () => {
-  const details = await fetchAccountDetails()
+  userStore.update({
+    isLoadingDetails: true,
+    errorOccured: false,
+  })
+  try {
+    const details = await fetchAccountDetails()
 
-  if (
-    Array.isArray(details.avatar?.files) &&
-    details.avatar?.status === FileStatus.ready
-  ) {
-    details.avatar.files = parseFiles(details.avatar.files)
+    if (
+      Array.isArray(details.avatar?.files) &&
+      details.avatar?.status === FileStatus.ready
+    ) {
+      details.avatar.files = parseFiles(details.avatar.files)
+    }
+
+    userStore.update({
+      ...(details as IAccountDetails),
+      isLoadingDetails: false,
+      errorOccured: false,
+    })
+  } catch (err) {
+    userStore.update({
+      isLoadingDetails: false,
+      errorOccured: true,
+    })
   }
-
-  userStore.update(details as IAccountDetails)
 }
 
 export const initAccountDetails = (details: IAccountDetails) => {

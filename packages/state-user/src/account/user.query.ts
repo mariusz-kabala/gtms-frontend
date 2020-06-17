@@ -96,7 +96,6 @@ export class UserQuery extends Query<IUserStore> {
 
   public isLogged = (values = this.getValue()): boolean => {
     const now = new Date().getTime()
-
     return !!(
       values.isActive &&
       !values.isBlocked &&

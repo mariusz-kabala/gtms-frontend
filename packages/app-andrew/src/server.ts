@@ -42,7 +42,7 @@ const handle = app.getRequestHandler()
     res.clearCookie('refreshToken')
     res.clearCookie('accessToken')
 
-    res.redirect('/login')
+    res.status(200).redirect('/login')
   })
 
   server.get(
