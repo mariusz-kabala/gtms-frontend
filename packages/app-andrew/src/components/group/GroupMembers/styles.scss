@@ -2,34 +2,60 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
+$groupMembersAvatarSize: 50px;
+
 .wrapper {
   header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
+
+    ul {
+      display: flex;
+      margin-left: 10px;
+
+      li {
+        margin-left: 10px;
+        font-size: 16px;
+        color: $theme4;
+        cursor: pointer;
+
+        &:hover {
+          color: $theme5;
+        }
+      }
+    }
 
     h2 {
       color: white;
       @include font-size(lg);
       @include font-weight(semiBold);
     }
-
-    ul {
-      li {
-        display: inline-block;
-        margin: 0 10px;
-        color: $theme4;
-        @include font-size(md);
-        @include font-weight(semiBold);
-        cursor: pointer;
-      }
-    }
   }
 
-  .center {
-    padding: 20px;
-    border: 1px solid red;
-    text-align: center;
+  .users {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($groupMembersAvatarSize, 1fr));
+    grid-gap: 15px;
+
+    .item {
+      display: inline-block;
+      color: $theme4;
+      @include font-size(md);
+      @include font-weight(semiBold);
+      cursor: pointer;
+
+      &:hover {
+        color: $theme7;
+      }
+
+      .avatar {
+        max-width: $groupMembersAvatarSize;
+    
+        img {
+          border-radius: 5px;
+        }
+      }
+    }
   }
 }

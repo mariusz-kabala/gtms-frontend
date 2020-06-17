@@ -117,35 +117,20 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             </p>
           </ErrorInfo>
         )}
+        
         {state.notFound && <GroupNotFound />}
+
         {state.hasNoAccess && <GroupNoAccess />}
 
         {state.group && (
-          <div className={styles.columns}>
-            <div className={styles.column}>
-              <div className={styles.actionButtons}>
-                <FavsButton group={state.group} />
-                <JoinLeaveButton group={state.group} />
-                <SettingsButton group={state.group} />
-              </div>
-              <section>
-                <h2 className={styles.header}>{t('promotedTags')}</h2>
-                <PromotedTags
-                  tags={state.promotedTags.tags}
-                  isLoading={state.promotedTags.isLoading}
-                  noImage={PromotedTagNoImage}
-                  isAdmin={groupQuery.hasAdminRights()}
-                  onNoRecordsClick={() =>
-                    router.push(`/group/${state.group?.slug}/settings#tags`)
-                  }
-                />
-              </section>
-              <section>
-                <GroupMembers {...state.members} />
-              </section>
+          <>
+            <div className={styles.actionButtons}>
+              <FavsButton group={state.group} />
+              <JoinLeaveButton group={state.group} />
+              <SettingsButton group={state.group} />
             </div>
-            <div className={styles.column}>
-              <section>
+            <div className={styles.columns}>
+              <div className={styles.column}>
                 <h2 className={styles.header}>{t('recentlyAddedPosts')}</h2>
                 {state.user && (
                   <PostCreate
@@ -160,13 +145,27 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     additionalStyles={styles.postCreate}
                   />
                 )}
+                <br /> {/* @todo remove this */}
                 <RecentlyAddedPosts
                   noImage={UserAvatarNoImage}
                   posts={state.posts}
                 />
-              </section>
+              </div>              
+              <div className={styles.column}>
+                <h2 className={styles.header}>{t('promotedTags')}</h2>
+                <PromotedTags
+                  tags={state.promotedTags.tags}
+                  isLoading={state.promotedTags.isLoading}
+                  noImage={PromotedTagNoImage}
+                  isAdmin={groupQuery.hasAdminRights()}
+                  onNoRecordsClick={() =>
+                    router.push(`/group/${state.group?.slug}/settings#tags`)
+                  }
+                />
+                <GroupMembers {...state.members} />
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </div>

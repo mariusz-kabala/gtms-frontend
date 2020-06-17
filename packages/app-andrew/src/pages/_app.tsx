@@ -40,18 +40,24 @@ class GTMSApp extends App<GTMSAppProps> {
 
   render() {
     const { Component, pageProps } = this.props
+
     return (
-      <>
-        <div className={styles.wrapper}>
-          <Navigation />
-          <NotificationsSidebar />
+      <div className={styles.wrapper}>
+        <Navigation />
+        <div
+          className={styles.bg}
+          style={{ backgroundImage: `url('/images/temp_images/group_bg_3.png')` }} />
+        <NotificationsSidebar />
+        <div className={styles.wrapperPage}>
+          <NavigationDots />
           <NotificationsActive />
-          <Component {...pageProps} />
+          <div className={styles.pageContent}>
+            <Component {...pageProps} />
+          </div>
         </div>
-        <NavigationDots />
         <LoginWindow />
         {/* <ReactTooltip /> */}
-      </>
+      </div>
     )
   }
 }

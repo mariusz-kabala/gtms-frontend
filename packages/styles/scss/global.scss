@@ -13,8 +13,12 @@ html {
   box-sizing: inherit;
 }
 
-body {
+body,
+textarea {
   font-family: 'Lato,sans-serif', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
   @include font-size(default);
   line-height: normal;
   background-color: $theme1;

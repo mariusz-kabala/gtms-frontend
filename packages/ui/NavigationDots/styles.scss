@@ -1,46 +1,76 @@
 @import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
 @import '~@gtms/styles/scss/mixins/zindex';
 
-.navigationDot {
-  position: fixed;
-  left: 0px;
-  bottom: 0;
-  width: 100%;
+.wrapper {
   display: flex;
-  @include z-index(navigationDot);
+  flex-direction: column;
+  @include z-index(navigationGroup);
+  width: 55px;
+  min-width: 55px;
+  background: $theme4;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 
-  &:hover {
-    align-items: center;
+  .navigationDot {  
+    > li {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      margin-top: 10px;
+  
+      // @todo separate component?
+      .item {
+        width: 40px;
+        height: 40px;
+        background: $theme1;
+        background-size: cover; // @todo move to mixin
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 200ms all;
+      }
+  
+      &:hover {
+        transition-delay: 200ms;
+  
+        .item {
+          width: 45px;
+          height: 45px;
+        }
+      }
+    }  
   }
 
-  > li {
+  .linksMock {
     display: flex;
-    justify-content: center;
-    align-content: center;
-    margin-right: 15px;
-    margin-bottom: 10px;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
 
-    // @todo separate component?
-    .circle {
-      width: 45px;
-      height: 45px;
-      background: $theme1;
-      background-size: cover; // @todo move to mixin
-      border-radius: 50%;
-      cursor: pointer;
-      transition: 200ms all;
-    }
+    li {
+      position: relative;
+      margin-bottom: 5px;
+      border-radius: 5px;
 
-    &:first-child {
-      margin-left: 10px;
-    }
+      &:last-child {
+        margin-bottom: 0;
+      }
 
-    &:hover {
-      transition-delay: 200ms;
+      a {
+        display: block;
+        padding: 10px;;
+        @include font-size(md);
+        text-decoration: none;
+        color: $theme7;
 
-      .circle {
-        width: 100px;
-        height: 100px;
+        i {
+          line-height: 0;
+          display: block;
+        }
+      }
+
+      &:hover {
+        background: $theme2;
       }
     }
   }

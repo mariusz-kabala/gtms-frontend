@@ -11,6 +11,34 @@ export const GroupMembers: FC<{
   errorOccured: boolean
   users: IUser[]
 }> = ({ isLoading, errorOccured, users }) => {
+  const aaa = [
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+    users[0],
+  ]
+
   return (
     <div data-testid="group-members" className={styles.wrapper}>
       <header>
@@ -21,36 +49,32 @@ export const GroupMembers: FC<{
           <li>Zobacz wszystkich</li>
         </ul>
       </header>
-      <div>
-        {isLoading && (
-          <p className={styles.center}>
-            <Spinner />
-          </p>
-        )}
-        {errorOccured && (
-          <p className={styles.center}>
-            Sorry we can not show you groups members now
-          </p>
-        )}
-        {users.length > 0 && (
-          <ul>
-            {users.map((user) => (
-              <li key={`group-member-${user.id}`}>
-                <Link href={`/user/${user.id}`}>
-                  <div>
-                    <UserAvatar image={getImage('200x200', user.avatar)} />
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-        {users.length === 0 && (
-          <p className={styles.center}>
-            No groups members, maybe you would like to be the first one?
-          </p>
-        )}
-      </div>
+
+      {isLoading && <Spinner />}
+      
+      {errorOccured && (
+        <p className={styles.center}>
+          Sorry we can not show you groups members now
+        </p>
+      )}
+      
+      {users.length > 0 && (
+        <ul className={styles.users}>
+          {aaa.map((user) => (
+            <li className={styles.item} key={`group-member-${user.id}`}>
+              <Link href={`/user/${user.id}`}>
+                <UserAvatar additionalStyles={styles.avatar} image={getImage('200x200', user.avatar)} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+      
+      {users.length === 0 && (
+        <p className={styles.center}>
+          No groups members, maybe you would like to be the first one?
+        </p>
+      )}
     </div>
   )
 }

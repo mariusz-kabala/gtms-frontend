@@ -2,7 +2,17 @@
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
-.wrapper {
+.buttonDelete {
+  display: flex;
+  align-items: center;
+
+  i {
+    margin-top: 2px;
+    margin-right: 2px;
+  }
+}
+
+.wrapperConfirm {
   position: absolute;
   top: 0;
   left: 0;

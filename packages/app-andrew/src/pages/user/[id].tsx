@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { IUserPageState, userPageState, userPageState$ } from 'queries'
 import { getUserDetails, initialize } from '@gtms/state-user'
@@ -23,7 +24,7 @@ const UserPage: NextPage<UserPageProps> = ({ initialState }) => {
   }, [])
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Profile user={state} />
       <Groups
         groupsMember={state.groupsMember}

@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import styles from './styles.scss'
 
 export const Picture: FC<{
   jpg?: string
@@ -8,6 +9,6 @@ export const Picture: FC<{
   <picture className={additionalStyles}>
     {webp && <source srcSet={webp} type="image/webp" />}
     <source srcSet={jpg} type="image/jpeg" />
-    <img src={jpg} />
+    <img className={styles.img} src={jpg} />
   </picture>
 )

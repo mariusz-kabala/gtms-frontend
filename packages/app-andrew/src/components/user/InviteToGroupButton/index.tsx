@@ -23,20 +23,18 @@ const GroupsList: FC<{
   onClick: (group: IGroup) => unknown
 }> = ({ groups, onClick }) => {
   return (
-    <div>
-      <ul>
-        {groups.map((group) => (
-          <li onClick={() => onClick(group)} key={`group-${group.id}`}>
-            <Picture
-              {...getImage('200x200', group.avatar, GroupAvatarNoImage)}
-            />
-            <h3>{group.name}</h3>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className={styles.groupList}>
+      {groups.map((group) => (
+        <li onClick={() => onClick(group)} key={`group-${group.id}`}>
+          <Picture {...getImage('200x200', group.avatar, GroupAvatarNoImage)} />
+          <h3>{group.name}</h3>
+        </li>
+      ))}
+    </ul>
   )
 }
+
+const NoGroupsMatchingCritera: FC = () => <p>No groups machting criteria</p>
 
 enum Tabs {
   groupsMember,
@@ -57,7 +55,10 @@ const getInitialInternalState = () => ({
   step: Steps.start,
 })
 
-export const InviteToGroupButton: FC<{ userId: string }> = ({ userId }) => {
+export const InviteToGroupButton: FC<{
+  additionalStyles?: string
+  userId: string
+}> = ({ additionalStyles, userId }) => {
   const [externalState, setExternalState] = useState<IInviteToGroupButtonState>(
     inviteToGroupButtonState()
   )
@@ -108,15 +109,9 @@ export const InviteToGroupButton: FC<{ userId: string }> = ({ userId }) => {
     <>
       {internalState.isModalOpen && (
         <Modal onClose={() => setInternalState(getInitialInternalState())}>
-          {externalState.isLoading && (
-            <div>
-              <Spinner />
-            </div>
-          )}
+          {externalState.isLoading && <Spinner />}
           {externalState.errorOccured && (
-            <div>
-              <p>Can not fetch list of groups now, try later please</p>
-            </div>
+            <p>Can not fetch list of groups now, try later please</p>
           )}
           {externalState.isLoaded && internalState.step === Steps.start && (
             <div>
@@ -173,7 +168,7 @@ export const InviteToGroupButton: FC<{ userId: string }> = ({ userId }) => {
                   )}
                 {internalState.currentTab === Tabs.groupsMember &&
                   externalState.member.length === 0 && (
-                    <p>No groups machting criteria</p>
+                    <NoGroupsMatchingCritera />
                   )}
 
                 {internalState.currentTab === Tabs.groupsAdmin &&
@@ -185,7 +180,7 @@ export const InviteToGroupButton: FC<{ userId: string }> = ({ userId }) => {
                   )}
                 {internalState.currentTab === Tabs.groupsAdmin &&
                   externalState.admin.length === 0 && (
-                    <p>No groups machting criteria</p>
+                    <NoGroupsMatchingCritera />
                   )}
 
                 {internalState.currentTab === Tabs.groupsOwner &&
@@ -197,7 +192,7 @@ export const InviteToGroupButton: FC<{ userId: string }> = ({ userId }) => {
                   )}
                 {internalState.currentTab === Tabs.groupsOwner &&
                   externalState.owner.length === 0 && (
-                    <p>No groups machting criteria</p>
+                    <NoGroupsMatchingCritera />
                   )}
               </div>
             </div>
@@ -248,7 +243,7 @@ export const InviteToGroupButton: FC<{ userId: string }> = ({ userId }) => {
             isModalOpen: true,
           })
         }}
-        className={styles.btn}
+        className={additionalStyles}
       >
         invite to a group
       </button>

@@ -102,19 +102,17 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
-
+  
   return (
     <div className={styles.wrapper} data-testid="account-page">
-      {state.isLoading && (
-        <div>
-          <Spinner />
-        </div>
-      )}
+      {state.isLoading && <Spinner />
+      }
       {!state.isLoading && state.errorOccured && (
         <div>
           <p>Can not fetch account details right now, try later</p>
         </div>
       )}
+
       {!state.isLoading && !state.errorOccured && (
         <div className={styles.content}>
           <div
@@ -155,27 +153,36 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
               onSave={onTagsSave}
             />
           </div>
-          <div className={styles.divider} />
-          <div
-            data-testid="account-page-private"
-            className={styles.visibleForOwner}
-          >
-            <span className={styles.visibilityLabel}>
-              This part is visible ONLY FOR YOU
-            </span>
-            <ChangePassword />
-            <UserName
-              additionalStyles={styles.userName}
-              name={state.name}
-              surname={state.surname}
-            />
-            <UserEmail email={state.email} additionalStyles={styles.userName} />
-            <DeleteAccount
-              additionalStyles={styles.deleteAccount}
-              onConfirm={() => null}
-            />
-          </div>
-        </div>
+          <p className={styles.desc}>
+            {t('title')}
+            Dolore tempor reprehenderit dolor deserunt et. Consequat occaecat
+            sit est ipsum eu nisi nostrud consectetur est magna enim sit. Aute
+            velit et cupidatat quis labore in labore aute excepteur proident
+            aliqua id.
+          </p>
+          <TagsBar
+            tags={tags}
+            isSaving={isSaving}
+            isLoading={tagsHints.isLoading}
+            suggestions={tagsHints.tags}
+            onLoadSuggestion={onLoadTagsHints}
+            onLoadSuggestionCancel={() => null}
+            onTagAdd={onTagAdd}
+            onTagRemove={onTagRemove}
+            onSave={onTagsSave}
+          />
+          <ChangePassword />
+          <UserName
+            additionalStyles={styles.userName}
+            name={state.name}
+            surname={state.surname}
+          />
+          <UserEmail email={state.email} additionalStyles={styles.userName} />
+          <DeleteAccount
+            additionalStyles={styles.deleteAccount}
+            onConfirm={() => null}
+          />
+        </>
       )}
     </div>
   )

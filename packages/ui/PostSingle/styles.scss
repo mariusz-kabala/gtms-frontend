@@ -6,37 +6,60 @@
   overflow: hidden; // for delete post component that overflows this component
   color: $theme7;
   cursor: pointer;
-  opacity: 0.9;
-
+  
   &:hover {
-    opacity: 1;
+    .header .deleteBtn {
+      opacity: 0.5;
+    }
   }
-
+  
   .text {
     margin-top: 10px;
     margin-bottom: 10px;
+    
+    > * {
+      white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
+    }
   }
 
   .header {
     display: flex;
     align-items: center;
 
-    .userAvatar {
-      img {
-        border-radius: 50%;
+    .user {
+      display: flex;
+      align-items: center;
+
+      // @todo create mixin with highlighted text
+      color: $theme7;
+      &:hover {
+        color: $theme5;
+      }
+
+      .userAvatar {
+        img {
+          border-radius: 50%;
+        }
       }
     }
 
     span {
       margin-left: 10px;
-      color: $theme5;
+
+      // @todo create mixin with highlighted text
+      color: $theme7;
+      &:hover {
+        color: $theme5;
+      }
     }
 
     .deleteBtn {
       margin-left: auto;
       cursor: pointer;
-
+      opacity: 0;
+      
       &:hover {
+        opacity: 1;
         color: $theme5;
       }
     }

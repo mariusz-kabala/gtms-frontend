@@ -10,6 +10,7 @@ import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 import { IUser } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
+import { Link } from '@gtms/commons/i18n'
 
 export const PostSingle: FC<{
   text: string
@@ -24,25 +25,25 @@ export const PostSingle: FC<{
       data-testid="post-single"
     >
       <div className={styles.header}>
-        <UserAvatar
-          image={
-            owner.avatar?.status === FileStatus.ready
-              ? (owner.avatar.files['35x35'] as { jpg: string })
-              : noImage['35x35']
-          }
-          additionalStyles={styles.userAvatar}
-        />
-        <span>{`${owner.name || ''} ${owner.surname || ''}`.trim()}</span>
+        <Link href={`/user/${owner.id}`}>
+          <div className={styles.user}>
+            <UserAvatar
+              image={
+                owner.avatar?.status === FileStatus.ready
+                  ? (owner.avatar.files['35x35'] as { jpg: string })
+                  : noImage['35x35']
+              }
+              additionalStyles={styles.userAvatar}
+            />
+            <span>{`${owner.name || ''} ${owner.surname || ''}`.trim()}</span>
+          </div>
+        </Link>
         <span>
           {formatDistance(new Date(createdAt), new Date(), { locale: pl })}
         </span>
         <DeletePost additionalStyles={styles.deleteBtn} />
       </div>
-      <div className={styles.text}>
-        <p>
-          <ReactMarkdown source={text} />
-        </p>
-      </div>
+      <ReactMarkdown className={styles.text} source={text} />
       <TagGroup>
         <Tag label="tag" />
         <Tag label="tag" />

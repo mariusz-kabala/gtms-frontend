@@ -1,8 +1,10 @@
 import React, { FC, useState } from 'react'
 import styles from './styles.scss'
+import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Button } from '../../Button'
 import useKey from 'use-key-hook'
+import { IoMdTrash } from 'react-icons/io'
 
 export const DeletePost: FC<{
   additionalStyles?: string
@@ -16,7 +18,7 @@ export const DeletePost: FC<{
 
   return isActive ? (
     <div
-      className={styles.wrapper}
+      className={styles.wrapperConfirm}
       data-testid="post-single-delete-post-question"
     >
       <div>
@@ -40,12 +42,15 @@ export const DeletePost: FC<{
       </div>
     </div>
   ) : (
-    <Button
-      additionalStyles={additionalStyles}
-      testid="post-single-delete-post-button"
-      onClick={() => setIsActive(true)}
-    >
-      {t('btnDeletePost')}
-    </Button>
+    <>
+      <Button
+        additionalStyles={cx(styles.buttonDelete, additionalStyles)}
+        testid="post-single-delete-post-button"
+        onClick={() => setIsActive(true)}
+      >
+        <i><IoMdTrash /></i>
+        {t('btnDeletePost')}
+      </Button>
+    </>
   )
 }

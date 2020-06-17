@@ -10,6 +10,7 @@
   padding: 5px;
   background: $theme0;
   resize: vertical;
+  white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
 
   &:active,
   &:focus,
