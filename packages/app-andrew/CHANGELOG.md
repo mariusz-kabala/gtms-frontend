@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.28.0...@gtms/app-andrew@0.29.0) (2020-06-17)
+
+
+### Features
+
+* GEOT-277: invite to a group button ([#650](https://github.com/gtms-org/gtms-frontend/issues/650)) ([473256c](https://github.com/gtms-org/gtms-frontend/commit/473256c5fb622c846ab081ce7abe62d21c8635f1))
+
+
+
+
+
 # [0.28.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.12...@gtms/app-andrew@0.28.0) (2020-06-17)
 
 
