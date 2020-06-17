@@ -182,7 +182,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             additionalStyles={styles.deleteAccount}
             onConfirm={() => null}
           />
-        </>
+        </div>
       )}
     </div>
   )
