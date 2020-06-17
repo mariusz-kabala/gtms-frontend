@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.29.0...@gtms/app-andrew@0.29.1) (2020-06-17)
+
+
+### Bug Fixes
+
+* GEOT-281: fixes for account update ([#653](https://github.com/gtms-org/gtms-frontend/issues/653)) ([7e20011](https://github.com/gtms-org/gtms-frontend/commit/7e2001122507309ce707fd1ce42b541b57358b66))
+
+
+
+
+
 # [0.29.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.28.0...@gtms/app-andrew@0.29.0) (2020-06-17)
 
 
