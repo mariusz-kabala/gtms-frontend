@@ -86,7 +86,7 @@ export const InviteToGroupButton: FC<{}> = () => {
   }, [])
 
   const { register, handleSubmit } = useForm<{ description?: string }>()
-  const onSubmit = (data: { description?: string }) => {
+  const onSubmit = () => {
     // continue after BE is adapted
   }
 
