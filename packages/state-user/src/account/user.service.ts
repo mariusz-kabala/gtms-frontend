@@ -20,6 +20,10 @@ import { IJWT } from '@gtms/api-auth'
 import { userStore } from './user.store'
 import { IAccountDetails } from './user.query'
 import { parseJwt, FileStatus, parseFiles } from '@gtms/commons'
+import {
+  addSuccessNotification,
+  addErrorNotification,
+} from '@gtms/state-notification'
 
 export const init = ({
   accessToken,
@@ -215,9 +219,22 @@ export const initAccountDetails = (details: IAccountDetails) => {
 }
 
 export const updateAccountDetails = async (payload: IAccountUpdatePayload) => {
-  const details = await updateAccountAPI(payload)
+  try {
+    const details = await updateAccountAPI(payload)
 
-  userStore.update(details as IAccountDetails)
+    if (
+      Array.isArray(details.avatar?.files) &&
+      details.avatar?.status === FileStatus.ready
+    ) {
+      details.avatar.files = parseFiles(details.avatar.files)
+    }
+
+    userStore.update(details as IAccountDetails)
+
+    addSuccessNotification('Your profile has been updated')
+  } catch (err) {
+    addErrorNotification('Can not update your profile now, please try later')
+  }
 }
 
 export const updateAccountAvatar = async (file: File) => {

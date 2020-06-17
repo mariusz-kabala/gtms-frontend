@@ -27,9 +27,8 @@ export const UserNameChangeForm: FC<{
       await updateAccountDetails(data)
       onSaveSuccess()
     } catch {
-      onSaveFail()
-    } finally {
       setIsSaving(false)
+      onSaveFail()
     }
   }
 
