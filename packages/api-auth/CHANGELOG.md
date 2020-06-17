@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.6.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.6.8...@gtms/api-auth@0.6.9) (2020-06-16)
 
-
 ### Bug Fixes
 
-* GEOT-276: try to not init store on server side, to fix issue ([#646](https://github.com/gtms-org/gtms-frontend/issues/646)) ([670a93c](https://github.com/gtms-org/gtms-frontend/commit/670a93c770a56a414086ebb92c7d460d2d638912))
-
-
-
-
+- GEOT-276: try to not init store on server side, to fix issue ([#646](https://github.com/gtms-org/gtms-frontend/issues/646)) ([670a93c](https://github.com/gtms-org/gtms-frontend/commit/670a93c770a56a414086ebb92c7d460d2d638912))
 
 ## [0.6.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.6.7...@gtms/api-auth@0.6.8) (2020-06-16)
 

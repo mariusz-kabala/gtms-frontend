@@ -35,4 +35,5 @@ export interface IUser {
   avatar: IUserAvatar
   countryCode: string
   languageCode: string
+  tags: string[]
 }
