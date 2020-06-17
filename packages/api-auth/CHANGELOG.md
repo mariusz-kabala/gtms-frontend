@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.7.1...@gtms/api-auth@0.8.0) (2020-06-17)
+
+
+### Features
+
+* GEOT-283: support for user description ([#654](https://github.com/gtms-org/gtms-frontend/issues/654)) ([a13e649](https://github.com/gtms-org/gtms-frontend/commit/a13e649dbc31f08c6e5f96b7934a50ef275afed3))
+
+
+
+
+
 ## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.7.0...@gtms/api-auth@0.7.1) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/api-auth
