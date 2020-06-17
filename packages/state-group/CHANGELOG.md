@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.11.0...@gtms/state-group@0.12.0) (2020-06-17)
+
+
+### Features
+
+* GEOT-277: group invitation request ([#652](https://github.com/gtms-org/gtms-frontend/issues/652)) ([fa27dab](https://github.com/gtms-org/gtms-frontend/commit/fa27dab59c03ce8df15768ae77168c0be462edec))
+
+
+
+
+
 # [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.10.6...@gtms/state-group@0.11.0) (2020-06-17)
 
 

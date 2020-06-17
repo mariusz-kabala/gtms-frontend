@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.29.1...@gtms/app-andrew@0.30.0) (2020-06-17)
+
+
+### Features
+
+* GEOT-277: group invitation request ([#652](https://github.com/gtms-org/gtms-frontend/issues/652)) ([fa27dab](https://github.com/gtms-org/gtms-frontend/commit/fa27dab59c03ce8df15768ae77168c0be462edec))
+
+
+
+
+
 ## [0.29.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.29.0...@gtms/app-andrew@0.29.1) (2020-06-17)
 
 
