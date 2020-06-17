@@ -58,7 +58,9 @@ export const NavigationMain: FC<{
             return (
               <li className={styles.link} key={index}>
                 {value?.fn && (
-                  <a onClick={() => value.fn()}>
+                  <a
+                    onClick={() => (value.fn === undefined ? null : value.fn())}
+                  >
                     <i
                       data-tip={value.label}
                       data-background-color="black"
