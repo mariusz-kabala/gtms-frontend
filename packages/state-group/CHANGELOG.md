@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.10.6...@gtms/state-group@0.11.0) (2020-06-17)
+
+
+### Features
+
+* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
+
+
+
+
+
 ## [0.10.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.10.5...@gtms/state-group@0.10.6) (2020-06-16)
 
 ### Bug Fixes
