@@ -49,7 +49,9 @@ export const fetchJSON = <T, R>(
   return fetch(url, options)
     .then(async (response: Response) => {
       if (response.ok) {
-        return response.json()
+        return response.json().catch(() => {
+          return null
+        })
       }
 
       if (response.status === 401 && typeof window !== 'undefined') {

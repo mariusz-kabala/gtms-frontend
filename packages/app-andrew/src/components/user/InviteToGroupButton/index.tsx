@@ -7,6 +7,7 @@ import { getImage } from '@gtms/commons/helpers'
 import { useForm } from 'react-hook-form'
 import { openLoginModal } from 'state'
 import { userQuery, loadMyGroups } from '@gtms/state-user'
+import { inviteToGroup } from '@gtms/state-group'
 import {
   IInviteToGroupButtonState,
   inviteToGroupButtonState,
@@ -50,17 +51,19 @@ enum Steps {
 
 const getInitialInternalState = () => ({
   isModalOpen: false,
+  isSending: false,
   currentTab: Tabs.groupsMember,
   selectedGroup: null,
   step: Steps.start,
 })
 
-export const InviteToGroupButton: FC<{}> = () => {
+export const InviteToGroupButton: FC<{ userId: string }> = ({ userId }) => {
   const [externalState, setExternalState] = useState<IInviteToGroupButtonState>(
     inviteToGroupButtonState()
   )
   const [internalState, setInternalState] = useState<{
     isModalOpen: boolean
+    isSending: boolean
     step: Steps
     currentTab: Tabs
     selectedGroup: IGroup | null
@@ -69,6 +72,7 @@ export const InviteToGroupButton: FC<{}> = () => {
   const selectGroup = (group: IGroup) => {
     setInternalState({
       isModalOpen: true,
+      isSending: false,
       currentTab: internalState.currentTab,
       selectedGroup: group,
       step: Steps.invitation,
@@ -86,8 +90,18 @@ export const InviteToGroupButton: FC<{}> = () => {
   }, [])
 
   const { register, handleSubmit } = useForm<{ description?: string }>()
-  const onSubmit = () => {
-    // continue after BE is adapted
+  const onSubmit = (data: { description?: string }) => {
+    setInternalState({
+      ...internalState,
+      isSending: true,
+    })
+    inviteToGroup(
+      {
+        ...data,
+        user: userId,
+      },
+      internalState.selectedGroup?.slug || ''
+    ).finally(() => setInternalState(getInitialInternalState()))
   }
 
   return (
