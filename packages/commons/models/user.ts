@@ -36,4 +36,5 @@ export interface IUser {
   countryCode: string
   languageCode: string
   tags: string[]
+  description?: string
 }
