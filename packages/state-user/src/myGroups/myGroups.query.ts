@@ -1,5 +1,5 @@
 import { Query } from '@datorama/akita'
-import { IGroup } from '@gtms/commons'
+import { IGroup } from '@gtms/commons/models'
 import { myGroupsStore, MyGroupsStore, IMyGroupsStore } from './myGroups.store'
 import { Observable } from 'rxjs'
 
