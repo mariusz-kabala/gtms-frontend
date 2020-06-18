@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.12.1...@gtms/state-group@0.12.2) (2020-06-18)
+
+
+### Bug Fixes
+
+* GEOT-285: add group invitation tabs in group settings ([#657](https://github.com/gtms-org/gtms-frontend/issues/657)) ([9cc4628](https://github.com/gtms-org/gtms-frontend/commit/9cc462889ea36cac1aa11d74b86ede1ba20c83f9))
+
+
+
+
+
 ## [0.12.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.12.0...@gtms/state-group@0.12.1) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/state-group
