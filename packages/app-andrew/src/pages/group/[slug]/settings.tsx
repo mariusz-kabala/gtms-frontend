@@ -16,6 +16,7 @@ import { TagsSettings } from 'components/group-settings/Tags'
 import { ImagesSettings } from 'components/group-settings/Images'
 import { AdminsSettings } from 'components/group-settings/Admins'
 import { MembersSettings } from 'components/group-settings/Members'
+import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { Spinner } from '@gtms/ui/Spinner'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { GroupType, GroupVisibility } from '@gtms/commons/enums'
@@ -198,6 +199,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             )}
             {tab === Tabs.members && (
               <MembersSettings group={group.group as IGroup} />
+            )}
+            {tab === Tabs.invitations && (
+              <InvitationsSettings group={group.group as IGroup} />
             )}
           </div>
         </div>

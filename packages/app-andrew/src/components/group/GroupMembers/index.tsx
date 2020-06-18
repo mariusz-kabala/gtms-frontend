@@ -4,6 +4,7 @@ import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
+import { UserAvatarNoImage } from 'enums'
 import styles from './styles.scss'
 
 export const GroupMembers: FC<{
@@ -21,27 +22,35 @@ export const GroupMembers: FC<{
           <li>Zobacz wszystkich</li>
         </ul>
       </header>
-
-      {isLoading && <Spinner />}
-
+      {isLoading && (
+        <p className={styles.center}>
+          <Spinner />
+        </p>
+      )}
       {errorOccured && (
         <p className={styles.center}>
           Sorry we can not show you groups members now
         </p>
       )}
-
       {users.length > 0 && (
-        <ul className={styles.users}>
+        <ul>
           {users.map((user) => (
-            <li className={styles.item} key={`group-member-${user.id}`}>
+            <li key={`group-member-${user.id}`}>
               <Link href={`/user/${user.id}`}>
-                <UserAvatar additionalStyles={styles.avatar} image={getImage('200x200', user.avatar)} />
+                <div>
+                  <UserAvatar
+                    image={getImage(
+                      '200x200',
+                      user.avatar,
+                      UserAvatarNoImage
+                    )}
+                  />
+                </div>
               </Link>
             </li>
           ))}
         </ul>
       )}
-
       {users.length === 0 && (
         <p className={styles.center}>
           No groups members, maybe you would like to be the first one?
