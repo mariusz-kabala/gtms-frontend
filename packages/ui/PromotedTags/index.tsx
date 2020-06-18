@@ -35,11 +35,8 @@ export const PromotedTags: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="promoted-tags"
     >
-      {isLoading && (
-        <p>
-          <Spinner />
-        </p>
-      )}
+      {isLoading && <Spinner />}
+
       {tags.length > 0 &&
         tags.map((tag) => (
           <div key={`promoted-${tag.id}`}>
