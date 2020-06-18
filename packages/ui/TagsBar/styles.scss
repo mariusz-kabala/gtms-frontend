@@ -21,7 +21,6 @@
       border: none;
       font-size: 14px;
       background: none;
-      color: $theme7;
       border-bottom: 2px solid $theme7;
 
       &:active,
@@ -33,7 +32,6 @@
 
     button[type='submit'] {
       flex: 1;
-      color: $theme7;
       background-color: $theme3;
       cursor: pointer;
       padding: 5px 10px;
@@ -56,11 +54,9 @@
 
   .noRecords {
     text-align: center;
-    color: $theme7;
 
     a.actionButton {
       display: block;
-      color: $theme7;
       background-color: $theme3;
       padding: 5px;
       cursor: pointer;
@@ -78,7 +74,6 @@
     border-radius: 4px;
     padding: 5px;
     background: #595272;
-    color: $theme7;
     cursor: pointer;
     font-size: 14px;
 

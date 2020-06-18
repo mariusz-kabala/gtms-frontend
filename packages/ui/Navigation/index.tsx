@@ -25,31 +25,26 @@ export const Navigation: FC<{
         <ul>
           {[
             {
-              id: 0,
               label: 'Search',
               icon: <IoIosNotifications />,
-              fn: onAvatarClick,
+              onClick: onAvatarClick,
             },
             {
-              id: 1,
               label: 'Search',
               icon: <IoIosSearch />,
               url: '/search',
             },
             {
-              id: 2,
               label: 'Account',
               icon: <IoMdPerson />,
               url: '/account',
             },
             {
-              id: 3,
               label: 'Create group',
               icon: <IoIosAddCircle />,
               url: '/group-create',
             },
             {
-              id: 4,
               label: 'My groups',
               icon: <IoIosKeypad />,
               url: '/my-groups',
@@ -57,9 +52,9 @@ export const Navigation: FC<{
           ].map((value, index) => {
             return (
               <li className={styles.link} key={index}>
-                {value?.fn && (
+                {value?.onClick && (
                   <a
-                    onClick={() => (value.fn === undefined ? null : value.fn())}
+                    onClick={() => (value.onClick === undefined ? null : value.onClick())}
                   >
                     <i
                       data-tip={value.label}
@@ -70,7 +65,7 @@ export const Navigation: FC<{
                     </i>
                   </a>
                 )}
-                {!value.fn && (
+                {!value.onClick && (
                   <Link href={value.url || '#'}>
                     <a>
                       <i

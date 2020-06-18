@@ -7,7 +7,6 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  color: $theme7;
 
   > div {
     width: 80%;
@@ -20,7 +19,6 @@
     a {
       display: block;
       margin-top: 20px;
-      color: $theme7;
       text-decoration: none;
       @include header(h4, textUppercase);
 

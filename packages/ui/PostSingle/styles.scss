@@ -4,7 +4,6 @@
   position: relative;
   border-radius: $borderRadius;
   overflow: hidden; // for delete post component that overflows this component
-  color: $theme7;
   cursor: pointer;
   
   &:hover {
@@ -31,7 +30,6 @@
       align-items: center;
 
       // @todo create mixin with highlighted text
-      color: $theme7;
       &:hover {
         color: $theme5;
       }
@@ -47,7 +45,6 @@
       margin-left: 10px;
 
       // @todo create mixin with highlighted text
-      color: $theme7;
       &:hover {
         color: $theme5;
       }
