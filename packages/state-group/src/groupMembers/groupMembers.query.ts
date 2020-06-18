@@ -25,6 +25,7 @@ export class GroupMembersQuery extends QueryEntity<GroupMembersState> {
   public getGroupMembers$: Observable<IGroupMembers> = this.select((values) =>
     this.getGroupMembers(values)
   )
+
   constructor(protected store: GroupMembersStore) {
     super(store)
   }
