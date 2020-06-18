@@ -2,26 +2,56 @@
 @import '~@gtms/styles/scss/mixins/fontWeight';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
-.wrapper {
+header {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
 
-  > div {
-    margin-right: 5px;
+  ul {
+    display: flex;
+    margin-left: 10px;
+
+    li {
+      margin-left: 10px;
+      font-size: 16px;
+      color: $theme4;
+      cursor: pointer;
+
+      &:hover {
+        color: $theme5;
+      }
+    }
   }
 
-  a {
+  h2 {
+    color: white;
+    @include font-size(lg);
+    @include font-weight(semiBold);
+  }
+}
+
+
+.image {
+  display: none !important;
+  img {
+    max-width: 75px;
+  }
+}
+
+.wrapper {
+  .tag {
+    display: flex;
+
+    h3 {
+      @include font-size(md);
+      @include font-weight(bold);
+    }
+  }
+
+  .add {
     cursor: pointer;
     @include font-weight(bold);
     color: $theme5;
-  }
-
-  h3 {
-    color: $theme5;
-    @include font-size(md);
-    @include font-weight(bold);
-    text-align: center;
   }
 }
 

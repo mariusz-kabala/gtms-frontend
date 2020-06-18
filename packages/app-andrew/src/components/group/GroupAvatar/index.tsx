@@ -75,7 +75,7 @@ export const GroupAvatar: FC<{
         {[FileStatus.uploaded, FileStatus.processing].includes(filesStatus) && (
           <Spinner additionalStyles={styles.spinner} />
         )}
-        <Picture additionalStyles={styles.avatar} {...files} />
+        <Picture {...files} />
       </div>
     </div>
   )

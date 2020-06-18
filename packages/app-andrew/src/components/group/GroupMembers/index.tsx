@@ -38,7 +38,7 @@ export const GroupMembers: FC<{
               <Link href={`/user/${user.id}`}>
                 <UserAvatar
                   image={getImage(
-                    '200x200',
+                    '50x50',
                     user.avatar,
                     UserAvatarNoImage
                   )}

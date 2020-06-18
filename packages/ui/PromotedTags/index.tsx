@@ -30,6 +30,17 @@ export const PromotedTags: FC<{
   const onClick = useCallback(() => {
     onNoRecordsClick && onNoRecordsClick()
   }, [onNoRecordsClick])
+  const mock = [
+    {
+      id: 0,
+      tag: 'Tag',
+      logo: {
+        status: false,
+      },
+      description:
+        'Lorem cillum consequat est excepteur. Fugiat aliquip magna veniam nulla occaecat minim minim nulla proident duis velit ex in',
+    },
+  ]
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -37,17 +48,35 @@ export const PromotedTags: FC<{
     >
       {isLoading && <Spinner />}
 
-      {tags.length > 0 &&
-        tags.map((tag) => (
-          <div key={`promoted-${tag.id}`}>
-            {!tag.logo.status && <Picture {...noImage['200x200']} />}
-            {tag.logo.status === FileStatus.ready && (
-              <Picture {...tag.logo.files['200x200']} />
-            )}
-            <h3>#{tag.tag}</h3>
-            <p>{tag.description}</p>
-          </div>
-        ))}
+      <header>
+        <h2>Tags</h2>
+        <ul>
+          <li>Promoted tags</li>
+          <li>Hot tags</li>
+          <li>Latest tags</li>
+          <li>Favorites tags</li>
+        </ul>
+      </header>
+
+      {mock.length > 0 && (
+        <ul>
+          {mock.map((tag) => (
+            <li className={styles.tag} key={`promoted-${tag.id}`}>
+              {!tag.logo.status && <Picture {...noImage['200x200']} />}
+              {tag.logo.status === FileStatus.ready && (
+                <Picture
+                  additionalStyles={styles.image}
+                />
+              )}
+              <div className={styles.desc}>
+                <h3>#{tag.tag}</h3>
+                <p>{tag.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+
       {tags.length > 0 && isAdmin && (
         <div className={styles.manager} onClick={onClick}>
           <i>
@@ -56,10 +85,13 @@ export const PromotedTags: FC<{
           <p>Manage promoted tags</p>
         </div>
       )}
-      {tags.length === 0 && isAdmin && (
+
+      {!tags.length === 0 && isAdmin && (
         <p>
           This group has no promoted tags{' '}
-          <a onClick={onClick}>please add some</a>
+          <a className={styles.add} onClick={onClick}>
+            please add some
+          </a>
         </p>
       )}
     </div>
