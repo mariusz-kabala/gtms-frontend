@@ -30,8 +30,6 @@ header {
   }
 }
 
-
-
 .wrapper {
   .tags {
     // @todo make mixin of that
@@ -41,29 +39,29 @@ header {
 
     .tag {
       display: flex;
-  
+
       .image {
         margin-right: 10px;
-  
+
         img {
           max-width: 75px;
           border-radius: $borderRadius;
         }
       }
-  
+
       h3 {
         @include font-size(md);
         @include font-weight(bold);
       }
     }
-  
+
     .add {
       cursor: pointer;
       @include font-weight(bold);
       color: $theme5;
     }
   }
-  }
+}
 
 .manager {
   width: 200px;

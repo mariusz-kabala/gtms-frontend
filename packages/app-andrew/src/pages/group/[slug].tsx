@@ -107,22 +107,14 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 onLoadSuggestion={() => null}
                 onQueryChange={() => null}
                 onLoadSuggestionCancel={() => null}
-                tags={[]} 
+                tags={[]}
               />
             </div>
             <ul className={styles.watchedTags}>
-              <li className={styles.item}>
-                #dojazdy
-              </li>
-              <li className={styles.item}>
-                #berlin
-              </li>
-              <li className={styles.item}>
-                #polandRock
-              </li>
-              <li className={styles.item}>
-                #sztaby
-              </li>
+              <li className={styles.item}>#dojazdy</li>
+              <li className={styles.item}>#berlin</li>
+              <li className={styles.item}>#polandRock</li>
+              <li className={styles.item}>#sztaby</li>
             </ul>
           </div>
           <div className={styles.groupHeader}>

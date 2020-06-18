@@ -89,8 +89,15 @@ export const PromotedTags: FC<{
         <ul className={styles.tags}>
           {mock.map((tag) => (
             <li className={styles.tag} key={`promoted-${tag.id}`}>
-            {!tag.logo.status && <Picture additionalStyles={styles.image} {...noImage['200x200']} />}
-            {tag.logo.status === FileStatus.ready && <Picture additionalStyles={styles.image} />}
+              {!tag.logo.status && (
+                <Picture
+                  additionalStyles={styles.image}
+                  {...noImage['200x200']}
+                />
+              )}
+              {tag.logo.status === FileStatus.ready && (
+                <Picture additionalStyles={styles.image} />
+              )}
               <div className={styles.desc}>
                 <h3>#{tag.tag}</h3>
                 <p>{tag.description}</p>
