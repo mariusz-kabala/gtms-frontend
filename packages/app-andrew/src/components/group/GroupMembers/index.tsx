@@ -4,6 +4,7 @@ import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
+import { UserAvatarNoImage } from 'enums'
 import styles from './styles.scss'
 
 export const GroupMembers: FC<{
@@ -38,7 +39,13 @@ export const GroupMembers: FC<{
               <li key={`group-member-${user.id}`}>
                 <Link href={`/user/${user.id}`}>
                   <div>
-                    <UserAvatar image={getImage('200x200', user.avatar)} />
+                    <UserAvatar
+                      image={getImage(
+                        '200x200',
+                        user.avatar,
+                        UserAvatarNoImage
+                      )}
+                    />
                   </div>
                 </Link>
               </li>
