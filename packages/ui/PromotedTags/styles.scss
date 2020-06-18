@@ -31,29 +31,39 @@ header {
 }
 
 
-.image {
-  display: none !important;
-  img {
-    max-width: 75px;
-  }
-}
 
 .wrapper {
-  .tag {
-    display: flex;
+  .tags {
+    // @todo make mixin of that
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
 
-    h3 {
-      @include font-size(md);
+    .tag {
+      display: flex;
+  
+      .image {
+        margin-right: 10px;
+  
+        img {
+          max-width: 75px;
+          border-radius: $borderRadius;
+        }
+      }
+  
+      h3 {
+        @include font-size(md);
+        @include font-weight(bold);
+      }
+    }
+  
+    .add {
+      cursor: pointer;
       @include font-weight(bold);
+      color: $theme5;
     }
   }
-
-  .add {
-    cursor: pointer;
-    @include font-weight(bold);
-    color: $theme5;
   }
-}
 
 .manager {
   width: 200px;

@@ -38,7 +38,34 @@ export const PromotedTags: FC<{
         status: false,
       },
       description:
-        'Lorem cillum consequat est excepteur. Fugiat aliquip magna veniam nulla occaecat minim minim nulla proident duis velit ex in',
+        'Lorem cillum consequat est excepteur. Fugiat aliquip magna veniam nulla occaecat',
+    },
+    {
+      id: 0,
+      tag: 'Tag',
+      logo: {
+        status: false,
+      },
+      description:
+        'Lorem cillum consequat est excepteur. Fugiat aliquip magna veniam nulla occaecat',
+    },
+    {
+      id: 0,
+      tag: 'Tag',
+      logo: {
+        status: false,
+      },
+      description:
+        'Lorem cillum consequat est excepteur. Fugiat aliquip magna veniam nulla occaecat',
+    },
+    {
+      id: 0,
+      tag: 'Tag',
+      logo: {
+        status: false,
+      },
+      description:
+        'Lorem cillum consequat est excepteur. Fugiat aliquip magna veniam nulla occaecat',
     },
   ]
   return (
@@ -59,15 +86,11 @@ export const PromotedTags: FC<{
       </header>
 
       {mock.length > 0 && (
-        <ul>
+        <ul className={styles.tags}>
           {mock.map((tag) => (
             <li className={styles.tag} key={`promoted-${tag.id}`}>
-              {!tag.logo.status && <Picture {...noImage['200x200']} />}
-              {tag.logo.status === FileStatus.ready && (
-                <Picture
-                  additionalStyles={styles.image}
-                />
-              )}
+            {!tag.logo.status && <Picture additionalStyles={styles.image} {...noImage['200x200']} />}
+            {tag.logo.status === FileStatus.ready && <Picture additionalStyles={styles.image} />}
               <div className={styles.desc}>
                 <h3>#{tag.tag}</h3>
                 <p>{tag.description}</p>

@@ -35,20 +35,19 @@ export const PostCreate: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="postCreate"
     >
+      <div className={styles.avatar}>
+        <UserAvatar
+          image={
+            user.avatar.status === FileStatus.ready &&
+            user.avatar.files['35x35']
+              ? user.avatar.files['35x35']
+              : noImage['35x35']
+          }
+          additionalStyles={styles.userAvatar}
+        />
+      </div>
       <div className={styles.text}>
         {isLoading && <Spinner />}
-        <div className={styles.avatar}>
-          <UserAvatar
-            image={
-              user.avatar.status === FileStatus.ready &&
-              user.avatar.files['35x35']
-                ? user.avatar.files['35x35']
-                : noImage['35x35']
-            }
-            additionalStyles={styles.userAvatar}
-          />
-          <span>{`${user.name || ''} ${user.surname || ''}`.trim()}</span>
-        </div>
         <ExpandingTextarea
           reference={dscRef as any}
           rows={3}

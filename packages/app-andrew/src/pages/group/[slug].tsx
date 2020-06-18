@@ -156,7 +156,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           </div>
           <div className={styles.columns}>
             <div className={styles.column}>
-              <h2 className={styles.header}>{t('recentlyAddedPosts')}</h2>
               {state.user && (
                 <PostCreate
                   user={state.user}
@@ -175,9 +174,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 noImage={UserAvatarNoImage}
                 posts={state.posts}
               />
-            </div>              
+            </div>
             <div className={styles.column}>
-              <h2 className={styles.header}>{t('promotedTags')}</h2>
               <PromotedTags
                 tags={state.promotedTags.tags}
                 isLoading={state.promotedTags.isLoading}
