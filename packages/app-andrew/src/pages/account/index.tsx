@@ -102,57 +102,45 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
-  
+
   return (
     <div className={styles.wrapper} data-testid="account-page">
-      {state.isLoading && <Spinner />
-      }
+      {state.isLoading && <Spinner />}
       {!state.isLoading && state.errorOccured && (
-        <div>
-          <p>Can not fetch account details right now, try later</p>
-        </div>
+        <p>Can not fetch account details right now, try later</p>
       )}
-
       {!state.isLoading && !state.errorOccured && (
         <div className={styles.content}>
-          <div
-            data-testid="account-page-public"
-            className={styles.visibleForEveryone}
-          >
-            <span className={styles.visibilityLabel}>
-              {t('This part is visible for EVERYONE')}
-            </span>
-            <ImageEditor
-              isVisible={isAvatarEditorVisible}
-              onSave={(file: File) => {
-                updateAccountAvatar(file)
-                setIsAvatarEditorVisible(false)
-              }}
-              onClose={() => setIsAvatarEditorVisible(false)}
+          <ImageEditor
+            isVisible={isAvatarEditorVisible}
+            onSave={(file: File) => {
+              updateAccountAvatar(file)
+              setIsAvatarEditorVisible(false)
+            }}
+            onClose={() => setIsAvatarEditorVisible(false)}
+          />
+          <a onClick={() => setIsAvatarEditorVisible(true)}>
+            {[FileStatus.uploaded, FileStatus.processing].includes(
+              state.avatar.status
+            ) && <Spinner />}
+            <Picture
+              {...(userQuery.hasAvatar('200x200')
+                ? userQuery.getAvatar('200x200')
+                : UserAvatarNoImage['200x200'])}
             />
-            <a onClick={() => setIsAvatarEditorVisible(true)}>
-              {[FileStatus.uploaded, FileStatus.processing].includes(
-                state.avatar.status
-              ) && <Spinner />}
-              <Picture
-                {...(userQuery.hasAvatar('200x200')
-                  ? userQuery.getAvatar('200x200')
-                  : UserAvatarNoImage['200x200'])}
-              />
-            </a>
-            <UserDescription description={state.description} />
-            <TagsBar
-              tags={tags}
-              isSaving={isSaving}
-              isLoading={tagsHints.isLoading}
-              suggestions={tagsHints.tags}
-              onLoadSuggestion={onLoadTagsHints}
-              onLoadSuggestionCancel={() => null}
-              onTagAdd={onTagAdd}
-              onTagRemove={onTagRemove}
-              onSave={onTagsSave}
-            />
-          </div>
+          </a>
+          <UserDescription description={state.description} />
+          <TagsBar
+            tags={tags}
+            isSaving={isSaving}
+            isLoading={tagsHints.isLoading}
+            suggestions={tagsHints.tags}
+            onLoadSuggestion={onLoadTagsHints}
+            onLoadSuggestionCancel={() => null}
+            onTagAdd={onTagAdd}
+            onTagRemove={onTagRemove}
+            onSave={onTagsSave}
+          />
           <p className={styles.desc}>
             {t('title')}
             Dolore tempor reprehenderit dolor deserunt et. Consequat occaecat

@@ -10,6 +10,11 @@
     display: flex;
     flex-basis: 100%;
 
+    i {
+      color: $theme7;
+      font-size: 20px;
+    }
+
     input[type='text'] {
       display: block;
       width: 100%;
