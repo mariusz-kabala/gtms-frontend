@@ -107,7 +107,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
     <div className={styles.wrapper} data-testid="account-page">
       {state.isLoading && <Spinner />}
       {!state.isLoading && state.errorOccured && (
-        <p>Can not fetch account details right now, try later</p>
+        <p>{t('Can not fetch account details right now, try later')}</p>
       )}
       {!state.isLoading && !state.errorOccured && (
         <div className={styles.content}>
@@ -141,13 +141,6 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             onTagRemove={onTagRemove}
             onSave={onTagsSave}
           />
-          <p className={styles.desc}>
-            {t('title')}
-            Dolore tempor reprehenderit dolor deserunt et. Consequat occaecat
-            sit est ipsum eu nisi nostrud consectetur est magna enim sit. Aute
-            velit et cupidatat quis labore in labore aute excepteur proident
-            aliqua id.
-          </p>
           <TagsBar
             tags={tags}
             isSaving={isSaving}
