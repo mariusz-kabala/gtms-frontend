@@ -7,6 +7,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { FileStatus } from '@gtms/commons/enums'
 import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
+import { IoMdSend } from 'react-icons/io'
 
 export const PostCreate: FC<{
   additionalStyles?: string
@@ -18,7 +19,7 @@ export const PostCreate: FC<{
     avatar: {
       status: FileStatus
       files: {
-        '35x35'?: {
+        '50x50'?: {
           jpg: string
           webp: string
         }
@@ -33,28 +34,29 @@ export const PostCreate: FC<{
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
-      data-testid="postCreate"
-    >
+      data-testid="postCreate">
       <div className={styles.avatar}>
         <UserAvatar
           image={
             user.avatar.status === FileStatus.ready &&
-            user.avatar.files['35x35']
-              ? user.avatar.files['35x35']
-              : noImage['35x35']
+            user.avatar.files['50x50']
+              ? user.avatar.files['50x50']
+              : noImage['50x50']
           }
           additionalStyles={styles.userAvatar}
         />
       </div>
-      <div className={styles.text}>
-        {isLoading && <Spinner />}
-        <ExpandingTextarea
-          reference={dscRef as any}
-          rows={3}
-          placeholder={t('yourMessage')}
-        />
-      </div>
+      {isLoading && <Spinner />}
+      <ExpandingTextarea
+        additionalStyles={styles.textarea}
+        reference={dscRef as any}
+        rows={1}
+        placeholder={t('yourMessage')}
+      />
       <Button
+        type="submit"
+        disabled={false}
+        additionalStyles={styles.btn}
         onClick={() => {
           if (!dscRef.current) {
             return
@@ -63,11 +65,9 @@ export const PostCreate: FC<{
 
           dsc && onSubmit(dsc)
         }}
-        type="submit"
-        disabled={false}
-        additionalStyles={styles.btn}
       >
-        {t('send')}
+        <span>{t('send')}</span>
+        <i><IoMdSend /></i>
       </Button>
     </div>
   )

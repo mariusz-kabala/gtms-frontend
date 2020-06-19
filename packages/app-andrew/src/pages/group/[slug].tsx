@@ -139,15 +139,23 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     : state.group?.description || ''
                 }
               />
+              <div className={styles.actionButtons}>
+                <FavsButton group={state.group} />
+                <JoinLeaveButton group={state.group} />
+                <SettingsButton group={state.group} />
+              </div>
             </div>
           </div>
-          <div className={styles.actionButtons}>
-            <FavsButton group={state.group} />
-            <JoinLeaveButton group={state.group} />
-            <SettingsButton group={state.group} />
-          </div>
           <div className={styles.columns}>
-            <div className={styles.column}>
+            <div>
+              <header>
+                <h2>Recent posts</h2>
+                <ul>
+                  <li>Latest</li>
+                  <li>Newest</li>
+                  <li>Most popular</li>
+                </ul>
+              </header>
               {state.user && (
                 <PostCreate
                   user={state.user}
@@ -161,13 +169,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   additionalStyles={styles.postCreate}
                 />
               )}
-              <br /> {/* @todo remove this */}
               <RecentlyAddedPosts
                 noImage={UserAvatarNoImage}
                 posts={state.posts}
               />
             </div>
-            <div className={styles.column}>
+            <div>
               <PromotedTags
                 tags={state.promotedTags.tags}
                 isLoading={state.promotedTags.isLoading}
@@ -177,6 +184,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   router.push(`/group/${state.group?.slug}/settings#tags`)
                 }
               />
+              <br /> {/* @todo remove it soon */ }
               <GroupMembers {...state.members} />
             </div>
           </div>

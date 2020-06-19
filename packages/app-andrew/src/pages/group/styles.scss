@@ -10,7 +10,7 @@
   .searchWrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 
     // @todo this should be separate component / mixin
     .search {
@@ -46,8 +46,6 @@
     }
   }
 
-  
-
   > h2 {
     @include font-size('xlg');
   }
@@ -56,6 +54,8 @@
     display: flex;
     align-items: center;
     max-width: 650px;
+    margin: 15px 0;
+    display: none; // @todo unhide it soon
 
     .groupAvatar {
       margin-right: 10px;
@@ -70,16 +70,13 @@
   .columns {
     // @todo make mixin of that
     display: grid;
-    gap: 15px;
-    grid-template-columns: 1fr 1fr;
+    gap: 20px; // @todo set standard gaps for grid
+    grid-template-columns: .8fr 1.2fr;
   }
 }
 
 .actionButtons {
   display: flex;
-  margin: 10px 0;
-  background: $theme3;
-  border-radius: 5px;
 }
 
 .postCreate {

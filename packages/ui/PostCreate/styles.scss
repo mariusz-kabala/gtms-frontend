@@ -1,31 +1,56 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontSize';
 
-.avatar {
+.wrapper {
   display: flex;
 
-  img {
-    border-radius: 50%;
+  .avatar {
+    display: flex;
+    
+    img {
+      border-radius: 50%;
+    }
+  
+    span {
+      position: absolute;
+      color: $theme5;
+      margin-top: 8px;
+      margin-left: 45px;
+    }
   }
-
-  span {
-    position: absolute;
-    color: $theme5;
-    margin-top: 8px;
-    margin-left: 45px;
+  
+  .textarea {
+    display: block;
+    width: 100%;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 10px;
+    margin-left: 5px;
+    min-height: 41px;
+    background: $theme3;
   }
-}
+  
+  .btn {
+    @include buttonDefault();
+    @include buttonColorsDefault();
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 
-.text {
-  position: relative;
-}
+    span {
+      @include font-size(sm);
+    }
 
-.btn {
-  width: 100%;
-  margin-top: 5px;
-  @include buttonDefault();
-  @include buttonColorsDefault();
-  &:hover {
-    @include buttonColorsHoverDefault();
+    i {
+      display: flex;
+      margin-left: 5px;
+    }
+
+    &:hover {
+      @include buttonColorsHoverDefault();
+    }
   }
 }
