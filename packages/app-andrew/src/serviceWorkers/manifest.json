@@ -1,0 +1,13 @@
+{
+  "name": "Gdzie jest Andrzej",
+  "short_name": "AndrewApp",
+  "icons": [
+    {
+      "src": "//via.placeholder.com/192x192",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "gcm_sender_id": "103953800507"
+}

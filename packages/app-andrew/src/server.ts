@@ -1,5 +1,7 @@
 import express, { Request, Response } from 'express'
 import next from 'next'
+import { createReadStream } from 'fs'
+import { resolve } from 'path'
 import nextI18NextMiddleware from 'next-i18next/middleware'
 import nextI18next from '../../commons/i18n'
 
@@ -43,6 +45,20 @@ const handle = app.getRequestHandler()
     res.clearCookie('accessToken')
 
     res.status(200).redirect('/login')
+  })
+
+  server.get('/sw.js', (_: Request, res: Response) => {
+    res.setHeader('content-type', 'text/javascript')
+    createReadStream(resolve(process.cwd(), './src/serviceWorkers/sw.js')).pipe(
+      res
+    )
+  })
+
+  server.get('/manifest.json', (_: Request, res: Response) => {
+    res.setHeader('content-type', 'application/json; charset=utf-8')
+    createReadStream(
+      resolve(process.cwd(), './src/serviceWorkers/manifest.json')
+    ).pipe(res)
   })
 
   server.get(
