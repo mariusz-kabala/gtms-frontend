@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.3.0...@gtms/state-notification@0.4.0) (2020-06-19)
+
+
+### Features
+
+* GEOT-287: add user notifications settings ([#658](https://github.com/gtms-org/gtms-frontend/issues/658)) ([cf91e83](https://github.com/gtms-org/gtms-frontend/commit/cf91e832831a926db65dcf6381e49eb2350e763d))
+
+
+
+
+
 # [0.3.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.2.0...@gtms/state-notification@0.3.0) (2020-05-24)
 
 
