@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { NextPage } from 'next'
 import styles from './appStyles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
