@@ -47,7 +47,7 @@ describe('Server', () => {
     expect(next).toBeCalledTimes(1)
 
     // should setup routes
-    expect(server.get).toBeCalledTimes(2)
+    expect(server.get).toBeCalledTimes(4)
 
     // should start the sever
     expect(server.listen).toBeCalledTimes(1)
