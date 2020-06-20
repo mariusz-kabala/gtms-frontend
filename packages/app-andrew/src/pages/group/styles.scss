@@ -46,10 +46,6 @@
     }
   }
 
-  > h2 {
-    @include font-size('xlg');
-  }
-
   .groupHeader {
     display: flex;
     align-items: center;
@@ -73,13 +69,13 @@
     gap: 20px; // @todo set standard gaps for grid
     grid-template-columns: .8fr 1.2fr;
   }
-}
 
-.actionButtons {
-  display: flex;
-}
-
-.postCreate {
-  // @todo styles to be written here
-  margin-bottom: 10px;
+  .actionButtons {
+    display: flex;
+  }
+  
+  .postCreate {
+    // @todo styles to be written here
+    margin-bottom: 20px;
+  }  
 }

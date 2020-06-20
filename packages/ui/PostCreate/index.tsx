@@ -5,6 +5,7 @@ import { Button } from '@gtms/ui/Button'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { useTranslation } from '@gtms/commons/i18n'
 import { FileStatus } from '@gtms/commons/enums'
+import { Link } from '@gtms/commons/i18n'
 import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
 import { IoMdSend } from 'react-icons/io'
@@ -36,15 +37,17 @@ export const PostCreate: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="postCreate">
       <div className={styles.avatar}>
-        <UserAvatar
-          image={
-            user.avatar.status === FileStatus.ready &&
-            user.avatar.files['50x50']
-              ? user.avatar.files['50x50']
-              : noImage['50x50']
-          }
-          additionalStyles={styles.userAvatar}
-        />
+        <Link href={`/user/${user.id}`}>
+          <UserAvatar
+            image={
+              user.avatar.status === FileStatus.ready &&
+              user.avatar.files['50x50']
+                ? user.avatar.files['50x50']
+                : noImage['50x50']
+            }
+            additionalStyles={styles.userAvatar}
+          />
+        </Link>
       </div>
       {isLoading && <Spinner />}
       <ExpandingTextarea

@@ -12,17 +12,9 @@ export const GroupMembers: FC<{
   errorOccured: boolean
   users: IUser[]
 }> = ({ isLoading, errorOccured, users }) => {
+
   return (
     <div data-testid="group-members" className={styles.wrapper}>
-      <header>
-        <h2>Czlonkowie grupy</h2>
-        <ul>
-          <li>Najnowsi</li>
-          <li>Bardzo aktywni</li>
-          <li>Zobacz wszystkich</li>
-        </ul>
-      </header>
-
       {isLoading && <Spinner />}
 
       {errorOccured && (
@@ -32,16 +24,13 @@ export const GroupMembers: FC<{
       )}
 
       {users.length > 0 && (
-        <ul>
+        <ul className={styles.users}>
           {users.map((user) => (
             <li key={`group-member-${user.id}`}>
               <Link href={`/user/${user.id}`}>
                 <UserAvatar
-                  image={getImage(
-                    '50x50',
-                    user.avatar,
-                    UserAvatarNoImage
-                  )}
+                  additionalStyles={styles.avatar}
+                  image={getImage('50x50', user.avatar, UserAvatarNoImage)}
                 />
               </Link>
             </li>

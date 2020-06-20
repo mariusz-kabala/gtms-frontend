@@ -19,12 +19,14 @@ import { SettingsButton } from 'components/group/SettingsButton'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { GroupMembers } from 'components/group/GroupMembers'
 // ui
-import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
+import { NavigationTabs } from '@gtms/ui/NavigationTabs'
+import { PostCreate } from '@gtms/ui/PostCreate'
+import { PromotedGroups } from '@gtms/ui/PromotedGroups'
+import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
-import { PostCreate } from '@gtms/ui/PostCreate'
 // state
 import {
   groupQuery,
@@ -148,14 +150,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           </div>
           <div className={styles.columns}>
             <div>
-              <header>
-                <h2>Recent posts</h2>
-                <ul>
-                  <li>Latest</li>
-                  <li>Newest</li>
-                  <li>Most popular</li>
-                </ul>
-              </header>
+              <NavigationTabs />
               {state.user && (
                 <PostCreate
                   user={state.user}
@@ -184,8 +179,10 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   router.push(`/group/${state.group?.slug}/settings#tags`)
                 }
               />
-              <br /> {/* @todo remove it soon */ }
+              <br />
+              <NavigationTabs />
               <GroupMembers {...state.members} />
+              <PromotedGroups />
             </div>
           </div>
         </>

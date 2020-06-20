@@ -2,42 +2,14 @@
 @import '~@gtms/styles/scss/mixins/fontWeight';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-
-  ul {
-    display: flex;
-    margin-left: 10px;
-
-    li {
-      margin-left: 10px;
-      font-size: 16px;
-      color: $theme4;
-      cursor: pointer;
-
-      &:hover {
-        color: $theme5;
-      }
-    }
-  }
-
-  h2 {
-    color: white;
-    @include font-size(lg);
-    @include font-weight(semiBold);
-  }
-}
-
 .wrapper {
-  .tags {
+  .items {
     // @todo make mixin of that
     display: grid;
     gap: 15px;
     grid-template-columns: 1fr 1fr;
 
-    .tag {
+    .item {
       display: flex;
 
       .image {

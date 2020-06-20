@@ -12,22 +12,11 @@
     }
   }
   
-  .text {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    
-    > * {
-      white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
-    }
-  }
-
   .header {
     display: flex;
-    align-items: center;
 
     .user {
       display: flex;
-      align-items: center;
 
       // @todo create mixin with highlighted text
       &:hover {
@@ -58,6 +47,19 @@
       &:hover {
         opacity: 1;
         color: $theme5;
+      }
+    }
+  }
+
+  .desc {
+    margin-top: -15px;
+    margin-left: 45px;
+
+    .text {
+      margin-bottom: 10px;
+      
+      > * {
+        white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
       }
     }
   }

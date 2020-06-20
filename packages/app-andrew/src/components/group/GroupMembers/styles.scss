@@ -5,34 +5,6 @@
 $groupMembersAvatarSize: 50px;
 
 .wrapper {
-  header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-
-    ul {
-      display: flex;
-      margin-left: 10px;
-
-      li {
-        margin-left: 10px;
-        font-size: 16px;
-        color: $theme4;
-        cursor: pointer;
-
-        &:hover {
-          color: $theme5;
-        }
-      }
-    }
-
-    h2 {
-      color: white;
-      @include font-size(lg);
-      @include font-weight(semiBold);
-    }
-  }
-
   .users {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax($groupMembersAvatarSize, 1fr));
@@ -51,10 +23,7 @@ $groupMembersAvatarSize: 50px;
 
       .avatar {
         max-width: $groupMembersAvatarSize;
-    
-        img {
-          border-radius: 5px;
-        }
+        border-radius: 5px;
       }
     }
   }

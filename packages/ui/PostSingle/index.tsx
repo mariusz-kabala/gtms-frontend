@@ -43,13 +43,15 @@ export const PostSingle: FC<{
         </span>
         <DeletePost additionalStyles={styles.deleteBtn} />
       </div>
-      <ReactMarkdown className={styles.text} source={text} />
-      <TagGroup>
-        <Tag label="tag" />
-        <Tag label="tag" />
-        <Tag label="tag" />
-        <Tag label="tag" />
-      </TagGroup>
+      <div className={styles.desc}>
+        <ReactMarkdown className={styles.text} source={text} />
+        <TagGroup>
+          <Tag label="tag" />
+          <Tag label="tag" />
+          <Tag label="tag" />
+          <Tag label="tag" />
+        </TagGroup>
+      </div>
     </div>
   )
 }

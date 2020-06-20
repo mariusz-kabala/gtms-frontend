@@ -1,11 +1,12 @@
 import React, { FC, useCallback } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { Spinner } from '@gtms/ui/Spinner'
-import { IPromotedTag } from '@gtms/commons/models'
-import { FileStatus } from '@gtms/commons/enums'
-import { Picture } from '@gtms/ui/Picture'
 import { IoIosAddCircle } from 'react-icons/io'
+import { Spinner } from '@gtms/ui/Spinner'
+import { FileStatus } from '@gtms/commons/enums'
+import { IPromotedTag } from '@gtms/commons/models'
+import { NavigationTabs } from '@gtms/ui/NavigationTabs'
+import { Picture } from '@gtms/ui/Picture'
 
 export const PromotedTags: FC<{
   additionalStyles?: string
@@ -75,20 +76,11 @@ export const PromotedTags: FC<{
     >
       {isLoading && <Spinner />}
 
-      <header>
-        <h2>Tags</h2>
-        <ul>
-          <li>Promoted tags</li>
-          <li>Hot tags</li>
-          <li>Latest tags</li>
-          <li>Favorites tags</li>
-        </ul>
-      </header>
-
+      <NavigationTabs />
       {mock.length > 0 && (
-        <ul className={styles.tags}>
+        <ul className={styles.items}>
           {mock.map((tag) => (
-            <li className={styles.tag} key={`promoted-${tag.id}`}>
+            <li className={styles.item} key={`promoted-${tag.id}`}>
               {!tag.logo.status && (
                 <Picture
                   additionalStyles={styles.image}
