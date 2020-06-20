@@ -1,5 +1,22 @@
 import { wpnStore } from './wpn.store'
 import { addErrorNotification } from '@gtms/state-notification'
+import {
+  subscribeForWebPushNotificationsAPI,
+  unsubscribeFromWebPushNotificationsAPI,
+} from '@gtms/api-notifications'
+
+async function subscribeForWebPushNotifications(subscription: string) {
+  return subscribeForWebPushNotificationsAPI({
+    subscription,
+    userAgent: navigator.userAgent,
+  })
+}
+
+async function unsubscribeFromWebPushNotifications(subscription: string) {
+  return unsubscribeFromWebPushNotificationsAPI({
+    subscription,
+  })
+}
 
 export function init() {
   if (typeof window === 'undefined' || !('serviceWorker' in navigator)) {
@@ -27,8 +44,6 @@ export function init() {
             isEnabled: !!subscription,
             isSupported: true,
           })
-
-          // send subscription to BE
         })
     })
   })
@@ -38,13 +53,13 @@ export function subscribe() {
   navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
     serviceWorkerRegistration.pushManager
       .subscribe({ userVisibleOnly: true })
-      .then(() => {
+      .then((subscription) => {
         wpnStore.update({
           isEnabled: true,
           isSupported: true,
         })
 
-        // send subscription to BE
+        return subscribeForWebPushNotifications(subscription.endpoint)
       })
       .catch(() => {
         addErrorNotification('Error occured, can not enable notifications')
@@ -67,9 +82,9 @@ export function unsubscribe() {
 
         pushSubscription
           .unsubscribe()
-          .then(() => {
-            // update BE
-          })
+          .then(() =>
+            unsubscribeFromWebPushNotifications(pushSubscription.endpoint)
+          )
           .catch(() => {
             addErrorNotification('Error occured, can not disable notifications')
           })

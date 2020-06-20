@@ -7,6 +7,7 @@ interface IParams<T> {
   headers?: {
     [key: string]: string
   }
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
 }
 
 export const fetch =
@@ -27,14 +28,14 @@ export const fetchJSON = <T, R>(
   params?: IParams<T>,
   replay = false
 ): Promise<R> => {
-  const { values = {}, headers = {}, addJWT = true } = params || {}
+  const { values = {}, headers = {}, addJWT = true, method } = params || {}
   const options: RequestInit & { timeout?: number } = {}
 
   if (values instanceof Object && Object.keys(values).length > 0) {
     headers['Content-Type'] = 'application/json'
 
     options.body = JSON.stringify(values)
-    options.method = 'POST'
+    options.method = method || 'POST'
     options.cache = 'no-cache'
   }
 

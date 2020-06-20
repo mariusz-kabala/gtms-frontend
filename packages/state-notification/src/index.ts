@@ -1,5 +1,3 @@
-export * from './notifications.model'
-export * from './notifications.query'
-export * from './notifications.service'
-export * from './notifications.store'
+export * from './notifications'
 export * from './wpn'
+export * from './settings'
