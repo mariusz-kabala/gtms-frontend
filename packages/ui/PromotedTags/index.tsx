@@ -40,7 +40,7 @@ export const PromotedTags: FC<{
       {isLoading && <Spinner />}
 
       <NavigationTabs data={{
-        header: 'Promoted Tags',
+        header: 'Promoted tags',
         links: [
           {
             id: 0,
@@ -85,12 +85,20 @@ export const PromotedTags: FC<{
       )}
 
       {tags.length === 0 && isAdmin && (
-        <p>
-          This group has no promoted tags{' '}
-          <a className={styles.add} onClick={onClick}>
-            please add some
-          </a>
-        </p>
+        <div className={styles.mock}>
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
+          <p>
+            This group has no promoted tags{' '}
+            <a className={styles.add} onClick={onClick}>
+              please add some
+            </a>
+          </p>
+        </div>
       )}
     </div>
   )

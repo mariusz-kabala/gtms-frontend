@@ -63,4 +63,13 @@
       }
     }
   }
+
+  .action {
+    display: flex;
+
+    a {
+      display: block;
+      margin-left: auto;
+    }
+  }
 }

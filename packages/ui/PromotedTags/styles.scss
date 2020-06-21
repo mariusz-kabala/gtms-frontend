@@ -48,3 +48,18 @@
     font-size: 40px;
   }
 }
+
+.mock {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr;
+  background: red;
+  width: 100%;
+  height: 20px;
+
+  > div {
+    background: gray;
+    width: 200px;
+    height: 200px;
+  }
+}

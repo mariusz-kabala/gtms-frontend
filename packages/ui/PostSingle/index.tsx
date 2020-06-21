@@ -45,12 +45,15 @@ export const PostSingle: FC<{
       </div>
       <div className={styles.desc}>
         <ReactMarkdown className={styles.text} source={text} />
-        <TagGroup>
-          <Tag label="tag" />
-          <Tag label="tag" />
-          <Tag label="tag" />
-          <Tag label="tag" />
-        </TagGroup>
+      </div>
+      <TagGroup>
+        <Tag label="tag" />
+        <Tag label="tag" />
+        <Tag label="tag" />
+        <Tag label="tag" />
+      </TagGroup>
+      <div className={styles.action}>
+        <a>Respond</a>
       </div>
     </div>
   )

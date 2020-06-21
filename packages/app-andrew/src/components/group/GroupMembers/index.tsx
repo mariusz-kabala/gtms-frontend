@@ -12,7 +12,6 @@ export const GroupMembers: FC<{
   errorOccured: boolean
   users: IUser[]
 }> = ({ isLoading, errorOccured, users }) => {
-
   return (
     <div data-testid="group-members" className={styles.wrapper}>
       {isLoading && <Spinner />}
@@ -35,7 +34,19 @@ export const GroupMembers: FC<{
       )}
 
       {users.length === 0 && (
-        <div>
+        <div className={styles.usersMock}>
+         <UserAvatar
+          additionalStyles={styles.avatar}
+          image={{jpg: '/images/temp_images/avatar-1.png'}} />
+         <UserAvatar
+          additionalStyles={styles.avatar}
+          image={{jpg: '/images/temp_images/avatar-1.png'}} />
+         <UserAvatar
+          additionalStyles={styles.avatar}
+          image={{jpg: '/images/temp_images/avatar-1.png'}} />
+         <UserAvatar
+          additionalStyles={styles.avatar}
+          image={{jpg: '/images/temp_images/avatar-1.png'}} />
           <p>No groups members, maybe you would like to be the first one?</p>
         </div>
       )}

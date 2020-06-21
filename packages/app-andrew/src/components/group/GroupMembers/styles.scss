@@ -9,22 +9,38 @@ $groupMembersAvatarSize: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax($groupMembersAvatarSize, 1fr));
     grid-gap: 15px;
+  }
 
-    .item {
-      display: inline-block;
-      color: $theme4;
-      @include font-size(md);
-      @include font-weight(semiBold);
-      cursor: pointer;
+  .item {
+    display: inline-block;
+    color: $theme4;
+    @include font-size(md);
+    @include font-weight(semiBold);
+    cursor: pointer;
 
-      &:hover {
-        color: $theme7;
-      }
+    &:hover {
+      color: $theme7;
+    }
+  }
 
-      .avatar {
-        max-width: $groupMembersAvatarSize;
-        border-radius: 5px;
-      }
+  .avatar {
+    max-width: $groupMembersAvatarSize;
+    border-radius: 5px;
+  }
+
+  .usersMock {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($groupMembersAvatarSize, 1fr));
+    grid-gap: 15px;
+    
+    .avatar {
+      opacity: 0.5;
+    }
+
+    p {
+      position: absolute;
+      font-size: 16px;
+      margin: 10px 0 0 10px;
     }
   }
 }
