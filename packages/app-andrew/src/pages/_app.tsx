@@ -41,26 +41,26 @@ class GTMSApp extends App<GTMSAppProps> {
     const { Component, pageProps } = this.props
 
     return (
-      <>
+      <div className={styles.wrapper}>
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <div className={styles.wrapper}>
-          <div
-            className={styles.bg}
-            style={{ backgroundImage: `url('/images/temp_images/group_bg_3.png')` }} />
-          <Navigation />
-          <NotificationsSidebar />
+        <Navigation />
+        <div
+          className={styles.bg}
+          style={{ backgroundImage: `url('/images/temp_images/group_bg_3.png')` }} />
+        <NotificationsSidebar />
+        <div className={styles.wrapperPage}>
+          <NavigationDots />
           <NotificationsActive />
           <div className={styles.pageContent}>
             <Component {...pageProps} />
           </div>
         </div>
-        <NavigationDots />
         <LoginWindow />
         {/* @todo consider do we need ReactTooltip? */}
         {/* <ReactTooltip /> */}
-      </>
+      </div>
     )
   }
 }
