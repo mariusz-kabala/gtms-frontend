@@ -5,9 +5,9 @@ import {
   removeFromFavs,
   userQuery,
 } from '@gtms/state-user'
-import { openLoginModal } from '../../../state'
+import { openLoginModal } from 'state'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IGroup } from '@gtms/commons'
+import { IGroup } from '@gtms/commons/models'
 import { Spinner } from '@gtms/ui/Spinner'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 import styles from './styles.scss'

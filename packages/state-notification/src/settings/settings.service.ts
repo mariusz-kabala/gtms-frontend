@@ -2,6 +2,8 @@ import {
   updateNotificationsSettingsAPI,
   INotificationsSettingsPayload,
   fetchGNotificationsSettings,
+  followAPI,
+  unfollowAPI,
 } from '@gtms/api-notifications'
 import { notificationsSettingsStore } from './settings.store'
 import {
@@ -37,7 +39,11 @@ export async function saveNotificationsSettings() {
   }
 }
 
-export async function loadNotificationsSettings() {
+export async function loadNotificationsSettings(force = false) {
+  if (!force && notificationsSettingsStore.getValue().isLoaded) {
+    return
+  }
+
   notificationsSettingsStore.update({
     isLoading: true,
     errorOccured: false,
@@ -59,5 +65,46 @@ export async function loadNotificationsSettings() {
       errorOccured: true,
       isLoaded: false,
     })
+  }
+}
+
+export async function followGroup(groupId: string) {
+  try {
+    await followAPI({
+      group: groupId,
+    })
+
+    const followedGroups = notificationsSettingsStore.getValue().groups
+
+    if (!followedGroups.includes(groupId)) {
+      followedGroups.push(groupId)
+
+      notificationsSettingsStore.update({
+        groups: [...followedGroups],
+      })
+    }
+  } catch {
+    addErrorNotification('Can not subscribe for notifications, try later')
+  }
+}
+
+export async function unfollowGroup(groupId: string) {
+  try {
+    await unfollowAPI({
+      group: groupId,
+    })
+
+    const followedGroups = notificationsSettingsStore.getValue().groups
+    const index = followedGroups.indexOf(groupId)
+
+    if (index > -1) {
+      followedGroups.splice(index, 1)
+
+      notificationsSettingsStore.update({
+        groups: [...followedGroups],
+      })
+    }
+  } catch {
+    addErrorNotification('Can not unsubscribe for notifications, try later')
   }
 }
