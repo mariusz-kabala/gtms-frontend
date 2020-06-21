@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.34.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.33.0...@gtms/app-andrew@0.34.0) (2020-06-21)
+
+
+### Features
+
+* GEOT-287: follow a group button ([#660](https://github.com/gtms-org/gtms-frontend/issues/660)) ([b30c5e6](https://github.com/gtms-org/gtms-frontend/commit/b30c5e6b82013f35c29f4f9335bcd50c92fcb8a3))
+
+
+
+
+
 # [0.33.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.32.0...@gtms/app-andrew@0.33.0) (2020-06-21)
 
 
