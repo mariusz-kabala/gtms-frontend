@@ -9,6 +9,7 @@ import { UserEmail } from 'components/account/UserEmail'
 import { UserName } from 'components/account/UserName'
 import { UserDescription } from 'components/account/UserDescription'
 import { ImageEditor } from '@gtms/ui/ImageEditor'
+import { NotificationsSettings } from 'components/account/NotificationsSettings'
 import { Spinner } from '@gtms/ui/Spinner'
 import { Picture } from '@gtms/ui/Picture'
 import { TagsBar } from '@gtms/ui/TagsBar'
@@ -163,6 +164,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             additionalStyles={styles.deleteAccount}
             onConfirm={() => null}
           />
+          <NotificationsSettings />
         </div>
       )}
     </div>

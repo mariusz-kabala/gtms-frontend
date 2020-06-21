@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.33.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.32.0...@gtms/app-andrew@0.33.0) (2020-06-21)
+
+
+### Features
+
+* GEOT-287: connect notifications with BE ([#659](https://github.com/gtms-org/gtms-frontend/issues/659)) ([89c08d4](https://github.com/gtms-org/gtms-frontend/commit/89c08d4a495fa6624a779e1efb0717bbed33a5bb))
+
+
+
+
+
+# [0.32.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.31.1...@gtms/app-andrew@0.32.0) (2020-06-19)
+
+
+### Features
+
+* GEOT-287: add user notifications settings ([#658](https://github.com/gtms-org/gtms-frontend/issues/658)) ([cf91e83](https://github.com/gtms-org/gtms-frontend/commit/cf91e832831a926db65dcf6381e49eb2350e763d))
+
+
+
+
+
 ## [0.31.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.31.0...@gtms/app-andrew@0.31.1) (2020-06-18)
 
 

@@ -1,13 +1,12 @@
 {
-  "name": "@gtms/state-tag",
-  "version": "0.5.4",
+  "name": "@gtms/api-notifications",
+  "version": "0.1.0",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-tags": "0.5.1",
-    "@gtms/commons": "0.16.1"
+    "@gtms/api-common": "0.7.0"
   },
   "scripts": {
     "build": "exit 0",
