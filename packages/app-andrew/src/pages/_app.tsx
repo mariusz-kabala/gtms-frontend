@@ -33,8 +33,8 @@ class GTMSApp extends App<GTMSAppProps> {
           refreshToken: string
         }
       )
+      initWPN()
     }
-    initWPN()
   }
 
   render() {
