@@ -18,6 +18,7 @@ import { FavsButton } from 'components/group/FavsButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { GroupMembers } from 'components/group/GroupMembers'
+import { FollowButton } from 'components/group/FollowButton'
 // ui
 import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
@@ -127,6 +128,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <FavsButton group={state.group} />
                 <JoinLeaveButton group={state.group} />
                 <SettingsButton group={state.group} />
+                <FollowButton group={state.group} />
               </div>
               <section>
                 <h2 className={styles.header}>{t('promotedTags')}</h2>
