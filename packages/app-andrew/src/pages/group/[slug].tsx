@@ -179,9 +179,10 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   router.push(`/group/${state.group?.slug}/settings#tags`)
                 }
               />
-              <br />
+              <br /> {/* @todo remove it */}
               <NavigationTabs />
               <GroupMembers {...state.members} />
+              <br /> {/* @todo remove it */}
               <PromotedGroups />
             </div>
           </div>

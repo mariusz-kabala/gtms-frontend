@@ -6,10 +6,10 @@ export const Picture: FC<{
   additionalStyles?: string
   jpg?: string
   webp?: string
-  maxWidth: number
-  maxHeight: number
+  maxWidth?: number
+  maxHeight?: number
 }> = ({ additionalStyles, maxWidth, maxHeight, jpg, webp }) => 
-  (maxWidth || maxHeight) ? (
+  maxWidth || maxHeight ? (
     <div
       className={cx(styles.img, additionalStyles)}
       style={{

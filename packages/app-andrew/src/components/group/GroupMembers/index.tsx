@@ -17,11 +17,7 @@ export const GroupMembers: FC<{
     <div data-testid="group-members" className={styles.wrapper}>
       {isLoading && <Spinner />}
 
-      {errorOccured && (
-        <p className={styles.center}>
-          Sorry we can not show you groups members now
-        </p>
-      )}
+      {errorOccured && <p>Sorry we can not show you groups members now</p>}
 
       {users.length > 0 && (
         <ul className={styles.users}>
@@ -39,9 +35,9 @@ export const GroupMembers: FC<{
       )}
 
       {users.length === 0 && (
-        <p className={styles.center}>
-          No groups members, maybe you would like to be the first one?
-        </p>
+        <div>
+          <p>No groups members, maybe you would like to be the first one?</p>
+        </div>
       )}
     </div>
   )

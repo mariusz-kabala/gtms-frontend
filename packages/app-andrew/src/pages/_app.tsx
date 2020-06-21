@@ -56,6 +56,7 @@ class GTMSApp extends App<GTMSAppProps> {
           </div>
         </div>
         <LoginWindow />
+        {/* @todo consider do we need ReactTooltip? */}
         {/* <ReactTooltip /> */}
       </div>
     )
