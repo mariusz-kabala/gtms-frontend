@@ -3,6 +3,7 @@ import styles from './styles.scss'
 import cx from 'classnames'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Picture } from '@gtms/ui/Picture'
+import { Spinner } from '@gtms/ui/Spinner'
 
 export const PromotedGroups: FC<{
   additionalStyles?: string
@@ -62,7 +63,11 @@ export const PromotedGroups: FC<{
           <ul className={styles.items}>
             {mock.map((item) => (
               <li className={styles.item} key={item.id}>
-                <Picture additionalStyles={styles.image} maxHeight={200} jpg={item.image} additionalStyles={styles.image} />
+                <Picture 
+                  additionalStyles={styles.image}
+                  jpg={item.image}
+                  maxHeight={200}
+                />
                 <div className={styles.desc}>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>

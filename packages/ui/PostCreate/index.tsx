@@ -15,8 +15,6 @@ export const PostCreate: FC<{
   onSubmit: (text: string) => unknown
   isLoading?: boolean
   user: {
-    name?: string
-    surname?: string
     avatar: {
       status: FileStatus
       files: {
@@ -26,6 +24,9 @@ export const PostCreate: FC<{
         }
       }
     }
+    id: string
+    name?: string
+    surname?: string
   }
   noImage: { [key: string]: { jpg: string; webp?: string } }
 }> = ({ additionalStyles, onSubmit, user, noImage, isLoading = false }) => {
