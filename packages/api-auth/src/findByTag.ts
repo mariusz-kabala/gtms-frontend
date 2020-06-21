@@ -2,7 +2,7 @@ import { fetchJSON, makeApiUrl } from '@gtms/api-common'
 import { IUser } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
 
-export interface IResponseUser extends IUser {
+interface IResponseUser extends IUser {
   avatar: {
     status: FileStatus
     files: any
@@ -16,9 +16,9 @@ export interface ITagUsersResponse {
   offset: number
 }
 
-export const fetchRecentUsers = (tags: string[], offset = 0, limit = 10) =>
+export const fetchTagUsers = (tags: string[], offset = 0, limit = 10) =>
   fetchJSON<void, ITagUsersResponse>(
     makeApiUrl(
-      `auth/users/tag?q=${tags.join(',')}offset=${offset}&limit=${limit}`
+      `auth/users/tag?q=${tags.join(',')}&offset=${offset}&limit=${limit}`
     )
   )
