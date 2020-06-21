@@ -52,7 +52,27 @@ export const PromotedGroups: FC<{
 
   return (
     <>
-      <NavigationTabs />
+      <NavigationTabs data={{
+        header: 'Promoted groups',
+        links: [
+          {
+            id: 0,
+            description: 'Promoted tags',
+          },
+          {
+            id: 1,
+            description: 'Hot tags',
+          },
+          {
+            id: 2,
+            description: 'Favorites tags',
+          },
+          {
+            id: 3,
+            description: 'Favorites tags',
+          }
+        ]
+      }} />
       <div
         className={cx(styles.wrapper, additionalStyles)}
         data-testid="promoted-groups"

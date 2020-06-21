@@ -39,7 +39,27 @@ export const PromotedTags: FC<{
     >
       {isLoading && <Spinner />}
 
-      <NavigationTabs />
+      <NavigationTabs data={{
+        header: 'Promoted Tags',
+        links: [
+          {
+            id: 0,
+            description: 'Promoted tags',
+          },
+          {
+            id: 1,
+            description: 'Hot tags',
+          },
+          {
+            id: 2,
+            description: 'Favorites tags',
+          },
+          {
+            id: 3,
+            description: 'Favorites tags',
+          }
+        ]
+      }} />
 
       {tags.length > 0 &&
         tags.map((tag) => (

@@ -150,7 +150,27 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           </div>
           <div className={styles.columns}>
             <div>
-              <NavigationTabs />
+              <NavigationTabs data={{
+                header: 'Posts',
+                links: [
+                  {
+                    id: 0,
+                    description: 'Promoted tags',
+                  },
+                  {
+                    id: 1,
+                    description: 'Hot tags',
+                  },
+                  {
+                    id: 2,
+                    description: 'Favorites tags',
+                  },
+                  {
+                    id: 3,
+                    description: 'Favorites tags',
+                  }
+                ]
+              }} />
               {state.user && (
                 <PostCreate
                   user={state.user}
@@ -180,7 +200,27 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 }
               />
               <br /> {/* @todo remove it */}
-              <NavigationTabs />
+              <NavigationTabs data={{
+                header: 'Recently registered',
+                links: [
+                  {
+                    id: 0,
+                    description: 'Promoted tags',
+                  },
+                  {
+                    id: 1,
+                    description: 'Hot tags',
+                  },
+                  {
+                    id: 2,
+                    description: 'Favorites tags',
+                  },
+                  {
+                    id: 3,
+                    description: 'Favorites tags',
+                  }
+                ]
+              }} />
               <GroupMembers {...state.members} />
               <br /> {/* @todo remove it */}
               <PromotedGroups />
