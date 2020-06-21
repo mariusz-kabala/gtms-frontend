@@ -108,3 +108,44 @@ export async function unfollowGroup(groupId: string) {
     addErrorNotification('Can not unsubscribe for notifications, try later')
   }
 }
+
+export async function followUser(userId: string) {
+  try {
+    await followAPI({
+      user: userId,
+    })
+
+    const followedUsers = notificationsSettingsStore.getValue().users
+
+    if (!followedUsers.includes(userId)) {
+      followedUsers.push(userId)
+
+      notificationsSettingsStore.update({
+        users: [...followedUsers],
+      })
+    }
+  } catch {
+    addErrorNotification('Can not subscribe for notifications, try later')
+  }
+}
+
+export async function unfollowUser(userId: string) {
+  try {
+    await unfollowAPI({
+      user: userId,
+    })
+
+    const followedUsers = notificationsSettingsStore.getValue().users
+    const index = followedUsers.indexOf(userId)
+
+    if (index > -1) {
+      followedUsers.splice(index, 1)
+
+      notificationsSettingsStore.update({
+        users: [...followedUsers],
+      })
+    }
+  } catch {
+    addErrorNotification('Can not unsubscribe for notifications, try later')
+  }
+}
