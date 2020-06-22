@@ -6,7 +6,6 @@ import { UserAvatar } from '../../UserAvatar'
 import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
-// import { FileStatus } from '@gtms/commons/enums'
 import { Link } from '@gtms/commons/i18n'
 
 export const PostResponse: FC<{
