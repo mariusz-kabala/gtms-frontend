@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { fetchTaggedGroups, IRecentGroupsResponse } from '@gtms/api-group'
 import { initGroupsList } from '@gtms/state-group'
 import { fetchTaggedUsers, ITagUsersResponse } from '@gtms/api-auth'
@@ -13,14 +13,16 @@ import { FourHundredFour } from '@gtms/ui/FourHundredFour'
 import { NextPage, NextPageContext } from 'next'
 import { GroupsList } from 'components/tag/GroupsList'
 import { UsersList } from 'components/tag/UsersList'
+import { TagsHeader } from '@gtms/ui/TagsHeader'
 
 export interface TagPageProps {
   namespacesRequired: readonly string[]
+  tags: string[]
   groups: IRecentGroupsResponse | null
   users: ITagUsersResponse | null
 }
 
-const TagPage: NextPage<TagPageProps> = ({ groups, users }) => {
+const TagPage: NextPage<TagPageProps> = ({ groups, users, tags }) => {
   useInitState(() => {
     groups && initGroupsList(groups)
     users && initUsersList(users)
@@ -35,12 +37,29 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users }) => {
     }
   }, [])
 
+  const onLoadSuggestion = useCallback(() => {
+
+  }, [])
+
+  const onLoadSuggestionCancel = useCallback(() => {
+
+  }, [])
+
+  const onTagAdd = useCallback(() => {
+
+  }, [])
+
+  const onTagRemove = useCallback(() => {
+
+  }, [])
+
   if (groups === null) {
     return <FourHundredFour />
   }
 
   return (
     <div data-testid="tag-page">
+      <TagsHeader tags={tags} />
       <GroupsList
         records={state.groups.docs}
         isLoading={state.groups.isLoading}
@@ -71,12 +90,14 @@ TagPage.getInitialProps = async (
         namespacesRequired: ['tagPage'],
         groups,
         users,
+        tags,
       }
     })
   }
 
   return {
     namespacesRequired: ['tagPage'],
+    tags,
     groups: null,
     users: null,
   }
