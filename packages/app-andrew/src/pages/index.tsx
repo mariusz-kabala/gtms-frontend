@@ -11,8 +11,8 @@ import { PolAndRock } from '@gtms/ui/PolAndRock'
 import { RecentlyCreatedGroups } from 'components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
 import { IoIosSearch } from 'react-icons/io'
-import { getRecentUsers, recentUsersQuery, useAuth } from '@gtms/state-user'
-import { getRecentGroups, recentGroupsQuery } from '@gtms/state-group'
+import { getRecentUsers, usersListQuery, useAuth } from '@gtms/state-user'
+import { getRecentGroups, groupsListQuery } from '@gtms/state-group'
 
 type HomePageProps = {
   namespacesRequired: readonly string[]
@@ -69,14 +69,14 @@ HomePage.getInitialProps = async () => {
   const [users, groups] = await Promise.all([
     getRecentUsers(0, 10)
       .then(() => {
-        return recentUsersQuery.getAll()
+        return usersListQuery.getAll()
       })
       .catch(() => {
         return []
       }),
     getRecentGroups(0, 18)
       .then(() => {
-        return recentGroupsQuery.getAll()
+        return groupsListQuery.getAll()
       })
       .catch(() => []),
   ])
