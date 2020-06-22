@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.10.3...@gtms/api-group@0.11.0) (2020-06-22)
+
+
+### Features
+
+* GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
+
+
+
+
+
 ## [0.10.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.10.2...@gtms/api-group@0.10.3) (2020-06-21)
 
 **Note:** Version bump only for package @gtms/api-group
