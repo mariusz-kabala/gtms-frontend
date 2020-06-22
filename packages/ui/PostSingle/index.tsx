@@ -12,7 +12,7 @@ import { PostResponse } from './PostResponse'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '../../enums' // @todo remove it
 
 export const PostSingle: FC<{
   text: string
