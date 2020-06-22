@@ -1,5 +1,5 @@
 export * from './group'
-export * from './recentGroups'
+export * from './groupsList'
 export * from './groupAdmins'
 export * from './groupMembers'
 export * from './groupInvitations'

@@ -8,6 +8,22 @@ import {
 export class NotificationsSettingsQuery extends Query<
   INotificationsSettingsState
 > {
+  public isFollowingUser = (user: string, values = this.getValue()) => {
+    if (!values.isLoaded) {
+      return false
+    }
+
+    return values.users.includes(user)
+  }
+
+  public isFollowingGroup = (group: string, values = this.getValue()) => {
+    if (!values.isLoaded) {
+      return false
+    }
+
+    return values.groups.includes(group)
+  }
+
   constructor(protected store: NotificationsSettingsStore) {
     super(store)
   }

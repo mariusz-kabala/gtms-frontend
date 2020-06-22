@@ -66,14 +66,14 @@ HomePage.getInitialProps = async () => {
   const [users, groups] = await Promise.all([
     getRecentUsers(0, 10)
       .then(() => {
-        return recentUsersQuery.getAll()
+        return usersListQuery.getAll()
       })
       .catch(() => {
         return []
       }),
     getRecentGroups(0, 18)
       .then(() => {
-        return recentGroupsQuery.getAll()
+        return groupsListQuery.getAll()
       })
       .catch(() => []),
   ])

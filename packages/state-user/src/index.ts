@@ -1,6 +1,6 @@
 export * from './account'
 export * from './myGroups'
-export * from './recentUsers'
+export * from './usersList'
 export * from './userDetails'
 export * from './helpers'
 export * from './hooks'

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.16.1...@gtms/commons@0.17.0) (2020-06-22)
+
+
+### Features
+
+* GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
+
+
+
+
+
 ## [0.16.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.16.0...@gtms/commons@0.16.1) (2020-06-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.6...@gtms/ui@0.23.0) (2020-06-22)
+
+
+### Features
+
+* GEOT-295: add TagsHeader component ([#663](https://github.com/gtms-org/gtms-frontend/issues/663)) ([f2913f0](https://github.com/gtms-org/gtms-frontend/commit/f2913f07350de6b60aeaf7e7ac0855b61c150e03))
+
+
+
+
+
 ## [0.22.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.5...@gtms/ui@0.22.6) (2020-06-21)
 
 **Note:** Version bump only for package @gtms/ui

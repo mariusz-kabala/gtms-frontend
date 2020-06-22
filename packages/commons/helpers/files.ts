@@ -17,6 +17,10 @@ export function parseFile(file: string) {
 }
 
 export function parseFiles(files: string[]) {
+  if (!Array.isArray(files) || files.length === 0) {
+    return {}
+  }
+
   return files.reduce((filesObj: any, file) => {
     const { url, size, ext } = parseFile(file)
     if (!filesObj[size]) {

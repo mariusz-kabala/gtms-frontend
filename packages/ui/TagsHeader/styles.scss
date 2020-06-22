@@ -1,0 +1,34 @@
+@import '@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+
+.wrapper {
+  color: $theme7;
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    h1 {
+      @include font-size(xlg);
+    }
+
+    a {
+      @include font-size(xxlg);
+      @include font-weight(bold);
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .inputWrapper {
+      margin-left: 10px;
+      input {
+        background: black;
+        min-width: 300px;
+        border: none;
+        padding: 5px;
+        color: $theme7;
+        border-bottom: 1px solid $theme7;
+      }
+    }
+  }
+}

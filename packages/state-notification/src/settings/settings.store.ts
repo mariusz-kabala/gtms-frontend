@@ -11,6 +11,8 @@ export interface INotificationsSettingsState {
   newPostInAdminnedGroup: boolean
   newMembershipRequestInAdminnedGroup: boolean
   newMemberInAdminnedGroup: boolean
+  users: string[]
+  groups: string[]
 }
 
 export class NotificationsSettingsStore extends Store<
@@ -29,6 +31,8 @@ export class NotificationsSettingsStore extends Store<
         newPostInAdminnedGroup: false,
         newMembershipRequestInAdminnedGroup: false,
         newMemberInAdminnedGroup: false,
+        users: [],
+        groups: [],
       },
       {
         name: 'notificationsSettings',
