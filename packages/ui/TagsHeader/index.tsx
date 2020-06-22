@@ -18,7 +18,6 @@ export const TagsHeader: FC<{
   onLoadSuggestion,
   onLoadSuggestionCancel,
   onTagAdd,
-  onTagRemove,
   suggestions = [],
   hintMinLenght = 3,
 }) => {
