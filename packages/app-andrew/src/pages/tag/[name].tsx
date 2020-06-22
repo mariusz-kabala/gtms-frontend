@@ -3,7 +3,11 @@ import { fetchTaggedGroups, IRecentGroupsResponse } from '@gtms/api-group'
 import { initGroupsList } from '@gtms/state-group'
 import { fetchTaggedUsers, ITagUsersResponse } from '@gtms/api-auth'
 import { initUsersList } from '@gtms/state-user'
-import { ITagPageState, tagPageState, tagPageState$ } from './state.query'
+import {
+  ITagPageState,
+  tagPageState,
+  tagPageState$,
+} from 'queries/tagPage.query'
 import { useInitState } from '@gtms/commons/hooks'
 import { FourHundredFour } from '@gtms/ui/FourHundredFour'
 import { NextPage, NextPageContext } from 'next'
