@@ -25,13 +25,18 @@ export const PostResponse: FC<{
         <Link href={`/user/${owner}`}>
           <div className={styles.user}>
             <UserAvatar
+              image={noImage['35x35']}
+              additionalStyles={styles.userAvatar}
+            />
+            {/* @mariusz use this
+              <UserAvatar
               image={
                 owner.avatar?.status === FileStatus.ready
                   ? (owner.avatar.files['35x35'] as { jpg: string })
                   : noImage['35x35']
               }
               additionalStyles={styles.userAvatar}
-            />
+            /> */}
             <span>{owner}</span>
             {/* <span>{`${owner.name || ''} ${owner.surname || ''}`.trim()}</span> */}
           </div>
