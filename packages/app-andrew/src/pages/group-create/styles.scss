@@ -1,9 +1,12 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
   display: flex;
-  background-color: $theme8;
+  height: 100%;
+  @include imageCover();
+
 
   .left {
     position: relative;
@@ -17,7 +20,7 @@
 
       h2 {
         font-size: 2.6em;
-        @include font-weight(bold);
+        @include font-weight(600);
         text-transform: uppercase;
       }
 
@@ -35,6 +38,6 @@
     display: flex;
     align-items: center;
     width: 60%;
-    background: #a4c339;
+    @include imageCover();
   }
 }
