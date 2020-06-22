@@ -10,8 +10,8 @@ import { PolAndRock } from '@gtms/ui/PolAndRock'
 import { RecentlyCreatedGroups } from 'components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
 import { IoIosSearch } from 'react-icons/io'
-import { getRecentUsers, recentUsersQuery } from '@gtms/state-user'
-import { getRecentGroups, recentGroupsQuery } from '@gtms/state-group'
+import { getRecentUsers, usersListQuery } from '@gtms/state-user'
+import { getRecentGroups, groupsListQuery } from '@gtms/state-group'
 
 type HomePageProps = {
   namespacesRequired: readonly string[]
