@@ -6,7 +6,6 @@ import { UserAvatar } from '../../UserAvatar'
 import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
-import { IUser } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
 import { Link } from '@gtms/commons/i18n'
 
@@ -23,7 +22,7 @@ export const PostResponse: FC<{
       data-testid="post-single"
     >
       <div className={styles.header}>
-        <Link href={`/user/${owner.id}`}>
+        <Link href={`/user/${owner}`}>
           <div className={styles.user}>
             <UserAvatar
               image={
@@ -33,7 +32,8 @@ export const PostResponse: FC<{
               }
               additionalStyles={styles.userAvatar}
             />
-            <span>{`${owner.name || ''} ${owner.surname || ''}`.trim()}</span>
+            <span>{owner}</span>
+            {/* <span>{`${owner.name || ''} ${owner.surname || ''}`.trim()}</span> */}
           </div>
         </Link>
         <span>
