@@ -14,7 +14,8 @@ export const PostResponse: FC<{
   createdAt: string
   additionalStyles?: string
   owner: string
-  noImage: { [key: string]: { jpg: string; webp?: string } }
+  // noImage: { [key: string]: { jpg: string; webp?: string } }
+  noImage: any
 }> = ({ additionalStyles, text, createdAt, owner, noImage }) => {
   return (
     <div
