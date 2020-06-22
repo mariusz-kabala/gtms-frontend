@@ -1,20 +1,16 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
+import { DeletePost } from '../DeletePost'
+import { UserAvatar } from '../../UserAvatar'
 import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 import { IUser } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
 import { Link } from '@gtms/commons/i18n'
-import { DeletePost } from './DeletePost'
-import { PostResponse } from './PostResponse'
-import { Tag } from '../Tag'
-import { TagGroup } from '../TagGroup'
-import { UserAvatar } from '../UserAvatar'
-import { UserAvatarNoImage } from 'enums'
 
-export const PostSingle: FC<{
+export const PostResponse: FC<{
   text: string
   createdAt: string
   additionalStyles?: string
@@ -47,27 +43,6 @@ export const PostSingle: FC<{
       </div>
       <div className={styles.desc}>
         <ReactMarkdown className={styles.text} source={text} />
-        <TagGroup>
-          <Tag label="tag" />
-          <Tag label="tag" />
-          <Tag label="tag" />
-          <Tag label="tag" />
-        </TagGroup>
-        <div className={styles.action}>
-          <a>Respond</a>
-        </div>
-        <PostResponse
-          text='Reprehenderit minim aliquip culpa do ut incididunt nisi velit et exercitation.'
-          createdAt='123123'
-          owner='Larry Ellison'
-          noImage={UserAvatarNoImage}
-        />
-        <PostResponse
-          text='Elit laborum laboris occaecat minim commodo nostrud commodo minim Lorem sint'
-          createdAt='123123'
-          owner='Larry Ellison'
-          noImage={UserAvatarNoImage}
-        />
       </div>
     </div>
   )

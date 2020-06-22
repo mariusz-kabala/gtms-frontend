@@ -150,27 +150,23 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           </div>
           <div className={styles.columns}>
             <div>
-              <NavigationTabs data={{
-                header: 'Posts',
-                links: [
-                  {
-                    id: 0,
-                    description: 'Promoted tags',
-                  },
-                  {
-                    id: 1,
-                    description: 'Hot tags',
-                  },
-                  {
-                    id: 2,
-                    description: 'Favorites tags',
-                  },
-                  {
-                    id: 3,
-                    description: 'Favorites tags',
-                  }
-                ]
-              }} />
+            <NavigationTabs>
+              <h2 className={styles.header}>Posts</h2>
+              <ul className={styles.elements}>
+                <li className={styles.item}>
+                  popular posts
+                </li>
+                <li className={styles.item}>
+                  latest posts
+                </li>
+                <li className={styles.item}>
+                  favorites posts
+                </li>
+                <li className={styles.item}>
+                  my posts
+                </li>
+              </ul>
+            </NavigationTabs>
               {state.user && (
                 <PostCreate
                   user={state.user}
@@ -199,28 +195,17 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   router.push(`/group/${state.group?.slug}/settings#tags`)
                 }
               />
-              <br /> {/* @todo remove it */}
-              <NavigationTabs data={{
-                header: 'Recently registered',
-                links: [
-                  {
-                    id: 0,
-                    description: 'Promoted tags',
-                  },
-                  {
-                    id: 1,
-                    description: 'Hot tags',
-                  },
-                  {
-                    id: 2,
-                    description: 'Favorites tags',
-                  },
-                  {
-                    id: 3,
-                    description: 'Favorites tags',
-                  }
-                ]
-              }} />
+              <NavigationTabs>
+                <h2 className={styles.header}>Recently registered</h2>
+                <ul className={styles.elements}>
+                  <li className={styles.item}>
+                    latest
+                  </li>
+                  <li className={styles.item}>
+                    most popular
+                  </li>
+                </ul>
+              </NavigationTabs>
               <GroupMembers {...state.members} />
               <br /> {/* @todo remove it */}
               <PromotedGroups />

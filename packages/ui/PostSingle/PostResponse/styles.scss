@@ -6,17 +6,6 @@
   overflow: hidden; // for delete post component that overflows this component
   cursor: pointer;
   
-  &::after {
-    content: '';
-    position: absolute;
-    top: 45px;
-    left: 15px;
-    display: flex;
-    width: 4px;
-    height: calc(100% - 45px);
-    background: #4b4465;
-  }
-
   &:hover {
     .header .deleteBtn {
       opacity: 0.5;
@@ -39,7 +28,7 @@
         height: 35px;
         min-width: 35px;
         min-height: 35px;
-
+        
         img {
           border-radius: 50%;
         }
@@ -47,7 +36,7 @@
     }
 
     span {
-      margin-left: 10px;
+      margin-left: 5px;
 
       // @todo create mixin with highlighted text
       &:hover {
@@ -77,15 +66,6 @@
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
       }
-    }
-  }
-
-  .action {
-    display: flex;
-
-    a {
-      display: block;
-      margin-left: auto;
     }
   }
 }

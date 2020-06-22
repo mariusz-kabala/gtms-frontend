@@ -5,15 +5,15 @@
 .wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 
-  .header {
+  h2 {
     color: white;
     @include font-size(lg);
     @include font-weight(semiBold);
   }
 
-  .elements {
+  ul {
     display: flex;
     margin-left: 20px;
 

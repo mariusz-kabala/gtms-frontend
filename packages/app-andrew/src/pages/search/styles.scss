@@ -1,19 +1,10 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
   width: 100%;
-  @include imageCover();
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   .searchBarWrapper {
     position: relative;
     z-index: 1;
-  }
-
-  .overlay {
-    z-index: 0;
   }
 }

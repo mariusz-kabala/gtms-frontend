@@ -7,7 +7,12 @@
 
   .avatar {
     display: flex;
-    
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+    margin-top: 4px;
+
     img {
       border-radius: 50%;
     }
@@ -27,7 +32,7 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     padding: 10px;
-    margin-left: 5px;
+    margin-left: 10px;
     min-height: 41px;
     background: $theme3;
   }
