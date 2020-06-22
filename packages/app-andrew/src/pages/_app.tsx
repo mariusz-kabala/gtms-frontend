@@ -46,9 +46,6 @@ class GTMSApp extends App<GTMSAppProps> {
           <link rel="manifest" href="/manifest.json" />
         </Head>
         <Navigation />
-        <div
-          className={styles.bg}
-          style={{ backgroundImage: `url('/images/temp_images/group_bg_3.png')` }} />
         <NotificationsSidebar />
         <div className={styles.wrapperPage}>
           <NavigationDots />
