@@ -16,7 +16,7 @@ export interface ITagGroupsResponse {
   offset: number
 }
 
-export const fetchTagGroups = (tags: string[], offset = 0, limit = 10) =>
+export const fetchTaggedGroups = (tags: string[], offset = 0, limit = 10) =>
   fetchJSON<void, ITagGroupsResponse>(
     makeApiUrl(`groups/tag?q=${tags.join(',')}&offset=${offset}&limit=${limit}`)
   )

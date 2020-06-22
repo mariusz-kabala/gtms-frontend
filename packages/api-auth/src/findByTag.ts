@@ -16,7 +16,7 @@ export interface ITagUsersResponse {
   offset: number
 }
 
-export const fetchTagUsers = (tags: string[], offset = 0, limit = 10) =>
+export const fetchTaggedUsers = (tags: string[], offset = 0, limit = 10) =>
   fetchJSON<void, ITagUsersResponse>(
     makeApiUrl(
       `auth/users/tag?q=${tags.join(',')}&offset=${offset}&limit=${limit}`
