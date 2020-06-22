@@ -59,21 +59,13 @@ export const PostSingle: FC<{
           text='Reprehenderit minim aliquip culpa do ut incididunt nisi velit et exercitation.'
           createdAt='123123'
           owner='Larry Ellison'
-          noImage={
-            owner.avatar?.status === FileStatus.ready
-              ? (owner.avatar.files['35x35'] as { jpg: string })
-              : noImage['35x35']
-          }
+          noImage={noImage['35x35']}
         />
         <PostResponse
           text='Elit laborum laboris occaecat minim commodo nostrud commodo minim Lorem sint'
           createdAt='123123'
           owner='Larry Ellison'
-          noImage={
-            owner.avatar?.status === FileStatus.ready
-              ? (owner.avatar.files['35x35'] as { jpg: string })
-              : noImage['35x35']
-          }
+          noImage={noImage['35x35']}
         />
       </div>
     </div>
