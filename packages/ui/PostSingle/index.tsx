@@ -12,7 +12,6 @@ import { PostResponse } from './PostResponse'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
-import { UserAvatarNoImage } from '../../enums' // @todo remove it
 
 export const PostSingle: FC<{
   text: string
@@ -60,13 +59,21 @@ export const PostSingle: FC<{
           text='Reprehenderit minim aliquip culpa do ut incididunt nisi velit et exercitation.'
           createdAt='123123'
           owner='Larry Ellison'
-          noImage={UserAvatarNoImage}
+          noImage={
+            owner.avatar?.status === FileStatus.ready
+              ? (owner.avatar.files['35x35'] as { jpg: string })
+              : noImage['35x35']
+          }
         />
         <PostResponse
           text='Elit laborum laboris occaecat minim commodo nostrud commodo minim Lorem sint'
           createdAt='123123'
           owner='Larry Ellison'
-          noImage={UserAvatarNoImage}
+          noImage={
+            owner.avatar?.status === FileStatus.ready
+              ? (owner.avatar.files['35x35'] as { jpg: string })
+              : noImage['35x35']
+          }
         />
       </div>
     </div>
