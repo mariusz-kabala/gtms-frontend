@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.36.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.35.0...@gtms/app-andrew@0.36.0) (2020-06-22)
+
+
+### Features
+
+* GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
+
+
+
+
+
+# [0.35.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.34.0...@gtms/app-andrew@0.35.0) (2020-06-21)
+
+
+### Features
+
+* GEOT-287: follow user button ([#661](https://github.com/gtms-org/gtms-frontend/issues/661)) ([80322e0](https://github.com/gtms-org/gtms-frontend/commit/80322e083e450773967ecb8f401bf3ab0e7936d2))
+
+
+
+
+
+# [0.34.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.33.0...@gtms/app-andrew@0.34.0) (2020-06-21)
+
+
+### Features
+
+* GEOT-287: follow a group button ([#660](https://github.com/gtms-org/gtms-frontend/issues/660)) ([b30c5e6](https://github.com/gtms-org/gtms-frontend/commit/b30c5e6b82013f35c29f4f9335bcd50c92fcb8a3))
+
+
+
+
+
 # [0.33.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.32.0...@gtms/app-andrew@0.33.0) (2020-06-21)
 
 
