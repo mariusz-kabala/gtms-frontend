@@ -14,7 +14,7 @@ export const PostResponse: FC<{
   text: string
   createdAt: string
   additionalStyles?: string
-  owner: IUser
+  owner: string
   noImage: { [key: string]: { jpg: string; webp?: string } }
 }> = ({ additionalStyles, text, createdAt, owner, noImage }) => {
   return (
