@@ -3,25 +3,35 @@
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  .items {
+    // @todo make mixin of that
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
 
-  > div {
-    margin-right: 5px;
-  }
+    .item {
+      display: flex;
 
-  a {
-    cursor: pointer;
-    @include font-weight(bold);
-    color: $theme5;
-  }
+      .image {
+        margin-right: 10px;
 
-  h3 {
-    color: $theme5;
-    @include font-size(md);
-    @include font-weight(bold);
-    text-align: center;
+        img {
+          max-width: 75px;
+          border-radius: $borderRadius;
+        }
+      }
+
+      h3 {
+        @include font-size(md);
+        @include font-weight(bold);
+      }
+    }
+
+    .add {
+      cursor: pointer;
+      @include font-weight(bold);
+      color: $theme5;
+    }
   }
 }
 
@@ -36,5 +46,18 @@
 
   i {
     font-size: 40px;
+  }
+}
+
+.mock {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 20px;
+
+  > div {
+    width: 200px;
+    height: 200px;
   }
 }

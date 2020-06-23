@@ -1,0 +1,71 @@
+@import '@gtms/styles/scss/variables';
+
+.wrapper {
+  position: relative;
+  border-radius: $borderRadius;
+  overflow: hidden; // for delete post component that overflows this component
+  cursor: pointer;
+
+  &:hover {
+    .header .deleteBtn {
+      opacity: 0.5;
+    }
+  }
+
+  .header {
+    display: flex;
+
+    .user {
+      display: flex;
+
+      // @todo create mixin with highlighted text
+      &:hover {
+        color: $theme5;
+      }
+
+      .userAvatar {
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+        min-height: 35px;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+    }
+
+    span {
+      margin-left: 5px;
+
+      // @todo create mixin with highlighted text
+      &:hover {
+        color: $theme5;
+      }
+    }
+
+    .deleteBtn {
+      margin-left: auto;
+      cursor: pointer;
+      opacity: 0;
+
+      &:hover {
+        opacity: 1;
+        color: $theme5;
+      }
+    }
+  }
+
+  .desc {
+    margin-top: -15px;
+    margin-left: 45px;
+
+    .text {
+      margin-bottom: 10px;
+
+      > * {
+        white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
+      }
+    }
+  }
+}

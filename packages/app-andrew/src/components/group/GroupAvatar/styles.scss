@@ -10,8 +10,14 @@
     position: absolute;
   }
 
-  .avatar {
-    > * {
+  picture {
+    cursor: pointer;
+
+    img {
+      width: 70px;
+      min-width: 70px;
+      height: 70px;
+      min-height: 70px;
       border-radius: $borderRadius;
     }
   }

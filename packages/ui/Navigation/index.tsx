@@ -3,11 +3,12 @@ import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import {
-  IoIosSearch,
-  IoMdPerson,
   IoIosAddCircle,
   IoIosKeypad,
   IoIosLogOut,
+  IoIosNotifications,
+  IoIosSearch,
+  IoMdPerson,
 } from 'react-icons/io'
 
 export const Navigation: FC<{
@@ -17,41 +18,33 @@ export const Navigation: FC<{
 }> = ({ onAvatarClick, onLogout, avatar }) => {
   return (
     <div className={styles.wrapper}>
-      <style global jsx>{`
-        body {
-          padding-left: 45px;
-        }
-      `}</style>
-      {avatar && (
-        <UserAvatar
-          additionalStyles={styles.avatar}
-          image={avatar}
-          onClick={onAvatarClick}
-        />
-      )}
       <nav className={styles.navigation} data-testid="navigation">
+        {avatar && (
+          <UserAvatar additionalStyles={styles.avatar} image={avatar} />
+        )}
         <ul>
           {[
             {
-              id: 4,
+              label: 'Search',
+              icon: <IoIosNotifications />,
+              onClick: onAvatarClick,
+            },
+            {
               label: 'Search',
               icon: <IoIosSearch />,
               url: '/search',
             },
             {
-              id: 0,
               label: 'Account',
               icon: <IoMdPerson />,
               url: '/account',
             },
             {
-              id: 1,
               label: 'Create group',
               icon: <IoIosAddCircle />,
               url: '/group-create',
             },
             {
-              id: 2,
               label: 'My groups',
               icon: <IoIosKeypad />,
               url: '/my-groups',
@@ -59,8 +52,12 @@ export const Navigation: FC<{
           ].map((value, index) => {
             return (
               <li className={styles.link} key={index}>
-                <Link href={value.url}>
-                  <a>
+                {value?.onClick && (
+                  <a
+                    onClick={() =>
+                      value.onClick === undefined ? null : value.onClick()
+                    }
+                  >
                     <i
                       data-tip={value.label}
                       data-background-color="black"
@@ -68,9 +65,21 @@ export const Navigation: FC<{
                     >
                       {value.icon}
                     </i>
-                    <span>{value.label}</span>
                   </a>
-                </Link>
+                )}
+                {!value.onClick && (
+                  <Link href={value.url || '#'}>
+                    <a>
+                      <i
+                        data-tip={value.label}
+                        data-background-color="black"
+                        data-text-color="white"
+                      >
+                        {value.icon}
+                      </i>
+                    </a>
+                  </Link>
+                )}
               </li>
             )
           })}
@@ -84,7 +93,6 @@ export const Navigation: FC<{
               <i>
                 <IoIosLogOut />
               </i>
-              <span>Logout</span>
             </a>
           </li>
         </ul>

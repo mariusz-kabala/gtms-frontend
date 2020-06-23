@@ -10,6 +10,10 @@
     display: flex;
     flex-basis: 100%;
 
+    i {
+      font-size: 20px;
+    }
+
     input[type='text'] {
       display: block;
       width: 100%;
@@ -17,7 +21,6 @@
       border: none;
       font-size: 14px;
       background: none;
-      color: $theme7;
       border-bottom: 2px solid $theme7;
 
       &:active,
@@ -61,7 +64,6 @@
 
 .tag {
   background: $theme4;
-  color: $theme7;
   padding: 5px;
   margin-right: 5px;
   border-radius: 4px;

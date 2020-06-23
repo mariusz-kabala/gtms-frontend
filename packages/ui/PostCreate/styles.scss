@@ -1,38 +1,85 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontSize';
 
-.text {
-  position: relative;
+.wrapper {
+  display: flex;
 
   .avatar {
-    position: absolute;
-    top: 5px;
-    left: 5px;
     display: flex;
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+    margin-top: 4px;
 
     img {
       border-radius: 50%;
     }
 
     span {
+      position: absolute;
       color: $theme5;
-      margin-left: 5px;
+      margin-top: 8px;
+      margin-left: 45px;
     }
   }
 
-  textarea {
-    padding-top: 15px;
-    text-indent: 30px;
-    line-height: 1.6em;
+  .textarea {
+    display: block;
+    width: 100%;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    min-height: 41px;
+    background: $theme3;
+    height: 100%;
+    resize: vertical;
+
+    &:active,
+    &:focus,
+    &:hover {
+      outline: none;
+      border-color: $theme7;
+    }
+  }
+
+  .btn {
+    @include buttonDefault();
+    @include buttonColorsDefault();
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    span {
+      @include font-size(sm);
+    }
+
+    i {
+      display: flex;
+      margin-left: 5px;
+    }
+
+    &:hover {
+      @include buttonColorsHoverDefault();
+    }
   }
 }
 
-.btn {
-  width: 100%;
-  margin-top: 5px;
-  @include buttonDefault();
-  @include buttonColorsDefault();
-  &:hover {
-    @include buttonColorsHoverDefault();
+.suggestions {
+  border: 1px solid red;
+  background: #fff;
+  color: black;
+
+  ul {
+    margin: 10px;
+
+    li {
+      padding: 5px;
+      cursor: pointer;
+    }
   }
 }

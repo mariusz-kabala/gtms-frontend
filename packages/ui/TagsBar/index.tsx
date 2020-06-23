@@ -149,7 +149,6 @@ export const TagsBar: FC<{
       )}
       {!isInEditMode && tags.length === 0 && (
         <span className={styles.noRecords}>
-          {t('noTagsHaveBeenAdded')}
           <a
             className={styles.actionButton}
             onClick={() => setIsInEditMode(true)}

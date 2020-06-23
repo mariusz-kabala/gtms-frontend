@@ -106,77 +106,54 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
 
   return (
     <div className={styles.wrapper} data-testid="account-page">
-      {state.isLoading && (
-        <div>
-          <Spinner />
-        </div>
-      )}
+      {state.isLoading && <Spinner />}
       {!state.isLoading && state.errorOccured && (
-        <div>
-          <p>Can not fetch account details right now, try later</p>
-        </div>
+        <p>{t('Can not fetch account details right now, try later')}</p>
       )}
       {!state.isLoading && !state.errorOccured && (
         <div className={styles.content}>
-          <div
-            data-testid="account-page-public"
-            className={styles.visibleForEveryone}
-          >
-            <span className={styles.visibilityLabel}>
-              {t('This part is visible for EVERYONE')}
-            </span>
-            <ImageEditor
-              isVisible={isAvatarEditorVisible}
-              onSave={(file: File) => {
-                updateAccountAvatar(file)
-                setIsAvatarEditorVisible(false)
-              }}
-              onClose={() => setIsAvatarEditorVisible(false)}
+          <ImageEditor
+            isVisible={isAvatarEditorVisible}
+            onSave={(file: File) => {
+              updateAccountAvatar(file)
+              setIsAvatarEditorVisible(false)
+            }}
+            onClose={() => setIsAvatarEditorVisible(false)}
+          />
+          <a onClick={() => setIsAvatarEditorVisible(true)}>
+            {[FileStatus.uploaded, FileStatus.processing].includes(
+              state.avatar.status
+            ) && <Spinner />}
+            <Picture
+              {...(userQuery.hasAvatar('200x200')
+                ? userQuery.getAvatar('200x200')
+                : UserAvatarNoImage['200x200'])}
             />
-            <a onClick={() => setIsAvatarEditorVisible(true)}>
-              {[FileStatus.uploaded, FileStatus.processing].includes(
-                state.avatar.status
-              ) && <Spinner />}
-              <Picture
-                {...(userQuery.hasAvatar('200x200')
-                  ? userQuery.getAvatar('200x200')
-                  : UserAvatarNoImage['200x200'])}
-              />
-            </a>
-            <UserDescription description={state.description} />
-            <TagsBar
-              tags={tags}
-              isSaving={isSaving}
-              isLoading={tagsHints.isLoading}
-              suggestions={tagsHints.tags}
-              onLoadSuggestion={onLoadTagsHints}
-              onLoadSuggestionCancel={() => null}
-              onTagAdd={onTagAdd}
-              onTagRemove={onTagRemove}
-              onSave={onTagsSave}
-            />
-          </div>
-          <div className={styles.divider} />
-          <div
-            data-testid="account-page-private"
-            className={styles.visibleForOwner}
-          >
-            <span className={styles.visibilityLabel}>
-              This part is visible ONLY FOR YOU
-            </span>
-            <ChangePassword />
-            <UserName
-              additionalStyles={styles.userName}
-              name={state.name}
-              surname={state.surname}
-            />
-            <UserEmail email={state.email} additionalStyles={styles.userName} />
-            <DeleteAccount
-              additionalStyles={styles.deleteAccount}
-              onConfirm={() => null}
-            />
-            <NotificationsSettings />
-          </div>
+          </a>
+          <UserDescription description={state.description} />
+          <TagsBar
+            tags={tags}
+            isSaving={isSaving}
+            isLoading={tagsHints.isLoading}
+            suggestions={tagsHints.tags}
+            onLoadSuggestion={onLoadTagsHints}
+            onLoadSuggestionCancel={() => null}
+            onTagAdd={onTagAdd}
+            onTagRemove={onTagRemove}
+            onSave={onTagsSave}
+          />
+          <ChangePassword />
+          <UserName
+            additionalStyles={styles.userName}
+            name={state.name}
+            surname={state.surname}
+          />
+          <UserEmail email={state.email} additionalStyles={styles.userName} />
+          <DeleteAccount
+            additionalStyles={styles.deleteAccount}
+            onConfirm={() => null}
+          />
+          <NotificationsSettings />
         </div>
       )}
     </div>

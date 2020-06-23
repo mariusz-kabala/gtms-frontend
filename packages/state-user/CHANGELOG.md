@@ -3,84 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.12.2...@gtms/state-user@0.13.0) (2020-06-22)
+## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.13.0...@gtms/state-user@0.13.1) (2020-06-23)
 
+**Note:** Version bump only for package @gtms/state-user
+
+# [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.12.2...@gtms/state-user@0.13.0) (2020-06-22)
 
 ### Features
 
-* GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
-
-
-
-
+- GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
 
 ## [0.12.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.12.1...@gtms/state-user@0.12.2) (2020-06-21)
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 ## [0.12.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.12.0...@gtms/state-user@0.12.1) (2020-06-18)
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 # [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.11.2...@gtms/state-user@0.12.0) (2020-06-17)
-
 
 ### Features
 
-* GEOT-283: support for user description ([#654](https://github.com/gtms-org/gtms-frontend/issues/654)) ([a13e649](https://github.com/gtms-org/gtms-frontend/commit/a13e649dbc31f08c6e5f96b7934a50ef275afed3))
-
-
-
-
+- GEOT-283: support for user description ([#654](https://github.com/gtms-org/gtms-frontend/issues/654)) ([a13e649](https://github.com/gtms-org/gtms-frontend/commit/a13e649dbc31f08c6e5f96b7934a50ef275afed3))
 
 ## [0.11.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.11.1...@gtms/state-user@0.11.2) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 ## [0.11.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.11.0...@gtms/state-user@0.11.1) (2020-06-17)
-
 
 ### Bug Fixes
 
-* GEOT-281: fixes for account update ([#653](https://github.com/gtms-org/gtms-frontend/issues/653)) ([7e20011](https://github.com/gtms-org/gtms-frontend/commit/7e2001122507309ce707fd1ce42b541b57358b66))
-
-
-
-
+- GEOT-281: fixes for account update ([#653](https://github.com/gtms-org/gtms-frontend/issues/653)) ([7e20011](https://github.com/gtms-org/gtms-frontend/commit/7e2001122507309ce707fd1ce42b541b57358b66))
 
 # [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.10.0...@gtms/state-user@0.11.0) (2020-06-17)
 
-
 ### Features
 
-* GEOT-277: invite to a group button ([#650](https://github.com/gtms-org/gtms-frontend/issues/650)) ([473256c](https://github.com/gtms-org/gtms-frontend/commit/473256c5fb622c846ab081ce7abe62d21c8635f1))
-
-
-
-
+- GEOT-277: invite to a group button ([#650](https://github.com/gtms-org/gtms-frontend/issues/650)) ([473256c](https://github.com/gtms-org/gtms-frontend/commit/473256c5fb622c846ab081ce7abe62d21c8635f1))
 
 # [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.9.13...@gtms/state-user@0.10.0) (2020-06-17)
 
-
 ### Features
 
-* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
-
-
-
-
+- GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
 
 ## [0.9.13](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.9.12...@gtms/state-user@0.9.13) (2020-06-16)
 

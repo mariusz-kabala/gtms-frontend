@@ -2,14 +2,9 @@
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
-.btn {
-  margin-top: 10px;
-  margin-right: 15px;
-  background: $theme1;
-  @include buttonDefault();
-  @include font-size(md);
-
-  &:hover {
-    @include buttonColorsHoverDefault();
-  }
+.groupList {
+  display: flex;
+  width: 500px;
+  height: 500px;
+  background: $theme2;
 }

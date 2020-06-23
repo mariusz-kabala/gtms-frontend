@@ -1,0 +1,31 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/fontSize';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  h2 {
+    color: white;
+    @include font-size(lg);
+    @include font-weight(semiBold);
+  }
+
+  ul {
+    display: flex;
+    margin-left: 20px;
+
+    li {
+      margin-right: 10px;
+      @include font-size(md);
+      color: $theme10;
+      cursor: pointer;
+
+      &:hover {
+        color: $theme5;
+      }
+    }
+  }
+}

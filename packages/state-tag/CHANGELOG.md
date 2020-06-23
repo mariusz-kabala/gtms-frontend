@@ -3,56 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.5.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.5.4...@gtms/state-tag@0.5.5) (2020-06-22)
+## [0.5.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.5.5...@gtms/state-tag@0.5.6) (2020-06-23)
 
 **Note:** Version bump only for package @gtms/state-tag
 
+## [0.5.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.5.4...@gtms/state-tag@0.5.5) (2020-06-22)
 
-
-
+**Note:** Version bump only for package @gtms/state-tag
 
 ## [0.5.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.5.3...@gtms/state-tag@0.5.4) (2020-06-21)
 
 **Note:** Version bump only for package @gtms/state-tag
 
-
-
-
-
 ## [0.5.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.5.2...@gtms/state-tag@0.5.3) (2020-06-18)
 
 **Note:** Version bump only for package @gtms/state-tag
-
-
-
-
 
 ## [0.5.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.5.1...@gtms/state-tag@0.5.2) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/state-tag
 
-
-
-
-
 ## [0.5.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.5.0...@gtms/state-tag@0.5.1) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/state-tag
 
-
-
-
-
 # [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.4.7...@gtms/state-tag@0.5.0) (2020-06-17)
-
 
 ### Features
 
-* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
-
-
-
-
+- GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
 
 ## [0.4.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.4.6...@gtms/state-tag@0.4.7) (2020-06-16)
 

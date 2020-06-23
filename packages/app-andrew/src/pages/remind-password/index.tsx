@@ -24,7 +24,6 @@ export const RemindPasswordPage: NextPage<{}> = () => {
         {showConfirmation && (
           <p data-testid="remind-password-success-confirmation">{t('info')}</p>
         )}
-        <br />
         <div className={styles.btn}>
           <Link href={`/login`}>{t('goToLoginPage')}</Link>
         </div>
