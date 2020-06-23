@@ -3,6 +3,7 @@ import { userQuery } from '@gtms/state-user'
 
 interface IParams<T> {
   values?: T
+  signal?: AbortSignal
   addJWT?: boolean
   headers?: {
     [key: string]: string
@@ -30,6 +31,10 @@ export const fetchJSON = <T, R>(
 ): Promise<R> => {
   const { values = {}, headers = {}, addJWT = true, method } = params || {}
   const options: RequestInit & { timeout?: number } = {}
+
+  if (params?.signal) {
+    options.signal = params.signal
+  }
 
   if (values instanceof Object && Object.keys(values).length > 0) {
     headers['Content-Type'] = 'application/json'
