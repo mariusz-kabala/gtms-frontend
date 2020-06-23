@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
@@ -19,7 +20,7 @@
       width: 100%;
 
       h2 {
-        font-size: 2.6em;
+        @include font-size(xlg);
         @include font-weight(600);
         text-transform: uppercase;
       }
