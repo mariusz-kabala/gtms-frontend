@@ -5,8 +5,8 @@ import '@gtms/styles/scss/global.scss'
 import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
 import { Navigation } from 'components/commons/Navigation'
-import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { NavigationDots } from 'components/commons/NavigationDots'
+import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from 'components/commons/LoginWindow'
@@ -39,21 +39,25 @@ class GTMSApp extends App<GTMSAppProps> {
 
   render() {
     const { Component, pageProps } = this.props
+
     return (
-      <>
+      <div className={styles.wrapper}>
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <div className={styles.wrapper}>
-          <Navigation />
-          <NotificationsSidebar />
+        <Navigation />
+        <NotificationsSidebar />
+        <div className={styles.wrapperPage}>
+          <NavigationDots />
           <NotificationsActive />
-          <Component {...pageProps} />
+          <div className={styles.pageContent}>
+            <Component {...pageProps} />
+          </div>
         </div>
-        <NavigationDots />
         <LoginWindow />
+        {/* @todo consider do we need ReactTooltip? */}
         {/* <ReactTooltip /> */}
-      </>
+      </div>
     )
   }
 }

@@ -11,10 +11,9 @@ enum EditorSteps {
 
 export const ImageEditor: FC<{
   isVisible: boolean
-  title?: string
   onClose: () => unknown
   onSave: (file: File) => unknown
-}> = ({ isVisible, onClose, onSave, title = 'Avatar Editor' }) => {
+}> = ({ isVisible, onClose, onSave }) => {
   const [state, setState] = useState<{
     step: EditorSteps
     image?: File
@@ -62,7 +61,6 @@ export const ImageEditor: FC<{
 
   return (
     <Modal additionalStyles={styles.wrapper} onClose={onClose}>
-      <div>{title}</div>
       {state.step === EditorSteps.upload && (
         <section>
           <UploadFile

@@ -1,0 +1,27 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/imageCover';  
+
+.wrapper {
+  .items {
+    // @todo make mixin of that
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .item {
+      .image {
+        @include imageCover();
+        height: 150px;
+        border-radius: $borderRadius;
+      }
+
+      h3 {
+        @include font-size(md);
+        @include font-weight(bold);
+        margin-top: 10px;
+      }
+    }
+  }
+}

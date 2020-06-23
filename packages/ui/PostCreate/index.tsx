@@ -5,25 +5,28 @@ import { Button } from '@gtms/ui/Button'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { useTranslation } from '@gtms/commons/i18n'
 import { FileStatus } from '@gtms/commons/enums'
+import { Link } from '@gtms/commons/i18n'
 import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
+import { IoMdSend } from 'react-icons/io'
 
 export const PostCreate: FC<{
   additionalStyles?: string
   onSubmit: (text: string) => unknown
   isLoading?: boolean
   user: {
-    name?: string
-    surname?: string
     avatar: {
       status: FileStatus
       files: {
-        '35x35'?: {
+        '50x50'?: {
           jpg: string
           webp: string
         }
       }
     }
+    id: string
+    name?: string
+    surname?: string
   }
   noImage: { [key: string]: { jpg: string; webp?: string } }
 }> = ({ additionalStyles, onSubmit, user, noImage, isLoading = false }) => {
@@ -33,29 +36,31 @@ export const PostCreate: FC<{
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
-      data-testid="postCreate"
-    >
-      <div className={styles.text}>
-        {isLoading && <Spinner />}
-        <div className={styles.avatar}>
+      data-testid="postCreate">
+      <div className={styles.avatar}>
+        <Link href={`/user/${user.id}`}>
           <UserAvatar
             image={
               user.avatar.status === FileStatus.ready &&
-              user.avatar.files['35x35']
-                ? user.avatar.files['35x35']
-                : noImage['35x35']
+              user.avatar.files['50x50']
+                ? user.avatar.files['50x50']
+                : noImage['50x50']
             }
             additionalStyles={styles.userAvatar}
           />
-          <span>{`${user.name || ''} ${user.surname || ''}`.trim()}</span>
-        </div>
-        <ExpandingTextarea
-          reference={dscRef as any}
-          rows={3}
-          placeholder={t('yourMessage')}
-        />
+        </Link>
       </div>
+      {isLoading && <Spinner />}
+      <ExpandingTextarea
+        additionalStyles={styles.textarea}
+        reference={dscRef as any}
+        rows={1}
+        placeholder={t('yourMessage')}
+      />
       <Button
+        type="submit"
+        disabled={false}
+        additionalStyles={styles.btn}
         onClick={() => {
           if (!dscRef.current) {
             return
@@ -64,11 +69,9 @@ export const PostCreate: FC<{
 
           dsc && onSubmit(dsc)
         }}
-        type="submit"
-        disabled={false}
-        additionalStyles={styles.btn}
       >
-        {t('send')}
+        <span>{t('send')}</span>
+        <i><IoMdSend /></i>
       </Button>
     </div>
   )

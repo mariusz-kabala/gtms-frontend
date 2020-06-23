@@ -15,7 +15,6 @@
     padding: 40px;
     margin-bottom: 20px;
     border-radius: $borderRadius;
-    background: $theme1;
 
     .header {
       @include header(h3, textUppercase);
@@ -27,7 +26,6 @@
   .search {
     padding: 20px 0 50px 0;
     text-align: center;
-    color: $theme7;
     @include font-size(lg);
 
     > div {

@@ -3,6 +3,7 @@ import { Picture } from '@gtms/ui/Picture'
 import { Tag } from '@gtms/ui/Tag'
 import { UserAvatarNoImage } from 'enums'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
+import { TagGroup } from '@gtms/ui/TagGroup'
 import { InviteToGroupButton } from '../InviteToGroupButton'
 import { IUser } from '@gtms/commons/models'
 import styles from './styles.scss'
@@ -38,13 +39,13 @@ export const Profile: FC<{
 
         <section className={styles.tags}>
           <h3>Moje tagi:</h3>
-          <div>
+          <TagGroup>
             {user.tags.length > 0 &&
               user.tags.map((tag) => (
                 <Tag label={tag} key={`user-tag-${tag}`} />
               ))}
             {user.tags.length === 0 && <p>No tags</p>}
-          </div>
+          </TagGroup>
         </section>
 
         {state.id !== user.id && (

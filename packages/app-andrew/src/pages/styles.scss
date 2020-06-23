@@ -1,6 +1,20 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
   display: flex;
   flex: 1;
+
+  .wrapperPage {
+    display: flex;
+    flex: 1;
+    margin-left: 0;
+    overflow: hidden;
+    background: $theme1;
+    box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.1);
+
+    .pageContent {
+      width: 100%;
+    }
+  }
 }

@@ -4,21 +4,24 @@
 
 .wrapper {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
 
   .profileImage {
-    max-width: 350px;
-  }
-
-  .right {
-    margin-left: 20px;
-    color: $theme7;
+    max-width: 150px;
+    
+    img {
+      border-radius: 50%;
+    }
   }
 
   h2 {
     @include font-size(lg);
     @include font-weight(semiBold);
+  }
+
+  .inviteToGroupButton {
+    padding: 10px;
+    background: gray;
   }
 }

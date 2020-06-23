@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect, useRef } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
+import { IoIosSearch } from 'react-icons/io'
 
 export const SearchBar: FC<{
   tags?: string[]
@@ -71,6 +72,7 @@ export const SearchBar: FC<{
           </div>
         )}
         <div className={styles.inputWrapper}>
+          <i><IoIosSearch /></i>
           <input
             ref={inputEl}
             type="text"
