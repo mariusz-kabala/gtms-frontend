@@ -142,17 +142,6 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             onTagRemove={onTagRemove}
             onSave={onTagsSave}
           />
-          <TagsBar
-            tags={tags}
-            isSaving={isSaving}
-            isLoading={tagsHints.isLoading}
-            suggestions={tagsHints.tags}
-            onLoadSuggestion={onLoadTagsHints}
-            onLoadSuggestionCancel={() => null}
-            onTagAdd={onTagAdd}
-            onTagRemove={onTagRemove}
-            onSave={onTagsSave}
-          />
           <ChangePassword />
           <UserName
             additionalStyles={styles.userName}

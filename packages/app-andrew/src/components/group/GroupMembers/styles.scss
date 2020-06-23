@@ -39,7 +39,7 @@ $groupMembersAvatarSize: 50px;
 
     p {
       position: absolute;
-      font-size: 16px;
+      @include font-size(md);
       margin: 10px 0 0 10px;
     }
   }
