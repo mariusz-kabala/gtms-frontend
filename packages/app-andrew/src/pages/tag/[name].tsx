@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { fetchTaggedGroups, IRecentGroupsResponse } from '@gtms/api-group'
 import { initGroupsList } from '@gtms/state-group'
 import { fetchTaggedUsers, ITagUsersResponse } from '@gtms/api-auth'
@@ -14,6 +14,8 @@ import { NextPage, NextPageContext } from 'next'
 import { GroupsList } from 'components/tag/GroupsList'
 import { UsersList } from 'components/tag/UsersList'
 import { TagsHeader } from '@gtms/ui/TagsHeader'
+import { findTagsAPI } from '@gtms/api-tags'
+import { useRouter } from 'next/router'
 
 export interface TagPageProps {
   namespacesRequired: readonly string[]
@@ -28,6 +30,13 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags }) => {
     users && initUsersList(users)
   })
   const [state, setState] = useState<ITagPageState>(tagPageState())
+  const [tagsHints, setTagsHints] = useState<{
+    isLoading: boolean
+    tags: string[]
+  }>({
+    isLoading: false,
+    tags: [],
+  })
 
   useEffect(() => {
     const sub = tagPageState$.subscribe((value) => setState(value))
@@ -37,20 +46,56 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags }) => {
     }
   }, [])
 
-  const onLoadSuggestion = useCallback(() => {
+  const router = useRouter()
+  const tagsSuggestionsAbortController = useRef<AbortController>()
 
-  }, [])
+  const onLoadSuggestion = useCallback(
+    (query: string) => {
+      setTagsHints({
+        isLoading: true,
+        tags: [],
+      })
+
+      const controller = new AbortController()
+      const { signal } = controller
+
+      tagsSuggestionsAbortController.current = controller
+
+      findTagsAPI(query, signal)
+        .then((tags: string[]) => {
+          setTagsHints({
+            isLoading: false,
+            tags,
+          })
+        })
+        .catch(() => {
+          setTagsHints({
+            isLoading: false,
+            tags: [],
+          })
+        })
+    },
+    [tagsSuggestionsAbortController]
+  )
 
   const onLoadSuggestionCancel = useCallback(() => {
+    tagsSuggestionsAbortController.current &&
+      tagsSuggestionsAbortController.current.abort()
+  }, [tagsSuggestionsAbortController])
 
-  }, [])
-
-  const onTagAdd = useCallback(() => {
-
-  }, [])
+  const onTagAdd = useCallback(
+    (tag: string) => {
+      setTagsHints({
+        isLoading: false,
+        tags: [],
+      })
+      router.push(`/tag/${[...tags, tag].join(',')}`)
+    },
+    [tags]
+  )
 
   const onTagRemove = useCallback(() => {
-
+    // todo UI needs to be implemented
   }, [])
 
   if (groups === null) {
@@ -59,7 +104,15 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags }) => {
 
   return (
     <div data-testid="tag-page">
-      <TagsHeader tags={tags} />
+      <TagsHeader
+        tags={tags}
+        isLoading={tagsHints.isLoading}
+        suggestions={tagsHints.tags}
+        onLoadSuggestion={onLoadSuggestion}
+        onLoadSuggestionCancel={onLoadSuggestionCancel}
+        onTagAdd={onTagAdd}
+        onTagRemove={onTagRemove}
+      />
       <GroupsList
         records={state.groups.docs}
         isLoading={state.groups.isLoading}

@@ -21,7 +21,7 @@ export const TagsHeader: FC<{
   suggestions = [],
   hintMinLenght = 3,
 }) => {
-  const [isInEditMode, setIsInEditMode] = useState<boolean>(true)
+  const [isInEditMode, setIsInEditMode] = useState<boolean>(false)
   const [query, setQuery] = useState<string>('')
   const debouncedQuery = useDebounce(query, 500)
 
