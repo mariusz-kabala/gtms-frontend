@@ -35,21 +35,15 @@
         margin-bottom: 40px;
       }
     }
+
+    .btn {
+      width: 100%;
+      @include buttonDefault();
+    }
   }
 
   .right {
     width: 60%;
     @include imageCover();
-  }
-
-  .btn {
-    display: none !important;
-    width: 100%;
-
-    > a {
-      width: 100%;
-      display: inline-block;
-      @include buttonDefault();
-    }
   }
 }

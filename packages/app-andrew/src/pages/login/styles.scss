@@ -14,56 +14,48 @@
     width: 40%;
     padding: 0 40px;
 
-    > div {
-      width: 100%;
-      margin-top: 40px;
+    h2,
+    p {
+      @include font-weight(bold);
+      margin-bottom: 15px;
+    }
 
-      h2,
-      p {
-        @include font-weight(bold);
-        margin-bottom: 15px;
+    h2 {
+      font-size: 3em;
+      text-transform: uppercase;
+      margin-top: 30px;
+    }
+
+    p {
+      @include font-weight(light);
+
+      &:last-child {
+        margin-bottom: 40px;
       }
+    }
 
-      h2 {
-        font-size: 3em;
-        text-transform: uppercase;
-      }
-
-      p {
-        @include font-weight(light);
-
-        &:last-child {
-          margin-bottom: 40px;
-        }
-      }
-
-      .actionButtons {
-        display: flex;
-        margin: 10px 0;
-
-        > button:first-child {
-          margin-right: 10px;
-        }
-
-        > button {
-          width: 100%;
-          @include buttonDefault();
-          &:hover {
-            @include buttonColorsHoverDefault();
-          }
-        }
-      }
+    .actionButtons {
+      display: flex;
+      margin: 10px 0;
 
       .btn {
-        // @todo create proper mixin for button
-        display: inline-block;
-        width: 220px;
-      }
+        width: 100%;
+        @include buttonDefault();
+        @include buttonColorsDefault();
 
-      .socialButtons {
-        > div:first-child {
+        &:hover {
+          @include buttonColorsHoverDefault();
+        }
+
+        &:first-child {
           margin-right: 10px;
         }
+      }
+    }
+
+    .socialButtons {
+      > div:first-child {
+        margin-right: 10px;
       }
     }
   }

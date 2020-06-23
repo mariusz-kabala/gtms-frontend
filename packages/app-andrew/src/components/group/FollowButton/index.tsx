@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
+import styles from './styles.scss'
 import { IGroup } from '@gtms/commons/models'
 import {
   followButtonState,
@@ -10,8 +11,8 @@ import {
   followGroup,
   unfollowGroup,
 } from '@gtms/state-notification'
-import Switch from 'react-switch'
 import { openLoginModal } from 'state'
+import { ToggleCheckbox } from '@gtms/ui/Forms/ToggleCheckbox'
 
 export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
   const [state, setState] = useState<IFollowButtonState>(
@@ -34,10 +35,9 @@ export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
   }
 
   return (
-    <div data-testid="follow-button">
+    <div className={styles.wrapper} data-testid="follow-button">
       <label>
-        <span>Follow</span>
-        <Switch
+        <ToggleCheckbox
           onChange={(value) => {
             if (!state.isLogged) {
               return openLoginModal()

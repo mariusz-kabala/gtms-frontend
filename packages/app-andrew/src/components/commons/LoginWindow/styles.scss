@@ -1,12 +1,8 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
-.loginWindow {
+.wrapper {
   padding: 15px;
-
-  button[type='submit'] {
-    margin-bottom: 20px;
-  }
 
   h2 {
     color: white;
@@ -15,13 +11,13 @@
     @include font-weight(bold);
     margin-bottom: 10px;
   }
-}
 
-.registrationLink {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  @include font-size(md);
-  margin-top: 15px;
+  .registrationLink {
+    display: block;
+    margin-top: 15px;
+    @include font-size(md);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+  }
 }

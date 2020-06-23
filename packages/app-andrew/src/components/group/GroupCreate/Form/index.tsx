@@ -113,8 +113,9 @@ export const GroupCreateForm: FC<{
       data-testid="group-create-form"
     >
       <Input
+        additionalStyles={styles.input}
         type="text"
-        placeholder={t('form.labels.name')}
+        placeholder={t('label')}
         name="name"
         reference={register({ required: true })}
       />
@@ -124,7 +125,7 @@ export const GroupCreateForm: FC<{
       {errors.name && errors.name.type === 'backend' && (
         <Error text={errors.name.message as string} />
       )}
-      <TagsBar
+      {/* <TagsBar
         tags={tags}
         isSaving={false}
         isLoading={tagsHints.isLoading}
@@ -134,13 +135,13 @@ export const GroupCreateForm: FC<{
         onTagAdd={onTagAdd}
         onTagRemove={onTagRemove}
         onSave={() => Promise.resolve()}
-      />
+      /> */}
       <Button
         type="submit"
         disabled={isMakingRequest}
         additionalStyles={styles.btn}
       >
-        {t('form.submitButton')}
+        {t('submitButton')}
       </Button>
       {isMakingRequest && <Spinner />}
     </form>

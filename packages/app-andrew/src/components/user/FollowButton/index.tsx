@@ -10,8 +10,8 @@ import {
   followButtonState$,
   IFollowButtonState,
 } from './state.query'
-import Switch from 'react-switch'
 import { openLoginModal } from 'state'
+import { ToggleCheckbox } from '@gtms/ui/Forms/ToggleCheckbox'
 
 export const FollowButton: FC<{ user: IUser }> = ({ user }) => {
   const [state, setState] = useState<IFollowButtonState>(
@@ -41,7 +41,7 @@ export const FollowButton: FC<{ user: IUser }> = ({ user }) => {
     <div data-testid="follow-button">
       <label>
         <span>Follow</span>
-        <Switch
+        <ToggleCheckbox
           onChange={(value) => {
             if (!state.isLogged) {
               return openLoginModal()

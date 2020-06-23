@@ -56,15 +56,15 @@ export const PostSingle: FC<{
           <a>Respond</a>
         </div>
         <PostResponse
-          text='Reprehenderit minim aliquip culpa do ut incididunt nisi velit et exercitation.'
-          createdAt='123123'
-          owner='Larry Ellison'
+          text="Reprehenderit minim aliquip culpa do ut incididunt nisi velit et exercitation."
+          createdAt="123123"
+          owner="Larry Ellison"
           noImage={noImage['35x35']}
         />
         <PostResponse
-          text='Elit laborum laboris occaecat minim commodo nostrud commodo minim Lorem sint'
-          createdAt='123123'
-          owner='Larry Ellison'
+          text="Elit laborum laboris occaecat minim commodo nostrud commodo minim Lorem sint"
+          createdAt="123123"
+          owner="Larry Ellison"
           noImage={noImage['35x35']}
         />
       </div>

@@ -42,18 +42,10 @@ export const PromotedTags: FC<{
       <NavigationTabs>
         <h2 className={styles.header}>Promoted tags</h2>
         <ul className={styles.elements}>
-          <li className={styles.item}>
-            latest tags
-          </li>
-          <li className={styles.item}>
-            promoted tags
-          </li>
-          <li className={styles.item}>
-            something
-          </li>
-          <li className={styles.item}>
-            item
-          </li>
+          <li className={styles.item}>latest tags</li>
+          <li className={styles.item}>promoted tags</li>
+          <li className={styles.item}>something</li>
+          <li className={styles.item}>item</li>
         </ul>
       </NavigationTabs>
 
@@ -64,7 +56,8 @@ export const PromotedTags: FC<{
             {tag.logo.status === FileStatus.ready && (
               <Picture
                 additionalStyles={styles.image}
-                {...tag.logo.files['200x200']} />
+                {...tag.logo.files['200x200']}
+              />
             )}
             <h3>#{tag.tag}</h3>
             <p>{tag.description}</p>

@@ -7,45 +7,49 @@ import { Spinner } from '@gtms/ui/Spinner'
 
 export const PromotedGroups: FC<{
   additionalStyles?: string
-}> = ({
-  additionalStyles,
-}) => {
-  const isLoading = false; // @todo remove mock
+}> = ({ additionalStyles }) => {
+  const isLoading = false // @todo remove mock
   const mock = [
     {
       id: 0,
       title: 'Patrol czerwony',
-      description: 'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+      description:
+        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
       image: '/images/temp_images/logo-wioska-1.png',
     },
     {
       id: 1,
       title: 'Patrol czerwony',
-      description: 'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+      description:
+        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
       image: '/images/temp_images/logo-wioska-3.png',
     },
     {
       id: 2,
       title: 'Patrol czerwony',
-      description: 'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+      description:
+        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
       image: '/images/temp_images/logo-wioska-4.png',
     },
     {
       id: 3,
       title: 'Patrol czerwony',
-      description: 'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+      description:
+        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
       image: '/images/temp_images/logo-wioska-5.png',
     },
     {
       id: 4,
       title: 'Patrol czerwony',
-      description: 'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+      description:
+        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
       image: '/images/temp_images/logo-wioska-6.png',
     },
     {
       id: 5,
       title: 'Patrol czerwony',
-      description: 'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+      description:
+        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
       image: '/images/temp_images/logo-wioska-7.png',
     },
   ]
@@ -55,12 +59,8 @@ export const PromotedGroups: FC<{
       <NavigationTabs>
         <h2 className={styles.header}>Promoted groups</h2>
         <ul className={styles.elements}>
-          <li className={styles.item}>
-            something
-          </li>
-          <li className={styles.item}>
-            item
-          </li>
+          <li className={styles.item}>something</li>
+          <li className={styles.item}>item</li>
         </ul>
       </NavigationTabs>
       <div
@@ -73,7 +73,7 @@ export const PromotedGroups: FC<{
           <ul className={styles.items}>
             {mock.map((item) => (
               <li className={styles.item} key={item.id}>
-                <Picture 
+                <Picture
                   additionalStyles={styles.image}
                   jpg={item.image}
                   maxHeight={200}

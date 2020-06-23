@@ -4,13 +4,13 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
-import Switch from 'react-switch'
 import styles from './styles.scss'
 import { IoIosHelpCircle } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { GroupType, GroupVisibility } from '@gtms/commons/enums'
 import { updateGroup } from '@gtms/state-group'
 import { Spinner } from '@gtms/ui/Spinner'
+import { ToggleCheckbox } from '@gtms/ui/Forms/ToggleCheckbox'
 
 interface IFormData {
   name?: string
@@ -101,7 +101,7 @@ export const BasicSettings: FC<{
               <label>Anyone can join</label>
             </div>
             <div className={styles.formEl}>
-              <Switch
+              <ToggleCheckbox
                 onChange={(value) =>
                   setSettings({
                     ...settings,
@@ -130,7 +130,7 @@ export const BasicSettings: FC<{
               <label>Group is public</label>
             </div>
             <div className={styles.formEl}>
-              <Switch
+              <ToggleCheckbox
                 onChange={(value) =>
                   setSettings({
                     ...settings,

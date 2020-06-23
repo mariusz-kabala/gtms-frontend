@@ -36,7 +36,8 @@ export const PostCreate: FC<{
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
-      data-testid="postCreate">
+      data-testid="postCreate"
+    >
       <div className={styles.avatar}>
         <Link href={`/user/${user.id}`}>
           <UserAvatar
@@ -71,7 +72,9 @@ export const PostCreate: FC<{
         }}
       >
         <span>{t('send')}</span>
-        <i><IoMdSend /></i>
+        <i>
+          <IoMdSend />
+        </i>
       </Button>
     </div>
   )

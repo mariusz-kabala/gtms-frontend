@@ -5,24 +5,27 @@
 
 .wrapper {
   display: flex;
+  align-items: center;
   height: 100%;
   @include imageCover();
 
-
-  .left {
+  .contentWrapper {
     position: relative;
     display: flex;
     align-items: center;
     width: 40%;
+    height: 100%;
     padding: 0 40px;
+    background: #d94278a1;
+    border-right: 1px solid #12245f47;
 
-    > div {
-      width: 100%;
-
+    .content {
       h2 {
-        @include font-size(xlg);
-        @include font-weight(600);
+        font-size: 2.6em;
+        @include font-weight(700);
+        font-family: sans-serif;
         text-transform: uppercase;
+        font-weight: 800;
       }
 
       p {
@@ -33,12 +36,5 @@
         font-size: 1.6em;
       }
     }
-  }
-
-  .right {
-    display: flex;
-    align-items: center;
-    width: 60%;
-    @include imageCover();
   }
 }

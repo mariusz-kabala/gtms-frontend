@@ -54,7 +54,9 @@ export const Navigation: FC<{
               <li className={styles.link} key={index}>
                 {value?.onClick && (
                   <a
-                    onClick={() => (value.onClick === undefined ? null : value.onClick())}
+                    onClick={() =>
+                      value.onClick === undefined ? null : value.onClick()
+                    }
                   >
                     <i
                       data-tip={value.label}

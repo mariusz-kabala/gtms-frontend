@@ -4,7 +4,6 @@
 
 .btn {
   @include buttonDefault();
-  @include font-size(md);
 
   &:hover {
     @include buttonColorsHoverDefault();

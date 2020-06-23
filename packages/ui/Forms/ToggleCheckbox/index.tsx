@@ -4,23 +4,25 @@ import styles from './styles.scss'
 export const ToggleCheckbox: FC<{
   additionalStyles?: string
   checked?: boolean
+  disabled?: boolean
   labelChecked?: string
   labelUnchecked?: string
+  lockerIcon?: boolean
   name?: string
   onChange?: () => unknown
   reference?: (
     ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
   ) => void
-  lockerIcon?: boolean
 }> = ({
   additionalStyles,
   checked = false,
+  disabled = false,
   labelChecked,
   labelUnchecked,
+  lockerIcon,
   name,
   onChange,
   reference,
-  lockerIcon,
 }) => (
   <div
     onClick={onChange}
@@ -29,12 +31,13 @@ export const ToggleCheckbox: FC<{
   >
     <label className={styles.switch}>
       <input
-        className={styles.input} /* @todo name it properly */
+        className={styles.toggleCheckbox}
         defaultChecked={checked}
+        disabled={disabled}
+        id={name}
+        name={name}
         ref={reference}
         type="checkbox"
-        name={name}
-        id={name}
       />
       <span>
         {lockerIcon && (

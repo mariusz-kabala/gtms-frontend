@@ -3,17 +3,9 @@
 
 .wrapper {
   width: 100%;
-  background: $theme8;
 
-  nav {
-    li {
-      font-size: 14px;
-      background-color: $theme7;
-      display: inline-block;
-      padding: 5px 15px;
-      margin: 0 5px;
-      border-radius: $borderRadius;
-
+  .nav {
+    .item {
       &.current {
         @include font-weight(bold);
       }
@@ -21,33 +13,6 @@
       a {
         cursor: pointer;
       }
-    }
-  }
-}
-
-.currentList {
-  display: block !important;
-}
-
-.notFound {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 350px;
-  background: $theme8;
-  padding: 20px 50px;
-
-  img {
-    max-height: 100%;
-  }
-
-  .desc {
-    color: $theme9;
-    font-size: 50px;
-    @include font-weight(bold);
-
-    p {
-      font-size: 26px;
     }
   }
 }

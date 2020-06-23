@@ -5,14 +5,14 @@ import cx from 'classnames'
 export const Input: FC<{
   additionalStyles?: string
   defaultValue?: string
-  name?: string
-  placeholder?: string
   maxLength?: number
-  type?: 'text' | 'email' | 'password'
+  name?: string
+  onClick?: () => unknown
+  placeholder?: string
   reference?: (
     ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
   ) => void
-  onClick?: () => unknown
+  type?: 'text' | 'email' | 'password'
 }> = ({
   additionalStyles,
   defaultValue,
@@ -24,15 +24,15 @@ export const Input: FC<{
   type = 'text',
 }) => (
   <input
-    type={type}
-    data-testid="form-input"
     className={cx(styles.input, additionalStyles)}
+    data-testid="form-input"
     defaultValue={defaultValue}
-    name={name}
     id={name}
     maxLength={maxLength}
+    name={name}
+    onClick={onClick}
     placeholder={placeholder}
     ref={reference}
-    onClick={onClick}
+    type={type}
   />
 )

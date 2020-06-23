@@ -6,7 +6,7 @@
   text-align: center; // for <a> elements
   text-decoration: none; // for <a> elements
   cursor: pointer;
-  padding: 10px;
+  padding: 15px 10px;
   border-radius: $borderRadius;
   text-transform: uppercase;
 
@@ -21,10 +21,10 @@
   background: $theme3;
 }
 
-@mixin buttonColorsPrimary() {
-  background: $theme4;
-}
-
 @mixin buttonColorsHoverDefault() {
   background: $theme5;
+}
+
+@mixin buttonColorsPrimary() {
+  background: $theme2;
 }

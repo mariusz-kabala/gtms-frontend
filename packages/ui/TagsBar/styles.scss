@@ -34,6 +34,7 @@
       flex: 1;
       background-color: $theme3;
       cursor: pointer;
+      border-radius: $borderRadius;
       padding: 5px 10px;
       margin-bottom: 10px;
       @include font-size(md);

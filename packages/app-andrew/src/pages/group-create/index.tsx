@@ -12,17 +12,17 @@ export const GroupCreatePage: NextPage<{}> = () => {
   return (
     <div
       className={styles.wrapper}
-      style={{ backgroundImage: `url('/images/temp_images/cover-image-girls.jpg')` }}
-      data-testid="group-create-page">
-      <div className={styles.left}>
-        <div>
+      style={{
+        backgroundImage: `url('/images/temp_images/cover-image-girls.jpg')`,
+      }}
+      data-testid="group-create-page"
+    >
+      <div className={styles.contentWrapper}>
+        <div className={styles.content}>
           <h2>{t('header')}</h2>
           <p>{t('subheader')}</p>
           <GroupCreate />
         </div>
-      </div>
-      <div 
-        className={styles.right}>
       </div>
     </div>
   )

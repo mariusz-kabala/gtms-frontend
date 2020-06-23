@@ -2,11 +2,22 @@
 @import '~@gtms/styles/scss/mixins/buttons';
 
 .form {
+  .input {
+    // @todo create mixin for white input
+    background: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: $theme0;
+  }
+
   .btn {
     width: 100%;
     @include buttonDefault();
+    background: $theme3; //@todo create proper button color mixin
+    border-radius: 5px;
+
     &:hover {
-      @include buttonColorsHoverDefault();
+      @include buttonColorsPrimary();
     }
   }
 }

@@ -8,14 +8,15 @@ export const Picture: FC<{
   webp?: string
   maxWidth?: number
   maxHeight?: number
-}> = ({ additionalStyles, maxWidth, maxHeight, jpg, webp }) => 
+}> = ({ additionalStyles, maxWidth, maxHeight, jpg, webp }) =>
   maxWidth || maxHeight ? (
     <div
       className={cx(styles.img, additionalStyles)}
       style={{
         backgroundImage: `url(${jpg})`,
-        maxHeight: maxHeight
-      }} />
+        maxHeight: maxHeight,
+      }}
+    />
   ) : (
     <picture className={additionalStyles}>
       {webp && <source srcSet={webp} type="image/webp" />}

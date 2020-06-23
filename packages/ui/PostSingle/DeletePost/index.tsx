@@ -48,7 +48,9 @@ export const DeletePost: FC<{
         testid="post-single-delete-post-button"
         onClick={() => setIsActive(true)}
       >
-        <i><IoMdTrash /></i>
+        <i>
+          <IoMdTrash />
+        </i>
         {t('btnDeletePost')}
       </Button>
     </>

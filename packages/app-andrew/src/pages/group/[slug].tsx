@@ -152,23 +152,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           </div>
           <div className={styles.columns}>
             <div>
-            <NavigationTabs>
-              <h2 className={styles.header}>Posts</h2>
-              <ul className={styles.elements}>
-                <li className={styles.item}>
-                  popular posts
-                </li>
-                <li className={styles.item}>
-                  latest posts
-                </li>
-                <li className={styles.item}>
-                  favorites posts
-                </li>
-                <li className={styles.item}>
-                  my posts
-                </li>
-              </ul>
-            </NavigationTabs>
+              <NavigationTabs>
+                <h2 className={styles.header}>Posts</h2>
+                <ul className={styles.elements}>
+                  <li className={styles.item}>popular posts</li>
+                  <li className={styles.item}>latest posts</li>
+                  <li className={styles.item}>favorites posts</li>
+                  <li className={styles.item}>my posts</li>
+                </ul>
+              </NavigationTabs>
               {state.user && (
                 <PostCreate
                   user={state.user}
@@ -200,12 +192,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               <NavigationTabs>
                 <h2 className={styles.header}>Recently registered</h2>
                 <ul className={styles.elements}>
-                  <li className={styles.item}>
-                    latest
-                  </li>
-                  <li className={styles.item}>
-                    most popular
-                  </li>
+                  <li className={styles.item}>latest</li>
+                  <li className={styles.item}>most popular</li>
                 </ul>
               </NavigationTabs>
               <GroupMembers {...state.members} />
