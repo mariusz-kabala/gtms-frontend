@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.23.0...@gtms/ui@0.24.0) (2020-06-23)
+
+
+### Features
+
+* GEOT-295 use tags header ([#664](https://github.com/gtms-org/gtms-frontend/issues/664)) ([306f5ff](https://github.com/gtms-org/gtms-frontend/commit/306f5ff889ecb9fb078b78ade01c3923594316c2))
+
+
+
+
+
 # [0.23.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.6...@gtms/ui@0.23.0) (2020-06-22)
 
 
