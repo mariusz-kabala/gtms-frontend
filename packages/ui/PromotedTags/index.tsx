@@ -81,20 +81,12 @@ export const PromotedTags: FC<{
       )}
 
       {tags.length === 0 && isAdmin && (
-        <div className={styles.mock}>
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <p>
-            This group has no promoted tags{' '}
-            <a className={styles.add} onClick={onClick}>
-              please add some
-            </a>
-          </p>
-        </div>
+        <p>
+          This group has no promoted tags{' '}
+          <a className={styles.add} onClick={onClick}>
+            please add some
+          </a>
+        </p>
       )}
     </div>
   )

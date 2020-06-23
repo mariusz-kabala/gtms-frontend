@@ -13,7 +13,6 @@ export const PostResponse: FC<{
   createdAt: string
   additionalStyles?: string
   owner: string
-  // noImage: { [key: string]: { jpg: string; webp?: string } }
   noImage: any
 }> = ({ additionalStyles, text, createdAt, owner, noImage }) => {
   return (
@@ -28,17 +27,7 @@ export const PostResponse: FC<{
               image={noImage['35x35']}
               additionalStyles={styles.userAvatar}
             />
-            {/* @mariusz use this
-              <UserAvatar
-              image={
-                owner.avatar?.status === FileStatus.ready
-                  ? (owner.avatar.files['35x35'] as { jpg: string })
-                  : noImage['35x35']
-              }
-              additionalStyles={styles.userAvatar}
-            /> */}
             <span>{owner}</span>
-            {/* <span>{`${owner.name || ''} ${owner.surname || ''}`.trim()}</span> */}
           </div>
         </Link>
         <span>

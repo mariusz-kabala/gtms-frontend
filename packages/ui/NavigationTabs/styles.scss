@@ -19,7 +19,7 @@
 
     li {
       margin-right: 10px;
-      font-size: 16px;
+      @include font-size(md);
       color: $theme10;
       cursor: pointer;
   

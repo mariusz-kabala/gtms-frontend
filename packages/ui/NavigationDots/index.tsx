@@ -23,37 +23,31 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
   // @todo remove it when no longer needed
   const links = [
     {
-      id: 0,
       label: 'Main Page',
       icon: <IoIosTennisball />,
       url: '/',
     },
     {
-      id: 1,
       label: 'Posts',
       icon: <IoIosNavigate />,
       url: '/',
     },
     {
-      id: 2,
       label: 'Users',
       icon: <IoIosCart />,
       url: '/',
     },
     {
-      id: 3,
       label: 'Settings',
       icon: <IoIosCloudUpload />,
       url: '/',
     },
     {
-      id: 4,
       label: 'Invite friends',
       icon: <IoIosCompass />,
       url: '/',
     },
     {
-      id: 5,
       label: 'Invite friends',
       icon: <IoIosFingerPrint />,
       url: '/',
@@ -63,8 +57,8 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
   return (
     <div className={styles.wrapper}>
       <ul className={styles.navigationDot} data-testid="navigationDot">
-        {groups.map((value) => (
-          <li key={value.id}>
+        {groups.map((value, index) => (
+          <li key={index}>
             <Link href={`/group/${value.slug}`}>
               <div
                 className={styles.item}
