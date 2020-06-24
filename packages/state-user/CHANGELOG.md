@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.14.0...@gtms/state-user@0.15.0) (2020-06-24)
+
+
+### Features
+
+* GEOT-299: comments adding ([#668](https://github.com/gtms-org/gtms-frontend/issues/668)) ([7c003bd](https://github.com/gtms-org/gtms-frontend/commit/7c003bdf25606c472345f4dc20152ac060096c7d))
+
+
+
+
+
 # [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.13.1...@gtms/state-user@0.14.0) (2020-06-24)
 
 
