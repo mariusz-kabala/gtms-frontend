@@ -98,7 +98,7 @@ export const PostCreate: FC<{
                 image={getImage('50x50', user?.avatar, noImage)}
                 additionalStyles={styles.userAvatar}
               />
-              {user && <span>{getDisplayName(user)}</span>}
+              {user && <span>{getDisplayName(user as any)}</span>}
             </>
           </Link>
         </div>

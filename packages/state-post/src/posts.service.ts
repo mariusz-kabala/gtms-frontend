@@ -4,7 +4,7 @@ import {
   addSuccessNotification,
   addErrorNotification,
 } from '@gtms/state-notification'
-import { IPost, IUser } from '@gtms/commons/models'
+import { IPost } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
 import { postsStore, IPostsState } from './posts.store'
 import { postsQuery } from './posts.query'
