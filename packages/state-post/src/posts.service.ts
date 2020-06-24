@@ -1,4 +1,5 @@
 import { ICreatePostData, createPostAPI, fetchGroupPosts } from '@gtms/api-post'
+import { ICreateCommentData, createCommentAPI } from '@gtms/api-comment'
 import {
   addSuccessNotification,
   addErrorNotification,
@@ -6,7 +7,9 @@ import {
 import { IPost } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
 import { postsStore, IPostsState } from './posts.store'
+import { postsQuery } from './posts.query'
 import { parseFiles } from '@gtms/commons/helpers'
+import { userQuery } from '@gtms/state-user'
 
 const parsePostOwnersAvatar = (post: IPost) => {
   if (
@@ -17,6 +20,30 @@ const parsePostOwnersAvatar = (post: IPost) => {
   }
 
   return post
+}
+
+export const createNewComment = async (payload: ICreateCommentData) => {
+  try {
+    const comment = await createCommentAPI(payload)
+
+    addSuccessNotification(`Comment has been created!`)
+
+    const post = postsQuery.getEntity(payload.post)
+
+    comment.owner = userQuery.accountDetails()
+
+    if (post) {
+      const firstComments = !Array.isArray(post.firstComments)
+        ? []
+        : [...post.firstComments]
+
+      firstComments.push(comment)
+
+      postsStore.upsert(payload.post, { firstComments })
+    }
+  } catch {
+    addErrorNotification('Error occured, try again later')
+  }
 }
 
 export const createNewPost = async (payload: ICreatePostData) => {

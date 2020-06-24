@@ -1,4 +1,5 @@
-import { userQuery, IAccountDetails } from '@gtms/state-user'
+import { userQuery } from '@gtms/state-user'
+import { IAccountDetails } from '@gtms/commons/models'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 

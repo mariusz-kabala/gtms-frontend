@@ -18,8 +18,12 @@ import {
 } from '@gtms/api-auth'
 import { IJWT } from '@gtms/api-auth'
 import { userStore } from './user.store'
-import { IAccountDetails } from './user.query'
-import { parseJwt, FileStatus, parseFiles } from '@gtms/commons'
+import {
+  parseJwt,
+  FileStatus,
+  parseFiles,
+  IAccountDetails,
+} from '@gtms/commons'
 import {
   addSuccessNotification,
   addErrorNotification,
