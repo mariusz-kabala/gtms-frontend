@@ -72,7 +72,9 @@ export const SearchBar: FC<{
           </div>
         )}
         <div className={styles.inputWrapper}>
-          <i><IoIosSearch /></i>
+          <i>
+            <IoIosSearch />
+          </i>
           <input
             ref={inputEl}
             type="text"

@@ -21,7 +21,7 @@
       width: 40px;
       margin-top: 25px;
       margin-bottom: 10px;
-      
+
       img {
         border-radius: 50%;
       }
@@ -41,7 +41,7 @@
         &:last-child {
           margin-bottom: 0;
         }
-  
+
         a {
           display: block;
           padding: 10px;
@@ -53,7 +53,7 @@
             display: block;
           }
         }
-  
+
         &:hover {
           background: $theme5;
         }

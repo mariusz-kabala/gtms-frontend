@@ -7,7 +7,10 @@ $groupMembersAvatarSize: 50px;
 .wrapper {
   .users {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax($groupMembersAvatarSize, 1fr));
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax($groupMembersAvatarSize, 1fr)
+    );
     grid-gap: 15px;
   }
 
@@ -30,9 +33,12 @@ $groupMembersAvatarSize: 50px;
 
   .usersMock {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax($groupMembersAvatarSize, 1fr));
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax($groupMembersAvatarSize, 1fr)
+    );
     grid-gap: 15px;
-    
+
     .avatar {
       opacity: 0.5;
     }

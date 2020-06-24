@@ -8,10 +8,7 @@ export const SearchPage: NextPage<{}> = () => {
   const { t } = useTranslation('searchPage')
 
   return (
-    <div
-      className={styles.wrapper}
-      data-testid="search-page"
-    >
+    <div className={styles.wrapper} data-testid="search-page">
       {t('searchTempHeader')}
       <div className={styles.searchBarWrapper}>
         <SearchBar

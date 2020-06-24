@@ -5,13 +5,13 @@
   border-radius: $borderRadius;
   overflow: hidden; // for delete post component that overflows this component
   cursor: pointer;
-  
+
   &:hover {
     .header .deleteBtn {
       opacity: 0.5;
     }
   }
-  
+
   .header {
     display: flex;
 
@@ -28,7 +28,7 @@
         height: 35px;
         min-width: 35px;
         min-height: 35px;
-        
+
         img {
           border-radius: 50%;
         }
@@ -48,7 +48,7 @@
       margin-left: auto;
       cursor: pointer;
       opacity: 0;
-      
+
       &:hover {
         opacity: 1;
         color: $theme5;
@@ -62,7 +62,7 @@
 
     .text {
       margin-bottom: 10px;
-      
+
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
       }

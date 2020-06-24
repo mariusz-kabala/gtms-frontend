@@ -7,60 +7,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/api-post
 
-
-
-
-
 ## [0.2.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.2.4...@gtms/api-post@0.2.5) (2020-06-22)
 
 **Note:** Version bump only for package @gtms/api-post
-
-
-
-
 
 ## [0.2.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.2.3...@gtms/api-post@0.2.4) (2020-06-21)
 
 **Note:** Version bump only for package @gtms/api-post
 
-
-
-
-
 ## [0.2.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.2.2...@gtms/api-post@0.2.3) (2020-06-18)
 
 **Note:** Version bump only for package @gtms/api-post
-
-
-
-
 
 ## [0.2.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.2.1...@gtms/api-post@0.2.2) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/api-post
 
-
-
-
-
 ## [0.2.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.2.0...@gtms/api-post@0.2.1) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/api-post
 
-
-
-
-
 # [0.2.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.1.7...@gtms/api-post@0.2.0) (2020-06-17)
-
 
 ### Features
 
-* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
-
-
-
-
+- GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
 
 ## [0.1.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.1.6...@gtms/api-post@0.1.7) (2020-06-16)
 

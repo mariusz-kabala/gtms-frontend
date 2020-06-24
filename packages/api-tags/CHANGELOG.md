@@ -5,33 +5,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.5.1...@gtms/api-tags@0.6.0) (2020-06-23)
 
-
 ### Features
 
-* GEOT-295 use tags header ([#664](https://github.com/gtms-org/gtms-frontend/issues/664)) ([306f5ff](https://github.com/gtms-org/gtms-frontend/commit/306f5ff889ecb9fb078b78ade01c3923594316c2))
-
-
-
-
+- GEOT-295 use tags header ([#664](https://github.com/gtms-org/gtms-frontend/issues/664)) ([306f5ff](https://github.com/gtms-org/gtms-frontend/commit/306f5ff889ecb9fb078b78ade01c3923594316c2))
 
 ## [0.5.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.5.0...@gtms/api-tags@0.5.1) (2020-06-21)
 
 **Note:** Version bump only for package @gtms/api-tags
 
-
-
-
-
 # [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.4.1...@gtms/api-tags@0.5.0) (2020-06-17)
-
 
 ### Features
 
-* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
-
-
-
-
+- GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
 
 ## [0.4.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.4.0...@gtms/api-tags@0.4.1) (2020-06-16)
 

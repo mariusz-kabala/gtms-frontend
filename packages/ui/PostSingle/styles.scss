@@ -5,7 +5,7 @@
   border-radius: $borderRadius;
   overflow: hidden; // for delete post component that overflows this component
   cursor: pointer;
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -22,7 +22,7 @@
       opacity: 0.5;
     }
   }
-  
+
   .header {
     display: flex;
 
@@ -59,7 +59,7 @@
       margin-left: auto;
       cursor: pointer;
       opacity: 0;
-      
+
       &:hover {
         opacity: 1;
         color: $theme5;
@@ -73,7 +73,7 @@
 
     .text {
       margin-bottom: 10px;
-      
+
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
       }

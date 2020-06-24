@@ -1,10 +1,11 @@
-import React, { FC, useRef } from 'react'
+import React, { FC, useRef, useEffect, useState, useCallback } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { Button } from '@gtms/ui/Button'
-import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { useTranslation } from '@gtms/commons/i18n'
 import { FileStatus } from '@gtms/commons/enums'
+import { useDebounce } from '@gtms/commons/hooks/useDebounce'
+import { useExpandingArea } from '@gtms/commons/hooks/expandingArea'
 import { Link } from '@gtms/commons/i18n'
 import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
@@ -13,7 +14,9 @@ import { IoMdSend } from 'react-icons/io'
 export const PostCreate: FC<{
   additionalStyles?: string
   onSubmit: (text: string) => unknown
+  fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   isLoading?: boolean
+  hintMinLenght?: number
   user: {
     avatar: {
       status: FileStatus
@@ -29,50 +32,181 @@ export const PostCreate: FC<{
     surname?: string
   }
   noImage: { [key: string]: { jpg: string; webp?: string } }
-}> = ({ additionalStyles, onSubmit, user, noImage, isLoading = false }) => {
+}> = ({
+  additionalStyles,
+  onSubmit,
+  user,
+  noImage,
+  fetchTags,
+  isLoading = false,
+  hintMinLenght = 3,
+}) => {
   const { t } = useTranslation('postCreate')
-  const dscRef = useRef<HTMLTextAreaElement | null>(null)
+  const [value, setValue] = useState<string>('')
+  const [query, setQuery] = useState<string>('')
+  const debouncedQuery = useDebounce(query, 100)
+  const { ref, handleInput } = useExpandingArea()
+  const tagsSuggestionsAbortController = useRef<AbortController>()
+  const [tagsHints, setTagsHints] = useState<{
+    isLoading: boolean
+    tags: string[]
+  }>({
+    isLoading: false,
+    tags: [],
+  })
+
+  const onLoadSuggestion = useCallback(
+    (query: string) => {
+      setTagsHints({
+        isLoading: true,
+        tags: [],
+      })
+
+      const controller = new AbortController()
+      const { signal } = controller
+
+      tagsSuggestionsAbortController.current = controller
+
+      fetchTags(query, signal)
+        .then((tags: string[]) => {
+          setTagsHints({
+            isLoading: false,
+            tags,
+          })
+        })
+        .catch(() => {
+          setTagsHints({
+            isLoading: false,
+            tags: [],
+          })
+        })
+    },
+    [tagsSuggestionsAbortController]
+  )
+
+  const onLoadSuggestionCancel = useCallback(() => {
+    tagsSuggestionsAbortController.current &&
+      tagsSuggestionsAbortController.current.abort()
+  }, [tagsSuggestionsAbortController])
+
+  useEffect(() => {
+    if (debouncedQuery !== '' && debouncedQuery.length >= hintMinLenght) {
+      onLoadSuggestionCancel()
+      onLoadSuggestion(debouncedQuery)
+    }
+  }, [debouncedQuery])
 
   return (
-    <div
-      className={cx(styles.wrapper, additionalStyles)}
-      data-testid="postCreate">
-      <div className={styles.avatar}>
-        <Link href={`/user/${user.id}`}>
-          <UserAvatar
-            image={
-              user.avatar.status === FileStatus.ready &&
-              user.avatar.files['50x50']
-                ? user.avatar.files['50x50']
-                : noImage['50x50']
-            }
-            additionalStyles={styles.userAvatar}
-          />
-        </Link>
-      </div>
-      {isLoading && <Spinner />}
-      <ExpandingTextarea
-        additionalStyles={styles.textarea}
-        reference={dscRef as any}
-        rows={1}
-        placeholder={t('yourMessage')}
-      />
-      <Button
-        type="submit"
-        disabled={false}
-        additionalStyles={styles.btn}
-        onClick={() => {
-          if (!dscRef.current) {
-            return
-          }
-          const dsc = dscRef.current.value
-
-          dsc && onSubmit(dsc)
-        }}
+    <>
+      <div
+        className={cx(styles.wrapper, additionalStyles)}
+        data-testid="postCreate"
       >
-        <span>{t('send')}</span>
-        <i><IoMdSend /></i>
-      </Button>
-    </div>
+        {isLoading && <Spinner />}
+        <div className={styles.avatar}>
+          <Link href={`/user/${user.id}`}>
+            <>
+              <UserAvatar
+                image={
+                  user.avatar?.status === FileStatus.ready &&
+                  user.avatar.files['50x50']
+                    ? user.avatar.files['50x50']
+                    : noImage['50x50']
+                }
+                additionalStyles={styles.userAvatar}
+              />
+              <span>{`${user.name || ''} ${user.surname || ''}`.trim()}</span>
+            </>
+          </Link>
+        </div>
+        <textarea
+          className={styles.textarea}
+          data-testid="form-expanding-textarea"
+          name={name}
+          value={value}
+          onInput={handleInput}
+          onKeyDown={(e) => {
+            if (
+              e.keyCode === 9 &&
+              !tagsHints.isLoading &&
+              tagsHints.tags.length > 0
+            ) {
+              e.preventDefault()
+              const pat = new RegExp(
+                '(\\b' + query + '\\b)(?!.*\\b\\1\\b)',
+                'i'
+              )
+              setValue(value.replace(pat, `${tagsHints.tags[0]}`))
+              setTagsHints({
+                isLoading: false,
+                tags: [],
+              })
+            }
+
+            if ([32, 13, 27].includes(e.keyCode)) {
+              // esc
+              setTagsHints({
+                isLoading: false,
+                tags: [],
+              })
+            }
+          }}
+          onChange={(event) => {
+            setValue(event.target.value)
+            const tags = event.target.value.match(/#(\w+)\b/gi)
+            if (!Array.isArray(tags)) {
+              return
+            }
+
+            const lastTag = tags[tags.length - 1]
+
+            if (event.target.value.substr(-lastTag.length) === lastTag) {
+              setQuery(lastTag.substr(1))
+            }
+          }}
+          rows={3}
+          placeholder={t('yourMessage')}
+          ref={ref as any}
+        />
+
+        <Button
+          onClick={() => {
+            onSubmit(value)
+
+            setValue('')
+          }}
+          type="submit"
+          disabled={false}
+          additionalStyles={styles.btn}
+        >
+          {t('send')} <IoMdSend />
+        </Button>
+      </div>
+      {tagsHints.tags.length > 0 && (
+        <div className={styles.suggestions}>
+          <ul>
+            {tagsHints.tags.map((tag) => (
+              <li
+                onClick={() => {
+                  const pat = new RegExp(
+                    '(\\b' + query + '\\b)(?!.*\\b\\1\\b)',
+                    'i'
+                  )
+                  setValue(value.replace(pat, `${tag}`))
+                  setTagsHints({
+                    isLoading: false,
+                    tags: [],
+                  })
+                  ref.current?.focus()
+                }}
+                key={`suggested-${tag}`}
+              >
+                #{tag}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
   )
 }

@@ -16,7 +16,7 @@
     img {
       border-radius: 50%;
     }
-  
+
     span {
       position: absolute;
       color: $theme5;
@@ -24,7 +24,7 @@
       margin-left: 45px;
     }
   }
-  
+
   .textarea {
     display: block;
     width: 100%;
@@ -35,8 +35,17 @@
     margin-left: 10px;
     min-height: 41px;
     background: $theme3;
+    height: 100%;
+    resize: vertical;
+
+    &:active,
+    &:focus,
+    &:hover {
+      outline: none;
+      border-color: $theme7;
+    }
   }
-  
+
   .btn {
     @include buttonDefault();
     @include buttonColorsDefault();
@@ -56,6 +65,21 @@
 
     &:hover {
       @include buttonColorsHoverDefault();
+    }
+  }
+}
+
+.suggestions {
+  border: 1px solid red;
+  background: #fff;
+  color: black;
+
+  ul {
+    margin: 10px;
+
+    li {
+      padding: 5px;
+      cursor: pointer;
     }
   }
 }

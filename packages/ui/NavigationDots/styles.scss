@@ -12,13 +12,13 @@
   border-bottom-left-radius: 5px;
   background: rgba($theme4, 0.4);
 
-  .navigationDot {    
+  .navigationDot {
     > li {
       display: flex;
       justify-content: center;
       align-content: center;
       margin-top: 10px;
-  
+
       // @todo separate component?
       .item {
         width: 40px;
@@ -29,16 +29,16 @@
         cursor: pointer;
         transition: 200ms all;
       }
-  
+
       &:hover {
         transition-delay: 200ms;
-        
+
         .item {
           width: 45px;
           height: 45px;
         }
       }
-    }  
+    }
   }
 
   .linksMock {
