@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.17.0...@gtms/commons@0.18.0) (2020-06-24)
+
+
+### Features
+
+* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
+
+
+
+
+
 # [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.16.1...@gtms/commons@0.17.0) (2020-06-22)
 
 

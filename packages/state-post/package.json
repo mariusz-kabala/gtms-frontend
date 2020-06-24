@@ -1,13 +1,13 @@
 {
   "name": "@gtms/state-post",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-post": "0.2.6",
-    "@gtms/commons": "0.17.0",
+    "@gtms/api-post": "0.3.0",
+    "@gtms/commons": "0.18.0",
     "@gtms/state-notification": "0.7.1"
   },
   "scripts": {
