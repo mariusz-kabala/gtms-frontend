@@ -3,10 +3,11 @@ import styles from './styles.scss'
 import cx from 'classnames'
 import { Button } from '@gtms/ui/Button'
 import { useTranslation } from '@gtms/commons/i18n'
-import { FileStatus } from '@gtms/commons/enums'
 import { useDebounce } from '@gtms/commons/hooks/useDebounce'
 import { useExpandingArea } from '@gtms/commons/hooks/expandingArea'
+import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
+import { IAccountDetails } from '@gtms/commons/models'
 import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
 import { IoMdSend } from 'react-icons/io'
@@ -17,20 +18,7 @@ export const PostCreate: FC<{
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   isLoading?: boolean
   hintMinLenght?: number
-  user: {
-    avatar: {
-      status: FileStatus
-      files: {
-        '50x50'?: {
-          jpg: string
-          webp: string
-        }
-      }
-    }
-    id: string
-    name?: string
-    surname?: string
-  }
+  user: IAccountDetails | null
   noImage: { [key: string]: { jpg: string; webp?: string } }
 }> = ({
   additionalStyles,
@@ -104,18 +92,13 @@ export const PostCreate: FC<{
       >
         {isLoading && <Spinner />}
         <div className={styles.avatar}>
-          <Link href={`/user/${user.id}`}>
+          <Link href={`/user/${user?.id}`}>
             <>
               <UserAvatar
-                image={
-                  user.avatar?.status === FileStatus.ready &&
-                  user.avatar.files['50x50']
-                    ? user.avatar.files['50x50']
-                    : noImage['50x50']
-                }
+                image={getImage('50x50', user?.avatar, noImage)}
                 additionalStyles={styles.userAvatar}
               />
-              <span>{`${user.name || ''} ${user.surname || ''}`.trim()}</span>
+              {user && <span>{getDisplayName(user)}</span>}
             </>
           </Link>
         </div>

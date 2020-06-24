@@ -9,6 +9,7 @@ const withTM = require('next-transpile-modules')([
   '@gtms/api-tags',
   '@gtms/api-post',
   '@gtms/api-notifications',
+  '@gtms/api-comment',
   '@gtms/commons',
   '@gtms/state-user',
   '@gtms/state-group',

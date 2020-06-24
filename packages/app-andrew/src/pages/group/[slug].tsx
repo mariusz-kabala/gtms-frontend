@@ -45,6 +45,7 @@ import {
 } from '@gtms/state-tag'
 import {
   createNewPost,
+  createNewComment,
   getGroupPosts,
   postsQuery,
   IPostsState,
@@ -177,6 +178,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 />
               )}
               <RecentlyAddedPosts
+                fetchTags={findTagsAPI}
+                user={state.user}
+                createComment={createNewComment}
                 noImage={UserAvatarNoImage}
                 posts={state.posts}
               />

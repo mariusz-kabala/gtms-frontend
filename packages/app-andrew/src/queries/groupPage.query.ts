@@ -1,10 +1,16 @@
-import { IAccountDetails, userQuery } from '@gtms/state-user'
+import { userQuery } from '@gtms/state-user'
 import { promotedTagsQuery } from '@gtms/state-tag'
 import { groupQuery, groupMembersQuery } from '@gtms/state-group'
 import { postsQuery } from '@gtms/state-post'
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { IPost, IGroup, IPromotedTag, IUser } from '@gtms/commons/models'
+import {
+  IPost,
+  IGroup,
+  IPromotedTag,
+  IUser,
+  IAccountDetails,
+} from '@gtms/commons/models'
 
 export interface IGroupPageState {
   isLoading: boolean
