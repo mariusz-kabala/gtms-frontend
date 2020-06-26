@@ -1,12 +1,12 @@
 {
   "name": "@gtms/state-notification",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-notifications": "0.2.0"
+    "@gtms/api-notifications": "0.2.1"
   },
   "scripts": {
     "build": "exit 0",

@@ -3,65 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.10.3...@gtms/api-group@0.11.0) (2020-06-22)
+## [0.12.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.12.0...@gtms/api-group@0.12.1) (2020-06-24)
 
+**Note:** Version bump only for package @gtms/api-group
+
+# [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.11.1...@gtms/api-group@0.12.0) (2020-06-24)
 
 ### Features
 
-* GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
+## [0.11.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.11.0...@gtms/api-group@0.11.1) (2020-06-23)
 
+**Note:** Version bump only for package @gtms/api-group
 
+# [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.10.3...@gtms/api-group@0.11.0) (2020-06-22)
 
+### Features
+
+- GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
 
 ## [0.10.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.10.2...@gtms/api-group@0.10.3) (2020-06-21)
 
 **Note:** Version bump only for package @gtms/api-group
 
-
-
-
-
 ## [0.10.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.10.1...@gtms/api-group@0.10.2) (2020-06-18)
-
 
 ### Bug Fixes
 
-* GEOT-285: add group invitation tabs in group settings ([#657](https://github.com/gtms-org/gtms-frontend/issues/657)) ([9cc4628](https://github.com/gtms-org/gtms-frontend/commit/9cc462889ea36cac1aa11d74b86ede1ba20c83f9))
-
-
-
-
+- GEOT-285: add group invitation tabs in group settings ([#657](https://github.com/gtms-org/gtms-frontend/issues/657)) ([9cc4628](https://github.com/gtms-org/gtms-frontend/commit/9cc462889ea36cac1aa11d74b86ede1ba20c83f9))
 
 ## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.10.0...@gtms/api-group@0.10.1) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/api-group
 
-
-
-
-
 # [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.9.0...@gtms/api-group@0.10.0) (2020-06-17)
-
 
 ### Features
 
-* GEOT-277: group invitation request ([#652](https://github.com/gtms-org/gtms-frontend/issues/652)) ([fa27dab](https://github.com/gtms-org/gtms-frontend/commit/fa27dab59c03ce8df15768ae77168c0be462edec))
-
-
-
-
+- GEOT-277: group invitation request ([#652](https://github.com/gtms-org/gtms-frontend/issues/652)) ([fa27dab](https://github.com/gtms-org/gtms-frontend/commit/fa27dab59c03ce8df15768ae77168c0be462edec))
 
 # [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.8.5...@gtms/api-group@0.9.0) (2020-06-17)
 
-
 ### Features
 
-* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
-
-
-
-
+- GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
 
 ## [0.8.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.8.4...@gtms/api-group@0.8.5) (2020-06-16)
 

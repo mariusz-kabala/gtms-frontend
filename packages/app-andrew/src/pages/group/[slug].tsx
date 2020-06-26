@@ -9,6 +9,7 @@ import {
 } from 'queries/groupPage.query'
 import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
+import { findTagsAPI } from '@gtms/api-tags'
 // components
 import { GroupDescription } from 'components/group/GroupDescription'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
@@ -46,6 +47,7 @@ import {
 } from '@gtms/state-tag'
 import {
   createNewPost,
+  createNewComment,
   getGroupPosts,
   postsQuery,
   IPostsState,

@@ -1,25 +1,49 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useRef } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
-import { IUser } from '@gtms/commons/models'
+import { IAccountDetails, IUser } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
 import { Link } from '@gtms/commons/i18n'
 import { DeletePost } from './DeletePost'
 import { PostResponse } from './PostResponse'
+import { PostCreate } from '../PostCreate'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
+import { IComment } from '@gtms/commons/models'
+import { getDisplayName, getImage } from '@gtms/commons/helpers'
 
 export const PostSingle: FC<{
+  id: string
   text: string
   createdAt: string
   additionalStyles?: string
+  firstComments: IComment[]
   owner: IUser
+  tags: string[]
+  user: IAccountDetails | null
+  createComment: (payload: { post: string; text: string }) => unknown
+  fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: { jpg: string; webp?: string } }
-}> = ({ additionalStyles, text, createdAt, owner, noImage }) => {
+}> = ({
+  id,
+  additionalStyles,
+  text,
+  createdAt,
+  owner,
+  noImage,
+  tags,
+  fetchTags,
+  createComment,
+  firstComments,
+  user,
+}) => {
+  const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
+  const commentForm = useRef<HTMLDivElement>(null)
+
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -36,7 +60,7 @@ export const PostSingle: FC<{
               }
               additionalStyles={styles.userAvatar}
             />
-            <span>{`${owner.name || ''} ${owner.surname || ''}`.trim()}</span>
+            <span>{getDisplayName(owner)}</span>
           </div>
         </Link>
         <span>
@@ -46,27 +70,56 @@ export const PostSingle: FC<{
       </div>
       <div className={styles.desc}>
         <ReactMarkdown className={styles.text} source={text} />
-        <TagGroup>
-          <Tag label="tag" />
-          <Tag label="tag" />
-          <Tag label="tag" />
-          <Tag label="tag" />
-        </TagGroup>
+        {tags.length > 0 && (
+          <TagGroup>
+            {tags.map((tag) => (
+              <Tag label={tag} key={`post-tag-${tag}`} />
+            ))}
+          </TagGroup>
+        )}
+
         <div className={styles.action}>
-          <a>Respond</a>
+          <a
+            onClick={(e) => {
+              e.preventDefault()
+
+              setIsAnswerFormOpen(true)
+              if (commentForm.current) {
+                window.scrollTo(0, commentForm.current.offsetTop)
+              }
+            }}
+          >
+            Respond
+          </a>
         </div>
-        <PostResponse
-          text="Reprehenderit minim aliquip culpa do ut incididunt nisi velit et exercitation."
-          createdAt="123123"
-          owner="Larry Ellison"
-          noImage={noImage['35x35']}
-        />
-        <PostResponse
-          text="Elit laborum laboris occaecat minim commodo nostrud commodo minim Lorem sint"
-          createdAt="123123"
-          owner="Larry Ellison"
-          noImage={noImage['35x35']}
-        />
+        {Array.isArray(firstComments) && firstComments.length > 0 && (
+          <div>
+            {firstComments.map((comment) => (
+              <PostResponse
+                key={`comment-${comment.id}`}
+                text={comment.text}
+                createdAt={comment.createdAt}
+                owner={getDisplayName(comment.owner as IUser)}
+                noImage={getImage('35x35', comment.owner.avatar, noImage)}
+              />
+            ))}
+          </div>
+        )}
+        {isAnswerFormOpen && (
+          <div ref={commentForm}>
+            <PostCreate
+              onSubmit={(text) => {
+                createComment({
+                  text,
+                  post: id,
+                })
+              }}
+              fetchTags={fetchTags}
+              user={user}
+              noImage={noImage}
+            />
+          </div>
+        )}
       </div>
     </div>
   )

@@ -3,75 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.23.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.6...@gtms/ui@0.23.0) (2020-06-22)
-
+# [0.26.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.25.0...@gtms/ui@0.26.0) (2020-06-24)
 
 ### Features
 
-* GEOT-295: add TagsHeader component ([#663](https://github.com/gtms-org/gtms-frontend/issues/663)) ([f2913f0](https://github.com/gtms-org/gtms-frontend/commit/f2913f07350de6b60aeaf7e7ac0855b61c150e03))
+- GEOT-299: comments adding ([#668](https://github.com/gtms-org/gtms-frontend/issues/668)) ([7c003bd](https://github.com/gtms-org/gtms-frontend/commit/7c003bdf25606c472345f4dc20152ac060096c7d))
 
+# [0.25.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.24.1...@gtms/ui@0.25.0) (2020-06-24)
 
+### Features
 
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
+## [0.24.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.24.0...@gtms/ui@0.24.1) (2020-06-23)
+
+**Note:** Version bump only for package @gtms/ui
+
+# [0.24.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.23.0...@gtms/ui@0.24.0) (2020-06-23)
+
+### Features
+
+- GEOT-295 use tags header ([#664](https://github.com/gtms-org/gtms-frontend/issues/664)) ([306f5ff](https://github.com/gtms-org/gtms-frontend/commit/306f5ff889ecb9fb078b78ade01c3923594316c2))
+
+# [0.23.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.6...@gtms/ui@0.23.0) (2020-06-22)
+
+### Features
+
+- GEOT-295: add TagsHeader component ([#663](https://github.com/gtms-org/gtms-frontend/issues/663)) ([f2913f0](https://github.com/gtms-org/gtms-frontend/commit/f2913f07350de6b60aeaf7e7ac0855b61c150e03))
 
 ## [0.22.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.5...@gtms/ui@0.22.6) (2020-06-21)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.22.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.4...@gtms/ui@0.22.5) (2020-06-18)
 
 **Note:** Version bump only for package @gtms/ui
-
-
-
-
 
 ## [0.22.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.3...@gtms/ui@0.22.4) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.22.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.2...@gtms/ui@0.22.3) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/ui
-
-
-
-
 
 ## [0.22.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.1...@gtms/ui@0.22.2) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.22.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.22.0...@gtms/ui@0.22.1) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 # [0.22.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.10...@gtms/ui@0.22.0) (2020-06-17)
-
 
 ### Features
 
-* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
-
-
-
-
+- GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
 
 ## [0.21.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.21.9...@gtms/ui@0.21.10) (2020-06-16)
 

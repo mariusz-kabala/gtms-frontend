@@ -3,126 +3,93 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.36.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.35.0...@gtms/app-andrew@0.36.0) (2020-06-22)
-
+# [0.39.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.38.0...@gtms/app-andrew@0.39.0) (2020-06-24)
 
 ### Features
 
-* GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
+- GEOT-299: comments adding ([#668](https://github.com/gtms-org/gtms-frontend/issues/668)) ([7c003bd](https://github.com/gtms-org/gtms-frontend/commit/7c003bdf25606c472345f4dc20152ac060096c7d))
 
+# [0.38.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.37.1...@gtms/app-andrew@0.38.0) (2020-06-24)
 
+### Features
 
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
+## [0.37.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.37.0...@gtms/app-andrew@0.37.1) (2020-06-23)
+
+**Note:** Version bump only for package @gtms/app-andrew
+
+# [0.37.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.36.0...@gtms/app-andrew@0.37.0) (2020-06-23)
+
+### Features
+
+- GEOT-295 use tags header ([#664](https://github.com/gtms-org/gtms-frontend/issues/664)) ([306f5ff](https://github.com/gtms-org/gtms-frontend/commit/306f5ff889ecb9fb078b78ade01c3923594316c2))
+
+# [0.36.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.35.0...@gtms/app-andrew@0.36.0) (2020-06-22)
+
+### Features
+
+- GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
 
 # [0.35.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.34.0...@gtms/app-andrew@0.35.0) (2020-06-21)
 
-
 ### Features
 
-* GEOT-287: follow user button ([#661](https://github.com/gtms-org/gtms-frontend/issues/661)) ([80322e0](https://github.com/gtms-org/gtms-frontend/commit/80322e083e450773967ecb8f401bf3ab0e7936d2))
-
-
-
-
+- GEOT-287: follow user button ([#661](https://github.com/gtms-org/gtms-frontend/issues/661)) ([80322e0](https://github.com/gtms-org/gtms-frontend/commit/80322e083e450773967ecb8f401bf3ab0e7936d2))
 
 # [0.34.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.33.0...@gtms/app-andrew@0.34.0) (2020-06-21)
 
-
 ### Features
 
-* GEOT-287: follow a group button ([#660](https://github.com/gtms-org/gtms-frontend/issues/660)) ([b30c5e6](https://github.com/gtms-org/gtms-frontend/commit/b30c5e6b82013f35c29f4f9335bcd50c92fcb8a3))
-
-
-
-
+- GEOT-287: follow a group button ([#660](https://github.com/gtms-org/gtms-frontend/issues/660)) ([b30c5e6](https://github.com/gtms-org/gtms-frontend/commit/b30c5e6b82013f35c29f4f9335bcd50c92fcb8a3))
 
 # [0.33.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.32.0...@gtms/app-andrew@0.33.0) (2020-06-21)
 
-
 ### Features
 
-* GEOT-287: connect notifications with BE ([#659](https://github.com/gtms-org/gtms-frontend/issues/659)) ([89c08d4](https://github.com/gtms-org/gtms-frontend/commit/89c08d4a495fa6624a779e1efb0717bbed33a5bb))
-
-
-
-
+- GEOT-287: connect notifications with BE ([#659](https://github.com/gtms-org/gtms-frontend/issues/659)) ([89c08d4](https://github.com/gtms-org/gtms-frontend/commit/89c08d4a495fa6624a779e1efb0717bbed33a5bb))
 
 # [0.32.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.31.1...@gtms/app-andrew@0.32.0) (2020-06-19)
 
-
 ### Features
 
-* GEOT-287: add user notifications settings ([#658](https://github.com/gtms-org/gtms-frontend/issues/658)) ([cf91e83](https://github.com/gtms-org/gtms-frontend/commit/cf91e832831a926db65dcf6381e49eb2350e763d))
-
-
-
-
+- GEOT-287: add user notifications settings ([#658](https://github.com/gtms-org/gtms-frontend/issues/658)) ([cf91e83](https://github.com/gtms-org/gtms-frontend/commit/cf91e832831a926db65dcf6381e49eb2350e763d))
 
 ## [0.31.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.31.0...@gtms/app-andrew@0.31.1) (2020-06-18)
 
-
 ### Bug Fixes
 
-* GEOT-285: add group invitation tabs in group settings ([#657](https://github.com/gtms-org/gtms-frontend/issues/657)) ([9cc4628](https://github.com/gtms-org/gtms-frontend/commit/9cc462889ea36cac1aa11d74b86ede1ba20c83f9))
-
-
-
-
+- GEOT-285: add group invitation tabs in group settings ([#657](https://github.com/gtms-org/gtms-frontend/issues/657)) ([9cc4628](https://github.com/gtms-org/gtms-frontend/commit/9cc462889ea36cac1aa11d74b86ede1ba20c83f9))
 
 # [0.31.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.30.0...@gtms/app-andrew@0.31.0) (2020-06-17)
 
-
 ### Features
 
-* GEOT-283: support for user description ([#654](https://github.com/gtms-org/gtms-frontend/issues/654)) ([a13e649](https://github.com/gtms-org/gtms-frontend/commit/a13e649dbc31f08c6e5f96b7934a50ef275afed3))
-
-
-
-
+- GEOT-283: support for user description ([#654](https://github.com/gtms-org/gtms-frontend/issues/654)) ([a13e649](https://github.com/gtms-org/gtms-frontend/commit/a13e649dbc31f08c6e5f96b7934a50ef275afed3))
 
 # [0.30.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.29.1...@gtms/app-andrew@0.30.0) (2020-06-17)
 
-
 ### Features
 
-* GEOT-277: group invitation request ([#652](https://github.com/gtms-org/gtms-frontend/issues/652)) ([fa27dab](https://github.com/gtms-org/gtms-frontend/commit/fa27dab59c03ce8df15768ae77168c0be462edec))
-
-
-
-
+- GEOT-277: group invitation request ([#652](https://github.com/gtms-org/gtms-frontend/issues/652)) ([fa27dab](https://github.com/gtms-org/gtms-frontend/commit/fa27dab59c03ce8df15768ae77168c0be462edec))
 
 ## [0.29.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.29.0...@gtms/app-andrew@0.29.1) (2020-06-17)
 
-
 ### Bug Fixes
 
-* GEOT-281: fixes for account update ([#653](https://github.com/gtms-org/gtms-frontend/issues/653)) ([7e20011](https://github.com/gtms-org/gtms-frontend/commit/7e2001122507309ce707fd1ce42b541b57358b66))
-
-
-
-
+- GEOT-281: fixes for account update ([#653](https://github.com/gtms-org/gtms-frontend/issues/653)) ([7e20011](https://github.com/gtms-org/gtms-frontend/commit/7e2001122507309ce707fd1ce42b541b57358b66))
 
 # [0.29.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.28.0...@gtms/app-andrew@0.29.0) (2020-06-17)
 
-
 ### Features
 
-* GEOT-277: invite to a group button ([#650](https://github.com/gtms-org/gtms-frontend/issues/650)) ([473256c](https://github.com/gtms-org/gtms-frontend/commit/473256c5fb622c846ab081ce7abe62d21c8635f1))
-
-
-
-
+- GEOT-277: invite to a group button ([#650](https://github.com/gtms-org/gtms-frontend/issues/650)) ([473256c](https://github.com/gtms-org/gtms-frontend/commit/473256c5fb622c846ab081ce7abe62d21c8635f1))
 
 # [0.28.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.12...@gtms/app-andrew@0.28.0) (2020-06-17)
 
-
 ### Features
 
-* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
-
-
-
-
+- GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
 
 ## [0.27.12](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.27.11...@gtms/app-andrew@0.27.12) (2020-06-16)
 

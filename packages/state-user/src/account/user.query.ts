@@ -2,19 +2,7 @@ import { Query } from '@datorama/akita'
 import { userStore, UserStore, IUserStore } from './user.store'
 import { map } from 'rxjs/operators'
 import { combineLatest, Observable } from 'rxjs'
-import { IUserAvatar } from '@gtms/commons/models'
-
-export interface IAccountDetails {
-  id: string
-  name?: string
-  surname?: string
-  description?: string
-  phone?: string
-  email: string
-  roles: string[]
-  tags: string[]
-  avatar: IUserAvatar
-}
+import { IAccountDetails } from '@gtms/commons/models'
 
 export class UserQuery extends Query<IUserStore> {
   public id = (values = this.getValue()): string | undefined => values.id

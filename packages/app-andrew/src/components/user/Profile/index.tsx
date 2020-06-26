@@ -5,9 +5,9 @@ import { UserAvatarNoImage } from 'enums'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { InviteToGroupButton } from '../InviteToGroupButton'
-import { IUser } from '@gtms/commons/models'
+import { IUser, IAccountDetails } from '@gtms/commons/models'
 import styles from './styles.scss'
-import { IAccountDetails, userQuery } from '@gtms/state-user'
+import { userQuery } from '@gtms/state-user'
 
 export const Profile: FC<{
   user: IUser

@@ -1,12 +1,12 @@
 {
-  "name": "@gtms/api-notifications",
-  "version": "0.2.1",
+  "name": "@gtms/api-comment",
+  "version": "0.1.0",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-common": "0.8.0"
+    "@gtms/api-common": "*"
   },
   "scripts": {
     "build": "exit 0",

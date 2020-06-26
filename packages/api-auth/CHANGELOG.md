@@ -3,62 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.8.2...@gtms/api-auth@0.9.0) (2020-06-22)
+## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.10.0...@gtms/api-auth@0.10.1) (2020-06-24)
 
+**Note:** Version bump only for package @gtms/api-auth
+
+# [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.9.1...@gtms/api-auth@0.10.0) (2020-06-24)
 
 ### Features
 
-* GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
+## [0.9.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.9.0...@gtms/api-auth@0.9.1) (2020-06-23)
 
+**Note:** Version bump only for package @gtms/api-auth
 
+# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.8.2...@gtms/api-auth@0.9.0) (2020-06-22)
 
+### Features
+
+- GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
 
 ## [0.8.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.8.1...@gtms/api-auth@0.8.2) (2020-06-21)
 
 **Note:** Version bump only for package @gtms/api-auth
 
-
-
-
-
 ## [0.8.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.8.0...@gtms/api-auth@0.8.1) (2020-06-18)
 
 **Note:** Version bump only for package @gtms/api-auth
 
-
-
-
-
 # [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.7.1...@gtms/api-auth@0.8.0) (2020-06-17)
-
 
 ### Features
 
-* GEOT-283: support for user description ([#654](https://github.com/gtms-org/gtms-frontend/issues/654)) ([a13e649](https://github.com/gtms-org/gtms-frontend/commit/a13e649dbc31f08c6e5f96b7934a50ef275afed3))
-
-
-
-
+- GEOT-283: support for user description ([#654](https://github.com/gtms-org/gtms-frontend/issues/654)) ([a13e649](https://github.com/gtms-org/gtms-frontend/commit/a13e649dbc31f08c6e5f96b7934a50ef275afed3))
 
 ## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.7.0...@gtms/api-auth@0.7.1) (2020-06-17)
 
 **Note:** Version bump only for package @gtms/api-auth
 
-
-
-
-
 # [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.6.9...@gtms/api-auth@0.7.0) (2020-06-17)
-
 
 ### Features
 
-* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
-
-
-
-
+- GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
 
 ## [0.6.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.6.8...@gtms/api-auth@0.6.9) (2020-06-16)
 

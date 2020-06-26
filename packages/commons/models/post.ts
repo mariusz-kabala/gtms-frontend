@@ -1,4 +1,5 @@
 import { IUser } from './user'
+import { IComment } from './comment'
 
 export interface IPost {
   id: string
@@ -7,6 +8,7 @@ export interface IPost {
   tags: string[]
   owner: IUser
   commentsCounter: number
+  firstComments: IComment[]
   application: string
   createdAt: string
   updatedAt: string

@@ -3,50 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.7.1...@gtms/styles@0.8.0) (2020-05-21)
-
+# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.8.1...@gtms/styles@0.9.0) (2020-06-24)
 
 ### Features
 
-* GEOT-262 notification system ([#574](https://github.com/gtms-org/gtms-frontend/issues/574)) ([47c0fcd](https://github.com/gtms-org/gtms-frontend/commit/47c0fcd55c9a2d72b6498b1fc3171862f7d8c9c4))
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
+## [0.8.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.8.0...@gtms/styles@0.8.1) (2020-06-23)
 
+**Note:** Version bump only for package @gtms/styles
 
+# [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.7.1...@gtms/styles@0.8.0) (2020-05-21)
 
+### Features
+
+- GEOT-262 notification system ([#574](https://github.com/gtms-org/gtms-frontend/issues/574)) ([47c0fcd](https://github.com/gtms-org/gtms-frontend/commit/47c0fcd55c9a2d72b6498b1fc3171862f7d8c9c4))
 
 ## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.7.0...@gtms/styles@0.7.1) (2020-05-21)
 
-
 ### Bug Fixes
 
-* GEOT-261: initial styling ([#573](https://github.com/gtms-org/gtms-frontend/issues/573)) ([5d97c70](https://github.com/gtms-org/gtms-frontend/commit/5d97c70a3cfbcd64a80e2c0854f08c5d900916fd))
-
-
-
-
+- GEOT-261: initial styling ([#573](https://github.com/gtms-org/gtms-frontend/issues/573)) ([5d97c70](https://github.com/gtms-org/gtms-frontend/commit/5d97c70a3cfbcd64a80e2c0854f08c5d900916fd))
 
 # [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.6.0...@gtms/styles@0.7.0) (2020-05-14)
 
-
 ### Features
 
-* GEOT-246: delete post feature ([#537](https://github.com/gtms-org/gtms-frontend/issues/537)) ([25bd3c8](https://github.com/gtms-org/gtms-frontend/commit/25bd3c8edb5f5f459999b3c42313b87cc9e8f265))
-
-
-
-
+- GEOT-246: delete post feature ([#537](https://github.com/gtms-org/gtms-frontend/issues/537)) ([25bd3c8](https://github.com/gtms-org/gtms-frontend/commit/25bd3c8edb5f5f459999b3c42313b87cc9e8f265))
 
 # [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.5.1...@gtms/styles@0.6.0) (2020-05-11)
 
-
 ### Features
 
-* GEOT-212 add search bar ui ([#417](https://github.com/gtms-org/gtms-frontend/issues/417)) ([432f3b7](https://github.com/gtms-org/gtms-frontend/commit/432f3b7a7face895bd9dd06b5f5c0e7c14c03a9c)), closes [#461](https://github.com/gtms-org/gtms-frontend/issues/461)
-* GEOT-218: create group  ([7d2de63](https://github.com/gtms-org/gtms-frontend/commit/7d2de6340d0fbae9a44d685b863a65d699241571)), closes [#479](https://github.com/gtms-org/gtms-frontend/issues/479) [#460](https://github.com/gtms-org/gtms-frontend/issues/460) [#490](https://github.com/gtms-org/gtms-frontend/issues/490) [#502](https://github.com/gtms-org/gtms-frontend/issues/502) [#509](https://github.com/gtms-org/gtms-frontend/issues/509) [#515](https://github.com/gtms-org/gtms-frontend/issues/515)
-
-
-
-
+- GEOT-212 add search bar ui ([#417](https://github.com/gtms-org/gtms-frontend/issues/417)) ([432f3b7](https://github.com/gtms-org/gtms-frontend/commit/432f3b7a7face895bd9dd06b5f5c0e7c14c03a9c)), closes [#461](https://github.com/gtms-org/gtms-frontend/issues/461)
+- GEOT-218: create group ([7d2de63](https://github.com/gtms-org/gtms-frontend/commit/7d2de6340d0fbae9a44d685b863a65d699241571)), closes [#479](https://github.com/gtms-org/gtms-frontend/issues/479) [#460](https://github.com/gtms-org/gtms-frontend/issues/460) [#490](https://github.com/gtms-org/gtms-frontend/issues/490) [#502](https://github.com/gtms-org/gtms-frontend/issues/502) [#509](https://github.com/gtms-org/gtms-frontend/issues/509) [#515](https://github.com/gtms-org/gtms-frontend/issues/515)
 
 ## [0.5.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.5.0...@gtms/styles@0.5.1) (2020-04-23)
 

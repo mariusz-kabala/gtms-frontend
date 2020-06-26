@@ -71,17 +71,17 @@
         margin-right: 5px;
       }
     }
+  }
 
-    i {
-      display: flex;
-      @include font-size(lg);
-      margin-left: auto;
-      padding: 10px;
-      cursor: pointer;
+  i {
+    display: flex;
+    @include font-size(lg);
+    margin-left: auto;
+    padding: 10px;
+    cursor: pointer;
 
-      &:hover {
-        background: $theme5;
-      }
+    &:hover {
+      background: $theme5;
     }
   }
 
