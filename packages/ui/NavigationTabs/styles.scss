@@ -9,20 +9,20 @@
 
   h2 {
     color: white;
-    @include font-size(lg);
+    @include font-size(xmd);
     @include font-weight(semiBold);
   }
 
   ul {
     display: flex;
-    margin-left: 20px;
+    margin-left: 15px;
 
     li {
       margin-right: 10px;
       @include font-size(md);
       color: $theme10;
       cursor: pointer;
-  
+
       &:hover {
         color: $theme5;
       }

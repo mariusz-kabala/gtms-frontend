@@ -14,42 +14,42 @@ export const PromotedGroups: FC<{
       id: 0,
       title: 'Patrol czerwony',
       description:
-        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+        'Qui ullamco esse excepteur in incididunt labore dolore. Quis enim eiusmod officia dipisicing.',
       image: '/images/temp_images/logo-wioska-1.png',
     },
     {
       id: 1,
-      title: 'Patrol czerwony',
+      title: 'Patrol zolty',
       description:
-        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+        'Proident elit excepteur consectetur velit ex  laborum exercitation incididunt aliqua ullamco',
       image: '/images/temp_images/logo-wioska-3.png',
     },
     {
       id: 2,
-      title: 'Patrol czerwony',
+      title: 'Patrol niebieski',
       description:
-        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+        'Eroident elit excepteur ncididunt labore dolore. Quis enim eiusmod officia ullamco',
       image: '/images/temp_images/logo-wioska-4.png',
     },
     {
       id: 3,
-      title: 'Patrol czerwony',
+      title: 'T ine the park',
       description:
-        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+        'Proident elit excepteur consectetur velit ex  laborum exercitation incididunt aliqua ullamco',
       image: '/images/temp_images/logo-wioska-5.png',
     },
     {
       id: 4,
-      title: 'Patrol czerwony',
+      title: 'Rosklide festiwal',
       description:
-        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+        'Proident elit excepteur consectetur velit ex  laborum exercitation incididunt aliqua ullamco',
       image: '/images/temp_images/logo-wioska-6.png',
     },
     {
       id: 5,
       title: 'Patrol czerwony',
       description:
-        'Mollit amet sit nulla magna dolor est labore proident ea elit velit.',
+        'Proident elit excepteur consectetur velit ex  laborum exercitation incididunt aliqua ullamco',
       image: '/images/temp_images/logo-wioska-7.png',
     },
   ]

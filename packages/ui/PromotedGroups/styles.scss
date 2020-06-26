@@ -1,26 +1,46 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight';
 @import '~@gtms/styles/scss/mixins/fontSize';
-@import '~@gtms/styles/scss/mixins/imageCover';  
+@import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
   .items {
-    // @todo make mixin of that
-    display: grid;
-    gap: 15px;
-    grid-template-columns: 1fr 1fr 1fr;
-
     .item {
+      display: flex;
+      margin-bottom: 15px;
+      cursor: pointer;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
       .image {
         @include imageCover();
-        height: 150px;
+        width: 120px;
+        min-width: 120px;
+        height: 80px;
+        min-height: 80px;
+        margin-right: 10px;
         border-radius: $borderRadius;
       }
 
       h3 {
         @include font-size(md);
         @include font-weight(bold);
-        margin-top: 10px;
+      }
+
+      p {
+        opacity: 0.65;
+      }
+
+      &:hover {
+        h3 {
+          color: $theme5;
+        }
+
+        p {
+          opacity: 1;
+        }
       }
     }
   }

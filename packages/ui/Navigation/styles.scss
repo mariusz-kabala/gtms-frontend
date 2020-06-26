@@ -2,10 +2,11 @@
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
+  display: flex;
   width: 50px;
   min-width: 50px; // because of display flex
   min-height: 100%;
-  display: flex;
+  margin-right: -10px;
   justify-content: center;
 
   .navigation {
@@ -19,9 +20,9 @@
 
     .avatar {
       width: 40px;
-      margin-top: 25px;
+      margin-top: 15px;
       margin-bottom: 10px;
-      
+
       img {
         border-radius: 50%;
       }
@@ -41,7 +42,7 @@
         &:last-child {
           margin-bottom: 0;
         }
-  
+
         a {
           display: block;
           padding: 10px;
@@ -53,7 +54,7 @@
             display: block;
           }
         }
-  
+
         &:hover {
           background: $theme5;
         }

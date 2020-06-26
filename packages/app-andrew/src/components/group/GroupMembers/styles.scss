@@ -7,7 +7,10 @@ $groupMembersAvatarSize: 50px;
 .wrapper {
   .users {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax($groupMembersAvatarSize, 1fr));
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax($groupMembersAvatarSize, 1fr)
+    );
     grid-gap: 15px;
   }
 
@@ -25,22 +28,30 @@ $groupMembersAvatarSize: 50px;
 
   .avatar {
     max-width: $groupMembersAvatarSize;
-    border-radius: 5px;
+
+    img {
+      border-radius: 50%;
+    }
   }
 
   .usersMock {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax($groupMembersAvatarSize, 1fr));
-    grid-gap: 15px;
-    
-    .avatar {
-      opacity: 0.5;
+    > div {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax($groupMembersAvatarSize, 1fr)
+      );
+      grid-gap: 15px;
+
+      .avatar {
+        opacity: 0.5;
+      }
     }
 
     p {
-      position: absolute;
-      @include font-size(md);
-      margin: 10px 0 0 10px;
+      position: relative;
+      margin-top: -35px;
+      @include font-weight(bold);
     }
   }
 }

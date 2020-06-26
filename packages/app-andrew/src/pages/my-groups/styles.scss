@@ -3,9 +3,17 @@
 
 .wrapper {
   width: 100%;
+  background: $theme8;
 
-  .nav {
-    .item {
+  nav {
+    li {
+      font-size: 14px;
+      background-color: $theme7;
+      display: inline-block;
+      padding: 5px 15px;
+      margin: 0 5px;
+      border-radius: $borderRadius;
+
       &.current {
         @include font-weight(bold);
       }
@@ -14,5 +22,9 @@
         cursor: pointer;
       }
     }
+  }
+
+  .currentList {
+    display: block !important;
   }
 }

@@ -20,8 +20,10 @@ import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { GroupMembers } from 'components/group/GroupMembers'
 import { FollowButton } from 'components/group/FollowButton'
 // ui
+import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
+import { NavigationDots } from 'components/commons/NavigationDots'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PromotedGroups } from '@gtms/ui/PromotedGroups'
 import { PromotedTags } from '@gtms/ui/PromotedTags'
@@ -102,24 +104,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
-          <div className={styles.searchWrapper}>
-            <div className={styles.search}>
-              <SearchBar
-                onTagAdd={() => null}
-                onTagRemove={() => null}
-                onLoadSuggestion={() => null}
-                onQueryChange={() => null}
-                onLoadSuggestionCancel={() => null}
-                tags={[]}
-              />
-            </div>
-            <ul className={styles.watchedTags}>
-              <li className={styles.item}>#dojazdy</li>
-              <li className={styles.item}>#berlin</li>
-              <li className={styles.item}>#polandRock</li>
-              <li className={styles.item}>#sztaby</li>
-            </ul>
-          </div>
           <div className={styles.groupHeader}>
             <GroupAvatar
               additionalStyles={styles.groupAvatar}
@@ -127,7 +111,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               filesStatus={groupQuery.getAvatarFileStatus()}
               isEditAllowed={groupQuery.hasAdminRights()}
             />
-            <div>
+            <div className={styles.groupDesc}>
               <h2 data-tip={t('click-here-to-edit')} data-type="dark">
                 {state.group?.name}
               </h2>
@@ -149,18 +133,33 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <FollowButton group={state.group} />
               </div>
             </div>
+            <NavigationDots />
+            <div className={styles.searchInput}>
+              <div className={styles.search}>
+                <SearchBar
+                  onTagAdd={() => null}
+                  onTagRemove={() => null}
+                  onLoadSuggestion={() => null}
+                  onQueryChange={() => null}
+                  onLoadSuggestionCancel={() => null}
+                  tags={[]}
+                />
+              </div>
+            </div>
+          </div>
+          <div className={styles.searchWrapper}>
+            <ul>
+              <li className={styles.item}>search item goes here</li>
+              <li className={styles.item}>search item goes here</li>
+              <li className={styles.item}>search item goes here</li>
+              <li className={styles.item}>search item goes here</li>
+            </ul>
+            <i>
+              <IoIosCloseCircleOutline />
+            </i>
           </div>
           <div className={styles.columns}>
             <div>
-              <NavigationTabs>
-                <h2 className={styles.header}>Posts</h2>
-                <ul className={styles.elements}>
-                  <li className={styles.item}>popular posts</li>
-                  <li className={styles.item}>latest posts</li>
-                  <li className={styles.item}>favorites posts</li>
-                  <li className={styles.item}>my posts</li>
-                </ul>
-              </NavigationTabs>
               {state.user && (
                 <PostCreate
                   user={state.user}
@@ -174,12 +173,24 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   additionalStyles={styles.postCreate}
                 />
               )}
+              <NavigationTabs>
+                <h2 className={styles.header}>Posts</h2>
+                <ul className={styles.elements}>
+                  <li className={styles.item}>popular posts</li>
+                  <li className={styles.item}>latest posts</li>
+                  <li className={styles.item}>favorites posts</li>
+                  <li className={styles.item}>my posts</li>
+                </ul>
+              </NavigationTabs>
               <RecentlyAddedPosts
                 noImage={UserAvatarNoImage}
                 posts={state.posts}
               />
             </div>
             <div>
+              <PromotedGroups />
+              <br /> {/* @todo remove it */}
+              <br /> {/* @todo remove it */}
               <PromotedTags
                 tags={state.promotedTags.tags}
                 isLoading={state.promotedTags.isLoading}
@@ -189,6 +200,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   router.push(`/group/${state.group?.slug}/settings#tags`)
                 }
               />
+              <br /> {/* @todo remove it */}
+              <br /> {/* @todo remove it */}
               <NavigationTabs>
                 <h2 className={styles.header}>Recently registered</h2>
                 <ul className={styles.elements}>
@@ -197,8 +210,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </ul>
               </NavigationTabs>
               <GroupMembers {...state.members} />
-              <br /> {/* @todo remove it */}
-              <PromotedGroups />
             </div>
           </div>
         </>

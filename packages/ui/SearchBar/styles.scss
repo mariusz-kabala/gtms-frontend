@@ -11,17 +11,16 @@
     flex-basis: 100%;
 
     i {
+      display: flex;
       font-size: 20px;
     }
 
     input[type='text'] {
       display: block;
       width: 100%;
-      padding-bottom: 5px;
       border: none;
       font-size: 14px;
       background: none;
-      border-bottom: 2px solid $theme7;
 
       &:active,
       &:focus,

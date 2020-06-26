@@ -2,27 +2,42 @@
 
 .wrapper {
   position: relative;
+  background: $theme2;
+  padding: 10px;
   border-radius: $borderRadius;
+  border: 1px solid $theme2;
   overflow: hidden; // for delete post component that overflows this component
   cursor: pointer;
-  
+
   &::after {
     content: '';
     position: absolute;
-    top: 45px;
-    left: 15px;
+    bottom: 0;
+    left: 25px;
     display: flex;
     width: 4px;
-    height: calc(100% - 45px);
-    background: #4b4465;
+    height: calc(100% - 55px);
+    background: $theme4;
   }
 
   &:hover {
+    border-color: $theme3;
+
+    .desc {
+      .text {
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      background: $theme5;
+    }
+
     .header .deleteBtn {
       opacity: 0.5;
     }
   }
-  
+
   .header {
     display: flex;
 
@@ -59,7 +74,7 @@
       margin-left: auto;
       cursor: pointer;
       opacity: 0;
-      
+
       &:hover {
         opacity: 1;
         color: $theme5;
@@ -72,8 +87,9 @@
     margin-left: 45px;
 
     .text {
+      opacity: 0.75;
       margin-bottom: 10px;
-      
+
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
       }

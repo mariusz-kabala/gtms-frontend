@@ -16,7 +16,7 @@
     img {
       border-radius: 50%;
     }
-  
+
     span {
       position: absolute;
       color: $theme5;
@@ -24,7 +24,7 @@
       margin-left: 45px;
     }
   }
-  
+
   .textarea {
     display: block;
     width: 100%;
@@ -35,8 +35,19 @@
     margin-left: 10px;
     min-height: 41px;
     background: $theme3;
+
+    &:focus {
+      &::placeholder {
+        opacity: 1;
+      }
+    }
+
+    &::placeholder {
+      color: $theme7;
+      opacity: 0.5;
+    }
   }
-  
+
   .btn {
     @include buttonDefault();
     @include buttonColorsDefault();
