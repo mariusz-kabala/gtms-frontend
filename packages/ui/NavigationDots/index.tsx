@@ -6,12 +6,10 @@ import { IGroup, FileStatus } from '@gtms/commons'
 // this is just a mock
 // @todo remove it when no longer needed
 import {
-  IoIosTennisball,
   IoIosNavigate,
   IoIosCart,
   IoIosCloudUpload,
   IoIosCompass,
-  IoIosFingerPrint,
 } from 'react-icons/io'
 
 export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
@@ -22,11 +20,6 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
   // this is just a mock
   // @todo remove it when no longer needed
   const links = [
-    {
-      label: 'Main Page',
-      icon: <IoIosTennisball />,
-      url: '/',
-    },
     {
       label: 'Posts',
       icon: <IoIosNavigate />,
@@ -45,11 +38,6 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
     {
       label: 'Invite friends',
       icon: <IoIosCompass />,
-      url: '/',
-    },
-    {
-      label: 'Invite friends',
-      icon: <IoIosFingerPrint />,
       url: '/',
     },
   ]
@@ -86,6 +74,7 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
               <Link href={value.url}>
                 <a>
                   <i>{value.icon}</i>
+                  <span>{value.label}</span>
                 </a>
               </Link>
             </li>

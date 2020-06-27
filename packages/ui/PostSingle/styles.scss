@@ -2,7 +2,10 @@
 
 .wrapper {
   position: relative;
+  background: $theme2;
+  padding: 10px;
   border-radius: $borderRadius;
+  border: 1px solid $theme2;
   overflow: hidden; // for delete post component that overflows this component
   cursor: pointer;
 
@@ -18,6 +21,18 @@
   }
 
   &:hover {
+    border-color: $theme3;
+
+    .desc {
+      .text {
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      background: $theme5;
+    }
+
     .header .deleteBtn {
       opacity: 0.5;
     }

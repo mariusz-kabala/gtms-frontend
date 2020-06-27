@@ -11,6 +11,7 @@ import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
 import { findTagsAPI } from '@gtms/api-tags'
 // components
+import { NavigationDots } from 'components/commons/NavigationDots'
 import { GroupDescription } from 'components/group/GroupDescription'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
@@ -104,24 +105,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
-          <div className={styles.searchWrapper}>
-            <div className={styles.search}>
-              <SearchBar
-                onTagAdd={() => null}
-                onTagRemove={() => null}
-                onLoadSuggestion={() => null}
-                onQueryChange={() => null}
-                onLoadSuggestionCancel={() => null}
-                tags={[]}
-              />
-            </div>
-            <ul className={styles.watchedTags}>
-              <li className={styles.item}>#dojazdy</li>
-              <li className={styles.item}>#berlin</li>
-              <li className={styles.item}>#polandRock</li>
-              <li className={styles.item}>#sztaby</li>
-            </ul>
-          </div>
           <div className={styles.groupHeader}>
             <GroupAvatar
               additionalStyles={styles.groupAvatar}
@@ -151,6 +134,25 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <FollowButton group={state.group} />
               </div>
             </div>
+            <NavigationDots />
+          </div>
+          <div className={styles.searchWrapper}>
+            <div className={styles.search}>
+              <SearchBar
+                onTagAdd={() => null}
+                onTagRemove={() => null}
+                onLoadSuggestion={() => null}
+                onQueryChange={() => null}
+                onLoadSuggestionCancel={() => null}
+                tags={[]}
+              />
+            </div>
+            <ul className={styles.watchedTags}>
+              <li className={styles.item}>#dojazdy</li>
+              <li className={styles.item}>#berlin</li>
+              <li className={styles.item}>#polandRock</li>
+              <li className={styles.item}>#sztaby</li>
+            </ul>
           </div>
           <div className={styles.columns}>
             <div>

@@ -4,20 +4,15 @@
 
 .wrapper {
   display: flex;
-  flex-direction: column;
   @include z-index(navigationGroup);
-  width: 55px;
-  min-width: 55px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  background: rgba($theme4, 0.4);
+  border-left: 1px solid $theme3;
 
   .navigationDot {
+    display: none;
     > li {
       display: flex;
       justify-content: center;
       align-content: center;
-      margin-top: 10px;
 
       // @todo separate component?
       .item {
@@ -43,13 +38,9 @@
 
   .linksMock {
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 10px;
 
     li {
       position: relative;
-      margin-bottom: 5px;
       border-radius: 5px;
 
       &:last-child {
@@ -57,7 +48,8 @@
       }
 
       a {
-        display: block;
+        display: flex;
+        align-items: center;
         padding: 10px;
         @include font-size(md);
         text-decoration: none;
@@ -66,6 +58,11 @@
         i {
           line-height: 0;
           display: block;
+        }
+
+        span {
+          margin-left: 5px;
+          @include font-size(sm);
         }
       }
 
