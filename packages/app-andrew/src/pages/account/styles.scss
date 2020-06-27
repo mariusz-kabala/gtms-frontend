@@ -2,9 +2,7 @@
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
-  justify-content: center;
-  align-items: center;
-  width: 50%;
+  padding: 10px;
 
   .avatar {
     cursor: pointer;

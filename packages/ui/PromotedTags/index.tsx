@@ -42,9 +42,8 @@ export const PromotedTags: FC<{
       <NavigationTabs>
         <h2 className={styles.header}>Promoted tags</h2>
         <ul className={styles.elements}>
-          <li className={styles.item}>latest tags</li>
-          <li className={styles.item}>promoted tags</li>
-          <li className={styles.item}>something</li>
+          <li className={styles.item}>latest</li>
+          <li className={styles.item}>promoted</li>
           <li className={styles.item}>item</li>
         </ul>
       </NavigationTabs>

@@ -17,7 +17,6 @@
       padding: 10px;
       border: 1px solid $theme3;
       border-radius: $borderRadius;
-      background: $theme3;
 
       &:hover,
       &:focus {
@@ -39,7 +38,7 @@
 
     .groupDesc {
       margin-right: 5px;
-      max-width: 220px;
+      max-width: 250px;
       line-height: 1;
 
       h2 {
@@ -57,7 +56,9 @@
 
   .searchWrapper {
     display: flex;
-    min-height: 1px;
+    height: 0px;
+    overflow: hidden;
+    transition: height 1s ease-out;
     background: rgba(black, 0.5);
 
     ul {

@@ -1,11 +1,13 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/placeholderFocus.scss';
+@import '~@gtms/styles/scss/mixins/textArea';
 
 .wrapper {
   display: flex;
 
-  .avatar {
+  .user {
     display: flex;
     width: 35px;
     height: 35px;
@@ -26,6 +28,7 @@
   }
 
   .textarea {
+    @include textArea;
     display: block;
     width: 100%;
     border: none;
@@ -33,17 +36,8 @@
     border-bottom-left-radius: 5px;
     padding: 10px;
     margin-left: 10px;
-    min-height: 41px;
     background: $theme3;
-    height: 100%;
-    resize: vertical;
-
-    &:active,
-    &:focus,
-    &:hover {
-      outline: none;
-      border-color: $theme7;
-    }
+    @include placeholderFocus;
   }
 
   .btn {

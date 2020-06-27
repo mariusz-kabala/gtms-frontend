@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
+import styles from './styles.scss'
 import {
   INotificationsSettingsState,
   notificationsSettingsState,
@@ -54,133 +55,119 @@ export const NotificationsSettings: FC<{}> = () => {
 
   return (
     <div data-testid="notifications-settings">
-      <h1>Notifications settings</h1>
-      <label>
-        <h2>Enable</h2>
-        <Switch
-          onChange={(value) => {
-            if (value) {
-              return subscribe()
+      <ul className={styles.items}>
+        <li className={styles.item}>
+          <Switch
+            onChange={(value) => {
+              if (value) {
+                return subscribe()
+              }
+
+              unsubscribe()
+            }}
+            checked={state.isEnabled}
+          />
+          <h2>Enable</h2>
+        </li>
+        <li className={styles.item}>
+          <Switch
+            onChange={(value) =>
+              updateNotificationsSettings({
+                invitation: value,
+              })
             }
-
-            unsubscribe()
-          }}
-          checked={state.isEnabled}
-        />
-      </label>
-      <div>
-        {/* similar notifications group by <section></section> */}
-        <section>
-          <label>
-            <h3>Notifiy when someone invites me to a group</h3>
-            <Switch
-              onChange={(value) =>
-                updateNotificationsSettings({
-                  invitation: value,
-                })
-              }
-              disabled={!state.isEnabled || state.isLoading}
-              checked={state.invitation}
-            />
-          </label>
-        </section>
-
-        <section>
-          <label>
-            <h3>Notifiy when new post appears in groups which I own</h3>
-            <Switch
-              onChange={(value) =>
-                updateNotificationsSettings({
-                  newPostInOwnedGroup: value,
-                })
-              }
-              disabled={!state.isEnabled || state.isLoading}
-              checked={state.newPostInOwnedGroup}
-            />
-          </label>
-          <label>
-            <h3>Notifiy when new post appears in groups which I admining</h3>
-            <Switch
-              onChange={(value) =>
-                updateNotificationsSettings({
-                  newPostInAdminnedGroup: value,
-                })
-              }
-              disabled={!state.isEnabled || state.isLoading}
-              checked={state.newPostInAdminnedGroup}
-            />
-          </label>
-        </section>
-
-        <section>
-          <label>
-            <h3>
-              Notifiy when new membership request pops up in groups which I own
-            </h3>
-            <Switch
-              onChange={(value) =>
-                updateNotificationsSettings({
-                  newMembershipRequestInOwnedGroup: value,
-                })
-              }
-              disabled={!state.isEnabled || state.isLoading}
-              checked={state.newMembershipRequestInOwnedGroup}
-            />
-          </label>
-          <label>
-            <h3>
-              Notifiy when new membership request pops up in groups which I
-              admining
-            </h3>
-            <Switch
-              onChange={(value) =>
-                updateNotificationsSettings({
-                  newMembershipRequestInAdminnedGroup: value,
-                })
-              }
-              disabled={!state.isEnabled || state.isLoading}
-              checked={state.newMembershipRequestInAdminnedGroup}
-            />
-          </label>
-        </section>
-
-        <section>
-          <label>
-            <h3>
-              Notifiy when a new member joins groups which
-              <strong> I own</strong>
-            </h3>
-            <Switch
-              onChange={(value) =>
-                updateNotificationsSettings({
-                  newMemberInOwnedGroup: value,
-                })
-              }
-              disabled={!state.isEnabled || state.isLoading}
-              checked={state.newMemberInOwnedGroup}
-            />
-          </label>
-          <label>
-            <h3>
-              Notifiy when a new member joins groups which
-              <strong> I admining</strong>
-            </h3>
-            <Switch
-              onChange={(value) =>
-                updateNotificationsSettings({
-                  newMemberInAdminnedGroup: value,
-                })
-              }
-              disabled={!state.isEnabled || state.isLoading}
-              checked={state.newMemberInAdminnedGroup}
-            />
-          </label>
-        </section>
-
-        <Button disabled={state.isLoading} onClick={saveNotificationsSettings}>
-          Save changes
-        </Button>
-      </div>
+            disabled={!state.isEnabled || state.isLoading}
+            checked={state.invitation}
+          />
+          <h3>Notifiy when someone invites me to a group</h3>
+        </li>
+        <li className={styles.item}>
+          <Switch
+            onChange={(value) =>
+              updateNotificationsSettings({
+                newPostInOwnedGroup: value,
+              })
+            }
+            disabled={!state.isEnabled || state.isLoading}
+            checked={state.newPostInOwnedGroup}
+          />
+          <h3>Notifiy when new post appears in groups which I own</h3>
+        </li>
+        <li className={styles.item}>
+          <Switch
+            onChange={(value) =>
+              updateNotificationsSettings({
+                newPostInAdminnedGroup: value,
+              })
+            }
+            disabled={!state.isEnabled || state.isLoading}
+            checked={state.newPostInAdminnedGroup}
+          />
+          <h3>Notifiy when new post appears in groups which I admining</h3>
+        </li>
+        <li className={styles.item}>
+          <Switch
+            onChange={(value) =>
+              updateNotificationsSettings({
+                newMembershipRequestInOwnedGroup: value,
+              })
+            }
+            disabled={!state.isEnabled || state.isLoading}
+            checked={state.newMembershipRequestInOwnedGroup}
+          />
+          <h3>
+            Notifiy when new membership request pops up in groups which I own
+          </h3>
+        </li>
+        <li className={styles.item}>
+          <Switch
+            onChange={(value) =>
+              updateNotificationsSettings({
+                newMembershipRequestInAdminnedGroup: value,
+              })
+            }
+            disabled={!state.isEnabled || state.isLoading}
+            checked={state.newMembershipRequestInAdminnedGroup}
+          />
+          <h3>
+            Notifiy when new membership request pops up in groups which I
+            admining
+          </h3>
+        </li>
+        <li className={styles.item}>
+          <Switch
+            onChange={(value) =>
+              updateNotificationsSettings({
+                newMemberInOwnedGroup: value,
+              })
+            }
+            disabled={!state.isEnabled || state.isLoading}
+            checked={state.newMemberInOwnedGroup}
+          />
+          <h3>
+            Notifiy when a new member joins groups which
+            <strong> I own</strong>
+          </h3>
+        </li>
+        <li className={styles.item}>
+          <Switch
+            onChange={(value) =>
+              updateNotificationsSettings({
+                newMemberInAdminnedGroup: value,
+              })
+            }
+            disabled={!state.isEnabled || state.isLoading}
+            checked={state.newMemberInAdminnedGroup}
+          />
+          <h3>
+            Notifiy when a new member joins groups which
+            <strong> I admining</strong>
+          </h3>
+        </li>
+      </ul>
+      <Button disabled={state.isLoading} onClick={saveNotificationsSettings}>
+        Save changes
+      </Button>
     </div>
   )
 }
