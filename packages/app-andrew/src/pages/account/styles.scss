@@ -1,14 +1,21 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .wrapper {
   padding: 10px;
 
-  .avatar {
-    cursor: pointer;
+  .avatarWrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
 
-    img {
-      border-radius: $borderRadius;
+    .avatar {
+      margin: auto;
+      cursor: pointer;
+
+      img {
+        border-radius: 50%;
+      }
     }
   }
 
@@ -21,6 +28,8 @@
   }
 
   .userName {
+    @include font-size(md);
+
     &:hover {
       div > span {
         color: $theme5;

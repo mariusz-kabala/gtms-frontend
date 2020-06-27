@@ -15,7 +15,9 @@ import {
 import { Button } from '@gtms/ui/Button'
 import Switch from 'react-switch'
 
-export const NotificationsSettings: FC<{}> = () => {
+export const NotificationsSettings: FC<{
+  additionalStyles?: string
+}> = ({ additionalStyles }) => {
   const [state, setState] = useState<INotificationsSettingsState>(
     notificationsSettingsState()
   )
@@ -54,7 +56,7 @@ export const NotificationsSettings: FC<{}> = () => {
   }
 
   return (
-    <div data-testid="notifications-settings">
+    <div className={additionalStyles} data-testid="notifications-settings">
       <ul className={styles.items}>
         <li className={styles.item}>
           <Switch
@@ -165,7 +167,11 @@ export const NotificationsSettings: FC<{}> = () => {
           </h3>
         </li>
       </ul>
-      <Button disabled={state.isLoading} onClick={saveNotificationsSettings}>
+      <Button
+        additionalStyles={styles.btnSubmit}
+        disabled={state.isLoading}
+        onClick={saveNotificationsSettings}
+      >
         Save changes
       </Button>
     </div>

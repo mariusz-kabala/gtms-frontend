@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react'
+import styles from './styles.scss'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { useForm } from 'react-hook-form'
 import { Button } from '@gtms/ui/Button'
@@ -18,12 +19,13 @@ export const UserDescription: FC<{
       {isInEditMode && (
         <form onSubmit={handleSubmit(onSubmit)}>
           <ExpandingTextarea
-            placeholder={'Describe yourself :)'}
-            name="description"
+            additionalStyles={styles.textarea}
             defaultValue={''}
+            name="description"
+            placeholder={'Describe yourself :)'}
             reference={register({ required: false })}
           />
-          <Button type="submit" disabled={false}>
+          <Button additionalStyles={styles.btn} type="submit" disabled={false}>
             Save
           </Button>
         </form>

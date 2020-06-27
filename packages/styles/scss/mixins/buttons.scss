@@ -2,12 +2,14 @@
 
 @mixin buttonDefault() {
   display: inline-block;
+  outline: none;
+  border: none;
+  border-radius: $borderRadius;
   justify-content: center;
+  padding: 10px;
   text-align: center; // for <a> elements
   text-decoration: none; // for <a> elements
   cursor: pointer;
-  padding: 10px;
-  border-radius: $borderRadius;
   text-transform: uppercase;
 
   &:active,
