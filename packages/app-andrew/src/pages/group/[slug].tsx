@@ -31,6 +31,7 @@ import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
+import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
 // state
 import {
   groupQuery,
@@ -149,6 +150,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </div>
             </div>
           </div>
+          <WelcomeSlider />
           <NotificationsSidebar />
           <div className={styles.columns}>
             <div>

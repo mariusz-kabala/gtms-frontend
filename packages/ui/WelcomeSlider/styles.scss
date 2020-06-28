@@ -1,0 +1,11 @@
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/imageCover';
+@import '~@gtms/styles/scss/mixins/zindex';
+
+.wrapper {
+  display: flex;
+  @include imageCover();
+  @include font-size(sm);
+  min-height: 350px;
+}

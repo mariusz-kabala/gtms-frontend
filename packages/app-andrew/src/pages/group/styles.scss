@@ -30,7 +30,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    padding: 15px;
+    margin: 15px;
 
     .groupAvatar {
       margin-right: 10px;
@@ -61,7 +61,7 @@
     gap: 20px; // @todo set standard gaps for grid
     grid-template-columns: 1.2fr 0.8fr;
 
-    padding: 0 15px 0;
+    margin: 15px;
 
     .postCreate {
       // @todo styles to be written here
