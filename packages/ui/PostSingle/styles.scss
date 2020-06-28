@@ -32,10 +32,6 @@
     &::after {
       background: $theme5;
     }
-
-    .header .deleteBtn {
-      opacity: 0.5;
-    }
   }
 
   .header {
@@ -72,12 +68,6 @@
 
     .deleteBtn {
       margin-left: auto;
-      cursor: pointer;
-      opacity: 0;
-
-      &:hover {
-        opacity: 1;
-      }
     }
   }
 

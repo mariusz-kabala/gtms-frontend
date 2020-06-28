@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
 
 @mixin buttonDefault() {
+  display: inline-block;
   border: none;
   outline: none;
   border-radius: $borderRadius;
@@ -20,6 +21,7 @@
 
 @mixin buttonColorsDefault() {
   background: $theme3;
+  color: $theme7;
 }
 
 @mixin buttonColorsPrimary() {
