@@ -152,15 +152,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           <NotificationsSidebar />
           <div className={styles.columns}>
             <div>
-              <NavigationTabs>
-                <h2 className={styles.header}>Posts</h2>
-                <ul className={styles.elements}>
-                  <li className={styles.item}>popular posts</li>
-                  <li className={styles.item}>latest posts</li>
-                  <li className={styles.item}>favorites posts</li>
-                  <li className={styles.item}>my posts</li>
-                </ul>
-              </NavigationTabs>
               {state.user && (
                 <PostCreate
                   fetchTags={findTagsAPI}
@@ -175,6 +166,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   additionalStyles={styles.postCreate}
                 />
               )}
+              <NavigationTabs>
+                <h2 className={styles.header}>Posts</h2>
+                <ul className={styles.elements}>
+                  <li className={styles.item}>popular posts</li>
+                  <li className={styles.item}>latest posts</li>
+                  <li className={styles.item}>favorites posts</li>
+                  <li className={styles.item}>my posts</li>
+                </ul>
+              </NavigationTabs>
               <RecentlyAddedPosts
                 fetchTags={findTagsAPI}
                 user={state.user}

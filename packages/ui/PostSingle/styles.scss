@@ -23,9 +23,7 @@
     border-color: $theme5;
 
     .desc {
-      .text {
-        opacity: 1;
-      }
+      opacity: 1;
     }
 
     &::after {
@@ -73,6 +71,7 @@
   .desc {
     margin-top: -15px;
     margin-left: 45px;
+    opacity: 0.75;
 
     .text {
       margin: 10px 0;

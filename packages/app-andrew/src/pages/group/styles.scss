@@ -14,6 +14,7 @@
 
     // @todo this should be separate component / mixin
     .search {
+      background: $theme3;
       padding: 10px;
       border: 1px solid $theme3;
       border-radius: $borderRadius;
@@ -38,7 +39,7 @@
 
     .groupDesc {
       margin-right: 5px;
-      max-width: 250px;
+      max-width: 220px;
       line-height: 1;
 
       h2 {

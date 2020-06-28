@@ -6,7 +6,6 @@ import {
   IoIosAddCircle,
   IoIosKeypad,
   IoIosLogOut,
-  IoIosNotifications,
   IoIosSearch,
 } from 'react-icons/io'
 
@@ -24,10 +23,6 @@ export const Navigation: FC<{
         )}
         <ul>
           {[
-            {
-              label: 'Search',
-              icon: <IoIosNotifications />,
-            },
             {
               label: 'Search',
               icon: <IoIosSearch />,

@@ -46,12 +46,9 @@ export const NotificationsSettings: FC<{
 
   if (state.errorOccured) {
     return (
-      <div data-testid="notifications-settings">
-        <p>
-          Sorry, but we can not fetch your settings right now, please - try
-          later!
-        </p>
-      </div>
+      <p data-testid="notifications-settings">
+        Sorry, but we can not fetch your settings right now, please - try later!
+      </p>
     )
   }
 
