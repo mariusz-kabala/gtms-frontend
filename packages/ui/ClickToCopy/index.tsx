@@ -16,7 +16,7 @@ export const ClickToCopy: FC<{
     <Button
       additionalStyles={cx(styles.btn, additionalStyles)}
       onClick={setCopied}
-      data-testid="click-to-copy"
+      testid="click-to-copy"
     >
       {!isCopied && t('copyLink')}
       {isCopied && t('copied')}

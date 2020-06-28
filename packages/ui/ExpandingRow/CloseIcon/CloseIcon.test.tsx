@@ -1,25 +1,39 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { ErrorInfo } from './index'
+import { render, fireEvent } from '@testing-library/react'
+import { CloseIcon } from './index'
 
-describe('<ErrorInfo />', () => {
+describe('<CloseIcon />', () => {
   it('Should be on the page', () => {
+    const onClick = jest.fn()
+
     const { getByTestId } = render(
-      <ErrorInfo>
+      <CloseIcon onClick={onClick}>
         <a>testing</a>
-      </ErrorInfo>
+      </CloseIcon>
     )
 
-    expect(getByTestId('error-info')).toBeInTheDocument()
+    expect(getByTestId('close-icon')).toBeInTheDocument()
   })
 
   it('Should have additional css classes', () => {
+    const onClick = jest.fn()
+
     const { container } = render(
-      <ErrorInfo additionalStyles={'cssTest'}>
+      <CloseIcon additionalStyles={'cssTest'} onClick={onClick}>
         <a>testing</a>
-      </ErrorInfo>
+      </CloseIcon>
     )
 
     expect(container.querySelector('.cssTest')).toBeInTheDocument()
+  })
+
+  it('Should trigger provided callback when clicking on it', () => {
+    const callback = jest.fn()
+
+    const { getByTestId } = render(<CloseIcon onClick={callback} />)
+
+    fireEvent.click(getByTestId('close-icon'))
+
+    expect(callback).toBeCalledTimes(1)
   })
 })

@@ -11,8 +11,9 @@ export const CloseIcon: FC<{
     <i
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="close-icon"
+      onClick={onClick}
     >
-      <IoMdCloseCircle onClick={onClick} />
+      <IoMdCloseCircle />
     </i>
   )
 }
