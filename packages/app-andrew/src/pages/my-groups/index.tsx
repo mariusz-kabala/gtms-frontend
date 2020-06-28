@@ -18,7 +18,7 @@ import {
 } from 'queries'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { Link } from '@gtms/commons/i18n'
-import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
+import { IoIosHeartEmpty, IoIosHeart, IoIosSettings } from 'react-icons/io'
 import { GroupsList } from '../../components/my-groups/GroupsList'
 import { Spinner } from '@gtms/ui/Spinner'
 import { useInitState } from '@gtms/commons/hooks'
@@ -46,29 +46,18 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.notFound}>
-        <div className={styles.desc}>
-          <h2>{t('header')}</h2>
-          <p>
-            Nisi officia incididunt adipisicing commodo eiusmod exercitation.
-          </p>
-        </div>
-        <img src="/images/polandrock/camping-image.png" />
-      </div>
       <div>
         {state.isLoading && <Spinner />}
         {!state.isLoading && state.errorOccurred && (
-          <div>
-            <p>Can not fetch list of your groups now. please try again later</p>
-          </div>
+          <p>Can not fetch list of your groups now. please try again later</p>
         )}
         {!state.isLoading && !state.errorOccurred && (
           <>
             <nav>
-              <ul>
+              <ul className={styles.items}>
                 <li
                   onClick={() => setCurrentTab('owner')}
-                  className={cx({
+                  className={cx(styles.item, {
                     [styles.current]: currentTab === 'owner',
                   })}
                 >
@@ -78,7 +67,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                 </li>
                 <li
                   onClick={() => setCurrentTab('admin')}
-                  className={cx({
+                  className={cx(styles.item, {
                     [styles.current]: currentTab === 'admin',
                   })}
                 >
@@ -88,7 +77,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                 </li>
                 <li
                   onClick={() => setCurrentTab('member')}
-                  className={cx({
+                  className={cx(styles.item, {
                     [styles.current]: currentTab === 'member',
                   })}
                 >
@@ -98,7 +87,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                 </li>
                 <li
                   onClick={() => setCurrentTab('fav')}
-                  className={cx({
+                  className={cx(styles.item, {
                     [styles.current]: currentTab === 'fav',
                   })}
                 >
@@ -116,16 +105,25 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
               groups={state.owner}
               renderFavsIcon={(group) =>
                 myGroupsQuery.isInFavs(group) ? (
-                  <IoIosHeart />
+                  <i>
+                    <IoIosHeart />
+                  </i>
                 ) : (
-                  <IoIosHeartEmpty />
+                  <i>
+                    <IoIosHeartEmpty />
+                  </i>
                 )
               }
               renderGroupMenu={(group) => (
                 <ul>
                   <li>
                     <Link href={`/group/${group.slug}/settings`}>
-                      {t('settings')}
+                      <>
+                        <i>
+                          <IoIosSettings />
+                        </i>
+                        {t('settings')}
+                      </>
                     </Link>
                   </li>
                 </ul>
@@ -176,9 +174,13 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
               groups={state.admin}
               renderFavsIcon={(group) =>
                 myGroupsQuery.isInFavs(group) ? (
-                  <IoIosHeart />
+                  <i>
+                    <IoIosHeart />
+                  </i>
                 ) : (
-                  <IoIosHeartEmpty />
+                  <i>
+                    <IoIosHeartEmpty />
+                  </i>
                 )
               }
               renderGroupMenu={() => null}
@@ -198,9 +200,13 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
               groups={state.member}
               renderFavsIcon={(group) =>
                 myGroupsQuery.isInFavs(group) ? (
-                  <IoIosHeart />
+                  <i>
+                    <IoIosHeart />
+                  </i>
                 ) : (
-                  <IoIosHeartEmpty />
+                  <i>
+                    <IoIosHeartEmpty />
+                  </i>
                 )
               }
               renderGroupMenu={() => null}

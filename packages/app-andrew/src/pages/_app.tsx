@@ -5,11 +5,11 @@ import '@gtms/styles/scss/global.scss'
 import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
 import { Navigation } from 'components/commons/Navigation'
+import { NavigationDots } from 'components/commons/NavigationDots'
 import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from 'components/commons/LoginWindow'
-// import ReactTooltip from 'react-tooltip' // todo - make sure that we actually needed it, as it creates some issues with SSR
 import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 
 interface GTMSAppProps {
@@ -44,7 +44,10 @@ class GTMSApp extends App<GTMSAppProps> {
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <Navigation />
+        <div className={styles.tempNav}>
+          <Navigation />
+          <NavigationDots />
+        </div>
         <NotificationsSidebar />
         <div className={styles.wrapperPage}>
           <NotificationsActive />
@@ -53,8 +56,6 @@ class GTMSApp extends App<GTMSAppProps> {
           </div>
         </div>
         <LoginWindow />
-        {/* @todo consider do we need ReactTooltip? */}
-        {/* <ReactTooltip /> */}
         <div
           className={styles.bg}
           style={{

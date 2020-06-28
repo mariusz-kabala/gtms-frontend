@@ -1,4 +1,6 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/inputFocus.scss';
+@import '~@gtms/styles/scss/mixins/placeholderFocus.scss';
 
 .input {
   width: 100%;
@@ -9,11 +11,6 @@
   padding: 5px 15px;
   background: #171819;
   margin-bottom: 10px;
-
-  &:active,
-  &:focus,
-  &:hover {
-    outline: none;
-    border-color: lightgray;
-  }
+  @include inputFocus;
+  @include placeholderFocus;
 }

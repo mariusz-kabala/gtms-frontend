@@ -6,6 +6,12 @@
   flex: 1;
   max-width: 70%;
 
+  .tempNav {
+    // @todo remove it eventually
+    display: flex;
+    flex-direction: column;
+  }
+
   .wrapperPage {
     display: flex;
     flex: 1;

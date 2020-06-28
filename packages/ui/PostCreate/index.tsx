@@ -33,7 +33,7 @@ export const PostCreate: FC<{
   const [value, setValue] = useState<string>('')
   const [query, setQuery] = useState<string>('')
   const debouncedQuery = useDebounce(query, 100)
-  const { ref, handleInput } = useExpandingArea()
+  const { ref, handleInput } = useExpandingArea(1)
   const tagsSuggestionsAbortController = useRef<AbortController>()
   const [tagsHints, setTagsHints] = useState<{
     isLoading: boolean
@@ -91,15 +91,15 @@ export const PostCreate: FC<{
         data-testid="postCreate"
       >
         {isLoading && <Spinner />}
-        <div className={styles.avatar}>
+        <div className={styles.user}>
           <Link href={`/user/${user?.id}`}>
-            <>
+            <div>
               <UserAvatar
+                alt={`avatar ${getDisplayName(user as any)}`}
                 image={getImage('50x50', user?.avatar, noImage)}
                 additionalStyles={styles.userAvatar}
               />
-              {user && <span>{getDisplayName(user as any)}</span>}
-            </>
+            </div>
           </Link>
         </div>
         <textarea
@@ -147,7 +147,7 @@ export const PostCreate: FC<{
               setQuery(lastTag.substr(1))
             }
           }}
-          rows={3}
+          rows={1}
           placeholder={t('yourMessage')}
           ref={ref as any}
         />

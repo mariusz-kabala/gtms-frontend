@@ -11,7 +11,6 @@ import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
 import { findTagsAPI } from '@gtms/api-tags'
 // components
-import { NavigationDots } from 'components/commons/NavigationDots'
 import { GroupDescription } from 'components/group/GroupDescription'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
@@ -23,6 +22,7 @@ import { GroupMembers } from 'components/group/GroupMembers'
 import { FollowButton } from 'components/group/FollowButton'
 // ui
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
+import { NavigationPage } from '@gtms/ui/NavigationPage'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PromotedGroups } from '@gtms/ui/PromotedGroups'
@@ -112,7 +112,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               filesStatus={groupQuery.getAvatarFileStatus()}
               isEditAllowed={groupQuery.hasAdminRights()}
             />
-            <div>
+            <div className={styles.groupDesc}>
               <h2 data-tip={t('click-here-to-edit')} data-type="dark">
                 {state.group?.name}
               </h2>
@@ -134,24 +134,27 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <FollowButton group={state.group} />
               </div>
             </div>
-            <NavigationDots />
+            <NavigationPage />
+            <div className={styles.searchInput}>
+              <div className={styles.search}>
+                <SearchBar
+                  onTagAdd={() => null}
+                  onTagRemove={() => null}
+                  onLoadSuggestion={() => null}
+                  onQueryChange={() => null}
+                  onLoadSuggestionCancel={() => null}
+                  tags={[]}
+                />
+              </div>
+            </div>
           </div>
           <div className={styles.searchWrapper}>
-            <div className={styles.search}>
-              <SearchBar
-                onTagAdd={() => null}
-                onTagRemove={() => null}
-                onLoadSuggestion={() => null}
-                onQueryChange={() => null}
-                onLoadSuggestionCancel={() => null}
-                tags={[]}
-              />
-            </div>
-            <ul className={styles.watchedTags}>
-              <li className={styles.item}>#dojazdy</li>
-              <li className={styles.item}>#berlin</li>
-              <li className={styles.item}>#polandRock</li>
-              <li className={styles.item}>#sztaby</li>
+            <ul className={styles.search}>
+              <li className={styles.item}>item</li>
+              <li className={styles.item}>item</li>
+              <li className={styles.item}>item</li>
+              <li className={styles.item}>item</li>
+              <li className={styles.item}>item</li>
             </ul>
           </div>
           <div className={styles.columns}>
@@ -188,6 +191,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               />
             </div>
             <div>
+              <PromotedGroups />
+              <br /> {/* @todo remove it */}
               <PromotedTags
                 tags={state.promotedTags.tags}
                 isLoading={state.promotedTags.isLoading}
@@ -205,8 +210,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </ul>
               </NavigationTabs>
               <GroupMembers {...state.members} />
-              <br /> {/* @todo remove it */}
-              <PromotedGroups />
             </div>
           </div>
         </>

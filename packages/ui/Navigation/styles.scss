@@ -4,23 +4,20 @@
 .wrapper {
   width: 50px;
   min-width: 50px; // because of display flex
-  min-height: 100%;
   display: flex;
   margin-right: -15px;
   justify-content: center;
 
   .navigation {
-    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
     @include font-size(md);
     cursor: pointer;
 
     .avatar {
       width: 40px;
-      margin-top: 25px;
+      margin-top: 20px;
       margin-bottom: 10px;
 
       img {

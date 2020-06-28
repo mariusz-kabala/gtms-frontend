@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react'
+import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import { FileStatus } from '@gtms/commons/enums'
-import styles from './styles.scss'
 import { ChangePassword } from 'components/account/ChangePassword'
 import { DeleteAccount } from 'components/account/DeleteAccount'
 import { UserEmail } from 'components/account/UserEmail'
@@ -120,17 +120,27 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             }}
             onClose={() => setIsAvatarEditorVisible(false)}
           />
-          <a onClick={() => setIsAvatarEditorVisible(true)}>
-            {[FileStatus.uploaded, FileStatus.processing].includes(
-              state.avatar.status
-            ) && <Spinner />}
-            <Picture
-              {...(userQuery.hasAvatar('200x200')
-                ? userQuery.getAvatar('200x200')
-                : UserAvatarNoImage['200x200'])}
-            />
-          </a>
+          <div className={styles.avatarWrapper}>
+            <a onClick={() => setIsAvatarEditorVisible(true)}>
+              {[FileStatus.uploaded, FileStatus.processing].includes(
+                state.avatar.status
+              ) && <Spinner />}
+              <Picture
+                additionalStyles={styles.avatar}
+                {...(userQuery.hasAvatar('200x200')
+                  ? userQuery.getAvatar('200x200')
+                  : UserAvatarNoImage['200x200'])}
+              />
+            </a>
+          </div>
+          <UserName
+            additionalStyles={styles.userName}
+            name={state.name}
+            surname={state.surname}
+          />
+          <br />
           <UserDescription description={state.description} />
+          <br />
           <TagsBar
             tags={tags}
             isSaving={isSaving}
@@ -142,17 +152,16 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             onTagRemove={onTagRemove}
             onSave={onTagsSave}
           />
+          <br />
           <ChangePassword />
-          <UserName
-            additionalStyles={styles.userName}
-            name={state.name}
-            surname={state.surname}
-          />
+          <br />
           <UserEmail email={state.email} additionalStyles={styles.userName} />
+          <br />
           <DeleteAccount
             additionalStyles={styles.deleteAccount}
             onConfirm={() => null}
           />
+          <br />
           <NotificationsSettings />
         </div>
       )}

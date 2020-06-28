@@ -5,16 +5,12 @@
 .wrapper {
   display: flex;
   @include z-index(navigationGroup);
-  border-left: 1px solid $theme3;
+  margin-left: 5px;
 
   .navigationDot {
-    display: none;
     > li {
-      display: flex;
-      justify-content: center;
-      align-content: center;
+      margin-top: 5px;
 
-      // @todo separate component?
       .item {
         width: 40px;
         height: 40px;
@@ -32,42 +28,6 @@
           width: 45px;
           height: 45px;
         }
-      }
-    }
-  }
-
-  .linksMock {
-    display: flex;
-
-    li {
-      position: relative;
-      border-radius: 5px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      a {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        @include font-size(md);
-        text-decoration: none;
-        color: $theme7;
-
-        i {
-          line-height: 0;
-          display: block;
-        }
-
-        span {
-          margin-left: 5px;
-          @include font-size(sm);
-        }
-      }
-
-      &:hover {
-        background: $theme5;
       }
     }
   }
