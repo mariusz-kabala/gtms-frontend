@@ -10,7 +10,7 @@ describe('<WelcomeSlider />', () => {
   })
 
   it('Should have additional css classes', () => {
-    const { container } = render(<WelcomeSlider />)
+    const { container } = render(<WelcomeSlider additionalStyles={'cssTest'} />)
 
     expect(container.querySelector('.cssTest')).toBeInTheDocument()
   })
