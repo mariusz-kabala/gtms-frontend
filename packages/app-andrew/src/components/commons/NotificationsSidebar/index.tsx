@@ -4,7 +4,9 @@ import cx from 'classnames'
 import useKey from 'use-key-hook'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { IoMdCloseCircle } from 'react-icons/io'
+import { ExpandingRow } from '@gtms/ui/ExpandingRow'
 import { Notification } from '@gtms/ui/Notification'
+import { CloseIcon } from '@gtms/ui/ExpandingRow/CloseIcon'
 import { INotificationsSidebarProps, baseUIQuery } from 'queries'
 import { NotificationIcons } from 'enums'
 import { INotification, deleteNotification } from '@gtms/state-notification'
@@ -47,13 +49,11 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      <div className={styles.content}>
-        <Scrollbars style={{ height: '100vh' }}>
+      <ExpandingRow>
+        <Scrollbars style={{ height: '40vh' }}>
           <div className={styles.header}>
             <h2>Powiadomienia (nowe: {state.unreadCount})</h2>
-            <i className={styles.iconClose}>
-              <IoMdCloseCircle onClick={closeSidebarNotifications} />
-            </i>
+            <CloseIcon onClick={closeSidebarNotifications} />
           </div>
           <ul>
             {state.notifications.map((notification: INotification) => (
@@ -68,7 +68,7 @@ export const NotificationsSidebar: FC<{
             ))}
           </ul>
         </Scrollbars>
-      </div>
+      </ExpandingRow>
     </div>
   )
 }

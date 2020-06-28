@@ -54,38 +54,6 @@
     }
   }
 
-  .searchWrapper {
-    display: flex;
-    height: 0px;
-    overflow: hidden;
-    transition: height 1s ease-out;
-    background: rgba(black, 0.5);
-
-    ul {
-      display: flex;
-      padding: 5px;
-
-      .item {
-        padding: 5px 10px;
-        @include font-size(sm);
-        background: $theme3;
-        margin-right: 5px;
-      }
-    }
-
-    i {
-      display: flex;
-      @include font-size(lg);
-      margin-left: auto;
-      padding: 10px;
-      cursor: pointer;
-
-      &:hover {
-        background: $theme5;
-      }
-    }
-  }
-
   .columns {
     // @todo make mixin of that
     display: grid;

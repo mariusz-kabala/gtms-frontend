@@ -11,15 +11,16 @@ import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
 import { findTagsAPI } from '@gtms/api-tags'
 // components
+import { FavsButton } from 'components/group/FavsButton'
+import { FollowButton } from 'components/group/FollowButton'
+import { GroupAvatar } from 'components/group/GroupAvatar'
 import { GroupDescription } from 'components/group/GroupDescription'
+import { GroupMembers } from 'components/group/GroupMembers'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
-import { GroupAvatar } from 'components/group/GroupAvatar'
-import { FavsButton } from 'components/group/FavsButton'
-import { SettingsButton } from 'components/group/SettingsButton'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
-import { GroupMembers } from 'components/group/GroupMembers'
-import { FollowButton } from 'components/group/FollowButton'
+import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
+import { SettingsButton } from 'components/group/SettingsButton'
 // ui
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
 import { NavigationPage } from '@gtms/ui/NavigationPage'
@@ -92,7 +93,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.errorOccured && (
         <ErrorInfo>
-          <h1>ERROR OCCURED</h1>
+          <h2>ERROR OCCURED</h2>
           <p>
             Create a proper component that can be used here when 500 from BE
           </p>
@@ -148,15 +149,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </div>
             </div>
           </div>
-          <div className={styles.searchWrapper}>
-            <ul className={styles.search}>
-              <li className={styles.item}>item</li>
-              <li className={styles.item}>item</li>
-              <li className={styles.item}>item</li>
-              <li className={styles.item}>item</li>
-              <li className={styles.item}>item</li>
-            </ul>
-          </div>
+          <NotificationsSidebar />
           <div className={styles.columns}>
             <div>
               <NavigationTabs>

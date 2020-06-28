@@ -1,9 +1,8 @@
 @import '~@gtms/styles/scss/variables.scss';
 
 @mixin buttonDefault() {
-  display: inline-block;
-  outline: none;
   border: none;
+  outline: none;
   border-radius: $borderRadius;
   justify-content: center;
   padding: 10px;

@@ -3,12 +3,8 @@
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .buttonDelete {
-  display: flex;
-
-  i {
-    margin-top: 2px;
-    margin-right: 2px;
-  }
+  @include buttonDefault();
+  @include buttonColorsDefault();
 }
 
 .wrapperConfirm {

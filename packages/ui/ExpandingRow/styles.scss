@@ -1,0 +1,31 @@
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/zindex';
+
+.wrapper {
+  background: rgba(black, 0.5);
+
+  > ul {
+    display: flex;
+    padding: 5px;
+
+    .item {
+      padding: 5px 10px;
+      @include font-size(sm);
+      background: $theme3;
+      margin-right: 5px;
+    }
+  }
+
+  > i {
+    display: flex;
+    @include font-size(lg);
+    margin-left: auto;
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: $theme5;
+    }
+  }
+}
