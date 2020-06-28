@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
-import { IGroup, FileStatus } from '@gtms/commons'
 import { toggleSidebarNotifications } from 'state'
 
 // this is just a mock
