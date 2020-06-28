@@ -195,6 +195,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   router.push(`/group/${state.group?.slug}/settings#tags`)
                 }
               />
+              <br /> {/* @todo remove it */}
               <NavigationTabs>
                 <h2 className={styles.header}>Recently registered</h2>
                 <ul className={styles.elements}>

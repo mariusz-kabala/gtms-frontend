@@ -19,10 +19,16 @@
   }
 }
 
+// SIZES
 @mixin buttonSizeSm() {
+  display: flex;
+  align-items: center;
   padding: 5px;
+  line-height: 0;
+  font-size: 9px;
 }
 
+// COLOR TYPES
 @mixin buttonColorsDefault() {
   background: $theme3;
   color: $theme7;

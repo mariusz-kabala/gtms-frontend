@@ -2,7 +2,6 @@
 
 .wrapper {
   position: relative;
-  background: $theme2;
   padding: 10px;
   border-radius: $borderRadius;
   border: 1px solid $theme2;
@@ -21,7 +20,7 @@
   }
 
   &:hover {
-    border-color: $theme3;
+    border-color: $theme5;
 
     .desc {
       .text {
@@ -76,7 +75,7 @@
     margin-left: 45px;
 
     .text {
-      margin-bottom: 10px;
+      margin: 10px 0;
 
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
