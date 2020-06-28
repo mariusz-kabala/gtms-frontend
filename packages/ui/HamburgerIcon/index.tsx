@@ -4,7 +4,7 @@ import cx from 'classnames'
 
 export const HamburgerIcon: FC<{
   additionalStyles?: string
-  onClick: () => unknown
+  onClick?: () => unknown
 }> = ({ additionalStyles, onClick }) => {
   return (
     <div

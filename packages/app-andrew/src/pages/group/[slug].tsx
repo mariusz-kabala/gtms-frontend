@@ -32,7 +32,6 @@ import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
-import { HamburgerIcon } from '@gtms/ui/HamburgerIcon'
 // state
 import {
   groupQuery,
@@ -108,7 +107,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
-          <HamburgerIcon />
           <div className={styles.groupHeader}>
             <GroupAvatar
               additionalStyles={styles.groupAvatar}
