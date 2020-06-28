@@ -19,12 +19,19 @@
   }
 }
 
+// TYPES
+@mixin buttonWithIcon() {
+  i {
+    margin-right: 3px;
+  }
+}
+
 // SIZES
 @mixin buttonSizeSm() {
   display: flex;
   align-items: center;
   padding: 5px;
-  line-height: 0;
+  line-height: 1;
   font-size: 9px;
 }
 

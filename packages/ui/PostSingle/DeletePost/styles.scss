@@ -5,9 +5,11 @@
 .buttonDelete {
   position: absolute;
   right: 10px;
-  @include buttonDefault();
   @include buttonColorsDefault();
+  @include buttonDefault();
   @include buttonSizeSm();
+  @include buttonWithIcon();
+
   &:hover {
     @include buttonColorsHoverDefault();
   }
