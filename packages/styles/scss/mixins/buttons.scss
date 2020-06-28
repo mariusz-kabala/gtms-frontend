@@ -19,6 +19,10 @@
   }
 }
 
+@mixin buttonSizeSm() {
+  padding: 5px;
+}
+
 @mixin buttonColorsDefault() {
   background: $theme3;
   color: $theme7;

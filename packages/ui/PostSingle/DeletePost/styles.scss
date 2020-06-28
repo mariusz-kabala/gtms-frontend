@@ -34,6 +34,7 @@
       width: 50%;
       @include buttonDefault();
       @include buttonColorsDefault();
+      @include buttonSizeSm();
 
       &:hover {
         @include buttonColorsHoverDefault();
