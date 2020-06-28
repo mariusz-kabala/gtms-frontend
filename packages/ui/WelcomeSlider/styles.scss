@@ -5,6 +5,7 @@
 
 .wrapper {
   display: flex;
+  align-items: flex-end;
   @include imageCover();
   @include font-size(sm);
   min-height: 350px;

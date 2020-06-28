@@ -1,6 +1,7 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
+import { Picture } from '../Picture'
 
 export const WelcomeSlider: FC<{
   additionalStyles?: string
@@ -13,7 +14,7 @@ export const WelcomeSlider: FC<{
         backgroundImage: `url('/images/temp_images/cover-image-travel.png')`,
       }}
     >
-      slider here
+      <Picture jpg={'/images/temp_images/cover-image-travel-text.png'} />
     </div>
   )
 }
