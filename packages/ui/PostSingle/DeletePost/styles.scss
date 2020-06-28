@@ -33,6 +33,7 @@
     .btn {
       width: 50%;
       @include buttonDefault();
+      @include buttonColorsDefault();
 
       &:hover {
         @include buttonColorsHoverDefault();

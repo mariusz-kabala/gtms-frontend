@@ -17,6 +17,7 @@
 
     .btn {
       @include buttonDefault();
+      @include buttonColorsDefault();
       border: 1px solid $theme2;
       &:hover {
         @include buttonColorsHoverDefault();
