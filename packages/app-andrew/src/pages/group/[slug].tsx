@@ -11,7 +11,6 @@ import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
 import { findTagsAPI } from '@gtms/api-tags'
 // components
-import { NavigationDots } from 'components/commons/NavigationDots'
 import { GroupDescription } from 'components/group/GroupDescription'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
@@ -23,6 +22,7 @@ import { GroupMembers } from 'components/group/GroupMembers'
 import { FollowButton } from 'components/group/FollowButton'
 // ui
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
+import { NavigationPage } from '@gtms/ui/NavigationPage'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PromotedGroups } from '@gtms/ui/PromotedGroups'
@@ -134,7 +134,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <FollowButton group={state.group} />
               </div>
             </div>
-            <NavigationDots />
+            <NavigationPage />
             <div className={styles.searchInput}>
               <div className={styles.search}>
                 <SearchBar
