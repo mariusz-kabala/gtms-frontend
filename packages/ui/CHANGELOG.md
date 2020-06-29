@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.26.0...@gtms/ui@0.26.1) (2020-06-29)
+
+
+### Bug Fixes
+
+* GEOT-298: general styles part 2 ([#674](https://github.com/gtms-org/gtms-frontend/issues/674)) ([58be3d8](https://github.com/gtms-org/gtms-frontend/commit/58be3d8017f109f4d5b5efe851c3eff3f69c0eec)), closes [#676](https://github.com/gtms-org/gtms-frontend/issues/676)
+
+
+
+
+
 # [0.26.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.25.0...@gtms/ui@0.26.0) (2020-06-24)
 
 
