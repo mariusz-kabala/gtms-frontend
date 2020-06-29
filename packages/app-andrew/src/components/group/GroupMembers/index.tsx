@@ -35,22 +35,24 @@ export const GroupMembers: FC<{
 
       {users.length === 0 && (
         <div className={styles.usersMock}>
-          <UserAvatar
-            additionalStyles={styles.avatar}
-            image={{ jpg: '/images/temp_images/avatar-1.png' }}
-          />
-          <UserAvatar
-            additionalStyles={styles.avatar}
-            image={{ jpg: '/images/temp_images/avatar-1.png' }}
-          />
-          <UserAvatar
-            additionalStyles={styles.avatar}
-            image={{ jpg: '/images/temp_images/avatar-1.png' }}
-          />
-          <UserAvatar
-            additionalStyles={styles.avatar}
-            image={{ jpg: '/images/temp_images/avatar-1.png' }}
-          />
+          <div>
+            <UserAvatar
+              additionalStyles={styles.avatar}
+              image={{ jpg: '/images/temp_images/avatar-1.png' }}
+            />
+            <UserAvatar
+              additionalStyles={styles.avatar}
+              image={{ jpg: '/images/temp_images/avatar-1.png' }}
+            />
+            <UserAvatar
+              additionalStyles={styles.avatar}
+              image={{ jpg: '/images/temp_images/avatar-1.png' }}
+            />
+            <UserAvatar
+              additionalStyles={styles.avatar}
+              image={{ jpg: '/images/temp_images/avatar-1.png' }}
+            />
+          </div>
           <p>No groups members, maybe you would like to be the first one?</p>
         </div>
       )}

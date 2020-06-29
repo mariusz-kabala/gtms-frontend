@@ -1,0 +1,47 @@
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/zindex';
+
+.wrapper {
+  display: flex;
+  @include z-index(navigationGroup);
+  border-left: 1px solid $theme3;
+  margin-right: 5px;
+
+  .linksMock {
+    display: flex;
+
+    li {
+      position: relative;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        @include font-size(lg);
+        text-decoration: none;
+        color: $theme7;
+
+        i {
+          line-height: 0;
+          display: block;
+        }
+
+        span {
+          margin-left: 5px;
+          @include font-size(xdefault);
+        }
+      }
+
+      &:hover {
+        background: $theme5;
+      }
+    }
+  }
+}

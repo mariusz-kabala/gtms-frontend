@@ -1,25 +1,38 @@
 @import '@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/buttons';
 
 .wrapper {
   position: relative;
+  padding: 10px;
   border-radius: $borderRadius;
+  border: 1px solid $theme2;
   overflow: hidden; // for delete post component that overflows this component
+  opacity: 0.85;
   cursor: pointer;
 
   &::after {
     content: '';
     position: absolute;
-    top: 45px;
-    left: 15px;
+    bottom: 0;
+    left: 25px;
     display: flex;
     width: 4px;
-    height: calc(100% - 45px);
+    height: calc(100% - 55px);
     background: #4b4465;
   }
 
   &:hover {
-    .header .deleteBtn {
-      opacity: 0.5;
+    border-color: $theme5;
+    opacity: 1;
+
+    .header {
+      .deleteBtn {
+        opacity: 0.8;
+      }
+    }
+
+    &::after {
+      background: $theme5;
     }
   }
 
@@ -56,13 +69,11 @@
     }
 
     .deleteBtn {
-      margin-left: auto;
-      cursor: pointer;
       opacity: 0;
+      margin-left: auto;
 
       &:hover {
         opacity: 1;
-        color: $theme5;
       }
     }
   }
@@ -72,7 +83,7 @@
     margin-left: 45px;
 
     .text {
-      margin-bottom: 10px;
+      margin: 10px 0;
 
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
@@ -80,12 +91,12 @@
     }
   }
 
-  .action {
-    display: flex;
-
-    a {
-      display: block;
-      margin-left: auto;
+  .respondBtn {
+    @include buttonDefault();
+    @include buttonColorsDefault();
+    @include buttonSizeSm();
+    &:hover {
+      @include buttonColorsHoverDefault();
     }
   }
 }

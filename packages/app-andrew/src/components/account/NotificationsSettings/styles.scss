@@ -1,0 +1,29 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
+
+.items {
+  .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    h2,
+    h3 {
+      margin-left: 5px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.btnSubmit {
+  width: 100%;
+  margin-top: 15px;
+  @include buttonDefault();
+  @include buttonColorsDefault();
+  &:hover {
+    @include buttonColorsHoverDefault();
+  }
+}

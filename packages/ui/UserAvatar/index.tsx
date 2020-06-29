@@ -5,17 +5,18 @@ import { Picture } from '../Picture'
 
 export const UserAvatar: FC<{
   additionalStyles?: string
+  alt?: string
   image: {
     jpg: string
     webp?: string
   }
   onClick?: () => unknown
-}> = ({ additionalStyles, image, onClick }) => (
+}> = ({ additionalStyles, alt, image, onClick }) => (
   <div
     data-testid="user-avatar"
     onClick={onClick}
     className={cx(styles.wrapper, additionalStyles)}
   >
-    <Picture {...image} />
+    <Picture alt={alt} {...image} />
   </div>
 )

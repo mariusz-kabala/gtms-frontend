@@ -1,0 +1,10 @@
+@import '~@gtms/styles/scss/variables.scss';
+
+@mixin inputFocus() {
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none;
+    border-color: lightgray;
+  }
+}

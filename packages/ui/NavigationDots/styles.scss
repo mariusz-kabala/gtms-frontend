@@ -4,22 +4,13 @@
 
 .wrapper {
   display: flex;
-  flex-direction: column;
   @include z-index(navigationGroup);
-  width: 55px;
-  min-width: 55px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  background: rgba($theme4, 0.4);
+  margin-left: 5px;
 
   .navigationDot {
     > li {
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      margin-top: 10px;
+      margin-top: 5px;
 
-      // @todo separate component?
       .item {
         width: 40px;
         height: 40px;
@@ -37,40 +28,6 @@
           width: 45px;
           height: 45px;
         }
-      }
-    }
-  }
-
-  .linksMock {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 10px;
-
-    li {
-      position: relative;
-      margin-bottom: 5px;
-      border-radius: 5px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      a {
-        display: block;
-        padding: 10px;
-        @include font-size(md);
-        text-decoration: none;
-        color: $theme7;
-
-        i {
-          line-height: 0;
-          display: block;
-        }
-      }
-
-      &:hover {
-        background: $theme5;
       }
     }
   }

@@ -11,17 +11,19 @@ import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
 import { findTagsAPI } from '@gtms/api-tags'
 // components
+import { FavsButton } from 'components/group/FavsButton'
+import { FollowButton } from 'components/group/FollowButton'
+import { GroupAvatar } from 'components/group/GroupAvatar'
 import { GroupDescription } from 'components/group/GroupDescription'
+import { GroupMembers } from 'components/group/GroupMembers'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
-import { GroupAvatar } from 'components/group/GroupAvatar'
-import { FavsButton } from 'components/group/FavsButton'
-import { SettingsButton } from 'components/group/SettingsButton'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
-import { GroupMembers } from 'components/group/GroupMembers'
-import { FollowButton } from 'components/group/FollowButton'
+import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
+import { SettingsButton } from 'components/group/SettingsButton'
 // ui
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
+import { NavigationPage } from '@gtms/ui/NavigationPage'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PromotedGroups } from '@gtms/ui/PromotedGroups'
@@ -29,6 +31,7 @@ import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
+import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
 // state
 import {
   groupQuery,
@@ -91,7 +94,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.errorOccured && (
         <ErrorInfo>
-          <h1>ERROR OCCURED</h1>
+          <h2>ERROR OCCURED</h2>
           <p>
             Create a proper component that can be used here when 500 from BE
           </p>
@@ -104,24 +107,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
-          <div className={styles.searchWrapper}>
-            <div className={styles.search}>
-              <SearchBar
-                onTagAdd={() => null}
-                onTagRemove={() => null}
-                onLoadSuggestion={() => null}
-                onQueryChange={() => null}
-                onLoadSuggestionCancel={() => null}
-                tags={[]}
-              />
-            </div>
-            <ul className={styles.watchedTags}>
-              <li className={styles.item}>#dojazdy</li>
-              <li className={styles.item}>#berlin</li>
-              <li className={styles.item}>#polandRock</li>
-              <li className={styles.item}>#sztaby</li>
-            </ul>
-          </div>
           <div className={styles.groupHeader}>
             <GroupAvatar
               additionalStyles={styles.groupAvatar}
@@ -129,7 +114,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               filesStatus={groupQuery.getAvatarFileStatus()}
               isEditAllowed={groupQuery.hasAdminRights()}
             />
-            <div>
+            <div className={styles.groupDesc}>
               <h2 data-tip={t('click-here-to-edit')} data-type="dark">
                 {state.group?.name}
               </h2>
@@ -151,18 +136,24 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <FollowButton group={state.group} />
               </div>
             </div>
+            <NavigationPage />
+            <div className={styles.searchInput}>
+              <div className={styles.search}>
+                <SearchBar
+                  onTagAdd={() => null}
+                  onTagRemove={() => null}
+                  onLoadSuggestion={() => null}
+                  onQueryChange={() => null}
+                  onLoadSuggestionCancel={() => null}
+                  tags={[]}
+                />
+              </div>
+            </div>
           </div>
+          <WelcomeSlider />
+          <NotificationsSidebar />
           <div className={styles.columns}>
             <div>
-              <NavigationTabs>
-                <h2 className={styles.header}>Posts</h2>
-                <ul className={styles.elements}>
-                  <li className={styles.item}>popular posts</li>
-                  <li className={styles.item}>latest posts</li>
-                  <li className={styles.item}>favorites posts</li>
-                  <li className={styles.item}>my posts</li>
-                </ul>
-              </NavigationTabs>
               {state.user && (
                 <PostCreate
                   fetchTags={findTagsAPI}
@@ -177,6 +168,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   additionalStyles={styles.postCreate}
                 />
               )}
+              <NavigationTabs>
+                <h2 className={styles.header}>Posts</h2>
+                <ul className={styles.elements}>
+                  <li className={styles.item}>popular posts</li>
+                  <li className={styles.item}>latest posts</li>
+                  <li className={styles.item}>favorites posts</li>
+                  <li className={styles.item}>my posts</li>
+                </ul>
+              </NavigationTabs>
               <RecentlyAddedPosts
                 fetchTags={findTagsAPI}
                 user={state.user}
@@ -186,6 +186,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               />
             </div>
             <div>
+              <PromotedGroups />
+              <br /> {/* @todo remove it */}
               <PromotedTags
                 tags={state.promotedTags.tags}
                 isLoading={state.promotedTags.isLoading}
@@ -195,6 +197,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   router.push(`/group/${state.group?.slug}/settings#tags`)
                 }
               />
+              <br /> {/* @todo remove it */}
               <NavigationTabs>
                 <h2 className={styles.header}>Recently registered</h2>
                 <ul className={styles.elements}>
@@ -203,8 +206,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </ul>
               </NavigationTabs>
               <GroupMembers {...state.members} />
-              <br /> {/* @todo remove it */}
-              <PromotedGroups />
             </div>
           </div>
         </>

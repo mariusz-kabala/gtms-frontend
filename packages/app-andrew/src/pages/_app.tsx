@@ -10,8 +10,6 @@ import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from 'components/commons/LoginWindow'
-// import ReactTooltip from 'react-tooltip' // todo - make sure that we actually needed it, as it creates some issues with SSR
-import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 
 interface GTMSAppProps {
   auth?: {
@@ -45,18 +43,23 @@ class GTMSApp extends App<GTMSAppProps> {
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <Navigation />
-        <NotificationsSidebar />
-        <div className={styles.wrapperPage}>
+        <div className={styles.tempNav}>
+          <Navigation />
           <NavigationDots />
+        </div>
+        <div className={styles.wrapperPage}>
           <NotificationsActive />
           <div className={styles.pageContent}>
             <Component {...pageProps} />
           </div>
         </div>
         <LoginWindow />
-        {/* @todo consider do we need ReactTooltip? */}
-        {/* <ReactTooltip /> */}
+        <div
+          className={styles.bg}
+          style={{
+            backgroundImage: `url('/images/temp_images/group_bg_4.png')`,
+          }}
+        />
       </div>
     )
   }

@@ -14,10 +14,11 @@
     cursor: pointer;
 
     img {
-      width: 70px;
-      min-width: 70px;
-      height: 70px;
-      min-height: 70px;
+      // @todo - this should be eventually removed - it shouldn't be fixed value
+      width: 65px;
+      min-width: 65px;
+      height: 65px;
+      min-height: 65px;
       border-radius: $borderRadius;
     }
   }

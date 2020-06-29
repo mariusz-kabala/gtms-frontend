@@ -18,7 +18,7 @@ import {
 } from 'queries'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { Link } from '@gtms/commons/i18n'
-import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
+import { IoIosHeartEmpty, IoIosHeart, IoIosSettings } from 'react-icons/io'
 import { GroupsList } from '../../components/my-groups/GroupsList'
 import { Spinner } from '@gtms/ui/Spinner'
 import { useInitState } from '@gtms/commons/hooks'
@@ -46,185 +46,185 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.notFound}>
-        <div className={styles.desc}>
-          <h2>{t('header')}</h2>
-          <p>
-            Nisi officia incididunt adipisicing commodo eiusmod exercitation.
-          </p>
-        </div>
-        <img src="/images/polandrock/camping-image.png" />
-      </div>
-      <div>
-        {state.isLoading && <Spinner />}
-        {!state.isLoading && state.errorOccurred && (
-          <div>
-            <p>Can not fetch list of your groups now. please try again later</p>
-          </div>
-        )}
-        {!state.isLoading && !state.errorOccurred && (
-          <>
-            <nav>
-              <ul>
-                <li
-                  onClick={() => setCurrentTab('owner')}
-                  className={cx({
-                    [styles.current]: currentTab === 'owner',
-                  })}
-                >
-                  <a>
-                    {t('iAmOwner')} ({state.owner.length})
-                  </a>
-                </li>
-                <li
-                  onClick={() => setCurrentTab('admin')}
-                  className={cx({
-                    [styles.current]: currentTab === 'admin',
-                  })}
-                >
-                  <a>
-                    {t('iAmAdmin')} ({state.admin.length})
-                  </a>
-                </li>
-                <li
-                  onClick={() => setCurrentTab('member')}
-                  className={cx({
-                    [styles.current]: currentTab === 'member',
-                  })}
-                >
-                  <a>
-                    {t('iAmMember')} ({state.member.length})
-                  </a>
-                </li>
-                <li
-                  onClick={() => setCurrentTab('fav')}
-                  className={cx({
-                    [styles.current]: currentTab === 'fav',
-                  })}
-                >
-                  <a>
-                    {t('favourites')} ({state.favs.length})
-                  </a>
-                </li>
-              </ul>
-            </nav>
+      {state.isLoading && <Spinner additionalStyles={styles.spinner} />}
+      {!state.isLoading && state.errorOccurred && (
+        <p>Can not fetch list of your groups now. please try again later</p>
+      )}
+      {!state.isLoading && !state.errorOccurred && (
+        <>
+          <nav>
+            <ul className={styles.items}>
+              <li
+                onClick={() => setCurrentTab('owner')}
+                className={cx(styles.item, {
+                  [styles.current]: currentTab === 'owner',
+                })}
+              >
+                <a>
+                  {t('iAmOwner')} ({state.owner.length})
+                </a>
+              </li>
+              <li
+                onClick={() => setCurrentTab('admin')}
+                className={cx(styles.item, {
+                  [styles.current]: currentTab === 'admin',
+                })}
+              >
+                <a>
+                  {t('iAmAdmin')} ({state.admin.length})
+                </a>
+              </li>
+              <li
+                onClick={() => setCurrentTab('member')}
+                className={cx(styles.item, {
+                  [styles.current]: currentTab === 'member',
+                })}
+              >
+                <a>
+                  {t('iAmMember')} ({state.member.length})
+                </a>
+              </li>
+              <li
+                onClick={() => setCurrentTab('fav')}
+                className={cx(styles.item, {
+                  [styles.current]: currentTab === 'fav',
+                })}
+              >
+                <a>
+                  {t('favourites')} ({state.favs.length})
+                </a>
+              </li>
+            </ul>
+          </nav>
 
-            <GroupsList
-              additionalStyles={cx({
-                [styles.currentList]: currentTab === 'owner',
-              })}
-              groups={state.owner}
-              renderFavsIcon={(group) =>
-                myGroupsQuery.isInFavs(group) ? (
+          <GroupsList
+            additionalStyles={cx({
+              [styles.currentList]: currentTab === 'owner',
+            })}
+            groups={state.owner}
+            renderFavsIcon={(group) =>
+              myGroupsQuery.isInFavs(group) ? (
+                <i>
                   <IoIosHeart />
-                ) : (
+                </i>
+              ) : (
+                <i>
                   <IoIosHeartEmpty />
-                )
-              }
-              renderGroupMenu={(group) => (
-                <ul>
-                  <li>
-                    <Link href={`/group/${group.slug}/settings`}>
-                      {t('settings')}
-                    </Link>
-                  </li>
-                </ul>
-              )}
-              noRecords={
+                </i>
+              )
+            }
+            renderGroupMenu={(group) => (
+              <Link href={`/group/${group.slug}/settings`}>
                 <div>
-                  <p>You do not own any group, maybe its time to create one?</p>
-                  <p>
-                    <Link href="/group-create">
-                      <a>Create a group!</a>
-                    </Link>
-                  </p>
+                  <i>
+                    <IoIosSettings />
+                  </i>
+                  {t('settings')}
                 </div>
+              </Link>
+            )}
+            noRecords={
+              <div>
+                <p>You do not own any group, maybe its time to create one?</p>
+                <p>
+                  <Link href="/group-create">
+                    <a>Create a group!</a>
+                  </Link>
+                </p>
+              </div>
+            }
+            onFavsClick={(group) => {
+              if (myGroupsQuery.isInFavs(group)) {
+                return removeFromFavs(group)
               }
-              onFavsClick={(group) => {
-                if (myGroupsQuery.isInFavs(group)) {
-                  return removeFromFavs(group)
-                }
 
-                addToFavs(group)
-              }}
-            />
+              addToFavs(group)
+            }}
+          />
 
-            <GroupsList
-              additionalStyles={cx({
-                [styles.currentList]: currentTab === 'fav',
-              })}
-              groups={state.favs}
-              renderFavsIcon={() => <IoIosHeart />}
-              renderGroupMenu={() => null}
-              noRecords={
-                <div>
-                  <p>You do not have any favs groups</p>
-                  <p>
-                    <Link href="/search">
-                      <a>Find some!</a>
-                    </Link>
-                  </p>
-                </div>
-              }
-              onFavsClick={(group) => removeFromFavs(group)}
-            />
+          <GroupsList
+            additionalStyles={cx({
+              [styles.currentList]: currentTab === 'fav',
+            })}
+            groups={state.favs}
+            renderFavsIcon={() => <IoIosHeart />}
+            renderGroupMenu={() => null}
+            noRecords={
+              <div>
+                <p>You do not have any favs groups</p>
+                <p>
+                  <Link href="/search">
+                    <a>Find some!</a>
+                  </Link>
+                </p>
+              </div>
+            }
+            onFavsClick={(group) => removeFromFavs(group)}
+          />
 
-            <GroupsList
-              additionalStyles={cx({
-                [styles.currentList]: currentTab === 'admin',
-              })}
-              groups={state.admin}
-              renderFavsIcon={(group) =>
-                myGroupsQuery.isInFavs(group) ? (
+          <GroupsList
+            additionalStyles={cx({
+              [styles.currentList]: currentTab === 'admin',
+            })}
+            groups={state.admin}
+            renderFavsIcon={(group) =>
+              myGroupsQuery.isInFavs(group) ? (
+                <i>
                   <IoIosHeart />
-                ) : (
+                </i>
+              ) : (
+                <i>
                   <IoIosHeartEmpty />
-                )
+                </i>
+              )
+            }
+            renderGroupMenu={() => null}
+            noRecords={<p>No records</p>}
+            onFavsClick={(group) => {
+              if (myGroupsQuery.isInFavs(group)) {
+                return removeFromFavs(group)
               }
-              renderGroupMenu={() => null}
-              noRecords={<p>No records</p>}
-              onFavsClick={(group) => {
-                if (myGroupsQuery.isInFavs(group)) {
-                  return removeFromFavs(group)
-                }
 
-                addToFavs(group)
-              }}
-            />
-            <GroupsList
-              additionalStyles={cx({
-                [styles.currentList]: currentTab === 'member',
-              })}
-              groups={state.member}
-              renderFavsIcon={(group) =>
-                myGroupsQuery.isInFavs(group) ? (
+              addToFavs(group)
+            }}
+          />
+          <GroupsList
+            additionalStyles={cx({
+              [styles.currentList]: currentTab === 'member',
+            })}
+            groups={state.member}
+            renderFavsIcon={(group) =>
+              myGroupsQuery.isInFavs(group) ? (
+                <i>
                   <IoIosHeart />
-                ) : (
+                </i>
+              ) : (
+                <i>
                   <IoIosHeartEmpty />
-                )
+                </i>
+              )
+            }
+            renderGroupMenu={() => null}
+            noRecords={
+              <div>
+                <p>You do not belong to any group</p>
+                <p>
+                  <Link href="/search">
+                    <a>Find a group and join!</a>
+                  </Link>
+                </p>
+              </div>
+            }
+            onFavsClick={(group) => {
+              if (myGroupsQuery.isInFavs(group)) {
+                return removeFromFavs(group)
               }
-              renderGroupMenu={() => null}
-              noRecords={
-                <div>
-                  <p>You do not belong to any group</p>
-                  <p>
-                    <Link href="/search">
-                      <a>Find a group and join!</a>
-                    </Link>
-                  </p>
-                </div>
-              }
-              onFavsClick={(group) => {
-                if (myGroupsQuery.isInFavs(group)) {
-                  return removeFromFavs(group)
-                }
 
-                addToFavs(group)
-              }}
-            />
-          </>
-        )}
-      </div>
+              addToFavs(group)
+            }}
+          />
+        </>
+      )}
     </div>
   )
 }

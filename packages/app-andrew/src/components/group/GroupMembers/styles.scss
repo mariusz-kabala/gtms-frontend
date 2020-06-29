@@ -32,21 +32,27 @@ $groupMembersAvatarSize: 50px;
   }
 
   .usersMock {
-    display: grid;
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax($groupMembersAvatarSize, 1fr)
-    );
-    grid-gap: 15px;
+    width: 100%;
 
-    .avatar {
-      opacity: 0.5;
+    > div {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax($groupMembersAvatarSize, 1fr)
+      );
+      grid-gap: 15px;
+
+      .avatar {
+        opacity: 0.5;
+      }
     }
 
     p {
-      position: absolute;
+      position: relative;
       @include font-size(md);
-      margin: 10px 0 0 10px;
+      margin-top: -50px;
+      margin-left: 10px;
+      text-align: center;
     }
   }
 }

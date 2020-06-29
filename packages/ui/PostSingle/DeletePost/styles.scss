@@ -1,13 +1,18 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/zindex';
 
 .buttonDelete {
-  display: flex;
+  position: absolute;
+  right: 10px;
+  @include buttonColorsDefault();
+  @include buttonDefault();
+  @include buttonSizeSm();
+  @include buttonWithIcon();
 
-  i {
-    margin-top: 2px;
-    margin-right: 2px;
+  &:hover {
+    @include buttonColorsHoverDefault();
   }
 }
 
@@ -15,31 +20,34 @@
   position: absolute;
   top: 0;
   left: 0;
+  @include z-index(postSingleDeletePost);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
   background: $theme3;
 
-  > div {
+  .buttons {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  h2 {
     width: 100%;
-    padding: 20px;
+    @include font-size(xmd);
+    margin-bottom: 10px;
     text-align: center;
+  }
 
-    h2 {
-      width: 100%;
-      @include font-size(md);
-      margin-bottom: 10px;
-    }
+  .btn {
+    @include buttonDefault();
+    @include buttonColorsDefault();
 
-    .btn {
-      width: 50%;
-      @include buttonDefault();
-
-      &:hover {
-        @include buttonColorsHoverDefault();
-      }
+    &:hover {
+      @include buttonColorsHoverDefault();
     }
   }
 }

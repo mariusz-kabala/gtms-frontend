@@ -2,12 +2,14 @@
 
 @mixin buttonDefault() {
   display: inline-block;
+  border: none;
+  outline: none;
+  border-radius: $borderRadius;
   justify-content: center;
+  padding: 10px;
   text-align: center; // for <a> elements
   text-decoration: none; // for <a> elements
   cursor: pointer;
-  padding: 10px;
-  border-radius: $borderRadius;
   text-transform: uppercase;
 
   &:active,
@@ -17,8 +19,26 @@
   }
 }
 
+// TYPES
+@mixin buttonWithIcon() {
+  i {
+    margin-right: 3px;
+  }
+}
+
+// SIZES
+@mixin buttonSizeSm() {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  line-height: 1;
+  font-size: 9px;
+}
+
+// COLOR TYPES
 @mixin buttonColorsDefault() {
   background: $theme3;
+  color: $theme7;
 }
 
 @mixin buttonColorsPrimary() {

@@ -25,7 +25,7 @@ export const Navigation: FC<{
         <ul>
           {[
             {
-              label: 'Search',
+              label: 'Notifications',
               icon: <IoIosNotifications />,
               onClick: onAvatarClick,
             },
@@ -40,7 +40,7 @@ export const Navigation: FC<{
               url: '/account',
             },
             {
-              label: 'Create group',
+              label: 'Create your group',
               icon: <IoIosAddCircle />,
               url: '/group-create',
             },

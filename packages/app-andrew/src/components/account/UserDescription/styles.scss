@@ -1,0 +1,16 @@
+@import '~@gtms/styles/scss/mixins/buttons';
+
+.btn {
+  width: 100%;
+  @include buttonDefault();
+  @include buttonColorsDefault();
+
+  &:hover {
+    @include buttonColorsHoverDefault();
+  }
+}
+
+.textarea {
+  border-radius: 5px;
+  padding: 5px;
+}

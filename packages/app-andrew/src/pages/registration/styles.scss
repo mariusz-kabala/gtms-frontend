@@ -38,10 +38,13 @@
 
       .goToLoginButton {
         margin: 10px 0;
+        margin-top: 25px;
 
         > a {
           width: 100%;
           @include buttonDefault();
+          @include buttonColorsDefault();
+
           &:hover {
             @include buttonColorsHoverDefault();
           }
@@ -49,9 +52,9 @@
       }
 
       .socialButtons {
-        > div:first-child {
-          margin-right: 10px;
-        }
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
       }
     }
   }

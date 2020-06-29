@@ -16,13 +16,42 @@
       padding: 15px;
       border: none;
       border-radius: $borderRadius !important; // clear border radius coming from npm module
+      color: $theme7;
       text-align: center;
       text-decoration: none;
       opacity: 1 !important; // clear opacity coming from npm module
       cursor: pointer;
 
       &.facebook {
-        background-color: #485a8e;
+        background: #227bef;
+
+        svg {
+          margin-right: 5px;
+        }
+
+        &:hover {
+          background: #0d5cc4;
+        }
+      }
+
+      > div {
+        margin-right: 0 !important;
+      }
+    }
+  }
+
+  .google {
+    &:hover {
+      button {
+        background-color: #3aa757 !important;
+
+        span {
+          color: $white !important;
+        }
+
+        > div {
+          background-color: #3aa757 !important;
+        }
       }
     }
   }

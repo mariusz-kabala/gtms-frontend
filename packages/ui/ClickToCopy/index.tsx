@@ -13,16 +13,13 @@ export const ClickToCopy: FC<{
   const [isCopied, setCopied] = useClipboard(text)
 
   return (
-    <>
-      <div
-        className={cx(styles.wrapper, additionalStyles)}
-        data-testid="click-to-copy"
-      >
-        <Button additionalStyles={styles.btn} onClick={setCopied}>
-          {!isCopied && t('copyLink')}
-          {isCopied && t('copied')}
-        </Button>
-      </div>
-    </>
+    <Button
+      additionalStyles={cx(styles.btn, additionalStyles)}
+      onClick={setCopied}
+      testid="click-to-copy"
+    >
+      {!isCopied && t('copyLink')}
+      {isCopied && t('copied')}
+    </Button>
   )
 }
