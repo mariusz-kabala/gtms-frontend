@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
-import { toggleSidebarNotifications } from 'state'
 
 // this is just a mock
 // @todo remove it when no longer needed
@@ -19,7 +18,6 @@ export const NavigationPage: FC<{}> = () => {
     {
       label: 'Notifications',
       icon: <IoIosNotifications />,
-      onClick: toggleSidebarNotifications,
       url: '/',
     },
     {
@@ -48,20 +46,12 @@ export const NavigationPage: FC<{}> = () => {
 
           return (
             <li className={styles.link} key={index}>
-              {value?.onClick && (
-                <a onClick={value.onClick}>
+              <Link href={value.url}>
+                <a>
                   <i>{value.icon}</i>
                   <span>{value.label}</span>
                 </a>
-              )}
-              {!value?.onClick && (
-                <Link href={value.url}>
-                  <a>
-                    <i>{value.icon}</i>
-                    <span>{value.label}</span>
-                  </a>
-                </Link>
-              )}
+              </Link>
             </li>
           )
         })}
