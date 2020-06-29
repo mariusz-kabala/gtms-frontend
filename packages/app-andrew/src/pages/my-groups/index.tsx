@@ -115,12 +115,12 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
             }
             renderGroupMenu={(group) => (
               <Link href={`/group/${group.slug}/settings`}>
-                <>
+                <div>
                   <i>
                     <IoIosSettings />
                   </i>
                   {t('settings')}
-                </>
+                </div>
               </Link>
             )}
             noRecords={
