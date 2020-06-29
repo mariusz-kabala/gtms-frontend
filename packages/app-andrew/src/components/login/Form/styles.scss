@@ -2,26 +2,9 @@
 
 .btnSubmit {
   width: 100%;
-  margin-top: 10px;
   @include buttonDefault();
+  @include buttonColorsDefault();
   &:hover {
     @include buttonColorsHoverDefault();
-  }
-}
-
-.actionButtons {
-  display: flex;
-  margin: 10px 0;
-
-  > button:first-child {
-    margin-right: 10px;
-  }
-
-  > button {
-    width: 100%;
-    @include buttonDefault();
-    &:hover {
-      @include buttonColorsHoverDefault();
-    }
   }
 }

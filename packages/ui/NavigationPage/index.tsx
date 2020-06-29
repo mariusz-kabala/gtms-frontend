@@ -6,9 +6,9 @@ import { Link } from '@gtms/commons/i18n'
 // @todo remove it when no longer needed
 import {
   IoIosNotifications,
-  IoIosCart,
-  IoIosCloudUpload,
-  IoIosCompass,
+  IoIosListBox,
+  IoIosPricetags,
+  IoIosPeople,
 } from 'react-icons/io'
 
 export const NavigationPage: FC<{}> = () => {
@@ -21,18 +21,18 @@ export const NavigationPage: FC<{}> = () => {
       url: '/',
     },
     {
+      label: 'Posts',
+      icon: <IoIosListBox />,
+      url: '/',
+    },
+    {
+      label: 'Tags',
+      icon: <IoIosPricetags />,
+      url: '/',
+    },
+    {
       label: 'Users',
-      icon: <IoIosCart />,
-      url: '/',
-    },
-    {
-      label: 'Settings',
-      icon: <IoIosCloudUpload />,
-      url: '/',
-    },
-    {
-      label: 'Invite friends',
-      icon: <IoIosCompass />,
+      icon: <IoIosPeople />,
       url: '/',
     },
   ]

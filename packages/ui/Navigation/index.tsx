@@ -40,7 +40,7 @@ export const Navigation: FC<{
               url: '/account',
             },
             {
-              label: 'Create group',
+              label: 'Create your group',
               icon: <IoIosAddCircle />,
               url: '/group-create',
             },

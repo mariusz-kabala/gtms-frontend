@@ -24,9 +24,12 @@ export const RecentlyRegisteredUsers: FC<{
           <InviteFriends />
         </Modal>
       )}
-      <div className={styles.invite}>
-        <Button onClick={() => setIsModalOpen(true)}>{t('btn')}</Button>
-      </div>
+      <Button
+        additionalStyles={styles.invite}
+        onClick={() => setIsModalOpen(true)}
+      >
+        {t('btn')}
+      </Button>
       <ul
         className={cx(styles.users, additionalStyles)}
         data-testid="recently-registered-users"

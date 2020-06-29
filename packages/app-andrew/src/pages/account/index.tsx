@@ -106,7 +106,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
 
   return (
     <div className={styles.wrapper} data-testid="account-page">
-      {state.isLoading && <Spinner />}
+      {state.isLoading && <Spinner additionalStyles={styles.spinner} />}
       {!state.isLoading && state.errorOccured && (
         <p>{t('Can not fetch account details right now, try later')}</p>
       )}

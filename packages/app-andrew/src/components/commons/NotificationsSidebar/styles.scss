@@ -1,19 +1,17 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
-$notificationSidebarWrapperWidth: 350px;
-
 .wrapper {
-  display: flex;
-  height: 100%;
-  padding: 20px 10px 20px 5px;
+  width: 100%;
+  transition: height 1s ease-out;
 
   &.opened {
-    width: $notificationSidebarWrapperWidth;
+    height: 300px;
   }
 
   .header {
     display: flex;
+    align-items: center;
 
     h2 {
       margin-bottom: 8px;
@@ -24,20 +22,5 @@ $notificationSidebarWrapperWidth: 350px;
         color: $theme5;
       }
     }
-  }
-
-  .iconClose {
-    margin-left: auto;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  .content {
-    width: $notificationSidebarWrapperWidth;
-    height: 100%;
-    background-color: $theme1;
-    padding: 10px;
-    padding-bottom: 0;
-    border-radius: 5px;
   }
 }

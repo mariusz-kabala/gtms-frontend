@@ -4,6 +4,8 @@
 
 .btnDeleteAccount {
   @include buttonDefault();
+  @include buttonColorsDefault();
+
   padding: 0;
   text-transform: initial;
 }
@@ -28,6 +30,7 @@
 
       > * {
         @include buttonDefault();
+        @include buttonColorsDefault();
         margin-right: 15px;
 
         &:hover {

@@ -21,38 +21,34 @@ export const DeletePost: FC<{
       className={styles.wrapperConfirm}
       data-testid="post-single-delete-post-question"
     >
-      <div>
-        <h2>{t('header')}</h2>
-        <div className={styles.buttons}>
-          <Button
-            additionalStyles={styles.btn}
-            onClick={() => setIsActive(false)}
-            testid="post-single-delete-post-canel"
-          >
-            {t('noBtn')}
-          </Button>
-          <Button
-            testid="delete-account-confirm"
-            additionalStyles={styles.btn}
-            onClick={() => setIsActive(false)}
-          >
-            {t('yesBtn')}
-          </Button>
-        </div>
+      <h2>{t('header')}</h2>
+      <div className={styles.buttons}>
+        <Button
+          additionalStyles={styles.btn}
+          onClick={() => setIsActive(false)}
+          testid="post-single-delete-post-canel"
+        >
+          {t('noBtn')}
+        </Button>
+        <Button
+          testid="delete-account-confirm"
+          additionalStyles={styles.btn}
+          onClick={() => setIsActive(false)}
+        >
+          {t('yesBtn')}
+        </Button>
       </div>
     </div>
   ) : (
-    <>
-      <Button
-        additionalStyles={cx(styles.buttonDelete, additionalStyles)}
-        testid="post-single-delete-post-button"
-        onClick={() => setIsActive(true)}
-      >
-        <i>
-          <IoMdTrash />
-        </i>
-        {t('btnDeletePost')}
-      </Button>
-    </>
+    <Button
+      additionalStyles={cx(styles.buttonDelete, additionalStyles)}
+      testid="post-single-delete-post-button"
+      onClick={() => setIsActive(true)}
+    >
+      <i>
+        <IoMdTrash />
+      </i>
+      {t('btnDeletePost')}
+    </Button>
   )
 }

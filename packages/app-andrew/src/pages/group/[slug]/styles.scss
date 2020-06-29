@@ -28,8 +28,9 @@
         @include font-size(md);
 
         a {
-          color: white;
+          display: block;
           text-decoration: none;
+          color: white;
         }
 
         &:hover {

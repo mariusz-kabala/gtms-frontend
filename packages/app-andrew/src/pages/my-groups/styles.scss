@@ -2,7 +2,14 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   width: 100%;
+
+  .spinner {
+    margin: auto;
+  }
 
   .items {
     display: flex;

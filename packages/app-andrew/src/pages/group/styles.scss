@@ -14,6 +14,7 @@
 
     // @todo this should be separate component / mixin
     .search {
+      background: $theme3;
       padding: 10px;
       border: 1px solid $theme3;
       border-radius: $borderRadius;
@@ -29,7 +30,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    padding: 15px;
+    margin: 15px;
 
     .groupAvatar {
       margin-right: 10px;
@@ -38,7 +39,7 @@
 
     .groupDesc {
       margin-right: 5px;
-      max-width: 250px;
+      max-width: 220px;
       line-height: 1;
 
       h2 {
@@ -54,46 +55,13 @@
     }
   }
 
-  .searchWrapper {
-    display: flex;
-    height: 0px;
-    overflow: hidden;
-    transition: height 1s ease-out;
-    background: rgba(black, 0.5);
-
-    ul {
-      display: flex;
-      padding: 5px;
-
-      .item {
-        padding: 5px 10px;
-        @include font-size(sm);
-        background: $theme3;
-        margin-right: 5px;
-      }
-    }
-
-    i {
-      display: flex;
-      @include font-size(lg);
-      margin-left: auto;
-      padding: 10px;
-      cursor: pointer;
-
-      &:hover {
-        background: $theme5;
-      }
-    }
-  }
-
   .columns {
     // @todo make mixin of that
     display: grid;
     gap: 20px; // @todo set standard gaps for grid
     grid-template-columns: 1.2fr 0.8fr;
 
-    padding: 15px;
-    margin-top: 10px;
+    margin: 15px;
 
     .postCreate {
       // @todo styles to be written here

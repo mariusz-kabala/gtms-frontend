@@ -7,28 +7,16 @@
   position: relative;
 
   .invite {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
+    @include buttonDefault();
+    @include buttonColorsDefault();
 
-    > button {
-      color: white;
-      @include buttonDefault();
-      @include font-size(lg);
-      @include font-weight(bold);
-
-      &:hover {
-        @include buttonColorsHoverDefault();
-      }
+    &:hover {
+      @include buttonColorsHoverDefault();
     }
+  }
 
-    & + ul {
-      opacity: 0.4;
-    }
+  & + ul {
+    opacity: 0.4;
   }
 
   .users {

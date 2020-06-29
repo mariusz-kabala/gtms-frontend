@@ -6,6 +6,7 @@ import { fbLoginUser, googleLoginUser } from '@gtms/state-user'
 import { useFacebookLogin } from '@gtms/commons/hooks/fbLogin'
 import { Spinner } from '@gtms/ui/Spinner'
 import getConfig from 'next/config'
+import { FaFacebookF } from 'react-icons/fa'
 
 export const SocialButtons: FC<{
   additionalStyles?: string
@@ -48,10 +49,13 @@ export const SocialButtons: FC<{
               className={`${styles.button} ${styles.facebook}`}
               onClick={() => !isLoading && onClick()}
             >
-              Facebook
+              <FaFacebookF /> Facebook
             </button>
           </div>
-          <div data-testid="social-buttons-google-button">
+          <div
+            className={styles.google}
+            data-testid="social-buttons-google-button"
+          >
             <GoogleLogin
               clientId={publicRuntimeConfig.GOOGLE_CLIENT_ID}
               buttonText="Google"

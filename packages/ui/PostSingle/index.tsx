@@ -78,20 +78,19 @@ export const PostSingle: FC<{
           </TagGroup>
         )}
 
-        <div className={styles.action}>
-          <a
-            onClick={(e) => {
-              e.preventDefault()
+        <button
+          className={styles.respondBtn}
+          onClick={(e) => {
+            e.preventDefault()
 
-              setIsAnswerFormOpen(true)
-              if (commentForm.current) {
-                window.scrollTo(0, commentForm.current.offsetTop)
-              }
-            }}
-          >
-            Respond
-          </a>
-        </div>
+            setIsAnswerFormOpen(true)
+            if (commentForm.current) {
+              window.scrollTo(0, commentForm.current.offsetTop)
+            }
+          }}
+        >
+          Respond
+        </button>
         {Array.isArray(firstComments) && firstComments.length > 0 && (
           <div>
             {firstComments.map((comment) => (
