@@ -25,7 +25,7 @@ export const Navigation: FC<{
         <ul>
           {[
             {
-              label: 'Search',
+              label: 'Notifications',
               icon: <IoIosNotifications />,
               onClick: onAvatarClick,
             },
