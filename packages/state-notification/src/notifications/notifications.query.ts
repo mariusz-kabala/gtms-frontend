@@ -16,19 +16,40 @@ export class NotificationsQuery extends QueryEntity<NotificationsState> {
   public hasUnread = () =>
     toBoolean(
       this.getAll({
-        filterBy: (entry) => entry.isRead === false,
+        filterBy: (entry) => entry.data.isRead === false,
       }).length > 0
     )
 
   public hasUnread$ = this.select(() => this.hasUnread())
 
+  public hasInternalUnread = () =>
+    toBoolean(
+      this.getAll({
+        filterBy: (entry) =>
+          entry.type === 'internal' && entry.data.isRead === false,
+      }).length > 0
+    )
+
+  public hasInternalUnread$ = this.select(() => this.hasInternalUnread())
+
   public unread = () =>
     this.getAll({
-      filterBy: (entry) => entry.isRead === false,
+      filterBy: (entry) => entry.data.isRead === false,
     })
 
   public unread$ = this.selectAll({
-    filterBy: (entry) => entry.isRead === false,
+    filterBy: (entry) => entry.data.isRead === false,
+  })
+
+  public internalUnread = () =>
+    this.getAll({
+      filterBy: (entry) =>
+        entry.type === 'internal' && entry.data.isRead === false,
+    })
+
+  public internalUnread$ = this.selectAll({
+    filterBy: (entry) =>
+      entry.type === 'internal' && entry.data.isRead === false,
   })
 }
 

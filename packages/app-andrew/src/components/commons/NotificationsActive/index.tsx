@@ -4,7 +4,8 @@ import cx from 'classnames'
 import { Notification } from '@gtms/ui/Notification'
 import {
   notificationsQuery,
-  INotification,
+  INotificationRecord,
+  IInternalNotification,
   markAsRead,
 } from '@gtms/state-notification'
 import { NotificationIcons } from 'enums'
@@ -12,12 +13,12 @@ import { NotificationIcons } from 'enums'
 export const NotificationsActive: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
-  const [notifications, setNotifications] = useState<INotification[]>(
-    notificationsQuery.unread()
+  const [notifications, setNotifications] = useState<INotificationRecord[]>(
+    notificationsQuery.internalUnread()
   )
 
   useEffect(() => {
-    const sub = notificationsQuery.unread$.subscribe((values) =>
+    const sub = notificationsQuery.internalUnread$.subscribe((values) =>
       setNotifications(values)
     )
     return () => {
@@ -37,9 +38,11 @@ export const NotificationsActive: FC<{
           key={`notification-${notification.id}`}
           onClick={() => markAsRead(notification.id)}
           additionalStyles={styles.notification}
-          text={notification.text}
-          left={notification.left}
-          icon={NotificationIcons[notification.type]}
+          text={(notification.data as IInternalNotification).text}
+          left={(notification.data as IInternalNotification).left}
+          icon={
+            NotificationIcons[(notification.data as IInternalNotification).type]
+          }
         />
       ))}
     </div>
