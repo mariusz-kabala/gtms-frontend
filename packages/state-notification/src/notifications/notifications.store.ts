@@ -1,7 +1,10 @@
 import { EntityState, EntityStore } from '@datorama/akita'
-import { INotification } from './notifications.model'
+import { INotificationRecord } from './notifications.model'
 
-export type NotificationsState = EntityState<INotification, number>
+export type NotificationsState = EntityState<
+  INotificationRecord,
+  number | string
+>
 
 export class NotificationsStore extends EntityStore<NotificationsState> {
   constructor() {
