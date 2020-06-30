@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.39.1...@gtms/app-andrew@0.40.0) (2020-06-30)
+
+
+### Features
+
+* GEOT-310: support BE notifications ([#679](https://github.com/gtms-org/gtms-frontend/issues/679)) ([05d9c2b](https://github.com/gtms-org/gtms-frontend/commit/05d9c2b09984b42209beff8613c6df5602c714ee))
+
+
+
+
+
 ## [0.39.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.39.0...@gtms/app-andrew@0.39.1) (2020-06-29)
 
 
