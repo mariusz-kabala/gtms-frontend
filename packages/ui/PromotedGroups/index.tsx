@@ -57,7 +57,7 @@ export const PromotedGroups: FC<{
   return (
     <>
       <NavigationTabs>
-        <h2 className={styles.header}>Promoted groups</h2>
+        <h2 className={styles.header}>Promoted</h2>
         <ul className={styles.elements}>
           <li className={styles.item}>something</li>
           <li className={styles.item}>item</li>

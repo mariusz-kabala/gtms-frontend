@@ -27,12 +27,11 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: $theme3;
+  background: $theme2;
 
   .buttons {
     display: grid;
     gap: 15px;
-    grid-template-columns: 1fr 1fr;
   }
 
   h2 {

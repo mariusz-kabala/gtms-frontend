@@ -57,7 +57,7 @@ class GTMSApp extends App<GTMSAppProps> {
         <div
           className={styles.bg}
           style={{
-            backgroundImage: `url('/images/temp_images/group_bg_4.png')`,
+            backgroundImage: `url('/images/temp_images/group_bg_5.png')`,
           }}
         />
       </div>

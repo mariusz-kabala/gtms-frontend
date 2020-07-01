@@ -15,7 +15,8 @@ html {
 body,
 input,
 textarea {
-  font-family: 'Lato,sans-serif', 'Open Sans', 'Helvetica Neue', sans-serif;
+  // font-family: $defaultFontFamily;
+  font-family: arial;
   color: $theme7;
 }
 
@@ -23,12 +24,22 @@ body {
   @include font-size(default);
   line-height: normal;
   background-color: $theme1;
+  font-weight: 200;
 }
 
 body > div:first-of-type {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+}
+
+textarea {
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none;
+    border-color: $theme7;
+  }
 }
 
 img {

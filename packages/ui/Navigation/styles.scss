@@ -7,6 +7,7 @@
   display: flex;
   margin-right: -15px;
   justify-content: center;
+  overflow: hidden;
 
   .navigation {
     display: flex;
@@ -32,9 +33,10 @@
 
       li {
         position: relative;
-        background: $theme1;
+        background: rgba($theme7, 0.85);
         margin-bottom: 5px;
         border-radius: 5px;
+        box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.05);
 
         &:last-child {
           margin-bottom: 0;
@@ -44,7 +46,7 @@
           display: block;
           padding: 10px;
           text-decoration: none;
-          color: $theme7;
+          color: $theme0;
 
           i {
             line-height: 0;
@@ -54,6 +56,10 @@
 
         &:hover {
           background: $theme5;
+
+          svg {
+            color: $theme0;
+          }
         }
       }
     }

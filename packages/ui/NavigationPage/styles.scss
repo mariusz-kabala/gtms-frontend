@@ -4,16 +4,37 @@
 
 .wrapper {
   display: flex;
+  flex-direction: column;
   @include z-index(navigationGroup);
-  border-left: 1px solid $theme3;
   margin-right: 5px;
+
+  h2 {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $theme5;
+
+    i {
+      display: flex;
+      margin-right: 5px;
+      font-size: 18px;
+    }
+  }
 
   .linksMock {
     display: flex;
+    flex-direction: column;
+    margin-left: 10px;
 
     li {
       position: relative;
       border-radius: 5px;
+      margin-bottom: 10px;
+      font-weight: 500;
       cursor: pointer;
 
       &:last-child {
@@ -23,24 +44,27 @@
       a {
         display: flex;
         align-items: center;
-        padding: 10px;
-        @include font-size(lg);
         text-decoration: none;
-        color: $theme7;
+        color: $theme4;
 
         i {
+          @include font-size(md);
           line-height: 0;
+          font-weight: 200;
           display: block;
         }
 
         span {
-          margin-left: 5px;
-          @include font-size(xdefault);
+          margin-left: 10px;
+          font-weight: 200;
         }
       }
 
       &:hover {
-        background: $theme5;
+        i,
+        a {
+          color: $theme5;
+        }
       }
     }
   }

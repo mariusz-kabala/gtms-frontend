@@ -3,7 +3,8 @@
 
 .tag {
   display: inline-block;
-  background: $theme4;
+  background: $theme2;
+  color: $theme11;
   padding: 3px 6px;
   border-radius: $borderRadius;
   @include font-weight(semiBold);
@@ -11,5 +12,6 @@
 
   &:hover {
     background: $theme5;
+    color: $theme0;
   }
 }

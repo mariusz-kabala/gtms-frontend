@@ -1,14 +1,14 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 .wrapper {
   position: relative;
   padding: 10px;
   border-radius: $borderRadius;
-  border: 1px solid $theme2;
   overflow: hidden; // for delete post component that overflows this component
-  opacity: 0.85;
   cursor: pointer;
+  opacity: 0.75;
 
   &::after {
     content: '';
@@ -17,8 +17,8 @@
     left: 25px;
     display: flex;
     width: 4px;
-    height: calc(100% - 55px);
-    background: #4b4465;
+    height: calc(100% - 65px);
+    background: $theme2;
   }
 
   &:hover {
@@ -38,6 +38,7 @@
 
   .header {
     display: flex;
+    font-weight: 400;
 
     .user {
       display: flex;
@@ -59,8 +60,13 @@
       }
     }
 
+    .date {
+      font-weight: 300;
+    }
+
     span {
       margin-left: 10px;
+      // @include font-weight('bold');
 
       // @todo create mixin with highlighted text
       &:hover {
@@ -79,11 +85,11 @@
   }
 
   .desc {
-    margin-top: -15px;
+    margin-top: -20px;
     margin-left: 45px;
 
     .text {
-      margin: 10px 0;
+      margin-top: 10px;
 
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
@@ -91,12 +97,23 @@
     }
   }
 
+  .tagGroup {
+    margin-top: 10px;
+  }
+
   .respondBtn {
     @include buttonDefault();
-    @include buttonColorsDefault();
+    @include buttonColorsPrimary();
     @include buttonSizeSm();
+    margin-top: 10px;
+    margin-left: auto;
+
     &:hover {
       @include buttonColorsHoverDefault();
     }
+  }
+
+  .postResponseCreate {
+    margin-top: 10px;
   }
 }

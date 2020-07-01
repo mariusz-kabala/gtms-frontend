@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
-$defaultFontFamily: 'Lato, sans-serif', 'Open Sans', 'Helvetica Neue',
-  sans-serif;
+$defaultFontFamily: 'Roboto Condensed', sans-serif;
 
-$theme0: #000000;
-$theme1: #121018;
-$theme2: #201a24;
-$theme3: #474159;
-$theme4: #595272;
+$theme0: #ffffff;
+$theme1: #efefef;
+$theme2: #e4e4e4;
+$theme3: #a4a4a4;
+$theme4: #6c6c6c;
+$theme11: #2e2e2e; //@todo change it to $theme5 and current $theme5 to $theme6 etc.
 $theme5: #f55d1c;
 $theme6: #cd0000;
-$theme7: #fff;
+$theme7: #000000;
 $theme8: #a4c339;
 $theme9: #3e4b21;
 $theme10: #a2a9ec; //@todo change it to $theme5 and current $theme5 to $theme6 etc.

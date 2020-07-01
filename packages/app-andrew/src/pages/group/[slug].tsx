@@ -108,51 +108,41 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       {state.group && (
         <>
           <div className={styles.groupHeader}>
-            <GroupAvatar
-              additionalStyles={styles.groupAvatar}
-              files={groupQuery.getAvatar('200x200', state)}
-              filesStatus={groupQuery.getAvatarFileStatus()}
-              isEditAllowed={groupQuery.hasAdminRights()}
-            />
-            <div className={styles.groupDesc}>
-              <h2 data-tip={t('click-here-to-edit')} data-type="dark">
-                {state.group?.name}
-              </h2>
-              <GroupDescription
+            <div>
+              <GroupAvatar
+                additionalStyles={styles.groupAvatar}
+                files={groupQuery.getAvatar('200x200', state)}
+                filesStatus={groupQuery.getAvatarFileStatus()}
                 isEditAllowed={groupQuery.hasAdminRights()}
-                slug={state.group?.slug || ''}
-                text={
-                  !state.group?.description
-                    ? groupQuery.hasAdminRights()
-                      ? 'you did not add group description yet, click here to change it'
-                      : ''
-                    : state.group?.description || ''
-                }
               />
-              <div className={styles.actionButtons}>
-                <FavsButton group={state.group} />
-                <JoinLeaveButton group={state.group} />
-                <SettingsButton group={state.group} />
-                <FollowButton group={state.group} />
+              <div className={styles.groupDesc}>
+                <h2 data-tip={t('click-here-to-edit')} data-type="dark">
+                  {state.group?.name}
+                </h2>
+                <GroupDescription
+                  isEditAllowed={groupQuery.hasAdminRights()}
+                  slug={state.group?.slug || ''}
+                  text={
+                    !state.group?.description
+                      ? groupQuery.hasAdminRights()
+                        ? 'you did not add group description yet, click here to change it'
+                        : ''
+                      : state.group?.description || ''
+                  }
+                />
+                <div className={styles.actionButtons}>
+                  <FavsButton group={state.group} />
+                  <JoinLeaveButton group={state.group} />
+                  <SettingsButton group={state.group} />
+                  <FollowButton group={state.group} />
+                </div>
               </div>
             </div>
             <NavigationPage />
-            <div className={styles.searchInput}>
-              <div className={styles.search}>
-                <SearchBar
-                  onTagAdd={() => null}
-                  onTagRemove={() => null}
-                  onLoadSuggestion={() => null}
-                  onQueryChange={() => null}
-                  onLoadSuggestionCancel={() => null}
-                  tags={[]}
-                />
-              </div>
-            </div>
           </div>
-          <WelcomeSlider />
-          <NotificationsSidebar />
+          {/* <NotificationsSidebar /> */}
           <div className={styles.columns}>
+            {/* <WelcomeSlider /> */}
             <div>
               {state.user && (
                 <PostCreate
@@ -171,9 +161,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               <NavigationTabs>
                 <h2 className={styles.header}>Posts</h2>
                 <ul className={styles.elements}>
-                  <li className={styles.item}>popular posts</li>
-                  <li className={styles.item}>latest posts</li>
-                  <li className={styles.item}>favorites posts</li>
+                  <li className={styles.item}>popular</li>
+                  <li className={styles.item}>latest</li>
+                  <li className={styles.item}>favorites </li>
                   <li className={styles.item}>my posts</li>
                 </ul>
               </NavigationTabs>

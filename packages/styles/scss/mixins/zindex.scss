@@ -7,7 +7,7 @@ $z-index: (
   overlay: 10,
   navigationDot: 9,
   navigation: 8,
-  postSingleDeletePost: 0,
+  postSingleDeletePost: 1,
 );
 
 @function z-index($key) {

@@ -14,6 +14,7 @@
 
   .header {
     display: flex;
+    font-weight: 500;
 
     .user {
       display: flex;
@@ -51,7 +52,6 @@
 
       &:hover {
         opacity: 1;
-        color: $theme5;
       }
     }
   }

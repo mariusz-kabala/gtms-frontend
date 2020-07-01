@@ -22,7 +22,7 @@
 
   h2 {
     @include font-weight(bold);
-    @include font-size(xlg);
+    @include font-size(xxlg);
     text-transform: uppercase;
 
     .subheader {

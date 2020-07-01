@@ -20,9 +20,17 @@
 }
 
 // TYPES
-@mixin buttonWithIcon() {
-  i {
-    margin-right: 3px;
+@mixin buttonWithIcon($position: 'left') {
+  @if $position == 'left' {
+    i {
+      margin-right: 3px;
+    }
+  }
+
+  @if $position == 'right' {
+    i {
+      margin-right: 3px;
+    }
   }
 }
 
@@ -37,14 +45,16 @@
 
 // COLOR TYPES
 @mixin buttonColorsDefault() {
-  background: $theme3;
-  color: $theme7;
+  background: $theme2;
+  color: $theme3;
 }
 
 @mixin buttonColorsPrimary() {
   background: $theme4;
+  color: $theme0;
 }
 
 @mixin buttonColorsHoverDefault() {
   background: $theme5;
+  color: $theme0;
 }

@@ -39,6 +39,35 @@ export const NavigationPage: FC<{}> = () => {
 
   return (
     <div className={styles.wrapper}>
+      <h2>
+        <i>
+          <IoIosNotifications />
+        </i>
+        Header
+      </h2>
+      <ul className={styles.linksMock}>
+        {links.map((value, index) => {
+          // this is just a mock
+          // @todo remove it when no longer needed
+
+          return (
+            <li className={styles.link} key={index}>
+              <Link href={value.url}>
+                <a>
+                  <i>{value.icon}</i>
+                  <span>{value.label}</span>
+                </a>
+              </Link>
+            </li>
+          )
+        })}
+      </ul>
+      <h2>
+        <i>
+          <IoIosNotifications />
+        </i>
+        Header
+      </h2>
       <ul className={styles.linksMock}>
         {links.map((value, index) => {
           // this is just a mock

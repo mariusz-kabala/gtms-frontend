@@ -4,24 +4,27 @@
 
 .wrapper {
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  align-items: baseline;
+  justify-content: baseline;
+  margin-bottom: 15px;
 
   h2 {
-    color: white;
-    @include font-size(xmd);
+    @include font-size(xlg);
     @include font-weight(semiBold);
   }
 
   ul {
     display: flex;
-    margin-left: 20px;
+    margin-left: 15px;
 
     li {
       margin-right: 10px;
-      @include font-size(md);
-      color: $theme10;
+      @include font-size(xMd);
+      @include font-weight(semiBold);
+      color: $theme4;
       cursor: pointer;
+      text-transform: uppercase;
+      line-height: 0.7;
 
       &:hover {
         color: $theme5;
