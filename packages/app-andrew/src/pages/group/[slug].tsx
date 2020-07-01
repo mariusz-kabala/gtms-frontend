@@ -129,12 +129,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     : state.group?.description || ''
                 }
               />
-              <div className={styles.actionButtons}>
-                <FavsButton group={state.group} />
-                <JoinLeaveButton group={state.group} />
-                <SettingsButton group={state.group} />
-                <FollowButton group={state.group} />
-              </div>
             </div>
             <NavigationPage />
             <div className={styles.searchInput}>
@@ -149,6 +143,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 />
               </div>
             </div>
+          </div>
+          <div className={styles.actionButtons}>
+            <FavsButton group={state.group} />
+            <JoinLeaveButton group={state.group} />
+            <SettingsButton group={state.group} />
+            <FollowButton group={state.group} />
           </div>
           <WelcomeSlider />
           <NotificationsSidebar />
