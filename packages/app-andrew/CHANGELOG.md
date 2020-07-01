@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.41.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.40.0...@gtms/app-andrew@0.41.0) (2020-07-01)
+
+
+### Features
+
+* GEOT-310: support new post notification ([#681](https://github.com/gtms-org/gtms-frontend/issues/681)) ([22537ae](https://github.com/gtms-org/gtms-frontend/commit/22537ae20aef5335d55b27904391fbccbdc35b1e))
+
+
+
+
+
 # [0.40.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.39.1...@gtms/app-andrew@0.40.0) (2020-06-30)
 
 
