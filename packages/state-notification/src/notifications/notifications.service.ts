@@ -5,6 +5,10 @@ import {
 } from './notifications.model'
 import { notificationsStore } from './notifications.store'
 import { notificationsQuery } from './notifications.query'
+import { fetchRecentNotifications } from '@gtms/api-notifications'
+import { parseFiles } from '@gtms/commons/helpers'
+import { FileStatus, NotificationType } from '@gtms/commons/enums'
+import { INotification } from '@gtms/commons/models'
 
 let timer: any
 
@@ -113,4 +117,60 @@ export const markAsRead = (id: number | string) => {
 
 export const deleteNotification = (id: number | string) => {
   notificationsStore.remove(id)
+}
+
+const parseNotificationsResponse = (
+  notifications: INotification[]
+): INotificationRecord[] =>
+  notifications.map((notification) => {
+    switch (notification.notificationType) {
+      case NotificationType.newPost:
+        if (
+          notification.payload?.group &&
+          notification.payload.group.avatar?.status === FileStatus.ready
+        ) {
+          notification.payload.group.avatar.files = parseFiles(
+            notification.payload.group.avatar.files || []
+          )
+        }
+
+        if (
+          notification.payload?.postOwner &&
+          notification.payload.postOwner.avatar?.status === FileStatus.ready
+        ) {
+          notification.payload.postOwner.avatar.files = parseFiles(
+            notification.payload.postOwner.avatar.files || []
+          )
+        }
+        break
+    }
+
+    return {
+      id: notification.id,
+      type: 'api',
+      data: notification,
+    }
+  })
+
+export const loadRecentNotifications = async (
+  requestedOffset = 0,
+  requestedLimit = 25
+) => {
+  notificationsStore.update({
+    loading: true,
+    error: false,
+  })
+
+  const { offset, limit, docs } = await fetchRecentNotifications(
+    requestedOffset,
+    requestedLimit
+  )
+
+  notificationsStore.update({
+    loading: false,
+    limit,
+    offset,
+  })
+
+  notificationsStore.upsertMany(parseNotificationsResponse(docs))
 }
