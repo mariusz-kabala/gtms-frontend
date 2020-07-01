@@ -12,8 +12,11 @@ import {
   INotificationRecord,
   IInternalNotification,
   deleteNotification,
+  loadRecentNotifications,
 } from '@gtms/state-notification'
+import { NotificationAPI } from '../NotificationAPI'
 import { closeSidebarNotifications } from 'state'
+import { INotification } from '@gtms/commons/models'
 
 export const NotificationsSidebar: FC<{
   additionalStyles?: string
@@ -23,6 +26,7 @@ export const NotificationsSidebar: FC<{
   )
 
   useEffect(() => {
+    loadRecentNotifications()
     const sub = baseUIQuery.notificationsSidebar$.subscribe((values) =>
       setState(values)
     )
@@ -77,7 +81,11 @@ export const NotificationsSidebar: FC<{
                     />
                   )
                 case 'api':
-                  return <div>API notification component is missing!</div>
+                  return (
+                    <NotificationAPI
+                      {...(notification.data as INotification)}
+                    />
+                  )
               }
             })}
           </ul>

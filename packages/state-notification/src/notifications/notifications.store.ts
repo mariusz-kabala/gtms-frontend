@@ -1,10 +1,11 @@
 import { EntityState, EntityStore } from '@datorama/akita'
 import { INotificationRecord } from './notifications.model'
 
-export type NotificationsState = EntityState<
-  INotificationRecord,
-  number | string
->
+export interface NotificationsState
+  extends EntityState<INotificationRecord, number | string> {
+  offset: number
+  total: number
+}
 
 export class NotificationsStore extends EntityStore<NotificationsState> {
   constructor() {

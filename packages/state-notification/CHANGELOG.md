@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.8.0...@gtms/state-notification@0.9.0) (2020-07-01)
+
+
+### Features
+
+* GEOT-310: support new post notification ([#681](https://github.com/gtms-org/gtms-frontend/issues/681)) ([22537ae](https://github.com/gtms-org/gtms-frontend/commit/22537ae20aef5335d55b27904391fbccbdc35b1e))
+
+
+
+
+
 # [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.7.1...@gtms/state-notification@0.8.0) (2020-06-30)
 
 
