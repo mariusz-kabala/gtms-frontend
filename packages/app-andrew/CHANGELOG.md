@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.41.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.41.0...@gtms/app-andrew@0.41.1) (2020-07-01)
+
+
+### Bug Fixes
+
+* GEOT-313: GEOT-313: get back group actions bar ([#683](https://github.com/gtms-org/gtms-frontend/issues/683)) ([0f3f3b5](https://github.com/gtms-org/gtms-frontend/commit/0f3f3b5a725b401f1b1e57e3f817a01b60d4a486))
+
+
+
+
+
 # [0.41.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.40.0...@gtms/app-andrew@0.41.0) (2020-07-01)
 
 
