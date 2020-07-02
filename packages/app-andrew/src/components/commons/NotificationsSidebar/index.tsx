@@ -8,8 +8,15 @@ import { Notification } from '@gtms/ui/Notification'
 import { CloseIcon } from '@gtms/ui/ExpandingRow/CloseIcon'
 import { INotificationsSidebarProps, baseUIQuery } from 'queries'
 import { NotificationIcons } from 'enums'
-import { INotification, deleteNotification } from '@gtms/state-notification'
+import {
+  INotificationRecord,
+  IInternalNotification,
+  deleteNotification,
+  loadRecentNotifications,
+} from '@gtms/state-notification'
+import { NotificationAPI } from '../NotificationAPI'
 import { closeSidebarNotifications } from 'state'
+import { INotification } from '@gtms/commons/models'
 
 export const NotificationsSidebar: FC<{
   additionalStyles?: string
@@ -19,6 +26,7 @@ export const NotificationsSidebar: FC<{
   )
 
   useEffect(() => {
+    loadRecentNotifications()
     const sub = baseUIQuery.notificationsSidebar$.subscribe((values) =>
       setState(values)
     )
@@ -55,16 +63,31 @@ export const NotificationsSidebar: FC<{
             <CloseIcon onClick={closeSidebarNotifications} />
           </div>
           <ul>
-            {state.notifications.map((notification: INotification) => (
-              <Notification
-                key={`notification-${notification.id}`}
-                onClick={() => deleteNotification(notification.id)}
-                additionalStyles={styles.notification}
-                text={notification.text}
-                left={notification.left}
-                icon={NotificationIcons[notification.type]}
-              />
-            ))}
+            {state.notifications.map((notification: INotificationRecord) => {
+              switch (notification.type) {
+                case 'internal':
+                  return (
+                    <Notification
+                      key={`notification-${notification.id}`}
+                      onClick={() => deleteNotification(notification.id)}
+                      additionalStyles={styles.notification}
+                      text={(notification.data as IInternalNotification).text}
+                      left={(notification.data as IInternalNotification).left}
+                      icon={
+                        NotificationIcons[
+                          (notification.data as IInternalNotification).type
+                        ]
+                      }
+                    />
+                  )
+                case 'api':
+                  return (
+                    <NotificationAPI
+                      {...(notification.data as INotification)}
+                    />
+                  )
+              }
+            })}
           </ul>
         </Scrollbars>
       </ExpandingRow>

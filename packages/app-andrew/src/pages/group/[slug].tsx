@@ -30,6 +30,7 @@ import { PromotedGroups } from '@gtms/ui/PromotedGroups'
 import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { Spinner } from '@gtms/ui/Spinner'
+import { SearchBar } from '@gtms/ui/SearchBar'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
 // state
 import {
@@ -129,72 +130,84 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       : state.group?.description || ''
                   }
                 />
-                <div className={styles.actionButtons}>
-                  <FavsButton group={state.group} />
-                  <JoinLeaveButton group={state.group} />
-                  <SettingsButton group={state.group} />
-                  <FollowButton group={state.group} />
+              </div>
+              <div className={styles.searchInput}>
+                <div className={styles.search}>
+                  <SearchBar
+                    onTagAdd={() => null}
+                    onTagRemove={() => null}
+                    onLoadSuggestion={() => null}
+                    onQueryChange={() => null}
+                    onLoadSuggestionCancel={() => null}
+                    tags={[]}
+                  />
                 </div>
               </div>
             </div>
-            <NavigationPage />
-          </div>
-          <NotificationsSidebar />
-          <div className={styles.columns}>
+            <div className={styles.actionButtons}>
+              <FavsButton group={state.group} />
+              <JoinLeaveButton group={state.group} />
+              <SettingsButton group={state.group} />
+              <FollowButton group={state.group} />
+            </div>
             <WelcomeSlider />
-            <div>
-              {state.user && (
-                <PostCreate
+            <NotificationsSidebar />
+            <div className={styles.columns}>
+              <NavigationPage />
+              <div>
+                {state.user && (
+                  <PostCreate
+                    fetchTags={findTagsAPI}
+                    user={state.user}
+                    noImage={UserAvatarNoImage}
+                    onSubmit={(text: string) => {
+                      createNewPost({
+                        group: state.group?.id || '',
+                        text,
+                      })
+                    }}
+                    additionalStyles={styles.postCreate}
+                  />
+                )}
+                <NavigationTabs>
+                  <h2 className={styles.header}>Posts</h2>
+                  <ul className={styles.elements}>
+                    <li className={styles.item}>popular</li>
+                    <li className={styles.item}>latest</li>
+                    <li className={styles.item}>favorites </li>
+                    <li className={styles.item}>my posts</li>
+                  </ul>
+                </NavigationTabs>
+                <RecentlyAddedPosts
                   fetchTags={findTagsAPI}
                   user={state.user}
+                  createComment={createNewComment}
                   noImage={UserAvatarNoImage}
-                  onSubmit={(text: string) => {
-                    createNewPost({
-                      group: state.group?.id || '',
-                      text,
-                    })
-                  }}
-                  additionalStyles={styles.postCreate}
+                  posts={state.posts}
                 />
-              )}
-              <NavigationTabs>
-                <h2 className={styles.header}>Posts</h2>
-                <ul className={styles.elements}>
-                  <li className={styles.item}>popular</li>
-                  <li className={styles.item}>latest</li>
-                  <li className={styles.item}>favorites </li>
-                  <li className={styles.item}>my posts</li>
-                </ul>
-              </NavigationTabs>
-              <RecentlyAddedPosts
-                fetchTags={findTagsAPI}
-                user={state.user}
-                createComment={createNewComment}
-                noImage={UserAvatarNoImage}
-                posts={state.posts}
-              />
-            </div>
-            <div>
-              <PromotedGroups />
-              <br /> {/* @todo remove it */}
-              <PromotedTags
-                tags={state.promotedTags.tags}
-                isLoading={state.promotedTags.isLoading}
-                noImage={PromotedTagNoImage}
-                isAdmin={groupQuery.hasAdminRights()}
-                onNoRecordsClick={() =>
-                  router.push(`/group/${state.group?.slug}/settings#tags`)
-                }
-              />
-              <br /> {/* @todo remove it */}
-              <NavigationTabs>
-                <h2 className={styles.header}>Recently registered</h2>
-                <ul className={styles.elements}>
-                  <li className={styles.item}>latest</li>
-                  <li className={styles.item}>most popular</li>
-                </ul>
-              </NavigationTabs>
-              <GroupMembers {...state.members} />
+              </div>
+              <div>
+                <PromotedGroups />
+                <br /> {/* @todo remove it */}
+                <PromotedTags
+                  tags={state.promotedTags.tags}
+                  isLoading={state.promotedTags.isLoading}
+                  noImage={PromotedTagNoImage}
+                  isAdmin={groupQuery.hasAdminRights()}
+                  onNoRecordsClick={() =>
+                    router.push(`/group/${state.group?.slug}/settings#tags`)
+                  }
+                />
+                <br /> {/* @todo remove it */}
+                <NavigationTabs>
+                  <h2 className={styles.header}>Recently registered</h2>
+                  <ul className={styles.elements}>
+                    <li className={styles.item}>latest</li>
+                    <li className={styles.item}>most popular</li>
+                  </ul>
+                </NavigationTabs>
+                <GroupMembers {...state.members} />
+              </div>
             </div>
           </div>
         </>
