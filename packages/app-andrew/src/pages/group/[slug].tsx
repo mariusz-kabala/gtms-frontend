@@ -29,7 +29,6 @@ import { PostCreate } from '@gtms/ui/PostCreate'
 import { PromotedGroups } from '@gtms/ui/PromotedGroups'
 import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
-import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
 // state
@@ -140,9 +139,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             </div>
             <NavigationPage />
           </div>
-          {/* <NotificationsSidebar /> */}
+          <NotificationsSidebar />
           <div className={styles.columns}>
-            {/* <WelcomeSlider /> */}
+            <WelcomeSlider />
             <div>
               {state.user && (
                 <PostCreate
