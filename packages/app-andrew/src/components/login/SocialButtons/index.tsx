@@ -79,6 +79,7 @@ export const SocialButtons: FC<{
                 setIsLoading(false)
               }}
               onFailure={onFailure}
+              disabledStyle
             />
           </div>
         </>

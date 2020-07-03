@@ -4,37 +4,68 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  display: flex;
   width: 100%;
   height: 100%;
 
   .searchInput {
-    display: flex;
-    align-items: center;
     margin-left: auto;
-
+    display: flex;
     // @todo this should be separate component / mixin
+
+    .brick,
+    .brickHover {
+      max-height: 46px;
+    }
+
+    .brickHover {
+      display: none;
+    }
+
     .search {
-      background: $theme3;
+      background: $theme4;
       padding: 10px;
-      border: 1px solid $theme3;
-      border-radius: $borderRadius;
+      padding-left: 0;
+      border: 1px solid $theme4;
 
       &:hover,
       &:focus {
-        border-color: $theme7;
+        border-color: $theme5;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      .search {
+        background: $theme5;
+      }
+
+      input {
+        background: $theme5;
+        color: $theme0;
+      }
+
+      .brick {
+        display: none;
+      }
+
+      .brickHover {
+        display: block;
       }
     }
   }
 
-  .groupHeader {
-    position: relative;
-    margin: 15px;
-    min-width: 165px;
+  .actionButtons {
+    display: flex;
+    width: 100%;
+    display: none !important;
+  }
 
-    > div {
-      display: flex;
-    }
+  .groupHeader {
+    display: flex;
+    width: 100%;
+    min-width: 165px;
+    padding: 10px;
 
     .groupAvatar {
       margin-right: 10px;
@@ -44,28 +75,26 @@
     .groupDesc {
       line-height: 1;
       color: $theme4;
-      // @include font-weight('semiBold');
-      font-weight: 400;
+      font-weight: 100;
+      max-width: 250px;
 
       h2 {
+        font-weight: 400;
         @include font-size('md');
-        color: $theme11;
+        color: $theme1;
       }
 
       span {
         @include font-size('sm');
+        color: $theme3;
       }
 
       &:hover {
+        h2,
         span {
           color: $theme5;
         }
       }
-    }
-
-    .actionButtons {
-      display: flex;
-      width: 100%;
     }
   }
 
@@ -73,13 +102,10 @@
     // @todo make mixin of that
     display: grid;
     gap: 20px; // @todo set standard gaps for grid
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 0.45fr 1.2fr 0.85fr;
 
-    padding: 15px;
+    padding: 10px;
     box-shadow: -4px 0px 47px -20px rgba(0, 0, 0, 0.2);
-    background: $white;
-    background: #ffffffba;
-    border-radius: 10px;
 
     .postCreate {
       // @todo styles to be written here

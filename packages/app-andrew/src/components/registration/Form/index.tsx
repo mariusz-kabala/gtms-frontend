@@ -33,7 +33,10 @@ const validate = (data: IRegistrationData, setError: any): boolean => {
   return !hasErrors
 }
 
-export const RegistrationForm: FC<{ onError: () => void }> = ({ onError }) => {
+export const RegistrationForm: FC<{
+  additionalStyles?: string
+  onError: () => void
+}> = ({ additionalStyles, onError }) => {
   const { t } = useTranslation('registration')
   const { register, handleSubmit, errors, setError } = useForm<
     IRegistrationData
@@ -68,7 +71,11 @@ export const RegistrationForm: FC<{ onError: () => void }> = ({ onError }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} data-testid="registration-form">
+    <form
+      className={additionalStyles}
+      onSubmit={handleSubmit(onSubmit)}
+      data-testid="registration-form"
+    >
       <Input
         type="email"
         name="email"

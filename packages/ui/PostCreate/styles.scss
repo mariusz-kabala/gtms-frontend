@@ -1,7 +1,7 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize';
-@import '~@gtms/styles/scss/mixins/placeholderFocus.scss';
+@import '~@gtms/styles/scss/mixins/inputs.scss';
 
 .wrapper {
   display: flex;
@@ -30,10 +30,8 @@
     display: block;
     width: 100%;
     border: none;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
     padding: 10px;
-    background: rgba($theme7, 0.1);
+    background: $theme4;
     @include placeholderFocus;
   }
 
@@ -46,7 +44,6 @@
     align-items: center;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    background: rgba($theme7, 0.1);
 
     span {
       @include font-size(sm);
@@ -57,7 +54,7 @@
     }
 
     &:hover {
-      @include buttonColorsHoverDefault();
+      @include buttonColorsSecondary();
     }
   }
 }

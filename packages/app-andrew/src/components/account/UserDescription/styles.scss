@@ -6,11 +6,10 @@
   @include buttonColorsDefault();
 
   &:hover {
-    @include buttonColorsHoverDefault();
+    @include buttonColorsSecondary();
   }
 }
 
 .textarea {
-  border-radius: 5px;
   padding: 5px;
 }

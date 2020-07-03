@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup, FileStatus } from '@gtms/commons'
+import cx from 'classnames'
 
 export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
   if (groups.length === 0) {
@@ -10,6 +11,10 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
 
   return (
     <div className={styles.wrapper}>
+      <div className={cx(styles.brick, styles.brickTop)} />
+      <div className={cx(styles.brick, styles.brickRight)} />
+      <div className={cx(styles.brick, styles.brickBottom)} />
+      <div className={cx(styles.brick, styles.brickLeft)} />
       <ul className={styles.navigationDot} data-testid="navigationDot">
         {groups.map((value, index) => (
           <li key={index}>

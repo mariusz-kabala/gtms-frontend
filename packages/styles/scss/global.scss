@@ -14,10 +14,10 @@ html {
 
 body,
 input,
-textarea {
-  // font-family: $defaultFontFamily;
-  font-family: arial;
-  color: $theme7;
+textarea,
+button {
+  font-family: $defaultFontFamily;
+  color: $theme3;
 }
 
 body {

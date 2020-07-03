@@ -9,6 +9,11 @@
       display: flex;
       margin-bottom: 15px;
       cursor: pointer;
+      border: 2px solid $theme0;
+
+      &:hover {
+        border-color: $theme5;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -20,26 +25,20 @@
         min-width: 120px;
         height: 80px;
         min-height: 80px;
-        margin-right: 10px;
-        border-radius: $borderRadius;
       }
 
-      h3 {
-        @include font-size(md);
-        @include font-weight(semiBold);
-      }
+      .desc {
+        padding: 0 10px;
 
-      p {
-        opacity: 0.65;
+        h3 {
+          @include font-size(md);
+          @include font-weight(semiBold);
+        }
       }
 
       &:hover {
         h3 {
           color: $theme5;
-        }
-
-        p {
-          opacity: 1;
         }
       }
     }

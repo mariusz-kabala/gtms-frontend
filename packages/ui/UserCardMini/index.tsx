@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IoIosPeople } from 'react-icons/io'
 
 export const UserCardMini: FC<{
   image: { jpg: string; webp?: string }
@@ -21,17 +20,9 @@ export const UserCardMini: FC<{
         className={styles.image}
         style={{ backgroundImage: `url(${image.jpg})` }}
       />
-      <h2 className={styles.header}>{name}</h2>
-      <span className={styles.members}>
-        <IoIosPeople /> {t('members')}: ??
-      </span>
       <div className={styles.desc}>
-        <h2 className={styles.nameSurname}>{name}</h2>
-        {desc && (
-          <div className={styles.desc}>
-            <p>{desc}</p>
-          </div>
-        )}
+        <h2 className={styles.header}>{name}</h2>
+        {desc && <p>{desc}</p>}
       </div>
     </div>
   )

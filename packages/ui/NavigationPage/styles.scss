@@ -3,20 +3,26 @@
 @import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
-  display: flex;
   flex-direction: column;
   @include z-index(navigationGroup);
-  margin-right: 5px;
+  border-right: 1px solid $theme4;
+
+  > div {
+    &:hover {
+      h2 {
+        color: $theme5;
+      }
+    }
+  }
 
   h2 {
     display: flex;
     align-items: center;
-    margin-top: 25px;
     margin-bottom: 10px;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 400;
     text-transform: uppercase;
-    color: $theme5;
+    color: $theme3;
 
     i {
       display: flex;
@@ -28,13 +34,11 @@
   .linksMock {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    margin-bottom: 20px;
 
     li {
       position: relative;
-      border-radius: 5px;
       margin-bottom: 10px;
-      font-weight: 500;
       cursor: pointer;
 
       &:last-child {
@@ -45,24 +49,24 @@
         display: flex;
         align-items: center;
         text-decoration: none;
-        color: $theme4;
 
         i {
           @include font-size(md);
           line-height: 0;
-          font-weight: 200;
           display: block;
+          color: $theme3;
         }
 
         span {
           margin-left: 10px;
-          font-weight: 200;
+          color: $theme3;
         }
       }
 
       &:hover {
         i,
-        a {
+        a,
+        span {
           color: $theme5;
         }
       }

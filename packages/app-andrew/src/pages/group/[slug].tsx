@@ -31,7 +31,9 @@ import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { Spinner } from '@gtms/ui/Spinner'
 import { SearchBar } from '@gtms/ui/SearchBar'
+import { UserCardMini } from '@gtms/ui/UserCardMini'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
+
 // state
 import {
   groupQuery,
@@ -107,107 +109,116 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
+          <NotificationsSidebar />
+          {/* <WelcomeSlider /> */}
           <div className={styles.groupHeader}>
-            <div>
-              <GroupAvatar
-                additionalStyles={styles.groupAvatar}
-                files={groupQuery.getAvatar('200x200', state)}
-                filesStatus={groupQuery.getAvatarFileStatus()}
+            <GroupAvatar
+              additionalStyles={styles.groupAvatar}
+              files={groupQuery.getAvatar('200x200', state)}
+              filesStatus={groupQuery.getAvatarFileStatus()}
+              isEditAllowed={groupQuery.hasAdminRights()}
+            />
+            <div className={styles.groupDesc}>
+              {/* <h2 data-tip={t('click-here-to-edit')} data-type="dark">
+                {state.group?.name}
+              </h2> */}
+              <h2 data-tip={t('click-here-to-edit')} data-type="dark">
+                Night City Berlin
+              </h2>
+              <GroupDescription
                 isEditAllowed={groupQuery.hasAdminRights()}
+                slug={state.group?.slug || ''}
+                text={
+                  !state.group?.description
+                    ? groupQuery.hasAdminRights()
+                      ? 'you did not add group description yet, click here to change it'
+                      : ''
+                    : state.group?.description || ''
+                }
               />
-              <div className={styles.groupDesc}>
-                <h2 data-tip={t('click-here-to-edit')} data-type="dark">
-                  {state.group?.name}
-                </h2>
-                <GroupDescription
-                  isEditAllowed={groupQuery.hasAdminRights()}
-                  slug={state.group?.slug || ''}
-                  text={
-                    !state.group?.description
-                      ? groupQuery.hasAdminRights()
-                        ? 'you did not add group description yet, click here to change it'
-                        : ''
-                      : state.group?.description || ''
-                  }
+            </div>
+            <div className={styles.searchInput}>
+              <img
+                className={styles.brick}
+                src="/images/cbp/brickSearchInputLeft.png"
+              />
+              <img
+                className={styles.brickHover}
+                src="/images/cbp/brickSearchInputLeftHover.png"
+              />
+              <div className={styles.search}>
+                <SearchBar
+                  onTagAdd={() => null}
+                  onTagRemove={() => null}
+                  onLoadSuggestion={() => null}
+                  onQueryChange={() => null}
+                  onLoadSuggestionCancel={() => null}
+                  tags={[]}
                 />
               </div>
-              <div className={styles.searchInput}>
-                <div className={styles.search}>
-                  <SearchBar
-                    onTagAdd={() => null}
-                    onTagRemove={() => null}
-                    onLoadSuggestion={() => null}
-                    onQueryChange={() => null}
-                    onLoadSuggestionCancel={() => null}
-                    tags={[]}
-                  />
-                </div>
-              </div>
             </div>
-            <div className={styles.actionButtons}>
-              <FavsButton group={state.group} />
-              <JoinLeaveButton group={state.group} />
-              <SettingsButton group={state.group} />
-              <FollowButton group={state.group} />
-            </div>
-            <WelcomeSlider />
-            <NotificationsSidebar />
-            <div className={styles.columns}>
-              <NavigationPage />
-              <div>
-                {state.user && (
-                  <PostCreate
-                    fetchTags={findTagsAPI}
-                    user={state.user}
-                    noImage={UserAvatarNoImage}
-                    onSubmit={(text: string) => {
-                      createNewPost({
-                        group: state.group?.id || '',
-                        text,
-                      })
-                    }}
-                    additionalStyles={styles.postCreate}
-                  />
-                )}
-                <NavigationTabs>
-                  <h2 className={styles.header}>Posts</h2>
-                  <ul className={styles.elements}>
-                    <li className={styles.item}>popular</li>
-                    <li className={styles.item}>latest</li>
-                    <li className={styles.item}>favorites </li>
-                    <li className={styles.item}>my posts</li>
-                  </ul>
-                </NavigationTabs>
-                <RecentlyAddedPosts
+          </div>
+          <div className={styles.actionButtons}>
+            <FavsButton group={state.group} />
+            <JoinLeaveButton group={state.group} />
+            <SettingsButton group={state.group} />
+            <FollowButton group={state.group} />
+          </div>
+          <div className={styles.columns}>
+            <NavigationPage />
+            <div>
+              {state.user && (
+                <PostCreate
                   fetchTags={findTagsAPI}
                   user={state.user}
-                  createComment={createNewComment}
                   noImage={UserAvatarNoImage}
-                  posts={state.posts}
+                  onSubmit={(text: string) => {
+                    createNewPost({
+                      group: state.group?.id || '',
+                      text,
+                    })
+                  }}
+                  additionalStyles={styles.postCreate}
                 />
-              </div>
-              <div>
-                <PromotedGroups />
-                <br /> {/* @todo remove it */}
-                <PromotedTags
-                  tags={state.promotedTags.tags}
-                  isLoading={state.promotedTags.isLoading}
-                  noImage={PromotedTagNoImage}
-                  isAdmin={groupQuery.hasAdminRights()}
-                  onNoRecordsClick={() =>
-                    router.push(`/group/${state.group?.slug}/settings#tags`)
-                  }
-                />
-                <br /> {/* @todo remove it */}
-                <NavigationTabs>
-                  <h2 className={styles.header}>Recently registered</h2>
-                  <ul className={styles.elements}>
-                    <li className={styles.item}>latest</li>
-                    <li className={styles.item}>most popular</li>
-                  </ul>
-                </NavigationTabs>
-                <GroupMembers {...state.members} />
-              </div>
+              )}
+              <NavigationTabs>
+                <h2 className={styles.header}>Latest</h2>
+                <ul className={styles.elements}>
+                  <li className={styles.item}>popular</li>
+                  <li className={styles.item}>latest</li>
+                  <li className={styles.item}>favorites </li>
+                  <li className={styles.item}>my posts</li>
+                </ul>
+              </NavigationTabs>
+              <RecentlyAddedPosts
+                fetchTags={findTagsAPI}
+                user={state.user}
+                createComment={createNewComment}
+                noImage={UserAvatarNoImage}
+                posts={state.posts}
+              />
+            </div>
+            <div className={styles.hide}>
+              <PromotedGroups />
+              <br /> {/* @todo remove it */}
+              <PromotedTags
+                tags={state.promotedTags.tags}
+                isLoading={state.promotedTags.isLoading}
+                noImage={PromotedTagNoImage}
+                isAdmin={groupQuery.hasAdminRights()}
+                onNoRecordsClick={() =>
+                  router.push(`/group/${state.group?.slug}/settings#tags`)
+                }
+              />
+              <br /> {/* @todo remove it */}
+              <NavigationTabs>
+                <h2 className={styles.header}>Recently registered</h2>
+                <ul className={styles.elements}>
+                  <li className={styles.item}>latest</li>
+                  <li className={styles.item}>most popular</li>
+                </ul>
+              </NavigationTabs>
+              <GroupMembers {...state.members} />
             </div>
           </div>
         </>

@@ -10,6 +10,7 @@ import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from 'components/commons/LoginWindow'
+import cx from 'classnames'
 
 interface GTMSAppProps {
   auth?: {
@@ -50,6 +51,10 @@ class GTMSApp extends App<GTMSAppProps> {
         <div className={styles.wrapperPage}>
           <NotificationsActive />
           <div className={styles.pageContent}>
+            <div className={cx(styles.brick, styles.brickTop)} />
+            <div className={cx(styles.brick, styles.brickRight)} />
+            <div className={cx(styles.brick, styles.brickBottom)} />
+            <div className={cx(styles.brick, styles.brickLeft)} />
             <Component {...pageProps} />
           </div>
         </div>
