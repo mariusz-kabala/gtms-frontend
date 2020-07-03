@@ -34,7 +34,7 @@ export const TagsHeader: FC<{
   return (
     <div data-testid="tags-header" className={styles.wrapper}>
       <header>
-        <h1>{tags.map((tag) => `#${tag}`).join(', ')}</h1>
+        <h2>{tags.map((tag) => `#${tag}`).join(', ')}</h2>
         {!isInEditMode && <a onClick={() => setIsInEditMode(true)}>+</a>}
         {isInEditMode && (
           <div className={styles.inputWrapper}>

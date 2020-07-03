@@ -12,22 +12,8 @@ $size: (
 
 @mixin header($key, $textUppercase: 'initial', $type: 'default') {
   font-size: header($key);
-  color: $theme7;
 
   @if $textUppercase {
     text-transform: uppercase;
-  }
-
-  @if $type == 'one' {
-    position: relative;
-
-    &:after {
-      content: '';
-      display: block;
-      width: 50px;
-      height: 3px;
-      margin: 15px 0;
-      background: $theme7;
-    }
   }
 }

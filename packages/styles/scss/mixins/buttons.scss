@@ -3,8 +3,8 @@
 @mixin buttonDefault() {
   display: inline-block;
   border: none;
+  border-radius: $borderRadius1;
   outline: none;
-  border-radius: $borderRadius;
   justify-content: center;
   padding: 10px;
   text-align: center; // for <a> elements
@@ -21,15 +21,18 @@
 
 // TYPES
 @mixin buttonWithIcon($position: 'left') {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+
   @if $position == 'left' {
     i {
       margin-right: 3px;
     }
   }
-
   @if $position == 'right' {
     i {
-      margin-right: 3px;
+      margin-left: 3px;
     }
   }
 }
@@ -45,16 +48,21 @@
 
 // COLOR TYPES
 @mixin buttonColorsDefault() {
-  background: $theme2;
-  color: $theme3;
-}
-
-@mixin buttonColorsPrimary() {
   background: $theme4;
   color: $theme0;
 }
 
-@mixin buttonColorsHoverDefault() {
-  background: $theme5;
+@mixin buttonColorsPrimary() {
+  background: $theme2;
+  color: $theme7;
+}
+
+@mixin buttonColorsSecondary() {
+  background: $theme4;
   color: $theme0;
+}
+
+@mixin buttonColorsTertiary() {
+  background: none;
+  color: $theme1;
 }

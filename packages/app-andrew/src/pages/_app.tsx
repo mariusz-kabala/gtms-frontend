@@ -10,6 +10,7 @@ import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from 'components/commons/LoginWindow'
+import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 
 interface GTMSAppProps {
   auth?: {
@@ -46,6 +47,7 @@ class GTMSApp extends App<GTMSAppProps> {
         <div className={styles.tempNav}>
           <Navigation />
           <NavigationDots />
+          <NotificationsSidebar />
         </div>
         <div className={styles.wrapperPage}>
           <NotificationsActive />
@@ -57,7 +59,7 @@ class GTMSApp extends App<GTMSAppProps> {
         <div
           className={styles.bg}
           style={{
-            backgroundImage: `url('/images/temp_images/group_bg_5.png')`,
+            backgroundImage: `url('/images/temp_images/group_bg.png')`,
           }}
         />
       </div>

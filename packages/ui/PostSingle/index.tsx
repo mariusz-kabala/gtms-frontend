@@ -60,12 +60,16 @@ export const PostSingle: FC<{
               }
               additionalStyles={styles.userAvatar}
             />
-            <span>{getDisplayName(owner)}</span>
+            <div>
+              <span>{getDisplayName(owner)}</span>
+              <span className={styles.date}>
+                {formatDistance(new Date(createdAt), new Date(), {
+                  locale: pl,
+                })}
+              </span>
+            </div>
           </div>
         </Link>
-        <span className={styles.date}>
-          {formatDistance(new Date(createdAt), new Date(), { locale: pl })}
-        </span>
         <DeletePost additionalStyles={styles.deleteBtn} />
       </div>
       <div className={styles.desc}>

@@ -1,4 +1,5 @@
 @import '~@gtms/styles/scss/mixins/zindex';
+@import '~@gtms/styles/scss/variables';
 
 .overlay {
   position: fixed;
@@ -8,7 +9,7 @@
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 1);
+  background: $theme0;
 
   &.clickable {
     cursor: pointer;

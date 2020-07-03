@@ -58,10 +58,10 @@ export const NotificationsSidebar: FC<{
     >
       <ExpandingRow>
         <Scrollbars style={{ height: '40vh' }}>
-          <div className={styles.header}>
-            <h2>Powiadomienia (nowe: {state.unreadCount})</h2>
+          <h2>
+            Powiadomienia (nowe: {state.unreadCount})
             <CloseIcon onClick={closeSidebarNotifications} />
-          </div>
+          </h2>
           <ul>
             {state.notifications.map((notification: INotificationRecord) => {
               switch (notification.type) {

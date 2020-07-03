@@ -1,0 +1,35 @@
+@import '@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/imageCover';
+
+.wrapper {
+  cursor: pointer;
+  border: 2px solid $theme0;
+
+  &:hover {
+    border-color: $theme5;
+  }
+
+  .image {
+    width: auto;
+    height: 150px;
+    @include imageCover();
+  }
+
+  .desc {
+    padding: 10px;
+
+    .header {
+      @include font-size(xsm);
+      margin-top: 2px;
+      margin-bottom: 5px;
+      font-weight: 400;
+      color: $theme2;
+    }
+
+    p {
+      line-height: 1.2em;
+    }
+  }
+}

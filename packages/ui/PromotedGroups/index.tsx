@@ -12,45 +12,45 @@ export const PromotedGroups: FC<{
   const mock = [
     {
       id: 0,
-      title: 'Patrol czerwony',
+      title: '#berlin2020',
       description:
-        'Qui ullamco esse excepteur in incididunt labore dolore. Quis enim eiusmod officia dipisicing.',
+        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
       image: '/images/temp_images/logo-wioska-1.png',
     },
     {
       id: 1,
-      title: 'Patrol zolty',
+      title: '#cdp',
       description:
-        'Proident elit excepteur consectetur velit ex  laborum exercitation incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-3.png',
+        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
+      image: '/images/temp_images/logo-wioska-2.png',
     },
     {
       id: 2,
-      title: 'Patrol niebieski',
       description:
-        'Eroident elit excepteur ncididunt labore dolore. Quis enim eiusmod officia ullamco',
-      image: '/images/temp_images/logo-wioska-4.png',
+        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
+      title: '#nightCity',
+      image: '/images/temp_images/logo-wioska-3.png',
     },
     {
       id: 3,
-      title: 'T ine the park',
+      title: '#ebm',
       description:
-        'Proident elit excepteur consectetur velit ex  laborum exercitation incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-5.png',
+        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
+      image: '/images/temp_images/logo-wioska-4.png',
     },
     {
       id: 4,
-      title: 'Rosklide festiwal',
+      title: '#metro',
       description:
-        'Proident elit excepteur consectetur velit ex  laborum exercitation incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-6.png',
+        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
+      image: '/images/temp_images/logo-wioska-5.png',
     },
     {
       id: 5,
-      title: 'Patrol czerwony',
+      title: '#gadgets',
       description:
-        'Proident elit excepteur consectetur velit ex  laborum exercitation incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-7.png',
+        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
+      image: '/images/temp_images/logo-wioska-6.png',
     },
   ]
 

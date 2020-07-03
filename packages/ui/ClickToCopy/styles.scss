@@ -16,7 +16,7 @@
     background: $theme2;
 
     &:hover {
-      @include buttonColorsHoverDefault();
+      @include buttonColorsSecondary();
     }
   }
 }

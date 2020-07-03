@@ -5,7 +5,7 @@
   @include buttonDefault();
   @include buttonColorsDefault();
   &:hover {
-    @include buttonColorsHoverDefault();
+    @include buttonColorsSecondary();
   }
 }
 

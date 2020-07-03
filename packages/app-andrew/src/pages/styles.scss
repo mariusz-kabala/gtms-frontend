@@ -4,22 +4,22 @@
 .wrapper {
   display: flex;
   flex: 1;
-  max-width: 75%;
 
   .tempNav {
     // @todo remove it eventually
     display: flex;
     flex-direction: column;
-    margin: 0 5px;
   }
 
   .wrapperPage {
+    position: relative;
     display: flex;
     flex: 1;
-    margin: 20px;
-    margin-left: 5px;
-    background: rgba($theme0, 0.9);
-    border-radius: 10px;
+    margin: 10px 0;
+    // max-width: 55%;
+    max-width: 80%;
+    border-radius: $borderRadius2;
+    background: rgba($theme0, 1);
     box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.05);
 
     .pageContent {

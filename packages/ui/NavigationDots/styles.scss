@@ -3,30 +3,26 @@
 @import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
+  position: relative;
   display: flex;
   @include z-index(navigationGroup);
-  margin-left: 5px;
 
   .navigationDot {
+    padding: 0 10px;
+
     > li {
-      margin-top: 5px;
+      padding-bottom: 10px;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
 
       .item {
         width: 40px;
         height: 40px;
-        background-size: cover; // @todo move to mixin
-        border-radius: 5px;
+        border-radius: $borderRadius1;
         cursor: pointer;
         transition: 200ms all;
-      }
-
-      &:hover {
-        transition-delay: 200ms;
-
-        .item {
-          width: 45px;
-          height: 45px;
-        }
       }
     }
   }

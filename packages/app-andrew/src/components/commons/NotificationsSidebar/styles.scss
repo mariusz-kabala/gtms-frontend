@@ -2,22 +2,24 @@
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
-  width: 100%;
-  transition: height 1s ease-out;
+  width: 0;
+  height: 100vh;
+  background: rgba($theme0, 0.9);
+  padding: 15px;
+  margin-right: 10px;
 
   &.opened {
-    height: 300px;
+    width: 300px;
   }
 
-  .header {
+  h2 {
     display: flex;
     align-items: center;
-
-    h2 {
-      margin-bottom: 8px;
-    }
+    margin-bottom: 8px;
 
     &:hover {
+      color: $theme5;
+
       .iconClose {
         color: $theme5;
       }

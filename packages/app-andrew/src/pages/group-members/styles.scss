@@ -1,18 +1,22 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/header.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
   padding: 20px;
 
   .header {
-    @include header(h3, textUppercase);
+    // @todo create mixin of that
+    font-size: 1.5em;
+    text-transform: uppercase;
+    @include font-weight(bold);
     margin-bottom: 15px;
   }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     grid-gap: 15px;
 
     .btn {
@@ -20,7 +24,7 @@
       @include buttonColorsDefault();
       border: 1px solid $theme2;
       &:hover {
-        @include buttonColorsHoverDefault();
+        @include buttonColorsSecondary();
       }
     }
   }

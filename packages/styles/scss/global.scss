@@ -14,9 +14,9 @@ html {
 
 body,
 input,
-textarea {
-  // font-family: $defaultFontFamily;
-  font-family: arial;
+textarea,
+button {
+  font-family: $defaultFontFamily;
   color: $theme7;
 }
 
@@ -34,11 +34,12 @@ body > div:first-of-type {
 }
 
 textarea {
+  resize: vertical;
+
   &:active,
   &:focus,
   &:hover {
     outline: none;
-    border-color: $theme7;
   }
 }
 

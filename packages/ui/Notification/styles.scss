@@ -8,9 +8,8 @@
   padding: 10px;
   margin-bottom: 3px;
   @include font-size(sm);
-  background: $theme2;
-  border: 1px solid $theme2;
-  border-radius: $borderRadius;
+  background: $theme4;
+  color: $theme0;
   cursor: pointer;
 
   .notificationIcon {
@@ -23,8 +22,6 @@
   }
 
   &:hover {
-    border-color: $theme5;
-
     .close {
       .iconClose {
         color: $theme5;
@@ -41,13 +38,9 @@
 
   .iconClose {
     position: absolute;
-    color: $theme4;
+    color: $theme0;
     display: flex;
     @include font-size(md);
-
-    &:hover {
-      color: $theme5;
-    }
   }
 
   .CircularProgressbar {
@@ -57,7 +50,7 @@
     width: 30px;
     > * {
       &:nth-child(1) {
-        stroke: $theme5;
+        stroke: $theme0;
       }
 
       &:nth-child(2) {

@@ -15,7 +15,6 @@
   padding: 40px;
   width: 700px;
   max-height: 85%;
-  border-radius: $borderRadius;
   background: #bdd3eb;
   color: #584147;
   @include imageCover();
@@ -36,7 +35,7 @@
     @include buttonDefault();
     @include buttonColorsDefault();
     &:hover {
-      @include buttonColorsHoverDefault();
+      @include buttonColorsSecondary();
     }
   }
 }
