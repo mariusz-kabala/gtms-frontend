@@ -136,14 +136,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               />
             </div>
             <div className={styles.searchInput}>
-              <img
-                className={styles.brick}
-                src="/images/cbp/brickSearchInputLeft.png"
-              />
-              <img
-                className={styles.brickHover}
-                src="/images/cbp/brickSearchInputLeftHover.png"
-              />
               <div className={styles.search}>
                 <SearchBar
                   onTagAdd={() => null}

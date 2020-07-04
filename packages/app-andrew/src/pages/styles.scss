@@ -25,43 +25,6 @@
 
     .pageContent {
       width: 100%;
-
-      .brick {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        width: 10px;
-        opacity: 0.9;
-      }
-
-      .brickTop {
-        top: -10px;
-        width: 100%;
-        height: 10px;
-        background-image: url('/images/cbp/brickLongHorizontal.png');
-        background-position: top 20%;
-      }
-
-      .brickRight {
-        right: -10px;
-        background-image: url('/images/cbp/brickLongVertical.png');
-        background-size: 800%;
-        background-position: right 43%;
-      }
-
-      .brickBottom {
-        width: 100%;
-        height: 10px;
-        bottom: -10px;
-        background-image: url('/images/cbp/brickLongHorizontal.png');
-        background-position: bottom;
-      }
-
-      .brickLeft {
-        left: -10px;
-        background-image: url('/images/cbp/brickLongVertical.png');
-        background-size: 800%;
-      }
     }
   }
 

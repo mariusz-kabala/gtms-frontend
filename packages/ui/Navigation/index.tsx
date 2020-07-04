@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
-import cx from 'classnames'
 import {
   IoIosAddCircle,
   IoIosKeypad,
@@ -19,10 +18,6 @@ export const Navigation: FC<{
 }> = ({ onAvatarClick, onLogout, avatar }) => {
   return (
     <div className={styles.wrapper}>
-      <div className={cx(styles.brick, styles.brickTop)} />
-      <div className={cx(styles.brick, styles.brickRight)} />
-      <div className={cx(styles.brick, styles.brickBottom)} />
-      <div className={cx(styles.brick, styles.brickLeft)} />
       <nav className={styles.navigation} data-testid="navigation">
         {avatar && (
           <UserAvatar additionalStyles={styles.avatar} image={avatar} />

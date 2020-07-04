@@ -12,15 +12,6 @@
     display: flex;
     // @todo this should be separate component / mixin
 
-    .brick,
-    .brickHover {
-      max-height: 46px;
-    }
-
-    .brickHover {
-      display: none;
-    }
-
     .search {
       background: $theme4;
       padding: 10px;
@@ -43,14 +34,6 @@
       input {
         background: $theme5;
         color: $theme0;
-      }
-
-      .brick {
-        display: none;
-      }
-
-      .brickHover {
-        display: block;
       }
     }
   }
