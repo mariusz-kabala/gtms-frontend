@@ -14,6 +14,7 @@ import {
 } from '@gtms/state-notification'
 import { Button } from '@gtms/ui/Button'
 import Switch from 'react-switch'
+import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
 
 export const NotificationsSettings: FC<{
   additionalStyles?: string
@@ -56,7 +57,7 @@ export const NotificationsSettings: FC<{
     <div className={additionalStyles} data-testid="notifications-settings">
       <ul className={styles.items}>
         <li className={styles.item}>
-          <Switch
+          <SwitchWrapper
             onChange={(value) => {
               if (value) {
                 return subscribe()

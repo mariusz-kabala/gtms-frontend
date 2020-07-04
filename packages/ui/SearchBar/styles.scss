@@ -1,5 +1,6 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/buttons';
 
 .searchBar {
   position: relative;
@@ -65,19 +66,10 @@
 }
 
 .tag {
-  background: $theme4;
-  padding: 5px;
-  margin-right: 5px;
-  cursor: pointer;
-  font-size: 14px;
+  @include buttonDefault();
+  @include buttonColorsDefault();
 
-  &:first-child {
-    margin-left: 0;
-  }
-
-  &:active,
-  &:focus,
   &:hover {
-    outline: none;
+    @include buttonColorsPrimary();
   }
 }

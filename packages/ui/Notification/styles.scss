@@ -9,7 +9,6 @@
   margin-bottom: 3px;
   @include font-size(sm);
   background: $theme2;
-  border: 1px solid $theme2;
   cursor: pointer;
 
   .notificationIcon {
@@ -22,8 +21,6 @@
   }
 
   &:hover {
-    border-color: $theme5;
-
     .close {
       .iconClose {
         color: $theme5;

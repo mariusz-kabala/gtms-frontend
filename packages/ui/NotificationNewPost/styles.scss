@@ -1,0 +1,36 @@
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/zindex';
+
+.wrapper {
+  @include font-size(md);
+  @include z-index(navigationGroup);
+  display: flex;
+  flex-direction: column;
+
+  .notification {
+    display: flex;
+    height: 70px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+
+    &:hover {
+      color: $theme5;
+    }
+
+    .avatar {
+      min-width: 35px;
+      margin-right: 10px;
+    }
+
+    .desc {
+      font-size: 14px;
+
+      h3 {
+        font-weight: 400;
+      }
+    }
+  }
+}

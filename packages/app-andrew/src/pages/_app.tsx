@@ -7,6 +7,7 @@ import { appWithTranslation } from '@gtms/commons/i18n'
 import { Navigation } from 'components/commons/Navigation'
 import { NavigationDots } from 'components/commons/NavigationDots'
 import { NotificationsActive } from 'components/commons/NotificationsActive'
+import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from 'components/commons/LoginWindow'
@@ -48,6 +49,7 @@ class GTMSApp extends App<GTMSAppProps> {
           <Navigation />
           <NavigationDots />
         </div>
+        <NotificationsSidebar />
         <div className={styles.wrapperPage}>
           <NotificationsActive />
           <div className={styles.pageContent}>

@@ -56,41 +56,39 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      <ExpandingRow>
-        <Scrollbars style={{ height: '40vh' }}>
-          <div className={styles.header}>
-            <h2>Powiadomienia (nowe: {state.unreadCount})</h2>
-            <CloseIcon onClick={closeSidebarNotifications} />
-          </div>
-          <ul>
-            {state.notifications.map((notification: INotificationRecord) => {
-              switch (notification.type) {
-                case 'internal':
-                  return (
-                    <Notification
-                      key={`notification-${notification.id}`}
-                      onClick={() => deleteNotification(notification.id)}
-                      additionalStyles={styles.notification}
-                      text={(notification.data as IInternalNotification).text}
-                      left={(notification.data as IInternalNotification).left}
-                      icon={
-                        NotificationIcons[
-                          (notification.data as IInternalNotification).type
-                        ]
-                      }
-                    />
-                  )
-                case 'api':
-                  return (
-                    <NotificationAPI
-                      {...(notification.data as INotification)}
-                    />
-                  )
-              }
-            })}
-          </ul>
-        </Scrollbars>
-      </ExpandingRow>
+      {/* <ExpandingRow> */}
+      {/* <Scrollbars style={{ height: '40vh' }}> */}
+      <h2>
+        Powiadomienia (nowe: {state.unreadCount})
+        <CloseIcon onClick={closeSidebarNotifications} />
+      </h2>
+      <ul>
+        {state.notifications.map((notification: INotificationRecord) => {
+          switch (notification.type) {
+            case 'internal':
+              return (
+                <Notification
+                  key={`notification-${notification.id}`}
+                  onClick={() => deleteNotification(notification.id)}
+                  additionalStyles={styles.notification}
+                  text={(notification.data as IInternalNotification).text}
+                  left={(notification.data as IInternalNotification).left}
+                  icon={
+                    NotificationIcons[
+                      (notification.data as IInternalNotification).type
+                    ]
+                  }
+                />
+              )
+            case 'api':
+              return (
+                <NotificationAPI {...(notification.data as INotification)} />
+              )
+          }
+        })}
+      </ul>
+      {/* </Scrollbars> */}
+      {/* </ExpandingRow> */}
     </div>
   )
 }
