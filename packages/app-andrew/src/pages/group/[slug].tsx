@@ -109,45 +109,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       {state.group && (
         <>
           {/* <WelcomeSlider /> */}
-          <div className={styles.groupHeader}>
-            <GroupAvatar
-              additionalStyles={styles.groupAvatar}
-              files={groupQuery.getAvatar('200x200', state)}
-              filesStatus={groupQuery.getAvatarFileStatus()}
-              isEditAllowed={groupQuery.hasAdminRights()}
-            />
-            <div className={styles.groupDesc}>
-              {/* <h2 data-tip={t('click-here-to-edit')} data-type="dark">
-                {state.group?.name}
-              </h2> */}
-              <h2 data-tip={t('click-here-to-edit')} data-type="dark">
-                Night City Berlin
-              </h2>
-              <GroupDescription
-                isEditAllowed={groupQuery.hasAdminRights()}
-                slug={state.group?.slug || ''}
-                text={
-                  !state.group?.description
-                    ? groupQuery.hasAdminRights()
-                      ? 'you did not add group description yet, click here to change it'
-                      : ''
-                    : state.group?.description || ''
-                }
-              />
-            </div>
-            <div className={styles.searchInput}>
-              <div className={styles.search}>
-                <SearchBar
-                  onTagAdd={() => null}
-                  onTagRemove={() => null}
-                  onLoadSuggestion={() => null}
-                  onQueryChange={() => null}
-                  onLoadSuggestionCancel={() => null}
-                  tags={[]}
-                />
-              </div>
-            </div>
-          </div>
           <div className={styles.actionButtons}>
             <FavsButton group={state.group} />
             <JoinLeaveButton group={state.group} />
@@ -155,8 +116,48 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <FollowButton group={state.group} />
           </div>
           <div className={styles.columns}>
-            <NavigationPage />
-            <div>
+            <div className={styles.left}>
+              <div className={styles.groupHeader}>
+                <div className={styles.avatarAndName}>
+                  <GroupAvatar
+                    additionalStyles={styles.groupAvatar}
+                    files={groupQuery.getAvatar('200x200', state)}
+                    filesStatus={groupQuery.getAvatarFileStatus()}
+                    isEditAllowed={groupQuery.hasAdminRights()}
+                  />
+                  <h2 data-tip={t('click-here-to-edit')} data-type="dark">
+                    Night City Berlin
+                    {/* {state.group?.name} */}
+                  </h2>
+                </div>
+                <GroupDescription
+                  additionalStyles={styles.desc}
+                  isEditAllowed={groupQuery.hasAdminRights()}
+                  slug={state.group?.slug || ''}
+                  text={
+                    !state.group?.description
+                      ? groupQuery.hasAdminRights()
+                        ? 'you did not add group description yet, click here to change it'
+                        : ''
+                      : state.group?.description || ''
+                  }
+                />
+                {/* <div className={styles.searchInput}>
+                  <div className={styles.search}>
+                    <SearchBar
+                      onTagAdd={() => null}
+                      onTagRemove={() => null}
+                      onLoadSuggestion={() => null}
+                      onQueryChange={() => null}
+                      onLoadSuggestionCancel={() => null}
+                      tags={[]}
+                    />
+                  </div>
+                </div> */}
+              </div>
+              <NavigationPage />
+            </div>
+            <div className={styles.right}>
               {state.user && (
                 <PostCreate
                   fetchTags={findTagsAPI}
@@ -187,6 +188,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 noImage={UserAvatarNoImage}
                 posts={state.posts}
               />
+            </div>
+            <div className={styles.third}>
+              <img src="/images/temp_images/temp_element.png" />
             </div>
             <div className={styles.hide}>
               <PromotedGroups />

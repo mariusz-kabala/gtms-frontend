@@ -5,7 +5,6 @@
   height: 40px;
   max-height: 40px;
   color: $theme5;
-  border: 1px solid $theme5;
   padding: 5px 15px;
   background: none;
   margin-bottom: 10px;
@@ -15,7 +14,7 @@
   &:active,
   &:focus,
   &:hover {
-    background: $theme5;
+    background: $theme3;
     color: $theme0;
     outline: none;
 

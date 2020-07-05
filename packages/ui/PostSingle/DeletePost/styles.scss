@@ -6,8 +6,8 @@
 .buttonDelete {
   position: absolute;
   right: 10px;
-  @include buttonColorsDefault();
   @include buttonDefault();
+  @include buttonColorsSecondary();
   @include buttonSizeSm();
   @include buttonWithIcon();
 

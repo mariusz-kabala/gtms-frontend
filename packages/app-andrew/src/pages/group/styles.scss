@@ -49,39 +49,55 @@
   }
 
   .groupHeader {
-    display: flex;
     width: 100%;
     min-width: 165px;
-    padding: 10px;
+    margin-bottom: 10px;
 
-    .groupAvatar {
-      margin-right: 10px;
-      // @todo write proper styles
-    }
-
-    .groupDesc {
-      line-height: 1;
-      color: $theme4;
-      font-weight: 100;
+    .avatarAndName {
+      display: flex;
+      align-items: center;
       max-width: 250px;
+      line-height: 1;
+      font-weight: 100;
+      color: $theme4;
+
+      .groupAvatar {
+        margin-right: 10px;
+        // @todo write proper styles
+        img {
+          border-radius: $borderRadius1;
+        }
+      }
 
       h2 {
         font-weight: 400;
-        @include font-size('md');
-        color: $theme1;
+        @include font-size('xdefault');
+        color: $theme7;
+      }
+    }
+
+    .desc {
+      margin-top: 5px;
+    }
+
+    &:hover {
+      color: $theme4;
+
+      h2 {
+        color: $theme4;
       }
 
-      span {
-        @include font-size('sm');
-        color: $theme3;
+      &:after {
+        background: $theme4;
       }
+    }
 
-      &:hover {
-        h2,
-        span {
-          color: $theme5;
-        }
-      }
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      background: $theme2;
     }
   }
 
@@ -89,15 +105,29 @@
     // @todo make mixin of that
     display: grid;
     gap: 20px; // @todo set standard gaps for grid
-    // grid-template-columns: 0.45fr 1.2fr 0.85fr;
-    grid-template-columns: 0.45fr 1.2fr;
-
-    padding: 10px;
-    box-shadow: -4px 0px 47px -20px rgba(0, 0, 0, 0.2);
+    grid-template-columns: 0.45fr 1fr 1.05fr;
+    // grid-template-columns: 0.45fr 1.2fr;
 
     .postCreate {
       // @todo styles to be written here
       margin-bottom: 20px;
+    }
+
+    > div {
+      padding: 20px;
+    }
+
+    .left {
+      border-right: 1px solid $theme4;
+    }
+
+    .right {
+      padding-left: 0;
+    }
+
+    .third {
+      padding-right: 0;
+      padding-left: 0;
     }
   }
 }

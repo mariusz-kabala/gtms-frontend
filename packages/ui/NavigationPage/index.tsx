@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
+import cx from 'classnames'
 import { Link } from '@gtms/commons/i18n'
-
 // this is just a mock
 // @todo remove it when no longer needed
 import {
@@ -38,6 +38,7 @@ export const NavigationPage: FC<{}> = () => {
       label: 'Berlin people',
       icon: <IoIosNotifications />,
       url: '/',
+      active: true,
     },
     {
       label: 'Label of my filter',
@@ -109,7 +110,12 @@ export const NavigationPage: FC<{}> = () => {
             // @todo remove it when no longer needed
 
             return (
-              <li className={styles.link} key={index}>
+              <li
+                className={cx(styles.link, {
+                  [styles.active]: value.active,
+                })}
+                key={index}
+              >
                 <Link href={value.url}>
                   <a>
                     <i>{value.icon}</i>

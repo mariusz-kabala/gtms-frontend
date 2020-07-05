@@ -5,12 +5,12 @@
 .wrapper {
   flex-direction: column;
   @include z-index(navigationGroup);
-  border-right: 1px solid $theme4;
 
   > div {
     &:hover {
       h2 {
-        color: $theme5;
+        opacity: 1;
+        color: $theme4;
       }
     }
   }
@@ -19,10 +19,12 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.35px;
+    opacity: 0.85;
     text-transform: uppercase;
-    color: $theme3;
+    color: $theme7;
 
     i {
       display: flex;
@@ -38,11 +40,37 @@
 
     li {
       position: relative;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       cursor: pointer;
 
       &:last-child {
         margin-bottom: 0;
+      }
+
+      &.active {
+        a {
+          position: relative;
+          z-index: 1;
+          display: inline-flex;
+          padding: 5px 10px;
+          border-radius: 15px;
+          background: $theme4;
+
+          i,
+          span {
+            color: $theme0;
+          }
+        }
+
+        &:after {
+          position: absolute;
+          top: 15px;
+          left: 20px;
+          content: '';
+          width: 100%;
+          height: 1px;
+          background: $theme4;
+        }
       }
 
       a {
@@ -67,7 +95,7 @@
         i,
         a,
         span {
-          color: $theme5;
+          color: $theme4;
         }
       }
     }

@@ -51,13 +51,13 @@
 }
 
 @mixin buttonColorsPrimary() {
-  background: $theme4;
-  color: $white;
+  background: $theme2;
+  color: $theme0;
 }
 
 @mixin buttonColorsSecondary() {
-  background: $theme5;
-  color: $black;
+  background: $theme4;
+  color: $theme0;
 }
 
 @mixin buttonColorsTertiary() {
