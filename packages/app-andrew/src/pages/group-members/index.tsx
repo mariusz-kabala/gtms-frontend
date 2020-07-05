@@ -24,115 +24,133 @@ export const GroupMembersPage: NextPage<{}> = () => {
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-1.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-1.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-2.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-2.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-3.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-3.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-4.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-4.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-5.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-5.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-6.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-6.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-7.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-7.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-8.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-8.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-4.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-9.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-1.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-10.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-3.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-11.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-5.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-1.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-6.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-2.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-7.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-3.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-8.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-4.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-4.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-5.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-1.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-6.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-3.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-7.png' }}
         />
         <UserCardMini
           name="Johnny Silverhand"
           desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
           onClick={() => setIsModalOpen(true)}
-          image={{ jpg: '/images/cbp/avatar-small-7.png' }}
+          image={{ jpg: '/images/temp_images/logo-wioska-8.png' }}
+        />
+        <UserCardMini
+          name="Johnny Silverhand"
+          desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
+          onClick={() => setIsModalOpen(true)}
+          image={{ jpg: '/images/temp_images/logo-wioska-9.png' }}
+        />
+        <UserCardMini
+          name="Johnny Silverhand"
+          desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
+          onClick={() => setIsModalOpen(true)}
+          image={{ jpg: '/images/temp_images/logo-wioska-10.png' }}
+        />
+        <UserCardMini
+          name="Johnny Silverhand"
+          desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
+          onClick={() => setIsModalOpen(true)}
+          image={{ jpg: '/images/temp_images/logo-wioska-11.png' }}
         />
         <Button additionalStyles={styles.btn}>See more</Button>
       </div>

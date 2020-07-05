@@ -4,9 +4,9 @@
 .wrapper {
   width: 0;
   height: 100vh;
-  background: $theme0;
+  background: rgba($theme0, 0.9);
   padding: 15px;
-  margin-left: 10px;
+  margin-right: 10px;
 
   &.opened {
     width: 300px;

@@ -23,7 +23,7 @@ export const Modal: FC<{
   return (
     <div className={cx(styles.modal, additionalStyles)} data-testid="modal">
       <div className={styles.content}>{children}</div>
-      <Overlay onClick={onClose} opacity={0.75} />
+      <Overlay onClick={onClose} />
     </div>
   )
 }

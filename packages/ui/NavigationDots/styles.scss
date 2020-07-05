@@ -5,7 +5,6 @@
 .wrapper {
   position: relative;
   display: flex;
-  margin-top: 10px;
   @include z-index(navigationGroup);
 
   .navigationDot {
@@ -13,7 +12,6 @@
 
     > li {
       padding-bottom: 10px;
-      background: $theme0;
 
       &:last-child {
         padding-bottom: 0;

@@ -14,9 +14,8 @@
 
   width: 980px;
   height: 500px;
-  border-radius: $borderRadius;
-  background: $theme5;
-  background: #252230;
+  border-radius: $borderRadius2;
+  background: $theme0;
 
   .content {
     display: flex;
@@ -37,7 +36,7 @@
     }
 
     .image {
-      border-radius: $borderRadius;
+      border-radius: $borderRadius2;
       width: 500px;
       height: 100%;
       padding: 15px;

@@ -3,6 +3,10 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
+.hide {
+  display: none;
+}
+
 .wrapper {
   width: 100%;
   height: 100%;
@@ -15,8 +19,8 @@
     .search {
       background: $theme4;
       padding: 10px;
-      padding-left: 0;
       border: 1px solid $theme4;
+      border-radius: $borderRadius2;
 
       &:hover,
       &:focus {
@@ -85,7 +89,8 @@
     // @todo make mixin of that
     display: grid;
     gap: 20px; // @todo set standard gaps for grid
-    grid-template-columns: 0.45fr 1.2fr 0.85fr;
+    // grid-template-columns: 0.45fr 1.2fr 0.85fr;
+    grid-template-columns: 0.45fr 1.2fr;
 
     padding: 10px;
     box-shadow: -4px 0px 47px -20px rgba(0, 0, 0, 0.2);

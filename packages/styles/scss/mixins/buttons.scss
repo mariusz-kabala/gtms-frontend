@@ -3,6 +3,7 @@
 @mixin buttonDefault() {
   display: inline-block;
   border: none;
+  border-radius: $borderRadius1;
   outline: none;
   justify-content: center;
   padding: 10px;

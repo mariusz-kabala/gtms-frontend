@@ -15,42 +15,42 @@ export const PromotedGroups: FC<{
       title: '#berlin2020',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/cbp/avatar-small-1.png',
+      image: '/images/temp_images/logo-wioska-1.png',
     },
     {
       id: 1,
       title: '#cdp',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/cbp/avatar-small-2.png',
+      image: '/images/temp_images/logo-wioska-2.png',
     },
     {
       id: 2,
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
       title: '#nightCity',
-      image: '/images/cbp/avatar-small-3.png',
+      image: '/images/temp_images/logo-wioska-3.png',
     },
     {
       id: 3,
       title: '#ebm',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/cbp/avatar-small-4.png',
+      image: '/images/temp_images/logo-wioska-4.png',
     },
     {
       id: 4,
       title: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/cbp/avatar-small-5.png',
+      image: '/images/temp_images/logo-wioska-5.png',
     },
     {
       id: 5,
       title: '#gadgets',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/cbp/avatar-small-6.png',
+      image: '/images/temp_images/logo-wioska-6.png',
     },
   ]
 
