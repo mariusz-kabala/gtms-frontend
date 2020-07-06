@@ -4,6 +4,8 @@ import {
   subscribeForWebPushNotificationsAPI,
   unsubscribeFromWebPushNotificationsAPI,
 } from '@gtms/api-notifications'
+import getConfig from 'next/config'
+import { urlBase64ToUint8Array } from '@gtms/commons'
 
 async function subscribeForWebPushNotifications(subscription: string) {
   return subscribeForWebPushNotificationsAPI({
@@ -50,16 +52,25 @@ export function init() {
 }
 
 export function subscribe() {
+  const { publicRuntimeConfig } = getConfig()
+
   navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
     serviceWorkerRegistration.pushManager
-      .subscribe({ userVisibleOnly: true })
+      .subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(
+          publicRuntimeConfig.VAPID_PUBLIC_KEY
+        ),
+      })
       .then((subscription) => {
         wpnStore.update({
           isEnabled: true,
           isSupported: true,
         })
 
-        return subscribeForWebPushNotifications(subscription.endpoint)
+        return subscribeForWebPushNotifications(
+          window.btoa(JSON.stringify(subscription))
+        )
       })
       .catch(() => {
         addErrorNotification('Error occured, can not enable notifications')
@@ -83,7 +94,9 @@ export function unsubscribe() {
         pushSubscription
           .unsubscribe()
           .then(() =>
-            unsubscribeFromWebPushNotifications(pushSubscription.endpoint)
+            unsubscribeFromWebPushNotifications(
+              window.btoa(JSON.stringify(subscription))
+            )
           )
           .catch(() => {
             addErrorNotification('Error occured, can not disable notifications')

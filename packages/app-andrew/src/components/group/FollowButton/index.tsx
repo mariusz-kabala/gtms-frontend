@@ -19,7 +19,7 @@ export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
   )
 
   useEffect(() => {
-    loadNotificationsSettings()
+    state.isLogged && loadNotificationsSettings()
     const sub = followButtonState$(group.id).subscribe((value) =>
       setState(value)
     )
