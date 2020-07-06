@@ -2,8 +2,6 @@ import React, { FC, useState, useEffect } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import useKey from 'use-key-hook'
-import { Scrollbars } from 'react-custom-scrollbars'
-import { ExpandingRow } from '@gtms/ui/ExpandingRow'
 import { Notification } from '@gtms/ui/Notification'
 import { CloseIcon } from '@gtms/ui/ExpandingRow/CloseIcon'
 import { INotificationsSidebarProps, baseUIQuery } from 'queries'
@@ -56,8 +54,6 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      {/* <ExpandingRow>
-        <Scrollbars style={{ height: '40vh' }}> */}
       <h2>
         Powiadomienia
         {/* @todo add translation here */}
@@ -89,8 +85,6 @@ export const NotificationsSidebar: FC<{
           }
         })}
       </ul>
-      {/* </Scrollbars>
-      </ExpandingRow> */}
     </div>
   )
 }
