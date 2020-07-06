@@ -12,16 +12,27 @@
     width: 300px;
   }
 
-  h2 {
+  > h2 {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+
+    span {
+      margin-left: 4px;
+      font-weight: 400;
+      font-size: 13px;
+    }
+
+    i {
+      margin-left: auto;
+    }
 
     &:hover {
-      color: $theme5;
-
-      .iconClose {
-        color: $theme5;
+      i > svg {
+        color: $theme4;
       }
     }
   }

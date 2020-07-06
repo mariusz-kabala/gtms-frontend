@@ -74,6 +74,23 @@ export const PostSingle: FC<{
       </div>
       <div className={styles.desc}>
         <ReactMarkdown className={styles.text} source={text} />
+        <ul className={styles.images}>
+          <li
+            style={{
+              backgroundImage: `url('/images/temp_images/logo-wioska-1.png')`,
+            }}
+          />
+          <li
+            style={{
+              backgroundImage: `url('/images/temp_images/logo-wioska-2.png')`,
+            }}
+          />
+          <li
+            style={{
+              backgroundImage: `url('/images/temp_images/logo-wioska-3.png')`,
+            }}
+          />
+        </ul>
         {tags.length > 0 && (
           <TagGroup additionalStyles={styles.tagGroup}>
             {tags.map((tag) => (
@@ -81,7 +98,6 @@ export const PostSingle: FC<{
             ))}
           </TagGroup>
         )}
-
         <button
           className={styles.respondBtn}
           onClick={(e) => {
