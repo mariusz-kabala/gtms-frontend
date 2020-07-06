@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.9.1...@gtms/styles@0.10.0) (2020-07-06)
+
+
+### Features
+
+* GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
+
+
+
+
+
 ## [0.9.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.9.0...@gtms/styles@0.9.1) (2020-06-29)
 
 

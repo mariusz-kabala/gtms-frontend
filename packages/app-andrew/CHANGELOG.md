@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.41.1...@gtms/app-andrew@0.42.0) (2020-07-06)
+
+
+### Features
+
+* GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
+
+
+
+
+
 ## [0.41.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.41.0...@gtms/app-andrew@0.41.1) (2020-07-01)
 
 ### Bug Fixes
