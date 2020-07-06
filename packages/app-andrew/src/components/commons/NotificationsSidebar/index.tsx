@@ -24,7 +24,7 @@ export const NotificationsSidebar: FC<{
   )
 
   useEffect(() => {
-    loadRecentNotifications()
+    state.isLogged && loadRecentNotifications()
     const sub = baseUIQuery.notificationsSidebar$.subscribe((values) =>
       setState(values)
     )

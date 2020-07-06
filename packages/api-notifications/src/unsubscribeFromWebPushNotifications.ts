@@ -1,4 +1,4 @@
-import { fetchJSON, makeApiUrl } from '@gtms/api-common'
+import { deleteRequest, makeApiUrl } from '@gtms/api-common'
 
 export interface IUnsubscribePayload {
   subscription: string
@@ -7,11 +7,7 @@ export interface IUnsubscribePayload {
 export const unsubscribeFromWebPushNotificationsAPI = (
   payload: IUnsubscribePayload
 ) => {
-  return fetchJSON<IUnsubscribePayload, null>(
-    makeApiUrl('notifications/web-push'),
-    {
-      values: payload,
-      method: 'DELETE',
-    }
+  return deleteRequest(
+    makeApiUrl(`notifications/web-push/${payload.subscription}`)
   )
 }

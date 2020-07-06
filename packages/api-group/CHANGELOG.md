@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.12.3...@gtms/api-group@0.13.0) (2020-07-06)
+
+
+### Features
+
+* GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
+
+
+
+
+
 ## [0.12.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.12.2...@gtms/api-group@0.12.3) (2020-07-01)
 
 **Note:** Version bump only for package @gtms/api-group

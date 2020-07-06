@@ -26,6 +26,7 @@ export interface INotificationsSidebarProps {
   isOpen: boolean
   notifications: INotificationRecord[]
   unreadCount: number
+  isLogged: boolean
 }
 
 export interface INavigationDotsProps {
@@ -62,6 +63,7 @@ export class BaseUIQuery {
         this.userQuery.isLogged() && this.uiQuery.isNotificationsBarOpen(),
       notifications: this.notificationsQuery.getAll(),
       unreadCount: this.notificationsQuery.unread().length,
+      isLogged: this.userQuery.isLogged(),
     }
   }
 
