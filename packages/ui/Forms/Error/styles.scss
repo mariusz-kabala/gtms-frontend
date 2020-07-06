@@ -7,10 +7,24 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  padding-top: 5px;
-  color: $theme6;
+  padding: 10px;
   @include font-size(sm);
   @include font-weight(normal);
+  background: $theme6;
+  color: $theme1;
   border-top: 1px solid $theme6;
   margin-top: -11px;
+  margin-bottom: 10px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 7.5px 8px 7.5px;
+    border-color: transparent transparent $theme6 transparent;
+  }
 }

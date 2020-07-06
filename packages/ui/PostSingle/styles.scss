@@ -1,25 +1,12 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 .wrapper {
   position: relative;
-  padding: 10px;
-  border-radius: $borderRadius;
-  border: 1px solid $theme2;
   overflow: hidden; // for delete post component that overflows this component
-  opacity: 0.85;
   cursor: pointer;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 25px;
-    display: flex;
-    width: 4px;
-    height: calc(100% - 55px);
-    background: #4b4465;
-  }
+  opacity: 0.85;
 
   &:hover {
     border-color: $theme5;
@@ -32,19 +19,22 @@
     }
 
     &::after {
-      background: $theme5;
+      background: $theme4;
     }
   }
 
   .header {
     display: flex;
+    align-items: center;
+    font-weight: 400;
 
     .user {
       display: flex;
+      align-items: center;
 
       // @todo create mixin with highlighted text
       &:hover {
-        color: $theme5;
+        color: $theme4;
       }
 
       .userAvatar {
@@ -52,19 +42,19 @@
         height: 35px;
         min-width: 35px;
         min-height: 35px;
-
-        img {
-          border-radius: 50%;
-        }
       }
+    }
+
+    .date {
+      font-weight: 300;
     }
 
     span {
       margin-left: 10px;
 
-      // @todo create mixin with highlighted text
+      // @include font-weight('bold');
       &:hover {
-        color: $theme5;
+        color: $theme4;
       }
     }
 
@@ -79,11 +69,8 @@
   }
 
   .desc {
-    margin-top: -15px;
-    margin-left: 45px;
-
     .text {
-      margin: 10px 0;
+      margin-top: 10px;
 
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
@@ -91,12 +78,23 @@
     }
   }
 
+  .tagGroup {
+    margin-top: 10px;
+  }
+
   .respondBtn {
     @include buttonDefault();
-    @include buttonColorsDefault();
     @include buttonSizeSm();
+    @include buttonColorsPrimary();
+    margin-top: 10px;
+    margin-left: auto;
+
     &:hover {
-      @include buttonColorsHoverDefault();
+      @include buttonColorsSecondary();
     }
+  }
+
+  .postResponseCreate {
+    margin-top: 10px;
   }
 }

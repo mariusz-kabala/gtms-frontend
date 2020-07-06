@@ -30,12 +30,12 @@
         @include buttonColorsDefault();
 
         &:hover {
-          @include buttonColorsHoverDefault();
+          @include buttonColorsSecondary();
         }
         margin-right: 15px;
 
         &:hover {
-          @include buttonColorsHoverDefault();
+          @include buttonColorsSecondary();
         }
 
         &:last-child {

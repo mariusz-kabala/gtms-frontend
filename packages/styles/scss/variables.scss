@@ -1,19 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+$defaultFontFamily: 'Roboto Condensed', sans-serif;
 
-$defaultFontFamily: 'Lato, sans-serif', 'Open Sans', 'Helvetica Neue',
-  sans-serif;
-
-$theme0: #000000;
-$theme1: #121018;
-$theme2: #201a24;
-$theme3: #474159;
-$theme4: #595272;
-$theme5: #f55d1c;
+$theme0: #ffffff;
+$theme1: #efefef;
+$theme2: #e4e4e4;
+$theme3: #ebbdf8;
+$theme4: #1f5ef3;
+$theme5: #fded38;
 $theme6: #cd0000;
-$theme7: #fff;
-$theme8: #a4c339;
+$theme7: #373737;
+$theme8: #020202;
 $theme9: #3e4b21;
 $theme10: #a2a9ec; //@todo change it to $theme5 and current $theme5 to $theme6 etc.
+$theme11: #2e2e2e; //@todo change it to $theme5 and current $theme5 to $theme6 etc.
+$theme12: #760a5d; //@todo change it to $theme5 and current $theme5 to $theme6 etc.
 
 $white: #fff;
-$borderRadius: 5px;
+$black: #000;
+
+$borderRadius1: 5px;
+$borderRadius2: 10px;

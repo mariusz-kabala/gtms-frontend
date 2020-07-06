@@ -7,36 +7,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/api-group
 
-
-
-
-
 ## [0.12.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.12.1...@gtms/api-group@0.12.2) (2020-06-30)
 
 **Note:** Version bump only for package @gtms/api-group
-
-
-
-
 
 ## [0.12.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.12.0...@gtms/api-group@0.12.1) (2020-06-24)
 
 **Note:** Version bump only for package @gtms/api-group
 
-
-
-
-
 # [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.11.1...@gtms/api-group@0.12.0) (2020-06-24)
-
 
 ### Features
 
-* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
-
-
-
-
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
 ## [0.11.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.11.0...@gtms/api-group@0.11.1) (2020-06-23)
 

@@ -5,26 +5,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.8.0...@gtms/state-notification@0.9.0) (2020-07-01)
 
-
 ### Features
 
-* GEOT-310: support new post notification ([#681](https://github.com/gtms-org/gtms-frontend/issues/681)) ([22537ae](https://github.com/gtms-org/gtms-frontend/commit/22537ae20aef5335d55b27904391fbccbdc35b1e))
-
-
-
-
+- GEOT-310: support new post notification ([#681](https://github.com/gtms-org/gtms-frontend/issues/681)) ([22537ae](https://github.com/gtms-org/gtms-frontend/commit/22537ae20aef5335d55b27904391fbccbdc35b1e))
 
 # [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.7.1...@gtms/state-notification@0.8.0) (2020-06-30)
 
-
 ### Features
 
-* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
-* GEOT-310: support BE notifications ([#679](https://github.com/gtms-org/gtms-frontend/issues/679)) ([05d9c2b](https://github.com/gtms-org/gtms-frontend/commit/05d9c2b09984b42209beff8613c6df5602c714ee))
-
-
-
-
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
+- GEOT-310: support BE notifications ([#679](https://github.com/gtms-org/gtms-frontend/issues/679)) ([05d9c2b](https://github.com/gtms-org/gtms-frontend/commit/05d9c2b09984b42209beff8613c6df5602c714ee))
 
 ## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.7.0...@gtms/state-notification@0.7.1) (2020-06-23)
 

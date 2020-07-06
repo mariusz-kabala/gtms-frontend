@@ -5,39 +5,25 @@
 
 .wrapper {
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   @include imageCover();
 
-  .left {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 40%;
-    padding: 0 40px;
-
-    > div {
-      width: 100%;
-
-      h2 {
-        @include font-size(xlg);
-        @include font-weight(600);
-        text-transform: uppercase;
-      }
-
-      p {
-        margin-top: 5px;
-        margin-bottom: 20px;
-        line-height: 1.3em;
-        @include font-weight(semiNormal);
-        font-size: 1.6em;
-      }
-    }
-  }
-
-  .right {
-    display: flex;
-    align-items: center;
+  > div {
     width: 60%;
-    @include imageCover();
+
+    h2 {
+      font-size: 3em;
+      text-transform: uppercase;
+      @include font-weight(bold);
+    }
+
+    p {
+      margin-top: 5px;
+      margin-bottom: 20px;
+      line-height: 1.3em;
+      @include font-weight(semiNormal);
+    }
   }
 }

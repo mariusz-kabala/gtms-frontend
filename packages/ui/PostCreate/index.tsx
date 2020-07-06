@@ -151,18 +151,19 @@ export const PostCreate: FC<{
           placeholder={t('yourMessage')}
           ref={ref as any}
         />
-
         <Button
+          additionalStyles={styles.btn}
+          disabled={false}
           onClick={() => {
             onSubmit(value)
-
             setValue('')
           }}
           type="submit"
-          disabled={false}
-          additionalStyles={styles.btn}
         >
-          {t('send')} <IoMdSend />
+          {t('send')}{' '}
+          <i>
+            <IoMdSend />
+          </i>
         </Button>
       </div>
       {tagsHints.tags.length > 0 && (

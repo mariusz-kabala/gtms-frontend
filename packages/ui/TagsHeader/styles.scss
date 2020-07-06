@@ -4,12 +4,14 @@
 
 .wrapper {
   color: $theme7;
+
   header {
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    h1 {
-      @include font-size(xlg);
+
+    h2 {
+      @include font-size(xxlg);
     }
 
     a {

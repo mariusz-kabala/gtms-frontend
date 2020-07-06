@@ -60,18 +60,22 @@ export const PostSingle: FC<{
               }
               additionalStyles={styles.userAvatar}
             />
-            <span>{getDisplayName(owner)}</span>
+            <div>
+              <span>{getDisplayName(owner)}</span>
+              <span className={styles.date}>
+                {formatDistance(new Date(createdAt), new Date(), {
+                  locale: pl,
+                })}
+              </span>
+            </div>
           </div>
         </Link>
-        <span>
-          {formatDistance(new Date(createdAt), new Date(), { locale: pl })}
-        </span>
         <DeletePost additionalStyles={styles.deleteBtn} />
       </div>
       <div className={styles.desc}>
         <ReactMarkdown className={styles.text} source={text} />
         {tags.length > 0 && (
-          <TagGroup>
+          <TagGroup additionalStyles={styles.tagGroup}>
             {tags.map((tag) => (
               <Tag label={tag} key={`post-tag-${tag}`} />
             ))}
@@ -107,6 +111,7 @@ export const PostSingle: FC<{
         {isAnswerFormOpen && (
           <div ref={commentForm}>
             <PostCreate
+              additionalStyles={styles.postResponseCreate}
               onSubmit={(text) => {
                 createComment({
                   text,

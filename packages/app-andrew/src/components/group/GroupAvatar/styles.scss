@@ -1,11 +1,6 @@
 @import '~@gtms/styles/scss/variables';
 
 .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
   .spinner {
     position: absolute;
   }
@@ -15,11 +10,10 @@
 
     img {
       // @todo - this should be eventually removed - it shouldn't be fixed value
-      width: 65px;
-      min-width: 65px;
-      height: 65px;
-      min-height: 65px;
-      border-radius: $borderRadius;
+      width: 45px;
+      min-width: 45px;
+      height: 45px;
+      min-height: 45px;
     }
   }
 }

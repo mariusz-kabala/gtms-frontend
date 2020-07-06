@@ -1,57 +1,108 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/fontWeight.scss';
-@import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/imageCover';
+
+.hide {
+  display: none;
+}
 
 .wrapper {
   width: 100%;
   height: 100%;
 
   .searchInput {
-    display: flex;
-    align-items: center;
     margin-left: auto;
-
+    display: flex;
     // @todo this should be separate component / mixin
+
     .search {
-      background: $theme3;
+      background: $theme4;
       padding: 10px;
-      border: 1px solid $theme3;
-      border-radius: $borderRadius;
+      border: 1px solid $theme4;
+      border-radius: $borderRadius2;
 
       &:hover,
       &:focus {
-        border-color: $theme7;
+        border-color: $theme5;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      .search {
+        background: $theme5;
+      }
+
+      input {
+        background: $theme5;
+        color: $theme0;
       }
     }
   }
 
-  .groupHeader {
-    position: relative;
+  .actionButtons {
     display: flex;
-    align-items: center;
-    margin: 15px;
+    flex-direction: column;
+    width: 100%;
 
-    .groupAvatar {
-      margin-right: 10px;
-      // @todo write proper styles
+    > * {
+      margin-bottom: 10px;
     }
+  }
 
-    .groupDesc {
-      margin-right: 5px;
-      max-width: 220px;
+  .groupHeader {
+    width: 100%;
+    min-width: 165px;
+    margin-bottom: 10px;
+
+    .avatarAndName {
+      display: flex;
+      align-items: center;
+      max-width: 250px;
       line-height: 1;
+      font-weight: 100;
+      color: $theme4;
+
+      .groupAvatar {
+        margin-right: 10px;
+        // @todo write proper styles
+        img {
+          border-radius: $borderRadius1;
+        }
+      }
 
       h2 {
-        @include font-size('xmd');
-        font-weight: bold;
-        margin-bottom: 5px;
+        font-weight: 400;
+        @include font-size('xdefault');
+        color: $theme7;
       }
     }
 
-    .actionButtons {
-      display: flex;
-      width: 100%;
+    .desc {
+      margin-top: 5px;
+    }
+
+    &:hover {
+      color: $theme4;
+
+      h2 {
+        color: $theme4;
+      }
+
+      &:after {
+        background: $theme4;
+      }
+    }
+
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      background: $theme2;
     }
   }
 
@@ -59,13 +110,78 @@
     // @todo make mixin of that
     display: grid;
     gap: 20px; // @todo set standard gaps for grid
-    grid-template-columns: 1.2fr 0.8fr;
-
-    margin: 15px;
+    grid-template-columns: 0.45fr 1fr 1.05fr;
+    // grid-template-columns: 0.45fr 1.2fr;
 
     .postCreate {
       // @todo styles to be written here
       margin-bottom: 20px;
+    }
+
+    > div {
+      padding: 20px;
+    }
+
+    .left {
+      border-right: 1px solid $theme4;
+    }
+
+    .right {
+      padding-left: 0;
+    }
+
+    .third {
+      padding-right: 0;
+      padding-left: 0;
+
+      .buttons {
+        display: flex;
+        margin-bottom: 20px;
+
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+          border: 1px solid lightgray;
+          border-radius: $borderRadius1;
+          margin-right: 10px;
+          cursor: pointer;
+
+          &:hover {
+            border-color: $theme4;
+
+            i {
+              color: $theme4;
+            }
+          }
+
+          i {
+            line-height: 0;
+            color: lightgray;
+          }
+        }
+      }
+
+      .images {
+        display: flex;
+
+        li {
+          display: block;
+          width: 100px;
+          height: 100px;
+          border-radius: $borderRadius2;
+          @include imageCover();
+          margin-right: 10px;
+          cursor: pointer;
+          border: 3px solid $theme2;
+
+          &:hover {
+            border-color: $theme4;
+          }
+        }
+      }
     }
   }
 }

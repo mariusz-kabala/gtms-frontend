@@ -34,7 +34,7 @@
         margin-right: 15px;
 
         &:hover {
-          @include buttonColorsHoverDefault();
+          @include buttonColorsSecondary();
         }
 
         &:last-child {

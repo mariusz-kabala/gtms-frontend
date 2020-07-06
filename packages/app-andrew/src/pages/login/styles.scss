@@ -5,71 +5,52 @@
 
 .wrapper {
   display: flex;
-  background: $theme0;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
-  .left {
-    position: relative;
-    width: 40%;
-    padding: 0 40px;
+  > div {
+    width: 60%;
 
-    > div {
-      width: 100%;
-      margin-top: 40px;
+    h2 {
+      // @todo make mixin of that
+      font-size: 3em;
+      text-transform: uppercase;
+      @include font-weight(bold);
+    }
 
-      h2,
-      p {
-        @include font-weight(bold);
-        margin-bottom: 15px;
-      }
+    .form {
+      margin-top: 20px;
+    }
 
-      h2 {
-        font-size: 3em;
-        text-transform: uppercase;
-      }
+    .actionButtons {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      margin: 10px 0;
+      margin-top: 25px;
 
-      p {
-        @include font-weight(light);
-
-        &:last-child {
-          margin-bottom: 40px;
+      > button {
+        width: 100%;
+        @include buttonDefault();
+        @include buttonColorsTertiary();
+        &:hover {
+          @include buttonColorsSecondary();
         }
-      }
-
-      .actionButtons {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr 1fr;
-        margin: 10px 0;
-        margin-top: 25px;
-
-        > button {
-          width: 100%;
-          @include buttonDefault();
-          @include buttonColorsDefault();
-          &:hover {
-            @include buttonColorsHoverDefault();
-          }
-        }
-      }
-
-      .btn {
-        // @todo create proper mixin for button
-        display: inline-block;
-        width: 220px;
-      }
-
-      .socialButtons {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr 1fr;
       }
     }
-  }
 
-  .right {
-    width: 60%;
-    @include imageCover();
+    .btn {
+      // @todo create proper mixin for button
+      display: inline-block;
+      width: 220px;
+    }
+
+    .socialButtons {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }

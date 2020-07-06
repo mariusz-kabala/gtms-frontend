@@ -12,16 +12,9 @@
 
   .avatarWrapper {
     display: flex;
-    justify-content: center;
-    margin: 20px;
 
     .avatar {
-      margin: auto;
       cursor: pointer;
-
-      img {
-        border-radius: 50%;
-      }
     }
   }
 

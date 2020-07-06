@@ -19,7 +19,6 @@ import { GroupMembers } from 'components/group/GroupMembers'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
-import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 import { SettingsButton } from 'components/group/SettingsButton'
 // ui
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
@@ -29,9 +28,16 @@ import { PostCreate } from '@gtms/ui/PostCreate'
 import { PromotedGroups } from '@gtms/ui/PromotedGroups'
 import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
-import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
-import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
+import { SearchBar } from '@gtms/ui/SearchBar'
+
+import {
+  IoIosHeart,
+  IoIosGitNetwork,
+  IoIosListBox,
+  IoIosSettings,
+} from 'react-icons/io'
+
 // state
 import {
   groupQuery,
@@ -107,53 +113,54 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
-          <div className={styles.groupHeader}>
-            <GroupAvatar
-              additionalStyles={styles.groupAvatar}
-              files={groupQuery.getAvatar('200x200', state)}
-              filesStatus={groupQuery.getAvatarFileStatus()}
-              isEditAllowed={groupQuery.hasAdminRights()}
-            />
-            <div className={styles.groupDesc}>
-              <h2 data-tip={t('click-here-to-edit')} data-type="dark">
-                {state.group?.name}
-              </h2>
-              <GroupDescription
-                isEditAllowed={groupQuery.hasAdminRights()}
-                slug={state.group?.slug || ''}
-                text={
-                  !state.group?.description
-                    ? groupQuery.hasAdminRights()
-                      ? 'you did not add group description yet, click here to change it'
-                      : ''
-                    : state.group?.description || ''
-                }
-              />
-            </div>
-            <NavigationPage />
-            <div className={styles.searchInput}>
-              <div className={styles.search}>
-                <SearchBar
-                  onTagAdd={() => null}
-                  onTagRemove={() => null}
-                  onLoadSuggestion={() => null}
-                  onQueryChange={() => null}
-                  onLoadSuggestionCancel={() => null}
-                  tags={[]}
+          <div className={styles.columns}>
+            <div className={styles.left}>
+              <div className={styles.groupHeader}>
+                <div className={styles.avatarAndName}>
+                  <GroupAvatar
+                    additionalStyles={styles.groupAvatar}
+                    files={groupQuery.getAvatar('200x200', state)}
+                    filesStatus={groupQuery.getAvatarFileStatus()}
+                    isEditAllowed={groupQuery.hasAdminRights()}
+                  />
+                  <h2 data-tip={t('click-here-to-edit')} data-type="dark">
+                    {state.group?.name}
+                  </h2>
+                </div>
+                <GroupDescription
+                  additionalStyles={styles.desc}
+                  isEditAllowed={groupQuery.hasAdminRights()}
+                  slug={state.group?.slug || ''}
+                  text={
+                    !state.group?.description
+                      ? groupQuery.hasAdminRights()
+                        ? 'you did not add group description yet, click here to change it'
+                        : ''
+                      : state.group?.description || ''
+                  }
                 />
+                <div className={styles.searchInput}>
+                  <div className={styles.search}>
+                    <SearchBar
+                      onTagAdd={() => null}
+                      onTagRemove={() => null}
+                      onLoadSuggestion={() => null}
+                      onQueryChange={() => null}
+                      onLoadSuggestionCancel={() => null}
+                      tags={[]}
+                    />
+                  </div>
+                </div>
+              </div>
+              <NavigationPage />
+              <div className={styles.actionButtons}>
+                <FavsButton group={state.group} />
+                <JoinLeaveButton group={state.group} />
+                <SettingsButton group={state.group} />
+                <FollowButton group={state.group} />
               </div>
             </div>
-          </div>
-          <div className={styles.actionButtons}>
-            <FavsButton group={state.group} />
-            <JoinLeaveButton group={state.group} />
-            <SettingsButton group={state.group} />
-            <FollowButton group={state.group} />
-          </div>
-          <WelcomeSlider />
-          <NotificationsSidebar />
-          <div className={styles.columns}>
-            <div>
+            <div className={styles.right}>
               {state.user && (
                 <PostCreate
                   fetchTags={findTagsAPI}
@@ -169,11 +176,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 />
               )}
               <NavigationTabs>
-                <h2 className={styles.header}>Posts</h2>
+                <h2 className={styles.header}>Latest</h2>
                 <ul className={styles.elements}>
-                  <li className={styles.item}>popular posts</li>
-                  <li className={styles.item}>latest posts</li>
-                  <li className={styles.item}>favorites posts</li>
+                  <li className={styles.item}>popular</li>
+                  <li className={styles.item}>latest</li>
+                  <li className={styles.item}>favorites </li>
                   <li className={styles.item}>my posts</li>
                 </ul>
               </NavigationTabs>
@@ -185,7 +192,49 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 posts={state.posts}
               />
             </div>
-            <div>
+            <div className={styles.third}>
+              <ul className={styles.buttons}>
+                <li>
+                  <i>
+                    <IoIosGitNetwork />
+                  </i>
+                </li>
+                <li>
+                  <i>
+                    <IoIosListBox />
+                  </i>
+                </li>
+                <li>
+                  <i>
+                    <IoIosHeart />
+                  </i>
+                </li>
+                <li>
+                  <i>
+                    <IoIosSettings />
+                  </i>
+                </li>
+              </ul>
+              <img src="/images/temp_images/temp_element.png" />
+              <ul className={styles.images}>
+                <li
+                  style={{
+                    backgroundImage: `url('/images/temp_images/logo-wioska-1.png')`,
+                  }}
+                />
+                <li
+                  style={{
+                    backgroundImage: `url('/images/temp_images/logo-wioska-2.png')`,
+                  }}
+                />
+                <li
+                  style={{
+                    backgroundImage: `url('/images/temp_images/logo-wioska-3.png')`,
+                  }}
+                />
+              </ul>
+            </div>
+            <div className={styles.hide}>
               <PromotedGroups />
               <br /> {/* @todo remove it */}
               <PromotedTags

@@ -5,91 +5,51 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.21.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.20.0...@gtms/commons@0.21.0) (2020-07-01)
 
-
 ### Features
 
-* GEOT-310: support new post notification ([#681](https://github.com/gtms-org/gtms-frontend/issues/681)) ([22537ae](https://github.com/gtms-org/gtms-frontend/commit/22537ae20aef5335d55b27904391fbccbdc35b1e))
-
-
-
-
+- GEOT-310: support new post notification ([#681](https://github.com/gtms-org/gtms-frontend/issues/681)) ([22537ae](https://github.com/gtms-org/gtms-frontend/commit/22537ae20aef5335d55b27904391fbccbdc35b1e))
 
 # [0.20.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.19.0...@gtms/commons@0.20.0) (2020-06-30)
 
-
 ### Features
 
-* GEOT-310: support BE notifications ([#679](https://github.com/gtms-org/gtms-frontend/issues/679)) ([05d9c2b](https://github.com/gtms-org/gtms-frontend/commit/05d9c2b09984b42209beff8613c6df5602c714ee))
-
-
-
-
+- GEOT-310: support BE notifications ([#679](https://github.com/gtms-org/gtms-frontend/issues/679)) ([05d9c2b](https://github.com/gtms-org/gtms-frontend/commit/05d9c2b09984b42209beff8613c6df5602c714ee))
 
 # [0.19.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.18.0...@gtms/commons@0.19.0) (2020-06-24)
 
-
 ### Features
 
-* GEOT-299: comments adding ([#668](https://github.com/gtms-org/gtms-frontend/issues/668)) ([7c003bd](https://github.com/gtms-org/gtms-frontend/commit/7c003bdf25606c472345f4dc20152ac060096c7d))
-
-
-
-
+- GEOT-299: comments adding ([#668](https://github.com/gtms-org/gtms-frontend/issues/668)) ([7c003bd](https://github.com/gtms-org/gtms-frontend/commit/7c003bdf25606c472345f4dc20152ac060096c7d))
 
 # [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.17.0...@gtms/commons@0.18.0) (2020-06-24)
 
-
 ### Features
 
-* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
-
-
-
-
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
 # [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.16.1...@gtms/commons@0.17.0) (2020-06-22)
 
-
 ### Features
 
-* GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
-
-
-
-
+- GEOT-292 add tag page ([#662](https://github.com/gtms-org/gtms-frontend/issues/662)) ([f1f4444](https://github.com/gtms-org/gtms-frontend/commit/f1f44447bf8f5e81dcd2a5dff0b44571bf8df3df))
 
 ## [0.16.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.16.0...@gtms/commons@0.16.1) (2020-06-18)
 
-
 ### Bug Fixes
 
-* GEOT-285: add group invitation tabs in group settings ([#657](https://github.com/gtms-org/gtms-frontend/issues/657)) ([9cc4628](https://github.com/gtms-org/gtms-frontend/commit/9cc462889ea36cac1aa11d74b86ede1ba20c83f9))
-
-
-
-
+- GEOT-285: add group invitation tabs in group settings ([#657](https://github.com/gtms-org/gtms-frontend/issues/657)) ([9cc4628](https://github.com/gtms-org/gtms-frontend/commit/9cc462889ea36cac1aa11d74b86ede1ba20c83f9))
 
 # [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.15.0...@gtms/commons@0.16.0) (2020-06-17)
 
-
 ### Features
 
-* GEOT-283: support for user description ([#654](https://github.com/gtms-org/gtms-frontend/issues/654)) ([a13e649](https://github.com/gtms-org/gtms-frontend/commit/a13e649dbc31f08c6e5f96b7934a50ef275afed3))
-
-
-
-
+- GEOT-283: support for user description ([#654](https://github.com/gtms-org/gtms-frontend/issues/654)) ([a13e649](https://github.com/gtms-org/gtms-frontend/commit/a13e649dbc31f08c6e5f96b7934a50ef275afed3))
 
 # [0.15.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.14.8...@gtms/commons@0.15.0) (2020-06-17)
 
-
 ### Features
 
-* GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
-
-
-
-
+- GEOT-271 add user page ([#649](https://github.com/gtms-org/gtms-frontend/issues/649)) ([030f784](https://github.com/gtms-org/gtms-frontend/commit/030f784116531d8babd696fe8638cf8e036c68e3))
 
 ## [0.14.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.14.7...@gtms/commons@0.14.8) (2020-06-16)
 

@@ -36,6 +36,6 @@
   margin-top: 40px;
 
   &:hover {
-    @include buttonColorsHoverDefault();
+    @include buttonColorsSecondary();
   }
 }

@@ -5,69 +5,39 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.41.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.41.0...@gtms/app-andrew@0.41.1) (2020-07-01)
 
-
 ### Bug Fixes
 
-* GEOT-313: GEOT-313: get back group actions bar ([#683](https://github.com/gtms-org/gtms-frontend/issues/683)) ([0f3f3b5](https://github.com/gtms-org/gtms-frontend/commit/0f3f3b5a725b401f1b1e57e3f817a01b60d4a486))
-
-
-
-
+- GEOT-313: GEOT-313: get back group actions bar ([#683](https://github.com/gtms-org/gtms-frontend/issues/683)) ([0f3f3b5](https://github.com/gtms-org/gtms-frontend/commit/0f3f3b5a725b401f1b1e57e3f817a01b60d4a486))
 
 # [0.41.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.40.0...@gtms/app-andrew@0.41.0) (2020-07-01)
 
-
 ### Features
 
-* GEOT-310: support new post notification ([#681](https://github.com/gtms-org/gtms-frontend/issues/681)) ([22537ae](https://github.com/gtms-org/gtms-frontend/commit/22537ae20aef5335d55b27904391fbccbdc35b1e))
-
-
-
-
+- GEOT-310: support new post notification ([#681](https://github.com/gtms-org/gtms-frontend/issues/681)) ([22537ae](https://github.com/gtms-org/gtms-frontend/commit/22537ae20aef5335d55b27904391fbccbdc35b1e))
 
 # [0.40.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.39.1...@gtms/app-andrew@0.40.0) (2020-06-30)
 
-
 ### Features
 
-* GEOT-310: support BE notifications ([#679](https://github.com/gtms-org/gtms-frontend/issues/679)) ([05d9c2b](https://github.com/gtms-org/gtms-frontend/commit/05d9c2b09984b42209beff8613c6df5602c714ee))
-
-
-
-
+- GEOT-310: support BE notifications ([#679](https://github.com/gtms-org/gtms-frontend/issues/679)) ([05d9c2b](https://github.com/gtms-org/gtms-frontend/commit/05d9c2b09984b42209beff8613c6df5602c714ee))
 
 ## [0.39.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.39.0...@gtms/app-andrew@0.39.1) (2020-06-29)
 
-
 ### Bug Fixes
 
-* GEOT-298: general styles part 2 ([#674](https://github.com/gtms-org/gtms-frontend/issues/674)) ([58be3d8](https://github.com/gtms-org/gtms-frontend/commit/58be3d8017f109f4d5b5efe851c3eff3f69c0eec)), closes [#676](https://github.com/gtms-org/gtms-frontend/issues/676)
-
-
-
-
+- GEOT-298: general styles part 2 ([#674](https://github.com/gtms-org/gtms-frontend/issues/674)) ([58be3d8](https://github.com/gtms-org/gtms-frontend/commit/58be3d8017f109f4d5b5efe851c3eff3f69c0eec)), closes [#676](https://github.com/gtms-org/gtms-frontend/issues/676)
 
 # [0.39.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.38.0...@gtms/app-andrew@0.39.0) (2020-06-24)
 
-
 ### Features
 
-* GEOT-299: comments adding ([#668](https://github.com/gtms-org/gtms-frontend/issues/668)) ([7c003bd](https://github.com/gtms-org/gtms-frontend/commit/7c003bdf25606c472345f4dc20152ac060096c7d))
-
-
-
-
+- GEOT-299: comments adding ([#668](https://github.com/gtms-org/gtms-frontend/issues/668)) ([7c003bd](https://github.com/gtms-org/gtms-frontend/commit/7c003bdf25606c472345f4dc20152ac060096c7d))
 
 # [0.38.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.37.1...@gtms/app-andrew@0.38.0) (2020-06-24)
 
-
 ### Features
 
-* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
-
-
-
-
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
 ## [0.37.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.37.0...@gtms/app-andrew@0.37.1) (2020-06-23)
 
