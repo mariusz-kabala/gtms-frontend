@@ -19,6 +19,7 @@ import { GroupMembers } from 'components/group/GroupMembers'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
+import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 import { SettingsButton } from 'components/group/SettingsButton'
 // ui
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
@@ -113,6 +114,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
+          <NotificationsSidebar />
           <div className={styles.columns}>
             <div className={styles.left}>
               <div className={styles.groupHeader}>
