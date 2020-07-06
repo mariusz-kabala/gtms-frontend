@@ -33,6 +33,7 @@ module.exports = withPlugins(
       FE_API_URL: process.env.FE_API_URL,
       FB_APP_ID: process.env.FB_APP_ID,
       GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+      VAPID_PUBLIC_KEY: process.env.VAPID_PUBLIC_KEY,
     },
     cssModules: true,
     cssLoaderOptions: {
