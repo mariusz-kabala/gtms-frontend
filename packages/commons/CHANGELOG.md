@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.21.0...@gtms/commons@0.22.0) (2020-07-06)
+
+
+### Bug Fixes
+
+* GEOT-317: webpush fixes and login redirection loop fixes ([#705](https://github.com/gtms-org/gtms-frontend/issues/705)) ([019fe0a](https://github.com/gtms-org/gtms-frontend/commit/019fe0ad2853b359ae476fd07d9706180b1ab04f))
+
+
+### Features
+
+* GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
+
+
+
+
+
 # [0.21.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.20.0...@gtms/commons@0.21.0) (2020-07-01)
 
 ### Features
