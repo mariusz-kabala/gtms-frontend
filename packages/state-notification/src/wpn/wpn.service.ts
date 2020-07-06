@@ -95,7 +95,7 @@ export function unsubscribe() {
           .unsubscribe()
           .then(() =>
             unsubscribeFromWebPushNotifications(
-              window.btoa(JSON.stringify(subscription))
+              window.btoa(JSON.stringify(pushSubscription))
             )
           )
           .catch(() => {
