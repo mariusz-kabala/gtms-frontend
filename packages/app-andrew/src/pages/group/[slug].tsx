@@ -32,6 +32,12 @@ import { Spinner } from '@gtms/ui/Spinner'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { UserCardMini } from '@gtms/ui/UserCardMini'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
+import {
+  IoIosHeart,
+  IoIosGitNetwork,
+  IoIosListBox,
+  IoIosSettings,
+} from 'react-icons/io'
 
 // state
 import {
@@ -109,12 +115,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       {state.group && (
         <>
           {/* <WelcomeSlider /> */}
-          <div className={styles.actionButtons}>
-            <FavsButton group={state.group} />
-            <JoinLeaveButton group={state.group} />
-            <SettingsButton group={state.group} />
-            <FollowButton group={state.group} />
-          </div>
           <div className={styles.columns}>
             <div className={styles.left}>
               <div className={styles.groupHeader}>
@@ -156,6 +156,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </div> */}
               </div>
               <NavigationPage />
+              <div className={styles.actionButtons}>
+                <FavsButton group={state.group} />
+                <JoinLeaveButton group={state.group} />
+                <SettingsButton group={state.group} />
+                <FollowButton group={state.group} />
+              </div>
             </div>
             <div className={styles.right}>
               {state.user && (
@@ -190,7 +196,46 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               />
             </div>
             <div className={styles.third}>
+              <ul className={styles.buttons}>
+                <li>
+                  <i>
+                    <IoIosGitNetwork />
+                  </i>
+                </li>
+                <li>
+                  <i>
+                    <IoIosListBox />
+                  </i>
+                </li>
+                <li>
+                  <i>
+                    <IoIosHeart />
+                  </i>
+                </li>
+                <li>
+                  <i>
+                    <IoIosSettings />
+                  </i>
+                </li>
+              </ul>
               <img src="/images/temp_images/temp_element.png" />
+              <ul className={styles.images}>
+                <li
+                  style={{
+                    backgroundImage: `url('/images/temp_images/logo-wioska-1.png')`,
+                  }}
+                />
+                <li
+                  style={{
+                    backgroundImage: `url('/images/temp_images/logo-wioska-2.png')`,
+                  }}
+                />
+                <li
+                  style={{
+                    backgroundImage: `url('/images/temp_images/logo-wioska-3.png')`,
+                  }}
+                />
+              </ul>
             </div>
             <div className={styles.hide}>
               <PromotedGroups />

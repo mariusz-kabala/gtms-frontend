@@ -15,7 +15,6 @@
   &:focus,
   &:hover {
     background: $theme3;
-    color: $theme0;
     outline: none;
 
     &::placeholder {
@@ -25,14 +24,14 @@
 }
 
 @mixin placeholderFocus() {
+  &::placeholder {
+    opacity: 0.55;
+    color: $theme7;
+  }
+
   &:focus {
     &::placeholder {
       opacity: 1;
     }
-  }
-
-  &::placeholder {
-    opacity: 0.75;
-    color: $theme1;
   }
 }

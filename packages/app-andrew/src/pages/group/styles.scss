@@ -2,6 +2,7 @@
 @import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/imageCover';
 
 .hide {
   display: none;
@@ -44,8 +45,12 @@
 
   .actionButtons {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    display: none !important;
+
+    > * {
+      margin-bottom: 10px;
+    }
   }
 
   .groupHeader {
@@ -128,6 +133,55 @@
     .third {
       padding-right: 0;
       padding-left: 0;
+
+      .buttons {
+        display: flex;
+        margin-bottom: 20px;
+
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+          border: 1px solid lightgray;
+          border-radius: $borderRadius1;
+          margin-right: 10px;
+          cursor: pointer;
+
+          &:hover {
+            border-color: $theme4;
+
+            i {
+              color: $theme4;
+            }
+          }
+
+          i {
+            line-height: 0;
+            color: lightgray;
+          }
+        }
+      }
+
+      .images {
+        display: flex;
+
+        li {
+          display: block;
+          width: 100px;
+          height: 100px;
+          border-radius: $borderRadius2;
+          @include imageCover();
+          margin-right: 10px;
+          cursor: pointer;
+          border: 3px solid $theme2;
+
+          &:hover {
+            border-color: $theme4;
+          }
+        }
+      }
     }
   }
 }

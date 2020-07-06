@@ -34,6 +34,8 @@ body > div:first-of-type {
 }
 
 textarea {
+  resize: vertical;
+
   &:active,
   &:focus,
   &:hover {

@@ -7,7 +7,7 @@
   position: absolute;
   right: 10px;
   @include buttonDefault();
-  @include buttonColorsSecondary();
+  @include buttonColorsPrimary();
   @include buttonSizeSm();
   @include buttonWithIcon();
 
@@ -27,8 +27,9 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  border-radius: $borderRadius2;
   background: $theme4;
-  border: 1px solid $theme5;
+  color: $theme0;
 
   .buttons {
     display: grid;
@@ -44,10 +45,15 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonWithIcon();
     @include buttonColorsDefault();
 
     &:hover {
       @include buttonColorsSecondary();
+    }
+
+    i {
+      margin-right: 5px;
     }
   }
 }

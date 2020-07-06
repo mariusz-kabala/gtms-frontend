@@ -21,6 +21,8 @@
 
 // TYPES
 @mixin buttonWithIcon($position: 'left') {
+  display: flex;
+  align-items: center;
   line-height: 0;
 
   @if $position == 'left' {
@@ -47,12 +49,12 @@
 // COLOR TYPES
 @mixin buttonColorsDefault() {
   background: $theme4;
-  color: $theme3;
+  color: $theme0;
 }
 
 @mixin buttonColorsPrimary() {
   background: $theme2;
-  color: $theme0;
+  color: $theme7;
 }
 
 @mixin buttonColorsSecondary() {

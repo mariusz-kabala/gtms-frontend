@@ -8,17 +8,6 @@
   cursor: pointer;
   opacity: 0.85;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 25px;
-    display: flex;
-    width: 4px;
-    height: calc(100% - 65px);
-    background: $theme2;
-  }
-
   &:hover {
     border-color: $theme5;
     opacity: 1;
@@ -26,31 +15,26 @@
     .header {
       .deleteBtn {
         opacity: 0.8;
-        background: $theme5;
-        color: $theme0;
       }
     }
 
     &::after {
       background: $theme4;
     }
-
-    .respondBtn {
-      background: $theme5;
-      color: $theme0;
-    }
   }
 
   .header {
     display: flex;
+    align-items: center;
     font-weight: 400;
 
     .user {
       display: flex;
+      align-items: center;
 
       // @todo create mixin with highlighted text
       &:hover {
-        color: $theme5;
+        color: $theme4;
       }
 
       .userAvatar {
@@ -67,11 +51,10 @@
 
     span {
       margin-left: 10px;
-      // @include font-weight('bold');
 
-      // @todo create mixin with highlighted text
+      // @include font-weight('bold');
       &:hover {
-        color: $theme5;
+        color: $theme4;
       }
     }
 
@@ -86,9 +69,6 @@
   }
 
   .desc {
-    margin-top: -20px;
-    margin-left: 45px;
-
     .text {
       margin-top: 10px;
 
@@ -104,8 +84,8 @@
 
   .respondBtn {
     @include buttonDefault();
-    @include buttonColorsPrimary();
     @include buttonSizeSm();
+    @include buttonColorsPrimary();
     margin-top: 10px;
     margin-left: auto;
 
