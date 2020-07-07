@@ -6,10 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
-  width: 35px;
-  height: 35px;
-  @include font-size(xxlg);
+  @include font-size(xlg);
   cursor: pointer;
 
   svg {
@@ -17,6 +14,8 @@
   }
 
   &:hover {
-    background: $theme5;
+    svg {
+      color: $theme4;
+    }
   }
 }

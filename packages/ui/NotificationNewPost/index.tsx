@@ -11,8 +11,10 @@ export const NotificationNewPost: FC<{
 }> = ({ group, postOwner, post }) => {
   return (
     <li className={styles.wrapper} data-testid={'notification-new-post'}>
-      <Picture {...getImage('200x200', group.avatar)} />
-      <h2>New post in {group.name}</h2>
+      <div className={styles.groupHeader}>
+        <Picture {...getImage('200x200', group.avatar)} />
+        <h2>New post in {group.name}</h2>
+      </div>
       <div className={styles.notification}>
         <Picture
           additionalStyles={styles.avatar}

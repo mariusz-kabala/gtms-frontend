@@ -5,6 +5,7 @@ import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 // ui
 import { DeletePost } from './DeletePost'
+import { Picture } from '../Picture'
 import { PostResponse } from './PostResponse'
 import { PostCreate } from '../PostCreate'
 import { Tag } from '../Tag'
@@ -93,6 +94,17 @@ export const PostSingle: FC<{
       <div className={styles.desc}>
         <div onClick={onClickCallback}>
           <ReactMarkdown className={styles.text} source={text} />
+          <ul className={styles.images}>
+            <li>
+              <Picture jpg={'/images/temp_images/logo-wioska-1.png'} />
+            </li>
+            <li>
+              <Picture jpg={'/images/temp_images/logo-wioska-2.png'} />
+            </li>
+            <li>
+              <Picture jpg={'/images/temp_images/logo-wioska-3.png'} />
+            </li>
+          </ul>
         </div>
         {tags.length > 0 && (
           <TagGroup additionalStyles={styles.tagGroup}>
@@ -101,7 +113,6 @@ export const PostSingle: FC<{
             ))}
           </TagGroup>
         )}
-
         <button
           className={styles.respondBtn}
           onClick={(e) => {

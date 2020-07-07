@@ -9,13 +9,14 @@
     // @todo remove it eventually
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
   }
 
   .wrapperPage {
     position: relative;
     display: flex;
     flex: 1;
-    margin: 10px 0;
+    margin: 20px 0;
     // max-width: 55%;
     max-width: 80%;
     border-radius: $borderRadius2;

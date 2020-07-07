@@ -117,26 +117,26 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   }, [])
 
   return (
-    <div className={styles.wrapper}>
-      {state.isLoading && <Spinner />}
+    <>
+      <div className={styles.wrapper}>
+        {state.isLoading && <Spinner />}
 
-      {state.errorOccured && (
-        <ErrorInfo>
-          <h2>ERROR OCCURED</h2>
-          <p>
-            Create a proper component that can be used here when 500 from BE
-          </p>
-        </ErrorInfo>
-      )}
+        {state.errorOccured && (
+          <ErrorInfo>
+            <h2>ERROR OCCURED</h2>
+            <p>
+              Create a proper component that can be used here when 500 from BE
+            </p>
+          </ErrorInfo>
+        )}
 
-      {state.notFound && <GroupNotFound />}
+        {state.notFound && <GroupNotFound />}
 
-      {state.hasNoAccess && <GroupNoAccess />}
+        {state.hasNoAccess && <GroupNoAccess />}
 
-      {state.group && (
-        <>
-          <div className={styles.columns}>
-            <div className={styles.left}>
+        {state.group && (
+          <>
+            <div className={styles.groupNavigationWrapper}>
               <div className={styles.groupHeader}>
                 <div className={styles.avatarAndName}>
                   <GroupAvatar
@@ -161,18 +161,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       : state.group?.description || ''
                   }
                 />
-                <div className={styles.searchInput}>
-                  <div className={styles.search}>
-                    <SearchBar
-                      onTagAdd={() => null}
-                      onTagRemove={() => null}
-                      onLoadSuggestion={() => null}
-                      onQueryChange={() => null}
-                      onLoadSuggestionCancel={() => null}
-                      tags={[]}
-                    />
-                  </div>
-                </div>
               </div>
               <NavigationPage />
               <div className={styles.actionButtons}>
@@ -182,83 +170,82 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <FollowButton group={state.group} />
               </div>
             </div>
-            <div className={styles.right}>
-              {state.user && (
-                <PostCreate
-                  fetchTags={findTagsAPI}
-                  user={state.user}
-                  noImage={UserAvatarNoImage}
-                  onSubmit={(text: string) => {
-                    createNewPost({
-                      group: state.group?.id || '',
-                      text,
-                    })
-                  }}
-                  additionalStyles={styles.postCreate}
-                />
-              )}
-              <NavigationTabs>
-                <h2 className={styles.header}>Latest</h2>
-                <ul className={styles.elements}>
-                  <li className={styles.item}>popular</li>
-                  <li className={styles.item}>latest</li>
-                  <li className={styles.item}>favorites </li>
-                  <li className={styles.item}>my posts</li>
-                </ul>
-              </NavigationTabs>
-              <RecentlyAddedPosts
-                fetchTags={findTagsAPI}
-                onPostClick={onPostClick}
-                user={state.user}
-                activePost={state.activePost}
-                createComment={createNewComment}
-                noImage={UserAvatarNoImage}
-                posts={state.posts}
-              />
-            </div>
-            <div className={styles.third}>
-              <ul className={styles.buttons}>
-                <li>
-                  <i>
-                    <IoIosGitNetwork />
-                  </i>
-                </li>
-                <li>
-                  <i>
-                    <IoIosListBox />
-                  </i>
-                </li>
-                <li>
-                  <i>
-                    <IoIosHeart />
-                  </i>
-                </li>
-                <li>
-                  <i>
-                    <IoIosSettings />
-                  </i>
-                </li>
-              </ul>
-              {state.activePost && (
-                <PostDetails user={state.user} post={state.activePost} />
-              )}
-              <ul className={styles.images}>
-                <li
-                  style={{
-                    backgroundImage: `url('/images/temp_images/logo-wioska-1.png')`,
-                  }}
-                />
-                <li
-                  style={{
-                    backgroundImage: `url('/images/temp_images/logo-wioska-2.png')`,
-                  }}
-                />
-                <li
-                  style={{
-                    backgroundImage: `url('/images/temp_images/logo-wioska-3.png')`,
-                  }}
-                />
-              </ul>
+            <div className={styles.groupPostsListWrapper}>
+              <div className={styles.searchInput}>
+                <div className={styles.search}>
+                  <SearchBar
+                    onTagAdd={() => null}
+                    onTagRemove={() => null}
+                    onLoadSuggestion={() => null}
+                    onQueryChange={() => null}
+                    onLoadSuggestionCancel={() => null}
+                    tags={[]}
+                  />
+                </div>
+              </div>
+              <div className={styles.posts}>
+                <div>
+                  {state.user && (
+                    <PostCreate
+                      fetchTags={findTagsAPI}
+                      user={state.user}
+                      noImage={UserAvatarNoImage}
+                      onSubmit={(text: string) => {
+                        createNewPost({
+                          group: state.group?.id || '',
+                          text,
+                        })
+                      }}
+                      additionalStyles={styles.postCreate}
+                    />
+                  )}
+                  <NavigationTabs>
+                    <h2 className={styles.header}>Latest</h2>
+                    <ul className={styles.elements}>
+                      <li className={styles.item}>popular</li>
+                      <li className={styles.item}>latest</li>
+                      <li className={styles.item}>favorites </li>
+                      <li className={styles.item}>my posts</li>
+                    </ul>
+                  </NavigationTabs>
+                  <RecentlyAddedPosts
+                    fetchTags={findTagsAPI}
+                    onPostClick={onPostClick}
+                    user={state.user}
+                    activePost={state.activePost}
+                    createComment={createNewComment}
+                    noImage={UserAvatarNoImage}
+                    posts={state.posts}
+                  />
+                </div>
+                <div className={styles.third}>
+                  <ul className={styles.buttons}>
+                    <li>
+                      <i>
+                        <IoIosGitNetwork />
+                      </i>
+                    </li>
+                    <li>
+                      <i>
+                        <IoIosListBox />
+                      </i>
+                    </li>
+                    <li>
+                      <i>
+                        <IoIosHeart />
+                      </i>
+                    </li>
+                    <li>
+                      <i>
+                        <IoIosSettings />
+                      </i>
+                    </li>
+                  </ul>
+                  {state.activePost && (
+                    <PostDetails user={state.user} post={state.activePost} />
+                  )}
+                </div>
+              </div>
             </div>
             <div className={styles.hide}>
               <PromotedGroups />
@@ -282,10 +269,10 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </NavigationTabs>
               <GroupMembers {...state.members} />
             </div>
-          </div>
-        </>
-      )}
-    </div>
+          </>
+        )}
+      </div>
+    </>
   )
 }
 
