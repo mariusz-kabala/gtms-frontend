@@ -5,47 +5,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.10.0...@gtms/styles@0.10.1) (2020-07-07)
 
-
 ### Bug Fixes
 
-* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
-
-
-
-
+- GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
 
 # [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.9.1...@gtms/styles@0.10.0) (2020-07-06)
 
-
 ### Features
 
-* GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
-
-
-
-
+- GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
 
 ## [0.9.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.9.0...@gtms/styles@0.9.1) (2020-06-29)
 
-
 ### Bug Fixes
 
-* GEOT-298: general styles part 2 ([#674](https://github.com/gtms-org/gtms-frontend/issues/674)) ([58be3d8](https://github.com/gtms-org/gtms-frontend/commit/58be3d8017f109f4d5b5efe851c3eff3f69c0eec)), closes [#676](https://github.com/gtms-org/gtms-frontend/issues/676)
-
-
-
-
+- GEOT-298: general styles part 2 ([#674](https://github.com/gtms-org/gtms-frontend/issues/674)) ([58be3d8](https://github.com/gtms-org/gtms-frontend/commit/58be3d8017f109f4d5b5efe851c3eff3f69c0eec)), closes [#676](https://github.com/gtms-org/gtms-frontend/issues/676)
 
 # [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.8.1...@gtms/styles@0.9.0) (2020-06-24)
 
-
 ### Features
 
-* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
-
-
-
-
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
 ## [0.8.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.8.0...@gtms/styles@0.8.1) (2020-06-23)
 
