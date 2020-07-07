@@ -6,12 +6,23 @@ import { IPost, IAccountDetails } from '@gtms/commons/models'
 
 export const RecentlyAddedPosts: FC<{
   additionalStyles?: string
+  onPostClick?: (id: string) => unknown
   posts: IPost[]
+  activePost?: IPost
   user: IAccountDetails | null
   createComment: (payload: { post: string; text: string }) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: { jpg: string; webp?: string } }
-}> = ({ additionalStyles, posts, noImage, user, fetchTags, createComment }) => {
+}> = ({
+  additionalStyles,
+  posts,
+  noImage,
+  user,
+  fetchTags,
+  createComment,
+  onPostClick,
+  activePost,
+}) => {
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -20,10 +31,13 @@ export const RecentlyAddedPosts: FC<{
       {posts.map((post) => (
         <PostSingle
           key={`post-${post.id}`}
+          onClick={onPostClick}
           fetchTags={fetchTags}
           createComment={createComment}
           user={user}
-          additionalStyles={styles.post}
+          additionalStyles={cx(styles.post, {
+            [styles.active]: activePost?.id === post.id,
+          })}
           {...post}
           noImage={noImage}
         />

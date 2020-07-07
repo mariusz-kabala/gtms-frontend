@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import { PromotedTagNoImage, UserAvatarNoImage } from 'enums'
@@ -9,6 +9,9 @@ import {
 } from 'queries/groupPage.query'
 import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
+import { IPost } from '@gtms/commons/models'
+// api
+import { fetchPost } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
 // components
 import { FavsButton } from 'components/group/FavsButton'
@@ -20,6 +23,7 @@ import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
+import { PostDetails } from 'components/post/PostDetails'
 // ui
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
 import { NavigationPage } from '@gtms/ui/NavigationPage'
@@ -68,11 +72,17 @@ type GroupPageProps = {
   group?: IGroupState
   posts?: IPostsState
   promoted?: IPromotedTagsState
+  post?: IPost
 }
 
-const getInitData = ({ group, posts, promoted }: GroupPageProps) => () => {
+const getInitData = ({
+  group,
+  posts,
+  promoted,
+  post,
+}: GroupPageProps) => () => {
   group && initGroup(group)
-  posts && initPostsStore(posts)
+  posts && initPostsStore(posts, post)
   promoted && initPromoted(promoted)
 }
 
@@ -82,6 +92,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const { t } = useTranslation('groupPage')
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
+  const onPostClick = useCallback((id) => {
+    router.push(`/group/${state.group?.slug}/${id}`)
+  }, [])
 
   useEffect(() => {
     if (state.group) {
@@ -186,7 +199,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </NavigationTabs>
               <RecentlyAddedPosts
                 fetchTags={findTagsAPI}
+                onPostClick={onPostClick}
                 user={state.user}
+                activePost={state.activePost}
                 createComment={createNewComment}
                 noImage={UserAvatarNoImage}
                 posts={state.posts}
@@ -215,7 +230,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   </i>
                 </li>
               </ul>
-              <img src="/images/temp_images/temp_element.png" />
+              {state.activePost && (
+                <PostDetails user={state.user} post={state.activePost} />
+              )}
               <ul className={styles.images}>
                 <li
                   style={{
@@ -266,21 +283,31 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 GroupPage.getInitialProps = async (
   ctx: NextPageContext
 ): Promise<GroupPageProps> => {
-  const { slug } = ctx?.query
+  const { params } = ctx?.query
+  const [slug, postId] = params as string[]
 
   await getGroup(slug as string)
 
   const id = groupQuery.getId() || ''
-
   return Promise.all([
+    new Promise<IPost | undefined>((resolve) => {
+      if (!postId) {
+        return resolve()
+      }
+
+      fetchPost(postId, false)
+        .then(resolve)
+        .catch(() => resolve())
+    }),
     getGroupPosts(id).catch(() => null),
     loadGroupPromotedTags(id).catch(() => null),
-  ]).then(() => {
+  ]).then(([post]) => {
     return {
       namespacesRequired: ['groupPage', 'postCreate'],
       group: groupQuery.getValue(),
       posts: postsQuery.getValue(),
       promoted: promotedTagsQuery.getValue(),
+      post,
     }
   })
 }

@@ -13,8 +13,8 @@ export const PostResponse: FC<{
   createdAt: string
   additionalStyles?: string
   owner: string
-  noImage: any
-}> = ({ additionalStyles, text, createdAt, owner, noImage }) => {
+  image: any
+}> = ({ additionalStyles, text, createdAt, owner, image }) => {
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -23,10 +23,7 @@ export const PostResponse: FC<{
       <div className={styles.header}>
         <Link href={`/user/${owner}`}>
           <div className={styles.user}>
-            <UserAvatar
-              image={noImage['35x35']}
-              additionalStyles={styles.userAvatar}
-            />
+            <UserAvatar image={image} additionalStyles={styles.userAvatar} />
             <span>{owner}</span>
           </div>
         </Link>
