@@ -16,6 +16,7 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonShapePrimary();
     @include buttonColorsDefault();
 
     &:hover {

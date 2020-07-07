@@ -21,6 +21,7 @@
 
     .btn {
       @include buttonDefault();
+      @include buttonShapePrimary();
       @include buttonColorsDefault();
       border: 1px solid $theme2;
       &:hover {
