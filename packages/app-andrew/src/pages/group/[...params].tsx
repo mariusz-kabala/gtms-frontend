@@ -64,6 +64,12 @@ import {
   IPostsState,
   initPostsStore,
 } from '@gtms/state-post'
+import {
+  getPostComments,
+  postCommentsQuery,
+  IPostCommentsState,
+  initPostCommentsStore,
+} from '@gtms/state-comment'
 //styles
 import styles from './styles.scss'
 
@@ -73,6 +79,7 @@ type GroupPageProps = {
   posts?: IPostsState
   promoted?: IPromotedTagsState
   post?: IPost
+  comments?: IPostCommentsState
 }
 
 const getInitData = ({
@@ -80,10 +87,12 @@ const getInitData = ({
   posts,
   promoted,
   post,
+  comments,
 }: GroupPageProps) => () => {
   group && initGroup(group)
   posts && initPostsStore(posts, post)
   promoted && initPromoted(promoted)
+  comments && initPostCommentsStore(comments)
 }
 
 const GroupPage: NextPage<GroupPageProps> = (props) => {
@@ -299,6 +308,15 @@ GroupPage.getInitialProps = async (
         .then(resolve)
         .catch(() => resolve())
     }),
+    new Promise<undefined>((resolve) => {
+      if (!postId) {
+        return resolve()
+      }
+
+      const callback = () => resolve()
+
+      getPostComments(postId).then(callback).catch(callback)
+    }),
     getGroupPosts(id).catch(() => null),
     loadGroupPromotedTags(id).catch(() => null),
   ]).then(([post]) => {
@@ -307,6 +325,7 @@ GroupPage.getInitialProps = async (
       group: groupQuery.getValue(),
       posts: postsQuery.getValue(),
       promoted: promotedTagsQuery.getValue(),
+      comments: post ? postCommentsQuery.getValue() : undefined,
       post,
     }
   })
