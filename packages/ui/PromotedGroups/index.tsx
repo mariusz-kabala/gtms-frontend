@@ -33,31 +33,17 @@ export const PromotedGroups: FC<{
     },
     {
       id: 3,
-      title: '#ebm',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-4.png',
-    },
-    {
-      id: 4,
       title: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
       image: '/images/temp_images/logo-wioska-5.png',
-    },
-    {
-      id: 5,
-      title: '#gadgets',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-6.png',
     },
   ]
 
   return (
     <>
       <NavigationTabs>
-        <h2 className={styles.header}>Promoted</h2>
+        <h2 className={styles.header}>Promoted groups</h2>
         <ul className={styles.elements}>
           <li className={styles.item}>something</li>
           <li className={styles.item}>item</li>

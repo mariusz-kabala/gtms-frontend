@@ -34,6 +34,7 @@ import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { Spinner } from '@gtms/ui/Spinner'
 import { SearchBar } from '@gtms/ui/SearchBar'
+import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
 
 import {
   IoIosHeart,
@@ -162,13 +163,13 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   }
                 />
               </div>
-              <NavigationPage />
               <div className={styles.actionButtons}>
                 <FavsButton group={state.group} />
                 <JoinLeaveButton group={state.group} />
                 <SettingsButton group={state.group} />
                 <FollowButton group={state.group} />
               </div>
+              <NavigationPage />
             </div>
             <div className={styles.groupPostsListWrapper}>
               <div className={styles.searchInput}>
@@ -183,6 +184,19 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   />
                 </div>
               </div>
+              <WelcomeSlider />
+              <br /> {/* @todo remove it */}
+              <PromotedTags
+                tags={state.promotedTags.tags}
+                isLoading={state.promotedTags.isLoading}
+                noImage={PromotedTagNoImage}
+                isAdmin={groupQuery.hasAdminRights()}
+                onNoRecordsClick={() =>
+                  router.push(`/group/${state.group?.slug}/settings#tags`)
+                }
+              />
+              <PromotedGroups />
+              <GroupMembers {...state.members} />
               <div className={styles.posts}>
                 <div>
                   {state.user && (
@@ -242,32 +256,14 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     </li>
                   </ul>
                   {state.activePost && (
-                    <PostDetails user={state.user} post={state.activePost} />
+                    <PostDetails
+                      comments={state.comments}
+                      user={state.user}
+                      post={state.activePost}
+                    />
                   )}
                 </div>
               </div>
-            </div>
-            <div className={styles.hide}>
-              <PromotedGroups />
-              <br /> {/* @todo remove it */}
-              <PromotedTags
-                tags={state.promotedTags.tags}
-                isLoading={state.promotedTags.isLoading}
-                noImage={PromotedTagNoImage}
-                isAdmin={groupQuery.hasAdminRights()}
-                onNoRecordsClick={() =>
-                  router.push(`/group/${state.group?.slug}/settings#tags`)
-                }
-              />
-              <br /> {/* @todo remove it */}
-              <NavigationTabs>
-                <h2 className={styles.header}>Recently registered</h2>
-                <ul className={styles.elements}>
-                  <li className={styles.item}>latest</li>
-                  <li className={styles.item}>most popular</li>
-                </ul>
-              </NavigationTabs>
-              <GroupMembers {...state.members} />
             </div>
           </>
         )}

@@ -10,7 +10,7 @@ import {
   followButtonState$,
   IFollowButtonState,
 } from './state.query'
-import Switch from 'react-switch'
+import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
 import { openLoginModal } from 'state'
 
 export const FollowButton: FC<{ user: IUser }> = ({ user }) => {
@@ -41,7 +41,7 @@ export const FollowButton: FC<{ user: IUser }> = ({ user }) => {
     <div data-testid="follow-button">
       <label>
         <span>Follow</span>
-        <Switch
+        <SwitchWrapper
           onChange={(value) => {
             if (!state.isLogged) {
               return openLoginModal()

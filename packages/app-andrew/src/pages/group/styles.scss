@@ -3,10 +3,6 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
-.hide {
-  display: none;
-}
-
 .wrapper {
   display: grid;
   grid-template-columns: 0.2fr 1fr;
@@ -74,6 +70,7 @@
       display: flex;
       flex-direction: column;
       width: 100%;
+      margin: 15px 0;
 
       > * {
         margin-bottom: 10px;

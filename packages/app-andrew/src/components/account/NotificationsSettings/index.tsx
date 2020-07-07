@@ -13,7 +13,7 @@ import {
   loadNotificationsSettings,
 } from '@gtms/state-notification'
 import { Button } from '@gtms/ui/Button'
-import Switch from 'react-switch'
+import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
 
 export const NotificationsSettings: FC<{
   additionalStyles?: string
@@ -56,7 +56,7 @@ export const NotificationsSettings: FC<{
     <div className={additionalStyles} data-testid="notifications-settings">
       <ul className={styles.items}>
         <li className={styles.item}>
-          <Switch
+          <SwitchWrapper
             onChange={(value) => {
               if (value) {
                 return subscribe()
@@ -69,7 +69,7 @@ export const NotificationsSettings: FC<{
           <h2>Enable</h2>
         </li>
         <li className={styles.item}>
-          <Switch
+          <SwitchWrapper
             onChange={(value) =>
               updateNotificationsSettings({
                 invitation: value,
@@ -81,7 +81,7 @@ export const NotificationsSettings: FC<{
           <h3>Notifiy when someone invites me to a group</h3>
         </li>
         <li className={styles.item}>
-          <Switch
+          <SwitchWrapper
             onChange={(value) =>
               updateNotificationsSettings({
                 newPostInOwnedGroup: value,
@@ -93,7 +93,7 @@ export const NotificationsSettings: FC<{
           <h3>Notifiy when new post appears in groups which I own</h3>
         </li>
         <li className={styles.item}>
-          <Switch
+          <SwitchWrapper
             onChange={(value) =>
               updateNotificationsSettings({
                 newPostInAdminnedGroup: value,
@@ -105,7 +105,7 @@ export const NotificationsSettings: FC<{
           <h3>Notifiy when new post appears in groups which I admining</h3>
         </li>
         <li className={styles.item}>
-          <Switch
+          <SwitchWrapper
             onChange={(value) =>
               updateNotificationsSettings({
                 newMembershipRequestInOwnedGroup: value,
@@ -119,7 +119,7 @@ export const NotificationsSettings: FC<{
           </h3>
         </li>
         <li className={styles.item}>
-          <Switch
+          <SwitchWrapper
             onChange={(value) =>
               updateNotificationsSettings({
                 newMembershipRequestInAdminnedGroup: value,
@@ -134,7 +134,7 @@ export const NotificationsSettings: FC<{
           </h3>
         </li>
         <li className={styles.item}>
-          <Switch
+          <SwitchWrapper
             onChange={(value) =>
               updateNotificationsSettings({
                 newMemberInOwnedGroup: value,
@@ -149,7 +149,7 @@ export const NotificationsSettings: FC<{
           </h3>
         </li>
         <li className={styles.item}>
-          <Switch
+          <SwitchWrapper
             onChange={(value) =>
               updateNotificationsSettings({
                 newMemberInAdminnedGroup: value,

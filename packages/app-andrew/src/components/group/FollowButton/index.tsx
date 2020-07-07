@@ -10,7 +10,7 @@ import {
   followGroup,
   unfollowGroup,
 } from '@gtms/state-notification'
-import Switch from 'react-switch'
+import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
 import { openLoginModal } from 'state'
 
 export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
@@ -37,7 +37,7 @@ export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
     <div data-testid="follow-button">
       <label>
         <span>Follow</span>
-        <Switch
+        <SwitchWrapper
           onChange={(value) => {
             if (!state.isLogged) {
               return openLoginModal()
