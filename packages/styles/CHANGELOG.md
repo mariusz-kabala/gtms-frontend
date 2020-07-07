@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.11.0...@gtms/styles@0.11.1) (2020-07-07)
+
+
+### Bug Fixes
+
+* GEOT-323 group page css changes ([#710](https://github.com/gtms-org/gtms-frontend/issues/710)) ([e3d0cfa](https://github.com/gtms-org/gtms-frontend/commit/e3d0cfa449f38734784f3bb0e5efbbe4ea93987a))
+
+
+
+
+
 # [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.10.1...@gtms/styles@0.11.0) (2020-07-07)
 
 
