@@ -4,16 +4,14 @@ import { UploadFile } from '@gtms/ui/UploadFile'
 import { useTranslation } from '@gtms/commons/i18n'
 import { updateGroupAvatar } from '@gtms/state-group'
 import { Modal } from '@gtms/ui/Modal'
-import { FileStatus } from '@gtms/commons'
+import { FileStatus } from '@gtms/commons/enums'
+import { IImage } from '@gtms/commons/types/image'
 import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
 export const GroupAvatar: FC<{
   additionalStyles?: string
-  files: {
-    jpg: string
-    webp?: string
-  }
+  files: IImage
   isEditAllowed: boolean
   filesStatus: FileStatus
 }> = ({ files, isEditAllowed, additionalStyles, filesStatus }) => {

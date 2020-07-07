@@ -1,4 +1,5 @@
 import { FileStatus } from '../enums'
+import { IImage } from '../types/image'
 
 export function parseFile(file: string) {
   const [, path] = file
@@ -39,11 +40,8 @@ export function getImage(
     status?: FileStatus
     files?: string[] | any
   },
-  fallback?: { [key: string]: { jpg: string; webp?: string } }
-): {
-  jpg: string
-  webp?: string
-} {
+  fallback?: { [key: string]: IImage }
+): IImage {
   const getFallback = () => {
     if (fallback && fallback[size]) {
       return fallback[size]

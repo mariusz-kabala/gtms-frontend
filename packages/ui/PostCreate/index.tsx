@@ -1,16 +1,17 @@
 import React, { FC, useRef, useEffect, useState, useCallback } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
-import { Button } from '@gtms/ui/Button'
 import { useTranslation } from '@gtms/commons/i18n'
 import { useDebounce } from '@gtms/commons/hooks/useDebounce'
 import { useExpandingArea } from '@gtms/commons/hooks/expandingArea'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
+import { IImage } from '@gtms/commons/types/image'
 import { Link } from '@gtms/commons/i18n'
 import { IAccountDetails } from '@gtms/commons/models'
+import { Button } from '../Button'
 import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
 import { IoMdSend } from 'react-icons/io'
+import styles from './styles.scss'
 
 export const PostCreate: FC<{
   additionalStyles?: string
@@ -19,7 +20,7 @@ export const PostCreate: FC<{
   isLoading?: boolean
   hintMinLenght?: number
   user: IAccountDetails | null
-  noImage: { [key: string]: { jpg: string; webp?: string } }
+  noImage: { [key: string]: IImage }
 }> = ({
   additionalStyles,
   onSubmit,

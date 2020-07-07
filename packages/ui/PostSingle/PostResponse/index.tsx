@@ -7,14 +7,15 @@ import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 import { Link } from '@gtms/commons/i18n'
+import { IImage } from '@gtms/commons/types/image'
 
 export const PostResponse: FC<{
   text: string
   createdAt: string
   additionalStyles?: string
   owner: string
-  noImage: any
-}> = ({ additionalStyles, text, createdAt, owner, noImage }) => {
+  image: IImage
+}> = ({ additionalStyles, text, createdAt, owner, image }) => {
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -23,10 +24,7 @@ export const PostResponse: FC<{
       <div className={styles.header}>
         <Link href={`/user/${owner}`}>
           <div className={styles.user}>
-            <UserAvatar
-              image={noImage['35x35']}
-              additionalStyles={styles.userAvatar}
-            />
+            <UserAvatar image={image} additionalStyles={styles.userAvatar} />
             <span>{owner}</span>
           </div>
         </Link>

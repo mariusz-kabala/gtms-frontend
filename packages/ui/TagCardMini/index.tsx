@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
+import { IImage } from '@gtms/commons/types/image'
 import styles from './styles.scss'
 
 export const TagCardMini: FC<{
   desc?: string
-  image: { jpg: string; webp?: string }
+  image: IImage
   tag: string
   onClick?: () => unknown
 }> = ({ desc, image, tag, onClick }) => {

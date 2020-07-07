@@ -3,16 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.4.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.3.3...@gtms/api-post@0.4.0) (2020-07-06)
-
+# [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.4.0...@gtms/api-post@0.5.0) (2020-07-07)
 
 ### Features
 
-* GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
+- GEOT-319: display a single post on group page ([#707](https://github.com/gtms-org/gtms-frontend/issues/707)) ([0e5198f](https://github.com/gtms-org/gtms-frontend/commit/0e5198f197c5eec78074dca6fc5d6293644d4548))
 
+# [0.4.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.3.3...@gtms/api-post@0.4.0) (2020-07-06)
 
+### Features
 
-
+- GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
 
 ## [0.3.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.3.2...@gtms/api-post@0.3.3) (2020-07-01)
 

@@ -19,6 +19,7 @@ export interface IGroupPageState {
   errorOccured: boolean
   group: IGroup | null
   posts: IPost[]
+  activePost?: IPost
   user: IAccountDetails | null
   promotedTags: {
     tags: IPromotedTag[]
@@ -46,6 +47,7 @@ export const groupPageState = (): IGroupPageState => ({
     errorOccured: groupMembersQuery.getValue().error || false,
     users: groupMembersQuery.getAll(),
   },
+  activePost: postsQuery.getActive() as IPost | undefined,
 })
 
 export const groupPageState$: Observable<IGroupPageState> = combineLatest(

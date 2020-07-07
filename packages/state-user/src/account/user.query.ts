@@ -3,6 +3,7 @@ import { userStore, UserStore, IUserStore } from './user.store'
 import { map } from 'rxjs/operators'
 import { combineLatest, Observable } from 'rxjs'
 import { IAccountDetails } from '@gtms/commons/models'
+import { IImage } from '@gtms/commons/types/image'
 
 export class UserQuery extends Query<IUserStore> {
   public id = (values = this.getValue()): string | undefined => values.id
@@ -124,10 +125,7 @@ export class UserQuery extends Query<IUserStore> {
   public getAvatar = (
     size: '35x35' | '50x50' | '200x200',
     values = this.getValue()
-  ): {
-    jpg: string
-    webp?: string
-  } => {
+  ): IImage => {
     if (this.hasAvatar(size, values)) {
       const avatar: any = values.avatar?.files || {}
 

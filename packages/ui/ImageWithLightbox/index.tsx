@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react'
 import cx from 'classnames'
+import { IImage } from '@gtms/commons/types/image'
 import styles from './styles.scss'
 import { Modal } from '../Modal'
 import { Picture } from '../Picture'
@@ -7,7 +8,7 @@ import { Picture } from '../Picture'
 export const ImageWithLightbox: FC<{
   additionalStyles?: string
   onClick?: () => unknown
-  src: { jpg: string; webp?: string }
+  src: IImage
 }> = ({ additionalStyles, onClick = () => null, src }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
