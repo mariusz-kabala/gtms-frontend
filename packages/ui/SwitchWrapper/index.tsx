@@ -7,7 +7,7 @@ export const SwitchWrapper: FC<{
   additionalStyles?: string
   checked: boolean
   disabled?: boolean
-  onChange: () => unknown
+  onChange: (value: boolean) => unknown
 }> = ({ additionalStyles, checked, disabled, onChange }) => (
   <div data-testid="switch-wrapper">
     <Switch

@@ -4,25 +4,22 @@ import { SwitchWrapper } from './index'
 
 describe('<SwitchWrapper />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<SwitchWrapper onClick={jest.fn()} />)
+    const { getByTestId } = render(
+      <SwitchWrapper checked={false} onChange={jest.fn()} />
+    )
 
     expect(getByTestId('switch-wrapper')).toBeInTheDocument()
   })
 
   it('Should add additional css classes', () => {
     const { container } = render(
-      <SwitchWrapper additionalStyles={'testingClass'} />
+      <SwitchWrapper
+        checked={false}
+        onChange={jest.fn()}
+        additionalStyles={'testingClass'}
+      />
     )
 
     expect(container.querySelector('.testingClass')).toBeInTheDocument()
-  })
-
-  it('Should trigger provided callback when clicking on it', () => {
-    const callback = jest.fn()
-    const { getByTestId } = render(<SwitchWrapper onClick={callback} />)
-
-    fireEvent.click(getByTestId('switch-wrapper'))
-
-    expect(callback).toBeCalledTimes(1)
   })
 })
