@@ -10,6 +10,7 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonShapePrimary();
     @include buttonColorsDefault();
     width: 100%;
     color: white;

@@ -31,6 +31,7 @@
 
 .btn {
   @include buttonDefault();
+  @include buttonShapePrimary();
   @include buttonColorsDefault();
   margin: auto;
   margin-top: 40px;

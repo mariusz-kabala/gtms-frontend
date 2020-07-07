@@ -104,6 +104,7 @@
 
   .respondBtn {
     @include buttonDefault();
+    @include buttonShapePrimary();
     @include buttonSizeSm();
     @include buttonColorsPrimary();
     margin-top: 10px;

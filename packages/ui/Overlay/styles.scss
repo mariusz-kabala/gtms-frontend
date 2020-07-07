@@ -9,7 +9,7 @@
   content: '';
   width: 100%;
   height: 100%;
-  background: $theme0;
+  background: #dedede; // @todo make variable
 
   &.clickable {
     cursor: pointer;

@@ -4,6 +4,7 @@
 
 .btnDeleteAccount {
   @include buttonDefault();
+  @include buttonShapePrimary();
   @include buttonColorsDefault();
 }
 
@@ -16,17 +17,36 @@
   background: none !important;
 
   > div {
-    h2 {
+    min-width: 45%;
+    min-height: 200px;
+  }
+
+  > div {
+    h2,
+    p {
       text-align: center;
+      font-weight: 400;
+    }
+
+    h2 {
       @include font-size(lg);
+    }
+
+    p {
+      margin-top: 5px;
+      @include font-size(xdefault);
+      color: $theme9;
     }
 
     .buttons {
       display: flex;
+      justify-content: center;
       margin-top: 20px;
 
       > * {
         @include buttonDefault();
+        @include buttonSizeDefault();
+        @include buttonShapeTertiary();
         @include buttonColorsDefault();
 
         &:hover {

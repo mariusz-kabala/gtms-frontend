@@ -1,9 +1,10 @@
 @import '~@gtms/styles/scss/variables.scss';
 
 @mixin buttonDefault() {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  background: none;
   border: none;
-  border-radius: $borderRadius1;
   outline: none;
   justify-content: center;
   padding: 10px;
@@ -38,18 +39,33 @@
 }
 
 // SIZES
+@mixin buttonSizeDefault() {
+  padding: 8px 15px;
+}
+
 @mixin buttonSizeSm() {
-  display: flex;
-  align-items: center;
   padding: 5px;
   line-height: 1;
   font-size: 9px;
 }
 
-// COLOR TYPES
+// SHAPES
+@mixin buttonShapePrimary() {
+  border-radius: $borderRadius1;
+}
+
+@mixin buttonShapeSecondary() {
+  border-radius: $borderRadius2;
+}
+
+@mixin buttonShapeTertiary() {
+  border-radius: $borderRadius3;
+}
+
+// COLORS
 @mixin buttonColorsDefault() {
-  background: $theme4;
-  color: $theme0;
+  background: $theme2;
+  color: $theme7;
 }
 
 @mixin buttonColorsPrimary() {
