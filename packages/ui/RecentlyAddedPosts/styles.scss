@@ -1,9 +1,10 @@
+@import '~@gtms/styles/scss/variables.scss';
+
 .wrapper {
   .post {
     margin-bottom: 20px;
+    &.active {
+      border: 1px solid $theme2;
+    }
   }
-}
-
-.active {
-  border: 1px solid red;
 }
