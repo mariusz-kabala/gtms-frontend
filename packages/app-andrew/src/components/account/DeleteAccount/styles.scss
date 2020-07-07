@@ -8,13 +8,6 @@
 }
 
 .modalContent {
-  min-width: 500px;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none !important;
-
   > div {
     h2 {
       text-align: center;
@@ -22,8 +15,10 @@
     }
 
     .buttons {
-      display: flex;
+      display: grid;
+      gap: 15px;
       margin-top: 20px;
+      grid-template-columns: 1fr 1fr;
 
       > * {
         @include buttonDefault();
@@ -31,21 +26,6 @@
 
         &:hover {
           @include buttonColorsSecondary();
-        }
-        margin-right: 15px;
-
-        &:hover {
-          @include buttonColorsSecondary();
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-
-      .no {
-        &:hover {
-          background: red;
         }
       }
     }
