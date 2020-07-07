@@ -240,7 +240,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </li>
               </ul>
               {state.activePost && (
-                <PostDetails user={state.user} post={state.activePost} />
+                <PostDetails
+                  comments={state.comments}
+                  user={state.user}
+                  post={state.activePost}
+                />
               )}
               <ul className={styles.images}>
                 <li
