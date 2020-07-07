@@ -1,20 +1,24 @@
 import React, { FC, useState, useRef, useCallback } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
-import { IAccountDetails, IUser } from '@gtms/commons/models'
-import { FileStatus } from '@gtms/commons/enums'
-import { Link } from '@gtms/commons/i18n'
+// ui
 import { DeletePost } from './DeletePost'
 import { PostResponse } from './PostResponse'
 import { PostCreate } from '../PostCreate'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
+// commons
 import { IComment } from '@gtms/commons/models'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
+import { IAccountDetails, IUser } from '@gtms/commons/models'
+import { FileStatus } from '@gtms/commons/enums'
+import { Link } from '@gtms/commons/i18n'
+import { IImage } from '@gtms/commons/types/image'
+// style
+import styles from './styles.scss'
 
 export const PostSingle: FC<{
   id: string
@@ -27,7 +31,7 @@ export const PostSingle: FC<{
   user: IAccountDetails | null
   createComment: (payload: { post: string; text: string }) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
-  noImage: { [key: string]: { jpg: string; webp?: string } }
+  noImage: { [key: string]: IImage }
   onClick?: (id: string) => unknown
 }> = ({
   id,
@@ -61,7 +65,7 @@ export const PostSingle: FC<{
               <UserAvatar
                 image={
                   owner.avatar?.status === FileStatus.ready
-                    ? (owner.avatar.files['35x35'] as { jpg: string })
+                    ? (owner.avatar.files['35x35'] as IImage)
                     : noImage['35x35']
                 }
                 additionalStyles={styles.userAvatar}

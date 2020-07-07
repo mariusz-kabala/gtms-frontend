@@ -9,17 +9,15 @@ import {
   NotificationsQuery,
   INotificationRecord,
 } from '@gtms/state-notification'
-import { IGroup } from '@gtms/commons'
+import { IGroup } from '@gtms/commons/models'
 import { uiQuery, UIQuery } from 'state'
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
+import { IImage } from '@gtms/commons/types/image'
 
 export interface INavigationProps {
   isLogged: boolean
-  userAvatar: {
-    jpg: string
-    webp?: string
-  } | null
+  userAvatar: IImage | null
 }
 
 export interface INotificationsSidebarProps {

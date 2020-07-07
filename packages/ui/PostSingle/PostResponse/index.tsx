@@ -7,13 +7,14 @@ import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 import { Link } from '@gtms/commons/i18n'
+import { IImage } from '@gtms/commons/types/image'
 
 export const PostResponse: FC<{
   text: string
   createdAt: string
   additionalStyles?: string
   owner: string
-  image: any
+  image: IImage
 }> = ({ additionalStyles, text, createdAt, owner, image }) => {
   return (
     <div

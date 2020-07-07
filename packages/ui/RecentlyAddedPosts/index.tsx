@@ -1,8 +1,12 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
-import { PostSingle } from '@gtms/ui/PostSingle'
+// ui
+import { PostSingle } from '../PostSingle'
+// commons
 import { IPost, IAccountDetails } from '@gtms/commons/models'
+import { IImage } from '@gtms/commons/types/image'
+// styles
+import styles from './styles.scss'
 
 export const RecentlyAddedPosts: FC<{
   additionalStyles?: string
@@ -12,7 +16,7 @@ export const RecentlyAddedPosts: FC<{
   user: IAccountDetails | null
   createComment: (payload: { post: string; text: string }) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
-  noImage: { [key: string]: { jpg: string; webp?: string } }
+  noImage: { [key: string]: IImage }
 }> = ({
   additionalStyles,
   posts,
