@@ -6,11 +6,11 @@ import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
 import { Navigation } from 'components/commons/Navigation'
 import { NavigationDots } from 'components/commons/NavigationDots'
+import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from 'components/commons/LoginWindow'
-import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 
 interface GTMSAppProps {
   auth?: {
@@ -44,10 +44,10 @@ class GTMSApp extends App<GTMSAppProps> {
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>
+        <NotificationsSidebar />
         <div className={styles.tempNav}>
           <Navigation />
           <NavigationDots />
-          <NotificationsSidebar />
         </div>
         <div className={styles.wrapperPage}>
           <NotificationsActive />

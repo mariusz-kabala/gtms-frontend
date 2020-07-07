@@ -1,6 +1,7 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/imageCover';
 
 .wrapper {
   position: relative;
@@ -70,10 +71,29 @@
 
   .desc {
     .text {
-      margin-top: 10px;
+      margin-top: 5px;
 
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
+      }
+    }
+  }
+
+  .images {
+    display: flex;
+    margin-top: 10px;
+
+    li {
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: $borderRadius1;
+      margin-right: 10px;
+      cursor: pointer;
+      border: 1px solid $theme2;
+
+      &:hover {
+        border-color: $theme4;
       }
     }
   }

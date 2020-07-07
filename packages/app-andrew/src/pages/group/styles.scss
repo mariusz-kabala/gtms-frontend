@@ -2,183 +2,142 @@
 @import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
-@import '~@gtms/styles/scss/mixins/imageCover';
 
 .hide {
   display: none;
 }
 
 .wrapper {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
   width: 100%;
   height: 100%;
 
-  .searchInput {
-    margin-left: auto;
-    display: flex;
-    // @todo this should be separate component / mixin
+  .groupNavigationWrapper {
+    padding: 20px;
+    max-width: 200px;
 
-    .search {
-      background: $theme4;
-      padding: 10px;
-      border: 1px solid $theme4;
-      border-radius: $borderRadius2;
-
-      &:hover,
-      &:focus {
-        border-color: $theme5;
-      }
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      .search {
-        background: $theme5;
-      }
-
-      input {
-        background: $theme5;
-        color: $theme0;
-      }
-    }
-  }
-
-  .actionButtons {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    > * {
+    .groupHeader {
+      width: 100%;
+      min-width: 165px;
       margin-bottom: 10px;
-    }
-  }
 
-  .groupHeader {
-    width: 100%;
-    min-width: 165px;
-    margin-bottom: 10px;
+      .avatarAndName {
+        display: flex;
+        align-items: center;
+        max-width: 250px;
+        line-height: 1;
+        font-weight: 100;
+        color: $theme4;
 
-    .avatarAndName {
-      display: flex;
-      align-items: center;
-      max-width: 250px;
-      line-height: 1;
-      font-weight: 100;
-      color: $theme4;
+        .groupAvatar {
+          margin-right: 10px;
+          // @todo write proper styles
+          img {
+            border-radius: $borderRadius1;
+          }
+        }
 
-      .groupAvatar {
-        margin-right: 10px;
-        // @todo write proper styles
-        img {
-          border-radius: $borderRadius1;
+        h2 {
+          font-weight: 400;
+          @include font-size('xdefault');
+          color: $theme7;
         }
       }
 
-      h2 {
-        font-weight: 400;
-        @include font-size('xdefault');
-        color: $theme7;
+      .desc {
+        margin-top: 5px;
       }
-    }
 
-    .desc {
-      margin-top: 5px;
-    }
-
-    &:hover {
-      color: $theme4;
-
-      h2 {
+      &:hover {
         color: $theme4;
+
+        h2 {
+          color: $theme4;
+        }
+
+        &:after {
+          background: $theme4;
+        }
       }
 
       &:after {
-        background: $theme4;
+        content: '';
+        display: inline-block;
+        width: 30px;
+        height: 1px;
+        background: $theme2;
       }
     }
 
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 30px;
-      height: 1px;
-      background: $theme2;
+    .actionButtons {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      > * {
+        margin-bottom: 10px;
+      }
     }
   }
 
-  .columns {
-    // @todo make mixin of that
-    display: grid;
-    gap: 20px; // @todo set standard gaps for grid
-    grid-template-columns: 0.45fr 1fr 1.05fr;
-    // grid-template-columns: 0.45fr 1.2fr;
+  .groupPostsListWrapper {
+    width: 100%;
+    padding: 20px;
+    border-left: 1px solid $theme4;
 
-    .postCreate {
-      // @todo styles to be written here
+    .searchInput {
+      display: flex;
       margin-bottom: 20px;
+
+      .search {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid $theme2;
+        border-radius: $borderRadius1;
+      }
     }
 
-    > div {
-      padding: 20px;
-    }
+    .posts {
+      display: grid;
+      gap: 20px; // @todo set standard gaps for grid
+      grid-template-columns: 1fr 1fr;
 
-    .left {
-      border-right: 1px solid $theme4;
-    }
-
-    .right {
-      padding-left: 0;
-    }
-
-    .third {
-      padding-right: 0;
-      padding-left: 0;
-
-      .buttons {
-        display: flex;
-        margin-bottom: 20px;
-
-        li {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 30px;
-          height: 30px;
-          border: 1px solid lightgray;
-          border-radius: $borderRadius1;
-          margin-right: 10px;
-          cursor: pointer;
-
-          &:hover {
-            border-color: $theme4;
-
-            i {
-              color: $theme4;
-            }
-          }
-
-          i {
-            line-height: 0;
-            color: lightgray;
-          }
-        }
+      .postCreate {
+        margin-bottom: 10px;
       }
 
-      .images {
-        display: flex;
+      .third {
+        padding-right: 0;
+        padding-left: 0;
 
-        li {
-          display: block;
-          width: 100px;
-          height: 100px;
-          border-radius: $borderRadius2;
-          @include imageCover();
-          margin-right: 10px;
-          cursor: pointer;
-          border: 3px solid $theme2;
+        .buttons {
+          display: flex;
+          margin-bottom: 20px;
 
-          &:hover {
-            border-color: $theme4;
+          li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border: 1px solid lightgray;
+            border-radius: $borderRadius1;
+            margin-right: 10px;
+            cursor: pointer;
+
+            &:hover {
+              border-color: $theme4;
+
+              i {
+                color: $theme4;
+              }
+            }
+
+            i {
+              line-height: 0;
+              color: lightgray;
+            }
           }
         }
       }

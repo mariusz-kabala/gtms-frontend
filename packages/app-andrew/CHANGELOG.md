@@ -3,38 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.43.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.42.1...@gtms/app-andrew@0.43.0) (2020-07-07)
-
-
-### Features
-
-* GEOT-319: display a single post on group page ([#707](https://github.com/gtms-org/gtms-frontend/issues/707)) ([0e5198f](https://github.com/gtms-org/gtms-frontend/commit/0e5198f197c5eec78074dca6fc5d6293644d4548))
-
-
-
-
-
-## [0.42.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.42.0...@gtms/app-andrew@0.42.1) (2020-07-06)
-
+## [0.43.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.43.0...@gtms/app-andrew@0.43.1) (2020-07-07)
 
 ### Bug Fixes
 
-* GEOT-317: webpush fixes and login redirection loop fixes ([#705](https://github.com/gtms-org/gtms-frontend/issues/705)) ([019fe0a](https://github.com/gtms-org/gtms-frontend/commit/019fe0ad2853b359ae476fd07d9706180b1ab04f))
+- GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
 
-
-
-
-
-# [0.42.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.41.1...@gtms/app-andrew@0.42.0) (2020-07-06)
-
+# [0.43.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.42.1...@gtms/app-andrew@0.43.0) (2020-07-07)
 
 ### Features
 
-* GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
+- GEOT-319: display a single post on group page ([#707](https://github.com/gtms-org/gtms-frontend/issues/707)) ([0e5198f](https://github.com/gtms-org/gtms-frontend/commit/0e5198f197c5eec78074dca6fc5d6293644d4548))
 
+## [0.42.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.42.0...@gtms/app-andrew@0.42.1) (2020-07-06)
 
+### Bug Fixes
 
+- GEOT-317: webpush fixes and login redirection loop fixes ([#705](https://github.com/gtms-org/gtms-frontend/issues/705)) ([019fe0a](https://github.com/gtms-org/gtms-frontend/commit/019fe0ad2853b359ae476fd07d9706180b1ab04f))
 
+# [0.42.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.41.1...@gtms/app-andrew@0.42.0) (2020-07-06)
+
+### Features
+
+- GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
 
 ## [0.41.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.41.0...@gtms/app-andrew@0.41.1) (2020-07-01)
 
