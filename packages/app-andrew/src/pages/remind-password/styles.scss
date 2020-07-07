@@ -33,6 +33,7 @@
     > a {
       width: 100%;
       @include buttonDefault();
+      @include buttonShapePrimary();
       @include buttonColorsTertiary();
 
       &:hover {

@@ -39,9 +39,10 @@
 
   .btn {
     @include buttonDefault();
-    @include buttonColorsPrimary();
+    @include buttonShapePrimary();
     @include buttonSizeSm();
     @include buttonWithIcon('right');
+    @include buttonColorsPrimary();
     display: flex;
     align-items: center;
     border-top-left-radius: 0;

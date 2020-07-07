@@ -4,6 +4,7 @@
 
 .btnDeleteAccount {
   @include buttonDefault();
+  @include buttonShapePrimary();
   @include buttonColorsDefault();
 
   padding: 0;
@@ -30,6 +31,7 @@
 
       > * {
         @include buttonDefault();
+        @include buttonShapePrimary();
         @include buttonColorsDefault();
         margin-right: 15px;
 
