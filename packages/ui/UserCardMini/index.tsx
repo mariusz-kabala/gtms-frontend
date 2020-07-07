@@ -1,8 +1,9 @@
 import React, { FC } from 'react'
+import { IImage } from '@gtms/commons/types/image'
 import styles from './styles.scss'
 
 export const UserCardMini: FC<{
-  image: { jpg: string; webp?: string }
+  image: IImage
   name: string
   desc?: string
   onClick?: () => unknown

@@ -1,20 +1,24 @@
-import React, { FC, useState, useRef } from 'react'
-import styles from './styles.scss'
+import React, { FC, useState, useRef, useCallback } from 'react'
 import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
-import { IAccountDetails, IUser } from '@gtms/commons/models'
-import { FileStatus } from '@gtms/commons/enums'
-import { Link } from '@gtms/commons/i18n'
+// ui
 import { DeletePost } from './DeletePost'
 import { PostResponse } from './PostResponse'
 import { PostCreate } from '../PostCreate'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
+// commons
 import { IComment } from '@gtms/commons/models'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
+import { IAccountDetails, IUser } from '@gtms/commons/models'
+import { FileStatus } from '@gtms/commons/enums'
+import { Link } from '@gtms/commons/i18n'
+import { IImage } from '@gtms/commons/types/image'
+// style
+import styles from './styles.scss'
 
 export const PostSingle: FC<{
   id: string
@@ -27,7 +31,8 @@ export const PostSingle: FC<{
   user: IAccountDetails | null
   createComment: (payload: { post: string; text: string }) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
-  noImage: { [key: string]: { jpg: string; webp?: string } }
+  noImage: { [key: string]: IImage }
+  onClick?: (id: string) => unknown
 }> = ({
   id,
   additionalStyles,
@@ -40,9 +45,13 @@ export const PostSingle: FC<{
   createComment,
   firstComments,
   user,
+  onClick,
 }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const commentForm = useRef<HTMLDivElement>(null)
+  const onClickCallback = useCallback(() => {
+    onClick && onClick(id)
+  }, [id, onClick])
 
   return (
     <div
@@ -50,30 +59,41 @@ export const PostSingle: FC<{
       data-testid="post-single"
     >
       <div className={styles.header}>
-        <Link href={`/user/${owner.id}`}>
-          <div className={styles.user}>
-            <UserAvatar
-              image={
-                owner.avatar?.status === FileStatus.ready
-                  ? (owner.avatar.files['35x35'] as { jpg: string })
-                  : noImage['35x35']
-              }
-              additionalStyles={styles.userAvatar}
-            />
-            <div>
+        <div className={styles.user}>
+          <Link href={`/user/${owner.id}`}>
+            <>
+              <UserAvatar
+                image={
+                  owner.avatar?.status === FileStatus.ready
+                    ? (owner.avatar.files['35x35'] as IImage)
+                    : noImage['35x35']
+                }
+                additionalStyles={styles.userAvatar}
+              />
+            </>
+          </Link>
+          <div>
+            <Link href={`/user/${owner.id}`}>
               <span>{getDisplayName(owner)}</span>
+            </Link>
+            <a onClick={onClickCallback}>
               <span className={styles.date}>
                 {formatDistance(new Date(createdAt), new Date(), {
                   locale: pl,
                 })}
               </span>
-            </div>
+            </a>
           </div>
-        </Link>
-        <DeletePost additionalStyles={styles.deleteBtn} />
+        </div>
+
+        {owner.id === user?.id && (
+          <DeletePost additionalStyles={styles.deleteBtn} />
+        )}
       </div>
       <div className={styles.desc}>
-        <ReactMarkdown className={styles.text} source={text} />
+        <div onClick={onClickCallback}>
+          <ReactMarkdown className={styles.text} source={text} />
+        </div>
         {tags.length > 0 && (
           <TagGroup additionalStyles={styles.tagGroup}>
             {tags.map((tag) => (
@@ -103,7 +123,7 @@ export const PostSingle: FC<{
                 text={comment.text}
                 createdAt={comment.createdAt}
                 owner={getDisplayName(comment.owner as IUser)}
-                noImage={getImage('35x35', comment.owner.avatar, noImage)}
+                image={getImage('35x35', comment.owner.avatar, noImage)}
               />
             ))}
           </div>

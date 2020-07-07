@@ -24,6 +24,7 @@
     "@gtms/state-post": "0.5.0",
     "@gtms/state-tag": "0.7.0",
     "@gtms/state-user": "0.16.0",
+    "@gtms/state-comment": "*",
     "@gtms/styles": "0.10.0",
     "@gtms/ui": "0.28.1"
   }

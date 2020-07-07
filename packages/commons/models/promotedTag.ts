@@ -1,20 +1,12 @@
 import { FileStatus } from '../enums'
+import { IImage } from '../types/image'
 
 export interface IPromotedTagLogo {
   status: FileStatus.ready
   files: {
-    '35x35'?: {
-      jpg: string
-      webp: string
-    }
-    '50x50'?: {
-      jpg: string
-      webp: string
-    }
-    '200x200'?: {
-      jpg: string
-      webp: string
-    }
+    '35x35'?: IImage
+    '50x50'?: IImage
+    '200x200'?: IImage
   }
 }
 
