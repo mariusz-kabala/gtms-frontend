@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { useDebounce } from '@gtms/commons/hooks/useDebounce'
 import { useExpandingArea } from '@gtms/commons/hooks/expandingArea'
-import { getDisplayName, getImage } from '@gtms/commons/helpers'
+import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
 import { Link } from '@gtms/commons/i18n'
 import { IAccountDetails } from '@gtms/commons/models'
@@ -21,12 +21,14 @@ export const PostCreate: FC<{
   hintMinLenght?: number
   user: IAccountDetails | null
   noImage: { [key: string]: IImage }
+  onLoginRequest?: () => unknown
 }> = ({
   additionalStyles,
   onSubmit,
   user,
   noImage,
   fetchTags,
+  onLoginRequest,
   isLoading = false,
   hintMinLenght = 3,
 }) => {
@@ -96,7 +98,6 @@ export const PostCreate: FC<{
           <Link href={`/user/${user?.id}`}>
             <div>
               <UserAvatar
-                alt={`avatar ${getDisplayName(user as any)}`}
                 image={getImage('50x50', user?.avatar, noImage)}
                 additionalStyles={styles.userAvatar}
               />
@@ -104,9 +105,13 @@ export const PostCreate: FC<{
           </Link>
         </div>
         <textarea
+          onFocus={() => {
+            if (!user && onLoginRequest) {
+              onLoginRequest()
+            }
+          }}
           className={styles.textarea}
           data-testid="form-expanding-textarea"
-          name={name}
           value={value}
           onInput={handleInput}
           onKeyDown={(e) => {
@@ -156,6 +161,13 @@ export const PostCreate: FC<{
           additionalStyles={styles.btn}
           disabled={false}
           onClick={() => {
+            if (!user) {
+              if (onLoginRequest) {
+                onLoginRequest()
+              }
+
+              return
+            }
             onSubmit(value)
             setValue('')
           }}

@@ -12,9 +12,8 @@ import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
 // commons
-import { IComment } from '@gtms/commons/models'
-import { getDisplayName, getImage } from '@gtms/commons/helpers'
-import { IAccountDetails, IUser } from '@gtms/commons/models'
+import { getDisplayName } from '@gtms/commons/helpers'
+import { IAccountDetails, IUser, IComment } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
 import { Link } from '@gtms/commons/i18n'
 import { IImage } from '@gtms/commons/types/image'
@@ -34,6 +33,7 @@ export const PostSingle: FC<{
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: IImage }
   onClick?: (id: string) => unknown
+  onLoginRequest?: () => unknown
 }> = ({
   id,
   additionalStyles,
@@ -47,6 +47,7 @@ export const PostSingle: FC<{
   firstComments,
   user,
   onClick,
+  onLoginRequest,
 }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const commentForm = useRef<HTMLDivElement>(null)
@@ -113,19 +114,25 @@ export const PostSingle: FC<{
             ))}
           </TagGroup>
         )}
-        <button
-          className={styles.respondBtn}
-          onClick={(e) => {
-            e.preventDefault()
+        {(user || onLoginRequest) && (
+          <button
+            className={styles.respondBtn}
+            onClick={(e) => {
+              e.preventDefault()
 
-            setIsAnswerFormOpen(true)
-            if (commentForm.current) {
-              window.scrollTo(0, commentForm.current.offsetTop)
-            }
-          }}
-        >
-          Respond
-        </button>
+              if (!user && onLoginRequest) {
+                return onLoginRequest()
+              }
+
+              setIsAnswerFormOpen(true)
+              if (commentForm.current) {
+                window.scrollTo(0, commentForm.current.offsetTop)
+              }
+            }}
+          >
+            Respond
+          </button>
+        )}
         {Array.isArray(firstComments) && firstComments.length > 0 && (
           <div>
             {firstComments.map((comment) => (
@@ -133,8 +140,9 @@ export const PostSingle: FC<{
                 key={`comment-${comment.id}`}
                 text={comment.text}
                 createdAt={comment.createdAt}
-                owner={getDisplayName(comment.owner as IUser)}
-                image={getImage('35x35', comment.owner.avatar, noImage)}
+                owner={comment.owner as IUser}
+                noImage={noImage}
+                user={user}
               />
             ))}
           </div>

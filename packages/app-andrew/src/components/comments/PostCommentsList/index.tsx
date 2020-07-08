@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
 import { Spinner } from '@gtms/ui/Spinner'
 import { IComment, IUser } from '@gtms/commons/models'
@@ -37,8 +36,9 @@ export const PostCommentsList: FC<{
           key={`comment-${comment.id}`}
           text={comment.text}
           createdAt={comment.createdAt}
-          owner={getDisplayName(comment.owner as IUser)}
-          image={getImage('35x35', comment.owner.avatar, UserAvatarNoImage)}
+          owner={comment.owner as IUser}
+          user={null} // todo: fix this later
+          noImage={UserAvatarNoImage}
         />
         // todo: pagination is missing
       ))}

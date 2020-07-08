@@ -35,7 +35,6 @@ import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { Spinner } from '@gtms/ui/Spinner'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
-
 import {
   IoIosHeart,
   IoIosGitNetwork,
@@ -44,6 +43,7 @@ import {
 } from 'react-icons/io'
 
 // state
+import { openLoginModal } from 'state'
 import {
   groupQuery,
   IGroupState,
@@ -199,20 +199,19 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               <GroupMembers {...state.members} />
               <div className={styles.posts}>
                 <div>
-                  {state.user && (
-                    <PostCreate
-                      fetchTags={findTagsAPI}
-                      user={state.user}
-                      noImage={UserAvatarNoImage}
-                      onSubmit={(text: string) => {
-                        createNewPost({
-                          group: state.group?.id || '',
-                          text,
-                        })
-                      }}
-                      additionalStyles={styles.postCreate}
-                    />
-                  )}
+                  <PostCreate
+                    fetchTags={findTagsAPI}
+                    user={state.user}
+                    noImage={UserAvatarNoImage}
+                    onSubmit={(text: string) => {
+                      createNewPost({
+                        group: state.group?.id || '',
+                        text,
+                      })
+                    }}
+                    additionalStyles={styles.postCreate}
+                    onLoginRequest={openLoginModal}
+                  />
                   <NavigationTabs>
                     <h2 className={styles.header}>Latest</h2>
                     <ul className={styles.elements}>
@@ -230,6 +229,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     createComment={createNewComment}
                     noImage={UserAvatarNoImage}
                     posts={state.posts}
+                    onLoginRequest={openLoginModal}
                   />
                 </div>
                 <div className={styles.third}>

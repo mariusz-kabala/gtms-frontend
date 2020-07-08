@@ -17,6 +17,7 @@ export const RecentlyAddedPosts: FC<{
   createComment: (payload: { post: string; text: string }) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: IImage }
+  onLoginRequest?: () => unknown
 }> = ({
   additionalStyles,
   posts,
@@ -26,6 +27,7 @@ export const RecentlyAddedPosts: FC<{
   createComment,
   onPostClick,
   activePost,
+  onLoginRequest,
 }) => {
   return (
     <div
@@ -44,6 +46,7 @@ export const RecentlyAddedPosts: FC<{
           })}
           {...post}
           noImage={noImage}
+          onLoginRequest={onLoginRequest}
         />
       ))}
     </div>
