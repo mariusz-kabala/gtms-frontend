@@ -1,9 +1,10 @@
 import { fetchPostComments } from '@gtms/api-comment'
 import { postCommentsStore, IPostCommentsState } from './comments.store'
+import { postCommentsQuery } from './comments.query'
 import { ICreateCommentData, createCommentAPI } from '@gtms/api-comment'
 import { userQuery } from '@gtms/state-user'
 import { addPostCommentIfNeeded } from '@gtms/state-post'
-import { IComment } from '@gtms/commons/models'
+import { IComment, ISubComment } from '@gtms/commons/models'
 import {
   addSuccessNotification,
   addErrorNotification,
@@ -52,11 +53,22 @@ export const createNewComment = async (payload: ICreateCommentData) => {
 
     addSuccessNotification(`Comment has been created!`)
 
-    comment.owner = userQuery.accountDetails()
-
     if (!payload.parent) {
+      comment.owner = userQuery.accountDetails()
       postCommentsStore.upsert(comment.id, comment)
       addPostCommentIfNeeded(payload.post, comment)
+    } else if (postCommentsQuery.hasEntity(payload.parent)) {
+      const parentComment = postCommentsQuery.getEntity(payload.parent)
+
+      const subComments = parentComment.subComments || []
+      const newComment = {
+        ...comment.subComments.pop(),
+        owner: userQuery.accountDetails(),
+      } as ISubComment
+
+      postCommentsStore.upsert(payload.parent, {
+        subComments: [...subComments, newComment],
+      })
     }
   } catch {
     addErrorNotification('Error occured, try again later')

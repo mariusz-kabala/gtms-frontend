@@ -1,6 +1,6 @@
 import React, { FC, useState, useRef } from 'react'
 import { ISubComment, IUser, IAccountDetails } from '@gtms/commons/models'
-import { createNewComment } from '@gtms/state-post'
+import { createNewComment } from '@gtms/state-comment'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { findTagsAPI } from '@gtms/api-tags'

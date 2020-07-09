@@ -30,7 +30,7 @@ export const PostCommentsList: FC<{
   const [state, setState] = useState<IPostCommentsListState>(
     postCommentsListState()
   )
-console.log(comments)
+
   useEffect(() => {
     const sub = postCommentsListState$.subscribe((value) => setState(value))
 
