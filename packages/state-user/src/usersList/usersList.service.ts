@@ -8,6 +8,7 @@ import {
 import { usersListStore } from './usersList.store'
 import { parseFiles } from '@gtms/commons/helpers'
 import { FileStatus } from '@gtms/commons/enums'
+import { applyTransaction } from '@datorama/akita'
 
 const parseResponse = (users: IResponseUser[]) =>
   users.map((user) => {
@@ -21,17 +22,18 @@ const parseResponse = (users: IResponseUser[]) =>
 export const initUsersList = (
   data: IRecentUsersResponse | ITagUsersResponse
 ) => {
-  usersListStore.reset()
-
   const { docs, limit, offset } = data
 
-  usersListStore.update({
-    limit,
-    offset,
-    loading: false,
-    error: false,
+  applyTransaction(() => {
+    usersListStore.reset()
+    usersListStore.update({
+      limit,
+      offset,
+      loading: false,
+      error: false,
+    })
+    usersListStore.upsertMany(parseResponse(docs))
   })
-  usersListStore.upsertMany(parseResponse(docs))
 }
 
 export async function getRecentUsers(requestedOffset = 0, requestedLimit = 10) {
@@ -41,11 +43,15 @@ export async function getRecentUsers(requestedOffset = 0, requestedLimit = 10) {
   try {
     const { docs } = await fetchRecentUsers(requestedOffset, requestedLimit)
 
-    usersListStore.upsertMany(parseResponse(docs))
+    applyTransaction(() => {
+      usersListStore.upsertMany(parseResponse(docs))
+      usersListStore.setLoading(false)
+    })
   } catch (err) {
-    usersListStore.setError(true)
-  } finally {
-    usersListStore.setLoading(false)
+    applyTransaction(() => {
+      usersListStore.setError(true)
+      usersListStore.setLoading(false)
+    })
   }
 }
 
@@ -54,23 +60,28 @@ export async function findByTags(
   requestedOffset = 0,
   requestedLimit = 25
 ) {
-  usersListStore.reset()
-  usersListStore.update({
-    loading: true,
-    limit: requestedLimit,
-    offset: requestedOffset,
+  applyTransaction(() => {
+    usersListStore.reset()
+    usersListStore.update({
+      loading: true,
+      limit: requestedLimit,
+      offset: requestedOffset,
+    })
   })
-
   try {
     const { docs } = await fetchTaggedUsers(
       tags,
       requestedOffset,
       requestedLimit
     )
-    usersListStore.upsertMany(parseResponse(docs))
+    applyTransaction(() => {
+      usersListStore.upsertMany(parseResponse(docs))
+      usersListStore.setLoading(false)
+    })
   } catch {
-    usersListStore.setError(true)
-  } finally {
-    usersListStore.setLoading(false)
+    applyTransaction(() => {
+      usersListStore.setError(true)
+      usersListStore.setLoading(false)
+    })
   }
 }

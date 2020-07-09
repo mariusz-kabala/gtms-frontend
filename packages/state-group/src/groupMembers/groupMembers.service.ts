@@ -1,13 +1,17 @@
 import { fetchGroupMembers } from '@gtms/api-group'
 import { groupMembersStore } from './groupMembers.store'
+import { applyTransaction } from '@datorama/akita'
 
 export async function getGroupMembers(
   slug: string,
   requestedOffset = 0,
   requestedLimit = 25
 ) {
-  groupMembersStore.setError(false)
-  groupMembersStore.setLoading(false)
+  applyTransaction(() => {
+    groupMembersStore.reset()
+    groupMembersStore.setError(false)
+    groupMembersStore.setLoading(false)
+  })
 
   try {
     const { docs, offset, total } = await fetchGroupMembers(
@@ -16,10 +20,12 @@ export async function getGroupMembers(
       requestedLimit
     )
 
-    groupMembersStore.upsertMany(docs)
-    groupMembersStore.update({
-      offset,
-      total,
+    applyTransaction(() => {
+      groupMembersStore.upsertMany(docs)
+      groupMembersStore.update({
+        offset,
+        total,
+      })
     })
   } catch {
     groupMembersStore.setError(true)

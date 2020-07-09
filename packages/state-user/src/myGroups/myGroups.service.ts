@@ -46,13 +46,11 @@ export const loadMyGroups = async (force = false) => {
     myGroupsStore.update({
       ...myGroups,
       isLoaded: true,
+      isLoading: false,
     })
   } catch (err) {
     myGroupsStore.update({
       errorOccurred: true,
-    })
-  } finally {
-    myGroupsStore.update({
       isLoading: false,
     })
   }

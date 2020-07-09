@@ -7,6 +7,7 @@ export class GroupAdminsStore extends EntityStore<GroupAdminsState> {
   constructor() {
     super(undefined, {
       name: 'groupAdmins',
+      resettable: true,
     })
   }
 }

@@ -7,14 +7,18 @@ import {
   addSuccessNotification,
   addErrorNotification,
 } from '@gtms/state-notification'
+import { applyTransaction } from '@datorama/akita'
 
 export async function getGroupInvitations(
   slug: string,
   requestedOffset = 0,
   requestedLimit = 25
 ) {
-  groupInvitationsStore.setError(false)
-  groupInvitationsStore.setLoading(false)
+  applyTransaction(() => {
+    groupInvitationsStore.reset()
+    groupInvitationsStore.setError(false)
+    groupInvitationsStore.setLoading(false)
+  })
 
   try {
     const { docs, offset, total } = await fetchGroupInvitations(
@@ -23,10 +27,12 @@ export async function getGroupInvitations(
       requestedLimit
     )
 
-    groupInvitationsStore.upsertMany(docs)
-    groupInvitationsStore.update({
-      offset,
-      total,
+    applyTransaction(() => {
+      groupInvitationsStore.upsertMany(docs)
+      groupInvitationsStore.update({
+        offset,
+        total,
+      })
     })
   } catch {
     groupInvitationsStore.setError(true)
