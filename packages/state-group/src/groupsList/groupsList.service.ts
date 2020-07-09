@@ -7,6 +7,7 @@ import {
 import { groupsListStore } from './groupsList.store'
 import { parseFiles } from '@gtms/commons/helpers'
 import { FileStatus } from '@gtms/commons/enums'
+import { applyTransaction } from '@datorama/akita'
 
 const parseResponse = (groups: IResponseGroup[]) =>
   groups.map((group) => {
@@ -18,34 +19,41 @@ const parseResponse = (groups: IResponseGroup[]) =>
   })
 
 export const initGroupsList = (data: IRecentGroupsResponse) => {
-  groupsListStore.reset()
-
   const { docs, limit, offset } = data
 
-  groupsListStore.update({
-    limit,
-    offset,
-    loading: false,
-    error: false,
+  applyTransaction(() => {
+    groupsListStore.reset()
+    groupsListStore.update({
+      limit,
+      offset,
+      loading: false,
+      error: false,
+    })
+    groupsListStore.upsertMany(parseResponse(docs))
   })
-  groupsListStore.upsertMany(parseResponse(docs))
 }
 
 export async function getRecentGroups(
   requestedOffset = 0,
   requestedLimit = 10
 ) {
-  groupsListStore.reset()
-  groupsListStore.setLoading(true)
+  applyTransaction(() => {
+    groupsListStore.reset()
+    groupsListStore.setLoading(true)
+  })
 
   try {
     const { docs } = await fetchRecentGroups(requestedOffset, requestedLimit)
 
-    groupsListStore.upsertMany(parseResponse(docs))
+    applyTransaction(() => {
+      groupsListStore.upsertMany(parseResponse(docs))
+      groupsListStore.setLoading(false)
+    })
   } catch {
-    groupsListStore.setError(true)
-  } finally {
-    groupsListStore.setLoading(false)
+    applyTransaction(() => {
+      groupsListStore.setError(true)
+      groupsListStore.setLoading(false)
+    })
   }
 }
 
@@ -54,11 +62,13 @@ export async function findByTags(
   requestedOffset = 0,
   requestedLimit = 25
 ) {
-  groupsListStore.reset()
-  groupsListStore.update({
-    loading: true,
-    limit: requestedLimit,
-    offset: requestedOffset,
+  applyTransaction(() => {
+    groupsListStore.reset()
+    groupsListStore.update({
+      loading: true,
+      limit: requestedLimit,
+      offset: requestedOffset,
+    })
   })
 
   try {
@@ -67,10 +77,14 @@ export async function findByTags(
       requestedOffset,
       requestedLimit
     )
-    groupsListStore.upsertMany(parseResponse(docs))
+    applyTransaction(() => {
+      groupsListStore.upsertMany(parseResponse(docs))
+      groupsListStore.setLoading(false)
+    })
   } catch {
-    groupsListStore.setError(true)
-  } finally {
-    groupsListStore.setLoading(false)
+    applyTransaction(() => {
+      groupsListStore.setError(true)
+      groupsListStore.setLoading(false)
+    })
   }
 }

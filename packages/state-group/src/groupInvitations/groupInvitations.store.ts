@@ -11,6 +11,7 @@ export class GroupInvitationsStore extends EntityStore<GroupInvitationsState> {
   constructor() {
     super(undefined, {
       name: 'groupInvitations',
+      resettable: true,
     })
   }
 }

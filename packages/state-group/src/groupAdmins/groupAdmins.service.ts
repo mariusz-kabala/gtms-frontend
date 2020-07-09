@@ -1,17 +1,25 @@
 import { fetchGroupAdmins } from '@gtms/api-group'
 import { groupAdminsStore } from './groupAdmins.store'
+import { applyTransaction } from '@datorama/akita'
 
 export async function getGroupAdmins(slug: string) {
-  groupAdminsStore.setError(false)
-  groupAdminsStore.setLoading(true)
+  applyTransaction(() => {
+    groupAdminsStore.reset()
+    groupAdminsStore.setError(false)
+    groupAdminsStore.setLoading(true)
+  })
 
   try {
     const admins = await fetchGroupAdmins(slug)
 
-    groupAdminsStore.upsertMany(admins)
+    applyTransaction(() => {
+      groupAdminsStore.upsertMany(admins)
+      groupAdminsStore.setLoading(false)
+    })
   } catch {
-    groupAdminsStore.setError(true)
-  } finally {
-    groupAdminsStore.setLoading(false)
+    applyTransaction(() => {
+      groupAdminsStore.setError(true)
+      groupAdminsStore.setLoading(false)
+    })
   }
 }

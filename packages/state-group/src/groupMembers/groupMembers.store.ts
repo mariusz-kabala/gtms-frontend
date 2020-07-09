@@ -10,6 +10,7 @@ export class GroupMembersStore extends EntityStore<GroupMembersState> {
   constructor() {
     super(undefined, {
       name: 'groupMembers',
+      resettable: true,
     })
   }
 }

@@ -12,14 +12,18 @@ import {
   addSuccessNotification,
   addErrorNotification,
 } from '@gtms/state-notification'
+import { applyTransaction } from '@datorama/akita'
 
 export const initPromoted = (data: IPromotedTagsState) => {
   promotedTagsStore.update(data)
 }
 
 export const loadGroupPromotedTags = async (id: string) => {
-  promotedTagsStore.setLoading(true)
-  promotedTagsStore.setError(false)
+  applyTransaction(() => {
+    promotedTagsStore.reset()
+    promotedTagsStore.setLoading(true)
+    promotedTagsStore.setError(false)
+  })
 
   try {
     const promoted = await fetchPromotedTagsAPI(id)

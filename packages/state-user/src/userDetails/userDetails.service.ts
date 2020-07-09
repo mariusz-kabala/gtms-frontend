@@ -1,12 +1,15 @@
 import { fetchUserDetails } from '@gtms/api-auth'
 import { userDetailsStore } from './userDetails.store'
 import { IUserDetailsState } from './userDetails.model'
+import { applyTransaction } from '@datorama/akita'
 
 export const getUserDetails = async (id: string) => {
-  userDetailsStore.reset()
-  userDetailsStore.update({
-    isLoading: true,
-    errorOccured: false,
+  applyTransaction(() => {
+    userDetailsStore.reset()
+    userDetailsStore.update({
+      isLoading: true,
+      errorOccured: false,
+    })
   })
 
   try {

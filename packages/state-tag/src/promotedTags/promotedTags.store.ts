@@ -7,6 +7,7 @@ export class PromotedTagsStore extends EntityStore<IPromotedTagsState> {
   constructor() {
     super(undefined, {
       name: 'promotedTags',
+      resettable: true,
     })
   }
 }
