@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.2...@gtms/state-group@0.15.3) (2020-07-09)
+
+
+### Bug Fixes
+
+* GEOT-326: better performance by using transactions ([#715](https://github.com/gtms-org/gtms-frontend/issues/715)) ([8a80054](https://github.com/gtms-org/gtms-frontend/commit/8a80054bf5a90577eb71f187f5b86621ca42d065))
+
+
+
+
+
 ## [0.15.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.1...@gtms/state-group@0.15.2) (2020-07-09)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@gtms/state-comment",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
@@ -9,8 +9,8 @@
     "@gtms/api-comment": "*",
     "@gtms/commons": "*",
     "@gtms/state-notification": "*",
-    "@gtms/state-post": "0.6.2",
-    "@gtms/state-user": "*"
+    "@gtms/state-post": "0.6.3",
+    "@gtms/state-user": "0.17.2"
   },
   "scripts": {
     "build": "exit 0",
