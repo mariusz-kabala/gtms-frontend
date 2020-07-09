@@ -9117,9 +9117,9 @@ nodemon@^2.0.2:
     update-notifier "^4.0.0"
 
 nookies@^2.0.8:
-  version "2.3.0"
-  resolved "https://npm.kabala.tech/nookies/-/nookies-2.3.0.tgz#56726ff10a6455820e4ff0d11602c3af2b21a0cb"
-  integrity sha512-qet6azxnYVeojj4O9qmm0pL8yp8QWrnPQZxS8aZED5s1vGQmhLhoWK4iYS1NDL6ajhpgHzCMPYjqsWSH83xvQw==
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/nookies/-/nookies-2.3.2.tgz#5a6111dc8f7247d3b532f35a073fe4e408c8f027"
+  integrity sha512-iV0aRpJhpmf3Ri7q0tulK5epR8sYvYuifphVwSMlm/SIt0gVII+R6lSDYNgLJLFMCK+9gvJC6H87vSCA4CtKcA==
   dependencies:
     cookie "^0.4.0"
     set-cookie-parser "^2.4.3"
