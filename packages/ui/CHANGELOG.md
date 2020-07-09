@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.3...@gtms/ui@0.30.4) (2020-07-09)
+
+
+### Bug Fixes
+
+* GEOT-325: better comments handling ([#714](https://github.com/gtms-org/gtms-frontend/issues/714)) ([774968f](https://github.com/gtms-org/gtms-frontend/commit/774968fe48b174058f68db6fe72aed4d0f3ea096))
+
+
+
+
+
 ## [0.30.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.2...@gtms/ui@0.30.3) (2020-07-09)
 
 **Note:** Version bump only for package @gtms/ui

@@ -37,6 +37,7 @@ export const RecentlyAddedPosts: FC<{
       {posts.map((post) => (
         <PostSingle
           key={`post-${post.id}`}
+          allowToRespond={post.id !== activePost?.id}
           onClick={onPostClick}
           fetchTags={fetchTags}
           createComment={createComment}

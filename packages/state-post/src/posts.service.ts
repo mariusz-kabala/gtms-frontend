@@ -4,12 +4,15 @@ import {
   addSuccessNotification,
   addErrorNotification,
 } from '@gtms/state-notification'
-import { IPost } from '@gtms/commons/models'
+import { IPost, IComment } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
 import { postsStore, IPostsState } from './posts.store'
 import { postsQuery } from './posts.query'
 import { parseFiles } from '@gtms/commons/helpers'
 import { userQuery } from '@gtms/state-user'
+import { applyTransaction } from '@datorama/akita'
+
+const POST_FIRST_COMMENTS_LIMIT = 5
 
 const parsePostOwnersAvatar = (post: IPost) => {
   if (
@@ -84,8 +87,10 @@ export const getGroupPosts = async (
   requestedOffset = 0,
   requestedLimit = 50
 ) => {
-  postsStore.setLoading(true)
-  postsStore.setError(false)
+  applyTransaction(() => {
+    postsStore.setLoading(true)
+    postsStore.setError(false)
+  })
 
   try {
     const { docs, total, offset } = await fetchGroupPosts(
@@ -94,14 +99,32 @@ export const getGroupPosts = async (
       requestedLimit
     )
 
-    postsStore.upsertMany(docs.map(parsePostOwnersAvatar))
-    postsStore.update({
-      offset,
-      total,
+    applyTransaction(() => {
+      postsStore.upsertMany(docs.map(parsePostOwnersAvatar))
+      postsStore.update({
+        offset,
+        total,
+      })
     })
   } catch {
     postsStore.setError(true)
   } finally {
     postsStore.setLoading(false)
+  }
+}
+
+export const addPostCommentIfNeeded = (postId: string, comment: IComment) => {
+  if (!postsQuery.hasEntity(postId)) {
+    return
+  }
+
+  const post = postsQuery.getEntity(postId)
+
+  const firstComments = post.firstComments || []
+
+  if (firstComments.length < POST_FIRST_COMMENTS_LIMIT) {
+    postsStore.upsert(postId, {
+      firstComments: [...firstComments, comment],
+    })
   }
 }
