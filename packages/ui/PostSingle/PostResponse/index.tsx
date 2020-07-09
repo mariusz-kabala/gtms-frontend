@@ -34,9 +34,11 @@ export const PostResponse: FC<{
             <span>{getDisplayName(owner)}</span>
           </div>
         </Link>
-        <span>
-          {formatDistance(new Date(createdAt), new Date(), { locale: pl })}
-        </span>
+        {createdAt && (
+          <span>
+            {formatDistance(new Date(createdAt), new Date(), { locale: pl })}
+          </span>
+        )}
         {user?.id === owner.id && (
           <DeletePost additionalStyles={styles.deleteBtn} />
         )}
