@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.23.0...@gtms/commons@0.24.0) (2020-07-09)
+
+
+### Bug Fixes
+
+* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
+
+
+### Features
+
+* GEOT-325: add a comment ui ([#713](https://github.com/gtms-org/gtms-frontend/issues/713)) ([430b07f](https://github.com/gtms-org/gtms-frontend/commit/430b07fea933de571c510444dea3fbc07e224b1a))
+
+
+
+
+
 # [0.23.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.22.0...@gtms/commons@0.23.0) (2020-07-07)
 
 ### Features

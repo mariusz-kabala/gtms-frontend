@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.1...@gtms/state-group@0.15.2) (2020-07-09)
+
+
+### Bug Fixes
+
+* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
+
+
+
+
+
 ## [0.15.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.0...@gtms/state-group@0.15.1) (2020-07-07)
 
 **Note:** Version bump only for package @gtms/state-group

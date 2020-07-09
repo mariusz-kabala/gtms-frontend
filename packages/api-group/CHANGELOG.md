@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.1...@gtms/api-group@0.13.2) (2020-07-09)
+
+
+### Bug Fixes
+
+* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
+
+
+
+
+
 ## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.0...@gtms/api-group@0.13.1) (2020-07-07)
 
 **Note:** Version bump only for package @gtms/api-group
