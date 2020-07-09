@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.45.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.45.0...@gtms/app-andrew@0.45.1) (2020-07-09)
+
+
+### Bug Fixes
+
+* GEOT-325: better comments handling ([#714](https://github.com/gtms-org/gtms-frontend/issues/714)) ([774968f](https://github.com/gtms-org/gtms-frontend/commit/774968fe48b174058f68db6fe72aed4d0f3ea096))
+
+
+
+
+
 # [0.45.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.44.3...@gtms/app-andrew@0.45.0) (2020-07-09)
 
 
