@@ -1,5 +1,6 @@
 import React, { FC, useState, useRef } from 'react'
 import { ISubComment, IUser, IAccountDetails } from '@gtms/commons/models'
+import { createNewComment } from '@gtms/state-comment'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { findTagsAPI } from '@gtms/api-tags'
@@ -7,9 +8,11 @@ import { UserAvatarNoImage } from 'enums'
 import styles from './styles.scss'
 
 export const SubCommentsList: FC<{
+  parentComment: string
+  postId: string
   subComments?: ISubComment[]
   user: IAccountDetails | null
-}> = ({ subComments, user }) => {
+}> = ({ subComments, user, parentComment, postId }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const commentForm = useRef<HTMLDivElement>(null)
 
@@ -50,7 +53,13 @@ export const SubCommentsList: FC<{
         <div ref={commentForm}>
           <PostCreate
             additionalStyles={styles.postResponseCreate}
-            onSubmit={() => null}
+            onSubmit={(text) => {
+              createNewComment({
+                post: postId,
+                text,
+                parent: parentComment,
+              })
+            }}
             fetchTags={findTagsAPI}
             user={user}
             noImage={UserAvatarNoImage}

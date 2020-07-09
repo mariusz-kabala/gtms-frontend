@@ -83,7 +83,12 @@ export const PostCommentsList: FC<{
             user={user}
             noImage={UserAvatarNoImage}
           />
-          <SubCommentsList user={user} subComments={comment.subComments} />
+          <SubCommentsList
+            parentComment={comment.id}
+            postId={postId}
+            user={user}
+            subComments={comment.subComments}
+          />
         </div>
       ))}
       <div ref={commentForm}>
