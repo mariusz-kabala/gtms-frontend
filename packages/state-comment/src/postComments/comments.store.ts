@@ -10,6 +10,7 @@ export class PostCommentsStore extends EntityStore<IPostCommentsState> {
   constructor() {
     super(undefined, {
       name: 'postComments',
+      resettable: true,
     })
   }
 }

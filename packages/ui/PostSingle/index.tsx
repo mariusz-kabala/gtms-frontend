@@ -29,6 +29,7 @@ export const PostSingle: FC<{
   owner: IUser
   tags: string[]
   user: IAccountDetails | null
+  allowToRespond?: boolean
   createComment: (payload: { post: string; text: string }) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: IImage }
@@ -48,6 +49,7 @@ export const PostSingle: FC<{
   user,
   onClick,
   onLoginRequest,
+  allowToRespond = true,
 }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const commentForm = useRef<HTMLDivElement>(null)
@@ -114,7 +116,7 @@ export const PostSingle: FC<{
             ))}
           </TagGroup>
         )}
-        {(user || onLoginRequest) && (
+        {allowToRespond && (user || onLoginRequest) && (
           <button
             className={styles.respondBtn}
             onClick={(e) => {
@@ -147,7 +149,7 @@ export const PostSingle: FC<{
             ))}
           </div>
         )}
-        {isAnswerFormOpen && (
+        {isAnswerFormOpen && allowToRespond && (
           <div ref={commentForm}>
             <PostCreate
               additionalStyles={styles.postResponseCreate}
