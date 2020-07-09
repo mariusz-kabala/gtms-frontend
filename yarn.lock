@@ -1710,9 +1710,9 @@
     "@types/react" "*"
 
 "@types/react-facebook-login@^4.1.1":
-  version "4.1.1"
-  resolved "https://npm.kabala.tech/@types%2freact-facebook-login/-/react-facebook-login-4.1.1.tgz#6dd2a49bd7d4aca78ccc931a736d8141822bf94d"
-  integrity sha512-FkybRpwGhpwjen5chmPDy7tdZwPLuDRYD4NsL+PHuV87HdoNeT8AtuLrOk7FCfU1hEqyLpwELrdMS+bvdrJCmw==
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@types/react-facebook-login/-/react-facebook-login-4.1.2.tgz#5a4894fa9abd6972f1454528f2cdf2af28ef3a4d"
+  integrity sha512-GHeUSSa/GMGsNMxmwvb3OcQpfiPviPCm9QFV8u20WfpQwYI5jFhi+HZHlICfj/9oGGe+lzWC4L/4+9hQChIutQ==
   dependencies:
     "@types/react" "*"
 
