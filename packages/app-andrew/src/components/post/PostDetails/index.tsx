@@ -21,8 +21,8 @@ export const PostDetails: FC<{
   return (
     <div>
       <PostSingle
-        key={`post-${post.id}`}
         createComment={createNewComment}
+        allowToRespond={false}
         fetchTags={findTagsAPI}
         user={user}
         id={post.id}
@@ -33,7 +33,9 @@ export const PostDetails: FC<{
         firstComments={[]}
         noImage={UserAvatarNoImage}
       />
-      {comments && <PostCommentsList user={user} {...comments} />}
+      {comments && (
+        <PostCommentsList postId={post.id} user={user} {...comments} />
+      )}
     </div>
   )
 }

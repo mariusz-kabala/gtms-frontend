@@ -12,6 +12,7 @@ import {
   postCommentsListState,
   postCommentsListState$,
 } from './state.query'
+import { createNewComment } from '@gtms/state-comment'
 import styles from './styles.scss'
 
 export const PostCommentsList: FC<{
@@ -21,9 +22,11 @@ export const PostCommentsList: FC<{
   offset: number
   limit: number
   comments: IComment[]
+  postId: string
   user: IAccountDetails | null
-}> = ({ isLoading, errorOccured, comments, user }) => {
+}> = ({ isLoading, errorOccured, comments, user, postId }) => {
   const commentForm = useRef<HTMLDivElement>(null)
+  const hasNoComments = !Array.isArray(comments) || comments.length === 0
   const [state, setState] = useState<IPostCommentsListState>(
     postCommentsListState()
   )
@@ -49,29 +52,28 @@ export const PostCommentsList: FC<{
     )
   }
 
-  if (!Array.isArray(comments) || comments.length === 0) {
-    return <p>No comments, you can add the first one</p>
-  }
-
   return (
     <div>
-      <div className={styles.respondButton}>
-        <button
-          onClick={(e) => {
-            e.preventDefault()
+      {hasNoComments && <p>No comments, you can add the first one</p>}
+      {!hasNoComments && (
+        <div className={styles.respondButton}>
+          <button
+            onClick={(e) => {
+              e.preventDefault()
 
-            if (!state.isLogged) {
-              return openLoginModal()
-            }
+              if (!state.isLogged) {
+                return openLoginModal()
+              }
 
-            if (commentForm.current) {
-              window.scrollTo(0, commentForm.current.offsetTop)
-            }
-          }}
-        >
-          Respond
-        </button>
-      </div>
+              if (commentForm.current) {
+                window.scrollTo(0, commentForm.current.offsetTop)
+              }
+            }}
+          >
+            Respond
+          </button>
+        </div>
+      )}
       {comments.map((comment) => (
         <div key={`comment-${comment.id}`}>
           <PostResponse
@@ -86,7 +88,12 @@ export const PostCommentsList: FC<{
       ))}
       <div ref={commentForm}>
         <PostCreate
-          onSubmit={() => null}
+          onSubmit={(text) => {
+            createNewComment({
+              post: postId,
+              text,
+            })
+          }}
           fetchTags={findTagsAPI}
           user={user}
           noImage={UserAvatarNoImage}
