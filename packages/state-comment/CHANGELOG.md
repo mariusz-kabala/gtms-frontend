@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.1.3...@gtms/state-comment@0.1.4) (2020-07-09)
+
+
+### Bug Fixes
+
+* GEOT-327 subcomments handling ([#725](https://github.com/gtms-org/gtms-frontend/issues/725)) ([bfd01c6](https://github.com/gtms-org/gtms-frontend/commit/bfd01c67507516f6b8091ee2309bf22c3994b008))
+
+
+
+
+
 ## [0.1.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.1.2...@gtms/state-comment@0.1.3) (2020-07-09)
 
 **Note:** Version bump only for package @gtms/state-comment
