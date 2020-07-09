@@ -5,9 +5,12 @@
 
 .wrapper {
   .items {
+    // @todo make mixin of that
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
     .item {
-      display: flex;
-      margin-bottom: 15px;
       cursor: pointer;
 
       &:last-child {
@@ -16,30 +19,27 @@
 
       .image {
         @include imageCover();
-        width: 120px;
-        min-width: 120px;
-        height: 80px;
-        min-height: 80px;
-        margin-right: 10px;
-        border-radius: $borderRadius;
+        width: 100%;
+        height: 150px;
+        border-radius: $borderRadius2;
+        box-shadow: 0px 0px 100px -16px rgba(0, 0, 0, 0.35);
       }
 
-      h3 {
-        @include font-size(md);
-        @include font-weight(bold);
-      }
+      .desc {
+        margin: 10px 0;
+        color: gray;
 
-      p {
-        opacity: 0.65;
+        h3 {
+          font-size: 16px;
+          @include font-weight(semiBold);
+          margin-bottom: 5px;
+          color: $theme7;
+        }
       }
 
       &:hover {
         h3 {
-          color: $theme5;
-        }
-
-        p {
-          opacity: 1;
+          color: $theme4;
         }
       }
     }

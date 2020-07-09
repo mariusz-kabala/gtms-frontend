@@ -1,12 +1,16 @@
 import React, { FC, useCallback } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { IoIosAddCircle } from 'react-icons/io'
-import { Spinner } from '@gtms/ui/Spinner'
+// commons
 import { FileStatus } from '@gtms/commons/enums'
 import { IPromotedTag } from '@gtms/commons/models'
-import { NavigationTabs } from '@gtms/ui/NavigationTabs'
-import { Picture } from '@gtms/ui/Picture'
+import { IImage } from '@gtms/commons/types/image'
+// ui
+import { Spinner } from '../Spinner'
+import { NavigationTabs } from '../NavigationTabs'
+import { Picture } from '../Picture'
+// style
+import styles from './styles.scss'
 
 export const PromotedTags: FC<{
   additionalStyles?: string
@@ -14,10 +18,7 @@ export const PromotedTags: FC<{
   isAdmin?: boolean
   tags: IPromotedTag[]
   noImage: {
-    '200x200': {
-      jpg: string
-      webp?: string
-    }
+    '200x200': IImage
   }
   onNoRecordsClick?: () => unknown
 }> = ({

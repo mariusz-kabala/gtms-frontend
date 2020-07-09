@@ -15,15 +15,14 @@
       width: 100%;
       padding: 15px;
       border: none;
-      border-radius: $borderRadius !important; // clear border radius coming from npm module
-      color: $theme7;
+      color: $theme1;
       text-align: center;
       text-decoration: none;
       opacity: 1 !important; // clear opacity coming from npm module
       cursor: pointer;
 
       &.facebook {
-        background: #227bef;
+        background: none;
 
         svg {
           margin-right: 5px;
@@ -41,8 +40,15 @@
   }
 
   .google {
+    button {
+      > div {
+        background: none !important;
+      }
+    }
+
     &:hover {
       button {
+        border: none;
         background-color: #3aa757 !important;
 
         span {

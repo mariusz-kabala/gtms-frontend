@@ -33,42 +33,32 @@ export const LoginPage: NextPage<{}> = () => {
 
   return (
     <div className={styles.wrapper} data-testid="login-page">
-      <div className={styles.left}>
-        <div>
-          {error && <div data-testid="login-page-error">{t(error)}</div>}
-          <h2>Tempor irure qui exce</h2>
-          <p>
-            Tempor irure qui excepteur ipsum excepteur qui pariatur deserunt
-            consequat aco nsequat est. Non eiusmod ea non cupidatat occaecat do
-            cupidatat in duis ipsum velit veniam incididunt.
-          </p>
-          <p>
-            Ad amet sunt voluptate consequat aliquip pariatur. Quis laboris
-            incididunt elit.
-          </p>
-          <LoginForm />
-          <div className={styles.actionButtons}>
-            <Link href="/registration">
-              <Button additionalStyles={styles.btn}>
-                {t('goToRegistration')}
-              </Button>
-            </Link>
-            <Link href="/remind-password">
-              <Button additionalStyles={styles.btn}>
-                {t('goToRemindPassword')}
-              </Button>
-            </Link>
-          </div>
-          <SocialButtons
-            additionalStyles={styles.socialButtons}
-            onFailure={() => setError('socialMediaLoginFailed')}
-          />
+      <div>
+        {error && <div data-testid="login-page-error">{t(error)}</div>}
+        <h2>Tempor irure qui exce</h2>
+        <p>
+          Tempor irure qui excepteur ipsum excepteur qui pariatur deserunt
+          consequat aco nsequat est. Non eiusmod ea non cupidatat occaecat do
+          cupidatat in duis ipsum velit veniam incididunt.
+        </p>
+        <LoginForm additionalStyles={styles.form} />
+        <div className={styles.actionButtons}>
+          <Link href="/registration">
+            <Button additionalStyles={styles.btn}>
+              {t('goToRegistration')}
+            </Button>
+          </Link>
+          <Link href="/remind-password">
+            <Button additionalStyles={styles.btn}>
+              {t('goToRemindPassword')}
+            </Button>
+          </Link>
         </div>
+        <SocialButtons
+          additionalStyles={styles.socialButtons}
+          onFailure={() => setError('socialMediaLoginFailed')}
+        />
       </div>
-      <div
-        className={styles.right}
-        style={{ backgroundImage: `url('/images/temp_images/andrew_bg.jpg')` }}
-      ></div>
     </div>
   )
 }

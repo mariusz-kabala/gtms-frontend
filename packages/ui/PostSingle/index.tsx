@@ -1,20 +1,24 @@
-import React, { FC, useState, useRef } from 'react'
-import styles from './styles.scss'
+import React, { FC, useState, useRef, useCallback } from 'react'
 import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
-import { IAccountDetails, IUser } from '@gtms/commons/models'
-import { FileStatus } from '@gtms/commons/enums'
-import { Link } from '@gtms/commons/i18n'
+// ui
 import { DeletePost } from './DeletePost'
+import { Picture } from '../Picture'
 import { PostResponse } from './PostResponse'
 import { PostCreate } from '../PostCreate'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
-import { IComment } from '@gtms/commons/models'
-import { getDisplayName, getImage } from '@gtms/commons/helpers'
+// commons
+import { getDisplayName } from '@gtms/commons/helpers'
+import { IAccountDetails, IUser, IComment } from '@gtms/commons/models'
+import { FileStatus } from '@gtms/commons/enums'
+import { Link } from '@gtms/commons/i18n'
+import { IImage } from '@gtms/commons/types/image'
+// style
+import styles from './styles.scss'
 
 export const PostSingle: FC<{
   id: string
@@ -27,7 +31,9 @@ export const PostSingle: FC<{
   user: IAccountDetails | null
   createComment: (payload: { post: string; text: string }) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
-  noImage: { [key: string]: { jpg: string; webp?: string } }
+  noImage: { [key: string]: IImage }
+  onClick?: (id: string) => unknown
+  onLoginRequest?: () => unknown
 }> = ({
   id,
   additionalStyles,
@@ -40,9 +46,14 @@ export const PostSingle: FC<{
   createComment,
   firstComments,
   user,
+  onClick,
+  onLoginRequest,
 }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const commentForm = useRef<HTMLDivElement>(null)
+  const onClickCallback = useCallback(() => {
+    onClick && onClick(id)
+  }, [id, onClick])
 
   return (
     <div
@@ -50,47 +61,78 @@ export const PostSingle: FC<{
       data-testid="post-single"
     >
       <div className={styles.header}>
-        <Link href={`/user/${owner.id}`}>
-          <div className={styles.user}>
-            <UserAvatar
-              image={
-                owner.avatar?.status === FileStatus.ready
-                  ? (owner.avatar.files['35x35'] as { jpg: string })
-                  : noImage['35x35']
-              }
-              additionalStyles={styles.userAvatar}
-            />
-            <span>{getDisplayName(owner)}</span>
+        <div className={styles.user}>
+          <Link href={`/user/${owner.id}`}>
+            <>
+              <UserAvatar
+                image={
+                  owner.avatar?.status === FileStatus.ready
+                    ? (owner.avatar.files['35x35'] as IImage)
+                    : noImage['35x35']
+                }
+                additionalStyles={styles.userAvatar}
+              />
+            </>
+          </Link>
+          <div>
+            <Link href={`/user/${owner.id}`}>
+              <span>{getDisplayName(owner)}</span>
+            </Link>
+            <a onClick={onClickCallback}>
+              <span className={styles.date}>
+                {formatDistance(new Date(createdAt), new Date(), {
+                  locale: pl,
+                })}
+              </span>
+            </a>
           </div>
-        </Link>
-        <span>
-          {formatDistance(new Date(createdAt), new Date(), { locale: pl })}
-        </span>
-        <DeletePost additionalStyles={styles.deleteBtn} />
+        </div>
+
+        {owner.id === user?.id && (
+          <DeletePost additionalStyles={styles.deleteBtn} />
+        )}
       </div>
       <div className={styles.desc}>
-        <ReactMarkdown className={styles.text} source={text} />
+        <div onClick={onClickCallback}>
+          <ReactMarkdown className={styles.text} source={text} />
+          <ul className={styles.images}>
+            <li>
+              <Picture jpg={'/images/temp_images/logo-wioska-1.png'} />
+            </li>
+            <li>
+              <Picture jpg={'/images/temp_images/logo-wioska-2.png'} />
+            </li>
+            <li>
+              <Picture jpg={'/images/temp_images/logo-wioska-3.png'} />
+            </li>
+          </ul>
+        </div>
         {tags.length > 0 && (
-          <TagGroup>
+          <TagGroup additionalStyles={styles.tagGroup}>
             {tags.map((tag) => (
               <Tag label={tag} key={`post-tag-${tag}`} />
             ))}
           </TagGroup>
         )}
+        {(user || onLoginRequest) && (
+          <button
+            className={styles.respondBtn}
+            onClick={(e) => {
+              e.preventDefault()
 
-        <button
-          className={styles.respondBtn}
-          onClick={(e) => {
-            e.preventDefault()
+              if (!user && onLoginRequest) {
+                return onLoginRequest()
+              }
 
-            setIsAnswerFormOpen(true)
-            if (commentForm.current) {
-              window.scrollTo(0, commentForm.current.offsetTop)
-            }
-          }}
-        >
-          Respond
-        </button>
+              setIsAnswerFormOpen(true)
+              if (commentForm.current) {
+                window.scrollTo(0, commentForm.current.offsetTop)
+              }
+            }}
+          >
+            Respond
+          </button>
+        )}
         {Array.isArray(firstComments) && firstComments.length > 0 && (
           <div>
             {firstComments.map((comment) => (
@@ -98,8 +140,9 @@ export const PostSingle: FC<{
                 key={`comment-${comment.id}`}
                 text={comment.text}
                 createdAt={comment.createdAt}
-                owner={getDisplayName(comment.owner as IUser)}
-                noImage={getImage('35x35', comment.owner.avatar, noImage)}
+                owner={comment.owner as IUser}
+                noImage={noImage}
+                user={user}
               />
             ))}
           </div>
@@ -107,6 +150,7 @@ export const PostSingle: FC<{
         {isAnswerFormOpen && (
           <div ref={commentForm}>
             <PostCreate
+              additionalStyles={styles.postResponseCreate}
               onSubmit={(text) => {
                 createComment({
                   text,

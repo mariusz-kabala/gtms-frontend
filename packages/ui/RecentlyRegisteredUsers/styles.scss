@@ -8,10 +8,11 @@
 
   .invite {
     @include buttonDefault();
+    @include buttonShapePrimary();
     @include buttonColorsDefault();
 
     &:hover {
-      @include buttonColorsHoverDefault();
+      @include buttonColorsSecondary();
     }
   }
 

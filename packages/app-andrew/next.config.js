@@ -11,6 +11,7 @@ const withTM = require('next-transpile-modules')([
   '@gtms/api-notifications',
   '@gtms/api-comment',
   '@gtms/commons',
+  '@gtms/state-comment',
   '@gtms/state-user',
   '@gtms/state-group',
   '@gtms/state-tag',
@@ -33,6 +34,7 @@ module.exports = withPlugins(
       FE_API_URL: process.env.FE_API_URL,
       FB_APP_ID: process.env.FB_APP_ID,
       GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+      VAPID_PUBLIC_KEY: process.env.VAPID_PUBLIC_KEY,
     },
     cssModules: true,
     cssLoaderOptions: {

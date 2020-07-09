@@ -10,13 +10,14 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonShapePrimary();
     @include buttonColorsDefault();
     width: 100%;
     color: white;
     background: $theme2;
 
     &:hover {
-      @include buttonColorsHoverDefault();
+      @include buttonColorsSecondary();
     }
   }
 }

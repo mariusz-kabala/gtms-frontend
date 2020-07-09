@@ -2,8 +2,6 @@ import React, { FC, useState, useEffect } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import useKey from 'use-key-hook'
-import { Scrollbars } from 'react-custom-scrollbars'
-import { ExpandingRow } from '@gtms/ui/ExpandingRow'
 import { Notification } from '@gtms/ui/Notification'
 import { CloseIcon } from '@gtms/ui/ExpandingRow/CloseIcon'
 import { INotificationsSidebarProps, baseUIQuery } from 'queries'
@@ -26,7 +24,7 @@ export const NotificationsSidebar: FC<{
   )
 
   useEffect(() => {
-    loadRecentNotifications()
+    state.isLogged && loadRecentNotifications()
     const sub = baseUIQuery.notificationsSidebar$.subscribe((values) =>
       setState(values)
     )
@@ -56,41 +54,37 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      <ExpandingRow>
-        <Scrollbars style={{ height: '40vh' }}>
-          <div className={styles.header}>
-            <h2>Powiadomienia (nowe: {state.unreadCount})</h2>
-            <CloseIcon onClick={closeSidebarNotifications} />
-          </div>
-          <ul>
-            {state.notifications.map((notification: INotificationRecord) => {
-              switch (notification.type) {
-                case 'internal':
-                  return (
-                    <Notification
-                      key={`notification-${notification.id}`}
-                      onClick={() => deleteNotification(notification.id)}
-                      additionalStyles={styles.notification}
-                      text={(notification.data as IInternalNotification).text}
-                      left={(notification.data as IInternalNotification).left}
-                      icon={
-                        NotificationIcons[
-                          (notification.data as IInternalNotification).type
-                        ]
-                      }
-                    />
-                  )
-                case 'api':
-                  return (
-                    <NotificationAPI
-                      {...(notification.data as INotification)}
-                    />
-                  )
-              }
-            })}
-          </ul>
-        </Scrollbars>
-      </ExpandingRow>
+      <h2>
+        Powiadomienia
+        {/* @todo add translation here */}
+        <span>(nowe: {state.unreadCount})</span>
+        <CloseIcon onClick={closeSidebarNotifications} />
+      </h2>
+      <ul>
+        {state.notifications.map((notification: INotificationRecord) => {
+          switch (notification.type) {
+            case 'internal':
+              return (
+                <Notification
+                  key={`notification-${notification.id}`}
+                  onClick={() => deleteNotification(notification.id)}
+                  additionalStyles={styles.notification}
+                  text={(notification.data as IInternalNotification).text}
+                  left={(notification.data as IInternalNotification).left}
+                  icon={
+                    NotificationIcons[
+                      (notification.data as IInternalNotification).type
+                    ]
+                  }
+                />
+              )
+            case 'api':
+              return (
+                <NotificationAPI {...(notification.data as INotification)} />
+              )
+          }
+        })}
+      </ul>
     </div>
   )
 }

@@ -1,13 +1,14 @@
 @import '~@gtms/styles/scss/variables.scss';
 
 @mixin buttonDefault() {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  background: none;
   border: none;
   outline: none;
-  border-radius: $borderRadius;
   justify-content: center;
-  padding: 10px;
-  text-align: center; // for <a> elements
+  padding: 0px;
+  text-align: left; // for <a> elements
   text-decoration: none; // for <a> elements
   cursor: pointer;
   text-transform: uppercase;
@@ -20,31 +21,64 @@
 }
 
 // TYPES
-@mixin buttonWithIcon() {
-  i {
-    margin-right: 3px;
+@mixin buttonWithIcon($position: 'left') {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+
+  @if $position == 'left' {
+    i {
+      margin-right: 3px;
+    }
+  }
+  @if $position == 'right' {
+    i {
+      margin-left: 3px;
+    }
   }
 }
 
 // SIZES
+@mixin buttonSizeDefault() {
+  padding: 8px 15px;
+}
+
 @mixin buttonSizeSm() {
-  display: flex;
-  align-items: center;
   padding: 5px;
   line-height: 1;
   font-size: 9px;
 }
 
-// COLOR TYPES
+// SHAPES
+@mixin buttonShapePrimary() {
+  border-radius: $borderRadius1;
+}
+
+@mixin buttonShapeSecondary() {
+  border-radius: $borderRadius2;
+}
+
+@mixin buttonShapeTertiary() {
+  border-radius: $borderRadius3;
+}
+
+// COLORS
 @mixin buttonColorsDefault() {
-  background: $theme3;
+  background: $theme2;
   color: $theme7;
 }
 
 @mixin buttonColorsPrimary() {
-  background: $theme4;
+  background: $theme2;
+  color: $theme7;
 }
 
-@mixin buttonColorsHoverDefault() {
-  background: $theme5;
+@mixin buttonColorsSecondary() {
+  background: $theme4;
+  color: $theme0;
+}
+
+@mixin buttonColorsTertiary() {
+  background: none;
+  color: $theme1;
 }

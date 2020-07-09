@@ -19,6 +19,19 @@ const parsePostOwnersAvatar = (post: IPost) => {
     post.owner.avatar.files = parseFiles(post.owner.avatar.files)
   }
 
+  if (Array.isArray(post.firstComments)) {
+    post.firstComments = post.firstComments.map((comment) => {
+      if (
+        Array.isArray(comment.owner?.avatar?.files) &&
+        comment.owner?.avatar?.status === FileStatus.ready
+      ) {
+        comment.owner.avatar.files = parseFiles(comment.owner.avatar.files)
+      }
+
+      return comment
+    })
+  }
+
   return post
 }
 
@@ -58,8 +71,12 @@ export const createNewPost = async (payload: ICreatePostData) => {
   }
 }
 
-export const initPostsStore = (data: IPostsState) => {
+export const initPostsStore = (data: IPostsState, post?: IPost) => {
   postsStore.update(data)
+
+  if (post) {
+    postsStore.setActive(post.id)
+  }
 }
 
 export const getGroupPosts = async (

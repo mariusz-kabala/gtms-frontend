@@ -1,15 +1,13 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
+import { IImage } from '@gtms/commons/types/image'
 import { Picture } from '../Picture'
+import styles from './styles.scss'
 
 export const UserAvatar: FC<{
   additionalStyles?: string
   alt?: string
-  image: {
-    jpg: string
-    webp?: string
-  }
+  image: IImage
   onClick?: () => unknown
 }> = ({ additionalStyles, alt, image, onClick }) => (
   <div

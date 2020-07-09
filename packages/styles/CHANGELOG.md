@@ -3,27 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.9.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.9.0...@gtms/styles@0.9.1) (2020-06-29)
+## [0.11.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.11.0...@gtms/styles@0.11.1) (2020-07-07)
 
 
 ### Bug Fixes
 
-* GEOT-298: general styles part 2 ([#674](https://github.com/gtms-org/gtms-frontend/issues/674)) ([58be3d8](https://github.com/gtms-org/gtms-frontend/commit/58be3d8017f109f4d5b5efe851c3eff3f69c0eec)), closes [#676](https://github.com/gtms-org/gtms-frontend/issues/676)
+* GEOT-323 group page css changes ([#710](https://github.com/gtms-org/gtms-frontend/issues/710)) ([e3d0cfa](https://github.com/gtms-org/gtms-frontend/commit/e3d0cfa449f38734784f3bb0e5efbbe4ea93987a))
 
 
 
 
 
-# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.8.1...@gtms/styles@0.9.0) (2020-06-24)
+# [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.10.1...@gtms/styles@0.11.0) (2020-07-07)
+
+
+### Bug Fixes
+
+* GEOT-324: mixin for buttons ([#711](https://github.com/gtms-org/gtms-frontend/issues/711)) ([cb1323d](https://github.com/gtms-org/gtms-frontend/commit/cb1323daf522e90262dc11a9ed8ea145593e3de4))
 
 
 ### Features
 
-* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
+* GEOT-321: display post comments ([#708](https://github.com/gtms-org/gtms-frontend/issues/708)) ([1f9d1df](https://github.com/gtms-org/gtms-frontend/commit/1f9d1dfd2fdfa1b1398f443e33ae266bda56897c))
 
 
 
 
+
+## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.10.0...@gtms/styles@0.10.1) (2020-07-07)
+
+### Bug Fixes
+
+- GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
+
+# [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.9.1...@gtms/styles@0.10.0) (2020-07-06)
+
+### Features
+
+- GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
+
+## [0.9.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.9.0...@gtms/styles@0.9.1) (2020-06-29)
+
+### Bug Fixes
+
+- GEOT-298: general styles part 2 ([#674](https://github.com/gtms-org/gtms-frontend/issues/674)) ([58be3d8](https://github.com/gtms-org/gtms-frontend/commit/58be3d8017f109f4d5b5efe851c3eff3f69c0eec)), closes [#676](https://github.com/gtms-org/gtms-frontend/issues/676)
+
+# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.8.1...@gtms/styles@0.9.0) (2020-06-24)
+
+### Features
+
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
 ## [0.8.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.8.0...@gtms/styles@0.8.1) (2020-06-23)
 

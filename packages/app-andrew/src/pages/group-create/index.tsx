@@ -10,21 +10,12 @@ export const GroupCreatePage: NextPage<{}> = () => {
   const { t } = useTranslation('groupCreate')
 
   return (
-    <div
-      className={styles.wrapper}
-      style={{
-        backgroundImage: `url('/images/temp_images/cover-image-girls.jpg')`,
-      }}
-      data-testid="group-create-page"
-    >
-      <div className={styles.left}>
-        <div>
-          <h2>{t('header')}</h2>
-          <p>{t('subheader')}</p>
-          <GroupCreate />
-        </div>
+    <div className={styles.wrapper} data-testid="group-create-page">
+      <div>
+        <h2>{t('header')}</h2>
+        <p>{t('subheader')}</p>
+        <GroupCreate />
       </div>
-      <div className={styles.right}></div>
     </div>
   )
 }

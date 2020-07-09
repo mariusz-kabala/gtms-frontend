@@ -19,26 +19,25 @@ export const DeleteAccount: FC<{
           additionalStyles={styles.modalContent}
           onClose={() => setIsModalOpen(false)}
         >
-          <div>
-            <h2>{t('header')}</h2>
-            <div className={styles.buttons}>
-              <Button
-                testid="delete-account-cancel"
-                additionalStyles={styles.no}
-                onClick={() => setIsModalOpen(false)}
-              >
-                {t('noBtn')}
-              </Button>
-              <Button
-                testid="delete-account-confirm"
-                onClick={() => {
-                  onConfirm()
-                  setIsModalOpen(false)
-                }}
-              >
-                {t('yesBtn')}
-              </Button>
-            </div>
+          <h2>{t('header')}</h2>
+          <p>Eteu in occaecat occaecat consectetur et laboris aliquip.</p>
+          <div className={styles.buttons}>
+            <Button
+              testid="delete-account-cancel"
+              additionalStyles={styles.no}
+              onClick={() => setIsModalOpen(false)}
+            >
+              {t('noBtn')}
+            </Button>
+            <Button
+              testid="delete-account-confirm"
+              onClick={() => {
+                onConfirm()
+                setIsModalOpen(false)
+              }}
+            >
+              {t('yesBtn')}
+            </Button>
           </div>
         </Modal>
       )}

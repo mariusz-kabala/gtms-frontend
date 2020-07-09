@@ -3,40 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.6.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.6.2...@gtms/state-tag@0.6.3) (2020-07-01)
+## [0.7.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.7.1...@gtms/state-tag@0.7.2) (2020-07-09)
+
+
+### Bug Fixes
+
+* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
+
+
+
+
+
+## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.7.0...@gtms/state-tag@0.7.1) (2020-07-07)
 
 **Note:** Version bump only for package @gtms/state-tag
 
+# [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.6.3...@gtms/state-tag@0.7.0) (2020-07-06)
 
+### Features
 
+- GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
 
+## [0.6.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.6.2...@gtms/state-tag@0.6.3) (2020-07-01)
+
+**Note:** Version bump only for package @gtms/state-tag
 
 ## [0.6.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.6.1...@gtms/state-tag@0.6.2) (2020-06-30)
 
 **Note:** Version bump only for package @gtms/state-tag
 
-
-
-
-
 ## [0.6.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.6.0...@gtms/state-tag@0.6.1) (2020-06-24)
 
 **Note:** Version bump only for package @gtms/state-tag
 
-
-
-
-
 # [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.5.6...@gtms/state-tag@0.6.0) (2020-06-24)
-
 
 ### Features
 
-* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
-
-
-
-
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
 ## [0.5.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.5.5...@gtms/state-tag@0.5.6) (2020-06-23)
 

@@ -14,7 +14,6 @@
 
   width: 700px;
   height: 500px;
-  border-radius: $borderRadius;
   background: $theme5;
   background: #252230;
 
@@ -23,46 +22,29 @@
     height: 100%;
   }
 
-  .left,
-  .right {
-    // @todo use display grid
+  .image {
+    width: 300px;
     height: 100%;
     padding: 15px;
   }
 
-  .left {
-    > div {
-      // @todo make additional wrapper styles and additioanl image styles
-      height: 100%;
+  .desc {
+    > * {
+      margin-top: 5px;
     }
 
-    .image {
-      border-radius: $borderRadius;
-      width: 300px;
-      height: 100%;
-      padding: 15px;
+    > h2 {
+      @include font-weight(semibold);
+      @include font-size(lg);
     }
-  }
 
-  .right {
-    .desc {
-      > * {
-        margin-top: 5px;
-      }
+    > h3 {
+      margin-top: 15px;
+      @include font-size(md);
+    }
 
-      > h2 {
-        @include font-weight(semibold);
-        @include font-size(lg);
-      }
-
-      > h3 {
-        margin-top: 15px;
-        @include font-size(md);
-      }
-
-      p {
-        line-height: 1.4em;
-      }
+    p {
+      line-height: 1.4em;
     }
   }
 }

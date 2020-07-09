@@ -1,30 +1,19 @@
 import { GroupType, GroupVisibility, FileStatus } from '../enums'
+import { IImage } from '../types/image'
 
 export interface IGroupAvatar {
   status: FileStatus
   files: {
-    '35x35'?: {
-      jpg: string
-      webp: string
-    }
-    '50x50'?: {
-      jpg: string
-      webp: string
-    }
-    '200x200'?: {
-      jpg: string
-      webp: string
-    }
+    '35x35'?: IImage
+    '50x50'?: IImage
+    '200x200'?: IImage
   }
 }
 
 export interface IGroupBg {
   status: FileStatus
   files: {
-    '200x200'?: {
-      jpg: string
-      webp: string
-    }
+    '200x200'?: IImage
   }
 }
 

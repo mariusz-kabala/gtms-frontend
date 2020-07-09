@@ -1,4 +1,4 @@
-import { fetchJSON, makeApiUrl } from '@gtms/api-common'
+import { deleteRequest, makeApiUrl } from '@gtms/api-common'
 
 export interface IUnfollowPayload {
   user?: string
@@ -6,7 +6,8 @@ export interface IUnfollowPayload {
 }
 
 export const unfollowAPI = (payload: IUnfollowPayload) =>
-  fetchJSON<IUnfollowPayload, null>(makeApiUrl('notifications/follow'), {
-    values: payload,
-    method: 'DELETE',
-  })
+  deleteRequest(
+    makeApiUrl(
+      `notifications/follow?user=${payload.user}&group=${payload.group}`
+    )
+  )

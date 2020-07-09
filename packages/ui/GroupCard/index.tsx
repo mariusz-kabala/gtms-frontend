@@ -1,26 +1,24 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
-import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
-import { Tag } from '@gtms/ui/Tag'
-import { TagGroup } from '@gtms/ui/TagGroup'
-import { useTranslation } from '@gtms/commons/i18n'
+import { ImageWithLightbox } from '../ImageWithLightbox'
+import { Tag } from '../Tag'
+import { TagGroup } from '../TagGroup'
+import { Spinner } from '../Spinner'
 import { UserAvatar } from '../UserAvatar'
+import { useTranslation } from '@gtms/commons/i18n'
 import { Link } from '@gtms/commons/i18n'
 import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
-import { Spinner } from '../Spinner'
+import { IImage } from '@gtms/commons/types/image'
+import styles from './styles.scss'
 
 export const GroupCard: FC<{
   name: string
   description?: string
   slug: string
   tags: string[]
-  logo: {
-    jpg: string
-    webp?: string
-  }
-  noUserAvatar: { [key: string]: { jpg: string; webp?: string } }
+  logo: IImage
+  noUserAvatar: { [key: string]: IImage }
   isLoading: boolean
   members: IUser[]
   additionalStyles?: string

@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
-import { UserAvatar } from '@gtms/ui/UserAvatar'
+import { IImage } from '@gtms/commons/types/image'
+import { UserAvatar } from '../UserAvatar'
 import {
   IoIosAddCircle,
   IoIosKeypad,
@@ -14,7 +15,7 @@ import {
 export const Navigation: FC<{
   onAvatarClick?: () => unknown
   onLogout?: () => unknown
-  avatar: { jpg: string; webp?: string } | null
+  avatar: IImage | null
 }> = ({ onAvatarClick, onLogout, avatar }) => {
   return (
     <div className={styles.wrapper}>

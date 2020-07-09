@@ -5,52 +5,40 @@
 
 .wrapper {
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   width: 100%;
-  background: $theme0;
 
-  .left {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 40%;
+  > div {
+    width: 60%;
     padding: 0 40px;
 
-    h2,
-    p {
-      @include font-weight(bold);
-      margin-bottom: 15px;
-    }
-
     h2 {
+      // @todo make mixin of that
       font-size: 3em;
       text-transform: uppercase;
+      @include font-weight(bold);
     }
 
-    p {
-      @include font-weight(light);
-
-      &:last-child {
-        margin-bottom: 40px;
-      }
+    .form {
+      margin-top: 20px;
     }
-  }
-
-  .right {
-    width: 60%;
-    @include imageCover();
   }
 
   .btn {
-    display: none !important;
     width: 100%;
+    margin-top: 10px;
 
     > a {
       width: 100%;
-      display: inline-block;
       @include buttonDefault();
-      @include buttonColorsDefault();
+      @include buttonShapePrimary();
+      @include buttonColorsTertiary();
+
+      &:hover {
+        @include buttonColorsSecondary();
+      }
     }
   }
 }

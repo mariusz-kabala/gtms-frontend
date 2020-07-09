@@ -4,10 +4,12 @@
 .form {
   .btn {
     width: 100%;
+    margin-top: 10px;
     @include buttonDefault();
+    @include buttonShapePrimary();
     @include buttonColorsDefault();
     &:hover {
-      @include buttonColorsHoverDefault();
+      @include buttonColorsSecondary();
     }
   }
 }

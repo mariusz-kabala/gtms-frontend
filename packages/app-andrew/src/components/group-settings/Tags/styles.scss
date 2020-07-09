@@ -13,12 +13,13 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonShapePrimary();
     @include buttonColorsDefault();
     padding: 3px 8px;
     float: right;
 
     &:hover {
-      @include buttonColorsHoverDefault();
+      @include buttonColorsSecondary();
     }
   }
 }

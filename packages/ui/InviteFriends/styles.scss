@@ -15,14 +15,13 @@
   padding: 40px;
   width: 700px;
   max-height: 85%;
-  border-radius: $borderRadius;
   background: #bdd3eb;
   color: #584147;
   @include imageCover();
 
   h2 {
     @include font-weight(bold);
-    @include font-size(xlg);
+    @include font-size(xxlg);
     text-transform: uppercase;
 
     .subheader {
@@ -34,9 +33,10 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonShapePrimary();
     @include buttonColorsDefault();
     &:hover {
-      @include buttonColorsHoverDefault();
+      @include buttonColorsSecondary();
     }
   }
 }

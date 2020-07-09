@@ -4,48 +4,47 @@
 
 .btnDeleteAccount {
   @include buttonDefault();
+  @include buttonShapePrimary();
   @include buttonColorsDefault();
 }
 
 .modalContent {
-  min-width: 500px;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none !important;
+  > div {
+    min-width: 45%;
+    min-height: 200px;
+  }
 
   > div {
-    h2 {
+    h2,
+    p {
       text-align: center;
+      font-weight: 400;
+    }
+
+    h2 {
       @include font-size(lg);
     }
 
+    p {
+      margin-top: 5px;
+      @include font-size(xdefault);
+      color: $theme9;
+    }
+
     .buttons {
-      display: flex;
+      display: grid;
+      gap: 15px;
       margin-top: 20px;
+      grid-template-columns: 1fr 1fr;
 
       > * {
         @include buttonDefault();
+        @include buttonSizeDefault();
+        @include buttonShapeTertiary();
         @include buttonColorsDefault();
 
         &:hover {
-          @include buttonColorsHoverDefault();
-        }
-        margin-right: 15px;
-
-        &:hover {
-          @include buttonColorsHoverDefault();
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-
-      .no {
-        &:hover {
-          background: red;
+          @include buttonColorsSecondary();
         }
       }
     }

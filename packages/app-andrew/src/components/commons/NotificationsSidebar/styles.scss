@@ -2,24 +2,37 @@
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
-  width: 100%;
-  transition: height 1s ease-out;
+  width: 0;
+  height: 100vh;
+  background: rgba($theme0, 0.9);
+  padding: 15px;
+  margin-right: 10px;
 
   &.opened {
-    height: 300px;
+    width: 300px;
   }
 
-  .header {
+  > h2 {
     display: flex;
     align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 5px;
 
-    h2 {
-      margin-bottom: 8px;
+    span {
+      margin-left: 4px;
+      font-weight: 400;
+      font-size: 13px;
+    }
+
+    i {
+      margin-left: auto;
     }
 
     &:hover {
-      .iconClose {
-        color: $theme5;
+      i > svg {
+        color: $theme4;
       }
     }
   }

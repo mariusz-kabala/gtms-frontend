@@ -2,10 +2,8 @@
 @import '~@gtms/styles/scss/mixins/fontSize';
 
 .wrapper {
-  width: 50px;
-  min-width: 50px; // because of display flex
+  position: relative;
   display: flex;
-  margin-right: -15px;
   justify-content: center;
 
   .navigation {
@@ -17,12 +15,7 @@
 
     .avatar {
       width: 40px;
-      margin-top: 20px;
       margin-bottom: 10px;
-
-      img {
-        border-radius: 50%;
-      }
     }
 
     ul {
@@ -32,19 +25,16 @@
 
       li {
         position: relative;
-        background: $theme1;
-        margin-bottom: 5px;
-        border-radius: 5px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
+        margin-bottom: 10px;
+        border-radius: $borderRadius1;
+        background: $theme4;
 
         a {
+          position: relative;
           display: block;
-          padding: 10px;
+          padding: 11px;
           text-decoration: none;
-          color: $theme7;
+          color: $theme0;
 
           i {
             line-height: 0;
@@ -53,7 +43,9 @@
         }
 
         &:hover {
-          background: $theme5;
+          a {
+            color: $theme0;
+          }
         }
       }
     }

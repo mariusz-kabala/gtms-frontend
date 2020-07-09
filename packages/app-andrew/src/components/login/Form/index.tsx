@@ -8,7 +8,9 @@ import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Button } from '@gtms/ui/Button'
 
-export const LoginForm: FC<{}> = () => {
+export const LoginForm: FC<{
+  additionalStyles?: string
+}> = ({ additionalStyles }) => {
   const { t } = useTranslation('login')
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
   const { register, handleSubmit, errors, setError } = useForm<ILoginData>()
@@ -44,6 +46,7 @@ export const LoginForm: FC<{}> = () => {
 
   return (
     <form
+      className={additionalStyles}
       method="post"
       onSubmit={handleSubmit(onSubmit)}
       data-testid="login-form"

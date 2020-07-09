@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Button } from '../../Button'
 import useKey from 'use-key-hook'
-import { IoMdTrash } from 'react-icons/io'
+import { IoIosCloseCircle, IoIosCheckbox, IoMdTrash } from 'react-icons/io'
 
 export const DeletePost: FC<{
   additionalStyles?: string
@@ -28,13 +28,19 @@ export const DeletePost: FC<{
           onClick={() => setIsActive(false)}
           testid="post-single-delete-post-canel"
         >
+          <i>
+            <IoIosCloseCircle />
+          </i>
           {t('noBtn')}
         </Button>
         <Button
-          testid="delete-account-confirm"
           additionalStyles={styles.btn}
           onClick={() => setIsActive(false)}
+          testid="delete-account-confirm"
         >
+          <i>
+            <IoIosCheckbox />
+          </i>
           {t('yesBtn')}
         </Button>
       </div>

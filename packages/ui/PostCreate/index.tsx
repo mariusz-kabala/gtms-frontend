@@ -1,16 +1,17 @@
 import React, { FC, useRef, useEffect, useState, useCallback } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
-import { Button } from '@gtms/ui/Button'
 import { useTranslation } from '@gtms/commons/i18n'
 import { useDebounce } from '@gtms/commons/hooks/useDebounce'
 import { useExpandingArea } from '@gtms/commons/hooks/expandingArea'
-import { getDisplayName, getImage } from '@gtms/commons/helpers'
+import { getImage } from '@gtms/commons/helpers'
+import { IImage } from '@gtms/commons/types/image'
 import { Link } from '@gtms/commons/i18n'
 import { IAccountDetails } from '@gtms/commons/models'
+import { Button } from '../Button'
 import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
 import { IoMdSend } from 'react-icons/io'
+import styles from './styles.scss'
 
 export const PostCreate: FC<{
   additionalStyles?: string
@@ -19,13 +20,15 @@ export const PostCreate: FC<{
   isLoading?: boolean
   hintMinLenght?: number
   user: IAccountDetails | null
-  noImage: { [key: string]: { jpg: string; webp?: string } }
+  noImage: { [key: string]: IImage }
+  onLoginRequest?: () => unknown
 }> = ({
   additionalStyles,
   onSubmit,
   user,
   noImage,
   fetchTags,
+  onLoginRequest,
   isLoading = false,
   hintMinLenght = 3,
 }) => {
@@ -95,7 +98,6 @@ export const PostCreate: FC<{
           <Link href={`/user/${user?.id}`}>
             <div>
               <UserAvatar
-                alt={`avatar ${getDisplayName(user as any)}`}
                 image={getImage('50x50', user?.avatar, noImage)}
                 additionalStyles={styles.userAvatar}
               />
@@ -103,9 +105,13 @@ export const PostCreate: FC<{
           </Link>
         </div>
         <textarea
+          onFocus={() => {
+            if (!user && onLoginRequest) {
+              onLoginRequest()
+            }
+          }}
           className={styles.textarea}
           data-testid="form-expanding-textarea"
-          name={name}
           value={value}
           onInput={handleInput}
           onKeyDown={(e) => {
@@ -151,18 +157,26 @@ export const PostCreate: FC<{
           placeholder={t('yourMessage')}
           ref={ref as any}
         />
-
         <Button
+          additionalStyles={styles.btn}
+          disabled={false}
           onClick={() => {
-            onSubmit(value)
+            if (!user) {
+              if (onLoginRequest) {
+                onLoginRequest()
+              }
 
+              return
+            }
+            onSubmit(value)
             setValue('')
           }}
           type="submit"
-          disabled={false}
-          additionalStyles={styles.btn}
         >
-          {t('send')} <IoMdSend />
+          {t('send')}{' '}
+          <i>
+            <IoMdSend />
+          </i>
         </Button>
       </div>
       {tagsHints.tags.length > 0 && (

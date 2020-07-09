@@ -1,0 +1,66 @@
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/zindex';
+
+.wrapper {
+  @include font-size(md);
+  @include z-index(navigationGroup);
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border: 1px solid $theme2;
+  border-radius: $borderRadius1;
+  margin-bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $theme4;
+    .groupHeader {
+      h2 {
+        color: $theme4;
+      }
+    }
+  }
+
+  .groupHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    h2 {
+      font-weight: 400;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    img {
+      margin-right: 5px;
+      max-width: 20px;
+      border-radius: $borderRadius1;
+    }
+  }
+
+  .notification {
+    display: flex;
+    height: 70px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .avatar {
+      min-width: 35px;
+      margin-right: 10px;
+
+      img {
+        border-radius: $borderRadius1;
+      }
+    }
+
+    .desc {
+      h3 {
+        font-weight: 400;
+      }
+    }
+  }
+}

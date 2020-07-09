@@ -3,43 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.6.0...@gtms/state-post@0.6.1) (2020-07-09)
+
+
+### Bug Fixes
+
+* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
+
+
+
+
+
+# [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.5.0...@gtms/state-post@0.6.0) (2020-07-07)
+
+### Features
+
+- GEOT-319: display a single post on group page ([#707](https://github.com/gtms-org/gtms-frontend/issues/707)) ([0e5198f](https://github.com/gtms-org/gtms-frontend/commit/0e5198f197c5eec78074dca6fc5d6293644d4548))
+
+# [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.4.2...@gtms/state-post@0.5.0) (2020-07-06)
+
+### Features
+
+- GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
+
 ## [0.4.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.4.1...@gtms/state-post@0.4.2) (2020-07-01)
 
 **Note:** Version bump only for package @gtms/state-post
-
-
-
-
 
 ## [0.4.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.4.0...@gtms/state-post@0.4.1) (2020-06-30)
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 # [0.4.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.3.0...@gtms/state-post@0.4.0) (2020-06-24)
-
 
 ### Features
 
-* GEOT-299: comments adding ([#668](https://github.com/gtms-org/gtms-frontend/issues/668)) ([7c003bd](https://github.com/gtms-org/gtms-frontend/commit/7c003bdf25606c472345f4dc20152ac060096c7d))
-
-
-
-
+- GEOT-299: comments adding ([#668](https://github.com/gtms-org/gtms-frontend/issues/668)) ([7c003bd](https://github.com/gtms-org/gtms-frontend/commit/7c003bdf25606c472345f4dc20152ac060096c7d))
 
 # [0.3.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.2.9...@gtms/state-post@0.3.0) (2020-06-24)
 
-
 ### Features
 
-* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
-
-
-
-
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
 
 ## [0.2.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.2.8...@gtms/state-post@0.2.9) (2020-06-23)
 
