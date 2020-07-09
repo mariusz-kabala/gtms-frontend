@@ -33,7 +33,7 @@ export const PostDetails: FC<{
         firstComments={[]}
         noImage={UserAvatarNoImage}
       />
-      {comments && <PostCommentsList {...comments} />}
+      {comments && <PostCommentsList user={user} {...comments} />}
     </div>
   )
 }
