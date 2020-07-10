@@ -34,6 +34,7 @@ export const PostSingle: FC<{
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: IImage }
   onClick?: (id: string) => unknown
+  onTagClick?: (tag: string) => unknown
   onLoginRequest?: () => unknown
 }> = ({
   id,
@@ -48,6 +49,7 @@ export const PostSingle: FC<{
   firstComments,
   user,
   onClick,
+  onTagClick,
   onLoginRequest,
   allowToRespond = true,
 }) => {
@@ -95,7 +97,7 @@ export const PostSingle: FC<{
         )}
       </div>
       <div className={styles.desc}>
-        <div onClick={onClickCallback}>
+        <div>
           <ReactMarkdown className={styles.text} source={text} />
           <ul className={styles.images}>
             <li>
@@ -112,7 +114,11 @@ export const PostSingle: FC<{
         {tags.length > 0 && (
           <TagGroup additionalStyles={styles.tagGroup}>
             {tags.map((tag) => (
-              <Tag label={tag} key={`post-tag-${tag}`} />
+              <Tag
+                onClick={() => onTagClick && onTagClick(tag)}
+                label={tag}
+                key={`post-tag-${tag}`}
+              />
             ))}
           </TagGroup>
         )}
@@ -165,6 +171,9 @@ export const PostSingle: FC<{
             />
           </div>
         )}
+      </div>
+      <div>
+        <a onClick={onClickCallback}>read more</a>
       </div>
     </div>
   )

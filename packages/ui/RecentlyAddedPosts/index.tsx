@@ -11,6 +11,7 @@ import styles from './styles.scss'
 export const RecentlyAddedPosts: FC<{
   additionalStyles?: string
   onPostClick?: (id: string) => unknown
+  onTagClick?: (tag: string) => unknown
   posts: IPost[]
   activePost?: IPost
   user: IAccountDetails | null
@@ -26,6 +27,7 @@ export const RecentlyAddedPosts: FC<{
   fetchTags,
   createComment,
   onPostClick,
+  onTagClick,
   activePost,
   onLoginRequest,
 }) => {
@@ -39,6 +41,7 @@ export const RecentlyAddedPosts: FC<{
           key={`post-${post.id}`}
           allowToRespond={post.id !== activePost?.id}
           onClick={onPostClick}
+          onTagClick={onTagClick}
           fetchTags={fetchTags}
           createComment={createComment}
           user={user}

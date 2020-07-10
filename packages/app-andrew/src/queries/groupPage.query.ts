@@ -21,6 +21,7 @@ export interface IGroupPageState {
   errorOccured: boolean
   group: IGroup | null
   posts: IPost[]
+  activeTags?: string[]
   activePost?: IPost
   comments?: {
     offset: number
@@ -51,6 +52,7 @@ export const groupPageState = (): IGroupPageState => {
   return {
     ...groupQuery.getValue(),
     posts: postsQuery.getAll(),
+    activeTags: postsQuery.getValue().tags || [],
     user: userQuery.isLogged() ? userQuery.accountDetails() : null,
     promotedTags: {
       tags: promotedTagsQuery.getAll(),

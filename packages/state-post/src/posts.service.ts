@@ -85,9 +85,11 @@ export const initPostsStore = (data: IPostsState, post?: IPost) => {
 export const getGroupPosts = async (
   group: string,
   requestedOffset = 0,
-  requestedLimit = 50
+  requestedLimit = 50,
+  tags: string[] = []
 ) => {
   applyTransaction(() => {
+    postsStore.reset()
     postsStore.setLoading(true)
     postsStore.setError(false)
   })
@@ -96,7 +98,8 @@ export const getGroupPosts = async (
     const { docs, total, offset } = await fetchGroupPosts(
       group,
       requestedOffset,
-      requestedLimit
+      requestedLimit,
+      tags
     )
 
     applyTransaction(() => {
@@ -104,6 +107,7 @@ export const getGroupPosts = async (
       postsStore.update({
         offset,
         total,
+        tags,
       })
     })
   } catch {
