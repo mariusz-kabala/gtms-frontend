@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.6.0...@gtms/api-tags@0.7.0) (2020-07-10)
+
+
+### Features
+
+* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
+* GEOT-329: add suggested tags UI ([#726](https://github.com/gtms-org/gtms-frontend/issues/726)) ([0b38f99](https://github.com/gtms-org/gtms-frontend/commit/0b38f99939b72df38b7b4cb17e3f234b47f42137))
+
+
+
+
+
 # [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.5.1...@gtms/api-tags@0.6.0) (2020-06-23)
 
 ### Features
