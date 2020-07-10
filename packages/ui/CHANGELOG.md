@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.6...@gtms/ui@0.31.0) (2020-07-10)
+
+
+### Features
+
+* GEOT-329: add suggested tags UI ([#726](https://github.com/gtms-org/gtms-frontend/issues/726)) ([0b38f99](https://github.com/gtms-org/gtms-frontend/commit/0b38f99939b72df38b7b4cb17e3f234b47f42137))
+
+
+
+
+
 ## [0.30.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.5...@gtms/ui@0.30.6) (2020-07-09)
 
 
