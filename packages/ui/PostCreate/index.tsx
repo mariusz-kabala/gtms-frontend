@@ -1,5 +1,6 @@
 import React, { FC, useRef, useEffect, useState, useCallback } from 'react'
 import cx from 'classnames'
+// commons
 import { useTranslation } from '@gtms/commons/i18n'
 import { useDebounce } from '@gtms/commons/hooks/useDebounce'
 import { useExpandingArea } from '@gtms/commons/hooks/expandingArea'
@@ -7,9 +8,12 @@ import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
 import { Link } from '@gtms/commons/i18n'
 import { IAccountDetails } from '@gtms/commons/models'
+// ui
 import { Button } from '../Button'
 import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
+import { Tag } from '../Tag'
+import { TagGroup } from '../TagGroup'
 import { IoMdSend } from 'react-icons/io'
 import styles from './styles.scss'
 
@@ -17,6 +21,7 @@ export const PostCreate: FC<{
   additionalStyles?: string
   onSubmit: (text: string) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
+  fetchSuggestedTags?: (tags: string[]) => Promise<string[]>
   isLoading?: boolean
   hintMinLenght?: number
   user: IAccountDetails | null
@@ -28,6 +33,7 @@ export const PostCreate: FC<{
   user,
   noImage,
   fetchTags,
+  fetchSuggestedTags,
   onLoginRequest,
   isLoading = false,
   hintMinLenght = 3,
@@ -35,6 +41,13 @@ export const PostCreate: FC<{
   const { t } = useTranslation('postCreate')
   const [value, setValue] = useState<string>('')
   const [query, setQuery] = useState<string>('')
+  const [suggestedTags, setSuggestedTags] = useState<{
+    isLoading: boolean
+    tags: string[]
+  }>({
+    isLoading: false,
+    tags: [],
+  })
   const debouncedQuery = useDebounce(query, 100)
   const { ref, handleInput } = useExpandingArea(1)
   const tagsSuggestionsAbortController = useRef<AbortController>()
@@ -45,6 +58,65 @@ export const PostCreate: FC<{
     isLoading: false,
     tags: [],
   })
+  const suggestionsTimeout = useRef<NodeJS.Timeout>()
+
+  const loadSuggestedTags = useCallback(() => {
+    if (!fetchSuggestedTags) {
+      return
+    }
+    const tags = value.match(/#(\w+)\b/gi)
+
+    if (!Array.isArray(tags)) {
+      return
+    }
+
+    setSuggestedTags({
+      isLoading: true,
+      tags: [],
+    })
+
+    fetchSuggestedTags(tags.map((tag) => tag.substr(1)))
+      .then((suggested) => {
+        setSuggestedTags({
+          isLoading: false,
+          tags: suggested,
+        })
+      })
+      .catch(() =>
+        setSuggestedTags({
+          isLoading: false,
+          tags: [],
+        })
+      )
+  }, [value])
+
+  const addSuggestedTag = useCallback((tag: string) => {
+    setValue((value) => `${value} #${tag}`)
+    setSuggestedTags((state) => {
+      const suggested = state.tags
+      const index = suggested.indexOf(tag)
+
+      if (index > -1) {
+        suggested.splice(index, 1)
+      }
+
+      return {
+        isLoading: false,
+        tags: [...suggested],
+      }
+    })
+  }, [])
+
+  const addAllSuggestedTags = useCallback(() => {
+    setValue(
+      (value) =>
+        `${value} ${suggestedTags.tags.map((tag) => `#${tag}`).join(' ')}`
+    )
+    setSuggestedTags({
+      isLoading: false,
+      tags: [],
+    })
+  }, [suggestedTags])
 
   const onLoadSuggestion = useCallback(
     (query: string) => {
@@ -142,6 +214,15 @@ export const PostCreate: FC<{
           }}
           onChange={(event) => {
             setValue(event.target.value)
+
+            if (typeof suggestionsTimeout.current !== 'undefined') {
+              clearTimeout(suggestionsTimeout.current)
+            }
+
+            if (typeof fetchSuggestedTags === 'function') {
+              suggestionsTimeout.current = setTimeout(loadSuggestedTags, 750)
+            }
+
             const tags = event.target.value.match(/#(\w+)\b/gi)
             if (!Array.isArray(tags)) {
               return
@@ -202,6 +283,21 @@ export const PostCreate: FC<{
               </li>
             ))}
           </ul>
+        </div>
+      )}
+      {!suggestedTags.isLoading && suggestedTags.tags.length > 0 && (
+        <div>
+          <h3>Suggested tags:</h3>
+          <TagGroup>
+            {suggestedTags.tags.map((tag) => (
+              <Tag
+                onClick={() => addSuggestedTag(tag)}
+                label={tag}
+                key={`suggested-tag-${tag}`}
+              />
+            ))}
+            <button onClick={addAllSuggestedTags}>Add all suggestions</button>
+          </TagGroup>
         </div>
       )}
     </>

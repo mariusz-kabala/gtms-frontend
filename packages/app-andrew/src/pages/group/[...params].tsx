@@ -12,7 +12,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { IPost } from '@gtms/commons/models'
 // api
 import { fetchPost } from '@gtms/api-post'
-import { findTagsAPI } from '@gtms/api-tags'
+import { findTagsAPI, fetchSuggestedTagsAPI } from '@gtms/api-tags'
 // components
 import { FavsButton } from 'components/group/FavsButton'
 import { FollowButton } from 'components/group/FollowButton'
@@ -201,6 +201,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <div>
                   <PostCreate
                     fetchTags={findTagsAPI}
+                    fetchSuggestedTags={fetchSuggestedTagsAPI}
                     user={state.user}
                     noImage={UserAvatarNoImage}
                     onSubmit={(text: string) => {
