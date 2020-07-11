@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.6.3...@gtms/state-post@0.7.0) (2020-07-11)
+
+
+### Features
+
+* GEOT-333: search post store ([#730](https://github.com/gtms-org/gtms-frontend/issues/730)) ([663b620](https://github.com/gtms-org/gtms-frontend/commit/663b620285642245917130fde4e99b41ec4a3bc3))
+
+
+
+
+
 ## [0.6.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.6.2...@gtms/state-post@0.6.3) (2020-07-09)
 
 **Note:** Version bump only for package @gtms/state-post

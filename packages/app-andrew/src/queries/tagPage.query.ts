@@ -1,8 +1,9 @@
 import { groupsListQuery } from '@gtms/state-group'
 import { usersListQuery } from '@gtms/state-user'
+import { postsSearchQuery } from '@gtms/state-post'
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { IGroup, IUser } from '@gtms/commons/models'
+import { IGroup, IUser, IPost } from '@gtms/commons/models'
 
 export interface ITagPageState {
   groups: {
@@ -19,11 +20,19 @@ export interface ITagPageState {
     limit: number
     docs: IUser[]
   }
+  posts: {
+    isLoading: boolean
+    errorOccured: boolean
+    offset: number
+    limit: number
+    docs: IPost[]
+  }
 }
 
 export const tagPageState = (): ITagPageState => {
   const groups = groupsListQuery.getValue()
   const users = usersListQuery.getValue()
+  const posts = postsSearchQuery.getValue()
 
   return {
     groups: {
@@ -40,10 +49,18 @@ export const tagPageState = (): ITagPageState => {
       limit: users.limit,
       docs: usersListQuery.getAll(),
     },
+    posts: {
+      isLoading: posts.loading || false,
+      errorOccured: posts.error,
+      offset: posts.offset,
+      limit: posts.limit,
+      docs: postsSearchQuery.getAll(),
+    },
   }
 }
 
 export const tagPageState$: Observable<ITagPageState> = combineLatest(
   groupsListQuery.selectAll(),
-  usersListQuery.selectAll()
+  usersListQuery.selectAll(),
+  postsSearchQuery.selectAll()
 ).pipe(map(() => tagPageState()))

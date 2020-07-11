@@ -1,33 +1,44 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
+import { NextPage, NextPageContext } from 'next'
+import { useRouter } from 'next/router'
+//commons
+import { useInitState } from '@gtms/commons/hooks'
+// api
 import { fetchTaggedGroups, IRecentGroupsResponse } from '@gtms/api-group'
-import { initGroupsList } from '@gtms/state-group'
 import { fetchTaggedUsers, ITagUsersResponse } from '@gtms/api-auth'
+import { findTagsAPI } from '@gtms/api-tags'
+import { findPostsAPI, IFindPostsResponse } from '@gtms/api-post'
+// state
+import { initGroupsList } from '@gtms/state-group'
 import { initUsersList } from '@gtms/state-user'
+import { initPostsSearchStore } from '@gtms/state-post'
 import {
   ITagPageState,
   tagPageState,
   tagPageState$,
 } from 'queries/tagPage.query'
-import { useInitState } from '@gtms/commons/hooks'
-import { FourHundredFour } from '@gtms/ui/FourHundredFour'
-import { NextPage, NextPageContext } from 'next'
+// ui
 import { GroupsList } from 'components/tag/GroupsList'
 import { UsersList } from 'components/tag/UsersList'
+import { PostsList } from 'components/tag/PostsList'
 import { TagsHeader } from '@gtms/ui/TagsHeader'
-import { findTagsAPI } from '@gtms/api-tags'
-import { useRouter } from 'next/router'
+import { FourHundredFour } from '@gtms/ui/FourHundredFour'
+// styles
+import styles from './styles.scss'
 
 export interface TagPageProps {
   namespacesRequired: readonly string[]
   tags: string[]
   groups: IRecentGroupsResponse | null
   users: ITagUsersResponse | null
+  posts: IFindPostsResponse | null
 }
 
-const TagPage: NextPage<TagPageProps> = ({ groups, users, tags }) => {
+const TagPage: NextPage<TagPageProps> = ({ groups, users, tags, posts }) => {
   useInitState(() => {
     groups && initGroupsList(groups)
     users && initUsersList(users)
+    posts && initPostsSearchStore(posts)
   })
   const [state, setState] = useState<ITagPageState>(tagPageState())
   const [tagsHints, setTagsHints] = useState<{
@@ -89,7 +100,7 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags }) => {
         isLoading: false,
         tags: [],
       })
-      router.push(`/tag/${[...tags, tag].join(',')}`)
+      router.push(`/tag/${[...tags, tag].join('/')}`)
     },
     [tags]
   )
@@ -103,7 +114,7 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags }) => {
   }
 
   return (
-    <div data-testid="tag-page">
+    <div data-testid="tag-page" className={styles.wrapper}>
       <TagsHeader
         tags={tags}
         isLoading={tagsHints.isLoading}
@@ -113,11 +124,32 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags }) => {
         onTagAdd={onTagAdd}
         onTagRemove={onTagRemove}
       />
-      <GroupsList
-        records={state.groups.docs}
-        isLoading={state.groups.isLoading}
-      />
-      <UsersList records={state.users.docs} isLoading={state.users.isLoading} />
+
+      <div className={styles.content}>
+        <div className={styles.column}>
+          <GroupsList
+            records={state.groups.docs}
+            isLoading={state.groups.isLoading}
+          />
+        </div>
+
+        <div className={styles.column}>
+          <UsersList
+            records={state.users.docs}
+            isLoading={state.users.isLoading}
+          />
+        </div>
+
+        <div className={styles.column}>
+          {state.posts && (
+            <PostsList
+              user={null}
+              records={state.posts.docs}
+              isLoading={state.posts.isLoading}
+            />
+          )}
+        </div>
+      </div>
     </div>
   )
 }
@@ -125,25 +157,25 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags }) => {
 TagPage.getInitialProps = async (
   ctx: NextPageContext
 ): Promise<TagPageProps> => {
-  const { name } = ctx?.query
-  const tags = (name as string)
-    .split(',')
+  const tags = (ctx?.query.tags as string[])
     .map((tag) => (tag !== '' ? tag.trim() : null))
     .filter((tag) => tag !== null)
     .slice(0, 9) as string[]
 
   if (tags.length > 0) {
     return Promise.all([
-      fetchTaggedGroups(tags, 0, 25),
-      fetchTaggedUsers(tags, 0, 25),
+      fetchTaggedGroups(tags, 0, 25).catch(() => null),
+      fetchTaggedUsers(tags, 0, 25).catch(() => null),
+      findPostsAPI({ tags }, 0, 25).catch(() => null),
     ]).then((data) => {
-      const [groups, users] = data
+      const [groups, users, posts] = data
 
       return {
         namespacesRequired: ['tagPage'],
         groups,
         users,
         tags,
+        posts,
       }
     })
   }
@@ -153,6 +185,7 @@ TagPage.getInitialProps = async (
     tags,
     groups: null,
     users: null,
+    posts: null,
   }
 }
 
