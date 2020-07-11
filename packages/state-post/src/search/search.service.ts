@@ -1,9 +1,5 @@
 import { findPostsAPI, IFindPostsResponse } from '@gtms/api-post'
-import {
-  ISearchQuery,
-  postsSearchStore,
-  IPostsSearchState,
-} from './search.store'
+import { ISearchQuery, postsSearchStore } from './search.store'
 import { parsePostOwnersAvatar } from '../helpers'
 import { applyTransaction } from '@datorama/akita'
 
