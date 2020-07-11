@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.7.0...@gtms/state-post@0.8.0) (2020-07-11)
+
+
+### Features
+
+* GEOT-331: filter posts by tag on group page ([#729](https://github.com/gtms-org/gtms-frontend/issues/729)) ([1487b44](https://github.com/gtms-org/gtms-frontend/commit/1487b448102e8133ad739045cbb9333f3a8e868b))
+
+
+
+
+
 # [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.6.3...@gtms/state-post@0.7.0) (2020-07-11)
 
 
