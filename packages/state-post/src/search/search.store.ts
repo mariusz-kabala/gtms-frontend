@@ -1,15 +1,17 @@
 import { EntityState, EntityStore } from '@datorama/akita'
 import { IPost } from '@gtms/commons/models'
 
+export interface ISearchQuery {
+  tags: string[]
+  groups: string[]
+  users: string[]
+}
+
 export interface IPostsSearchState extends EntityState<IPost, string> {
   offset: number
   limit: number
   total: number
-  query: {
-    tags: string[]
-    groups: string[]
-    users: string[]
-  }
+  query: ISearchQuery
 }
 
 export class PostsSearchStore extends EntityStore<IPostsSearchState> {

@@ -5,38 +5,13 @@ import {
   addErrorNotification,
 } from '@gtms/state-notification'
 import { IPost, IComment } from '@gtms/commons/models'
-import { FileStatus } from '@gtms/commons/enums'
 import { postsStore, IPostsState } from './posts.store'
 import { postsQuery } from './posts.query'
-import { parseFiles } from '@gtms/commons/helpers'
+import { parsePostOwnersAvatar } from './helpers'
 import { userQuery } from '@gtms/state-user'
 import { applyTransaction } from '@datorama/akita'
 
 const POST_FIRST_COMMENTS_LIMIT = 5
-
-const parsePostOwnersAvatar = (post: IPost) => {
-  if (
-    Array.isArray(post.owner?.avatar?.files) &&
-    post.owner?.avatar?.status === FileStatus.ready
-  ) {
-    post.owner.avatar.files = parseFiles(post.owner.avatar.files)
-  }
-
-  if (Array.isArray(post.firstComments)) {
-    post.firstComments = post.firstComments.map((comment) => {
-      if (
-        Array.isArray(comment.owner?.avatar?.files) &&
-        comment.owner?.avatar?.status === FileStatus.ready
-      ) {
-        comment.owner.avatar.files = parseFiles(comment.owner.avatar.files)
-      }
-
-      return comment
-    })
-  }
-
-  return post
-}
 
 export const createNewComment = async (payload: ICreateCommentData) => {
   try {
