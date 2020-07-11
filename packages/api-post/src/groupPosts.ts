@@ -8,7 +8,23 @@ export interface IGroupPostsResponse {
   offset: number
 }
 
-export const fetchGroupPosts = (group: string, offset = 0, limit = 50) =>
-  fetchJSON<void, IGroupPostsResponse>(
-    makeApiUrl(`posts/group/${group}?offset=${offset}&limit=${limit}`)
+export const fetchGroupPosts = (
+  group: string,
+  offset = 0,
+  limit = 50,
+  tags: string[] = []
+) => {
+  const params = new URLSearchParams()
+  params.set('offset', `${offset}`)
+  params.set('limit', `${limit}`)
+
+  if (tags.length > 0) {
+    for (const tag of tags) {
+      params.append('tags[]', tag)
+    }
+  }
+
+  return fetchJSON<void, IGroupPostsResponse>(
+    makeApiUrl(`posts/group/${group}?${params.toString()}`)
   )
+}

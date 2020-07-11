@@ -35,6 +35,8 @@ import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { Spinner } from '@gtms/ui/Spinner'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
+import { TagGroup } from '@gtms/ui/TagGroup'
+import { Tag } from '@gtms/ui/Tag'
 import {
   IoIosHeart,
   IoIosGitNetwork,
@@ -96,15 +98,56 @@ const getInitData = ({
   comments && initPostCommentsStore(comments)
 }
 
+const parseParams = (params: string[]) => {
+  const result: {
+    tag: string[]
+    post: string[]
+    slug: null | string
+  } = {
+    tag: [],
+    post: [],
+    slug: null,
+  }
+
+  let index: 'tag' | 'post' | null = null
+
+  for (const param of params) {
+    if (result.slug === null) {
+      result.slug = param
+      continue
+    }
+
+    if (['tag', 'post'].includes(param)) {
+      index = param as 'tag' | 'post'
+      continue
+    }
+
+    if (index !== null) {
+      result[index].push(param)
+    }
+  }
+
+  return result
+}
+
 const GroupPage: NextPage<GroupPageProps> = (props) => {
   useInitState(getInitData(props))
 
   const { t } = useTranslation('groupPage')
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
-  const onPostClick = useCallback((id) => {
-    router.push(`/group/${state.group?.slug}/${id}`)
-  }, [])
+  const onPostClick = useCallback(
+    (id) => {
+      let url = `/group/${state.group?.slug}`
+
+      if (Array.isArray(state.activeTags) && state.activeTags.length > 0) {
+        url += `/tag/${state.activeTags.join('/')}`
+      }
+
+      router.push(`${url}/post/${id}`)
+    },
+    [state]
+  )
 
   useEffect(() => {
     if (state.group) {
@@ -185,6 +228,16 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </div>
               </div>
               <WelcomeSlider />
+              {Array.isArray(state.activeTags) && state.activeTags.length > 0 && (
+                <div>
+                  <h3>Active Filters (PUT IT IN THE RIGHT PLACE!):</h3>
+                  <TagGroup>
+                    {state.activeTags.map((tag) => (
+                      <Tag label={tag} key={`active-tag-${tag}`} />
+                    ))}
+                  </TagGroup>
+                </div>
+              )}
               <br /> {/* @todo remove it */}
               <PromotedTags
                 tags={state.promotedTags.tags}
@@ -225,6 +278,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   <RecentlyAddedPosts
                     fetchTags={findTagsAPI}
                     onPostClick={onPostClick}
+                    onTagClick={(tag) => {
+                      router.push(`/group/${state.group?.slug}/tag/${tag}`)
+                    }}
                     user={state.user}
                     activePost={state.activePost}
                     createComment={createNewComment}
@@ -277,7 +333,8 @@ GroupPage.getInitialProps = async (
   ctx: NextPageContext
 ): Promise<GroupPageProps> => {
   const { params } = ctx?.query
-  const [slug, postId] = params as string[]
+  const { slug, tag, post } = parseParams(params as string[])
+  const postId = Array.isArray(post) && post.length > 0 ? post[0] : undefined
 
   await getGroup(slug as string)
 
@@ -301,7 +358,7 @@ GroupPage.getInitialProps = async (
 
       getPostComments(postId).then(callback).catch(callback)
     }),
-    getGroupPosts(id).catch(() => null),
+    getGroupPosts(id, 0, 50, tag).catch(() => null),
     loadGroupPromotedTags(id).catch(() => null),
   ]).then(([post]) => {
     return {
