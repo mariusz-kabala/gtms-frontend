@@ -19,6 +19,7 @@ export const RecentlyAddedPosts: FC<{
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: IImage }
   onLoginRequest?: () => unknown
+  activeTags?: string[]
 }> = ({
   additionalStyles,
   posts,
@@ -30,6 +31,7 @@ export const RecentlyAddedPosts: FC<{
   onTagClick,
   activePost,
   onLoginRequest,
+  activeTags = [],
 }) => {
   return (
     <div
@@ -51,6 +53,7 @@ export const RecentlyAddedPosts: FC<{
           {...post}
           noImage={noImage}
           onLoginRequest={onLoginRequest}
+          activeTags={activeTags}
         />
       ))}
     </div>

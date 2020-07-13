@@ -287,6 +287,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     noImage={UserAvatarNoImage}
                     posts={state.posts}
                     onLoginRequest={openLoginModal}
+                    activeTags={state.activeTags || []}
                   />
                 </div>
                 <div className={styles.third}>
@@ -316,6 +317,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     <PostDetails
                       comments={state.comments}
                       user={state.user}
+                      activeTags={state.activeTags || []}
                       post={state.activePost}
                     />
                   )}
