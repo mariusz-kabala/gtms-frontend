@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.49.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.48.0...@gtms/app-andrew@0.49.0) (2020-07-13)
+
+
+### Features
+
+* GEOT-335: indicate active filter tags in posts ([#734](https://github.com/gtms-org/gtms-frontend/issues/734)) ([4ff2122](https://github.com/gtms-org/gtms-frontend/commit/4ff2122751e472aba75a1b3fe249e41c227ebe16))
+
+
+
+
+
 # [0.48.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.47.0...@gtms/app-andrew@0.48.0) (2020-07-11)
 
 
