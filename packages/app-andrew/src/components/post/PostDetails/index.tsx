@@ -8,6 +8,7 @@ import { PostCommentsList } from '../../comments/PostCommentsList'
 
 export const PostDetails: FC<{
   post: IPost
+  activeTags?: string[]
   user: IAccountDetails | null
   comments?: {
     isLoading: boolean
@@ -17,7 +18,7 @@ export const PostDetails: FC<{
     limit: number
     comments: IComment[]
   }
-}> = ({ post, user, comments }) => {
+}> = ({ post, user, comments, activeTags = [] }) => {
   return (
     <div>
       <PostSingle
@@ -32,6 +33,7 @@ export const PostDetails: FC<{
         owner={post.owner}
         firstComments={[]}
         noImage={UserAvatarNoImage}
+        activeTags={activeTags}
       />
       {comments && (
         <PostCommentsList postId={post.id} user={user} {...comments} />

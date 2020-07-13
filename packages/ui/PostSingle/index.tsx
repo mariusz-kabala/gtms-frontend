@@ -28,6 +28,7 @@ export const PostSingle: FC<{
   firstComments: IComment[]
   owner: IUser
   tags: string[]
+  activeTags?: string[]
   user: IAccountDetails | null
   allowToRespond?: boolean
   createComment: (payload: { post: string; text: string }) => unknown
@@ -52,6 +53,7 @@ export const PostSingle: FC<{
   onTagClick,
   onLoginRequest,
   allowToRespond = true,
+  activeTags = [],
 }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const commentForm = useRef<HTMLDivElement>(null)
@@ -117,6 +119,9 @@ export const PostSingle: FC<{
               <Tag
                 onClick={() => onTagClick && onTagClick(tag)}
                 label={tag}
+                additionalStyles={cx({
+                  [styles.activeTag]: activeTags.includes(tag),
+                })}
                 key={`post-tag-${tag}`}
               />
             ))}
