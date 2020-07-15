@@ -2,6 +2,7 @@
 @import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
 
 .wrapper {
   display: grid;
@@ -140,4 +141,13 @@
       }
     }
   }
+}
+
+.tagsButton {
+  @include buttonDefault();
+  @include buttonShapePrimary();
+}
+
+.tagsButtonActive {
+  @include buttonColorsSecondary();
 }
