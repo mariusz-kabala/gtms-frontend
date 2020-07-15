@@ -1,4 +1,4 @@
-import * as tippy from 'react-tippy'
+import 'react-tippy'
 
 declare module 'react-tippy' {
   export interface TooltipProps {
