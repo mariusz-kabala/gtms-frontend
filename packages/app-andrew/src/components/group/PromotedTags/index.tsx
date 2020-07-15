@@ -62,7 +62,6 @@ export const PromotedTags: FC<{}> = () => {
             groupId={state.id || ''}
             id={promotedTagEditor.id}
             description={promotedTagEditor.description}
-            tag={promotedTagEditor.tag}
           />
         </Modal>
       )}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
-import { PromotedTagNoImage, UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from 'enums'
 import {
   IGroupPageState,
   groupPageState,

@@ -152,7 +152,7 @@ export const PromotedTagsForm: FC<{
 
                 if (promotedTagId) {
                   updatePromotedTag(promotedTagId, {
-                    description: dsc,
+                    description: dsc as string,
                   }).then(() => {
                     setSavingStatus({
                       isSaving: false,
@@ -164,7 +164,7 @@ export const PromotedTagsForm: FC<{
                   createPromotedTag({
                     tag: stateTag.value,
                     group: groupId,
-                    description: dsc,
+                    description: dsc as string,
                   }).then((result) => {
                     if (result) {
                       setPromotedTagId(result.id)
