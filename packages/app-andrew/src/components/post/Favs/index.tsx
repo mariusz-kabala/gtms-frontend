@@ -43,11 +43,18 @@ export const Favs: FC<{
 
         setIsInFavs(!isInFavs)
 
-        apiMethod(id).catch(() => {
-          setIsInFavs(isInFavs)
+        apiMethod(id)
+          .catch(() => {
+            setIsInFavs(isInFavs)
 
-          addErrorNotification('Error occured, try later')
-        })
+            addErrorNotification('Error occured, try later')
+          })
+          .final(() =>
+            setTooltipContent({
+              isLoaded: false,
+              text: 'loading...',
+            })
+          )
       }}
       data-testid="post-favs"
       className={styles.wrapper}
