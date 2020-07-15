@@ -19,6 +19,7 @@ export const RecentlyAddedPosts: FC<{
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: IImage }
   onLoginRequest?: () => unknown
+  renderFavs?: (favs: string[], id: string) => JSX.Element
   activeTags?: string[]
 }> = ({
   additionalStyles,
@@ -30,6 +31,7 @@ export const RecentlyAddedPosts: FC<{
   onPostClick,
   onTagClick,
   activePost,
+  renderFavs,
   onLoginRequest,
   activeTags = [],
 }) => {
@@ -41,6 +43,7 @@ export const RecentlyAddedPosts: FC<{
       {posts.map((post) => (
         <PostSingle
           key={`post-${post.id}`}
+          renderFavs={renderFavs}
           allowToRespond={post.id !== activePost?.id}
           onClick={onPostClick}
           onTagClick={onTagClick}

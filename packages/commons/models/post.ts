@@ -7,6 +7,7 @@ export interface IPost {
   text: string
   tags: string[]
   owner: IUser
+  favs: string[]
   commentsCounter: number
   firstComments: IComment[]
   application: string

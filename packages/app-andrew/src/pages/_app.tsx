@@ -1,8 +1,6 @@
 import React from 'react'
 import App, { AppContext } from 'next/app'
 import Head from 'next/head'
-import '@gtms/styles/scss/global.scss'
-import styles from './styles.scss'
 import { appWithTranslation } from '@gtms/commons/i18n'
 import { Navigation } from 'components/commons/Navigation'
 import { NavigationDots } from 'components/commons/NavigationDots'
@@ -11,6 +9,10 @@ import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from 'components/commons/LoginWindow'
+
+import '@gtms/styles/scss/global.scss'
+import './tooltip.scss'
+import styles from './styles.scss'
 
 interface GTMSAppProps {
   auth?: {

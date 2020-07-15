@@ -30,7 +30,9 @@ export const fetchJSON = <T, R>(
   replay = false
 ): Promise<R> => {
   const { values = {}, headers = {}, addJWT = true, method } = params || {}
-  const options: RequestInit & { timeout?: number } = {}
+  const options: RequestInit & { timeout?: number } = {
+    method: method || 'GET',
+  }
 
   if (params?.signal) {
     options.signal = params.signal
