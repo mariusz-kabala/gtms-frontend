@@ -1,5 +1,4 @@
 import { userQuery } from '@gtms/state-user'
-import { promotedTagsQuery } from '@gtms/state-tag'
 import { groupQuery, groupMembersQuery } from '@gtms/state-group'
 import { postCommentsQuery } from '@gtms/state-comment'
 import { postsQuery } from '@gtms/state-post'
@@ -8,7 +7,6 @@ import { map } from 'rxjs/operators'
 import {
   IPost,
   IGroup,
-  IPromotedTag,
   IUser,
   IAccountDetails,
   IComment,
@@ -32,11 +30,6 @@ export interface IGroupPageState {
     comments: IComment[]
   }
   user: IAccountDetails | null
-  promotedTags: {
-    tags: IPromotedTag[]
-    isLoading: boolean
-    errorOccured: boolean
-  }
   members: {
     isLoading: boolean
     errorOccured: boolean
@@ -45,7 +38,6 @@ export interface IGroupPageState {
 }
 
 export const groupPageState = (): IGroupPageState => {
-  const promotedTagsState = promotedTagsQuery.getValue()
   const groupMembersState = groupMembersQuery.getValue()
   const postCommentsState = postCommentsQuery.getValue()
   const activePost = postsQuery.getActive() as IPost | undefined
@@ -54,11 +46,6 @@ export const groupPageState = (): IGroupPageState => {
     posts: postsQuery.getAll(),
     activeTags: postsQuery.getValue().tags || [],
     user: userQuery.isLogged() ? userQuery.accountDetails() : null,
-    promotedTags: {
-      tags: promotedTagsQuery.getAll(),
-      isLoading: promotedTagsState.loading || false,
-      errorOccured: promotedTagsState.error,
-    },
     members: {
       isLoading: groupMembersState.loading || false,
       errorOccured: groupMembersState.error || false,
@@ -82,8 +69,6 @@ export const groupPageState$: Observable<IGroupPageState> = combineLatest(
   groupQuery.allState$,
   postsQuery.selectAll(),
   userQuery.accountDetails$,
-  promotedTagsQuery.selectAll(),
-  promotedTagsQuery.selectLoading(),
   groupMembersQuery.selectAll(),
   postCommentsQuery.selectAll()
 ).pipe(map(() => groupPageState()))

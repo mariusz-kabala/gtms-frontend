@@ -4,7 +4,7 @@ import { IPromotedTag, FileStatus } from '@gtms/commons'
 import { Spinner } from '@gtms/ui/Spinner'
 import { Picture } from '@gtms/ui/Picture'
 import { UploadedPicture } from '@gtms/ui/UploadedPicture'
-import { PromotedTagNoImage } from '../../../../enums/noImage'
+import { PromotedTagNoImage } from 'enums/noImage'
 import styles from './styles.scss'
 import { IoMdTrash, IoIosHammer } from 'react-icons/io'
 

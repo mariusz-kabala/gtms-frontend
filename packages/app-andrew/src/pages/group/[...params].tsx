@@ -24,6 +24,7 @@ import { GroupNotFound } from 'components/group/GroupNotFound'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 import { PostDetails } from 'components/post/PostDetails'
+import { PromotedTags } from 'components/group/PromotedTags'
 import { Favs } from 'components/post/Favs'
 // ui
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
@@ -31,7 +32,6 @@ import { NavigationPage } from '@gtms/ui/NavigationPage'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PromotedGroups } from '@gtms/ui/PromotedGroups'
-import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { Spinner } from '@gtms/ui/Spinner'
 import { SearchBar } from '@gtms/ui/SearchBar'
@@ -242,15 +242,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </div>
               )}
               <br /> {/* @todo remove it */}
-              <PromotedTags
-                tags={state.promotedTags.tags}
-                isLoading={state.promotedTags.isLoading}
-                noImage={PromotedTagNoImage}
-                isAdmin={groupQuery.hasAdminRights()}
-                onNoRecordsClick={() =>
-                  router.push(`/group/${state.group?.slug}/settings#tags`)
-                }
-              />
+              <PromotedTags />
               <PromotedGroups />
               <GroupMembers {...state.members} />
               <div className={styles.posts}>
