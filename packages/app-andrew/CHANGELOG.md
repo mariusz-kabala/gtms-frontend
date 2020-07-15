@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.50.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.49.0...@gtms/app-andrew@0.50.0) (2020-07-15)
+
+
+### Features
+
+* GEOT-336 favs posts ([#738](https://github.com/gtms-org/gtms-frontend/issues/738)) ([9baf034](https://github.com/gtms-org/gtms-frontend/commit/9baf0347567ebc8c6646f7f3343277743b28a933))
+
+
+
+
+
 # [0.49.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.48.0...@gtms/app-andrew@0.49.0) (2020-07-13)
 
 
