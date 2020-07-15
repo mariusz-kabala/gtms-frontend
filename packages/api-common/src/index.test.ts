@@ -36,6 +36,7 @@ describe('fetchJSON', () => {
     expect(fetch).toBeCalledWith('test/fake/url', {
       timeout: 5000,
       headers: {},
+      method: 'GET',
     })
     done()
   })
@@ -74,6 +75,7 @@ describe('fetchJSON', () => {
     expect(fetch).toBeCalledTimes(1)
     expect(fetch).toBeCalledWith('test/fake/url', {
       timeout: 5000,
+      method: 'GET',
       headers: {
         foo: 'bar',
       },

@@ -24,6 +24,7 @@ import { GroupNotFound } from 'components/group/GroupNotFound'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 import { PostDetails } from 'components/post/PostDetails'
+import { Favs } from 'components/post/Favs'
 // ui
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
 import { NavigationPage } from '@gtms/ui/NavigationPage'
@@ -129,6 +130,8 @@ const parseParams = (params: string[]) => {
 
   return result
 }
+
+const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
 
 const GroupPage: NextPage<GroupPageProps> = (props) => {
   useInitState(getInitData(props))
@@ -282,6 +285,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       router.push(`/group/${state.group?.slug}/tag/${tag}`)
                     }}
                     user={state.user}
+                    renderFavs={renderFavs}
                     activePost={state.activePost}
                     createComment={createNewComment}
                     noImage={UserAvatarNoImage}

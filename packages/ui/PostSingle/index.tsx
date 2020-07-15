@@ -29,6 +29,8 @@ export const PostSingle: FC<{
   owner: IUser
   tags: string[]
   activeTags?: string[]
+  favs?: string[]
+  renderFavs?: (favs: string[], id: string) => JSX.Element
   user: IAccountDetails | null
   allowToRespond?: boolean
   createComment: (payload: { post: string; text: string }) => unknown
@@ -52,6 +54,8 @@ export const PostSingle: FC<{
   onClick,
   onTagClick,
   onLoginRequest,
+  renderFavs,
+  favs = [],
   allowToRespond = true,
   activeTags = [],
 }) => {
@@ -67,6 +71,7 @@ export const PostSingle: FC<{
       data-testid="post-single"
     >
       <div className={styles.header}>
+        {renderFavs && renderFavs(favs, id)}
         <div className={styles.user}>
           <Link href={`/user/${owner.id}`}>
             <>
