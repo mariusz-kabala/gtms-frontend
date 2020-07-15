@@ -1,12 +1,12 @@
 {
   "name": "@gtms/api-comment",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-common": "*"
+    "@gtms/api-common": "0.9.0"
   },
   "scripts": {
     "build": "exit 0",
