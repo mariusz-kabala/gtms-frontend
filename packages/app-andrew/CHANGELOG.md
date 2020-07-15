@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.50.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.50.0...@gtms/app-andrew@0.50.1) (2020-07-15)
+
+
+### Bug Fixes
+
+* GEOT-336: clear the list after action ([#741](https://github.com/gtms-org/gtms-frontend/issues/741)) ([c61dadd](https://github.com/gtms-org/gtms-frontend/commit/c61dadd1a84376035be8f5b69a62961c9938d562))
+
+
+
+
+
 # [0.50.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.49.0...@gtms/app-andrew@0.50.0) (2020-07-15)
 
 
