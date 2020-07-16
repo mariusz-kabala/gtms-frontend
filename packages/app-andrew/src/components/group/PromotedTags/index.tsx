@@ -8,8 +8,9 @@ import { PromotedTagsForm } from 'components/group-settings/PromotedTagForm'
 import { PromotedTagNoImage } from 'enums'
 import { PromotedTags as PromotedTagsUI } from '@gtms/ui/PromotedTags'
 import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
-import { loadGroupPromotedTags } from '@gtms/state-tag'
+import { loadGroupPromotedTags, deletePromotedTag } from '@gtms/state-tag'
 import { Modal } from '@gtms/ui/Modal'
+import { IPromotedTag } from '@gtms/commons/models'
 
 export const PromotedTags: FC<{}> = () => {
   const [state, setState] = useState<IPromotedTagsState>(promotedTagsState())
@@ -17,6 +18,7 @@ export const PromotedTags: FC<{}> = () => {
     isOpen: boolean
     id?: string
     description?: string
+    tag?: string
   }>({
     isOpen: false,
   })
@@ -25,6 +27,20 @@ export const PromotedTags: FC<{}> = () => {
     setPromotedTagEditor({
       isOpen: true,
     })
+  }, [])
+
+  const onEditTagClick = useCallback((tag: IPromotedTag) => {
+    setPromotedTagEditor({
+      isOpen: true,
+      description: tag.description,
+      id: tag.id,
+      tag: tag.tag,
+    })
+  }, [])
+
+  const onDeleteTagClick = useCallback((tag: IPromotedTag) => {
+    // todo show confirmation first!
+    deletePromotedTag(tag.id)
   }, [])
 
   useEffect(() => {
@@ -48,6 +64,8 @@ export const PromotedTags: FC<{}> = () => {
             noImage={PromotedTagNoImage}
             isAdmin={state.isAdmin}
             onNoRecordsClick={onAddTagClick}
+            onEditRecordClick={onEditTagClick}
+            onDeleteRecordClick={onDeleteTagClick}
           />
         ))}
       {promotedTagEditor.isOpen && (
@@ -69,6 +87,7 @@ export const PromotedTags: FC<{}> = () => {
             groupId={state.id || ''}
             id={promotedTagEditor.id}
             description={promotedTagEditor.description}
+            tag={promotedTagEditor.tag}
           />
         </Modal>
       )}

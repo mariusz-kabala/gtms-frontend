@@ -75,7 +75,10 @@ export const updatePromotedTag = async (
     addSuccessNotification(`Promoted tag has been updated!`)
 
     if (promoted) {
-      promotedTagsStore.update(id as any, result)
+      promotedTagsStore.update(id, {
+        description: result.description,
+        order: result.order,
+      })
     }
   } catch {
     addErrorNotification('Error occured, try again later')

@@ -20,12 +20,16 @@ export const PromotedTags: FC<{
     '200x200': IImage
   }
   onNoRecordsClick?: () => unknown
+  onEditRecordClick?: (promotedTag: IPromotedTag) => unknown
+  onDeleteRecordClick?: (promotedTag: IPromotedTag) => unknown
 }> = ({
   additionalStyles,
   isLoading,
   tags,
   noImage,
   onNoRecordsClick,
+  onEditRecordClick,
+  onDeleteRecordClick,
   isAdmin = false,
 }) => {
   const onClick = useCallback(() => {
@@ -54,10 +58,18 @@ export const PromotedTags: FC<{
               {isAdmin && (
                 <div className={styles.adminPanel}>
                   <ul>
-                    <li>
+                    <li
+                      onClick={() =>
+                        onEditRecordClick && onEditRecordClick(tag)
+                      }
+                    >
                       <IoIosSettings />
                     </li>
-                    <li>
+                    <li
+                      onClick={() =>
+                        onDeleteRecordClick && onDeleteRecordClick(tag)
+                      }
+                    >
                       <IoMdTrash />
                     </li>
                   </ul>
