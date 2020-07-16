@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.35.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.34.0...@gtms/ui@0.35.0) (2020-07-16)
+
+
+### Features
+
+* GEOT-337: managed promoted tags from group page ([#742](https://github.com/gtms-org/gtms-frontend/issues/742)) ([154f20d](https://github.com/gtms-org/gtms-frontend/commit/154f20dd9f57e4180eb1e6a08369d98bb8aa65c2))
+
+
+
+
+
 # [0.34.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.33.0...@gtms/ui@0.34.0) (2020-07-15)
 
 

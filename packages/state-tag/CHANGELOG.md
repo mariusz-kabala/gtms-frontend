@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.7.5...@gtms/state-tag@0.8.0) (2020-07-16)
+
+
+### Features
+
+* GEOT-337: managed promoted tags from group page ([#742](https://github.com/gtms-org/gtms-frontend/issues/742)) ([154f20d](https://github.com/gtms-org/gtms-frontend/commit/154f20dd9f57e4180eb1e6a08369d98bb8aa65c2))
+
+
+
+
+
 ## [0.7.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.7.4...@gtms/state-tag@0.7.5) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/state-tag
