@@ -8,7 +8,10 @@ import { PromotedTagsForm } from 'components/group-settings/PromotedTagForm'
 import { PromotedTagNoImage } from 'enums'
 import { PromotedTags as PromotedTagsUI } from '@gtms/ui/PromotedTags'
 import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
-import { loadGroupPromotedTags, deletePromotedTag } from '@gtms/state-tag'
+import {
+  reloadGroupPromotedTagsSilently,
+  deletePromotedTag,
+} from '@gtms/state-tag'
 import { Modal } from '@gtms/ui/Modal'
 import { IPromotedTag } from '@gtms/commons/models'
 
@@ -82,7 +85,10 @@ export const PromotedTags: FC<{}> = () => {
                 isOpen: false,
               })
 
-              setTimeout(() => loadGroupPromotedTags(state.id || ''), 2000)
+              setTimeout(
+                () => reloadGroupPromotedTagsSilently(state.id || ''),
+                2000
+              )
             }}
             groupId={state.id || ''}
             id={promotedTagEditor.id}

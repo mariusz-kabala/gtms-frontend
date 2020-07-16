@@ -8,6 +8,7 @@ import { IImage } from '@gtms/commons/types/image'
 // ui
 import { Spinner } from '../Spinner'
 import { Picture } from '../Picture'
+import { UploadedPicture } from '../UploadedPicture'
 // style
 import styles from './styles.scss'
 
@@ -52,6 +53,9 @@ export const PromotedTags: FC<{
                   additionalStyles={styles.image}
                   {...tag.logo.files['200x200']}
                 />
+              )}
+              {tag.logo.status && tag.logo.status !== FileStatus.ready && (
+                <UploadedPicture jpg={tag.logo.files[0]} />
               )}
               <h3>#{tag.tag}</h3>
               <p>{tag.description}</p>

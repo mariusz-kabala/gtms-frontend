@@ -18,13 +18,7 @@ export const initPromoted = (data: IPromotedTagsState) => {
   promotedTagsStore.update(data)
 }
 
-export const loadGroupPromotedTags = async (id: string) => {
-  applyTransaction(() => {
-    promotedTagsStore.reset()
-    promotedTagsStore.setLoading(true)
-    promotedTagsStore.setError(false)
-  })
-
+export const reloadGroupPromotedTagsSilently = async (id: string) => {
   try {
     const promoted = await fetchPromotedTagsAPI(id)
     promotedTagsStore.upsertMany(
@@ -38,8 +32,35 @@ export const loadGroupPromotedTags = async (id: string) => {
     )
   } catch {
     promotedTagsStore.setError(true)
-  } finally {
-    promotedTagsStore.setLoading(false)
+  }
+}
+
+export const loadGroupPromotedTags = async (id: string) => {
+  applyTransaction(() => {
+    promotedTagsStore.reset()
+    promotedTagsStore.setLoading(true)
+    promotedTagsStore.setError(false)
+  })
+
+  try {
+    const promoted = await fetchPromotedTagsAPI(id)
+    applyTransaction(() => {
+      promotedTagsStore.upsertMany(
+        promoted.map((p) => {
+          if (p.logo?.status === FileStatus.ready) {
+            p.logo.files = parseFiles((p.logo.files as any) || [])
+          }
+
+          return p
+        })
+      )
+      promotedTagsStore.setLoading(false)
+    })
+  } catch {
+    applyTransaction(() => {
+      promotedTagsStore.setError(true)
+      promotedTagsStore.setLoading(false)
+    })
   }
 }
 
