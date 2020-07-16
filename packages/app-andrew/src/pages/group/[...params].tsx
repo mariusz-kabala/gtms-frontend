@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
-import { PromotedTagNoImage, UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from 'enums'
 import {
   IGroupPageState,
   groupPageState,
@@ -24,6 +25,7 @@ import { GroupNotFound } from 'components/group/GroupNotFound'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 import { PostDetails } from 'components/post/PostDetails'
+import { PromotedTags } from 'components/group/PromotedTags'
 import { Favs } from 'components/post/Favs'
 // ui
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
@@ -31,13 +33,11 @@ import { NavigationPage } from '@gtms/ui/NavigationPage'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PromotedGroups } from '@gtms/ui/PromotedGroups'
-import { PromotedTags } from '@gtms/ui/PromotedTags'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { Spinner } from '@gtms/ui/Spinner'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
-import { TagGroup } from '@gtms/ui/TagGroup'
-import { Tag } from '@gtms/ui/Tag'
+import { Button } from '@gtms/ui/Button'
 import {
   IoIosHeart,
   IoIosGitNetwork,
@@ -139,6 +139,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const { t } = useTranslation('groupPage')
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
+  const [showPromoted, setShowPromoted] = useState<boolean>(false)
   const onPostClick = useCallback(
     (id) => {
       let url = `/group/${state.group?.slug}`
@@ -218,39 +219,28 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               <NavigationPage />
             </div>
             <div className={styles.groupPostsListWrapper}>
+              <WelcomeSlider />
               <div className={styles.searchInput}>
                 <div className={styles.search}>
+                  <Button
+                    onClick={() => setShowPromoted((value) => !value)}
+                    additionalStyles={cx(styles.tagsButton, {
+                      [styles.tagsButtonActive]: showPromoted,
+                    })}
+                  >
+                    Tags
+                  </Button>
                   <SearchBar
                     onTagAdd={() => null}
                     onTagRemove={() => null}
                     onLoadSuggestion={() => null}
                     onQueryChange={() => null}
                     onLoadSuggestionCancel={() => null}
-                    tags={[]}
+                    tags={state.activeTags || []}
                   />
                 </div>
               </div>
-              <WelcomeSlider />
-              {Array.isArray(state.activeTags) && state.activeTags.length > 0 && (
-                <div>
-                  <h3>Active Filters (PUT IT IN THE RIGHT PLACE!):</h3>
-                  <TagGroup>
-                    {state.activeTags.map((tag) => (
-                      <Tag label={tag} key={`active-tag-${tag}`} />
-                    ))}
-                  </TagGroup>
-                </div>
-              )}
-              <br /> {/* @todo remove it */}
-              <PromotedTags
-                tags={state.promotedTags.tags}
-                isLoading={state.promotedTags.isLoading}
-                noImage={PromotedTagNoImage}
-                isAdmin={groupQuery.hasAdminRights()}
-                onNoRecordsClick={() =>
-                  router.push(`/group/${state.group?.slug}/settings#tags`)
-                }
-              />
+              {showPromoted && <PromotedTags />}
               <PromotedGroups />
               <GroupMembers {...state.members} />
               <div className={styles.posts}>

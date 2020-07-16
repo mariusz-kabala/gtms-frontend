@@ -68,7 +68,10 @@ export const Favs: FC<{
             .then((result) => {
               setTooltipContent({
                 isLoaded: true,
-                text: result.map((user) => getDisplayName(user)).join(', '),
+                text:
+                  result.length > 0
+                    ? result.map((user) => getDisplayName(user)).join(', ')
+                    : 'empty favs',
               })
             })
             .catch(() =>

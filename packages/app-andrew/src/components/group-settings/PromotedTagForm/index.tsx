@@ -16,7 +16,7 @@ enum FormSteps {
 }
 
 export const PromotedTagsForm: FC<{
-  tag: string
+  tag?: string
   id?: string
   groupId: string
   description?: string
@@ -39,6 +39,13 @@ export const PromotedTagsForm: FC<{
   }>({
     isError: false,
     isUploading: false,
+  })
+  const [stateTag, setStateTag] = useState<{
+    value: string
+    isError: boolean
+  }>({
+    value: tag || '',
+    isError: false,
   })
 
   const onDrop = useCallback(
@@ -74,13 +81,38 @@ export const PromotedTagsForm: FC<{
   return (
     <div className={styles.wrapper}>
       <h3 className={styles.header}>Promoted tag</h3>
-      <div className={styles.promoted}>
-        <TagGroup>
-          <Tag label={tag} />
-        </TagGroup>
-      </div>
+      {promotedTagId && stateTag.value && (
+        <div className={styles.promoted}>
+          <TagGroup>
+            <Tag label={stateTag.value} />
+          </TagGroup>
+        </div>
+      )}
       {step === FormSteps.one && (
         <section>
+          {!tag && !promotedTagId && (
+            <div>
+              <input
+                type="text"
+                name="tag"
+                value={stateTag.value}
+                onChange={(e) => {
+                  let value = e.target.value.trim()
+
+                  if (value.length > 1 && value.charAt(0) === '#') {
+                    value = value.substr(1)
+                  }
+
+                  setStateTag({
+                    isError: false,
+                    value,
+                  })
+                }}
+                placeholder="Here goes tag name"
+              />
+              {stateTag.isError && <Error text={'Tag can not be empty'} />}
+            </div>
+          )}
           <div>
             <ExpandingTextarea
               placeholder="Put a short tag description here"
@@ -97,12 +129,25 @@ export const PromotedTagsForm: FC<{
               disabled={savingStatus.isSaving}
               onClick={() => {
                 const dsc = dscRef.current?.value
+                let errors = false
 
                 if (!dsc) {
                   setSavingStatus({
                     isSaving: false,
                     validationError: 'form.validation.description.isRequired',
                   })
+                  errors = true
+                }
+
+                if (!stateTag.value) {
+                  setStateTag((value) => ({
+                    ...value,
+                    isError: true,
+                  }))
+                  errors = true
+                }
+
+                if (errors) {
                   return
                 }
 
@@ -113,7 +158,7 @@ export const PromotedTagsForm: FC<{
 
                 if (promotedTagId) {
                   updatePromotedTag(promotedTagId, {
-                    description: dsc,
+                    description: dsc as string,
                   }).then(() => {
                     setSavingStatus({
                       isSaving: false,
@@ -123,9 +168,9 @@ export const PromotedTagsForm: FC<{
                   })
                 } else {
                   createPromotedTag({
-                    tag,
+                    tag: stateTag.value,
                     group: groupId,
-                    description: dsc,
+                    description: dsc as string,
                   }).then((result) => {
                     if (result) {
                       setPromotedTagId(result.id)
@@ -151,6 +196,7 @@ export const PromotedTagsForm: FC<{
         <section className={styles.stepTwo}>
           <UploadFile
             onDrop={onDrop}
+            accept="image/*"
             isLoading={uploadStatus.isUploading}
             isError={uploadStatus.isError}
             additionalStyles={styles.uploadArea}

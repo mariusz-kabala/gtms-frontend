@@ -1,0 +1,34 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.emptyBox {
+  background-color: $theme2;
+  width: 24%;
+  margin-bottom: 1.5%;
+  min-height: 250px;
+  border-radius: 5px;
+}
+
+.addButton {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateY(-45%);
+  transform: translateX(-50%);
+  @include buttonDefault();
+  @include buttonShapePrimary();
+  @include buttonColorsSecondary();
+
+  padding: 15px 30px;
+  &:hover {
+    @include font-weight('bold');
+  }
+}
