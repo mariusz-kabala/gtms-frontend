@@ -11,7 +11,7 @@ export const UploadFile: FC<{
   onClick?: () => unknown
   isLoading?: boolean
   isError?: boolean
-  accept?: string[]
+  accept?: string[] | string
   onDrop: (
     acceptedFiles: File[],
     rejectedFiles: File[],
@@ -23,7 +23,7 @@ export const UploadFile: FC<{
   onDrop,
   isLoading = false,
   isError = false,
-  accept = [],
+  accept,
 }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,

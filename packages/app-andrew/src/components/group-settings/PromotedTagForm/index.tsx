@@ -97,9 +97,15 @@ export const PromotedTagsForm: FC<{
                 name="tag"
                 value={stateTag.value}
                 onChange={(e) => {
+                  let value = e.target.value.trim()
+
+                  if (value.length > 1 && value.charAt(0) === '#') {
+                    value = value.substr(1)
+                  }
+
                   setStateTag({
                     isError: false,
-                    value: e.target.value,
+                    value,
                   })
                 }}
                 placeholder="Here goes tag name"
@@ -190,6 +196,7 @@ export const PromotedTagsForm: FC<{
         <section className={styles.stepTwo}>
           <UploadFile
             onDrop={onDrop}
+            accept="image/*"
             isLoading={uploadStatus.isUploading}
             isError={uploadStatus.isError}
             additionalStyles={styles.uploadArea}
