@@ -1,12 +1,13 @@
-import React, { useState, FC } from 'react'
+import React, { useState, FC, useRef } from 'react'
 import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { registerUserAccount } from '@gtms/state-user'
-import { IRegistrationData } from '@gtms/api-auth'
+import { IRegistrationData, checkUsernameAPI } from '@gtms/api-auth'
 import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Button } from '@gtms/ui/Button'
+import { Spinner } from '@gtms/ui/Spinner'
 
 const validate = (data: IRegistrationData, setError: any): boolean => {
   let hasErrors = false
@@ -42,6 +43,11 @@ export const RegistrationForm: FC<{
     IRegistrationData
   >()
   const [isMakingRequest, setIsMakingRequest] = useState<boolean>(false)
+  const checkUsernameTimeout = useRef<NodeJS.Timeout>()
+  const [usernameStatus, setUsernameStatus] = useState<{
+    isValid?: boolean
+    isChecking: boolean
+  }>({ isValid: undefined, isChecking: false })
 
   const onSubmit = async (data: IRegistrationData) => {
     if (!validate(data, setError)) {
@@ -75,6 +81,7 @@ export const RegistrationForm: FC<{
       className={additionalStyles}
       onSubmit={handleSubmit(onSubmit)}
       data-testid="registration-form"
+      autoComplete="off"
     >
       <Input
         type="email"
@@ -95,6 +102,54 @@ export const RegistrationForm: FC<{
         placeholder={t('form.labels.name')}
         reference={register}
       />
+
+      <div className={styles.usernameWrapper}>
+        <Input
+          type="text"
+          name="username"
+          placeholder={t('form.labels.username')}
+          reference={register}
+          onChange={(e) => {
+            checkUsernameTimeout.current &&
+              clearTimeout(checkUsernameTimeout.current)
+
+            if (e.target.value === '') {
+              setUsernameStatus({
+                isValid: undefined,
+                isChecking: false,
+              })
+
+              return
+            }
+
+            e.persist()
+
+            checkUsernameTimeout.current = setTimeout(() => {
+              setUsernameStatus({
+                isValid: undefined,
+                isChecking: true,
+              })
+
+              checkUsernameAPI(e.target.value)
+                .then((result) => {
+                  setUsernameStatus({
+                    isValid: !result,
+                    isChecking: false,
+                  })
+                })
+                .catch(() => null)
+            }, 700)
+          }}
+        />
+        {usernameStatus.isChecking && (
+          <div className={styles.spinner}>
+            <Spinner />
+          </div>
+        )}
+        {usernameStatus.isValid === false && (
+          <Error text={t('form.validation.username.isNotUnique')} />
+        )}
+      </div>
 
       <Input
         type="password"
@@ -127,7 +182,7 @@ export const RegistrationForm: FC<{
       <Button
         type="submit"
         additionalStyles={styles.btnSubmit}
-        disabled={isMakingRequest}
+        disabled={isMakingRequest || usernameStatus.isValid === false}
       >
         {t('form.submitButton')}
       </Button>
