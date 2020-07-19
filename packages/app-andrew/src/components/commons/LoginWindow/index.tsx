@@ -27,12 +27,12 @@ export const LoginWindow: FC<{}> = () => {
     // @mariusz do we want to close this modal window onClick on overlay? if yes is that below is ok?
     <Modal onClose={() => setIsOpen(false)}>
       <div className={styles.loginWindow}>
-        <h2>Login</h2>
+        <h2 className={styles.header}>Login</h2>
         <LoginForm />
         <SocialButtons onFailure={() => null} />
         <Link href="/registration">
           <a className={styles.registrationLink}>
-            Dont have account? Register now!
+            You do not have an account? Register now!
           </a>
         </Link>
       </div>

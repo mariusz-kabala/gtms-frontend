@@ -1,40 +1,43 @@
 @import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/buttons';
 
 .wrapper {
-  display: flex;
-  flex-direction: row;
+  // @todo make mixin of that
+  display: grid;
+  gap: 15px; // @todo set standard gap grid
+  grid-template-columns: 1fr 1fr;
 
-  > div {
+  // apply styles for custom button component and npm component
+  button,
+  .button {
+    display: flex;
+    justify-content: center;
     width: 100%;
+    padding: 15px;
+    border: none;
+    color: $theme1;
+    text-align: center;
+    text-decoration: none;
+    opacity: 1 !important; // clear opacity coming from npm module
+    cursor: pointer;
 
-    // apply styles for custom button component and npm component
-    button,
-    .button {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      padding: 15px;
-      border: none;
-      color: $theme1;
-      text-align: center;
-      text-decoration: none;
-      opacity: 1 !important; // clear opacity coming from npm module
-      cursor: pointer;
+    &.facebook {
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapePrimary();
+      @include buttonColorsPrimary();
+      padding: 14px;
 
-      &.facebook {
-        background: none;
-
-        svg {
-          margin-right: 5px;
-        }
-
-        &:hover {
-          background: #0d5cc4;
-        }
+      &:hover {
+        @include buttonColorsPrimary();
       }
 
-      > div {
-        margin-right: 0 !important;
+      svg {
+        margin-right: 5px;
+      }
+
+      &:hover {
+        background: #0d5cc4;
       }
     }
   }

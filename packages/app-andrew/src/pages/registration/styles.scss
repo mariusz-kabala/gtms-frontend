@@ -2,6 +2,16 @@
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+
+.pageWrapper {
+  @include pageWrapper();
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  max-width: none;
+}
 
 .wrapper {
   position: relative;
@@ -32,11 +42,12 @@
       > a {
         width: 100%;
         @include buttonDefault();
+        @include buttonSizeDefault();
         @include buttonShapePrimary();
-        @include buttonColorsTertiary();
+        @include buttonColorsDefault();
 
         &:hover {
-          @include buttonColorsSecondary();
+          @include buttonColorsPrimary();
         }
       }
     }

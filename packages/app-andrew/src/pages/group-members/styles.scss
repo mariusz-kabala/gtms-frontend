@@ -21,11 +21,12 @@
 
     .btn {
       @include buttonDefault();
+      @include buttonSizeDefault();
       @include buttonShapePrimary();
       @include buttonColorsDefault();
       border: 1px solid $theme2;
       &:hover {
-        @include buttonColorsSecondary();
+        @include buttonColorsPrimary();
       }
     }
   }

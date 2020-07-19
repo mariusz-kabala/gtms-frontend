@@ -55,10 +55,11 @@
     margin-left: 5px;
     margin-right: 5px;
     @include buttonDefault();
+    @include buttonSizeDefault();
     @include buttonShapePrimary();
     @include buttonColorsDefault();
     &:hover {
-      @include buttonColorsSecondary();
+      @include buttonColorsPrimary();
     }
   }
 }

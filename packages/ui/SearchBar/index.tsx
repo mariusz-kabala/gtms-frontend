@@ -78,6 +78,7 @@ export const SearchBar: FC<{
           <input
             ref={inputEl}
             type="text"
+            placeholder="search..."
             value={value}
             onChange={(e) => {
               setValue(e.target.value)

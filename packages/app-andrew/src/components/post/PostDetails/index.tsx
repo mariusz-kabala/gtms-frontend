@@ -1,10 +1,17 @@
 import React, { FC } from 'react'
+import styles from './styles.scss'
 import { IPost, IAccountDetails, IComment } from '@gtms/commons/models'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { findTagsAPI } from '@gtms/api-tags'
 import { UserAvatarNoImage } from 'enums'
 import { createNewComment } from '@gtms/state-post'
 import { PostCommentsList } from '../../comments/PostCommentsList'
+import {
+  IoIosGitNetwork,
+  IoIosHeart,
+  IoIosListBox,
+  IoIosSettings,
+} from 'react-icons/io'
 
 export const PostDetails: FC<{
   post: IPost
@@ -20,7 +27,29 @@ export const PostDetails: FC<{
   }
 }> = ({ post, user, comments, activeTags = [] }) => {
   return (
-    <div>
+    <div className={styles.wrapper}>
+      <ul className={styles.buttons}>
+        <li>
+          <i>
+            <IoIosGitNetwork />
+          </i>
+        </li>
+        <li>
+          <i>
+            <IoIosListBox />
+          </i>
+        </li>
+        <li>
+          <i>
+            <IoIosHeart />
+          </i>
+        </li>
+        <li>
+          <i>
+            <IoIosSettings />
+          </i>
+        </li>
+      </ul>
       <PostSingle
         createComment={createNewComment}
         allowToRespond={false}

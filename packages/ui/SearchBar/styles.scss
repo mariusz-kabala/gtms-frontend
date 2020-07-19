@@ -1,6 +1,7 @@
 @import '@gtms/styles/scss/variables';
-@import '~@gtms/styles/scss/mixins/fontSize';
 @import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/inputs.scss';
 
 .searchBar {
   position: relative;
@@ -13,16 +14,17 @@
     flex-basis: 100%;
 
     i {
-      display: flex;
-      align-items: center;
-      @include font-size(lg);
+      position: absolute;
+      top: 12px;
+      left: 10px;
     }
 
     input[type='text'] {
       display: block;
       width: 100%;
-      padding-bottom: 5px;
-      border: none;
+      padding-left: 25px;
+      border: 2px solid $theme0;
+      border-radius: $borderRadius1;
       font-size: 14px;
       background: none;
 
@@ -31,6 +33,9 @@
       &:hover {
         outline: none;
       }
+
+      @include inputFocus;
+      @include placeholderFocus;
     }
 
     .suggestions {
@@ -67,10 +72,11 @@
 
 .tag {
   @include buttonDefault();
+  @include buttonSizeDefault();
   @include buttonShapePrimary();
   @include buttonColorsDefault();
 
   &:hover {
-    @include buttonColorsPrimary();
+    @include buttonColorsDefault();
   }
 }

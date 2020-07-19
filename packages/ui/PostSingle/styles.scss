@@ -8,19 +8,19 @@
   overflow: hidden; // for delete post component that overflows this component
   cursor: pointer;
   opacity: 0.85;
+  padding: 10px;
+  border-radius: $borderRadius1;
+  background: $theme0;
+  border: 2px solid $theme0;
 
   &:hover {
-    border-color: $theme5;
+    border-color: $theme4;
     opacity: 1;
 
     .header {
       .deleteBtn {
         opacity: 0.8;
       }
-    }
-
-    &::after {
-      background: $theme4;
     }
   }
 
@@ -99,24 +99,38 @@
   }
 
   .tagGroup {
-    margin-top: 10px;
-  }
-
-  .respondBtn {
-    @include buttonDefault();
-    @include buttonShapePrimary();
-    @include buttonSizeSm();
-    @include buttonColorsPrimary();
-    margin-top: 10px;
-    margin-left: auto;
-
-    &:hover {
-      @include buttonColorsSecondary();
-    }
+    margin: 10px 0;
   }
 
   .postResponseCreate {
     margin-top: 10px;
+  }
+}
+
+.btns {
+  display: flex;
+
+  .respondBtn {
+    @include buttonDefault();
+    @include buttonShapePrimary();
+    @include buttonSizeMd();
+    @include buttonColorsDefault();
+    margin-right: auto;
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+  }
+
+  .readMoreBtn {
+    @include buttonDefault();
+    @include buttonShapePrimary();
+    @include buttonSizeMd();
+    @include buttonColorsDefault();
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
   }
 }
 

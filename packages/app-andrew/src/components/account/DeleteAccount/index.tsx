@@ -24,13 +24,13 @@ export const DeleteAccount: FC<{
           <div className={styles.buttons}>
             <Button
               testid="delete-account-cancel"
-              additionalStyles={styles.no}
               onClick={() => setIsModalOpen(false)}
             >
               {t('noBtn')}
             </Button>
             <Button
               testid="delete-account-confirm"
+              additionalStyles={styles.yes}
               onClick={() => {
                 onConfirm()
                 setIsModalOpen(false)
@@ -43,11 +43,11 @@ export const DeleteAccount: FC<{
       )}
 
       <Button
+        additionalStyles={cx(styles.btnDeleteAccount, additionalStyles)}
         onClick={() => {
           setIsModalOpen(true)
         }}
         testid="delete-account-button"
-        additionalStyles={cx(styles.btnDeleteAccount, additionalStyles)}
       >
         {t('deleteAccountBtn')}
       </Button>

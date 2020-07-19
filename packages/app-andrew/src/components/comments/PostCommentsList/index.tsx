@@ -1,7 +1,7 @@
 import React, { FC, useRef, useState, useEffect } from 'react'
+import styles from './styles.scss'
 import { findTagsAPI } from '@gtms/api-tags'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
-import { Spinner } from '@gtms/ui/Spinner'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { IComment, IUser, IAccountDetails } from '@gtms/commons/models'
 import { SubCommentsList } from '../SubCommentsList'
@@ -13,7 +13,8 @@ import {
   postCommentsListState$,
 } from './state.query'
 import { createNewComment } from '@gtms/state-comment'
-import styles from './styles.scss'
+import { Button } from '@gtms/ui/Button'
+import { Spinner } from '@gtms/ui/Spinner'
 
 export const PostCommentsList: FC<{
   isLoading: boolean
@@ -53,26 +54,25 @@ export const PostCommentsList: FC<{
   }
 
   return (
-    <div>
+    <>
       {hasNoComments && <p>No comments, you can add the first one</p>}
       {!hasNoComments && (
-        <div className={styles.respondButton}>
-          <button
-            onClick={(e) => {
-              e.preventDefault()
+        <Button
+          additionalStyles={styles.respondButton}
+          onClick={(e) => {
+            e.preventDefault()
 
-              if (!state.isLogged) {
-                return openLoginModal()
-              }
+            if (!state.isLogged) {
+              return openLoginModal()
+            }
 
-              if (commentForm.current) {
-                window.scrollTo(0, commentForm.current.offsetTop)
-              }
-            }}
-          >
-            Respond
-          </button>
-        </div>
+            if (commentForm.current) {
+              window.scrollTo(0, commentForm.current.offsetTop)
+            }
+          }}
+        >
+          respond...
+        </Button>
       )}
       {comments.map((comment) => (
         <div key={`comment-${comment.id}`}>
@@ -105,6 +105,6 @@ export const PostCommentsList: FC<{
           onLoginRequest={openLoginModal}
         />
       </div>
-    </div>
+    </>
   )
 }

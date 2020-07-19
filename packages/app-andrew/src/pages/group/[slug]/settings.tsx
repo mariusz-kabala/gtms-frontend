@@ -80,132 +80,134 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
   }
 
   return (
-    <div className={styles.wrapper} data-testid="group-settings-page">
-      <h2 className={styles.header}>{t('header')}</h2>
-      <p>
-        Eiusmod anim Lorem fugiat voluptate minim sint id occaecat nostrud
-        dolor. Exercitation mollit duis id excepteur tempor. Ut veniam in
-        adipisicing laborum Lorem fugiat reprehenderit magna excepteur in labore
-        tempor fugiat ad. Lorem irure incididunt esse dolor eu dolore enim Lorem
-        dolore. Excepteur irure qui fugiat est ea incididunt enim.
-      </p>
+    <div className={styles.pageWrapper}>
+      <div className={styles.wrapper} data-testid="group-settings-page">
+        <h2 className={styles.header}>{t('header')}</h2>
+        <p>
+          Eiusmod anim Lorem fugiat voluptate minim sint id occaecat nostrud
+          dolor. Exercitation mollit duis id excepteur tempor. Ut veniam in
+          adipisicing laborum Lorem fugiat reprehenderit magna excepteur in
+          labore tempor fugiat ad. Lorem irure incididunt esse dolor eu dolore
+          enim Lorem dolore. Excepteur irure qui fugiat est ea incididunt enim.
+        </p>
 
-      {group.isLoading && !group.errorOccured && (
-        <div>
-          <Spinner />
-        </div>
-      )}
-
-      {!group.isLoading && group.errorOccured && (
-        <div>
-          <p>Can not fetch group details, try again later</p>
-        </div>
-      )}
-
-      {!group.isLoading && !group.errorOccured && (
-        <div>
-          <ul>
-            <li
-              className={cx({
-                [styles.current]: tab === Tabs.general,
-              })}
-            >
-              <a href="#general" onClick={() => setTab(Tabs.general)}>
-                General Settings
-              </a>
-            </li>
-            <li
-              className={cx({
-                [styles.current]: tab === Tabs.images,
-              })}
-            >
-              <a onClick={() => setTab(Tabs.images)} href="#images">
-                Images
-              </a>
-            </li>
-            <li
-              className={cx({
-                [styles.current]: tab === Tabs.tags,
-              })}
-            >
-              <a href="#tags" onClick={() => setTab(Tabs.tags)}>
-                Tags
-              </a>
-            </li>
-            <li
-              className={cx({
-                [styles.current]: tab === Tabs.invitations,
-              })}
-            >
-              <a href="#invitations" onClick={() => setTab(Tabs.invitations)}>
-                Invitations
-              </a>
-            </li>
-            <li
-              className={cx({
-                [styles.current]: tab === Tabs.admins,
-              })}
-            >
-              <a href="#admins" onClick={() => setTab(Tabs.admins)}>
-                Admins
-              </a>
-            </li>
-            <li
-              className={cx({
-                [styles.current]: tab === Tabs.members,
-              })}
-            >
-              <a href="#members" onClick={() => setTab(Tabs.members)}>
-                Members
-              </a>
-            </li>
-            <li
-              className={cx({
-                [styles.current]: tab === Tabs.delete,
-              })}
-            >
-              <a href="#delete" onClick={() => setTab(Tabs.delete)}>
-                Delete Group
-              </a>
-            </li>
-          </ul>
-          <div className={styles.content}>
-            {tab === Tabs.general && (
-              <BasicSettings
-                slug={group.group?.slug || ''}
-                name={group.group?.name || ''}
-                description={group.group?.description || ''}
-                visibility={group.group?.visibility || GroupVisibility.public}
-                type={group.group?.type || GroupType.public}
-              />
-            )}
-            {tab === Tabs.tags && (
-              <TagsSettings
-                id={group.group?.id || ''}
-                tags={group.group?.tags || []}
-              />
-            )}
-            {tab === Tabs.delete && (
-              <GroupDeleteGroup
-                additionalStyles={styles.btn}
-                onConfirm={() => null}
-              />
-            )}
-            {tab === Tabs.images && (
-              <ImagesSettings avatar={group.group?.avatar} />
-            )}
-            {tab === Tabs.admins && (
-              <AdminsSettings group={group.group as IGroup} />
-            )}
-            {tab === Tabs.members && (
-              <MembersSettings group={group.group as IGroup} />
-            )}
-            {tab === Tabs.invitations && (
-              <InvitationsSettings group={group.group as IGroup} />
-            )}
+        {group.isLoading && !group.errorOccured && (
+          <div>
+            <Spinner />
           </div>
-        </div>
-      )}
+        )}
+
+        {!group.isLoading && group.errorOccured && (
+          <div>
+            <p>Can not fetch group details, try again later</p>
+          </div>
+        )}
+
+        {!group.isLoading && !group.errorOccured && (
+          <div>
+            <ul>
+              <li
+                className={cx({
+                  [styles.current]: tab === Tabs.general,
+                })}
+              >
+                <a href="#general" onClick={() => setTab(Tabs.general)}>
+                  General Settings
+                </a>
+              </li>
+              <li
+                className={cx({
+                  [styles.current]: tab === Tabs.images,
+                })}
+              >
+                <a onClick={() => setTab(Tabs.images)} href="#images">
+                  Images
+                </a>
+              </li>
+              <li
+                className={cx({
+                  [styles.current]: tab === Tabs.tags,
+                })}
+              >
+                <a href="#tags" onClick={() => setTab(Tabs.tags)}>
+                  Tags
+                </a>
+              </li>
+              <li
+                className={cx({
+                  [styles.current]: tab === Tabs.invitations,
+                })}
+              >
+                <a href="#invitations" onClick={() => setTab(Tabs.invitations)}>
+                  Invitations
+                </a>
+              </li>
+              <li
+                className={cx({
+                  [styles.current]: tab === Tabs.admins,
+                })}
+              >
+                <a href="#admins" onClick={() => setTab(Tabs.admins)}>
+                  Admins
+                </a>
+              </li>
+              <li
+                className={cx({
+                  [styles.current]: tab === Tabs.members,
+                })}
+              >
+                <a href="#members" onClick={() => setTab(Tabs.members)}>
+                  Members
+                </a>
+              </li>
+              <li
+                className={cx({
+                  [styles.current]: tab === Tabs.delete,
+                })}
+              >
+                <a href="#delete" onClick={() => setTab(Tabs.delete)}>
+                  Delete Group
+                </a>
+              </li>
+            </ul>
+            <div className={styles.content}>
+              {tab === Tabs.general && (
+                <BasicSettings
+                  slug={group.group?.slug || ''}
+                  name={group.group?.name || ''}
+                  description={group.group?.description || ''}
+                  visibility={group.group?.visibility || GroupVisibility.public}
+                  type={group.group?.type || GroupType.public}
+                />
+              )}
+              {tab === Tabs.tags && (
+                <TagsSettings
+                  id={group.group?.id || ''}
+                  tags={group.group?.tags || []}
+                />
+              )}
+              {tab === Tabs.delete && (
+                <GroupDeleteGroup
+                  additionalStyles={styles.btn}
+                  onConfirm={() => null}
+                />
+              )}
+              {tab === Tabs.images && (
+                <ImagesSettings avatar={group.group?.avatar} />
+              )}
+              {tab === Tabs.admins && (
+                <AdminsSettings group={group.group as IGroup} />
+              )}
+              {tab === Tabs.members && (
+                <MembersSettings group={group.group as IGroup} />
+              )}
+              {tab === Tabs.invitations && (
+                <InvitationsSettings group={group.group as IGroup} />
+              )}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import styles from './styles.scss'
 import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
@@ -28,23 +29,16 @@ import { PostDetails } from 'components/post/PostDetails'
 import { PromotedTags } from 'components/group/PromotedTags'
 import { Favs } from 'components/post/Favs'
 // ui
+import { Button } from '@gtms/ui/Button'
 import { ErrorInfo } from '@gtms/ui/ErrorInfo'
-import { NavigationPage } from '@gtms/ui/NavigationPage'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
+import { Picture } from '@gtms/ui/Picture'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PromotedGroups } from '@gtms/ui/PromotedGroups'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
-import { Spinner } from '@gtms/ui/Spinner'
 import { SearchBar } from '@gtms/ui/SearchBar'
+import { Spinner } from '@gtms/ui/Spinner'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
-import { Button } from '@gtms/ui/Button'
-import {
-  IoIosHeart,
-  IoIosGitNetwork,
-  IoIosListBox,
-  IoIosSettings,
-} from 'react-icons/io'
-
 // state
 import { openLoginModal } from 'state'
 import {
@@ -74,8 +68,6 @@ import {
   IPostCommentsState,
   initPostCommentsStore,
 } from '@gtms/state-comment'
-//styles
-import styles from './styles.scss'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
@@ -184,19 +176,21 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
         {state.group && (
           <>
-            <div className={styles.groupNavigationWrapper}>
-              <div className={styles.groupHeader}>
-                <div className={styles.avatarAndName}>
-                  <GroupAvatar
-                    additionalStyles={styles.groupAvatar}
-                    files={groupQuery.getAvatar('200x200', state)}
-                    filesStatus={groupQuery.getAvatarFileStatus()}
-                    isEditAllowed={groupQuery.hasAdminRights()}
-                  />
-                  <h2 data-tip={t('click-here-to-edit')} data-type="dark">
-                    {state.group?.name}
-                  </h2>
-                </div>
+            <div className={styles.groupHeader}>
+              <GroupAvatar
+                additionalStyles={styles.groupAvatar}
+                files={groupQuery.getAvatar('200x200', state)}
+                filesStatus={groupQuery.getAvatarFileStatus()}
+                isEditAllowed={groupQuery.hasAdminRights()}
+              />
+              <div className={styles.descWrapper}>
+                <h2
+                  className={styles.header}
+                  data-tip={t('click-here-to-edit')}
+                  data-type="dark"
+                >
+                  {state.group?.name}
+                </h2>
                 <GroupDescription
                   additionalStyles={styles.desc}
                   isEditAllowed={groupQuery.hasAdminRights()}
@@ -216,7 +210,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <SettingsButton group={state.group} />
                 <FollowButton group={state.group} />
               </div>
-              <NavigationPage />
             </div>
             <div className={styles.groupPostsListWrapper}>
               <WelcomeSlider />
@@ -224,8 +217,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <div className={styles.search}>
                   <Button
                     onClick={() => setShowPromoted((value) => !value)}
-                    additionalStyles={cx(styles.tagsButton, {
-                      [styles.tagsButtonActive]: showPromoted,
+                    additionalStyles={cx(styles.btnTags, {
+                      [styles.active]: showPromoted,
                     })}
                   >
                     Tags
@@ -260,12 +253,10 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     onLoginRequest={openLoginModal}
                   />
                   <NavigationTabs>
-                    <h2 className={styles.header}>Latest</h2>
+                    <h2 className={styles.header}>Posts</h2>
                     <ul className={styles.elements}>
+                      <li className={cx(styles.item, styles.active)}>latest</li>
                       <li className={styles.item}>popular</li>
-                      <li className={styles.item}>latest</li>
-                      <li className={styles.item}>favorites </li>
-                      <li className={styles.item}>my posts</li>
                     </ul>
                   </NavigationTabs>
                   <RecentlyAddedPosts
@@ -284,29 +275,17 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     activeTags={state.activeTags || []}
                   />
                 </div>
-                <div className={styles.third}>
-                  <ul className={styles.buttons}>
-                    <li>
-                      <i>
-                        <IoIosGitNetwork />
-                      </i>
-                    </li>
-                    <li>
-                      <i>
-                        <IoIosListBox />
-                      </i>
-                    </li>
-                    <li>
-                      <i>
-                        <IoIosHeart />
-                      </i>
-                    </li>
-                    <li>
-                      <i>
-                        <IoIosSettings />
-                      </i>
-                    </li>
-                  </ul>
+                <div>
+                  {!state.activePost && (
+                    <div className={styles.noPostPicture}>
+                      <Picture
+                        jpg={
+                          '/images/white-theme/icon-click-post-and-read-full-content.png'
+                        }
+                      />
+                      <span>Click post and read full content here </span>
+                    </div>
+                  )}
                   {state.activePost && (
                     <PostDetails
                       comments={state.comments}

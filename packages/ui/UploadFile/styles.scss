@@ -9,7 +9,7 @@
     justify-content: center;
     width: 300px;
     height: 300px;
-    border: 2px dotted $theme3;
+    border: 2px dotted $theme9;
     padding: 20px;
     cursor: pointer;
     text-align: center;
@@ -30,11 +30,11 @@
     }
 
     &:hover {
-      color: $theme5;
-      border-color: $theme5;
+      color: $theme4;
+      border-color: $theme4;
 
       i {
-        color: $theme5;
+        color: $theme4;
       }
     }
   }

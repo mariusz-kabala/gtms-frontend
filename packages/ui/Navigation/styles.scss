@@ -27,22 +27,26 @@
         position: relative;
         margin-bottom: 10px;
         border-radius: $borderRadius1;
-        background: $theme4;
+        background: rgba($theme4, 0.2);
+        padding: 2px;
 
         a {
           position: relative;
           display: block;
-          padding: 11px;
+          padding: 9px;
           text-decoration: none;
-          color: $theme0;
+          color: $theme4;
 
           i {
             line-height: 0;
             display: block;
+            font-size: 17px;
           }
         }
 
         &:hover {
+          background: $theme4;
+
           a {
             color: $theme0;
           }

@@ -105,66 +105,61 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
   }, [])
 
   return (
-    <div className={styles.wrapper} data-testid="account-page">
-      {state.isLoading && <Spinner additionalStyles={styles.spinner} />}
-      {!state.isLoading && state.errorOccured && (
-        <p>{t('Can not fetch account details right now, try later')}</p>
-      )}
-      {!state.isLoading && !state.errorOccured && (
-        <div className={styles.content}>
-          <ImageEditor
-            isVisible={isAvatarEditorVisible}
-            onSave={(file: File) => {
-              updateAccountAvatar(file)
-              setIsAvatarEditorVisible(false)
-            }}
-            onClose={() => setIsAvatarEditorVisible(false)}
-          />
-          <div className={styles.avatarWrapper}>
-            <a onClick={() => setIsAvatarEditorVisible(true)}>
-              {[FileStatus.uploaded, FileStatus.processing].includes(
-                state.avatar.status
-              ) && <Spinner />}
-              <Picture
-                additionalStyles={styles.avatar}
-                {...(userQuery.hasAvatar('200x200')
-                  ? userQuery.getAvatar('200x200')
-                  : UserAvatarNoImage['200x200'])}
+    <div className={styles.pageWrapper} data-testid="account-page">
+      <div className={styles.wrapper}>
+        {state.isLoading && <Spinner additionalStyles={styles.spinner} />}
+        {!state.isLoading && state.errorOccured && (
+          <p>{t('Can not fetch account details right now, try later')}</p>
+        )}
+        {!state.isLoading && !state.errorOccured && (
+          <div className={styles.content}>
+            <div className={styles.userHeader}>
+              <ImageEditor
+                isVisible={isAvatarEditorVisible}
+                onSave={(file: File) => {
+                  updateAccountAvatar(file)
+                  setIsAvatarEditorVisible(false)
+                }}
+                onClose={() => setIsAvatarEditorVisible(false)}
               />
-            </a>
+              <div className={styles.avatarWrapper}>
+                <a onClick={() => setIsAvatarEditorVisible(true)}>
+                  {[FileStatus.uploaded, FileStatus.processing].includes(
+                    state.avatar.status
+                  ) && <Spinner />}
+                  <Picture
+                    additionalStyles={styles.avatar}
+                    {...(userQuery.hasAvatar('200x200')
+                      ? userQuery.getAvatar('200x200')
+                      : UserAvatarNoImage['200x200'])}
+                  />
+                </a>
+              </div>
+              <UserName
+                additionalStyles={styles.userName}
+                name={state.name}
+                surname={state.surname}
+              />
+              <UserDescription description={state.description} />
+            </div>
+            <TagsBar
+              tags={tags}
+              isSaving={isSaving}
+              isLoading={tagsHints.isLoading}
+              suggestions={tagsHints.tags}
+              onLoadSuggestion={onLoadTagsHints}
+              onLoadSuggestionCancel={() => null}
+              onTagAdd={onTagAdd}
+              onTagRemove={onTagRemove}
+              onSave={onTagsSave}
+            />
+            <ChangePassword />
+            <UserEmail email={state.email} additionalStyles={styles.userName} />
+            <DeleteAccount onConfirm={() => null} />
+            <NotificationsSettings />
           </div>
-          <UserName
-            additionalStyles={styles.userName}
-            name={state.name}
-            surname={state.surname}
-          />
-          <br />
-          <UserDescription description={state.description} />
-          <br />
-          <TagsBar
-            tags={tags}
-            isSaving={isSaving}
-            isLoading={tagsHints.isLoading}
-            suggestions={tagsHints.tags}
-            onLoadSuggestion={onLoadTagsHints}
-            onLoadSuggestionCancel={() => null}
-            onTagAdd={onTagAdd}
-            onTagRemove={onTagRemove}
-            onSave={onTagsSave}
-          />
-          <br />
-          <ChangePassword />
-          <br />
-          <UserEmail email={state.email} additionalStyles={styles.userName} />
-          <br />
-          <DeleteAccount
-            additionalStyles={styles.deleteAccount}
-            onConfirm={() => null}
-          />
-          <br />
-          <NotificationsSettings />
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }

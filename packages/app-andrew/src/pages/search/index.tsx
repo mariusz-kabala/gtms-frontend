@@ -8,17 +8,19 @@ export const SearchPage: NextPage<{}> = () => {
   const { t } = useTranslation('searchPage')
 
   return (
-    <div className={styles.wrapper} data-testid="search-page">
-      {t('searchTempHeader')}
-      <div className={styles.searchBarWrapper}>
-        <SearchBar
-          onTagAdd={() => null}
-          onTagRemove={() => null}
-          onLoadSuggestion={() => null}
-          onQueryChange={() => null}
-          onLoadSuggestionCancel={() => null}
-          tags={['lorem', 'ipsum', 'punkciki', 'hello']}
-        />
+    <div className={styles.pageWrapper} data-testid="search-page">
+      <div className={styles.wrapper}>
+        {t('searchTempHeader')}
+        <div className={styles.searchBarWrapper}>
+          <SearchBar
+            onTagAdd={() => null}
+            onTagRemove={() => null}
+            onLoadSuggestion={() => null}
+            onQueryChange={() => null}
+            onLoadSuggestionCancel={() => null}
+            tags={['lorem', 'ipsum', 'punkciki', 'hello']}
+          />
+        </div>
       </div>
     </div>
   )

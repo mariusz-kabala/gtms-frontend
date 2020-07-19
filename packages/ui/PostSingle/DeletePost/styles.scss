@@ -10,10 +10,10 @@
   @include buttonShapePrimary();
   @include buttonSizeSm();
   @include buttonWithIcon();
-  @include buttonColorsPrimary();
+  @include buttonColorsDefault();
 
   &:hover {
-    @include buttonColorsSecondary();
+    @include buttonColorsPrimary();
   }
 }
 
@@ -45,12 +45,13 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonSizeDefault();
     @include buttonShapePrimary();
     @include buttonWithIcon();
     @include buttonColorsDefault();
 
     &:hover {
-      @include buttonColorsSecondary();
+      @include buttonColorsPrimary();
     }
 
     i {

@@ -1,4 +1,5 @@
 import React, { FC, useRef, useEffect, useState, useCallback } from 'react'
+import styles from './styles.scss'
 import cx from 'classnames'
 // commons
 import { useTranslation } from '@gtms/commons/i18n'
@@ -15,7 +16,6 @@ import { Spinner } from '../Spinner'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { IoMdSend } from 'react-icons/io'
-import styles from './styles.scss'
 
 export const PostCreate: FC<{
   additionalStyles?: string

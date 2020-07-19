@@ -1,11 +1,14 @@
 @import '@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/buttons';
 
 .wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
+  border-radius: $borderRadius1;
+  overflow: hidden;
 
   .inputWrapper {
     display: flex;
@@ -21,7 +24,7 @@
       border: none;
       font-size: 14px;
       background: none;
-      border-bottom: 2px solid $theme7;
+      border-bottom: 2px solid $theme9;
 
       &:active,
       &:focus,
@@ -31,12 +34,14 @@
     }
 
     button[type='submit'] {
-      flex: 1;
-      background-color: $theme3;
-      cursor: pointer;
-      padding: 5px 10px;
-      margin-bottom: 10px;
-      @include font-size(md);
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapePrimary();
+      @include buttonColorsDefault();
+
+      &:hover {
+        @include buttonColorsPrimary();
+      }
     }
 
     .spinner {

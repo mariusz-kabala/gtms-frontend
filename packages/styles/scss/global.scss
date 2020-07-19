@@ -18,6 +18,7 @@ textarea,
 button {
   font-family: $defaultFontFamily;
   color: $theme7;
+  padding: 0;
 }
 
 body {
@@ -47,6 +48,8 @@ img {
   max-width: 100%;
 }
 
-button {
+button,
+a {
   @include font-size(default);
+  font-weight: 400;
 }

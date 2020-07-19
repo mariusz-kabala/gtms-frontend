@@ -1,5 +1,13 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+
+.pageWrapper {
+  @include pageWrapper();
+  max-width: 600px;
+  margin-left: 0;
+}
 
 .wrapper {
   display: flex;
@@ -10,46 +18,38 @@
     margin: auto;
   }
 
-  .avatarWrapper {
+  .userHeader {
     display: flex;
+    align-items: center;
 
-    .avatar {
-      cursor: pointer;
+    .avatarWrapper {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      .avatar {
+        cursor: pointer;
+      }
     }
-  }
 
-  .desc {
-    margin-top: 10px;
+    .userName {
+      @include font-size(xlg);
+      font-weight: 500;
+      margin-left: 10px;
+
+      &:hover {
+        div > span {
+          color: $theme4;
+        }
+      }
+    }
+
+    .desc {
+    }
   }
 
   .userTags {
     margin-top: 10px;
-  }
-
-  .userName {
-    @include font-size(md);
-
-    &:hover {
-      div > span {
-        color: $theme5;
-      }
-    }
-  }
-
-  .visibleForOwner {
-    margin-left: 20px;
-    padding-left: 20px;
-
-    > div {
-      margin-bottom: 20px;
-    }
-  }
-
-  .deleteAccount {
-    &:hover {
-      > button {
-        color: $theme5;
-      }
-    }
   }
 }

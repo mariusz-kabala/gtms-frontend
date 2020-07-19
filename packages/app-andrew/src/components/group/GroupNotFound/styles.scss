@@ -16,11 +16,12 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonSizeDefault();
     @include buttonShapePrimary();
     @include buttonColorsDefault();
 
     &:hover {
-      @include buttonColorsSecondary();
+      @include buttonColorsPrimary();
     }
   }
 }

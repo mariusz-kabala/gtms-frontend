@@ -24,10 +24,12 @@ export const GroupsList: FC<{
     <div className={cx(styles.wrapper, additionalStyles)}>
       {groups.length === 0 && noRecords}
       {groups.length > 0 && (
-        <ul>
+        <ul className={styles.list}>
           {groups.map((group) => (
             <li key={`owner-${group.id}`}>
-              <i onClick={() => onFavsClick(group)}>{renderFavsIcon(group)}</i>
+              <i className={styles.likeIcon} onClick={() => onFavsClick(group)}>
+                {renderFavsIcon(group)}
+              </i>
               <Link href={`/group/${group.slug}`}>
                 <a>
                   {group.avatar &&
@@ -37,7 +39,9 @@ export const GroupsList: FC<{
                   ) : (
                     <img src="http://via.placeholder.com/200x200" />
                   )}
-                  <p>{group.name}</p>
+                  <div className={styles.groupName}>
+                    <h2>{group.name}</h2>
+                  </div>
                 </a>
               </Link>
               {renderGroupMenu(group)}

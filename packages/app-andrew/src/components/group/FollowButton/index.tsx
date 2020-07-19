@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
+import styles from './styles.scss'
 import { IGroup } from '@gtms/commons/models'
 import {
   followButtonState,
@@ -34,7 +35,7 @@ export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
   }
 
   return (
-    <div data-testid="follow-button">
+    <div className={styles.wrapper} data-testid="follow-button">
       <label>
         <span>Follow</span>
         <SwitchWrapper

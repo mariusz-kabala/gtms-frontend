@@ -31,13 +31,14 @@
 
 .btn {
   @include buttonDefault();
+  @include buttonSizeDefault();
   @include buttonShapePrimary();
   @include buttonColorsDefault();
   max-width: 200px;
   margin-right: 20px;
 
   &:hover {
-    @include buttonColorsSecondary();
+    @include buttonColorsPrimary();
   }
 }
 

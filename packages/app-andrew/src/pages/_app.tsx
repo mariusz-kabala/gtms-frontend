@@ -46,22 +46,20 @@ class GTMSApp extends App<GTMSAppProps> {
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <NotificationsSidebar />
-        <div className={styles.tempNav}>
-          <Navigation />
-          <NavigationDots />
-        </div>
-        <div className={styles.wrapperPage}>
-          <NotificationsActive />
-          <div className={styles.pageContent}>
-            <Component {...pageProps} />
+        <NotificationsActive />
+        <LoginWindow />
+        <div className={styles.sidebar}>
+          <NotificationsSidebar />
+          <div className={styles.nav}>
+            <Navigation />
+            <NavigationDots />
           </div>
         </div>
-        <LoginWindow />
+        <Component {...pageProps} />
         <div
           className={styles.bg}
           style={{
-            backgroundImage: `url('/images/temp_images/group_bg.png')`,
+            backgroundImage: `url('/images/temp_images/group_bg_4.png')`,
           }}
         />
       </div>

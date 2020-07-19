@@ -4,8 +4,13 @@
 
 .btnDeleteAccount {
   @include buttonDefault();
+  @include buttonSizeDefault();
   @include buttonShapePrimary();
   @include buttonColorsDefault();
+
+  &:hover {
+    @include buttonColorsPrimary();
+  }
 }
 
 .modalContent {
@@ -32,19 +37,30 @@
     }
 
     .buttons {
-      display: grid;
-      gap: 15px;
+      display: flex;
+      justify-content: center;
       margin-top: 20px;
       grid-template-columns: 1fr 1fr;
 
       > * {
+        margin-right: 15px;
         @include buttonDefault();
         @include buttonSizeDefault();
-        @include buttonShapeTertiary();
+        @include buttonShapePrimary();
         @include buttonColorsDefault();
 
         &:hover {
-          @include buttonColorsSecondary();
+          @include buttonColorsPrimary();
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .yes {
+        &:hover {
+          background: red;
         }
       }
     }

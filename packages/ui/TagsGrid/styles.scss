@@ -1,0 +1,113 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/imageCover';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .items {
+    // @todo make mixin of that
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    .item {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: $borderRadius1;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 4px solid $theme4;
+        background: rgba($theme4, 0.2);
+        border-radius: $borderRadius1;
+        opacity: 0;
+      }
+
+      &:hover {
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      .image {
+        @include imageCover();
+        width: 100%;
+        height: 250px;
+        box-shadow: inset 0px -70px 81px -30px rgba(0, 0, 0, 0.75);
+      }
+
+      .desc {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        margin: 10px;
+        color: $theme0;
+
+        h3 {
+          font-size: 18px;
+          @include font-weight(semiBold);
+        }
+      }
+    }
+
+    .more {
+      border-radius: $borderRadius1;
+      overflow: hidden;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border: 4px solid $theme9;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        color: $theme0;
+        background: $theme9;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: $theme4;
+
+        a {
+          background: $theme4;
+          border-color: $theme4;
+          color: $theme0;
+        }
+      }
+    }
+  }
+
+  .btnWrapper {
+    text-align: center;
+    margin: 20px auto;
+
+    .btn {
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapePrimary();
+      @include buttonColorsTertiary();
+
+      &:hover {
+        @include buttonColorsPrimary();
+      }
+    }
+  }
+}

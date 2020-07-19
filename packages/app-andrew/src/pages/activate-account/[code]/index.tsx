@@ -25,18 +25,20 @@ export const ActivateAccountPage: NextPage<{}> = () => {
   }, [code])
 
   return (
-    <div className={styles.wrapper} data-testid="activate-account-page">
-      {isLoading && <Spinner />}
-      {!isLoading && !hasError && (
-        <h2 data-testid="activate-account-page-confirmation">
-          {t('accountActivated')}
-        </h2>
-      )}
-      {!isLoading && hasError && (
-        <h2 data-testid="activate-account-page-activation-failed">
-          {t('activationFailed')}
-        </h2>
-      )}
+    <div className={styles.pageWrapper} data-testid="activate-account-page">
+      <div className={styles.wrapper}>
+        {isLoading && <Spinner />}
+        {!isLoading && !hasError && (
+          <h2 data-testid="activate-account-page-confirmation">
+            {t('accountActivated')}
+          </h2>
+        )}
+        {!isLoading && hasError && (
+          <h2 data-testid="activate-account-page-activation-failed">
+            {t('activationFailed')}
+          </h2>
+        )}
+      </div>
     </div>
   )
 }

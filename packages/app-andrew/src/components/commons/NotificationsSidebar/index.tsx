@@ -54,12 +54,17 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      <h2>
-        Powiadomienia
-        {/* @todo add translation here */}
-        <span>(nowe: {state.unreadCount})</span>
+      <div className={styles.navigation}>
         <CloseIcon onClick={closeSidebarNotifications} />
-      </h2>
+        <h2>
+          Notofications {state.unreadCount && `(${state.unreadCount})`}
+          {/* @todo add translation here */}
+        </h2>
+        <ul>
+          <li>Latest</li>
+          <li>By groups</li>
+        </ul>
+      </div>
       <ul>
         {state.notifications.map((notification: INotificationRecord) => {
           switch (notification.type) {

@@ -7,27 +7,35 @@
   align-items: baseline;
   justify-content: baseline;
   margin-bottom: 10px;
+  @include font-size(md);
+  color: $theme7;
 
   h2 {
-    @include font-size(xmd);
-    @include font-weight(semiBold);
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
   ul {
     display: flex;
-    display: none; // @todo remove it
     margin-left: 15px;
 
     li {
       margin-right: 10px;
-      @include font-size(xMd);
-      @include font-weight(semiBold);
+      font-weight: 200;
       cursor: pointer;
-      text-transform: uppercase;
       line-height: 0.7;
+      padding: 10px;
+      border-radius: $borderRadius1;
+      background: $theme0;
 
       &:hover {
-        color: $theme5;
+        color: $theme0;
+        background: $theme4;
+      }
+
+      &.active {
+        background: $theme4;
+        color: $theme0;
       }
     }
   }

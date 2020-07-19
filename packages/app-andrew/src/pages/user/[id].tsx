@@ -25,7 +25,7 @@ const UserPage: NextPage<UserPageProps> = ({ initialState }) => {
   }, [])
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.pageWrapper}>
       <Profile user={state} />
       <FollowButton user={state} />
       <Groups
