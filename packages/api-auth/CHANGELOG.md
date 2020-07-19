@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.11.3...@gtms/api-auth@0.11.4) (2020-07-19)
+
+
+### Bug Fixes
+
+* GEOT-342: allow to type username during registration ([#745](https://github.com/gtms-org/gtms-frontend/issues/745)) ([9dfcffe](https://github.com/gtms-org/gtms-frontend/commit/9dfcffed75449a73712a5b470b06803f464927f3))
+
+
+
+
+
 ## [0.11.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.11.2...@gtms/api-auth@0.11.3) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/api-auth

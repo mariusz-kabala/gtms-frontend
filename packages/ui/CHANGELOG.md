@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.35.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.35.0...@gtms/ui@0.35.1) (2020-07-19)
+
+
+### Bug Fixes
+
+* GEOT-342: allow to type username during registration ([#745](https://github.com/gtms-org/gtms-frontend/issues/745)) ([9dfcffe](https://github.com/gtms-org/gtms-frontend/commit/9dfcffed75449a73712a5b470b06803f464927f3))
+
+
+
+
+
 # [0.35.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.34.0...@gtms/ui@0.35.0) (2020-07-16)
 
 
