@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.11.4...@gtms/api-auth@0.12.0) (2020-07-19)
+
+
+### Features
+
+* GEOT-343: autocomplete users ([#746](https://github.com/gtms-org/gtms-frontend/issues/746)) ([37a52ef](https://github.com/gtms-org/gtms-frontend/commit/37a52efc57223907ccbd0f0a946cf9a7f501f195))
+
+
+
+
+
 ## [0.11.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.11.3...@gtms/api-auth@0.11.4) (2020-07-19)
 
 

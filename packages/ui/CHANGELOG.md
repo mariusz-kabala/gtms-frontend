@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.36.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.35.1...@gtms/ui@0.36.0) (2020-07-19)
+
+
+### Features
+
+* GEOT-343: autocomplete users ([#746](https://github.com/gtms-org/gtms-frontend/issues/746)) ([37a52ef](https://github.com/gtms-org/gtms-frontend/commit/37a52efc57223907ccbd0f0a946cf9a7f501f195))
+
+
+
+
+
 ## [0.35.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.35.0...@gtms/ui@0.35.1) (2020-07-19)
 
 
