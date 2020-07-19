@@ -4,10 +4,10 @@ import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { useDebounce } from '@gtms/commons/hooks/useDebounce'
 import { useExpandingArea } from '@gtms/commons/hooks/expandingArea'
-import { getImage } from '@gtms/commons/helpers'
+import { getImage, getDisplayName } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
 import { Link } from '@gtms/commons/i18n'
-import { IAccountDetails } from '@gtms/commons/models'
+import { IAccountDetails, IUser } from '@gtms/commons/models'
 // ui
 import { Button } from '../Button'
 import { UserAvatar } from '../UserAvatar'
@@ -21,6 +21,7 @@ export const PostCreate: FC<{
   additionalStyles?: string
   onSubmit: (text: string) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
+  fetchUsers: (query: string, signal: AbortSignal) => Promise<string[]>
   fetchSuggestedTags?: (tags: string[]) => Promise<string[]>
   isLoading?: boolean
   hintMinLenght?: number
@@ -33,6 +34,7 @@ export const PostCreate: FC<{
   user,
   noImage,
   fetchTags,
+  fetchUsers,
   fetchSuggestedTags,
   onLoginRequest,
   isLoading = false,
@@ -40,7 +42,10 @@ export const PostCreate: FC<{
 }) => {
   const { t } = useTranslation('postCreate')
   const [value, setValue] = useState<string>('')
-  const [query, setQuery] = useState<string>('')
+  const [query, setQuery] = useState<{ type: 'tag' | 'user'; value: string }>({
+    value: '',
+    type: 'tag',
+  })
   const [suggestedTags, setSuggestedTags] = useState<{
     isLoading: boolean
     tags: string[]
@@ -48,12 +53,12 @@ export const PostCreate: FC<{
     isLoading: false,
     tags: [],
   })
-  const debouncedQuery = useDebounce(query, 100)
+  const debouncedQuery = useDebounce(query.value, 100)
   const { ref, handleInput } = useExpandingArea(1)
   const tagsSuggestionsAbortController = useRef<AbortController>()
   const [tagsHints, setTagsHints] = useState<{
     isLoading: boolean
-    tags: string[]
+    tags: string[] | IUser[]
   }>({
     isLoading: false,
     tags: [],
@@ -119,7 +124,7 @@ export const PostCreate: FC<{
   }, [suggestedTags])
 
   const onLoadSuggestion = useCallback(
-    (query: string) => {
+    (queryToFind: string) => {
       setTagsHints({
         isLoading: true,
         tags: [],
@@ -130,7 +135,9 @@ export const PostCreate: FC<{
 
       tagsSuggestionsAbortController.current = controller
 
-      fetchTags(query, signal)
+      const method = query.type === 'user' ? fetchUsers : fetchTags
+
+      method(queryToFind, signal)
         .then((tags: string[]) => {
           setTagsHints({
             isLoading: false,
@@ -144,7 +151,7 @@ export const PostCreate: FC<{
           })
         })
     },
-    [tagsSuggestionsAbortController]
+    [tagsSuggestionsAbortController, query]
   )
 
   const onLoadSuggestionCancel = useCallback(() => {
@@ -194,10 +201,14 @@ export const PostCreate: FC<{
             ) {
               e.preventDefault()
               const pat = new RegExp(
-                '(\\b' + query + '\\b)(?!.*\\b\\1\\b)',
+                '(\\b' + query.value + '\\b)(?!.*\\b\\1\\b)',
                 'i'
               )
-              setValue(value.replace(pat, `${tagsHints.tags[0]}`))
+              const replaced =
+                query.type === 'tag'
+                  ? `${tagsHints.tags[0]}`
+                  : `${(tagsHints.tags[0] as IUser).username}`
+              setValue(value.replace(pat, replaced))
               setTagsHints({
                 isLoading: false,
                 tags: [],
@@ -223,7 +234,7 @@ export const PostCreate: FC<{
               suggestionsTimeout.current = setTimeout(loadSuggestedTags, 750)
             }
 
-            const tags = event.target.value.match(/#(\w+)\b/gi)
+            const tags = event.target.value.match(/[#@](\w+)\b/gi)
             if (!Array.isArray(tags)) {
               return
             }
@@ -231,7 +242,10 @@ export const PostCreate: FC<{
             const lastTag = tags[tags.length - 1]
 
             if (event.target.value.substr(-lastTag.length) === lastTag) {
-              setQuery(lastTag.substr(1))
+              setQuery({
+                type: lastTag.charAt(0) === '@' ? 'user' : 'tag',
+                value: lastTag.substr(1),
+              })
             }
           }}
           rows={1}
@@ -260,14 +274,14 @@ export const PostCreate: FC<{
           </i>
         </Button>
       </div>
-      {tagsHints.tags.length > 0 && (
+      {tagsHints.tags.length > 0 && query.type === 'tag' && (
         <div className={styles.suggestions}>
           <ul>
-            {tagsHints.tags.map((tag) => (
+            {tagsHints.tags.map((tag: string) => (
               <li
                 onClick={() => {
                   const pat = new RegExp(
-                    '(\\b' + query + '\\b)(?!.*\\b\\1\\b)',
+                    '(\\b' + query.value + '\\b)(?!.*\\b\\1\\b)',
                     'i'
                   )
                   setValue(value.replace(pat, `${tag}`))
@@ -280,6 +294,31 @@ export const PostCreate: FC<{
                 key={`suggested-${tag}`}
               >
                 #{tag}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {tagsHints.tags.length > 0 && query.type === 'user' && (
+        <div className={styles.suggestions}>
+          <ul>
+            {tagsHints.tags.map((tag: IUser) => (
+              <li
+                onClick={() => {
+                  const pat = new RegExp(
+                    '(\\b' + query.value + '\\b)(?!.*\\b\\1\\b)',
+                    'i'
+                  )
+                  setValue(value.replace(pat, `${tag.username}`))
+                  setTagsHints({
+                    isLoading: false,
+                    tags: [],
+                  })
+                  ref.current?.focus()
+                }}
+                key={`suggested-${tag}`}
+              >
+                {getDisplayName(tag)}
               </li>
             ))}
           </ul>
