@@ -1,5 +1,6 @@
 import React, { FC, useRef, useState, useEffect } from 'react'
 import { findTagsAPI } from '@gtms/api-tags'
+import { findbyUsernameAPI } from '@gtms/api-auth'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
 import { Spinner } from '@gtms/ui/Spinner'
 import { PostCreate } from '@gtms/ui/PostCreate'
@@ -100,6 +101,7 @@ export const PostCommentsList: FC<{
             })
           }}
           fetchTags={findTagsAPI}
+          fetchUsers={findbyUsernameAPI}
           user={user}
           noImage={UserAvatarNoImage}
           onLoginRequest={openLoginModal}

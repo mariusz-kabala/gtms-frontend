@@ -272,6 +272,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   </NavigationTabs>
                   <RecentlyAddedPosts
                     fetchTags={findTagsAPI}
+                    fetchUsers={findbyUsernameAPI}
                     onPostClick={onPostClick}
                     onTagClick={(tag) => {
                       router.push(`/group/${state.group?.slug}/tag/${tag}`)

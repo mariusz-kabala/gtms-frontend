@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { IPost, IAccountDetails, IComment } from '@gtms/commons/models'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { findTagsAPI } from '@gtms/api-tags'
+import { findbyUsernameAPI } from '@gtms/api-auth'
 import { UserAvatarNoImage } from 'enums'
 import { createNewComment } from '@gtms/state-post'
 import { PostCommentsList } from '../../comments/PostCommentsList'
@@ -25,6 +26,7 @@ export const PostDetails: FC<{
         createComment={createNewComment}
         allowToRespond={false}
         fetchTags={findTagsAPI}
+        fetchUsers={findbyUsernameAPI}
         user={user}
         id={post.id}
         text={post.text}

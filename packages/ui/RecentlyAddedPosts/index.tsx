@@ -17,6 +17,7 @@ export const RecentlyAddedPosts: FC<{
   user: IAccountDetails | null
   createComment: (payload: { post: string; text: string }) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
+  fetchUsers: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: IImage }
   onLoginRequest?: () => unknown
   renderFavs?: (favs: string[], id: string) => JSX.Element
@@ -27,6 +28,7 @@ export const RecentlyAddedPosts: FC<{
   noImage,
   user,
   fetchTags,
+  fetchUsers,
   createComment,
   onPostClick,
   onTagClick,
@@ -48,6 +50,7 @@ export const RecentlyAddedPosts: FC<{
           onClick={onPostClick}
           onTagClick={onTagClick}
           fetchTags={fetchTags}
+          fetchUsers={fetchUsers}
           createComment={createComment}
           user={user}
           additionalStyles={cx(styles.post, {

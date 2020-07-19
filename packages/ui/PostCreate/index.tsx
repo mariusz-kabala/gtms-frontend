@@ -277,7 +277,7 @@ export const PostCreate: FC<{
       {tagsHints.tags.length > 0 && query.type === 'tag' && (
         <div className={styles.suggestions}>
           <ul>
-            {tagsHints.tags.map((tag: string) => (
+            {(tagsHints.tags as string[]).map((tag: string) => (
               <li
                 onClick={() => {
                   const pat = new RegExp(
@@ -302,7 +302,7 @@ export const PostCreate: FC<{
       {tagsHints.tags.length > 0 && query.type === 'user' && (
         <div className={styles.suggestions}>
           <ul>
-            {tagsHints.tags.map((tag: IUser) => (
+            {(tagsHints.tags as IUser[]).map((tag: IUser) => (
               <li
                 onClick={() => {
                   const pat = new RegExp(
@@ -316,7 +316,7 @@ export const PostCreate: FC<{
                   })
                   ref.current?.focus()
                 }}
-                key={`suggested-${tag}`}
+                key={`suggested-user-${tag.id}`}
               >
                 {getDisplayName(tag)}
               </li>
