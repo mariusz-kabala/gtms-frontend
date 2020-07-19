@@ -4,6 +4,7 @@ import { createNewComment } from '@gtms/state-comment'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { findTagsAPI } from '@gtms/api-tags'
+import { findbyUsernameAPI } from '@gtms/api-auth'
 import { UserAvatarNoImage } from 'enums'
 import styles from './styles.scss'
 
@@ -61,6 +62,7 @@ export const SubCommentsList: FC<{
               })
             }}
             fetchTags={findTagsAPI}
+            fetchUsers={findbyUsernameAPI}
             user={user}
             noImage={UserAvatarNoImage}
           />

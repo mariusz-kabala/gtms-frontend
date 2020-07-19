@@ -14,6 +14,7 @@ import { IPost } from '@gtms/commons/models'
 // api
 import { fetchPost } from '@gtms/api-post'
 import { findTagsAPI, fetchSuggestedTagsAPI } from '@gtms/api-tags'
+import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
 import { FavsButton } from 'components/group/FavsButton'
 import { FollowButton } from 'components/group/FollowButton'
@@ -247,6 +248,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <div>
                   <PostCreate
                     fetchTags={findTagsAPI}
+                    fetchUsers={findbyUsernameAPI}
                     fetchSuggestedTags={fetchSuggestedTagsAPI}
                     user={state.user}
                     noImage={UserAvatarNoImage}
@@ -270,6 +272,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   </NavigationTabs>
                   <RecentlyAddedPosts
                     fetchTags={findTagsAPI}
+                    fetchUsers={findbyUsernameAPI}
                     onPostClick={onPostClick}
                     onTagClick={(tag) => {
                       router.push(`/group/${state.group?.slug}/tag/${tag}`)

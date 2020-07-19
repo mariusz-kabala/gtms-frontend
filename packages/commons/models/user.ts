@@ -14,6 +14,7 @@ export interface IUserAvatar {
 
 export interface IUser {
   id: string
+  username: string
   name?: string
   surname?: string
   phone?: string
