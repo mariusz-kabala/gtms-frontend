@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.26.0...@gtms/commons@0.27.0) (2020-07-20)
+
+
+### Features
+
+* GEOT-348 add account security page ([#749](https://github.com/gtms-org/gtms-frontend/issues/749)) ([c9dbc11](https://github.com/gtms-org/gtms-frontend/commit/c9dbc115e59eb2ffc0362d45cf6f2e0d4d28fdaf))
+
+
+
+
+
 # [0.26.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.25.0...@gtms/commons@0.26.0) (2020-07-19)
 
 
