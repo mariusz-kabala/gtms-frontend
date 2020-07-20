@@ -1,6 +1,7 @@
 import React, { FC, useRef, useState, useEffect } from 'react'
 import styles from './styles.scss'
 import { findTagsAPI } from '@gtms/api-tags'
+import { findbyUsernameAPI } from '@gtms/api-auth'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { IComment, IUser, IAccountDetails } from '@gtms/commons/models'
@@ -100,6 +101,7 @@ export const PostCommentsList: FC<{
             })
           }}
           fetchTags={findTagsAPI}
+          fetchUsers={findbyUsernameAPI}
           user={user}
           noImage={UserAvatarNoImage}
           onLoginRequest={openLoginModal}

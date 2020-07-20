@@ -10,3 +10,13 @@
     @include buttonColorsPrimary();
   }
 }
+
+.usernameWrapper {
+  position: relative;
+}
+
+.spinner {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

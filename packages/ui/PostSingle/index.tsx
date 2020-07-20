@@ -34,6 +34,7 @@ export const PostSingle: FC<{
   allowToRespond?: boolean
   createComment: (payload: { post: string; text: string }) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
+  fetchUsers: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: IImage }
   onClick?: (id: string) => unknown
   onTagClick?: (tag: string) => unknown
@@ -47,6 +48,7 @@ export const PostSingle: FC<{
   noImage,
   tags,
   fetchTags,
+  fetchUsers,
   createComment,
   firstComments,
   user,
@@ -157,6 +159,7 @@ export const PostSingle: FC<{
                 })
               }}
               fetchTags={fetchTags}
+              fetchUsers={fetchUsers}
               user={user}
               noImage={noImage}
             />
