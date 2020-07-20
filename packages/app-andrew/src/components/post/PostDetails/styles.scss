@@ -4,35 +4,4 @@
   padding: 10px;
   border-radius: $borderRadius1;
   background: $theme0;
-
-  .buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
-
-    li {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 35px;
-      height: 35px;
-      border: 1px solid lightgray;
-      border-radius: $borderRadius1;
-      margin-left: 10px;
-      cursor: pointer;
-
-      &:hover {
-        border-color: $theme4;
-
-        i {
-          color: $theme4;
-        }
-      }
-
-      i {
-        line-height: 0;
-        color: lightgray;
-      }
-    }
-  }
 }

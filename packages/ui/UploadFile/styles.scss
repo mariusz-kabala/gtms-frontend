@@ -13,14 +13,14 @@
     padding: 20px;
     cursor: pointer;
     text-align: center;
+    font-weight: 500;
 
     i {
       @include font-size(xxlg);
     }
 
     p {
-      display: block;
-      @include font-size(md);
+      @include font-size(xdefault);
     }
 
     &:active,

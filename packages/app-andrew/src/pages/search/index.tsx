@@ -2,6 +2,8 @@ import React from 'react'
 import { NextPage } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
+// ui
+import { Picture } from '@gtms/ui/Picture'
 import { SearchBar } from '@gtms/ui/SearchBar'
 
 export const SearchPage: NextPage<{}> = () => {
@@ -10,7 +12,11 @@ export const SearchPage: NextPage<{}> = () => {
   return (
     <div className={styles.pageWrapper} data-testid="search-page">
       <div className={styles.wrapper}>
-        {t('searchTempHeader')}
+        <h2>{t('searchTempHeader')}</h2>
+        <Picture
+          additionalStyles={styles.coverImage}
+          jpg={'/images/white-theme/search-cover-image.png'}
+        />
         <div className={styles.searchBarWrapper}>
           <SearchBar
             onTagAdd={() => null}

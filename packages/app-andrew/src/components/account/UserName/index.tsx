@@ -3,10 +3,9 @@ import { ExpandingItem } from '@gtms/ui/ExpandingItem'
 import { UserNameChangeForm } from './Form'
 
 export const UserName: FC<{
-  additionalStyles?: string
   name?: string
   surname?: string
-}> = ({ additionalStyles, name, surname }) => {
+}> = ({ name, surname }) => {
   const [isEditModeActive, setIsEditModeActive] = useState<boolean>(false)
   const getName = () => {
     if (!name && !surname) {
@@ -17,7 +16,6 @@ export const UserName: FC<{
   }
   return (
     <div
-      className={additionalStyles}
       data-testid="user-name"
       onClick={() => (!isEditModeActive ? setIsEditModeActive(true) : null)}
     >

@@ -10,9 +10,6 @@ import { UserName } from 'components/account/UserName'
 import { UserDescription } from 'components/account/UserDescription'
 import { ImageEditor } from '@gtms/ui/ImageEditor'
 import { NotificationsSettings } from 'components/account/NotificationsSettings'
-import { Spinner } from '@gtms/ui/Spinner'
-import { Picture } from '@gtms/ui/Picture'
-import { TagsBar } from '@gtms/ui/TagsBar'
 import {
   userQuery,
   markAsLoading,
@@ -26,6 +23,13 @@ import { useInitState } from '@gtms/commons/hooks'
 import { findTagsAPI } from '@gtms/api-tags'
 import { UserAvatarNoImage } from 'enums'
 import { accountPageState, accountPageState$, IAccountPageState } from 'queries'
+// ui
+import { Button } from '@gtms/ui/Button'
+import { Picture } from '@gtms/ui/Picture'
+import { Spinner } from '@gtms/ui/Spinner'
+import { TagsBar } from '@gtms/ui/TagsBar'
+import { UserGroups } from '@gtms/ui/UserGroups'
+import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
 
 type AccountPageProps = {
   namespacesRequired: readonly string[]
@@ -112,7 +116,19 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
           <p>{t('Can not fetch account details right now, try later')}</p>
         )}
         {!state.isLoading && !state.errorOccured && (
-          <div className={styles.content}>
+          <>
+            <div className={styles.navigation}>
+              <h2>My profile</h2>
+              <ul>
+                <li>My profile card</li>
+                <li>Security</li>
+                <li>Notifications</li>
+              </ul>
+            </div>
+            <div className={styles.hint}>
+              That is how other people can see your profile
+              <span>You can edit your profile here, show and hide things</span>
+            </div>
             <div className={styles.userHeader}>
               <ImageEditor
                 isVisible={isAvatarEditorVisible}
@@ -135,29 +151,86 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                   />
                 </a>
               </div>
-              <UserName
-                additionalStyles={styles.userName}
-                name={state.name}
-                surname={state.surname}
-              />
-              <UserDescription description={state.description} />
+              <div className={styles.userNameSurnameLogin}>
+                <UserName name={state.name} surname={state.surname} />
+                <span className={styles.login}>@LEllison</span>
+              </div>
+              <div className={styles.desc}>
+                <span className={styles.aboutMeLabel}>About me:</span>
+                <UserDescription description={state.description} />
+              </div>
             </div>
-            <TagsBar
-              tags={tags}
-              isSaving={isSaving}
-              isLoading={tagsHints.isLoading}
-              suggestions={tagsHints.tags}
-              onLoadSuggestion={onLoadTagsHints}
-              onLoadSuggestionCancel={() => null}
-              onTagAdd={onTagAdd}
-              onTagRemove={onTagRemove}
-              onSave={onTagsSave}
-            />
+            <ul className={styles.links}>
+              <li className={styles.item}>
+                <Button additionalStyles={styles.btn}>
+                  <i>
+                    <IoIosAddCircle />
+                  </i>
+                  Like
+                </Button>
+              </li>
+              <li className={styles.item}>
+                <Button additionalStyles={styles.btn}>
+                  <i>
+                    <IoMdTrash />
+                  </i>
+                  Fav
+                </Button>
+              </li>
+              <li className={styles.item}>
+                <Button additionalStyles={styles.btn}>
+                  <i>
+                    <IoIosSettings />
+                  </i>
+                  Send msg
+                </Button>
+              </li>
+            </ul>
+            <div className={styles.userTags}>
+              <span>My TAGS:</span>
+              <TagsBar
+                tags={tags}
+                isSaving={isSaving}
+                isLoading={tagsHints.isLoading}
+                suggestions={tagsHints.tags}
+                onLoadSuggestion={onLoadTagsHints}
+                onLoadSuggestionCancel={() => null}
+                onTagAdd={onTagAdd}
+                onTagRemove={onTagRemove}
+                onSave={onTagsSave}
+              />
+            </div>
+            <ul className={styles.userStats}>
+              <li className={styles.item}>
+                <span>4345</span>
+                Posts
+              </li>
+              <li className={styles.item}>
+                <span>12</span>
+                Group(s)
+              </li>
+              <li className={styles.item}>
+                <span>123</span>
+                Tag(s) watcher
+              </li>
+            </ul>
+            <div className={styles.userGroups}>
+              <span>I am member of groups:</span>
+              <UserGroups />
+            </div>
+            <div className={styles.userLastPosts}>
+              <span>My last posts:</span>
+              <ul>
+                <li />
+                <li />
+                <li />
+              </ul>
+            </div>
             <ChangePassword />
             <UserEmail email={state.email} additionalStyles={styles.userName} />
             <DeleteAccount onConfirm={() => null} />
             <NotificationsSettings />
-          </div>
+          </>
         )}
       </div>
     </div>

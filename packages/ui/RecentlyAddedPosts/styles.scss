@@ -5,9 +5,8 @@
     margin-bottom: 10px;
 
     &.active {
-      border-color: red;
+      border-color: $theme4;
       opacity: 1;
-      display: none;
     }
   }
 }

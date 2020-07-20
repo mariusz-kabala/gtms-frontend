@@ -235,9 +235,16 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </div>
               {showPromoted && <PromotedTags />}
               <PromotedGroups />
-              <GroupMembers {...state.members} />
+              {/* <GroupMembers {...state.members} /> */}
               <div className={styles.posts}>
                 <div>
+                  <NavigationTabs>
+                    <h2 className={styles.header}>Posts</h2>
+                    <ul className={styles.elements}>
+                      <li className={cx(styles.item, styles.active)}>latest</li>
+                      <li className={styles.item}>popular</li>
+                    </ul>
+                  </NavigationTabs>
                   <PostCreate
                     fetchTags={findTagsAPI}
                     fetchSuggestedTags={fetchSuggestedTagsAPI}
@@ -252,13 +259,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     additionalStyles={styles.postCreate}
                     onLoginRequest={openLoginModal}
                   />
-                  <NavigationTabs>
-                    <h2 className={styles.header}>Posts</h2>
-                    <ul className={styles.elements}>
-                      <li className={cx(styles.item, styles.active)}>latest</li>
-                      <li className={styles.item}>popular</li>
-                    </ul>
-                  </NavigationTabs>
                   <RecentlyAddedPosts
                     fetchTags={findTagsAPI}
                     onPostClick={onPostClick}

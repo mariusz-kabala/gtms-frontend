@@ -4,13 +4,12 @@
 @import '~@gtms/styles/scss/mixins/zindex';
 
 .buttonDelete {
-  position: absolute;
-  right: 10px;
   @include buttonDefault();
   @include buttonShapePrimary();
   @include buttonSizeSm();
   @include buttonWithIcon();
   @include buttonColorsDefault();
+  margin-right: 10px;
 
   &:hover {
     @include buttonColorsPrimary();

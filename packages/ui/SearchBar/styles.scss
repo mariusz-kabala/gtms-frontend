@@ -10,28 +10,34 @@
   width: 100%;
 
   .inputWrapper {
+    position: relative;
     display: flex;
     flex-basis: 100%;
 
     i {
       position: absolute;
       top: 12px;
-      left: 10px;
+      left: 8px;
+      color: $theme9;
     }
 
     input[type='text'] {
       display: block;
       width: 100%;
-      padding-left: 25px;
+      padding-left: 22px;
       border: 2px solid $theme0;
       border-radius: $borderRadius1;
       font-size: 14px;
-      background: none;
+      background: $theme0;
 
       &:active,
       &:focus,
       &:hover {
         outline: none;
+
+        i {
+          color: $theme4;
+        }
       }
 
       @include inputFocus;

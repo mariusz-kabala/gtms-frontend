@@ -44,19 +44,23 @@
         min-width: 35px;
         min-height: 35px;
       }
-    }
 
-    .date {
-      font-weight: 300;
-    }
-
-    span {
-      margin-left: 10px;
-
-      // @include font-weight('bold');
-      &:hover {
-        color: $theme4;
+      .date {
+        font-weight: 300;
       }
+
+      span {
+        margin-left: 10px;
+        // @include font-weight('bold');
+        &:hover {
+          color: $theme4;
+        }
+      }
+    }
+
+    .actionButtons {
+      display: flex;
+      margin-left: auto;
     }
 
     .deleteBtn {

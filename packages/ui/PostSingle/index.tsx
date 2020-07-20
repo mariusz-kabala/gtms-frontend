@@ -70,7 +70,6 @@ export const PostSingle: FC<{
       data-testid="post-single"
     >
       <div className={styles.header}>
-        {renderFavs && renderFavs(favs, id)}
         <div className={styles.user}>
           <Link href={`/user/${owner.id}`}>
             <>
@@ -97,10 +96,12 @@ export const PostSingle: FC<{
             </a>
           </div>
         </div>
-
-        {owner.id === user?.id && (
-          <DeletePost additionalStyles={styles.deleteBtn} />
-        )}
+        <div className={styles.actionButtons}>
+          {owner.id === user?.id && (
+            <DeletePost additionalStyles={styles.deleteBtn} />
+          )}
+          {renderFavs && renderFavs(favs, id)}
+        </div>
       </div>
       <div className={styles.desc}>
         <div>

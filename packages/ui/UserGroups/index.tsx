@@ -5,7 +5,7 @@ import { Button } from '@gtms/ui/Button'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 
-export const TagsGrid: FC<{
+export const UserGroups: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
   const isLoading = false // @todo remove mock
@@ -44,55 +44,6 @@ export const TagsGrid: FC<{
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
       image: '/images/temp_images/logo-wioska-6.png',
-    },
-    {
-      id: 5,
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      title: '#nightCity',
-      image: '/images/temp_images/logo-wioska-7.png',
-    },
-    {
-      id: 6,
-      title: '#metro',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-8.png',
-    },
-    {
-      id: 7,
-      title: '#metro',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-1.png',
-    },
-    {
-      id: 8,
-      title: '#metro',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-10.png',
-    },
-    {
-      id: 9,
-      title: '#metro',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-3.png',
-    },
-    {
-      id: 10,
-      title: '#metro',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-2.png',
-    },
-    {
-      id: 11,
-      title: '#metro',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-3.png',
     },
   ]
 

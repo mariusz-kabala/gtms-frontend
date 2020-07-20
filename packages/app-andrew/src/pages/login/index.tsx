@@ -37,10 +37,10 @@ export const LoginPage: NextPage<{}> = () => {
   return (
     <div className={styles.pageWrapper} data-testid="login-page">
       <div
+        className={styles.wrapper}
         style={{
           backgroundImage: `url('/images/temp_images/login_bg.png')`,
         }}
-        className={styles.wrapper}
       >
         <div className={styles.content}>
           <div>
@@ -58,13 +58,13 @@ export const LoginPage: NextPage<{}> = () => {
                 </p>
               </div>
             </div>
-            <div className={styles.or}>
-              <span>or</span>
-            </div>
             <SocialButtons
               additionalStyles={styles.socialButtons}
               onFailure={() => setError('socialMediaLoginFailed')}
             />
+            <div className={styles.or}>
+              <span>or</span>
+            </div>
             <LoginForm additionalStyles={styles.form} />
             <div className={styles.actionButtons}>
               <Link href="/registration">

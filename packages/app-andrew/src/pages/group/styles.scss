@@ -59,24 +59,43 @@
 
   .searchInput {
     display: flex;
-    padding: 10px;
     overflow: hidden;
 
     .search {
       display: flex;
       width: 100%;
-      background: $theme0;
       border-radius: $borderRadius1;
       height: 38px;
-    }
 
-    .btn {
-      @include buttonDefault();
-      @include buttonSizeMd();
-      @include buttonShapePrimary();
-      @include buttonWithIcon();
-      @include buttonColorsPrimary();
-      margin-right: 10px;
+      .btnTags {
+        @include buttonDefault();
+        @include buttonSizeDefault();
+        @include buttonShapePrimary();
+        @include buttonColorsSecondary();
+        position: relative;
+        margin-right: 15px;
+
+        &.active,
+        &:hover,
+        &:focus {
+          @include buttonColorsPrimary();
+        }
+
+        &:after,
+        &:before {
+          content: '';
+          position: absolute;
+          right: -8px;
+          width: 1px;
+          height: 15px;
+          background: $theme9;
+        }
+
+        &::before {
+          right: -7px;
+          background: $theme0;
+        }
+      }
     }
   }
 
@@ -89,7 +108,7 @@
     overflow: hidden;
 
     > div {
-      padding: 10px;
+      margin: 10px;
       border-radius: $borderRadius1;
     }
 
@@ -97,22 +116,12 @@
       display: grid;
       gap: 10px; // @todo set standard gaps for grid
       grid-template-columns: 1fr 1fr;
+      margin-top: 0;
 
       .postCreate {
         margin-bottom: 10px;
       }
     }
-  }
-}
-
-.btnTags {
-  @include buttonDefault();
-  @include buttonSizeDefault();
-  @include buttonShapePrimary();
-  @include buttonColorsDefault();
-
-  &.active {
-    @include buttonColorsPrimary();
   }
 }
 

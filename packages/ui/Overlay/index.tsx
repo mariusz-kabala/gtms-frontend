@@ -13,6 +13,6 @@ export const Overlay: FC<{
     })}
     data-testid="overlay"
     onClick={onClick}
-    style={{ opacity: opacity ? opacity : 0.75 }}
+    style={{ opacity: opacity ? opacity : 0.8 }}
   />
 )

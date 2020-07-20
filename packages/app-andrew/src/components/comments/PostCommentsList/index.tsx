@@ -71,7 +71,7 @@ export const PostCommentsList: FC<{
             }
           }}
         >
-          respond...
+          respond....
         </Button>
       )}
       {comments.map((comment) => (

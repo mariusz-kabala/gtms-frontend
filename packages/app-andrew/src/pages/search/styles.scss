@@ -3,10 +3,16 @@
 
 .pageWrapper {
   @include pageWrapper();
+  max-width: 650px;
 }
 
 .wrapper {
   width: 100%;
+  padding: 20px;
+
+  .coverImage {
+    max-width: 500px;
+  }
 
   .searchBarWrapper {
     position: relative;
