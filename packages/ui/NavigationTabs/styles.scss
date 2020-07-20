@@ -1,6 +1,6 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/fontWeight';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 .wrapper {
   display: flex;
@@ -11,7 +11,7 @@
   color: $theme7;
 
   h2 {
-    font-weight: 600;
+    @include font-weight(bold);
     text-transform: uppercase;
   }
 
@@ -21,7 +21,7 @@
 
     li {
       margin-right: 10px;
-      font-weight: 200;
+      @include font-weight(light);
       cursor: pointer;
       line-height: 0.7;
       padding: 10px;

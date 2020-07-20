@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
@@ -26,7 +27,7 @@
     cursor: pointer;
 
     h2 {
-      font-weight: 500;
+      @include font-weight(semiBold);
       text-transform: uppercase;
       @include font-size(xmd);
     }
@@ -57,13 +58,13 @@
     border-radius: $borderRadius1;
     background: $theme4;
     color: $theme0;
-    font-weight: 500;
+    @include font-weight(semiBold);
 
     span {
       @include font-size(sm);
+      @include font-weight(light);
       display: block;
       margin-top: 2px;
-      font-weight: 200;
       opacity: 0.9;
     }
 
@@ -97,7 +98,7 @@
 
     .userNameSurnameLogin {
       @include font-size(xlg);
-      font-weight: 500;
+      @include font-weight(semiBold);
       margin-left: 15px;
 
       .login {
@@ -121,7 +122,7 @@
       .aboutMeLabel {
         font-style: initial;
         text-transform: uppercase;
-        font-size: 0.7em;
+        @include font-size(small);
       }
     }
   }
@@ -156,7 +157,7 @@
     span {
       // @todo create mixin of that
       display: inline-block;
-      font-size: 12px;
+      @include font-size(xxs);
       text-transform: uppercase;
       margin-bottom: 3px;
     }
@@ -172,8 +173,8 @@
 
       span {
         display: block;
-        font-size: 16px;
-        font-weight: 600;
+        @include font-size(xdefault);
+        @include font-weight(bold);
       }
     }
   }
@@ -182,7 +183,7 @@
     span {
       // @todo create mixin of that
       display: inline-block;
-      font-size: 12px;
+      @include font-size(xxs);
       text-transform: uppercase;
       margin-bottom: 3px;
     }
@@ -192,7 +193,7 @@
     span {
       // @todo create mixin of that
       display: inline-block;
-      font-size: 12px;
+      @include font-size(xxs);
       text-transform: uppercase;
       margin-bottom: 3px;
     }

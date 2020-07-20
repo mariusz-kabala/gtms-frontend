@@ -24,7 +24,7 @@
       @include font-size(xsm);
       margin-top: 2px;
       margin-bottom: 5px;
-      font-weight: 400;
+      @include font-weight(normal);
       color: $theme2;
     }
 

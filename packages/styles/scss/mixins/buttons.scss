@@ -1,4 +1,5 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 @mixin buttonDefault() {
   display: flex;
@@ -46,14 +47,13 @@
 @mixin buttonSizeSm() {
   padding: 5px;
   line-height: 1;
-  font-size: 9px;
+  @include font-size(small);
 }
 
 @mixin buttonSizeMd() {
   padding: 8px;
   line-height: 1;
-  font-size: 12px;
-  font-weight: 400;
+  @include font-size(xxs);
 }
 
 // SHAPES

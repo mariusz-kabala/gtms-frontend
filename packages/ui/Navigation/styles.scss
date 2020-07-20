@@ -40,7 +40,7 @@
           i {
             line-height: 0;
             display: block;
-            font-size: 17px;
+            @include font-size(md);
           }
         }
 

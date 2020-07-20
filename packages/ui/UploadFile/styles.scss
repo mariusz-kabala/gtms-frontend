@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 .wrapper {
   .dropzone {
@@ -13,7 +14,7 @@
     padding: 20px;
     cursor: pointer;
     text-align: center;
-    font-weight: 500;
+    @include font-weight(semiBold);
 
     i {
       @include font-size(xxlg);

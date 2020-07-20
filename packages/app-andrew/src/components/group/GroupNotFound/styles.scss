@@ -11,7 +11,7 @@
   text-align: center;
 
   h2 {
-    font-size: 40px;
+    @include font-size(xxlg);
   }
 
   .btn {

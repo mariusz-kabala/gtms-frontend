@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 .wrapper {
   width: 0;
@@ -20,13 +21,13 @@
       display: flex;
       align-items: center;
       font-size: 18px;
-      font-weight: 500;
+      @include font-weight(semiBold);
       text-transform: uppercase;
 
       span {
         margin-left: 4px;
-        font-weight: 400;
-        font-size: 13px;
+        @include font-weight(normal);
+        @include font-size(sm);
       }
     }
 

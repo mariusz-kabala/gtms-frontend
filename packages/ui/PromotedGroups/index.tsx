@@ -4,6 +4,7 @@ import cx from 'classnames'
 import { Button } from '@gtms/ui/Button'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
+import { IoMdGrid } from 'react-icons/io'
 
 export const PromotedGroups: FC<{
   additionalStyles?: string
@@ -121,6 +122,9 @@ export const PromotedGroups: FC<{
           </ul>
           <div className={styles.btnWrapper}>
             <Button type="submit" additionalStyles={styles.btn}>
+              <i>
+                <IoMdGrid />
+              </i>
               show more...
             </Button>
           </div>

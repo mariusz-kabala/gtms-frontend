@@ -46,7 +46,7 @@
   cursor: pointer;
 
   i {
-    font-size: 40px;
+    @include font-size(xxlg);
   }
 }
 

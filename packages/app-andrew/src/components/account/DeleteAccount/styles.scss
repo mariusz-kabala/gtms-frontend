@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 .btnDeleteAccount {
   @include buttonDefault();
@@ -23,7 +24,7 @@
     h2,
     p {
       text-align: center;
-      font-weight: 400;
+      @include font-weight(normal);
     }
 
     h2 {

@@ -1,8 +1,9 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 .wrapper {
   font-size: 12px;
-  font-weight: 400;
+  @include font-weight(normal);
   text-transform: uppercase;
 
   label {

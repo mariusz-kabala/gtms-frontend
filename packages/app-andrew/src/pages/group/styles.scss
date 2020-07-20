@@ -29,20 +29,19 @@
       max-width: 400px;
       min-width: 400px;
       line-height: 1;
-      font-weight: 100;
       margin-left: 8px;
 
       .header {
-        font-weight: 400;
-        @include font-size('md');
+        @include font-weight(normal);
+        @include font-size(md);
         letter-spacing: 1px;
         color: $theme7;
         text-transform: uppercase;
       }
 
       .desc {
-        @include font-size('sm');
-        font-weight: 400;
+        @include font-size(sm);
+        @include font-weight(normal);
         color: $theme9;
       }
     }
@@ -139,7 +138,7 @@
   span {
     margin-top: 70px;
     margin-left: 10px;
-    font-size: 25px;
+    @include font-size(xlg);
     color: $theme9;
   }
 }

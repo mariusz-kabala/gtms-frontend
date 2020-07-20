@@ -1,6 +1,7 @@
 @import '~reset-css/sass/reset';
 @import './variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 html {
   box-sizing: border-box;
@@ -25,7 +26,7 @@ body {
   @include font-size(default);
   line-height: normal;
   background-color: black;
-  font-weight: 200;
+  @include font-weight(semiNormal);
 }
 
 body > div:first-of-type {
@@ -51,5 +52,5 @@ img {
 button,
 a {
   @include font-size(default);
-  font-weight: 400;
+  @include font-weight(normal);
 }

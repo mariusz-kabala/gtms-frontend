@@ -18,8 +18,8 @@
     .option {
       margin: 5px 0;
       label {
-        @include font-weight('bold');
-        @include font-size('default');
+        @include font-weight(bold);
+        @include font-size(default);
         display: block;
         margin-bottom: 5px;
         color: $theme4;
