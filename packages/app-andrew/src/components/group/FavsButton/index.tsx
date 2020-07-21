@@ -5,9 +5,11 @@ import {
   removeFromFavs,
   userQuery,
 } from '@gtms/state-user'
+import cx from 'classnames'
 import { openLoginModal } from 'state'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
+import { isGroupInFavsAPI } from '@gtms/api-auth'
 //ui
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -21,17 +23,47 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
     errorOccurred: boolean
     inFavs: boolean
   }>({
-    ...myGroupsQuery.status(),
-    inFavs: myGroupsQuery.isInFavs(group),
+    isLoading: true,
+    errorOccurred: false,
+    inFavs: false,
   })
 
   useEffect(() => {
-    const statusSub = myGroupsQuery.status$.subscribe((value) =>
-      setStatus({
-        ...value,
-        inFavs: myGroupsQuery.isInFavs(group),
-      })
-    )
+    const statusSub = myGroupsQuery.status$.subscribe((value) => {
+      if (value.isLoaded) {
+        if (myGroupsQuery.isInFavs(group)) {
+          setStatus({
+            isLoading: false,
+            errorOccurred: false,
+            inFavs: true,
+          })
+        } else {
+          isGroupInFavsAPI(group.id)
+            .then((inFavs) => {
+              setStatus({
+                isLoading: false,
+                errorOccurred: false,
+                inFavs,
+              })
+            })
+            .catch(() => {
+              setStatus({
+                isLoading: false,
+                errorOccurred: true,
+                inFavs: false,
+              })
+            })
+        }
+
+        statusSub && !statusSub.closed && statusSub.unsubscribe()
+      } else if (value.errorOccurred) {
+        setStatus({
+          isLoading: false,
+          errorOccurred: true,
+          inFavs: false,
+        })
+      }
+    })
 
     return () => {
       statusSub && !statusSub.closed && statusSub.unsubscribe()
@@ -41,28 +73,40 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
   if (status.errorOccurred) {
     return (
       <button disabled={true} className={styles.btn}>
-        {t('add-to-favs')}
+        {t('error')}
       </button>
     )
   }
 
   return (
     <Button
-      additionalStyles={styles.btn}
+      additionalStyles={cx(styles.btn, {
+        [styles.isLoading]: status.isLoading,
+      })}
       onClick={() => {
         if (!userQuery.isLogged()) {
           return openLoginModal()
         }
-        if (myGroupsQuery.isInFavs(group)) {
+
+        if (status.inFavs) {
           removeFromFavs(group)
         } else {
           addToFavs(group)
         }
+
+        setStatus((status) => ({
+          isLoading: false,
+          errorOccurred: false,
+          inFavs: !status.inFavs,
+        }))
       }}
     >
       {status.isLoading && (
         <>
-          <Spinner /> {t('favs')}
+          <span className={styles.loader}>
+            <Spinner />
+          </span>
+          {t('favs')}
         </>
       )}
       {!status.isLoading && !status.inFavs && (

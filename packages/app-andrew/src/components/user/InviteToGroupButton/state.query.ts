@@ -10,7 +10,12 @@ export interface IInviteToGroupButtonState {
   admin: IGroup[]
   owner: IGroup[]
   member: IGroup[]
-  favs: IGroup[]
+  favs: {
+    docs: IGroup[]
+    limit: number
+    offset: number
+    total: number
+  }
 }
 
 export const inviteToGroupButtonState = (): IInviteToGroupButtonState => {

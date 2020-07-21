@@ -93,8 +93,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                   })}
                 >
                   <a>
-                    {t('favourites')}{' '}
-                    {state.favs.length && `(${state.favs.length})`}
+                    {t('favourites')} (${state.favs.total})
                   </a>
                 </li>
               </ul>
@@ -147,7 +146,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
               additionalStyles={cx(styles.groupsList, {
                 [styles.currentList]: currentTab === 'fav',
               })}
-              groups={state.favs}
+              groups={state.favs.docs}
               renderFavsIcon={() => <IoIosHeart />}
               renderGroupMenu={() => null}
               noRecords={

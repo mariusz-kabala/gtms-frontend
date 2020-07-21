@@ -9,7 +9,12 @@ export interface IMyGroupsPageState {
   admin: IGroup[]
   member: IGroup[]
   owner: IGroup[]
-  favs: IGroup[]
+  favs: {
+    docs: IGroup[]
+    limit: number
+    offset: number
+    total: number
+  }
 }
 
 export const myGroupsPageState = (): IMyGroupsPageState => ({
