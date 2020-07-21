@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.6...@gtms/state-user@0.17.7) (2020-07-21)
+
+
+### Bug Fixes
+
+* GEOT-352: fixes for fav button on group page ([#751](https://github.com/gtms-org/gtms-frontend/issues/751)) ([31d82bd](https://github.com/gtms-org/gtms-frontend/commit/31d82bd06f3b2fa7ece7f4bc9300462bd19374f5))
+
+
+
+
+
 ## [0.17.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.5...@gtms/state-user@0.17.6) (2020-07-20)
 
 **Note:** Version bump only for package @gtms/state-user
