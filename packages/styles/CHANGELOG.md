@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.11.1...@gtms/styles@0.11.2) (2020-07-21)
+
+
+### Bug Fixes
+
+* GEOT-324: mixin for buttons ([#747](https://github.com/gtms-org/gtms-frontend/issues/747)) ([c142e31](https://github.com/gtms-org/gtms-frontend/commit/c142e31a870fa3a14201b2b71d59da1000a22025))
+
+
+
+
+
 ## [0.11.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.11.0...@gtms/styles@0.11.1) (2020-07-07)
 
 
