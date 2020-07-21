@@ -14,7 +14,6 @@ import {
   postCommentsListState$,
 } from './state.query'
 import { createNewComment } from '@gtms/state-comment'
-import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
 
 export const PostCommentsList: FC<{
@@ -58,8 +57,8 @@ export const PostCommentsList: FC<{
     <>
       {hasNoComments && <p>No comments, you can add the first one</p>}
       {!hasNoComments && (
-        <Button
-          additionalStyles={styles.respondButton}
+        <button
+          className={styles.respondButton}
           onClick={(e) => {
             e.preventDefault()
 
@@ -73,7 +72,7 @@ export const PostCommentsList: FC<{
           }}
         >
           respond....
-        </Button>
+        </button>
       )}
       {comments.map((comment) => (
         <div key={`comment-${comment.id}`}>
