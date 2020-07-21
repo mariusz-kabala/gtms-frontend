@@ -1,4 +1,8 @@
-import { fetchMyGroups } from '@gtms/api-auth'
+import {
+  fetchMyGroups,
+  addGroupToFavsAPI,
+  removeGroupFromFavsAPI,
+} from '@gtms/api-auth'
 import { joinGroupAPI, leaveGroupAPI } from '@gtms/api-group'
 import { myGroupsStore } from './myGroups.store'
 import { parseFiles, IGroup, FileStatus } from '@gtms/commons'
@@ -78,34 +82,59 @@ export const initGroups = ({
 export const addToFavs = (group: IGroup) => {
   const favs = myGroupsStore.getValue().favs || []
 
-  if (favs.some((g) => g.id === group.id)) {
+  addGroupToFavsAPI({
+    group: group.id,
+  })
+    .then(() => {
+      addSuccessNotification('Group has been added to your favs')
+    })
+    .catch(() => {
+      favs.docs.pop()
+
+      myGroupsStore.update({
+        favs: {
+          ...favs,
+        },
+      })
+
+      addErrorNotification('Error occured, can not add group to favs')
+    })
+
+  if (favs.docs.some((g) => g.id === group.id)) {
     return
   }
 
-  favs.push(group)
+  favs.docs.push(group)
 
   myGroupsStore.update({
-    favs: [...favs],
+    favs: {
+      ...favs,
+    },
   })
-
-  addSuccessNotification('Group has been added to your favs')
 }
 
 export const removeFromFavs = (group: IGroup) => {
   const favs = myGroupsStore.getValue().favs || []
+  const index = favs.docs.findIndex((g) => g.id === group.id)
 
-  const index = favs.findIndex((g) => g.id === group.id)
+  removeGroupFromFavsAPI(group.id)
+    .then(() => {
+      addSuccessNotification('Group has been removed to your favs')
+    })
+    .catch(() => {
+      addErrorNotification('Error occured, can not delete group from favs')
+    })
 
   if (index === -1) {
     return
   }
 
-  favs.splice(index, 1)
-
-  addSuccessNotification('Group has been removed to your favs')
+  favs.docs.splice(index, 1)
 
   myGroupsStore.update({
-    favs: [...favs],
+    favs: {
+      ...favs,
+    },
   })
 }
 

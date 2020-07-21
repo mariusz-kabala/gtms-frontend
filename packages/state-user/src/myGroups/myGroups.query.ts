@@ -9,8 +9,8 @@ export class MyGroupsQuery extends Query<IMyGroupsStore> {
   }
 
   public favGroups = (values = this.getValue()): IGroup[] => {
-    if (Array.isArray(values.favs) && values.favs.length > 0) {
-      return values.favs.slice(0, 6)
+    if (Array.isArray(values.favs?.docs) && values.favs.docs.length > 0) {
+      return values.favs.docs.slice(0, 6)
     }
 
     if (
