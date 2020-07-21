@@ -1,9 +1,14 @@
 import React, { FC, useState, useRef, useCallback } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
+// commons
+import { getDisplayName } from '@gtms/commons/helpers'
+import { IAccountDetails, IUser, IComment } from '@gtms/commons/models'
+import { FileStatus } from '@gtms/commons/enums'
+import { Link } from '@gtms/commons/i18n'
+import { IImage } from '@gtms/commons/types/image'
 // ui
 import { DeletePost } from './DeletePost'
 import { Picture } from '../Picture'
@@ -12,12 +17,7 @@ import { PostResponse } from './PostResponse'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
-// commons
-import { getDisplayName } from '@gtms/commons/helpers'
-import { IAccountDetails, IUser, IComment } from '@gtms/commons/models'
-import { FileStatus } from '@gtms/commons/enums'
-import { Link } from '@gtms/commons/i18n'
-import { IImage } from '@gtms/commons/types/image'
+import styles from './styles.scss'
 
 export const PostSingle: FC<{
   id: string

@@ -1,5 +1,4 @@
 import React, { FC, useState, useEffect } from 'react'
-import styles from './styles.scss'
 import {
   myGroupsQuery,
   addToFavs,
@@ -13,6 +12,7 @@ import { IGroup } from '@gtms/commons/models'
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
+import styles from './styles.scss'
 
 export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
   const { t } = useTranslation('groupPage')

@@ -5,6 +5,12 @@
   position: relative;
   display: flex;
   justify-content: center;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  background: $theme0;
+  border-top-left-radius: $borderRadius1;
+  border-top-right-radius: $borderRadius1;
 
   .navigation {
     display: flex;
@@ -33,7 +39,7 @@
         a {
           position: relative;
           display: block;
-          padding: 9px;
+          padding: 10px;
           text-decoration: none;
           color: $theme4;
 

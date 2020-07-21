@@ -1,10 +1,11 @@
 import React, { FC, useState, useEffect } from 'react'
-import { Modal } from '@gtms/ui/Modal'
 import { LoginForm } from 'components/login/Form'
 import { SocialButtons } from 'components/login/SocialButtons'
-import styles from './styles.scss'
 import { uiQuery } from 'state'
 import { Link } from '@gtms/commons/i18n'
+// ui
+import { Modal } from '@gtms/ui/Modal'
+import styles from './styles.scss'
 
 export const LoginWindow: FC<{}> = () => {
   const [isOpen, setIsOpen] = useState<boolean>(uiQuery.isLoginModalOpen())

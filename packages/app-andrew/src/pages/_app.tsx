@@ -48,12 +48,10 @@ class GTMSApp extends App<GTMSAppProps> {
         </Head>
         <NotificationsActive />
         <LoginWindow />
-        <div className={styles.sidebar}>
-          <NotificationsSidebar />
-          <div className={styles.nav}>
-            <Navigation />
-            <NavigationDots />
-          </div>
+        <NotificationsSidebar />
+        <div>
+          <Navigation />
+          <NavigationDots />
         </div>
         <Component {...pageProps} />
         <div

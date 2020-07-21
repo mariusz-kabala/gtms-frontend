@@ -54,42 +54,44 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      <div className={styles.navigation}>
-        <CloseIcon onClick={closeSidebarNotifications} />
-        <h2>
-          Notofications {state.unreadCount && `(${state.unreadCount})`}
-          {/* @todo add translation here */}
-        </h2>
+      <div>
+        <div className={styles.navigation}>
+          <CloseIcon onClick={closeSidebarNotifications} />
+          <h2>
+            Notofications {state.unreadCount && `(${state.unreadCount})`}
+            {/* @todo add translation here */}
+          </h2>
+          <ul>
+            <li>Latest</li>
+            <li>By groups</li>
+          </ul>
+        </div>
         <ul>
-          <li>Latest</li>
-          <li>By groups</li>
+          {state.notifications.map((notification: INotificationRecord) => {
+            switch (notification.type) {
+              case 'internal':
+                return (
+                  <Notification
+                    key={`notification-${notification.id}`}
+                    onClick={() => deleteNotification(notification.id)}
+                    additionalStyles={styles.notification}
+                    text={(notification.data as IInternalNotification).text}
+                    left={(notification.data as IInternalNotification).left}
+                    icon={
+                      NotificationIcons[
+                        (notification.data as IInternalNotification).type
+                      ]
+                    }
+                  />
+                )
+              case 'api':
+                return (
+                  <NotificationAPI {...(notification.data as INotification)} />
+                )
+            }
+          })}
         </ul>
       </div>
-      <ul>
-        {state.notifications.map((notification: INotificationRecord) => {
-          switch (notification.type) {
-            case 'internal':
-              return (
-                <Notification
-                  key={`notification-${notification.id}`}
-                  onClick={() => deleteNotification(notification.id)}
-                  additionalStyles={styles.notification}
-                  text={(notification.data as IInternalNotification).text}
-                  left={(notification.data as IInternalNotification).left}
-                  icon={
-                    NotificationIcons[
-                      (notification.data as IInternalNotification).type
-                    ]
-                  }
-                />
-              )
-            case 'api':
-              return (
-                <NotificationAPI {...(notification.data as INotification)} />
-              )
-          }
-        })}
-      </ul>
     </div>
   )
 }
