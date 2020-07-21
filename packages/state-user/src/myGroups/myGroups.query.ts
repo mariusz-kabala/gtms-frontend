@@ -56,7 +56,12 @@ export class MyGroupsQuery extends Query<IMyGroupsStore> {
     admin: IGroup[]
     owner: IGroup[]
     member: IGroup[]
-    favs: IGroup[]
+    favs: {
+      docs: IGroup[]
+      limit: number
+      offset: number
+      total: number
+    }
   }> = this.select((values) => this.groups(values))
 
   public isLoaded = (values = this.getValue()): boolean => {
