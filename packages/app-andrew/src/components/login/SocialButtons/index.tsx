@@ -82,10 +82,7 @@ export const SocialButtons: FC<{
         </>
       )}
       {(isProcessing || isLoading) && (
-        <Spinner
-          additionalStyles={styles.spinner}
-          testid="social-buttons-loader"
-        />
+        <Spinner additionalStyles={styles.spinner} testid="spinner" />
       )}
     </div>
   )
