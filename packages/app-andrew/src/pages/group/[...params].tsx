@@ -236,7 +236,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </div>
               {showPromoted && <PromotedTags />}
               <PromotedGroups />
-              {/* <GroupMembers {...state.members} /> */}
+              <GroupMembers {...state.members} />
               <div className={styles.posts}>
                 <div>
                   <NavigationTabs>
