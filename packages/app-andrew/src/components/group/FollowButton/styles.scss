@@ -1,0 +1,18 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/fontSize';
+
+.wrapper {
+  @include font-size(xxs);
+  @include font-weight(normal);
+  text-transform: uppercase;
+
+  label {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 5px;
+    }
+  }
+}

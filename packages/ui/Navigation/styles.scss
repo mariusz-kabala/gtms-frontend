@@ -5,6 +5,12 @@
   position: relative;
   display: flex;
   justify-content: center;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  background: $theme0;
+  border-top-left-radius: $borderRadius1;
+  border-top-right-radius: $borderRadius1;
 
   .navigation {
     display: flex;
@@ -27,22 +33,26 @@
         position: relative;
         margin-bottom: 10px;
         border-radius: $borderRadius1;
-        background: $theme4;
+        background: rgba($theme4, 0.2);
+        padding: 2px;
 
         a {
           position: relative;
           display: block;
-          padding: 11px;
+          padding: 10px;
           text-decoration: none;
-          color: $theme0;
+          color: $theme4;
 
           i {
             line-height: 0;
             display: block;
+            @include font-size(md);
           }
         }
 
         &:hover {
+          background: $theme4;
+
           a {
             color: $theme0;
           }

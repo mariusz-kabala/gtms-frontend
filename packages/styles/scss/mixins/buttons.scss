@@ -1,4 +1,5 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 @mixin buttonDefault() {
   display: flex;
@@ -8,8 +9,8 @@
   outline: none;
   justify-content: center;
   padding: 0px;
-  text-align: left; // for <a> elements
-  text-decoration: none; // for <a> elements
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
   text-transform: uppercase;
 
@@ -46,7 +47,13 @@
 @mixin buttonSizeSm() {
   padding: 5px;
   line-height: 1;
-  font-size: 9px;
+  @include font-size(small);
+}
+
+@mixin buttonSizeMd() {
+  padding: 8px;
+  line-height: 1;
+  @include font-size(xxs);
 }
 
 // SHAPES
@@ -69,16 +76,16 @@
 }
 
 @mixin buttonColorsPrimary() {
-  background: $theme2;
-  color: $theme7;
-}
-
-@mixin buttonColorsSecondary() {
   background: $theme4;
   color: $theme0;
 }
 
+@mixin buttonColorsSecondary() {
+  background: $theme7;
+  color: $theme1;
+}
+
 @mixin buttonColorsTertiary() {
-  background: none;
+  background: $theme9;
   color: $theme1;
 }

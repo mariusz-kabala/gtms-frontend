@@ -6,10 +6,13 @@
   position: relative;
   display: flex;
   @include z-index(navigationGroup);
+  padding: 10px;
+  margin-left: 10px;
+  background: $theme0;
+  border-bottom-left-radius: $borderRadius1;
+  border-bottom-right-radius: $borderRadius1;
 
   .navigationDot {
-    padding: 0 10px;
-
     > li {
       padding-bottom: 10px;
 

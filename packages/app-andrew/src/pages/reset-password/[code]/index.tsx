@@ -30,31 +30,33 @@ export const ResetPasswordPage: NextPage<{}> = () => {
   }, [code])
 
   return (
-    <div className={styles.wrapper} data-testid="remind-password-page">
-      <div>
-        <h2>
-          {/* @todo GEOT-109 - put proper translations everywhere */}
-          {t('Podaj nowe haslo do swojego konta')}
-        </h2>
-        {isLoading && <Spinner />}
-        {!isLoading && !isPasswordChanged && (
-          <ResetPasswordForm
-            code={code}
-            onSuccess={() => setIsPasswordChanged(true)}
-          />
-        )}
-        {!isLoading && isPasswordChanged && (
-          <div>
-            <p data-testid="reset-password-changed-confirmation">
-              {t('passwordHasBeenChanged')}
-            </p>
-            <p>
-              <Link href="/login">
-                <Button>{t('goToLogin')}</Button>
-              </Link>
-            </p>
-          </div>
-        )}
+    <div className={styles.pageWrapper} data-testid="remind-password-page">
+      <div className={styles.wrapper}>
+        <div>
+          <h2>
+            {/* @todo GEOT-109 - put proper translations everywhere */}
+            {t('Podaj nowe haslo do swojego konta')}
+          </h2>
+          {isLoading && <Spinner />}
+          {!isLoading && !isPasswordChanged && (
+            <ResetPasswordForm
+              code={code}
+              onSuccess={() => setIsPasswordChanged(true)}
+            />
+          )}
+          {!isLoading && isPasswordChanged && (
+            <div>
+              <p data-testid="reset-password-changed-confirmation">
+                {t('passwordHasBeenChanged')}
+              </p>
+              <p>
+                <Link href="/login">
+                  <Button>{t('goToLogin')}</Button>
+                </Link>
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

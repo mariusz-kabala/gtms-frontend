@@ -43,15 +43,13 @@ export const SocialButtons: FC<{
     >
       {!isProcessing && !isLoading && (
         <>
-          <div>
-            <button
-              data-testid="social-buttons-facebook-button"
-              className={`${styles.button} ${styles.facebook}`}
-              onClick={() => !isLoading && onClick()}
-            >
-              <FaFacebookF /> Facebook
-            </button>
-          </div>
+          <button
+            data-testid="social-buttons-facebook-button"
+            className={`${styles.button} ${styles.facebook}`}
+            onClick={() => !isLoading && onClick()}
+          >
+            <FaFacebookF /> Facebook
+          </button>
           <div
             className={styles.google}
             data-testid="social-buttons-google-button"
@@ -84,9 +82,7 @@ export const SocialButtons: FC<{
         </>
       )}
       {(isProcessing || isLoading) && (
-        <div className={styles.spinner} data-testid="social-buttons-loader">
-          <Spinner />
-        </div>
+        <Spinner additionalStyles={styles.spinner} />
       )}
     </div>
   )

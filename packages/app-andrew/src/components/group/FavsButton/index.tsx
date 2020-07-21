@@ -8,6 +8,8 @@ import {
 import { openLoginModal } from 'state'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
+//ui
+import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 import styles from './styles.scss'
@@ -45,8 +47,8 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
   }
 
   return (
-    <button
-      className={styles.btn}
+    <Button
+      additionalStyles={styles.btn}
       onClick={() => {
         if (!userQuery.isLogged()) {
           return openLoginModal()
@@ -65,14 +67,20 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
       )}
       {!status.isLoading && !status.inFavs && (
         <>
-          <IoIosHeartEmpty /> {t('add-to-favs')}
+          <i>
+            <IoIosHeartEmpty />
+          </i>{' '}
+          {t('add-to-favs')}
         </>
       )}
       {!status.isLoading && status.inFavs && (
         <>
-          <IoIosHeart /> {t('remove-from-favs')}
+          <i>
+            <IoIosHeart />
+          </i>{' '}
+          {t('remove-from-favs')}
         </>
       )}
-    </button>
+    </Button>
   )
 }

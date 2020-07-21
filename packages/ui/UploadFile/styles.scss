@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 .wrapper {
   .dropzone {
@@ -9,18 +10,18 @@
     justify-content: center;
     width: 300px;
     height: 300px;
-    border: 2px dotted $theme3;
+    border: 2px dotted $theme9;
     padding: 20px;
     cursor: pointer;
     text-align: center;
+    @include font-weight(semiBold);
 
     i {
       @include font-size(xxlg);
     }
 
     p {
-      display: block;
-      @include font-size(md);
+      @include font-size(xdefault);
     }
 
     &:active,
@@ -30,11 +31,11 @@
     }
 
     &:hover {
-      color: $theme5;
-      border-color: $theme5;
+      color: $theme4;
+      border-color: $theme4;
 
       i {
-        color: $theme5;
+        color: $theme4;
       }
     }
   }

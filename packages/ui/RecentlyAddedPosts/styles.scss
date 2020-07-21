@@ -2,9 +2,11 @@
 
 .wrapper {
   .post {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+
     &.active {
-      border: 1px solid $theme2;
+      border-color: $theme4;
+      opacity: 1;
     }
   }
 }

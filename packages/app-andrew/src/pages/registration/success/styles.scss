@@ -1,5 +1,10 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+
+.pageWrapper {
+  @include pageWrapper();
+}
 
 .wrapper {
   display: flex;
@@ -23,7 +28,7 @@
       @include header(h4, textUppercase);
 
       &:hover {
-        color: $theme5;
+        color: $theme4;
       }
     }
   }

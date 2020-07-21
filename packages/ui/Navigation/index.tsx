@@ -9,7 +9,6 @@ import {
   IoIosLogOut,
   IoIosNotifications,
   IoIosSearch,
-  IoMdPerson,
 } from 'react-icons/io'
 
 export const Navigation: FC<{
@@ -21,7 +20,9 @@ export const Navigation: FC<{
     <div className={styles.wrapper}>
       <nav className={styles.navigation} data-testid="navigation">
         {avatar && (
-          <UserAvatar additionalStyles={styles.avatar} image={avatar} />
+          <Link href="/account">
+            <UserAvatar additionalStyles={styles.avatar} image={avatar} />
+          </Link>
         )}
         <ul>
           {[
@@ -34,11 +35,6 @@ export const Navigation: FC<{
               label: 'Search',
               icon: <IoIosSearch />,
               url: '/search',
-            },
-            {
-              label: 'Account',
-              icon: <IoMdPerson />,
-              url: '/account',
             },
             {
               label: 'Create your group',

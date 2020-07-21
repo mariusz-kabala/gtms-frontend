@@ -10,10 +10,12 @@ export const RegistrationSuccessPage: NextPage<{}> = () => {
   const { t } = useTranslation('registration')
 
   return (
-    <div className={styles.wrapper} data-testid="registration-success-page">
-      <div>
-        <h3>{t('registrationSuccessMessage')}</h3>
-        <Logout text={t('goToLoginPage')} />
+    <div className={styles.pageWrapper} data-testid="registration-success-page">
+      <div className={styles.wrapper}>
+        <div>
+          <h3>{t('registrationSuccessMessage')}</h3>
+          <Logout text={t('goToLoginPage')} />
+        </div>
       </div>
     </div>
   )

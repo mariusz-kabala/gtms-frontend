@@ -1,6 +1,7 @@
 @import '~reset-css/sass/reset';
 @import './variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 html {
   box-sizing: border-box;
@@ -18,13 +19,14 @@ textarea,
 button {
   font-family: $defaultFontFamily;
   color: $theme7;
+  padding: 0;
 }
 
 body {
   @include font-size(default);
   line-height: normal;
   background-color: black;
-  font-weight: 200;
+  @include font-weight(semiNormal);
 }
 
 body > div:first-of-type {
@@ -47,6 +49,8 @@ img {
   max-width: 100%;
 }
 
-button {
+button,
+a {
   @include font-size(default);
+  @include font-weight(normal);
 }

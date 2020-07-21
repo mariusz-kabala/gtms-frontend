@@ -11,16 +11,17 @@
   text-align: center;
 
   h2 {
-    font-size: 40px;
+    @include font-size(xxlg);
   }
 
   .btn {
     @include buttonDefault();
+    @include buttonSizeDefault();
     @include buttonShapePrimary();
     @include buttonColorsDefault();
 
     &:hover {
-      @include buttonColorsSecondary();
+      @include buttonColorsPrimary();
     }
   }
 }

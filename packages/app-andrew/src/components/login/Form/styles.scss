@@ -2,10 +2,12 @@
 
 .btnSubmit {
   width: 100%;
+
   @include buttonDefault();
   @include buttonShapePrimary();
   @include buttonColorsDefault();
+  @include buttonSizeDefault();
   &:hover {
-    @include buttonColorsSecondary();
+    @include buttonColorsPrimary();
   }
 }

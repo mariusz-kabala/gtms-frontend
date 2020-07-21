@@ -5,7 +5,7 @@
 
 .header {
   @include font-weight('semiBold');
-  @include font-size('md');
+  @include font-size(md);
   text-transform: uppercase;
   padding-bottom: 5px;
   border-bottom: 3px solid $theme4;
@@ -31,13 +31,14 @@
 
 .btn {
   @include buttonDefault();
+  @include buttonSizeDefault();
   @include buttonShapePrimary();
   @include buttonColorsDefault();
   max-width: 200px;
   margin-right: 20px;
 
   &:hover {
-    @include buttonColorsSecondary();
+    @include buttonColorsPrimary();
   }
 }
 

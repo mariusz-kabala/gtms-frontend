@@ -2,6 +2,11 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/imageCover';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+
+.pageWrapper {
+  @include pageWrapper();
+}
 
 .wrapper {
   display: flex;
@@ -9,6 +14,12 @@
   justify-content: center;
   height: 100%;
   @include imageCover();
+
+  img {
+    display: flex;
+    margin: auto;
+    max-width: 400px;
+  }
 
   > div {
     width: 60%;

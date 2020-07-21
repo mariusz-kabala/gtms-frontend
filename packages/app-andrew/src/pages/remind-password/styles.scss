@@ -2,6 +2,11 @@
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+
+.pageWrapper {
+  @include pageWrapper();
+}
 
 .wrapper {
   display: flex;
@@ -29,15 +34,15 @@
   .btn {
     width: 100%;
     margin-top: 10px;
-
     > a {
       width: 100%;
       @include buttonDefault();
+      @include buttonSizeDefault();
       @include buttonShapePrimary();
-      @include buttonColorsTertiary();
+      @include buttonColorsDefault();
 
       &:hover {
-        @include buttonColorsSecondary();
+        @include buttonColorsPrimary();
       }
     }
   }

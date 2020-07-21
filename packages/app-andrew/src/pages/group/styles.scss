@@ -1,153 +1,144 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/header.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
-@import '~@gtms/styles/scss/mixins/buttons';
 
 .wrapper {
-  display: grid;
-  grid-template-columns: 0.2fr 1fr;
   width: 100%;
+  max-width: 900px;
   height: 100%;
+  border-radius: $borderRadius2;
+  overflow: hidden;
+  margin: 10px;
+  background: $theme2;
 
-  .groupNavigationWrapper {
-    padding: 20px;
-    max-width: 200px;
+  .groupHeader {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid $theme2;
+    background: $theme0;
 
-    .groupHeader {
-      width: 100%;
-      min-width: 165px;
-      margin-bottom: 10px;
-
-      .avatarAndName {
-        display: flex;
-        align-items: center;
-        max-width: 250px;
-        line-height: 1;
-        font-weight: 100;
-        color: $theme4;
-
-        .groupAvatar {
-          margin-right: 10px;
-          // @todo write proper styles
-          img {
-            border-radius: $borderRadius1;
-          }
-        }
-
-        h2 {
-          font-weight: 400;
-          @include font-size('xdefault');
-          color: $theme7;
-        }
-      }
-
-      .desc {
-        margin-top: 5px;
-      }
-
-      &:hover {
-        color: $theme4;
-
-        h2 {
-          color: $theme4;
-        }
-
-        &:after {
-          background: $theme4;
-        }
-      }
-
-      &:after {
-        content: '';
-        display: inline-block;
-        width: 30px;
-        height: 1px;
-        background: $theme2;
-      }
-    }
-
-    .actionButtons {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      margin: 15px 0;
-
-      > * {
-        margin-bottom: 10px;
-      }
-    }
-  }
-
-  .groupPostsListWrapper {
-    width: 100%;
-    padding: 20px;
-    border-left: 1px solid $theme4;
-
-    .searchInput {
-      display: flex;
-      margin-bottom: 20px;
-
-      .search {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid $theme2;
+    .groupAvatar {
+      img {
         border-radius: $borderRadius1;
       }
     }
 
+    .descWrapper {
+      max-width: 400px;
+      min-width: 400px;
+      line-height: 1;
+      margin-left: 10px;
+
+      .header {
+        @include font-weight(normal);
+        @include font-size(md);
+        letter-spacing: 1px;
+        color: $theme7;
+        text-transform: uppercase;
+      }
+
+      .desc {
+        @include font-size(sm);
+        @include font-weight(normal);
+        color: $theme9;
+      }
+    }
+  }
+
+  .actionButtons {
+    display: flex;
+    margin-left: auto;
+
+    > * {
+      margin-left: 10px;
+    }
+  }
+
+  .searchInput {
+    display: flex;
+    overflow: hidden;
+
+    .search {
+      display: flex;
+      width: 100%;
+      border-radius: $borderRadius1;
+      height: 40px;
+
+      .btnTags {
+        @include buttonDefault();
+        @include buttonSizeDefault();
+        @include buttonShapePrimary();
+        @include buttonColorsSecondary();
+        position: relative;
+        margin-right: 15px;
+
+        &.active,
+        &:hover,
+        &:focus {
+          @include buttonColorsPrimary();
+        }
+
+        &:after,
+        &:before {
+          content: '';
+          position: absolute;
+          right: -8px;
+          width: 1px;
+          height: 15px;
+          background: $theme9;
+        }
+
+        &::before {
+          right: -7px;
+          background: $theme0;
+        }
+      }
+    }
+  }
+
+  .promotedGroups {
+    padding: 0 10px;
+  }
+
+  .groupPostsListWrapper {
+    width: 100%;
+    overflow: hidden;
+
+    > div {
+      margin: 10px;
+      border-radius: $borderRadius1;
+    }
+
     .posts {
       display: grid;
-      gap: 20px; // @todo set standard gaps for grid
+      gap: 10px; // @todo set standard gaps for grid
       grid-template-columns: 1fr 1fr;
+      margin-top: 0;
 
       .postCreate {
         margin-bottom: 10px;
-      }
-
-      .third {
-        padding-right: 0;
-        padding-left: 0;
-
-        .buttons {
-          display: flex;
-          margin-bottom: 20px;
-
-          li {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border: 1px solid lightgray;
-            border-radius: $borderRadius1;
-            margin-right: 10px;
-            cursor: pointer;
-
-            &:hover {
-              border-color: $theme4;
-
-              i {
-                color: $theme4;
-              }
-            }
-
-            i {
-              line-height: 0;
-              color: lightgray;
-            }
-          }
-        }
       }
     }
   }
 }
 
-.tagsButton {
-  @include buttonDefault();
-  @include buttonShapePrimary();
-}
+.noPostPicture {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
 
-.tagsButtonActive {
-  @include buttonColorsSecondary();
+  img {
+    opacity: 0.4;
+    width: 180px;
+  }
+
+  span {
+    margin-top: 70px;
+    margin-left: 10px;
+    @include font-size(xlg);
+    color: $theme9;
+  }
 }

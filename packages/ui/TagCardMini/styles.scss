@@ -8,7 +8,7 @@
   border: 2px solid $theme0;
 
   &:hover {
-    border-color: $theme5;
+    border-color: $theme4;
   }
 
   .image {
@@ -24,7 +24,7 @@
       @include font-size(xsm);
       margin-top: 2px;
       margin-bottom: 5px;
-      font-weight: 400;
+      @include font-weight(normal);
       color: $theme2;
     }
 

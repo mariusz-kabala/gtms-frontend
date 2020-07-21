@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 @import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
@@ -11,7 +12,6 @@
   border: 1px solid $theme2;
   border-radius: $borderRadius1;
   margin-bottom: 10px;
-  font-size: 14px;
   cursor: pointer;
 
   &:hover {
@@ -29,8 +29,8 @@
     margin-bottom: 5px;
 
     h2 {
-      font-weight: 400;
-      font-size: 11px;
+      @include font-weight(normal);
+      @include font-size(xs);
       text-transform: uppercase;
     }
 
@@ -59,7 +59,7 @@
 
     .desc {
       h3 {
-        font-weight: 400;
+        @include font-weight(normal);
       }
     }
   }

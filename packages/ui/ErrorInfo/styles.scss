@@ -8,11 +8,11 @@
 
   > div {
     h2 {
-      font-size: 40px;
+      @include font-size(xxlg);
     }
 
     p {
-      font-size: 20px;
+      @include font-size(xmd);
     }
   }
 }

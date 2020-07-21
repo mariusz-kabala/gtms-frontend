@@ -10,6 +10,7 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonSizeDefault();
     @include buttonShapePrimary();
     @include buttonColorsDefault();
     width: 100%;
@@ -17,7 +18,7 @@
     background: $theme2;
 
     &:hover {
-      @include buttonColorsSecondary();
+      @include buttonColorsPrimary();
     }
   }
 }

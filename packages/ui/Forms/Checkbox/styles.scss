@@ -58,7 +58,7 @@
   }
 
   &:hover svg {
-    stroke: $theme5;
+    stroke: $theme4;
   }
 }
 
@@ -67,7 +67,7 @@
 }
 
 .input:checked + label svg {
-  stroke: $theme5;
+  stroke: $theme4;
 }
 
 .input:checked + label svg path {

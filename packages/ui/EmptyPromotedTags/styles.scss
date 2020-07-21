@@ -25,7 +25,7 @@
   transform: translateX(-50%);
   @include buttonDefault();
   @include buttonShapePrimary();
-  @include buttonColorsSecondary();
+  @include buttonColorsPrimary();
 
   padding: 15px 30px;
   &:hover {

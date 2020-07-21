@@ -3,21 +3,20 @@ import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
-// ui
-import { DeletePost } from './DeletePost'
-import { Picture } from '../Picture'
-import { PostResponse } from './PostResponse'
-import { PostCreate } from '../PostCreate'
-import { Tag } from '../Tag'
-import { TagGroup } from '../TagGroup'
-import { UserAvatar } from '../UserAvatar'
 // commons
 import { getDisplayName } from '@gtms/commons/helpers'
 import { IAccountDetails, IUser, IComment } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
 import { Link } from '@gtms/commons/i18n'
 import { IImage } from '@gtms/commons/types/image'
-// style
+// ui
+import { DeletePost } from './DeletePost'
+import { Picture } from '../Picture'
+import { PostCreate } from '../PostCreate'
+import { PostResponse } from './PostResponse'
+import { Tag } from '../Tag'
+import { TagGroup } from '../TagGroup'
+import { UserAvatar } from '../UserAvatar'
 import styles from './styles.scss'
 
 export const PostSingle: FC<{
@@ -73,7 +72,6 @@ export const PostSingle: FC<{
       data-testid="post-single"
     >
       <div className={styles.header}>
-        {renderFavs && renderFavs(favs, id)}
         <div className={styles.user}>
           <Link href={`/user/${owner.id}`}>
             <>
@@ -100,10 +98,12 @@ export const PostSingle: FC<{
             </a>
           </div>
         </div>
-
-        {owner.id === user?.id && (
-          <DeletePost additionalStyles={styles.deleteBtn} />
-        )}
+        <div className={styles.actionButtons}>
+          {owner.id === user?.id && (
+            <DeletePost additionalStyles={styles.deleteBtn} />
+          )}
+          {renderFavs && renderFavs(favs, id)}
+        </div>
       </div>
       <div className={styles.desc}>
         <div>
@@ -134,27 +134,8 @@ export const PostSingle: FC<{
             ))}
           </TagGroup>
         )}
-        {allowToRespond && (user || onLoginRequest) && (
-          <button
-            className={styles.respondBtn}
-            onClick={(e) => {
-              e.preventDefault()
-
-              if (!user && onLoginRequest) {
-                return onLoginRequest()
-              }
-
-              setIsAnswerFormOpen(true)
-              if (commentForm.current) {
-                window.scrollTo(0, commentForm.current.offsetTop)
-              }
-            }}
-          >
-            Respond
-          </button>
-        )}
         {Array.isArray(firstComments) && firstComments.length > 0 && (
-          <div>
+          <>
             {firstComments.map((comment) => (
               <PostResponse
                 key={`comment-${comment.id}`}
@@ -165,7 +146,7 @@ export const PostSingle: FC<{
                 user={user}
               />
             ))}
-          </div>
+          </>
         )}
         {isAnswerFormOpen && allowToRespond && (
           <div ref={commentForm}>
@@ -185,8 +166,29 @@ export const PostSingle: FC<{
           </div>
         )}
       </div>
-      <div>
-        <a onClick={onClickCallback}>read more</a>
+      <div className={styles.btns}>
+        {allowToRespond && (user || onLoginRequest) && (
+          <button
+            className={styles.respondBtn}
+            onClick={(e) => {
+              e.preventDefault()
+
+              if (!user && onLoginRequest) {
+                return onLoginRequest()
+              }
+
+              setIsAnswerFormOpen(true)
+              if (commentForm.current) {
+                window.scrollTo(0, commentForm.current.offsetTop)
+              }
+            }}
+          >
+            respond...
+          </button>
+        )}
+        <button className={styles.readMoreBtn} onClick={onClickCallback}>
+          read more...
+        </button>
       </div>
     </div>
   )

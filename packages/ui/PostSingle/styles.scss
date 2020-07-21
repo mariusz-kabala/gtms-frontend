@@ -8,9 +8,13 @@
   overflow: hidden; // for delete post component that overflows this component
   cursor: pointer;
   opacity: 0.85;
+  padding: 10px;
+  border-radius: $borderRadius1;
+  background: $theme0;
+  border: 2px solid $theme0;
 
   &:hover {
-    border-color: $theme5;
+    border-color: $theme4;
     opacity: 1;
 
     .header {
@@ -18,16 +22,12 @@
         opacity: 0.8;
       }
     }
-
-    &::after {
-      background: $theme4;
-    }
   }
 
   .header {
     display: flex;
     align-items: center;
-    font-weight: 400;
+    @include font-weight(normal);
 
     .user {
       display: flex;
@@ -44,19 +44,23 @@
         min-width: 35px;
         min-height: 35px;
       }
-    }
 
-    .date {
-      font-weight: 300;
-    }
-
-    span {
-      margin-left: 10px;
-
-      // @include font-weight('bold');
-      &:hover {
-        color: $theme4;
+      .date {
+        @include font-weight(semiNormal);
       }
+
+      span {
+        margin-left: 10px;
+
+        &:hover {
+          color: $theme4;
+        }
+      }
+    }
+
+    .actionButtons {
+      display: flex;
+      margin-left: auto;
     }
 
     .deleteBtn {
@@ -99,24 +103,38 @@
   }
 
   .tagGroup {
-    margin-top: 10px;
-  }
-
-  .respondBtn {
-    @include buttonDefault();
-    @include buttonShapePrimary();
-    @include buttonSizeSm();
-    @include buttonColorsPrimary();
-    margin-top: 10px;
-    margin-left: auto;
-
-    &:hover {
-      @include buttonColorsSecondary();
-    }
+    margin: 10px 0;
   }
 
   .postResponseCreate {
     margin-top: 10px;
+  }
+}
+
+.btns {
+  display: flex;
+
+  .respondBtn {
+    @include buttonDefault();
+    @include buttonShapePrimary();
+    @include buttonSizeMd();
+    @include buttonColorsDefault();
+    margin-right: auto;
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+  }
+
+  .readMoreBtn {
+    @include buttonDefault();
+    @include buttonShapePrimary();
+    @include buttonSizeMd();
+    @include buttonColorsDefault();
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
   }
 }
 

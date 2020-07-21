@@ -1,10 +1,56 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+
+.pageWrapper {
+  @include pageWrapper();
+  max-width: 650px;
+}
 
 .wrapper {
   width: 100%;
+  padding: 20px;
+
+  .coverImage {
+    max-width: 500px;
+  }
 
   .searchBarWrapper {
-    position: relative;
-    z-index: 1;
+    display: flex;
+    margin: 20px 0;
+
+    .btnTags {
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapePrimary();
+      @include buttonColorsSecondary();
+      position: relative;
+      margin-right: 15px;
+
+      &.active,
+      &:hover,
+      &:focus {
+        @include buttonColorsPrimary();
+      }
+
+      &:after,
+      &:before {
+        content: '';
+        position: absolute;
+        right: -8px;
+        width: 1px;
+        height: 15px;
+        background: $theme9;
+      }
+
+      &::before {
+        right: -7px;
+        background: $theme0;
+      }
+    }
+
+    > div {
+      box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.1);
+    }
   }
 }

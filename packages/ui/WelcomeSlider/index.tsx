@@ -10,11 +10,8 @@ export const WelcomeSlider: FC<{
     <div
       data-testid="welcome-slider"
       className={cx(styles.wrapper, additionalStyles)}
-      style={{
-        backgroundImage: `url('/images/temp_images/cover-image-travel.png')`,
-      }}
     >
-      <Picture jpg={'/images/temp_images/cover-image-travel-text.png'} />
+      <Picture jpg={'/images/temp_images/cover-image-travel.png'} />
     </div>
   )
 }

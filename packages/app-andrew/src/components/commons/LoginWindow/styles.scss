@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
 
 .loginWindow {
   padding: 15px;
@@ -8,8 +9,8 @@
     margin-bottom: 20px;
   }
 
-  h2 {
-    color: white;
+  .header {
+    color: $theme7;
     font-size: 3em;
     text-transform: uppercase;
     @include font-weight(bold);
@@ -18,10 +19,14 @@
 }
 
 .registrationLink {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  @include font-size(md);
   margin-top: 15px;
+
+  @include buttonDefault();
+  @include buttonSizeDefault();
+  @include buttonShapePrimary();
+  @include buttonColorsDefault();
+
+  &:hover {
+    @include buttonColorsPrimary();
+  }
 }

@@ -4,18 +4,18 @@
   width: 100%;
   height: 40px;
   max-height: 40px;
-  color: $theme5;
   padding: 5px 15px;
-  background: none;
   margin-bottom: 10px;
+  border: 2px solid $theme9;
+  background: none;
 }
 
 @mixin inputFocus() {
   &:active,
   &:focus,
   &:hover {
-    background: $theme3;
     outline: none;
+    border-color: $theme4;
 
     &::placeholder {
       color: $theme0;
@@ -25,13 +25,14 @@
 
 @mixin placeholderFocus() {
   &::placeholder {
-    opacity: 0.55;
+    opacity: 0.65;
     color: $theme7;
   }
 
-  &:focus {
+  &:focus,
+  &:hover {
     &::placeholder {
-      opacity: 1;
+      color: $theme4;
     }
   }
 }

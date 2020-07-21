@@ -3,6 +3,7 @@ import { NextPage, NextPageContext } from 'next'
 import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 import { GroupCreate } from '../../components/group/GroupCreate'
+import { Picture } from '@gtms/ui/Picture'
 import { hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 
@@ -10,11 +11,14 @@ export const GroupCreatePage: NextPage<{}> = () => {
   const { t } = useTranslation('groupCreate')
 
   return (
-    <div className={styles.wrapper} data-testid="group-create-page">
-      <div>
-        <h2>{t('header')}</h2>
-        <p>{t('subheader')}</p>
-        <GroupCreate />
+    <div className={styles.pageWrapper}>
+      <div className={styles.wrapper} data-testid="group-create-page">
+        <div>
+          <Picture jpg={'/images/white-theme/group-create.png'} />
+          <h2>{t('header')}</h2>
+          <p>{t('subheader')}</p>
+          <GroupCreate />
+        </div>
       </div>
     </div>
   )

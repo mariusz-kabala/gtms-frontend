@@ -4,7 +4,10 @@
 
 .btn {
   @include buttonDefault();
-
+  @include buttonSizeMd();
+  @include buttonShapePrimary();
+  @include buttonColorsDefault();
   &:hover {
+    @include buttonColorsPrimary();
   }
 }

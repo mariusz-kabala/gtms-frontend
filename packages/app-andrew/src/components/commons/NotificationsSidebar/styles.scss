@@ -1,33 +1,67 @@
 @import '~@gtms/styles/scss/variables';
 @import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
 
 .wrapper {
   width: 0;
   height: 100vh;
-  background: rgba($theme0, 0.9);
-  padding: 15px;
-  margin-right: 10px;
 
   &.opened {
-    width: 300px;
+    width: 400px;
   }
 
-  > h2 {
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 5px;
+  > div {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    padding: 10px;
+    background: rgba($theme0, 0.9);
+  }
 
-    span {
-      margin-left: 4px;
-      font-weight: 400;
-      font-size: 13px;
+  .navigation {
+    display: flex;
+    margin-bottom: 15px;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      @include font-weight(semiBold);
+      text-transform: uppercase;
+
+      span {
+        margin-left: 5px;
+        @include font-weight(normal);
+        @include font-size(sm);
+      }
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      cursor: pointer;
+
+      li {
+        padding: 5px 10px;
+        border-radius: $borderRadius2;
+        margin-right: 10px;
+        background: $theme2;
+        color: $theme7;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &:hover {
+          background: $theme4;
+          color: $theme0;
+        }
+      }
     }
 
     i {
-      margin-left: auto;
+      margin-right: 5px;
     }
 
     &:hover {

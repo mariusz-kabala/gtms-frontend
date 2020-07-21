@@ -26,25 +26,6 @@
     padding: 20px 0 50px 0;
     text-align: center;
     @include font-size(lg);
-
-    > div {
-      width: 70%;
-      margin: auto;
-
-      h2 {
-        display: inline-block;
-        width: 70%;
-        @include font-size(xxlg);
-        border-bottom: 3px solid $theme7;
-        margin-bottom: 10px;
-        text-align: initial;
-      }
-
-      svg {
-        font-size: 50px;
-        margin-bottom: -10px;
-      }
-    }
   }
 
   .recentPosts {
@@ -55,10 +36,11 @@
     margin-left: 5px;
     margin-right: 5px;
     @include buttonDefault();
+    @include buttonSizeDefault();
     @include buttonShapePrimary();
     @include buttonColorsDefault();
     &:hover {
-      @include buttonColorsSecondary();
+      @include buttonColorsPrimary();
     }
   }
 }
