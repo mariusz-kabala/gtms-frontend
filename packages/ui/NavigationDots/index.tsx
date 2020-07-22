@@ -5,7 +5,10 @@ import { Link } from '@gtms/commons/i18n'
 import { IGroup, FileStatus } from '@gtms/commons'
 import { IoIosKeypad } from 'react-icons/io'
 
-export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
+export const NavigationDots: FC<{ groups: IGroup[] }> = ({
+  groups,
+  children,
+}) => {
   const [showFullView, setShowFullView] = useState<boolean>(false)
   if (groups.length === 0) {
     return null
@@ -19,29 +22,7 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({ groups }) => {
         })}
       >
         <div className={styles.bg} />
-        <div className={styles.content}>
-          <nav>
-            <ul>
-              <li>
-                <a>Favs</a>
-              </li>
-              <li>
-                <a>Member</a>
-              </li>
-              <li>
-                <a>Owned by me</a>
-              </li>
-              <li>
-                <a>Admined by me</a>
-              </li>
-              <li>
-                <Link href={'/my-groups'}>
-                  <a>Settings</a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <div className={styles.content}>{children}</div>
       </div>
       <ul className={styles.navigationDot} data-testid="navigation-dots">
         {groups.map((value, index) => (

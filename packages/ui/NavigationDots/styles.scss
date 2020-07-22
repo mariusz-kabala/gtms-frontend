@@ -48,22 +48,6 @@
     color: #ffff;
     z-index: 1;
     position: relative;
-
-    nav {
-      padding: 25px;
-      ul {
-        display: flex;
-        justify-content: space-evenly;
-
-        li {
-          cursor: pointer;
-
-          &:hover {
-            font-weight: bold;
-          }
-        }
-      }
-    }
   }
   .bg {
     border-top-left-radius: 10px;
