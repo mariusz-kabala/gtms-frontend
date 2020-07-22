@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.53.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.53.2...@gtms/app-andrew@0.53.3) (2020-07-22)
+
+
+### Bug Fixes
+
+* GEOT-353: allow user to have a quick access to all related groups ([#752](https://github.com/gtms-org/gtms-frontend/issues/752)) ([51c4f93](https://github.com/gtms-org/gtms-frontend/commit/51c4f93fc31d5c746021195ab341ffc500f4428c))
+
+
+
+
+
 ## [0.53.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.53.1...@gtms/app-andrew@0.53.2) (2020-07-21)
 
 
