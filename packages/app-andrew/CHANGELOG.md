@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.54.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.53.4...@gtms/app-andrew@0.54.0) (2020-07-22)
+
+
+### Features
+
+* GEOT-351: styles for promoted tags below search bar ([#753](https://github.com/gtms-org/gtms-frontend/issues/753)) ([ad42f10](https://github.com/gtms-org/gtms-frontend/commit/ad42f100475b7e9612582aae411f49f41a3d5037))
+
+
+
+
+
 ## [0.53.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.53.3...@gtms/app-andrew@0.53.4) (2020-07-22)
 
 
