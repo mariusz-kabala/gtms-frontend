@@ -1,13 +1,12 @@
 import React from 'react'
 import { NextPage } from 'next'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 // ui
+import styles from './styles.scss'
 import { Button } from '@gtms/ui/Button'
 import { Picture } from '@gtms/ui/Picture'
 import { SearchBar } from '@gtms/ui/SearchBar'
-// import { UserGroups } from '@gtms/ui/UserGroups'
 
 export const SearchPage: NextPage<{}> = () => {
   const { t } = useTranslation('searchPage')
@@ -38,7 +37,6 @@ export const SearchPage: NextPage<{}> = () => {
             tags={['lorem', 'ipsum', 'punkciki', 'hello']}
           />
         </div>
-        {/* <UserGroups /> RAFAL - rename this component or remove it if it was added only as a mock */}
       </div>
     </div>
   )

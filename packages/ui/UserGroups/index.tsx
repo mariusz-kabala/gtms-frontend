@@ -1,11 +1,12 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
-import { Button } from '@gtms/ui/Button'
-import { Picture } from '@gtms/ui/Picture'
-import { Spinner } from '@gtms/ui/Spinner'
 import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
+// ui
+import { Button } from '@gtms/ui/Button'
+import { Picture } from '@gtms/ui/Picture'
+import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
 export const UserGroups: FC<{
