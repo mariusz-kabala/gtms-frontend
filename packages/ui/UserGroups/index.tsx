@@ -4,10 +4,10 @@ import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
 // ui
-import styles from './styles.scss'
 import { Button } from '@gtms/ui/Button'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 export const UserGroups: FC<{
   additionalStyles?: string
