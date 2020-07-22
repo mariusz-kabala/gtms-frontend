@@ -3,7 +3,7 @@ import { promotedTagsQuery, loadGroupPromotedTags } from '@gtms/state-tag'
 import { IPromotedTag, FileStatus } from '@gtms/commons'
 import { PromotedTagNoImage } from 'enums/noImage'
 // ui
-import { IoMdTrash, IoIosHammer } from 'react-icons/io'
+import { IoMdTrash, IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -42,7 +42,6 @@ export const PromotedTags: FC<{
 
       {promoted.length === 0 && !isLoading && (
         <div className={styles.noRecords}>
-          <Picture jpg={'/images/temp_images/logo-wioska-2.png'} />
           <p>
             {/* @todo add translation */}
             no promoted tags yet, create some
@@ -71,7 +70,7 @@ export const PromotedTags: FC<{
                     }}
                   >
                     <i>
-                      <IoIosHammer />
+                      <IoIosSettings />
                     </i>
                   </Button>
                 </div>

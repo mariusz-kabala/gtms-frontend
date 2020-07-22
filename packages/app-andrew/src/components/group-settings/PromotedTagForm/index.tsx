@@ -114,19 +114,16 @@ export const PromotedTagsForm: FC<{
               {stateTag.isError && <Error text={'Tag can not be empty'} />}
             </div>
           )}
-          <div>
-            <ExpandingTextarea
-              additionalStyles={styles.textarea}
-              placeholder="Put a short tag description here"
-              name="description"
-              defaultValue={description}
-              rows={10}
-              reference={dscRef as any}
-            />
-            {savingStatus.validationError && (
-              <Error text={t(savingStatus.validationError)} />
-            )}
-          </div>
+          <ExpandingTextarea
+            additionalStyles={styles.textarea}
+            placeholder="Put a short tag description here"
+            name="description"
+            defaultValue={description}
+            reference={dscRef as any}
+          />
+          {savingStatus.validationError && (
+            <Error text={t(savingStatus.validationError)} />
+          )}
           <button
             disabled={savingStatus.isSaving}
             onClick={() => {
