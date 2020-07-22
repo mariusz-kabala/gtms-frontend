@@ -55,10 +55,6 @@ export const Navigation: FC<{}> = () => {
     }
   }, [])
 
-  if (!state.isLogged) {
-    return null
-  }
-
   return (
     <NavigationUI
       menu={MENU_ITEMS}

@@ -2,8 +2,7 @@ import React from 'react'
 import App, { AppContext } from 'next/app'
 import Head from 'next/head'
 import { appWithTranslation } from '@gtms/commons/i18n'
-import { Navigation } from 'components/commons/Navigation'
-import { NavigationDots } from 'components/commons/NavigationDots'
+import { NavigationWrapper } from 'components/commons/NavigationWrapper'
 import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { init, initAuthSession } from '@gtms/state-user'
@@ -49,10 +48,7 @@ class GTMSApp extends App<GTMSAppProps> {
         <NotificationsActive />
         <LoginWindow />
         <NotificationsSidebar />
-        <div>
-          <Navigation />
-          <NavigationDots />
-        </div>
+        <NavigationWrapper />
         <Component {...pageProps} />
         <div
           className={styles.bg}
