@@ -1,15 +1,12 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
-import { useTranslation } from '@gtms/commons/i18n'
+import { useTranslation, Link } from '@gtms/commons/i18n'
 import { FileStatus } from '@gtms/commons/enums'
-import { ChangePassword } from 'components/account/ChangePassword'
-import { DeleteAccount } from 'components/account/DeleteAccount'
 import { UserEmail } from 'components/account/UserEmail'
 import { UserName } from 'components/account/UserName'
 import { UserDescription } from 'components/account/UserDescription'
 import { ImageEditor } from '@gtms/ui/ImageEditor'
-import { NotificationsSettings } from 'components/account/NotificationsSettings'
 import {
   userQuery,
   markAsLoading,
@@ -21,7 +18,7 @@ import {
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { useInitState } from '@gtms/commons/hooks'
 import { findTagsAPI } from '@gtms/api-tags'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage, GroupAvatarNoImage } from 'enums'
 import { accountPageState, accountPageState$, IAccountPageState } from 'queries'
 // ui
 import { Button } from '@gtms/ui/Button'
@@ -41,8 +38,8 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
   const [isAvatarEditorVisible, setIsAvatarEditorVisible] = useState<boolean>(
     false
   )
-  const [tags, setTags] = useState<string[]>([])
   const [state, setState] = useState<IAccountPageState>(accountPageState())
+  const [tags, setTags] = useState<string[]>(state.tags || [])
   const [isSaving, setIsSaving] = useState<boolean>(false)
   const [tagsHints, setTagsHints] = useState<{
     isLoading: boolean
@@ -102,6 +99,10 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
     getAccountDetails()
     const sub = accountPageState$.subscribe((value) => {
       setState(value)
+
+      if (value.tags && value.tags.length > 0) {
+        setTags(value.tags)
+      }
     })
     return () => {
       sub && !sub.closed && sub.unsubscribe()
@@ -120,9 +121,21 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             <div className={styles.navigation}>
               <h2>My profile</h2>
               <ul>
-                <li>My profile card</li>
-                <li>Security</li>
-                <li>Notifications</li>
+                <li>
+                  <Link href="/account">
+                    <a>My profile card</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/account/security">
+                    <a>Security</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/account/notifications">
+                    <a>Notifications</a>
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className={styles.hint}>
@@ -153,7 +166,11 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
               </div>
               <div className={styles.userNameSurnameLogin}>
                 <UserName name={state.name} surname={state.surname} />
-                <span className={styles.login}>@LEllison</span>
+                <UserEmail
+                  email={state.email}
+                  additionalStyles={styles.userName}
+                />
+                <span className={styles.login}>@{state.username}</span>
               </div>
               <div className={styles.desc}>
                 <span className={styles.aboutMeLabel}>About me:</span>
@@ -202,21 +219,25 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             </div>
             <ul className={styles.userStats}>
               <li className={styles.item}>
-                <span>4345</span>
+                <span>{state.postsCounter}</span>
                 Posts
               </li>
               <li className={styles.item}>
-                <span>12</span>
-                Group(s)
+                <span>{state.memberedGroupsCounter}</span>
+                Group(s) member
               </li>
               <li className={styles.item}>
-                <span>123</span>
-                Tag(s) watcher
+                <span>{state.ownedGroupsCounter}</span>
+                Group(s) owner
+              </li>
+              <li className={styles.item}>
+                <span>{state.favsGroupsCounter}</span>
+                Fav group(s)
               </li>
             </ul>
             <div className={styles.userGroups}>
               <span>I am member of groups:</span>
-              <UserGroups />
+              <UserGroups groups={state.groups} noImage={GroupAvatarNoImage} />
             </div>
             <div className={styles.userLastPosts}>
               <span>My last posts:</span>
@@ -226,10 +247,6 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                 <li />
               </ul>
             </div>
-            <ChangePassword />
-            <UserEmail email={state.email} additionalStyles={styles.userName} />
-            <DeleteAccount onConfirm={() => null} />
-            <NotificationsSettings />
           </>
         )}
       </div>

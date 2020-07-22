@@ -24,4 +24,5 @@ export interface IUser {
   languageCode: string
   tags: string[]
   description?: string
+  postsCounter: number
 }

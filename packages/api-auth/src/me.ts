@@ -9,6 +9,7 @@ export interface IAccountDetailsResponse {
   languageCode: string
   tags: string[]
   roles: string[]
+  username: string
   avatar?: {
     status: FileStatus
     files: string[]

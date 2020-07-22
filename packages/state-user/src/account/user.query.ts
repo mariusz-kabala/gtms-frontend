@@ -100,6 +100,8 @@ export class UserQuery extends Query<IUserStore> {
     id: values.id,
     name: values.name,
     surname: values.surname,
+    username: values.username,
+    postsCounter: values.postsCounter || 0,
     phone: values.phone,
     email: values.email,
     roles: values.roles,
