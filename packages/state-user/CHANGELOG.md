@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.7...@gtms/state-user@0.17.8) (2020-07-22)
+
+
+### Bug Fixes
+
+* GEOT-354: fill account page with real data ([#754](https://github.com/gtms-org/gtms-frontend/issues/754)) ([97398b0](https://github.com/gtms-org/gtms-frontend/commit/97398b03ac077319aad27d36fbccd656c1dc8bff))
+
+
+
+
+
 ## [0.17.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.6...@gtms/state-user@0.17.7) (2020-07-21)
 
 

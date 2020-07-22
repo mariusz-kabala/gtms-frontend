@@ -7,7 +7,6 @@ import cx from 'classnames'
 import { UserAvatar } from '../UserAvatar'
 import {
   IoIosAddCircle,
-  IoIosKeypad,
   IoIosLogOut,
   IoIosNotifications,
   IoIosSearch,
@@ -42,11 +41,6 @@ export const Navigation: FC<{
               label: 'Create your group',
               icon: <IoIosAddCircle />,
               url: '/group-create',
-            },
-            {
-              label: 'My groups',
-              icon: <IoIosKeypad />,
-              url: '/my-groups',
             },
           ].map((value, index) => {
             return (

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.1...@gtms/api-auth@0.13.2) (2020-07-22)
+
+
+### Bug Fixes
+
+* GEOT-354: fill account page with real data ([#754](https://github.com/gtms-org/gtms-frontend/issues/754)) ([97398b0](https://github.com/gtms-org/gtms-frontend/commit/97398b03ac077319aad27d36fbccd656c1dc8bff))
+
+
+
+
+
 ## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.0...@gtms/api-auth@0.13.1) (2020-07-21)
 
 

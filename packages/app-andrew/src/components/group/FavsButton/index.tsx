@@ -81,7 +81,7 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
   return (
     <Button
       additionalStyles={cx(styles.btn, {
-        [styles.isLoading]: status.isLoading,
+        [styles.isLoading]: status.isLoading && userQuery.isLogged(),
       })}
       onClick={() => {
         if (!userQuery.isLogged()) {
@@ -101,7 +101,7 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
         }))
       }}
     >
-      {status.isLoading && (
+      {status.isLoading && userQuery.isLogged() && (
         <>
           <span className={styles.loader}>
             <Spinner />
@@ -109,7 +109,7 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
           {t('favs')}
         </>
       )}
-      {!status.isLoading && !status.inFavs && (
+      {((!status.isLoading && !status.inFavs) || !userQuery.isLogged()) && (
         <>
           <i>
             <IoIosHeartEmpty />

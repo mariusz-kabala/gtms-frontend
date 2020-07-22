@@ -1,68 +1,35 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { Button } from '@gtms/ui/Button'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
+import { IGroup } from '@gtms/commons/models'
+import { getImage } from '@gtms/commons/helpers'
+import { IImage } from '@gtms/commons/types/image'
+import styles from './styles.scss'
 
 export const UserGroups: FC<{
   additionalStyles?: string
-}> = ({ additionalStyles }) => {
-  const isLoading = false // @todo remove mock
-  const mock = [
-    {
-      id: 0,
-      title: '#berlin2020',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-1.png',
-    },
-    {
-      id: 1,
-      title: '#cdp',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-8.png',
-    },
-    {
-      id: 2,
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      title: '#nightCity',
-      image: '/images/temp_images/logo-wioska-3.png',
-    },
-    {
-      id: 3,
-      title: '#metro',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-5.png',
-    },
-    {
-      id: 4,
-      title: '#cdp',
-      description:
-        'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-6.png',
-    },
-  ]
-
+  isLoading?: boolean
+  groups: IGroup[]
+  noImage: { [key: string]: IImage }
+}> = ({ additionalStyles, groups, noImage, isLoading = false }) => {
   return (
     <div className={cx(styles.wrapper, additionalStyles)}>
       {isLoading && <Spinner />}
-      {mock.length > 0 && (
+      {groups.length > 0 && (
         <>
           <ul className={styles.items}>
-            {mock.map((item) => (
-              <li className={styles.item} key={item.id}>
+            {groups.map((group) => (
+              <li className={styles.item} key={`group-${group.id}`}>
                 <Picture
                   additionalStyles={styles.image}
-                  jpg={item.image}
                   maxHeight={250}
+                  {...getImage('200x200', group.avatar, noImage)}
                 />
                 <div className={styles.desc}>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                  <h3>{group.name}</h3>
+                  <p>{group.description}</p>
                 </div>
               </li>
             ))}
