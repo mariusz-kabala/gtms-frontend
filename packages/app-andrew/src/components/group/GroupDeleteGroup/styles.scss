@@ -2,7 +2,7 @@
 @import '~@gtms/styles/scss/mixins/buttons';
 @import '~@gtms/styles/scss/mixins/fontSize';
 
-.btnDeleteAccount {
+.btnDeleteGroup {
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapePrimary();

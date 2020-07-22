@@ -14,48 +14,30 @@
   padding: 20px;
   max-width: 980px;
 
-  .header {
-    @include header(h3, textUppercase);
-  }
-
-  > div {
+  .navigation {
     display: flex;
-    margin-top: 20px;
 
-    ul {
-      li {
-        cursor: pointer;
-        padding: 5px 0;
-        padding-left: 10px;
-        border-left: 4px solid $theme3;
-        @include font-size(md);
-
-        a {
-          display: block;
-          text-decoration: none;
-          color: white;
-        }
-
-        &:hover {
-          border-color: $theme7;
-        }
-
-        &.current {
-          @include font-weight('bold');
-          a {
-            color: $theme4;
-          }
-          border-color: $theme4;
-        }
-      }
+    .header {
+      @include header(h3, textUppercase);
+      @include font-weight(semiBold);
     }
 
-    .content {
-      p {
-        margin-bottom: 20px;
+    ul {
+      display: flex;
+      margin-left: 10px;
 
-        &:last-child {
-          margin-bottom: 0;
+      li {
+        padding: 5px;
+        margin-right: 5px;
+        border-radius: $borderRadius1;
+        background: $theme2;
+
+        &.current,
+        &:hover {
+          background: $theme4;
+          a {
+            color: $theme0;
+          }
         }
       }
     }

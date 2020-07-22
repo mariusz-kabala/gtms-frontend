@@ -1,4 +1,5 @@
 import React, { FC, useState, useRef, useCallback } from 'react'
+import cx from 'classnames'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { useTranslation } from '@gtms/commons/i18n'
@@ -80,7 +81,36 @@ export const PromotedTagsForm: FC<{
 
   return (
     <div className={styles.wrapper}>
-      <h3 className={styles.header}>Promoted tag</h3>
+      <h2 className={styles.header}>Promoted tag</h2>
+      <nav>
+        <ul>
+          <li
+            className={cx({
+              [styles.activeTab]: step === FormSteps.one,
+            })}
+          >
+            <a onClick={() => setStep(FormSteps.one)}>Basic info</a>
+          </li>
+          <li
+            className={cx({
+              [styles.activeTab]: step === FormSteps.two,
+              [styles.disabled]: !promotedTagId,
+            })}
+          >
+            <a
+              onClick={() => {
+                if (!promotedTagId) {
+                  return
+                }
+
+                setStep(FormSteps.two)
+              }}
+            >
+              Image
+            </a>
+          </li>
+        </ul>
+      </nav>
       {promotedTagId && stateTag.value && (
         <div className={styles.promoted}>
           <TagGroup>
@@ -89,10 +119,11 @@ export const PromotedTagsForm: FC<{
         </div>
       )}
       {step === FormSteps.one && (
-        <section>
+        <div>
           {!tag && !promotedTagId && (
             <div>
               <input
+                className={styles.input}
                 type="text"
                 name="tag"
                 value={stateTag.value}
@@ -113,87 +144,85 @@ export const PromotedTagsForm: FC<{
               {stateTag.isError && <Error text={'Tag can not be empty'} />}
             </div>
           )}
-          <div>
-            <ExpandingTextarea
-              placeholder="Put a short tag description here"
-              name="description"
-              defaultValue={description}
-              reference={dscRef as any}
-            />
-            {savingStatus.validationError && (
-              <Error text={t(savingStatus.validationError)} />
-            )}
-          </div>
-          <div className={styles.buttons}>
-            <button
-              disabled={savingStatus.isSaving}
-              onClick={() => {
-                const dsc = dscRef.current?.value
-                let errors = false
+          <ExpandingTextarea
+            additionalStyles={styles.textarea}
+            placeholder="Put a short tag description here"
+            name="description"
+            defaultValue={description}
+            reference={dscRef as any}
+          />
+          {savingStatus.validationError && (
+            <Error text={t(savingStatus.validationError)} />
+          )}
+          <button
+            disabled={savingStatus.isSaving}
+            onClick={() => {
+              const dsc = dscRef.current?.value
+              let errors = false
 
-                if (!dsc) {
+              if (!dsc) {
+                setSavingStatus({
+                  isSaving: false,
+                  validationError: 'form.validation.description.isRequired',
+                })
+                errors = true
+              }
+
+              if (!stateTag.value) {
+                setStateTag((value) => ({
+                  ...value,
+                  isError: true,
+                }))
+                errors = true
+              }
+
+              if (errors) {
+                return
+              }
+
+              setSavingStatus({
+                isSaving: true,
+                validationError: '',
+              })
+
+              if (promotedTagId) {
+                updatePromotedTag(promotedTagId, {
+                  description: dsc as string,
+                }).then(() => {
                   setSavingStatus({
                     isSaving: false,
-                    validationError: 'form.validation.description.isRequired',
+                    validationError: '',
                   })
-                  errors = true
-                }
-
-                if (!stateTag.value) {
-                  setStateTag((value) => ({
-                    ...value,
-                    isError: true,
-                  }))
-                  errors = true
-                }
-
-                if (errors) {
-                  return
-                }
-
-                setSavingStatus({
-                  isSaving: true,
-                  validationError: '',
+                  setStep(FormSteps.two)
                 })
-
-                if (promotedTagId) {
-                  updatePromotedTag(promotedTagId, {
-                    description: dsc as string,
-                  }).then(() => {
-                    setSavingStatus({
-                      isSaving: false,
-                      validationError: '',
-                    })
-                    setStep(FormSteps.two)
+              } else {
+                createPromotedTag({
+                  tag: stateTag.value,
+                  group: groupId,
+                  description: dsc as string,
+                }).then((result) => {
+                  if (result) {
+                    setPromotedTagId(result.id)
+                  }
+                  setSavingStatus({
+                    isSaving: false,
+                    validationError: '',
                   })
-                } else {
-                  createPromotedTag({
-                    tag: stateTag.value,
-                    group: groupId,
-                    description: dsc as string,
-                  }).then((result) => {
-                    if (result) {
-                      setPromotedTagId(result.id)
-                    }
-                    setSavingStatus({
-                      isSaving: false,
-                      validationError: '',
-                    })
-                    setStep(FormSteps.two)
-                  })
-                }
-              }}
-              className={styles.btn}
-            >
-              Save & go to next step
-            </button>
-            {savingStatus.isSaving && <Spinner />}
-          </div>
-        </section>
+                  setStep(FormSteps.two)
+                })
+              }
+            }}
+            className={styles.btn}
+          >
+            {/* @todo add translation */}
+            Save & go to next step
+          </button>
+          {savingStatus.isSaving && <Spinner />}
+        </div>
       )}
 
       {step === FormSteps.two && (
-        <section className={styles.stepTwo}>
+        <div className={styles.stepTwo}>
           <UploadFile
             onDrop={onDrop}
             accept="image/*"
@@ -201,15 +230,11 @@ export const PromotedTagsForm: FC<{
             isError={uploadStatus.isError}
             additionalStyles={styles.uploadArea}
           />
-          <div className={styles.buttons}>
-            <button
-              onClick={() => setStep(FormSteps.one)}
-              className={styles.btn}
-            >
-              Go back to step one
-            </button>
-          </div>
-        </section>
+          <button onClick={() => setStep(FormSteps.one)} className={styles.btn}>
+            {/* @todo add translation */}
+            Go back to step one
+          </button>
+        </div>
       )}
     </div>
   )

@@ -1,20 +1,24 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
 import { IImage } from '@gtms/commons/types/image'
+// ui
+import styles from './styles.scss'
+import cx from 'classnames'
 import { UserAvatar } from '../UserAvatar'
-import {
-  IoIosAddCircle,
-  IoIosLogOut,
-  IoIosNotifications,
-  IoIosSearch,
-} from 'react-icons/io'
+import { IoIosLogOut } from 'react-icons/io'
 
 export const Navigation: FC<{
-  onAvatarClick?: () => unknown
+  menu: {
+    id: string
+    label: string
+    icon: JSX.Element
+    onClick?: () => unknown
+    url?: string
+  }[]
+  active?: string[]
   onLogout?: () => unknown
   avatar: IImage | null
-}> = ({ onAvatarClick, onLogout, avatar }) => {
+}> = ({ menu, onLogout, avatar, active = [] }) => {
   return (
     <div className={styles.wrapper}>
       <nav className={styles.navigation} data-testid="navigation">
@@ -24,25 +28,14 @@ export const Navigation: FC<{
           </Link>
         )}
         <ul>
-          {[
-            {
-              label: 'Notifications',
-              icon: <IoIosNotifications />,
-              onClick: onAvatarClick,
-            },
-            {
-              label: 'Search',
-              icon: <IoIosSearch />,
-              url: '/search',
-            },
-            {
-              label: 'Create your group',
-              icon: <IoIosAddCircle />,
-              url: '/group-create',
-            },
-          ].map((value, index) => {
+          {menu.map((value, index) => {
             return (
-              <li className={styles.link} key={index}>
+              <li
+                className={cx(styles.link, {
+                  [styles.active]: active.includes(value.id),
+                })}
+                key={index}
+              >
                 {value?.onClick && (
                   <a
                     onClick={() =>

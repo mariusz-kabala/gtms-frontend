@@ -35,7 +35,6 @@ import { ErrorInfo } from '@gtms/ui/ErrorInfo'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Picture } from '@gtms/ui/Picture'
 import { PostCreate } from '@gtms/ui/PostCreate'
-import { PromotedGroups } from '@gtms/ui/PromotedGroups'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -212,8 +211,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <FollowButton group={state.group} />
               </div>
             </div>
+            <WelcomeSlider />
             <div className={styles.groupPostsListWrapper}>
-              <WelcomeSlider />
               <div className={styles.searchInput}>
                 <div className={styles.search}>
                   <Button
@@ -235,8 +234,10 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </div>
               </div>
               {showPromoted && <PromotedTags />}
-              <PromotedGroups />
-              <GroupMembers {...state.members} />
+              <GroupMembers
+                additionalStyles={styles.groupMembers}
+                {...state.members}
+              />
               <div className={styles.posts}>
                 <div>
                   <NavigationTabs>

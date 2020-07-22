@@ -1,12 +1,14 @@
 import React, { FC, useState, useEffect } from 'react'
 import { promotedTagsQuery, loadGroupPromotedTags } from '@gtms/state-tag'
 import { IPromotedTag, FileStatus } from '@gtms/commons'
-import { Spinner } from '@gtms/ui/Spinner'
-import { Picture } from '@gtms/ui/Picture'
-import { UploadedPicture } from '@gtms/ui/UploadedPicture'
 import { PromotedTagNoImage } from 'enums/noImage'
+// ui
+import { IoMdTrash, IoIosSettings } from 'react-icons/io'
+import { Button } from '@gtms/ui/Button'
+import { Picture } from '@gtms/ui/Picture'
+import { Spinner } from '@gtms/ui/Spinner'
+import { UploadedPicture } from '@gtms/ui/UploadedPicture'
 import styles from './styles.scss'
-import { IoMdTrash, IoIosHammer } from 'react-icons/io'
 
 export const PromotedTags: FC<{
   id: string
@@ -36,47 +38,58 @@ export const PromotedTags: FC<{
 
   return (
     <div data-testid="promoted-tags-settings">
-      {isLoading && (
-        <p className={styles.loader}>
-          <Spinner />
-        </p>
-      )}
+      {isLoading && <Spinner />}
 
       {promoted.length === 0 && !isLoading && (
-        <p className={styles.noRecords}>no promoted tags yet, create some</p>
+        <div className={styles.noRecords}>
+          <p>
+            {/* @todo add translation */}
+            no promoted tags yet, create some
+          </p>
+        </div>
       )}
 
       {promoted.length > 0 && (
         <ul className={styles.promotedList}>
           {promoted.map((p) => (
-            <li key={`promoted-${p.id}`}>
-              {p.logo.status === FileStatus.uploaded && (
-                <UploadedPicture
-                  additionalStyles={styles.uploadedImage}
-                  jpg={p.logo.files[0]}
-                />
-              )}
-              {!p.logo.status && <Picture {...PromotedTagNoImage['50x50']} />}
-              {p.logo.status === FileStatus.ready && (
-                <Picture {...p.logo.files['50x50']} />
-              )}
-              <h3>#{p.tag}</h3>
-              <p>{p.description}</p>
-              <div className={styles.actionButtons}>
-                <i
-                  onClick={() => {
-                    onDelete(p.id)
-                  }}
-                >
-                  <IoMdTrash />
-                </i>{' '}
-                <i
-                  onClick={() => {
-                    onEdit(p.id)
-                  }}
-                >
-                  <IoIosHammer />
-                </i>
+            <li className={styles.item} key={`promoted-${p.id}`}>
+              <div className={styles.imageWrapper}>
+                <div className={styles.actionButtons}>
+                  <Button
+                    additionalStyles={styles.btn}
+                    onClick={() => onDelete(p.id)}
+                  >
+                    <i>
+                      <IoMdTrash />
+                    </i>
+                  </Button>
+                  <Button
+                    additionalStyles={styles.btn}
+                    onClick={() => {
+                      onEdit(p.id)
+                    }}
+                  >
+                    <i>
+                      <IoIosSettings />
+                    </i>
+                  </Button>
+                </div>
+                {p.logo.status === FileStatus.uploaded && (
+                  <UploadedPicture
+                    additionalStyles={styles.uploadedImage}
+                    jpg={p.logo.files[0]}
+                  />
+                )}
+                {!p.logo.status && (
+                  <Picture {...PromotedTagNoImage['200x200']} />
+                )}
+                {p.logo.status === FileStatus.ready && (
+                  <Picture {...p.logo.files['200x200']} />
+                )}
+              </div>
+              <div className={styles.tagNameDesc}>
+                <h3 className={styles.tag}>#{p.tag}</h3>
+                <p>{p.description}</p>
               </div>
             </li>
           ))}

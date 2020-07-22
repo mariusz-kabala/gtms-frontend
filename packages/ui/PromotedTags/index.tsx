@@ -57,8 +57,10 @@ export const PromotedTags: FC<{
               {tag.logo.status && tag.logo.status !== FileStatus.ready && (
                 <UploadedPicture jpg={tag.logo.files[0]} />
               )}
-              <h3>#{tag.tag}</h3>
-              <p>{tag.description}</p>
+              <div className={styles.desc}>
+                <h3>#{tag.tag}</h3>
+                <p>{tag.description}</p>
+              </div>
               {isAdmin && (
                 <div className={styles.adminPanel}>
                   <ul>
@@ -83,12 +85,12 @@ export const PromotedTags: FC<{
           ))}
 
         {tags.length > 0 && isAdmin && (
-          <div className={cx(styles.manager, styles.item)} onClick={onClick}>
+          <button className={styles.addTag} onClick={onClick}>
             <i>
               <IoIosAddCircle />
             </i>
-            <p>Add more tags</p>
-          </div>
+            Add more tags
+          </button>
         )}
       </div>
     </div>

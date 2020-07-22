@@ -30,28 +30,8 @@ $groupMembersAvatarSize: 50px;
     max-width: $groupMembersAvatarSize;
   }
 
-  .usersMock {
-    width: 100%;
-
-    > div {
-      display: grid;
-      grid-template-columns: repeat(
-        auto-fill,
-        minmax($groupMembersAvatarSize, 1fr)
-      );
-      grid-gap: 15px;
-
-      .avatar {
-        opacity: 0.5;
-      }
-    }
-
-    p {
-      position: relative;
-      @include font-size(md);
-      margin-top: -50px;
-      margin-left: 10px;
-      text-align: center;
-    }
+  p {
+    margin: 40px 0;
+    text-align: center;
   }
 }

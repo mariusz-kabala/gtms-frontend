@@ -15,11 +15,13 @@ export const EmptyPromotedTags: FC<{
           .map((_, index) => (
             <div className={styles.emptyBox} key={`empty-box-${index}`} />
           ))}
-      {isAdmin && (
-        <Button onClick={onAddClick} additionalStyles={styles.addButton}>
-          Add a promoted tag
-        </Button>
-      )}
+      <div className={styles.btnWrapper}>
+        {isAdmin && (
+          <Button onClick={onAddClick} additionalStyles={styles.addButton}>
+            Add a promoted tag
+          </Button>
+        )}
+      </div>
     </div>
   )
 }
