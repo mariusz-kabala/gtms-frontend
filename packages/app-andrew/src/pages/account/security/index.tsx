@@ -5,6 +5,8 @@ import { redirect } from '@gtms/commons/helpers/redirect'
 import { ILoginHistory, IActiveSession } from '@gtms/commons/models'
 import { LoginHistory } from '@gtms/ui/LoginHistory'
 import { UserSessions } from '@gtms/ui/UserSessions'
+import { ChangePassword } from 'components/account/ChangePassword'
+import { DeleteAccount } from 'components/account/DeleteAccount'
 import {
   fetchLoginHistoryAPI,
   fetchActiveSessionsAPI,
@@ -12,11 +14,11 @@ import {
 } from '@gtms/api-auth'
 import { addErrorNotification } from '@gtms/state-notification'
 
-type AccountSecurityPageProps = {
+type IAccountSecurityPageProps = {
   namespacesRequired: readonly string[]
 }
 
-export const AccountSecurityPage: NextPage<AccountSecurityPageProps> = () => {
+export const AccountSecurityPage: NextPage<IAccountSecurityPageProps> = () => {
   const [loginHistory, setLoginHistory] = useState<{
     history: ILoginHistory[]
     isLoading: boolean
@@ -92,6 +94,8 @@ export const AccountSecurityPage: NextPage<AccountSecurityPageProps> = () => {
   }, [])
   return (
     <div data-testid="account-security-page">
+      <ChangePassword />
+      <DeleteAccount onConfirm={() => null} />
       <LoginHistory {...loginHistory} />
       <UserSessions {...userSession} onDeleteClick={onDeleteSessionClick} />
     </div>

@@ -206,7 +206,7 @@ export const getAccountDetails = async () => {
     }
 
     userStore.update({
-      ...(details as IAccountDetails),
+      ...(details as any),
       isLoadingDetails: false,
       errorOccured: false,
     })
@@ -233,7 +233,7 @@ export const updateAccountDetails = async (payload: IAccountUpdatePayload) => {
       details.avatar.files = parseFiles(details.avatar.files)
     }
 
-    userStore.update(details as IAccountDetails)
+    userStore.update(details as any)
 
     addSuccessNotification('Your profile has been updated')
   } catch (err) {
