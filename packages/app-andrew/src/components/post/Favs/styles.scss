@@ -13,4 +13,16 @@
   &:active {
     @include buttonColorsPrimary();
   }
+
+  span {
+    font-size: 12px;
+    display: inline-block;
+    max-width: 25px;
+    position: relative;
+    top: -2px;
+  }
+
+  &.withStars {
+    // todo
+  }
 }
