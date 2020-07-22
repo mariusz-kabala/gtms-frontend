@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.54.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.54.0...@gtms/app-andrew@0.54.1) (2020-07-22)
+
+
+### Bug Fixes
+
+* GEOT-358: do not render empty div in nav when user is logout ([#755](https://github.com/gtms-org/gtms-frontend/issues/755)) ([9c340de](https://github.com/gtms-org/gtms-frontend/commit/9c340de335518bbf29098fa82382d41620b6ca22))
+
+
+
+
+
 # [0.54.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.53.4...@gtms/app-andrew@0.54.0) (2020-07-22)
 
 
