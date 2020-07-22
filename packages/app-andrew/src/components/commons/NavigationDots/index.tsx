@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { NavigationDots as NavigationDotsUI } from '@gtms/ui/NavigationDots'
+import { NavigationDotsFullView } from '../NavigationDotsFullView'
 import { INavigationDotsProps, baseUIQuery } from 'queries'
 import { loadMyGroups } from '@gtms/state-user'
 
@@ -28,5 +29,9 @@ export const NavigationDots: FC = () => {
     return null
   }
 
-  return <NavigationDotsUI groups={state.groups} />
+  return (
+    <NavigationDotsUI groups={state.groups}>
+      <NavigationDotsFullView />
+    </NavigationDotsUI>
+  )
 }

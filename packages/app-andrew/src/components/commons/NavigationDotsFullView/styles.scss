@@ -1,0 +1,58 @@
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/variables';
+
+.nav {
+  padding: 25px;
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+
+    li {
+      cursor: pointer;
+      a {
+        @include font-weight(normal);
+        color: $theme0;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &:hover {
+        font-weight: bold;
+      }
+
+      &.current {
+        a {
+          @include font-weight(bold);
+        }
+      }
+    }
+  }
+}
+
+.noRecords {
+  text-align: center;
+  padding: 10%;
+}
+
+.content {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  ul {
+    margin: 0 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    li {
+      cursor: pointer;
+    }
+  }
+}
