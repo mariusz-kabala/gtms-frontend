@@ -1,4 +1,5 @@
 import React, { FC, useState, useRef, useCallback } from 'react'
+import cx from 'classnames'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { useTranslation } from '@gtms/commons/i18n'
@@ -81,6 +82,35 @@ export const PromotedTagsForm: FC<{
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.header}>Promoted tag</h2>
+      <nav>
+        <ul>
+          <li
+            className={cx({
+              [styles.activeTab]: step === FormSteps.one,
+            })}
+          >
+            <a onClick={() => setStep(FormSteps.one)}>Basic info</a>
+          </li>
+          <li
+            className={cx({
+              [styles.activeTab]: step === FormSteps.two,
+              [styles.disabled]: !promotedTagId,
+            })}
+          >
+            <a
+              onClick={() => {
+                if (!promotedTagId) {
+                  return
+                }
+
+                setStep(FormSteps.two)
+              }}
+            >
+              Image
+            </a>
+          </li>
+        </ul>
+      </nav>
       {promotedTagId && stateTag.value && (
         <div className={styles.promoted}>
           <TagGroup>
