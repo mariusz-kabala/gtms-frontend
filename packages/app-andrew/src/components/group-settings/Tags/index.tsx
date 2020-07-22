@@ -75,8 +75,9 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
 
   return (
     <div data-testid="group-settings-tags" className={styles.wrapper}>
-      <section>
+      <div className={styles.section}>
         <h3 className={styles.header}>
+          {/* @todo add translation here */}
           Tags{' '}
           <button
             onClick={() => setIsInEditMode(!isInEditMode)}
@@ -85,9 +86,9 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
             {isInEditMode ? 'close' : 'edit'}
           </button>
         </h3>
-
         {!isInEditMode && (
           <>
+            {/* @todo add translation here */}
             <p>Click on tag to add to promoted</p>
             {tags.length > 0 && (
               <TagGroup>
@@ -115,9 +116,12 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
               </TagGroup>
             )}
             {tags.length === 0 && (
-              <p className={styles.noTags}>
-                Group has no tags, you should add some ASAP!
-              </p>
+              <div className={styles.noRecords}>
+                <p>
+                  {/* @todo add translation */}
+                  no promoted tags yet, create some
+                </p>
+              </div>
             )}
           </>
         )}
@@ -138,10 +142,14 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
             }}
           />
         )}
-      </section>
-      <section>
+      </div>
+
+      <div className={styles.section}>
         <h3 className={styles.header}>
-          Promoted tags<button className={styles.btn}>Change order</button>
+          {/* @todo add translation */}
+          Promoted tags
+          {/* @todo add translation */}
+          <button className={styles.btn}>Change order</button>
         </h3>
         <PromotedTags
           onEdit={(id) => {
@@ -156,7 +164,7 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
           onDelete={(id) => deletePromotedTag(id)}
           id={props.id}
         />
-      </section>
+      </div>
       {promotedTagEditor.isOpen && (
         <Modal
           onClose={() => {

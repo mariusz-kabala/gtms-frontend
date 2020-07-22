@@ -80,7 +80,7 @@ export const PromotedTagsForm: FC<{
 
   return (
     <div className={styles.wrapper}>
-      <h3 className={styles.header}>Promoted tag</h3>
+      <h2 className={styles.header}>Promoted tag</h2>
       {promotedTagId && stateTag.value && (
         <div className={styles.promoted}>
           <TagGroup>
@@ -89,10 +89,11 @@ export const PromotedTagsForm: FC<{
         </div>
       )}
       {step === FormSteps.one && (
-        <section>
+        <div>
           {!tag && !promotedTagId && (
             <div>
               <input
+                className={styles.input}
                 type="text"
                 name="tag"
                 value={stateTag.value}
@@ -115,85 +116,86 @@ export const PromotedTagsForm: FC<{
           )}
           <div>
             <ExpandingTextarea
+              additionalStyles={styles.textarea}
               placeholder="Put a short tag description here"
               name="description"
               defaultValue={description}
+              rows={10}
               reference={dscRef as any}
             />
             {savingStatus.validationError && (
               <Error text={t(savingStatus.validationError)} />
             )}
           </div>
-          <div className={styles.buttons}>
-            <button
-              disabled={savingStatus.isSaving}
-              onClick={() => {
-                const dsc = dscRef.current?.value
-                let errors = false
+          <button
+            disabled={savingStatus.isSaving}
+            onClick={() => {
+              const dsc = dscRef.current?.value
+              let errors = false
 
-                if (!dsc) {
+              if (!dsc) {
+                setSavingStatus({
+                  isSaving: false,
+                  validationError: 'form.validation.description.isRequired',
+                })
+                errors = true
+              }
+
+              if (!stateTag.value) {
+                setStateTag((value) => ({
+                  ...value,
+                  isError: true,
+                }))
+                errors = true
+              }
+
+              if (errors) {
+                return
+              }
+
+              setSavingStatus({
+                isSaving: true,
+                validationError: '',
+              })
+
+              if (promotedTagId) {
+                updatePromotedTag(promotedTagId, {
+                  description: dsc as string,
+                }).then(() => {
                   setSavingStatus({
                     isSaving: false,
-                    validationError: 'form.validation.description.isRequired',
+                    validationError: '',
                   })
-                  errors = true
-                }
-
-                if (!stateTag.value) {
-                  setStateTag((value) => ({
-                    ...value,
-                    isError: true,
-                  }))
-                  errors = true
-                }
-
-                if (errors) {
-                  return
-                }
-
-                setSavingStatus({
-                  isSaving: true,
-                  validationError: '',
+                  setStep(FormSteps.two)
                 })
-
-                if (promotedTagId) {
-                  updatePromotedTag(promotedTagId, {
-                    description: dsc as string,
-                  }).then(() => {
-                    setSavingStatus({
-                      isSaving: false,
-                      validationError: '',
-                    })
-                    setStep(FormSteps.two)
+              } else {
+                createPromotedTag({
+                  tag: stateTag.value,
+                  group: groupId,
+                  description: dsc as string,
+                }).then((result) => {
+                  if (result) {
+                    setPromotedTagId(result.id)
+                  }
+                  setSavingStatus({
+                    isSaving: false,
+                    validationError: '',
                   })
-                } else {
-                  createPromotedTag({
-                    tag: stateTag.value,
-                    group: groupId,
-                    description: dsc as string,
-                  }).then((result) => {
-                    if (result) {
-                      setPromotedTagId(result.id)
-                    }
-                    setSavingStatus({
-                      isSaving: false,
-                      validationError: '',
-                    })
-                    setStep(FormSteps.two)
-                  })
-                }
-              }}
-              className={styles.btn}
-            >
-              Save & go to next step
-            </button>
-            {savingStatus.isSaving && <Spinner />}
-          </div>
-        </section>
+                  setStep(FormSteps.two)
+                })
+              }
+            }}
+            className={styles.btn}
+          >
+            {/* @todo add translation */}
+            Save & go to next step
+          </button>
+          {savingStatus.isSaving && <Spinner />}
+        </div>
       )}
 
       {step === FormSteps.two && (
-        <section className={styles.stepTwo}>
+        <div className={styles.stepTwo}>
           <UploadFile
             onDrop={onDrop}
             accept="image/*"
@@ -201,15 +203,11 @@ export const PromotedTagsForm: FC<{
             isError={uploadStatus.isError}
             additionalStyles={styles.uploadArea}
           />
-          <div className={styles.buttons}>
-            <button
-              onClick={() => setStep(FormSteps.one)}
-              className={styles.btn}
-            >
-              Go back to step one
-            </button>
-          </div>
-        </section>
+          <button onClick={() => setStep(FormSteps.one)} className={styles.btn}>
+            {/* @todo add translation */}
+            Go back to step one
+          </button>
+        </div>
       )}
     </div>
   )

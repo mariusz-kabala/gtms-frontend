@@ -3,36 +3,34 @@
 @import '~@gtms/styles/scss/mixins/fontWeight';
 @import '~@gtms/styles/scss/mixins/buttons';
 
-.header {
-  @include font-weight('semiBold');
-  @include font-size(md);
-  text-transform: uppercase;
-  padding-bottom: 5px;
-  border-bottom: 3px solid $theme4;
-  margin-bottom: 15px;
+.wrapper {
+  .noRecords {
+    @include font-size(md);
+    text-align: center;
+  }
 
-  .btn {
-    @include buttonDefault();
-    @include buttonSizeDefault();
-    @include buttonShapePrimary();
-    @include buttonColorsDefault();
-    padding: 3px 8px;
-    float: right;
+  .section {
+    margin-bottom: 20px;
 
-    &:hover {
-      @include buttonColorsPrimary();
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      @include font-size(md);
+      @include font-weight('semiBold');
+      text-transform: uppercase;
+
+      .btn {
+        margin-left: 10px;
+        @include buttonDefault();
+        @include buttonSizeMd();
+        @include buttonShapePrimary();
+        @include buttonColorsDefault();
+
+        &:hover {
+          @include buttonColorsPrimary();
+        }
+      }
     }
   }
-}
-
-.wrapper {
-  section {
-    margin-bottom: 20px;
-    min-width: 700px;
-  }
-}
-
-.noTags {
-  @include font-size(md);
-  text-align: center;
 }

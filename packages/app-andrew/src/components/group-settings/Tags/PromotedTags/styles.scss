@@ -1,50 +1,85 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons';
+@import '~@gtms/styles/scss/mixins/fontSize';
 @import '~@gtms/styles/scss/mixins/fontWeight';
-
-.loader {
-  padding: 15px;
-  text-align: center;
-}
 
 .noRecords {
   text-align: center;
 }
 
-.uploadedImage {
-  picture {
-    max-width: 50px;
-    max-height: 50px;
-  }
-  float: left;
-
-  p {
-    display: none;
-  }
-}
-
 .promotedList {
-  li {
-    border: none !important;
-    cursor: auto !important;
+  // @todo make mixin of that
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
-    picture {
-      float: left;
-      margin: 0 10px 5px 0;
-    }
-
-    h3 {
-      @include font-weight('bold');
-    }
-
-    p {
-      color: $theme4;
-      margin: 5px 0 !important;
-    }
-
-    i {
+  .item {
+    .imageWrapper {
+      width: 100%;
       cursor: pointer;
+
+      // @todo create mixin for that
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 4px solid $theme4;
+        background: rgba($theme4, 0.2);
+        border-radius: $borderRadius1;
+        opacity: 0;
+      }
+      // @todo create mixin for that
+      &:hover {
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      .actionButtons {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        z-index: 11;
+        display: flex;
+
+        .btn {
+          margin-right: 10px;
+          @include buttonDefault();
+          @include buttonSizeDefault();
+          @include buttonShapePrimary();
+          @include buttonColorsDefault();
+
+          &:hover {
+            @include buttonColorsPrimary();
+          }
+        }
+      }
+
+      .uploadedImage {
+        img,
+        picture {
+          max-width: 50px;
+          max-height: 50px;
+        }
+      }
+
+      img,
+      picture {
+        border-radius: $borderRadius1;
+        overflow: hidden;
+      }
     }
 
-    clear: left;
+    .tagNameDesc {
+      .tag {
+        margin-top: 5px;
+        @include font-size(md);
+        @include font-weight(semiBold);
+      }
+    }
   }
 }

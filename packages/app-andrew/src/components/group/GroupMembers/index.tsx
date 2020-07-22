@@ -1,19 +1,24 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
+import cx from 'classnames'
 import { IUser } from '@gtms/commons/models'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
 import { UserAvatarNoImage } from 'enums'
+import styles from './styles.scss'
 
 export const GroupMembers: FC<{
-  isLoading: boolean
+  additionalStyles: string
   errorOccured: boolean
+  isLoading: boolean
   users: IUser[]
-}> = ({ isLoading, errorOccured, users }) => {
+}> = ({ additionalStyles, errorOccured, isLoading, users }) => {
   return (
-    <div data-testid="group-members" className={styles.wrapper}>
+    <div
+      data-testid="group-members"
+      className={cx(styles.wrapper, additionalStyles)}
+    >
       {isLoading && <Spinner />}
 
       {errorOccured && <p>Sorry we can not show you groups members now</p>}
@@ -34,27 +39,7 @@ export const GroupMembers: FC<{
       )}
 
       {users.length === 0 && (
-        <div className={styles.usersMock}>
-          <div>
-            <UserAvatar
-              additionalStyles={styles.avatar}
-              image={{ jpg: '/images/temp_images/avatar-1.png' }}
-            />
-            <UserAvatar
-              additionalStyles={styles.avatar}
-              image={{ jpg: '/images/temp_images/avatar-1.png' }}
-            />
-            <UserAvatar
-              additionalStyles={styles.avatar}
-              image={{ jpg: '/images/temp_images/avatar-1.png' }}
-            />
-            <UserAvatar
-              additionalStyles={styles.avatar}
-              image={{ jpg: '/images/temp_images/avatar-1.png' }}
-            />
-          </div>
-          <p>No groups members, maybe you would like to be the first one?</p>
-        </div>
+        <p>No groups members, maybe you would like to be the first one?</p>
       )}
     </div>
   )
