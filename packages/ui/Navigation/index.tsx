@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
 import { IImage } from '@gtms/commons/types/image'
+// ui
+import styles from './styles.scss'
+import cx from 'classnames'
 import { UserAvatar } from '../UserAvatar'
 import {
   IoIosAddCircle,
@@ -48,7 +50,12 @@ export const Navigation: FC<{
             },
           ].map((value, index) => {
             return (
-              <li className={styles.link} key={index}>
+              <li
+                className={cx(styles.link, {
+                  [styles.active]: value.label === 'Search',
+                })}
+                key={index}
+              >
                 {value?.onClick && (
                   <a
                     onClick={() =>

@@ -50,7 +50,8 @@
           }
         }
 
-        &:hover &.active {
+        &:hover,
+        &.active {
           background: $theme4;
 
           a {
