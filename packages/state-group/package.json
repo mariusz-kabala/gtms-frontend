@@ -1,13 +1,13 @@
 {
   "name": "@gtms/state-group",
-  "version": "0.15.6",
+  "version": "0.15.7",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-group": "0.13.5",
-    "@gtms/commons": "0.27.0"
+    "@gtms/api-group": "0.13.6",
+    "@gtms/commons": "0.27.1"
   },
   "scripts": {
     "build": "exit 0",
