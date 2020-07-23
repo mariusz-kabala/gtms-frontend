@@ -2,9 +2,11 @@ import React, { FC, useState, useEffect } from 'react'
 import { promotedTagsQuery, loadGroupPromotedTags } from '@gtms/state-tag'
 import { IPromotedTag, FileStatus } from '@gtms/commons'
 import { PromotedTagNoImage } from 'enums/noImage'
+import { useTranslation } from '@gtms/commons/i18n'
 // ui
 import { IoMdTrash, IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
+import { Modal } from '@gtms/ui/Modal'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UploadedPicture } from '@gtms/ui/UploadedPicture'
@@ -19,6 +21,8 @@ export const PromotedTags: FC<{
     promotedTagsQuery.getAll()
   )
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const { t } = useTranslation('groupSettingsPage')
 
   useEffect(() => {
     loadGroupPromotedTags(id)
@@ -55,9 +59,37 @@ export const PromotedTags: FC<{
             <li className={styles.item} key={`promoted-${p.id}`}>
               <div className={styles.imageWrapper}>
                 <div className={styles.actionButtons}>
+                  {isModalOpen && (
+                    <Modal
+                      additionalStyles={styles.modalContent}
+                      onClose={() => setIsModalOpen(false)}
+                    >
+                      <div>
+                        <h2>{t('areYouSure')}</h2>
+                        <div className={styles.buttons}>
+                          <Button
+                            additionalStyles={styles.no}
+                            onClick={() => {
+                              setIsModalOpen(false)
+                            }}
+                          >
+                            {t('noBtn')}
+                          </Button>
+                          <Button
+                            onClick={() => {
+                              onDelete(p.id)
+                              setIsModalOpen(false)
+                            }}
+                          >
+                            {t('yesBtn')}
+                          </Button>
+                        </div>
+                      </div>
+                    </Modal>
+                  )}
                   <Button
                     additionalStyles={styles.btn}
-                    onClick={() => onDelete(p.id)}
+                    onClick={() => setIsModalOpen(true)}
                   >
                     <i>
                       <IoMdTrash />

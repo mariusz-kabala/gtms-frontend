@@ -1,9 +1,10 @@
 import React, { FC, useState } from 'react'
 import cx from 'classnames'
-import styles from './styles.scss'
+import { useTranslation } from '@gtms/commons/i18n'
+// ui
 import { Button } from '@gtms/ui/Button'
 import { Modal } from '@gtms/ui/Modal'
-import { useTranslation } from '@gtms/commons/i18n'
+import styles from './styles.scss'
 
 export const GroupDeleteGroup: FC<{
   additionalStyles?: string
