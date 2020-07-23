@@ -3,8 +3,8 @@ import cx from 'classnames'
 import { FaRegLightbulb } from 'react-icons/fa'
 import styles from './styles.scss'
 
-const AvatarAndText: FC = () => (
-  <div className={styles.avatarAndText}>
+const AvatarAndText: FC<{ index: number }> = ({ index }) => (
+  <div className={styles.avatarAndText} key={index}>
     <div className={cx(styles.square, styles.sm)} />
     <div className={styles.textLines}>
       <div className={cx(styles.line, styles.lg)} />
@@ -42,7 +42,7 @@ export const MockData: FC<{
       ) : (
         new Array(numberOfElements ? numberOfElements : 1)
           .fill(null)
-          .map((_, index) => AvatarAndText())
+          .map((_, index) => AvatarAndText(index))
       )}
     </div>
   )
