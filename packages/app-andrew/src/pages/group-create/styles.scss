@@ -6,11 +6,12 @@
 
 .pageWrapper {
   @include pageWrapper();
+  padding-left: 6px;
+  margin-left: -6px;
 }
 
 .wrapper {
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 100%;
   @include imageCover();
@@ -18,6 +19,7 @@
   img {
     display: flex;
     margin: auto;
+    margin-top: 20px;
     max-width: 400px;
   }
 
