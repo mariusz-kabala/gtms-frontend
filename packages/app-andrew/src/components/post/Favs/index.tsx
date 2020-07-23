@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { IoIosStarOutline, IoIosStar } from 'react-icons/io'
+import cx from 'classnames'
 import { IFavsState, favsState, favsState$ } from './state.query'
 import { addPostToFavs, removeFromFavs, getPostFavs } from '@gtms/api-post'
 import { getDisplayName } from '@gtms/commons/helpers'
@@ -25,7 +26,10 @@ export const Favs: FC<{
   })
 
   useEffect(() => {
-    const sub = favsState$.subscribe((value) => setState(value))
+    const sub = favsState$.subscribe((value) => {
+      setIsInFavs(state.isLogged && favs.includes(`${value.account.id}`))
+      setState(value)
+    })
 
     return () => {
       sub && !sub.closed && sub.unsubscribe()
@@ -57,7 +61,9 @@ export const Favs: FC<{
           )
       }}
       data-testid="post-favs"
-      className={styles.wrapper}
+      className={cx(styles.wrapper, {
+        [styles.withStars]: favs.length > 0,
+      })}
     >
       <Tooltip
         onShow={() => {
@@ -87,6 +93,7 @@ export const Favs: FC<{
       >
         {isInFavs && <IoIosStar />}
         {!isInFavs && <IoIosStarOutline />}
+        {favs.length > 0 && <span>{favs.length}</span>}
       </Tooltip>
     </div>
   )

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.39.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.38.0...@gtms/ui@0.39.0) (2020-07-22)
+
+
+### Features
+
+* GEOT-357: remove unneeded mock ([#756](https://github.com/gtms-org/gtms-frontend/issues/756)) ([1dc69f9](https://github.com/gtms-org/gtms-frontend/commit/1dc69f95a8a8a05e21798f33429aafeafc974e70))
+
+
+
+
+
 # [0.38.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.37.4...@gtms/ui@0.38.0) (2020-07-22)
 
 
