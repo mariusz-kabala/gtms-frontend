@@ -2,6 +2,8 @@
 @import '~@gtms/styles/scss/mixins/fontSize';
 @import '~@gtms/styles/scss/mixins/zindex';
 
+$navigationDotAllMyGroupsSidebarWidth: 45%;
+
 .wrapper {
   position: relative;
   display: flex;
@@ -12,51 +14,96 @@
   border-bottom-left-radius: $borderRadius1;
   border-bottom-right-radius: $borderRadius1;
 
-  .navigationDot {
-    > li {
-      padding-bottom: 10px;
+  .fullView {
+    position: fixed;
+    top: 0;
+    left: -$navigationDotAllMyGroupsSidebarWidth;
+    @include z-index(allMyGroupsSidebar);
+    width: $navigationDotAllMyGroupsSidebarWidth;
+    height: 100%;
+    transition: left 0.1s ease-in-out;
 
-      &:last-child {
-        padding-bottom: 0;
+    .content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: $theme4;
+      @include z-index(allMyGroupsSidebar);
+
+      & + div {
+        left: initial;
+        right: -100%;
+        transition: right 0.2s ease-in-out;
       }
+    }
 
-      .item {
-        width: 40px;
-        height: 40px;
-        border-radius: $borderRadius1;
-        cursor: pointer;
-        transition: 200ms all;
+    &.active {
+      left: 0;
+
+      .content + div {
+        right: 0;
       }
     }
   }
-}
 
-.fullView {
-  position: fixed;
-  display: none;
-  z-index: 1;
-  width: 500px;
-  left: 80px;
-  top: 10px;
-  bottom: 0;
+  .navigationDot {
+    .item {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border-radius: $borderRadius1;
+      cursor: pointer;
+      transition: 200ms all;
+      margin-bottom: 10px;
 
-  &.show {
-    display: block;
-  }
+      &.showAllGroups {
+        position: relative;
+        display: flex;
+        @include z-index(closeAllMyGroupsSidebar);
+        padding: 10px;
+        border: 2px solid $theme3;
+        color: $theme4;
+        background: $theme3;
 
-  .content {
-    color: #ffff;
-    z-index: 1;
-    position: relative;
-  }
-  .bg {
-    border-top-left-radius: 10px;
-    opacity: 0.8;
-    background: black;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+        i {
+          line-height: 0;
+          display: block;
+          @include font-size(md);
+        }
+
+        span {
+          margin-left: 20px;
+        }
+
+        &:hover,
+        &:focus {
+          background: $theme4;
+          color: $theme0;
+          border-color: $theme4;
+        }
+
+        &.active {
+          overflow: initial;
+          background: $theme4;
+          border: 2px solid $theme0;
+          color: $theme0;
+          opacity: 0.75;
+
+          &:hover {
+            opacity: 1;
+            border-color: $theme0;
+          }
+        }
+      }
+
+      > div {
+        width: 100%;
+        height: 100%;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }
