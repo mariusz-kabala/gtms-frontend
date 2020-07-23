@@ -21,7 +21,10 @@ export const PromotedTags: FC<{
     promotedTagsQuery.getAll()
   )
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const [
+    isDeleteTagConfirmationModalOpen,
+    setIsDeleteTagConfirmationModalOpen,
+  ] = useState<boolean>(false)
   const { t } = useTranslation('groupSettingsPage')
 
   useEffect(() => {
@@ -59,10 +62,10 @@ export const PromotedTags: FC<{
             <li className={styles.item} key={`promoted-${p.id}`}>
               <div className={styles.imageWrapper}>
                 <div className={styles.actionButtons}>
-                  {isModalOpen && (
+                  {isDeleteTagConfirmationModalOpen && (
                     <Modal
                       additionalStyles={styles.modalContent}
-                      onClose={() => setIsModalOpen(false)}
+                      onClose={() => setIsDeleteTagConfirmationModalOpen(false)}
                     >
                       <div>
                         <h2>{t('areYouSure')}</h2>
@@ -70,7 +73,7 @@ export const PromotedTags: FC<{
                           <Button
                             additionalStyles={styles.no}
                             onClick={() => {
-                              setIsModalOpen(false)
+                              setIsDeleteTagConfirmationModalOpen(false)
                             }}
                           >
                             {t('noBtn')}
@@ -78,7 +81,7 @@ export const PromotedTags: FC<{
                           <Button
                             onClick={() => {
                               onDelete(p.id)
-                              setIsModalOpen(false)
+                              setIsDeleteTagConfirmationModalOpen(false)
                             }}
                           >
                             {t('yesBtn')}
@@ -89,7 +92,7 @@ export const PromotedTags: FC<{
                   )}
                   <Button
                     additionalStyles={styles.btn}
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={() => setIsDeleteTagConfirmationModalOpen(true)}
                   >
                     <i>
                       <IoMdTrash />
