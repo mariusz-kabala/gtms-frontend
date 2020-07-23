@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useLayoutEffect } from 'react'
 import cx from 'classnames'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup, FileStatus } from '@gtms/commons'
@@ -12,6 +12,17 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({
   children,
 }) => {
   const [showFullView, setShowFullView] = useState<boolean>(false)
+
+  useLayoutEffect(() => {
+    const body = document.body
+
+    if (showFullView) {
+      body.style.position = 'fixed'
+    } else {
+      body.style.position = ''
+    }
+  }, [showFullView])
+
   if (groups.length === 0) {
     return null
   }

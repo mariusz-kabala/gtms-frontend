@@ -7,6 +7,7 @@ import {
 } from './state.query'
 import { Link } from '@gtms/commons/i18n'
 import { getImage } from '@gtms/commons/helpers'
+import { IGroup } from '@gtms/commons/models'
 import { GroupAvatarNoImage } from 'enums'
 // ui
 import { IoIosHeart, IoIosSettings } from 'react-icons/io'
@@ -22,6 +23,32 @@ enum Tabs {
   owner,
   admin,
 }
+
+const NoRecords: FC<{ text: string }> = ({ text }) => (
+  <div className={styles.noRecords}>
+    <MockData />
+    <MockData onClick={() => null} text={text} />
+    <MockData numberOfElements={4} />
+  </div>
+)
+
+const GroupsList: FC<{ groups: IGroup[] }> = ({ groups }) => (
+  <ul className={styles.list}>
+    {groups.map((group) => (
+      <li key={`group-${group.id}`} className={styles.item}>
+        <Link href={`/group/${group.slug}`}>
+          <>
+            <Picture {...getImage('50x50', group.avatar, GroupAvatarNoImage)} />
+            <div className={styles.desc}>
+              <h2>{group.name}</h2>
+              <p>{group.description || 'No description'}</p>
+            </div>
+          </>
+        </Link>
+      </li>
+    ))}
+  </ul>
+)
 
 export const NavigationDotsFullView: FC<{}> = () => {
   const [state, setState] = useState<INavigationDotsFullViewState>(
@@ -127,40 +154,10 @@ export const NavigationDotsFullView: FC<{}> = () => {
           >
             {state.isLoading && <Spinner />}
             {!state.isLoading && state.favs.docs.length === 0 && (
-              <div className={styles.noRecords}>
-                <MockData />
-                <MockData
-                  onClick={() => null}
-                  text="No records, create your first group now"
-                />
-                <MockData numberOfElements={4} />
-              </div>
+              <NoRecords text={'No records, add some groups to your favs'} />
             )}
             {!state.isLoading && state.favs.docs.length > 0 && (
-              <ul className={styles.list}>
-                {state.favs.docs.map((group) => (
-                  <li key={`fav-group-${group.id}`} className={styles.item}>
-                    <Link href={`/group/${group.slug}`}>
-                      <>
-                        <Picture
-                          {...getImage(
-                            '50x50',
-                            group.avatar,
-                            GroupAvatarNoImage
-                          )}
-                        />
-                        <div className={styles.desc}>
-                          <h2>Polacy w Berlinie</h2>
-                          <p>
-                            Sit ea elit qui velit ullamco nostrud nisi amodo
-                            irure proident eiusmod cillum.
-                          </p>
-                        </div>
-                      </>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <GroupsList groups={state.favs.docs} />
             )}
           </div>
 
@@ -171,40 +168,10 @@ export const NavigationDotsFullView: FC<{}> = () => {
           >
             {!state.isLoaded && state.isLoading && <Spinner />}
             {state.isLoaded && state.member.length === 0 && (
-              <div className={styles.noRecords}>
-                <MockData />
-                <MockData
-                  onClick={() => null}
-                  text="No records, create your first group now"
-                />
-                <MockData numberOfElements={4} />
-              </div>
+              <NoRecords text={'No records, join some groups first'} />
             )}
             {state.isLoaded && state.member.length > 0 && (
-              <ul className={styles.list}>
-                {state.member.map((group) => (
-                  <li key={`member-group-${group.id}`} className={styles.item}>
-                    <Link href={`/group/${group.slug}`}>
-                      <>
-                        <Picture
-                          {...getImage(
-                            '50x50',
-                            group.avatar,
-                            GroupAvatarNoImage
-                          )}
-                        />
-                        <div className={styles.desc}>
-                          <h2>Polacy w Berlinie</h2>
-                          <p>
-                            Sit ea elit qui velit ullamco nostrud nisi amodo
-                            irure proident eiusmod cillum.
-                          </p>
-                        </div>
-                      </>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <GroupsList groups={state.member} />
             )}
           </div>
 
@@ -215,40 +182,10 @@ export const NavigationDotsFullView: FC<{}> = () => {
           >
             {!state.isLoaded && state.isLoading && <Spinner />}
             {state.isLoaded && state.owner.length === 0 && (
-              <div className={styles.noRecords}>
-                <MockData />
-                <MockData
-                  onClick={() => null}
-                  text="No records, create your first group now"
-                />
-                <MockData numberOfElements={4} />
-              </div>
+              <NoRecords text={'No records, create your first group now'} />
             )}
             {state.isLoaded && state.owner.length > 0 && (
-              <ul className={styles.list}>
-                {state.owner.map((group) => (
-                  <li key={`owner-group-${group.id}`} className={styles.item}>
-                    <Link href={`/group/${group.slug}`}>
-                      <>
-                        <Picture
-                          {...getImage(
-                            '50x50',
-                            group.avatar,
-                            GroupAvatarNoImage
-                          )}
-                        />
-                        <div className={styles.desc}>
-                          <h2>Polacy w Berlinie</h2>
-                          <p>
-                            Sit ea elit qui velit ullamco nostrud nisi amodo
-                            irure proident eiusmod cillum.
-                          </p>
-                        </div>
-                      </>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <GroupsList groups={state.owner} />
             )}
           </div>
 
@@ -259,40 +196,10 @@ export const NavigationDotsFullView: FC<{}> = () => {
           >
             {!state.isLoaded && state.isLoading && <Spinner />}
             {state.isLoaded && state.admin.length === 0 && (
-              <div className={styles.noRecords}>
-                <MockData />
-                <MockData
-                  onClick={() => null}
-                  text="No records, create your first group now"
-                />
-                <MockData numberOfElements={4} />
-              </div>
+              <NoRecords text={'No records'} />
             )}
             {state.isLoaded && state.admin.length > 0 && (
-              <ul className={styles.list}>
-                {state.admin.map((group) => (
-                  <li key={`admin-group-${group.id}`} className={styles.item}>
-                    <Link href={`/group/${group.slug}`}>
-                      <>
-                        <Picture
-                          {...getImage(
-                            '50x50',
-                            group.avatar,
-                            GroupAvatarNoImage
-                          )}
-                        />
-                        <div className={styles.desc}>
-                          <h2>Polacy w Berlinie</h2>
-                          <p>
-                            Sit ea elit qui velit ullamco nostrud nisi amodo
-                            irure proident eiusmod cillum.
-                          </p>
-                        </div>
-                      </>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <GroupsList groups={state.admin} />
             )}
           </div>
         </>

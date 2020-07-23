@@ -44,7 +44,7 @@ export const MockData: FC<{
       ) : (
         new Array(numberOfElements ? numberOfElements : 1)
           .fill(null)
-          .map((_, index) => AvatarAndText(index))
+          .map((_, index) => AvatarAndText({ index }))
       )}
     </div>
   )
