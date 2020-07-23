@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.12.0...@gtms/styles@0.13.0) (2020-07-23)
+
+
+### Features
+
+* GEOT-359: styles for all groups sidebar ([#758](https://github.com/gtms-org/gtms-frontend/issues/758)) ([b828057](https://github.com/gtms-org/gtms-frontend/commit/b82805726515c88257be49f45683e0a363110186))
+
+
+
+
+
 # [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.11.2...@gtms/styles@0.12.0) (2020-07-22)
 
 
