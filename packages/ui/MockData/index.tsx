@@ -3,7 +3,9 @@ import cx from 'classnames'
 import { FaRegLightbulb } from 'react-icons/fa'
 import styles from './styles.scss'
 
-const AvatarAndText: FC<{ index: number }> = ({ index }) => (
+const AvatarAndText: FC<{
+  index?: number
+}> = ({ index }) => (
   <div className={styles.avatarAndText} key={index}>
     <div className={cx(styles.square, styles.sm)} />
     <div className={styles.textLines}>
