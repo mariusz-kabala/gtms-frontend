@@ -56,9 +56,9 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
         display: flex;
         @include z-index(closeAllMyGroupsSidebar);
         padding: 10px;
-        border: 2px solid $theme3;
+        border: 2px solid rgba($theme4, 0);
         color: $theme4;
-        background: $theme3;
+        background: rgba($theme4, 0.3);
 
         i {
           line-height: 0;
