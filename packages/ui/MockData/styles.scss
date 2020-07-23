@@ -1,0 +1,123 @@
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/fontSize';
+
+$mockDataColor0: $theme0;
+$mockDataColor1: rgba($theme0, 0.2);
+$mockDataColor2: rgba($theme0, 0.4);
+$mockDataColor3: rgba($theme0, 0.55);
+
+$mockDataSize1: 55px;
+
+.wrapper {
+  width: 100%;
+
+  > div {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .square {
+    min-width: $mockDataSize1;
+    min-height: $mockDataSize1;
+    border-radius: $borderRadius1;
+    background: $mockDataColor1;
+  }
+
+  .line {
+    width: 100%;
+    height: 10px;
+    border-radius: $borderRadius1;
+    background: $mockDataColor3;
+
+    &.sm {
+      height: 5px;
+      border-radius: $borderRadius2;
+      background: $mockDataColor1;
+    }
+
+    &.md {
+      height: 10px;
+      background: $mockDataColor3;
+    }
+
+    &.lg {
+      height: 15px;
+      background: $mockDataColor2;
+    }
+  }
+
+  .twoLines {
+    display: flex;
+
+    > div {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .avatarAndText {
+    display: flex;
+    opacity: 0.65;
+
+    .line {
+      &.sm {
+        width: 45%;
+      }
+
+      &.md {
+        width: 50%;
+      }
+
+      &.lg {
+        width: 100%;
+      }
+    }
+
+    .twoLines {
+      width: 75%;
+    }
+
+    .textLines {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      margin-left: 10px;
+    }
+  }
+
+  .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $mockDataColor2;
+    padding: 30px 20px;
+    border-radius: $borderRadius2;
+    text-align: center;
+    @include font-size(xmd);
+    @include font-weight(semiBold);
+
+    &.clickable {
+      cursor: pointer;
+      border: 3px solid $mockDataColor2;
+
+      &:hover {
+        border-color: $mockDataColor0;
+      }
+    }
+
+    i {
+      display: inline-block;
+      line-height: 0;
+      margin-right: 20px;
+      @include font-size(xxxlg);
+    }
+  }
+}

@@ -1,10 +1,11 @@
 import React, { FC, ReactNode, useEffect } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
-import { Overlay } from '@gtms/ui/Overlay'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
+// ui
+import { Overlay } from '@gtms/ui/Overlay'
 import { IoIosClose } from 'react-icons/io'
+import styles from './styles.scss'
 
 export const ExpandingItem: FC<{
   additionalStyles?: string

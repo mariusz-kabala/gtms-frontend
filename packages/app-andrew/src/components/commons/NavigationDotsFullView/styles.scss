@@ -1,31 +1,65 @@
 @import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/fontSize';
 @import '~@gtms/styles/scss/variables';
 
-.nav {
-  padding: 25px;
-  ul {
-    display: flex;
-    justify-content: space-evenly;
+.wrapper {
+  display: flex;
+  height: 100%;
+  color: $theme0;
+}
 
-    li {
-      cursor: pointer;
+.navWrapper {
+  min-width: 200px;
+  height: 100%;
+  padding: 20px;
+  cursor: pointer;
+  border-right: 1px solid rgba($theme0, 0.15);
+
+  .header {
+    @include font-size(lg);
+    @include font-weight(semiBold);
+    margin-bottom: 15px;
+  }
+
+  &:hover {
+    border-color: rgba($theme0, 0.35);
+
+    .nav .item {
       a {
-        @include font-weight(normal);
-        color: $theme0;
-        text-decoration: none;
+        color: rgba($theme0, 0.9);
+      }
+    }
+  }
+
+  .nav {
+    .item {
+      margin-bottom: 15px;
+
+      a {
+        display: flex;
+        align-items: center;
+        color: rgba($theme0, 0.85);
 
         &:hover {
-          text-decoration: underline;
+          color: $theme0;
         }
-      }
 
-      &:hover {
-        font-weight: bold;
+        span {
+          margin-left: 5px;
+        }
+
+        i {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include font-size(xlg);
+        }
       }
 
       &.current {
         a {
           @include font-weight(bold);
+          color: $theme0;
         }
       }
     }
@@ -33,26 +67,58 @@
 }
 
 .noRecords {
-  text-align: center;
-  padding: 10%;
+  width: 100%;
+
+  > div {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .content {
   display: none;
+  width: 100%;
+  padding: 20px;
 
-  &.show {
-    display: block;
+  &.active {
+    display: flex;
+    flex-direction: column;
   }
 
-  ul {
-    margin: 0 30px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    li {
+  .list {
+    .item {
+      display: flex;
       cursor: pointer;
+      margin-bottom: 20px;
+
+      img,
+      picture {
+        // @todo create mixin for that
+        overflow: hidden;
+        border-radius: $borderRadius1;
+
+        min-width: 50px;
+      }
+
+      &:last-child {
+        margin-bottom: 0rem;
+      }
+
+      .desc {
+        margin-left: 10px;
+        opacity: 0.9;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        h2 {
+          @include font-size(md) @include font-weight(semiBold);
+        }
+      }
     }
   }
 }

@@ -7,9 +7,14 @@ import {
 } from './state.query'
 import { Link } from '@gtms/commons/i18n'
 import { getImage } from '@gtms/commons/helpers'
+import { IGroup } from '@gtms/commons/models'
 import { GroupAvatarNoImage } from 'enums'
-import { Spinner } from '@gtms/ui/Spinner'
+// ui
+import { IoIosHeart, IoIosSettings } from 'react-icons/io'
+import { FaUsers, FaUserShield, FaIdBadge } from 'react-icons/fa'
+import { MockData } from '@gtms/ui/MockData'
 import { Picture } from '@gtms/ui/Picture'
+import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
 enum Tabs {
@@ -18,6 +23,32 @@ enum Tabs {
   owner,
   admin,
 }
+
+const NoRecords: FC<{ text: string }> = ({ text }) => (
+  <div className={styles.noRecords}>
+    <MockData />
+    <MockData onClick={() => null} text={text} />
+    <MockData numberOfElements={4} />
+  </div>
+)
+
+const GroupsList: FC<{ groups: IGroup[] }> = ({ groups }) => (
+  <ul className={styles.list}>
+    {groups.map((group) => (
+      <li key={`group-${group.id}`} className={styles.item}>
+        <Link href={`/group/${group.slug}`}>
+          <>
+            <Picture {...getImage('50x50', group.avatar, GroupAvatarNoImage)} />
+            <div className={styles.desc}>
+              <h2>{group.name}</h2>
+              <p>{group.description || 'No description'}</p>
+            </div>
+          </>
+        </Link>
+      </li>
+    ))}
+  </ul>
+)
 
 export const NavigationDotsFullView: FC<{}> = () => {
   const [state, setState] = useState<INavigationDotsFullViewState>(
@@ -37,48 +68,78 @@ export const NavigationDotsFullView: FC<{}> = () => {
   }, [])
 
   return (
-    <div data-testid="navigation-dots-full-view">
-      <nav className={styles.nav}>
-        <ul>
+    <div className={styles.wrapper} data-testid="navigation-dots-full-view">
+      <div className={styles.navWrapper}>
+        <h2 className={styles.header}>All my groups:</h2>
+        <ul className={styles.nav}>
           <li
             onClick={() => setCurrentTab(Tabs.favs)}
-            className={cx({
-              [styles.current]: currentTab == Tabs.favs,
+            className={cx(styles.item, {
+              [styles.active]: currentTab == Tabs.favs,
             })}
           >
-            <a>Favs {state.isLoaded && `(${state.favs.total})`}</a>
+            <a>
+              <i>
+                <IoIosHeart />
+              </i>
+              <span>Favs {state.isLoaded && `(${state.favs.total})`}</span>
+            </a>
           </li>
           <li
             onClick={() => setCurrentTab(Tabs.members)}
-            className={cx({
-              [styles.current]: currentTab == Tabs.members,
+            className={cx(styles.item, {
+              [styles.active]: currentTab == Tabs.members,
             })}
           >
-            <a>Member {state.isLoaded && `(${state.member.length})`}</a>
+            <a>
+              <i>
+                <FaUsers />
+              </i>
+              <span>Member {state.isLoaded && `(${state.member.length})`}</span>
+            </a>
           </li>
           <li
             onClick={() => setCurrentTab(Tabs.owner)}
-            className={cx({
-              [styles.current]: currentTab == Tabs.owner,
+            className={cx(styles.item, {
+              [styles.active]: currentTab == Tabs.owner,
             })}
           >
-            <a>Owned by me {state.isLoaded && `(${state.owner.length})`}</a>
+            <a>
+              <i>
+                <FaUserShield />
+              </i>
+              <span>
+                Owned by me {state.isLoaded && `(${state.owner.length})`}
+              </span>
+            </a>
           </li>
           <li
             onClick={() => setCurrentTab(Tabs.admin)}
-            className={cx({
-              [styles.current]: currentTab == Tabs.admin,
+            className={cx(styles.item, {
+              [styles.active]: currentTab == Tabs.admin,
             })}
           >
-            <a>Admined by me {state.isLoaded && `(${state.admin.length})`}</a>
+            <a>
+              <i>
+                <FaIdBadge />
+              </i>
+              <span>
+                Admined by me {state.isLoaded && `(${state.admin.length})`}
+              </span>
+            </a>
           </li>
-          <li>
+          <li className={styles.item}>
             <Link href={'/my-groups'}>
-              <a>Settings</a>
+              <a>
+                <i>
+                  <IoIosSettings />
+                </i>
+                <span>Settings</span>
+              </a>
             </Link>
           </li>
         </ul>
-      </nav>
+      </div>
 
       {state.errorOccurred && !state.isLoading && (
         <p>Error occured, please try to refresh the page</p>
@@ -88,103 +149,57 @@ export const NavigationDotsFullView: FC<{}> = () => {
         <>
           <div
             className={cx(styles.content, {
-              [styles.show]: currentTab == Tabs.favs,
+              [styles.active]: currentTab == Tabs.favs,
             })}
           >
             {state.isLoading && <Spinner />}
             {!state.isLoading && state.favs.docs.length === 0 && (
-              <p className={styles.noRecords}>
-                No records, try to add some groups to your favs first
-              </p>
+              <NoRecords text={'No records, add some groups to your favs'} />
             )}
             {!state.isLoading && state.favs.docs.length > 0 && (
-              <ul>
-                {state.favs.docs.map((group) => (
-                  <li key={`fav-group-${group.id}`}>
-                    <Link href={`/group/${group.slug}`}>
-                      <Picture
-                        {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
-                      />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <GroupsList groups={state.favs.docs} />
             )}
           </div>
 
           <div
             className={cx(styles.content, {
-              [styles.show]: currentTab == Tabs.members,
+              [styles.active]: currentTab == Tabs.members,
             })}
           >
             {!state.isLoaded && state.isLoading && <Spinner />}
             {state.isLoaded && state.member.length === 0 && (
-              <p className={styles.noRecords}>
-                No records, you need to join some groups first
-              </p>
+              <NoRecords text={'No records, join some groups first'} />
             )}
             {state.isLoaded && state.member.length > 0 && (
-              <ul>
-                {state.member.map((group) => (
-                  <li key={`member-group-${group.id}`}>
-                    <Link href={`/group/${group.slug}`}>
-                      <Picture
-                        {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
-                      />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <GroupsList groups={state.member} />
             )}
           </div>
 
           <div
             className={cx(styles.content, {
-              [styles.show]: currentTab == Tabs.owner,
+              [styles.active]: currentTab == Tabs.owner,
             })}
           >
             {!state.isLoaded && state.isLoading && <Spinner />}
             {state.isLoaded && state.owner.length === 0 && (
-              <p className={styles.noRecords}>
-                No records, create your first group now
-              </p>
+              <NoRecords text={'No records, create your first group now'} />
             )}
             {state.isLoaded && state.owner.length > 0 && (
-              <ul>
-                {state.owner.map((group) => (
-                  <li key={`owner-group-${group.id}`}>
-                    <Link href={`/group/${group.slug}`}>
-                      <Picture
-                        {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
-                      />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <GroupsList groups={state.owner} />
             )}
           </div>
 
           <div
             className={cx(styles.content, {
-              [styles.show]: currentTab == Tabs.admin,
+              [styles.active]: currentTab == Tabs.admin,
             })}
           >
             {!state.isLoaded && state.isLoading && <Spinner />}
             {state.isLoaded && state.admin.length === 0 && (
-              <p className={styles.noRecords}>No records</p>
+              <NoRecords text={'No records'} />
             )}
             {state.isLoaded && state.admin.length > 0 && (
-              <ul>
-                {state.admin.map((group) => (
-                  <li key={`admin-group-${group.id}`}>
-                    <Link href={`/group/${group.slug}`}>
-                      <Picture
-                        {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
-                      />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <GroupsList groups={state.admin} />
             )}
           </div>
         </>

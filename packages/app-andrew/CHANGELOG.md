@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.56.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.55.1...@gtms/app-andrew@0.56.0) (2020-07-23)
+
+
+### Features
+
+* GEOT-359: styles for all groups sidebar ([#758](https://github.com/gtms-org/gtms-frontend/issues/758)) ([b828057](https://github.com/gtms-org/gtms-frontend/commit/b82805726515c88257be49f45683e0a363110186))
+
+
+
+
+
+## [0.55.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.55.0...@gtms/app-andrew@0.55.1) (2020-07-23)
+
+
+### Bug Fixes
+
+* GEOT-360: show how many favs has a post ([#757](https://github.com/gtms-org/gtms-frontend/issues/757)) ([afe5004](https://github.com/gtms-org/gtms-frontend/commit/afe5004cd0ef9687b4b507d331bec0cb2a1cea7c))
+
+
+
+
+
 # [0.55.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.54.1...@gtms/app-andrew@0.55.0) (2020-07-22)
 
 
