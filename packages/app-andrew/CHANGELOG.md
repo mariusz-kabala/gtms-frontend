@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.57.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.56.0...@gtms/app-andrew@0.57.0) (2020-07-23)
+
+
+### Features
+
+* GEOT-368: confirmation modal for delete tag ([#759](https://github.com/gtms-org/gtms-frontend/issues/759)) ([c88a2d1](https://github.com/gtms-org/gtms-frontend/commit/c88a2d1f931c1b99ea404ce416636dd68473cd90))
+
+
+
+
+
 # [0.56.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.55.1...@gtms/app-andrew@0.56.0) (2020-07-23)
 
 
