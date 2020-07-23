@@ -82,4 +82,47 @@
       }
     }
   }
+
+  .modalContent {
+    min-width: 500px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none !important;
+
+    > div {
+      h2 {
+        text-align: center;
+        @include font-size(lg);
+      }
+
+      .buttons {
+        display: flex;
+        margin-top: 20px;
+
+        > * {
+          @include buttonDefault();
+          @include buttonSizeDefault();
+          @include buttonShapePrimary();
+          @include buttonColorsDefault();
+          margin-right: 15px;
+
+          &:hover {
+            @include buttonColorsPrimary();
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+
+        .no {
+          &:hover {
+            background: red;
+          }
+        }
+      }
+    }
+  }
 }
