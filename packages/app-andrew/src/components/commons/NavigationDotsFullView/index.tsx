@@ -141,16 +141,22 @@ export const NavigationDotsFullView: FC<{}> = () => {
                 {state.favs.docs.map((group) => (
                   <li key={`fav-group-${group.id}`} className={styles.item}>
                     <Link href={`/group/${group.slug}`}>
-                      <Picture
-                        {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
-                      />
-                      <div className={styles.desc}>
-                        <h2>Polacy w Berlinie</h2>
-                        <p>
-                          Sit ea elit qui velit ullamco nostrud nisi amodo irure
-                          proident eiusmod cillum.
-                        </p>
-                      </div>
+                      <>
+                        <Picture
+                          {...getImage(
+                            '50x50',
+                            group.avatar,
+                            GroupAvatarNoImage
+                          )}
+                        />
+                        <div className={styles.desc}>
+                          <h2>Polacy w Berlinie</h2>
+                          <p>
+                            Sit ea elit qui velit ullamco nostrud nisi amodo
+                            irure proident eiusmod cillum.
+                          </p>
+                        </div>
+                      </>
                     </Link>
                   </li>
                 ))}
