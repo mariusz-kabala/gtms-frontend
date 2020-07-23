@@ -1,9 +1,11 @@
 import React, { FC, useState } from 'react'
 import cx from 'classnames'
-import styles from './styles.scss'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup, FileStatus } from '@gtms/commons'
-import { IoIosKeypad } from 'react-icons/io'
+// ui
+import { Overlay } from '@gtms/ui/Overlay'
+import { IoIosKeypad, IoIosCloseCircle } from 'react-icons/io'
+import styles from './styles.scss'
 
 export const NavigationDots: FC<{ groups: IGroup[] }> = ({
   groups,
@@ -18,18 +20,26 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({
     <div className={styles.wrapper}>
       <div
         className={cx(styles.fullView, {
-          [styles.show]: showFullView,
+          [styles.active]: showFullView,
         })}
       >
-        <div className={styles.bg} />
         <div className={styles.content}>{children}</div>
+        <Overlay onClick={() => setShowFullView((value) => !value)} />
       </div>
       <ul className={styles.navigationDot} data-testid="navigation-dots">
+        <li
+          className={cx(styles.item, styles.showAllGroups, {
+            [styles.active]: showFullView,
+          })}
+          onClick={() => setShowFullView((value) => !value)}
+        >
+          <i>{showFullView ? <IoIosCloseCircle /> : <IoIosKeypad />}</i>
+          <span>close</span>
+        </li>
         {groups.map((value, index) => (
-          <li key={index}>
+          <li className={styles.item} key={index}>
             <Link href={`/group/${value.slug}`}>
               <div
-                className={styles.item}
                 style={{
                   backgroundImage: `url(${
                     value.avatar &&
@@ -43,11 +53,6 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({
             </Link>
           </li>
         ))}
-        <li onClick={() => setShowFullView((value) => !value)}>
-          <i>
-            <IoIosKeypad />
-          </i>
-        </li>
       </ul>
     </div>
   )
