@@ -1,3 +1,10 @@
+@import '~@gtms/styles/scss/variables';
+
 .mainNav {
-  // todo
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  border-radius: $borderRadius2;
+  background: $theme0;
 }
