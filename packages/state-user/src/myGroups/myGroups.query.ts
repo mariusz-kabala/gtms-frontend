@@ -2,7 +2,7 @@ import { Query } from '@datorama/akita'
 import { IGroup } from '@gtms/commons/models'
 import { myGroupsStore, MyGroupsStore, IMyGroupsStore } from './myGroups.store'
 import { Observable } from 'rxjs'
-import { FAVS_GROUPS_MENU_LIMIT } from 'consts'
+import { FAVS_GROUPS_MENU_LIMIT } from '@gtms/commons/consts'
 
 export class MyGroupsQuery extends Query<IMyGroupsStore> {
   constructor(protected store: MyGroupsStore) {

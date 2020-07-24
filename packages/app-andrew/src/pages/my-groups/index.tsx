@@ -24,7 +24,7 @@ import { AddFavToMenuButton } from 'components/my-groups/AddFavToMenuButton'
 import { Spinner } from '@gtms/ui/Spinner'
 import { Button } from '@gtms/ui/Button'
 import { useInitState } from '@gtms/commons/hooks'
-import { FAVS_GROUPS_MENU_LIMIT } from 'consts'
+import { FAVS_GROUPS_MENU_LIMIT } from '@gtms/commons/consts'
 
 type MyGroupsPageProps = {
   namespacesRequired: readonly string[]
