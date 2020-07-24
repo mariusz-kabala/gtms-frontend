@@ -5,6 +5,12 @@ export interface IMyGroupsResponse {
   admin: IGroup[]
   owner: IGroup[]
   member: IGroup[]
+  favs: {
+    limit: number
+    total: number
+    offset: number
+    docs: IGroup[]
+  }
 }
 
 export const fetchMyGroups = () =>

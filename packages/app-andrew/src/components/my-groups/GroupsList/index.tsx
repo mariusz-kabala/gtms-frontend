@@ -1,25 +1,20 @@
 import React, { FC, ReactNode } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { IGroup, FileStatus } from '@gtms/commons'
+import { IGroup } from '@gtms/commons'
+import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
 import { Picture } from '@gtms/ui/Picture'
+import { TagGroup } from '@gtms/ui/TagGroup'
+import { Tag } from '@gtms/ui/Tag'
+import { GroupAvatarNoImage } from 'enums'
 
 export const GroupsList: FC<{
   additionalStyles?: string
   groups: IGroup[]
   noRecords: ReactNode
-  onFavsClick: (group: IGroup) => unknown
-  renderFavsIcon: (group: IGroup) => ReactNode
   renderGroupMenu: (group: IGroup) => ReactNode | null
-}> = ({
-  additionalStyles,
-  groups,
-  noRecords,
-  renderFavsIcon,
-  renderGroupMenu,
-  onFavsClick,
-}) => {
+}> = ({ additionalStyles, groups, noRecords, renderGroupMenu }) => {
   return (
     <div className={cx(styles.wrapper, additionalStyles)}>
       {groups.length === 0 && noRecords}
@@ -27,24 +22,37 @@ export const GroupsList: FC<{
         <ul className={styles.list}>
           {groups.map((group) => (
             <li key={`owner-${group.id}`}>
-              <i className={styles.likeIcon} onClick={() => onFavsClick(group)}>
-                {renderFavsIcon(group)}
-              </i>
-              <Link href={`/group/${group.slug}`}>
-                <a>
-                  {group.avatar &&
-                  group.avatar.status === FileStatus.ready &&
-                  group.avatar.files['50x50'] ? (
-                    <Picture {...group.avatar.files['200x200']} />
-                  ) : (
-                    <img src="http://via.placeholder.com/200x200" />
-                  )}
-                  <div className={styles.groupName}>
-                    <h2>{group.name}</h2>
-                  </div>
-                </a>
-              </Link>
-              {renderGroupMenu(group)}
+              <div className={styles.image}>
+                <Link href={`/group/${group.slug}`}>
+                  <a>
+                    <Picture
+                      {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
+                    />
+                  </a>
+                </Link>
+              </div>
+              <div className={styles.dsc}>
+                <h2>{group.name}</h2>
+                <p>{group.description || 'no description'}</p>
+                {group.tags && group.tags.length > 0 && (
+                  <TagGroup>
+                    {group.tags.map((tag) => (
+                      <Tag key={`tag-${tag}`} label={tag} />
+                    ))}
+                  </TagGroup>
+                )}
+              </div>
+              <div className={styles.stats}>
+                <ul>
+                  <li>
+                    Members: <span>{group.membersCounter}</span>
+                  </li>
+                  <li>
+                    Posts: <span>{group.postsCounter}</span>
+                  </li>
+                </ul>
+              </div>
+              <div className={styles.actions}>{renderGroupMenu(group)}</div>
             </li>
           ))}
         </ul>
