@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { useDropzone, DropEvent } from 'react-dropzone'
+// ui
 import { IoIosCloudUpload } from 'react-icons/io'
 import { Spinner } from '../Spinner'
+import styles from './styles.scss'
 
 export const UploadFile: FC<{
   additionalStyles?: string

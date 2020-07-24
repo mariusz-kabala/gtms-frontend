@@ -9,18 +9,21 @@ import {
   markAsLoading,
 } from '@gtms/state-group'
 import { hasAuthSessionCookies } from '@gtms/state-user'
-import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
-import { BasicSettings } from 'components/group-settings/Basic'
-import { TagsSettings } from 'components/group-settings/Tags'
-import { ImagesSettings } from 'components/group-settings/Images'
-import { AdminsSettings } from 'components/group-settings/Admins'
-import { MembersSettings } from 'components/group-settings/Members'
-import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { GroupType, GroupVisibility } from '@gtms/commons/enums'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
+//sections
+import { AdminsSettings } from 'components/group-settings/Admins'
+import { BasicSettings } from 'components/group-settings/Basic'
+import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
+import { GroupAvatarSettings } from 'components/group-settings/GroupAvatar'
+import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
+import { InvitationsSettings } from 'components/group-settings/Invitations'
+import { MembersSettings } from 'components/group-settings/Members'
+import { TagsSettings } from 'components/group-settings/Tags'
 // ui
+import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
@@ -31,12 +34,10 @@ type GroupSettingsPageProps = {
 
 enum Tabs {
   general = 'general',
-  images = 'images',
   tags = 'tags',
   invitations = 'invitations',
   admins = 'admins',
   members = 'members',
-  delete = 'delete',
 }
 
 const getInitialTab = () => {
@@ -86,14 +87,18 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
     <div className={styles.pageWrapper}>
       <div className={styles.wrapper} data-testid="group-settings-page">
         {group.isLoading && !group.errorOccured && <Spinner />}
-
         {!group.isLoading && group.errorOccured && (
-          <p>Can not fetch group details, try again later</p>
+          <div className={styles.errorWrapper}>
+            <div>
+              <Picture jpg={'/images/white-theme/oops-robot.png'} />
+              <h2>Can not fetch group details, try again later</h2>
+            </div>
+          </div>
         )}
 
         {!group.isLoading && !group.errorOccured && (
           <>
-            <div className={styles.navigation}>
+            <div className={styles.navigationWrapper}>
               <h2 className={styles.header}>{t('header')}</h2>
               <ul className={styles.navigation}>
                 <li
@@ -103,15 +108,6 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                 >
                   <a href="#general" onClick={() => setTab(Tabs.general)}>
                     General Settings
-                  </a>
-                </li>
-                <li
-                  className={cx({
-                    [styles.current]: tab === Tabs.images,
-                  })}
-                >
-                  <a onClick={() => setTab(Tabs.images)} href="#images">
-                    Images
                   </a>
                 </li>
                 <li
@@ -153,30 +149,25 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                     Members
                   </a>
                 </li>
-                <li
-                  className={cx({
-                    [styles.current]: tab === Tabs.delete,
-                  })}
-                >
-                  <a href="#delete" onClick={() => setTab(Tabs.delete)}>
-                    Delete Group
-                  </a>
-                </li>
               </ul>
             </div>
 
             {tab === Tabs.general && (
-              <BasicSettings
-                slug={group.group?.slug || ''}
-                name={group.group?.name || ''}
-                description={group.group?.description || ''}
-                visibility={group.group?.visibility || GroupVisibility.public}
-                type={group.group?.type || GroupType.public}
-              />
-            )}
-
-            {tab === Tabs.images && (
-              <ImagesSettings avatar={group.group?.avatar} />
+              <>
+                <GroupAvatarSettings avatar={group.group?.avatar} />
+                <GroupBackgroundSettings bg={group.group?.avatar} />
+                <BasicSettings
+                  slug={group.group?.slug || ''}
+                  name={group.group?.name || ''}
+                  description={group.group?.description || ''}
+                  visibility={group.group?.visibility || GroupVisibility.public}
+                  type={group.group?.type || GroupType.public}
+                />
+                <GroupDeleteGroup
+                  additionalStyles={styles.btn}
+                  onConfirm={() => null}
+                />
+              </>
             )}
 
             {tab === Tabs.tags && (
@@ -196,13 +187,6 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
 
             {tab === Tabs.members && (
               <MembersSettings group={group.group as IGroup} />
-            )}
-
-            {tab === Tabs.delete && (
-              <GroupDeleteGroup
-                additionalStyles={styles.btn}
-                onConfirm={() => null}
-              />
             )}
           </>
         )}
