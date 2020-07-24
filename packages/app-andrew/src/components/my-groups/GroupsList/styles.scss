@@ -3,62 +3,31 @@
 
 .wrapper {
   display: none; // for show hide functionality
-
+  flex: 1;
   .list {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-
+    width: 100%;
     li {
-      position: relative;
-      cursor: pointer;
       border-radius: $borderRadius1;
       overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
 
-      .likeIcon {
-        position: absolute;
-        top: 10px;
-        left: 10px;
+      .image {
+        flex-basis: 50px;
+      }
+      .dsc {
+        flex-basis: 35%;
+      }
+      .stats {
+        flex-basis: 90px;
       }
 
-      a {
-        display: block;
-
-        .groupName {
-          position: absolute;
-          left: 0px;
-          bottom: 0px;
-          width: 100%;
-          height: 100%;
-          @include shadowBoxWithDescription();
-
-          h2 {
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-            font-size: 1.1em;
-            color: $theme0;
-          }
-        }
-      }
-
-      &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 4px solid $theme4;
-        background: rgba($theme4, 0.2);
-        border-radius: $borderRadius1;
-        opacity: 0;
-      }
-
-      &:hover {
-        &:after {
-          opacity: 1;
-        }
+      .actions {
+        flex-basis: 40%;
       }
     }
   }

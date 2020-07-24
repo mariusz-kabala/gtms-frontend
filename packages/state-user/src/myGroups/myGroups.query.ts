@@ -2,6 +2,7 @@ import { Query } from '@datorama/akita'
 import { IGroup } from '@gtms/commons/models'
 import { myGroupsStore, MyGroupsStore, IMyGroupsStore } from './myGroups.store'
 import { Observable } from 'rxjs'
+import { FAVS_GROUPS_MENU_LIMIT } from 'consts'
 
 export class MyGroupsQuery extends Query<IMyGroupsStore> {
   constructor(protected store: MyGroupsStore) {
@@ -10,7 +11,7 @@ export class MyGroupsQuery extends Query<IMyGroupsStore> {
 
   public favGroups = (values = this.getValue()): IGroup[] => {
     if (Array.isArray(values.favs?.docs) && values.favs.docs.length > 0) {
-      return values.favs.docs.slice(0, 6)
+      return values.favs.docs.slice(0, FAVS_GROUPS_MENU_LIMIT)
     }
 
     if (
@@ -36,7 +37,7 @@ export class MyGroupsQuery extends Query<IMyGroupsStore> {
       }
     })
 
-    return groups.slice(0, 6)
+    return groups.slice(0, FAVS_GROUPS_MENU_LIMIT)
   }
 
   public favGroups$: Observable<IGroup[]> = this.select((values) =>
