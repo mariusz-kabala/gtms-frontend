@@ -28,33 +28,33 @@
       }
     }
   }
-}
 
-.close {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px;
-
-  .iconClose {
-    position: absolute;
-    color: $theme0;
+  .close {
     display: flex;
-    @include font-size(md);
-  }
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
 
-  .CircularProgressbar {
-    width: 100%;
-    vertical-align: middle;
-    margin-left: auto;
-    width: 30px;
-    > * {
-      &:nth-child(1) {
-        stroke: $theme0;
-      }
+    .iconClose {
+      position: absolute;
+      color: $theme0;
+      display: flex;
+      @include font-size(md);
+    }
 
-      &:nth-child(2) {
-        stroke: $theme4;
+    .circularProgressbar {
+      width: 100%;
+      vertical-align: middle;
+      margin-left: auto;
+      width: 30px;
+      > * {
+        &:nth-child(1) {
+          stroke: $theme0;
+        }
+
+        &:nth-child(2) {
+          stroke: $theme4;
+        }
       }
     }
   }
