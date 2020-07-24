@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.1...@gtms/app-andrew@0.57.2) (2020-07-24)
+
+
+### Bug Fixes
+
+* GEOT-363: GEOT-363 fix avatar size ([#763](https://github.com/gtms-org/gtms-frontend/issues/763)) ([ae22e36](https://github.com/gtms-org/gtms-frontend/commit/ae22e36f958e26bb372ca45094545309b4afde8b))
+
+
+
+
+
 ## [0.57.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.0...@gtms/app-andrew@0.57.1) (2020-07-24)
 
 
