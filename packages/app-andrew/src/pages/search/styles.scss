@@ -5,6 +5,8 @@
 .pageWrapper {
   @include pageWrapper();
   max-width: 650px;
+  padding-left: 6px;
+  margin-left: -6px;
 }
 
 .wrapper {
