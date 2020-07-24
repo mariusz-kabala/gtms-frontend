@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.0...@gtms/app-andrew@0.57.1) (2020-07-24)
+
+
+### Bug Fixes
+
+* GEOT-361: styles for navigation wrapper ([#760](https://github.com/gtms-org/gtms-frontend/issues/760)) ([53882d8](https://github.com/gtms-org/gtms-frontend/commit/53882d8e7707cb9466037fe9aa17799cd55ef29b))
+
+
+
+
+
 # [0.57.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.56.0...@gtms/app-andrew@0.57.0) (2020-07-23)
 
 
