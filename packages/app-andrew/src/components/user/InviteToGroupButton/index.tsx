@@ -13,6 +13,7 @@ import {
 import { GroupAvatarNoImage } from 'enums'
 // ui
 import { Button } from '@gtms/ui/Button'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { Modal } from '@gtms/ui/Modal'
 import { Picture } from '@gtms/ui/Picture'
@@ -112,7 +113,9 @@ export const InviteToGroupButton: FC<{
         <Modal onClose={() => setInternalState(getInitialInternalState())}>
           {externalState.isLoading && <Spinner />}
           {externalState.errorOccured && (
-            <p>Can not fetch list of groups now, try later please</p>
+            <ErrorWrapper>
+              <h2>Can not fetch list of groups now, try later please</h2>
+            </ErrorWrapper>
           )}
           {externalState.isLoaded && internalState.step === Steps.start && (
             <div>

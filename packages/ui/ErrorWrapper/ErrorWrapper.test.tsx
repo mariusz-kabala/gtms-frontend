@@ -1,23 +1,23 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { ErrorInfo } from './index'
+import { ErrorWrapper } from './index'
 
-describe('<ErrorInfo />', () => {
+describe('<ErrorWrapper />', () => {
   it('Should be on the page', () => {
     const { getByTestId } = render(
-      <ErrorInfo>
+      <ErrorWrapper>
         <a>testing</a>
-      </ErrorInfo>
+      </ErrorWrapper>
     )
 
-    expect(getByTestId('error-info')).toBeInTheDocument()
+    expect(getByTestId('error-wrapper')).toBeInTheDocument()
   })
 
   it('Should have additional css classes', () => {
     const { container } = render(
-      <ErrorInfo additionalStyles={'cssTest'}>
+      <ErrorWrapper additionalStyles={'cssTest'}>
         <a>testing</a>
-      </ErrorInfo>
+      </ErrorWrapper>
     )
 
     expect(container.querySelector('.cssTest')).toBeInTheDocument()
