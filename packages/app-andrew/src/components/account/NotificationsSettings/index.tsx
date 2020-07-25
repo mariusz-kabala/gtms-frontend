@@ -1,5 +1,4 @@
 import React, { FC, useState, useEffect } from 'react'
-import styles from './styles.scss'
 import {
   INotificationsSettingsState,
   notificationsSettingsState,
@@ -12,8 +11,11 @@ import {
   updateNotificationsSettings,
   loadNotificationsSettings,
 } from '@gtms/state-notification'
+// ui
 import { Button } from '@gtms/ui/Button'
 import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import styles from './styles.scss'
 
 export const NotificationsSettings: FC<{
   additionalStyles?: string
@@ -46,9 +48,12 @@ export const NotificationsSettings: FC<{
 
   if (state.errorOccured) {
     return (
-      <p data-testid="notifications-settings">
-        Sorry, but we can not fetch your settings right now, please - try later!
-      </p>
+      <ErrorWrapper>
+        <h2 data-testid="notifications-settings">
+          Sorry, but we can not fetch your settings right now, please - try
+          later!
+        </h2>
+      </ErrorWrapper>
     )
   }
 

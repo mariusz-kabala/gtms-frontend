@@ -6,13 +6,15 @@ import {
   IGroupInvitations,
   deleteGroupInvitation,
 } from '@gtms/state-group'
-import { Spinner } from '@gtms/ui/Spinner'
-import { UserAvatar } from '@gtms/ui/UserAvatar'
-import { Button } from '@gtms/ui/Button'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 import { getImage, getDisplayName } from '@gtms/commons/helpers'
 import { UserAvatarNoImage } from 'enums'
+// ui
+import { Button } from '@gtms/ui/Button'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { Spinner } from '@gtms/ui/Spinner'
+import { UserAvatar } from '@gtms/ui/UserAvatar'
 
 const RECORDS_PER_PAGE = 25
 
@@ -39,7 +41,9 @@ export const InvitationsSettings: FC<{ group: IGroup }> = ({ group }) => {
         </div>
       )}
       {!state.isLoading && state.errorOccured && (
-        <div>Can not fetch invitations, try later</div>
+        <ErrorWrapper>
+          <h2>Can not fetch invitations, try later</h2>
+        </ErrorWrapper>
       )}
       {!state.isLoading && state.records.length === 0 && (
         <div>no invitations, no one likes you, you stupid fuck</div>

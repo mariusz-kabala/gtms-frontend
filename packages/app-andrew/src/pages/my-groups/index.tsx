@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback, FC } from 'react'
 import { NextPage, NextPageContext } from 'next'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
@@ -22,10 +21,13 @@ import { FavsButton } from 'components/group/FavsButton'
 import { FollowButton } from 'components/group/FollowButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 import { AddFavToMenuButton } from 'components/my-groups/AddFavToMenuButton'
-import { Spinner } from '@gtms/ui/Spinner'
-import { Button } from '@gtms/ui/Button'
 import { useInitState } from '@gtms/commons/hooks'
 import { FAVS_GROUPS_MENU_LIMIT } from '@gtms/commons/consts'
+// ui
+import { Button } from '@gtms/ui/Button'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 type MyGroupsPageProps = {
   namespacesRequired: readonly string[]
@@ -144,7 +146,11 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
       <div className={styles.wrapper}>
         {state.isLoading && <Spinner additionalStyles={styles.spinner} />}
         {!state.isLoading && state.errorOccurred && (
-          <p>Can not fetch list of your groups now. please try again later</p>
+          <ErrorWrapper>
+            <h2>
+              Can not fetch list of your groups now. please try again later
+            </h2>
+          </ErrorWrapper>
         )}
         {!state.isLoading && !state.errorOccurred && (
           <>
