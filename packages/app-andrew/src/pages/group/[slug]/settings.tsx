@@ -24,7 +24,6 @@ import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
-import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
@@ -90,7 +89,6 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
         {group.isLoading && !group.errorOccured && <Spinner />}
         {!group.isLoading && group.errorOccured && (
           <ErrorWrapper>
-            <Picture jpg={'/images/white-theme/oops-robot.png'} />
             <h2>Can not fetch group details, try again later</h2>
           </ErrorWrapper>
         )}

@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { FileStatus } from '@gtms/commons/enums'
@@ -22,11 +21,13 @@ import { UserAvatarNoImage, GroupAvatarNoImage } from 'enums'
 import { accountPageState, accountPageState$, IAccountPageState } from 'queries'
 // ui
 import { Button } from '@gtms/ui/Button'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 import { TagsBar } from '@gtms/ui/TagsBar'
 import { UserGroups } from '@gtms/ui/UserGroups'
 import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
+import styles from './styles.scss'
 
 type AccountPageProps = {
   namespacesRequired: readonly string[]
@@ -114,7 +115,9 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
       <div className={styles.wrapper}>
         {state.isLoading && <Spinner additionalStyles={styles.spinner} />}
         {!state.isLoading && state.errorOccured && (
-          <p>{t('Can not fetch account details right now, try later')}</p>
+          <ErrorWrapper>
+            <h2>{t('Can not fetch account details right now, try later')}</h2>
+          </ErrorWrapper>
         )}
         {!state.isLoading && !state.errorOccured && (
           <>
