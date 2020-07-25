@@ -6,16 +6,18 @@ import { Picture } from '@gtms/ui/Picture'
 export const ErrorWrapper: FC<{
   additionalStyles?: string
   children: ReactNode
-}> = ({ additionalStyles, children }) => {
+  buttons?: ReactNode
+}> = ({ additionalStyles, buttons, children }) => {
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="error-wrapper"
     >
-      <div>
+      <div className={styles.content}>
         <Picture jpg={'/images/white-theme/oops-robot.png'} />
-        {children}
+        <div>{children}</div>
       </div>
+      {buttons}
     </div>
   )
 }
