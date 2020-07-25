@@ -1,7 +1,4 @@
 import React, { FC, useState, useEffect } from 'react'
-import { Spinner } from '@gtms/ui/Spinner'
-import { Modal } from '@gtms/ui/Modal'
-import { Button } from '@gtms/ui/Button'
 import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { useForm } from 'react-hook-form'
@@ -13,9 +10,13 @@ import {
   inviteToGroupButtonState,
   inviteToGroupButtonState$,
 } from './state.query'
-import { Picture } from '@gtms/ui/Picture'
-import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { GroupAvatarNoImage } from 'enums'
+// ui
+import { Button } from '@gtms/ui/Button'
+import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
+import { Modal } from '@gtms/ui/Modal'
+import { Picture } from '@gtms/ui/Picture'
+import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
 const GroupsList: FC<{

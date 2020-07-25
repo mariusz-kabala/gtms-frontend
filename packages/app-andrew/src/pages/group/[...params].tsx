@@ -179,7 +179,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <div className={styles.groupHeader}>
               <GroupAvatar
                 additionalStyles={styles.groupAvatar}
-                files={groupQuery.getAvatar('200x200', state)}
+                files={groupQuery.getAvatar('50x50', state)}
                 filesStatus={groupQuery.getAvatarFileStatus()}
                 isEditAllowed={groupQuery.hasAdminRights()}
               />
