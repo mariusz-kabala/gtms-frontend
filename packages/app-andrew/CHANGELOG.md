@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.6...@gtms/app-andrew@0.57.7) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-380: styles for group not found and group no ([#769](https://github.com/gtms-org/gtms-frontend/issues/769)) ([cc4c4fe](https://github.com/gtms-org/gtms-frontend/commit/cc4c4feca2985be9c15949c8e06daf594f77082c))
+
+
+
+
+
 ## [0.57.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.5...@gtms/app-andrew@0.57.6) (2020-07-25)
 
 
