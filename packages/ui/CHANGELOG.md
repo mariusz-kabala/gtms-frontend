@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.3...@gtms/ui@0.40.4) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-378: styles for error wrapper ([#768](https://github.com/gtms-org/gtms-frontend/issues/768)) ([c984910](https://github.com/gtms-org/gtms-frontend/commit/c984910cd5601fa15f601d4178b47249e45ccbd1))
+
+
+
+
+
 ## [0.40.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.2...@gtms/ui@0.40.3) (2020-07-25)
 
 
