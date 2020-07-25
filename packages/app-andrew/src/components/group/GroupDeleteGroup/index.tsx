@@ -25,12 +25,12 @@ export const GroupDeleteGroup: FC<{
             <div className={styles.buttons}>
               <Button
                 testid="delete-group-cancel"
-                additionalStyles={styles.no}
                 onClick={() => setIsModalOpen(false)}
               >
                 {t('noBtn')}
               </Button>
               <Button
+                additionalStyles={styles.yes}
                 testid="delete-group-confirm"
                 onClick={() => {
                   onConfirm()

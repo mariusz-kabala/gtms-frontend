@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.2...@gtms/ui@0.40.3) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-376: GEOT-376: group general settings ([#766](https://github.com/gtms-org/gtms-frontend/issues/766)) ([2428eef](https://github.com/gtms-org/gtms-frontend/commit/2428eefd9dfe67e3294a3971163be3a506128732))
+
+
+
+
+
+## [0.40.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.1...@gtms/ui@0.40.2) (2020-07-24)
+
+
+### Bug Fixes
+
+* GEOT-374: show more info on my groups page, allow user to se ([#765](https://github.com/gtms-org/gtms-frontend/issues/765)) ([93309d2](https://github.com/gtms-org/gtms-frontend/commit/93309d21f245df19c4274ecfd898adcfff9dc01e))
+
+
+
+
+
 ## [0.40.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.0...@gtms/ui@0.40.1) (2020-07-24)
 
 

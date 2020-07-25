@@ -7,8 +7,4 @@
   .miniature {
     @include imageCover();
   }
-
-  .fullImage {
-    max-height: 85%;
-  }
 }
