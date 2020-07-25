@@ -114,7 +114,7 @@ export const InviteToGroupButton: FC<{
           {externalState.isLoading && <Spinner />}
           {externalState.errorOccured && (
             <ErrorWrapper>
-              <h3>Can not fetch list of groups now, try later please</h3>
+              <h2>Can not fetch list of groups now, try later please</h2>
             </ErrorWrapper>
           )}
           {externalState.isLoaded && internalState.step === Steps.start && (
