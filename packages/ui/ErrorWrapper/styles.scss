@@ -1,0 +1,26 @@
+@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 40px 0;
+
+  > div {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+
+    img {
+      max-width: 300px;
+    }
+
+    h2 {
+      @include font-size(xlg);
+      @include font-weight(semiBold);
+      margin-left: 30px;
+    }
+  }
+}

@@ -31,7 +31,7 @@ import { PromotedTags } from 'components/group/PromotedTags'
 import { Favs } from 'components/post/Favs'
 // ui
 import { Button } from '@gtms/ui/Button'
-import { ErrorInfo } from '@gtms/ui/ErrorInfo'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Picture } from '@gtms/ui/Picture'
 import { PostCreate } from '@gtms/ui/PostCreate'
@@ -162,12 +162,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
         {state.isLoading && <Spinner />}
 
         {state.errorOccured && (
-          <ErrorInfo>
+          <ErrorWrapper>
             <h2>ERROR OCCURED</h2>
             <p>
               Create a proper component that can be used here when 500 from BE
             </p>
-          </ErrorInfo>
+          </ErrorWrapper>
         )}
 
         {state.notFound && <GroupNotFound />}

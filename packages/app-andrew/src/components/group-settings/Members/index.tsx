@@ -5,6 +5,8 @@ import {
   IGroupMembers,
   getGroupMembers,
 } from '@gtms/state-group'
+// ui
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Spinner } from '@gtms/ui/Spinner'
 
 const RECORDS_PER_PAGE = 25
@@ -30,7 +32,9 @@ export const MembersSettings: FC<{ group: IGroup }> = ({ group }) => {
       {state.isLoading && <Spinner />}
 
       {!state.isLoading && state.errorOccured && (
-        <p>Error occured, try again later</p>
+        <ErrorWrapper>
+          <h2>Error occured, try again later</h2>
+        </ErrorWrapper>
       )}
 
       {!state.isLoading &&
