@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.5...@gtms/app-andrew@0.57.6) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-379: GEOT-379: header styles changes ([#770](https://github.com/gtms-org/gtms-frontend/issues/770)) ([437fe2f](https://github.com/gtms-org/gtms-frontend/commit/437fe2fd7f6a0464a6d993768aa947cedee46c01))
+
+
+
+
+
 ## [0.57.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.4...@gtms/app-andrew@0.57.5) (2020-07-25)
 
 
