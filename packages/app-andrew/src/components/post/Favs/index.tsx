@@ -27,7 +27,7 @@ export const Favs: FC<{
 
   useEffect(() => {
     const sub = favsState$.subscribe((value) => {
-      setIsInFavs(state.isLogged && favs.includes(`${value.account.id}`))
+      setIsInFavs(favs.includes(`${value.account?.id}`))
       setState(value)
     })
 
