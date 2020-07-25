@@ -4,55 +4,57 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
+  position: relative;
   width: 100%;
   max-width: 900px;
   height: 100%;
   border-radius: $borderRadius2;
-  overflow: hidden;
   margin: 10px;
   background: $theme2;
 
   .groupHeader {
     display: flex;
     align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid $theme2;
-    background: $theme0;
+    padding: 10px;
+    border-top-left-radius: $borderRadius2;
+    border-top-right-radius: $borderRadius2;
+    background: $theme4;
+    color: $theme0;
 
     .groupAvatar {
-      img {
-        border-radius: $borderRadius1;
+      border-radius: $borderRadius1;
+      overflow: hidden;
+
+      picture {
+        min-width: 45px;
+        min-height: 45px;
       }
     }
 
     .descWrapper {
-      max-width: 400px;
-      min-width: 400px;
+      max-width: 250px;
+      min-width: 250px;
       line-height: 1;
       margin-left: 10px;
 
       .header {
-        @include font-weight(normal);
-        @include font-size(md);
-        letter-spacing: 1px;
-        color: $theme7;
+        @include font-weight(semiBold);
+        letter-spacing: 1.2px;
         text-transform: uppercase;
       }
 
       .desc {
         @include font-size(sm);
-        @include font-weight(normal);
-        color: $theme9;
       }
     }
-  }
 
-  .actionButtons {
-    display: flex;
-    margin-left: auto;
+    .actionButtons {
+      display: flex;
+      margin-left: auto;
 
-    > * {
-      margin-left: 10px;
+      > * {
+        margin-left: 10px;
+      }
     }
   }
 
@@ -138,7 +140,7 @@
   span {
     margin-top: 70px;
     margin-left: 10px;
-    @include font-size(xlg);
+    @include font-size(md);
     color: $theme9;
   }
 }
