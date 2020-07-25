@@ -2,6 +2,7 @@ import {
   fetchMyGroups,
   addGroupToFavsAPI,
   removeGroupFromFavsAPI,
+  updateFavGroupsOrderAPI,
 } from '@gtms/api-auth'
 import { joinGroupAPI, leaveGroupAPI } from '@gtms/api-group'
 import { myGroupsStore } from './myGroups.store'
@@ -186,4 +187,14 @@ export const leaveGroup = async (group: IGroup) => {
       `Error occured, you can not leave this group now. Try later`
     )
   }
+}
+
+export const updateFavGroupsOrder = async (groups: string[]) => {
+  try {
+    await updateFavGroupsOrderAPI(groups)
+  } catch {
+    return
+  }
+
+  loadMyGroups()
 }

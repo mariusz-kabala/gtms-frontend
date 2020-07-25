@@ -52,3 +52,9 @@ export const isGroupInFavsAPI = (
 
 export const removeGroupFromFavsAPI = (groupId: string) =>
   deleteRequest(makeApiUrl(`auth/favs/groups/${groupId}`))
+
+export const updateFavGroupsOrderAPI = (payload: string[]) =>
+  fetchJSON<string[], void>(makeApiUrl('auth/me/favs/groups'), {
+    values: payload,
+    method: 'PUT',
+  })

@@ -6,6 +6,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
 import {
   loadMyGroups,
+  updateFavGroupsOrder,
   hasAuthSessionCookies,
   markMyGroupsAsLoading,
 } from '@gtms/state-user'
@@ -261,7 +262,15 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
           </>
         )}
 
-        {favsInMenu.isChanged && <Button>Save changes</Button>}
+        {favsInMenu.isChanged && (
+          <Button
+            onClick={() => {
+              updateFavGroupsOrder(favsInMenu.favs)
+            }}
+          >
+            Save changes
+          </Button>
+        )}
       </div>
     </div>
   )
