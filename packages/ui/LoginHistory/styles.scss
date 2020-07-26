@@ -1,0 +1,49 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+
+.wrapper {
+  > .header {
+    @include font-weight(normal);
+    @include font-size(md);
+    margin: 10px 0;
+  }
+
+  .list {
+    // @todo make mixin of that
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+
+    .item {
+      padding: 10px;
+      border: 2px solid $theme2;
+      border-radius: $borderRadius1;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+
+      &:hover {
+        border-color: $theme4;
+      }
+
+      .header {
+        @include font-weight(normal);
+      }
+
+      > div {
+        margin-bottom: 5px;
+      }
+
+      .row {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
