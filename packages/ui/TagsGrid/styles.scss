@@ -27,6 +27,7 @@
       }
 
       &:after {
+        // @todo create mixin
         content: '';
         position: absolute;
         top: 0;

@@ -6,7 +6,7 @@
 
 .pageWrapper {
   @include pageWrapper();
-  max-width: 600px;
+  max-width: 700px;
   padding-left: 6px;
   margin-left: -6px;
 }
@@ -88,6 +88,7 @@
   .userHeader {
     display: flex;
     align-items: center;
+    margin: 5px 0;
 
     .avatarWrapper {
       min-width: 100px;
@@ -159,7 +160,7 @@
   }
 
   .userTags {
-    margin-top: 10px;
+    margin-top: 15px;
 
     span {
       // @todo create mixin of that
@@ -172,7 +173,7 @@
 
   .userStats {
     display: flex;
-    margin: 10px 0;
+    margin: 15px 0;
     text-transform: uppercase;
 
     .item {
@@ -206,7 +207,7 @@
       display: inline-block;
       @include font-size(xxs);
       text-transform: uppercase;
-      margin-bottom: 3px;
+      margin-bottom: 10px;
     }
 
     .noRecords {

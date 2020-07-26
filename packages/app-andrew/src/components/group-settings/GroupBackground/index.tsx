@@ -5,6 +5,7 @@ import { updateGroupAvatar } from '@gtms/state-group'
 // ui
 import { IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
+import { FullScreenGallery } from '@gtms/ui/FullScreenGallery'
 import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
 import { Modal } from '@gtms/ui/Modal'
 import { UploadFile } from '@gtms/ui/UploadFile'
@@ -46,6 +47,9 @@ export const GroupBackgroundSettings: FC<{ bg?: IGroupBg }> = ({ bg }) => {
 
   return (
     <div data-testid="group-settings-images" className={styles.wrapper}>
+      <FullScreenGallery isActive onClose={null}>
+        adfasf
+      </FullScreenGallery>
       {showUploadFileGroupBg && (
         <Modal onClose={() => setShowUploadFileGroupBg(false)}>
           <UploadFile
