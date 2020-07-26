@@ -3,8 +3,6 @@ import { NextPage, NextPageContext } from 'next'
 import { hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { ILoginHistory, IActiveSession } from '@gtms/commons/models'
-import { LoginHistory } from '@gtms/ui/LoginHistory'
-import { UserSessions } from '@gtms/ui/UserSessions'
 import { ChangePassword } from 'components/account/ChangePassword'
 import { DeleteAccount } from 'components/account/DeleteAccount'
 import {
@@ -13,6 +11,11 @@ import {
   deleteActiveSessionAPI,
 } from '@gtms/api-auth'
 import { addErrorNotification } from '@gtms/state-notification'
+// ui
+import { LoginHistory } from '@gtms/ui/LoginHistory'
+import { Picture } from '@gtms/ui/Picture'
+import { UserSessions } from '@gtms/ui/UserSessions'
+import styles from './styles.scss'
 
 type IAccountSecurityPageProps = {
   namespacesRequired: readonly string[]
@@ -93,11 +96,22 @@ export const AccountSecurityPage: NextPage<IAccountSecurityPageProps> = () => {
       )
   }, [])
   return (
-    <div data-testid="account-security-page">
-      <ChangePassword />
-      <DeleteAccount onConfirm={() => null} />
-      <LoginHistory {...loginHistory} />
-      <UserSessions {...userSession} onDeleteClick={onDeleteSessionClick} />
+    <div className={styles.pageWrapper} data-testid="account-security-page">
+      <div className={styles.wrapper}>
+        <ChangePassword additionalStyles={styles.changePassword} />
+        <UserSessions {...userSession} onDeleteClick={onDeleteSessionClick} />
+        <LoginHistory {...loginHistory} />
+        <div className={styles.deleteAccount}>
+          <div className={styles.btn}>
+            <h2>Oh no! Do not</h2>
+            <DeleteAccount onConfirm={() => null} />
+          </div>
+          <Picture
+            additionalStyles={styles.ohnoimage}
+            jpg={'/images/white-theme/ohno.png'}
+          />
+        </div>
+      </div>
     </div>
   )
 }
