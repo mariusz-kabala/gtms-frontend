@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.58.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.8...@gtms/app-andrew@0.58.0) (2020-07-26)
+
+
+### Features
+
+* GEOT-385: css for secutiry page ([#774](https://github.com/gtms-org/gtms-frontend/issues/774)) ([3a64e6a](https://github.com/gtms-org/gtms-frontend/commit/3a64e6a87f8dd7a9c61924ee8b16cf42118219e0))
+
+
+
+
+
 ## [0.57.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.7...@gtms/app-andrew@0.57.8) (2020-07-26)
 
 
