@@ -1,27 +1,43 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  .header {
+    display: flex;
+    align-items: center;
 
-  .profileImage {
-    max-width: 150px;
+    .image {
+      max-width: 150px;
 
-    img {
-      border-radius: 50%;
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    .headerAndDesc {
+      margin-left: 20px;
+
+      .header {
+        @include font-size(lg);
+        @include font-weight(semiBold);
+      }
     }
   }
 
-  h2 {
-    @include font-size(lg);
-    @include font-weight(semiBold);
+  .tags {
+    margin: 20px 0;
   }
 
   .inviteToGroupButton {
-    padding: 10px;
-    background: gray;
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapePrimary();
+    @include buttonColorsDefault();
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
   }
 }

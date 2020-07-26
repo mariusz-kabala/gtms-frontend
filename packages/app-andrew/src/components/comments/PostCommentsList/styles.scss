@@ -4,7 +4,7 @@
   text-align: right;
   @include buttonDefault();
   @include buttonShapePrimary();
-  @include buttonSizeMd();
+  @include buttonSizeDefault();
   @include buttonColorsDefault();
 
   &:hover {

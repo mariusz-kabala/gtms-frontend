@@ -1,9 +1,10 @@
 import React, { FC, useState } from 'react'
+import cx from 'classnames'
 import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
-import { Picture } from '@gtms/ui/Picture'
 import { GroupAvatarNoImage } from 'enums'
-import cx from 'classnames'
+// ui
+import { Picture } from '@gtms/ui/Picture'
 import styles from './styles.scss'
 
 enum Tabs {
@@ -14,17 +15,20 @@ enum Tabs {
 
 const GroupsList: FC<{ groups: IGroup[] }> = ({ groups }) => {
   return (
-    <div>
-      <ul>
+    <div className={styles.wrapper}>
+      <ul className={styles.items}>
         {groups.map((group) => (
-          <li key={`group-${group.id}`}>
+          <li className={styles.item} key={`group-${group.id}`}>
             <Picture
+              additionalStyles={styles.image}
               {...getImage('200x200', group.avatar, GroupAvatarNoImage)}
             />
-            <h3>{group.name}</h3>
-            <p>
-              czlonkow: {group.membersCounter} / postow: {group.postsCounter}
-            </p>
+            <div className={styles.headerAndDesc}>
+              <h2 className={styles.header}>{group.name}</h2>
+              <p>
+                czlonkow: {group.membersCounter} / postow: {group.postsCounter}
+              </p>
+            </div>
           </li>
         ))}
       </ul>

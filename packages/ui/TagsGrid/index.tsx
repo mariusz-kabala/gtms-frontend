@@ -109,8 +109,8 @@ export const TagsGrid: FC<{
                   jpg={item.image}
                   maxHeight={250}
                 />
-                <div className={styles.desc}>
-                  <h3>{item.title}</h3>
+                <div className={styles.headerAndDesc}>
+                  <h2 className={styles.header}>{item.title}</h2>
                   <p>{item.description}</p>
                 </div>
               </li>

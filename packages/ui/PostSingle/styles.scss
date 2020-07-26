@@ -117,7 +117,7 @@
   .respondBtn {
     @include buttonDefault();
     @include buttonShapePrimary();
-    @include buttonSizeMd();
+    @include buttonSizeDefault();
     @include buttonColorsDefault();
     margin-right: auto;
 
@@ -129,7 +129,7 @@
   .readMoreBtn {
     @include buttonDefault();
     @include buttonShapePrimary();
-    @include buttonSizeMd();
+    @include buttonSizeDefault();
     @include buttonColorsDefault();
 
     &:hover {
