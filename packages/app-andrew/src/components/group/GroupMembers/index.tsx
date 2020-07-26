@@ -28,10 +28,12 @@ export const GroupMembers: FC<{
           {users.map((user) => (
             <li key={`group-member-${user.id}`}>
               <Link href={`/user/${user.id}`}>
-                <UserAvatar
-                  additionalStyles={styles.avatar}
-                  image={getImage('50x50', user.avatar, UserAvatarNoImage)}
-                />
+                <a>
+                  <UserAvatar
+                    additionalStyles={styles.avatar}
+                    image={getImage('50x50', user.avatar, UserAvatarNoImage)}
+                  />
+                </a>
               </Link>
             </li>
           ))}

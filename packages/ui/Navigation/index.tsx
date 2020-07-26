@@ -24,7 +24,9 @@ export const Navigation: FC<{
       <nav className={styles.navigation} data-testid="navigation">
         {avatar && (
           <Link href="/account">
-            <UserAvatar additionalStyles={styles.avatar} image={avatar} />
+            <a>
+              <UserAvatar additionalStyles={styles.avatar} image={avatar} />
+            </a>
           </Link>
         )}
         <ul>
