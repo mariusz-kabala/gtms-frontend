@@ -46,6 +46,7 @@ export const loadMyGroups = async (force = false) => {
     myGroups.admin = myGroups.admin.map(parseGroupAvatars)
     myGroups.member = myGroups.member.map(parseGroupAvatars)
     myGroups.owner = myGroups.owner.map(parseGroupAvatars)
+    myGroups.favs.docs = myGroups.favs.docs.map(parseGroupAvatars)
 
     myGroupsStore.update({
       ...myGroups,

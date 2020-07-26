@@ -26,7 +26,7 @@ export const Checkbox: FC<{
   >
     <input
       className={styles.input} /* @todo name it properly */
-      defaultChecked={checked}
+      checked={checked}
       ref={reference}
       type="checkbox"
       name={name}

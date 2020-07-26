@@ -14,15 +14,16 @@
   padding: 20px;
   max-width: 980px;
 
-  .navigation {
+  .navigationWrapper {
     display: flex;
+    margin-bottom: 15px;
 
     .header {
       @include header(h3, textUppercase);
       @include font-weight(semiBold);
     }
 
-    ul {
+    .navigation {
       display: flex;
       margin-left: 10px;
 

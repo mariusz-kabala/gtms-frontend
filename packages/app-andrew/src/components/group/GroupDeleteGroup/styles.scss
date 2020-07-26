@@ -8,8 +8,9 @@
   @include buttonShapePrimary();
   @include buttonColorsDefault();
 
-  padding: 0;
-  text-transform: initial;
+  &:hover {
+    @include buttonColorsPrimary();
+  }
 }
 
 // @todo create mixin for that
@@ -47,7 +48,7 @@
         }
       }
 
-      .no {
+      .yes {
         &:hover {
           background: red;
         }

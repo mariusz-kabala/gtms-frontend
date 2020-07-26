@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.13.1...@gtms/styles@0.13.2) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-380: styles for group not found and group no ([#769](https://github.com/gtms-org/gtms-frontend/issues/769)) ([cc4c4fe](https://github.com/gtms-org/gtms-frontend/commit/cc4c4feca2985be9c15949c8e06daf594f77082c))
+
+
+
+
+
+## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.13.0...@gtms/styles@0.13.1) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-376: GEOT-376: group general settings ([#766](https://github.com/gtms-org/gtms-frontend/issues/766)) ([2428eef](https://github.com/gtms-org/gtms-frontend/commit/2428eefd9dfe67e3294a3971163be3a506128732))
+
+
+
+
+
 # [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.12.0...@gtms/styles@0.13.0) (2020-07-23)
 
 

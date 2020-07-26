@@ -123,7 +123,7 @@
       .aboutMeLabel {
         font-style: initial;
         text-transform: uppercase;
-        @include font-size(small);
+        @include font-size(sm);
       }
     }
   }

@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.6...@gtms/app-andrew@0.57.7) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-380: styles for group not found and group no ([#769](https://github.com/gtms-org/gtms-frontend/issues/769)) ([cc4c4fe](https://github.com/gtms-org/gtms-frontend/commit/cc4c4feca2985be9c15949c8e06daf594f77082c))
+
+
+
+
+
+## [0.57.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.5...@gtms/app-andrew@0.57.6) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-379: GEOT-379: header styles changes ([#770](https://github.com/gtms-org/gtms-frontend/issues/770)) ([437fe2f](https://github.com/gtms-org/gtms-frontend/commit/437fe2fd7f6a0464a6d993768aa947cedee46c01))
+
+
+
+
+
+## [0.57.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.4...@gtms/app-andrew@0.57.5) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-378: styles for error wrapper ([#768](https://github.com/gtms-org/gtms-frontend/issues/768)) ([c984910](https://github.com/gtms-org/gtms-frontend/commit/c984910cd5601fa15f601d4178b47249e45ccbd1))
+
+
+
+
+
+## [0.57.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.3...@gtms/app-andrew@0.57.4) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-376: GEOT-376: group general settings ([#766](https://github.com/gtms-org/gtms-frontend/issues/766)) ([2428eef](https://github.com/gtms-org/gtms-frontend/commit/2428eefd9dfe67e3294a3971163be3a506128732))
+
+
+
+
+
+## [0.57.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.2...@gtms/app-andrew@0.57.3) (2020-07-24)
+
+
+### Bug Fixes
+
+* GEOT-374: show more info on my groups page, allow user to se ([#765](https://github.com/gtms-org/gtms-frontend/issues/765)) ([93309d2](https://github.com/gtms-org/gtms-frontend/commit/93309d21f245df19c4274ecfd898adcfff9dc01e))
+
+
+
+
+
 ## [0.57.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.1...@gtms/app-andrew@0.57.2) (2020-07-24)
 
 

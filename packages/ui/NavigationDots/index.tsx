@@ -1,16 +1,18 @@
 import React, { FC, useState, useLayoutEffect } from 'react'
 import cx from 'classnames'
 import { Link } from '@gtms/commons/i18n'
-import { IGroup, FileStatus } from '@gtms/commons'
+import { IGroup } from '@gtms/commons/models'
+import { IImage } from '@gtms/commons/types/image'
+import { getImage } from '@gtms/commons/helpers'
 // ui
 import { Overlay } from '@gtms/ui/Overlay'
 import { IoIosKeypad, IoIosCloseCircle } from 'react-icons/io'
 import styles from './styles.scss'
 
-export const NavigationDots: FC<{ groups: IGroup[] }> = ({
-  groups,
-  children,
-}) => {
+export const NavigationDots: FC<{
+  groups: IGroup[]
+  noImage: { [key: string]: IImage }
+}> = ({ groups, noImage, children }) => {
   const [showFullView, setShowFullView] = useState<boolean>(false)
 
   useLayoutEffect(() => {
@@ -53,11 +55,7 @@ export const NavigationDots: FC<{ groups: IGroup[] }> = ({
               <div
                 style={{
                   backgroundImage: `url(${
-                    value.avatar &&
-                    value.avatar.status === FileStatus.ready &&
-                    value.avatar.files['200x200']
-                      ? value.avatar?.files['200x200'].jpg
-                      : 'http://via.placeholder.com/50x50'
+                    getImage('50x50', value.avatar, noImage).jpg
                   })`,
                 }}
               />

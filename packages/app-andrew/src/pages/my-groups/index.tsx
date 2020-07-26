@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback, FC } from 'react'
 import { NextPage, NextPageContext } from 'next'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
+import { IGroup } from '@gtms/commons/models'
 import {
   loadMyGroups,
-  myGroupsQuery,
-  addToFavs,
-  removeFromFavs,
   hasAuthSessionCookies,
   markMyGroupsAsLoading,
 } from '@gtms/state-user'
@@ -18,18 +15,65 @@ import {
 } from 'queries'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { Link } from '@gtms/commons/i18n'
-import { IoIosHeartEmpty, IoIosHeart, IoIosSettings } from 'react-icons/io'
-import { GroupsList } from '../../components/my-groups/GroupsList'
-import { Spinner } from '@gtms/ui/Spinner'
+import { GroupsList } from 'components/my-groups/GroupsList'
+import { FavsButton } from 'components/group/FavsButton'
+import { FollowButton } from 'components/group/FollowButton'
+import { SettingsButton } from 'components/group/SettingsButton'
+import { AddFavToMenuButton } from 'components/my-groups/AddFavToMenuButton'
 import { useInitState } from '@gtms/commons/hooks'
+import { FAVS_GROUPS_MENU_LIMIT } from '@gtms/commons/consts'
+// ui
+import { Button } from '@gtms/ui/Button'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 type MyGroupsPageProps = {
   namespacesRequired: readonly string[]
 }
 
+const GroupMenu: FC<{
+  group: IGroup
+}> = ({ group, children }) => {
+  return (
+    <div className={styles.groupMenu}>
+      <FavsButton group={group} />
+      <SettingsButton group={group} />
+      <FollowButton group={group} />
+      {children}
+    </div>
+  )
+}
+
+const GroupMenuWithExtraFavs: FC<{
+  group: IGroup
+  isInMenuFavs: boolean
+  onClickAddFavToMenuButton: (group: IGroup) => unknown
+}> = ({ group, isInMenuFavs, onClickAddFavToMenuButton }) => {
+  return (
+    <GroupMenu group={group}>
+      <AddFavToMenuButton
+        onClick={onClickAddFavToMenuButton}
+        isChecked={isInMenuFavs}
+        group={group}
+      />
+    </GroupMenu>
+  )
+}
+
 export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
   useInitState(markMyGroupsAsLoading)
   const [state, setState] = useState<IMyGroupsPageState>(myGroupsPageState())
+
+  const [favsInMenu, setFavsInMenu] = useState<{
+    isChanged: boolean
+    favs: string[]
+    isInitialized: boolean
+  }>({
+    isChanged: false,
+    isInitialized: false,
+    favs: [],
+  })
 
   useEffect(() => {
     loadMyGroups(true)
@@ -38,6 +82,58 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
+
+  useEffect(() => {
+    if (favsInMenu.isInitialized || state.favs?.offset !== 0) {
+      return
+    }
+
+    const favs = []
+
+    for (
+      let x = 0;
+      x < FAVS_GROUPS_MENU_LIMIT && x < state.favs.docs.length;
+      x++
+    ) {
+      favs.push(state.favs.docs[x].id)
+    }
+
+    if (favs.length > 0) {
+      setFavsInMenu({
+        favs,
+        isChanged: false,
+        isInitialized: true,
+      })
+    }
+  }, [favsInMenu, state])
+
+  const onAddFavToMenuClick = useCallback(
+    (group: IGroup) => {
+      const index = favsInMenu.favs.indexOf(group.id)
+
+      if (index === -1) {
+        if (favsInMenu.favs.length >= FAVS_GROUPS_MENU_LIMIT) {
+          return
+        }
+
+        setFavsInMenu((state) => ({
+          isInitialized: true,
+          isChanged: true,
+          favs: [...state.favs, group.id],
+        }))
+      } else {
+        const favs = favsInMenu.favs
+        favs.splice(index, 1)
+
+        setFavsInMenu({
+          isInitialized: true,
+          isChanged: true,
+          favs: [...favs],
+        })
+      }
+    },
+    [favsInMenu]
+  )
 
   const { t } = useTranslation('myGroups')
   const [currentTab, setCurrentTab] = useState<
@@ -49,7 +145,11 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
       <div className={styles.wrapper}>
         {state.isLoading && <Spinner additionalStyles={styles.spinner} />}
         {!state.isLoading && state.errorOccurred && (
-          <p>Can not fetch list of your groups now. please try again later</p>
+          <ErrorWrapper>
+            <h2>
+              Can not fetch list of your groups now. please try again later
+            </h2>
+          </ErrorWrapper>
         )}
         {!state.isLoading && !state.errorOccurred && (
           <>
@@ -93,7 +193,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                   })}
                 >
                   <a>
-                    {t('favourites')} (${state.favs.total})
+                    {t('favourites')} ({state.favs.total})
                   </a>
                 </li>
               </ul>
@@ -104,25 +204,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                 [styles.currentList]: currentTab === 'owner',
               })}
               groups={state.owner}
-              renderFavsIcon={(group) =>
-                myGroupsQuery.isInFavs(group) ? (
-                  <IoIosHeart />
-                ) : (
-                  <IoIosHeartEmpty />
-                )
-              }
-              renderGroupMenu={(group) => (
-                <div className={styles.groupSettings}>
-                  <Link href={`/group/${group.slug}/settings`}>
-                    <>
-                      <i>
-                        <IoIosSettings />
-                      </i>
-                      {t('settings')}
-                    </>
-                  </Link>
-                </div>
-              )}
+              renderGroupMenu={(group) => <GroupMenu group={group} />}
               noRecords={
                 <div>
                   <p>You do not own any group, maybe its time to create one?</p>
@@ -133,13 +215,6 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                   </p>
                 </div>
               }
-              onFavsClick={(group) => {
-                if (myGroupsQuery.isInFavs(group)) {
-                  return removeFromFavs(group)
-                }
-
-                addToFavs(group)
-              }}
             />
 
             <GroupsList
@@ -147,8 +222,13 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                 [styles.currentList]: currentTab === 'fav',
               })}
               groups={state.favs.docs}
-              renderFavsIcon={() => <IoIosHeart />}
-              renderGroupMenu={() => null}
+              renderGroupMenu={(group) => (
+                <GroupMenuWithExtraFavs
+                  group={group}
+                  isInMenuFavs={favsInMenu.favs.includes(group.id)}
+                  onClickAddFavToMenuButton={onAddFavToMenuClick}
+                />
+              )}
               noRecords={
                 <div>
                   <p>You do not have any favs groups</p>
@@ -157,7 +237,6 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                   </Link>
                 </div>
               }
-              onFavsClick={(group) => removeFromFavs(group)}
             />
 
             <GroupsList
@@ -165,36 +244,15 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                 [styles.currentList]: currentTab === 'admin',
               })}
               groups={state.admin}
-              renderFavsIcon={(group) =>
-                myGroupsQuery.isInFavs(group) ? (
-                  <IoIosHeart />
-                ) : (
-                  <IoIosHeartEmpty />
-                )
-              }
-              renderGroupMenu={() => null}
+              renderGroupMenu={(group) => <GroupMenu group={group} />}
               noRecords={<p>No records</p>}
-              onFavsClick={(group) => {
-                if (myGroupsQuery.isInFavs(group)) {
-                  return removeFromFavs(group)
-                }
-
-                addToFavs(group)
-              }}
             />
             <GroupsList
               additionalStyles={cx(styles.groupsList, {
                 [styles.currentList]: currentTab === 'member',
               })}
               groups={state.member}
-              renderFavsIcon={(group) =>
-                myGroupsQuery.isInFavs(group) ? (
-                  <IoIosHeart />
-                ) : (
-                  <IoIosHeartEmpty />
-                )
-              }
-              renderGroupMenu={() => null}
+              renderGroupMenu={(group) => <GroupMenu group={group} />}
               noRecords={
                 <div>
                   <p>You do not belong to any group</p>
@@ -205,16 +263,11 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
                   </p>
                 </div>
               }
-              onFavsClick={(group) => {
-                if (myGroupsQuery.isInFavs(group)) {
-                  return removeFromFavs(group)
-                }
-
-                addToFavs(group)
-              }}
             />
           </>
         )}
+
+        {favsInMenu.isChanged && <Button>Save changes</Button>}
       </div>
     </div>
   )
