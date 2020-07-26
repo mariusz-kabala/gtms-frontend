@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.7...@gtms/app-andrew@0.57.8) (2020-07-26)
+
+
+### Bug Fixes
+
+* GEOT-383: react errors in dev consol ([#771](https://github.com/gtms-org/gtms-frontend/issues/771)) ([f5f1829](https://github.com/gtms-org/gtms-frontend/commit/f5f18293fbc52a0dc0d7b1ff09737e3a168973af))
+
+
+
+
+
+## [0.57.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.6...@gtms/app-andrew@0.57.7) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-380: styles for group not found and group no ([#769](https://github.com/gtms-org/gtms-frontend/issues/769)) ([cc4c4fe](https://github.com/gtms-org/gtms-frontend/commit/cc4c4feca2985be9c15949c8e06daf594f77082c))
+
+
+
+
+
+## [0.57.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.5...@gtms/app-andrew@0.57.6) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-379: GEOT-379: header styles changes ([#770](https://github.com/gtms-org/gtms-frontend/issues/770)) ([437fe2f](https://github.com/gtms-org/gtms-frontend/commit/437fe2fd7f6a0464a6d993768aa947cedee46c01))
+
+
+
+
+
 ## [0.57.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.4...@gtms/app-andrew@0.57.5) (2020-07-25)
 
 

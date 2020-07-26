@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.5...@gtms/ui@0.40.6) (2020-07-26)
+
+
+### Bug Fixes
+
+* GEOT-383: react errors in dev consol ([#771](https://github.com/gtms-org/gtms-frontend/issues/771)) ([f5f1829](https://github.com/gtms-org/gtms-frontend/commit/f5f18293fbc52a0dc0d7b1ff09737e3a168973af))
+
+
+
+
+
+## [0.40.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.4...@gtms/ui@0.40.5) (2020-07-25)
+
+
+### Bug Fixes
+
+* GEOT-380: styles for group not found and group no ([#769](https://github.com/gtms-org/gtms-frontend/issues/769)) ([cc4c4fe](https://github.com/gtms-org/gtms-frontend/commit/cc4c4feca2985be9c15949c8e06daf594f77082c))
+
+
+
+
+
 ## [0.40.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.3...@gtms/ui@0.40.4) (2020-07-25)
 
 

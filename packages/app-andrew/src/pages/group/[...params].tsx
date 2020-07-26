@@ -319,7 +319,7 @@ GroupPage.getInitialProps = async (
 
   const id = groupQuery.getId() || ''
   return Promise.all([
-    new Promise<IPost | undefined>((resolve) => {
+    new Promise<any>((resolve) => {
       if (!postId) {
         return resolve()
       }

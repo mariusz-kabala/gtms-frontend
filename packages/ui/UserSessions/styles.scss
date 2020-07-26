@@ -1,0 +1,53 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+
+.wrapper {
+  > .header {
+    @include font-weight(normal);
+    @include font-size(md);
+    margin-bottom: 10px;
+  }
+
+  .list {
+    padding: 10px;
+    border: 2px solid $theme2;
+    border-radius: $borderRadius1;
+
+    &:hover {
+      border-color: $theme4;
+    }
+
+    .header {
+      @include font-weight(normal);
+    }
+
+    .item {
+      > div {
+        margin-bottom: 5px;
+      }
+
+      .row {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  .btn {
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapePrimary();
+    @include buttonColorsDefault();
+    @include buttonWithIcon();
+    margin-top: 5px;
+    margin-left: auto;
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+  }
+}
