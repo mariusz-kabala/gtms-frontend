@@ -5,11 +5,7 @@
 @import '~@gtms/styles/scss/mixins/shadows.scss';
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  .items {
+  .groupItems {
     // @todo make mixin of that
     display: grid;
     gap: 10px;
@@ -57,11 +53,46 @@
         z-index: 1;
         bottom: 0;
         margin: 10px;
+        width: 100%;
         color: $theme0;
 
         .header {
           @include font-size(md);
           @include font-weight(semiBold);
+        }
+      }
+    }
+  }
+
+  .navigation {
+    display: flex;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    .header {
+      @include font-weight(semiBold);
+      text-transform: uppercase;
+      @include font-size(xmd);
+    }
+
+    .items {
+      display: flex;
+      align-items: center;
+      @include font-size(xdefault);
+
+      .item {
+        margin-left: 10px;
+
+        a {
+          display: inline-block;
+          padding: 5px 15px;
+          border-radius: $borderRadius2;
+          background: $theme2;
+
+          &:hover {
+            background: $theme4;
+            color: $theme0;
+          }
         }
       }
     }

@@ -23,11 +23,21 @@
         @include font-size(lg);
         @include font-weight(semiBold);
       }
+
+      .desc {
+        @include font-size(md);
+      }
     }
   }
 
   .tags {
     margin: 20px 0;
+
+    h2 {
+      @include font-size(lg);
+      @include font-weight(semiBold);
+      margin-bottom: 5px;
+    }
   }
 
   .inviteToGroupButton {
