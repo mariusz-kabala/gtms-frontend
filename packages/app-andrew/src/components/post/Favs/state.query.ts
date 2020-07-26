@@ -1,6 +1,6 @@
 import { userQuery } from '@gtms/state-user'
 import { IAccountDetails } from '@gtms/commons/models'
-import { Observable, combineLatest } from 'rxjs'
+import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
 export interface IFavsState {
@@ -15,7 +15,6 @@ export const favsState = (): IFavsState => {
   }
 }
 
-export const favsState$: Observable<IFavsState> = combineLatest(
-  userQuery.isLogged$,
-  userQuery.accountDetails$
-).pipe(map(() => favsState()))
+export const favsState$: Observable<IFavsState> = userQuery.accountDetails$.pipe(
+  map(() => favsState())
+)
