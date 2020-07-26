@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.7...@gtms/app-andrew@0.57.8) (2020-07-26)
+
+
+### Bug Fixes
+
+* GEOT-383: react errors in dev consol ([#771](https://github.com/gtms-org/gtms-frontend/issues/771)) ([f5f1829](https://github.com/gtms-org/gtms-frontend/commit/f5f18293fbc52a0dc0d7b1ff09737e3a168973af))
+
+
+
+
+
 ## [0.57.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.6...@gtms/app-andrew@0.57.7) (2020-07-25)
 
 
