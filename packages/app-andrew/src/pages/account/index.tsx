@@ -22,6 +22,7 @@ import { accountPageState, accountPageState$, IAccountPageState } from 'queries'
 // ui
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { MockData } from '@gtms/ui/MockData'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 import { TagsBar } from '@gtms/ui/TagsBar'
@@ -244,11 +245,15 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
             </div>
             <div className={styles.userLastPosts}>
               <span>My last posts:</span>
-              <ul>
-                <li />
-                <li />
-                <li />
-              </ul>
+              <div className={styles.noRecords}>
+                <MockData theme="dark" />
+                <MockData
+                  theme="dark"
+                  onClick={() => null}
+                  text="No posts, create some"
+                />
+                <MockData theme="dark" numberOfElements={4} />
+              </div>
             </div>
           </>
         )}

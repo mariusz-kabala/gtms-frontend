@@ -1,11 +1,16 @@
-@import '~@gtms/styles/scss/variables';
-@import '~@gtms/styles/scss/mixins/fontWeight';
-@import '~@gtms/styles/scss/mixins/fontSize';
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 $mockDataColor0: $theme0;
 $mockDataColor1: rgba($theme0, 0.2);
 $mockDataColor2: rgba($theme0, 0.4);
 $mockDataColor3: rgba($theme0, 0.55);
+
+$mockDataColor0themeDark: $black;
+$mockDataColor1themeDark: rgba($black, 0.15);
+$mockDataColor2themeDark: rgba($black, 0.2);
+$mockDataColor3themeDark: rgba($black, 0.35);
 
 $mockDataSize1: 55px;
 
@@ -118,6 +123,41 @@ $mockDataSize1: 55px;
       line-height: 0;
       margin-right: 20px;
       @include font-size(xxxlg);
+    }
+  }
+
+  &.themeDark {
+    color: $mockDataColor3themeDark;
+
+    .square {
+      background: $mockDataColor1themeDark;
+    }
+
+    .line {
+      background: $mockDataColor3themeDark;
+
+      &.sm {
+        background: $mockDataColor1themeDark;
+      }
+
+      &.md {
+        background: $mockDataColor3themeDark;
+      }
+
+      &.lg {
+        background: $mockDataColor2themeDark;
+      }
+    }
+
+    .text {
+      &.clickable {
+        border-color: $mockDataColor2themeDark;
+
+        &:hover {
+          border-color: $mockDataColor3themeDark;
+          color: $mockDataColor3themeDark;
+        }
+      }
     }
   }
 }
