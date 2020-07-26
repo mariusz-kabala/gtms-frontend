@@ -58,15 +58,11 @@
 
 // SHAPES
 @mixin buttonShapePrimary() {
-  border-radius: $borderRadius1;
+  border-radius: $borderRadius;
 }
 
 @mixin buttonShapeSecondary() {
-  border-radius: $borderRadius2;
-}
-
-@mixin buttonShapeTertiary() {
-  border-radius: $borderRadius3;
+  border-radius: $borderRadius;
 }
 
 // COLORS

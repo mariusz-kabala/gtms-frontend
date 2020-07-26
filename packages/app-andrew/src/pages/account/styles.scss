@@ -41,7 +41,7 @@
       li {
         margin-left: 10px;
         padding: 5px 15px;
-        border-radius: $borderRadius2;
+        border-radius: $borderRadius;
         background: $theme2;
 
         &:hover {
@@ -56,7 +56,7 @@
     position: relative;
     padding: 10px;
     margin-bottom: 15px;
-    border-radius: $borderRadius1;
+    border-radius: $borderRadius;
     background: $theme4;
     color: $theme0;
     @include font-weight(semiBold);
@@ -203,7 +203,7 @@
         width: 100%;
         height: 350px;
         margin-top: 10px;
-        border-radius: $borderRadius1;
+        border-radius: $borderRadius;
         background: $theme2;
       }
     }
