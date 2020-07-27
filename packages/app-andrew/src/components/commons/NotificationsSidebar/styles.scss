@@ -5,23 +5,20 @@
 .wrapper {
   width: 0;
   height: 100vh;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: $borderRadius2;
+  background: $theme0;
 
   &.opened {
     width: 400px;
-  }
-
-  > div {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    max-width: 400px;
-    padding: 10px;
-    background: rgba($theme0, 0.9);
+    margin: 10px;
+    margin-right: 0;
   }
 
   .navigation {
     display: flex;
-    margin-bottom: 15px;
+    margin: 5px 0 10px 0;
 
     h2 {
       display: flex;
@@ -44,7 +41,7 @@
 
       li {
         padding: 5px 10px;
-        border-radius: $borderRadius2;
+        border-radius: $borderRadius;
         margin-right: 10px;
         background: $theme2;
         color: $theme7;
@@ -61,7 +58,7 @@
     }
 
     i {
-      margin-right: 5px;
+      margin-left: auto;
     }
 
     &:hover {

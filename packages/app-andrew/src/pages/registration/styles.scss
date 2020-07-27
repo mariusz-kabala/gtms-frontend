@@ -27,7 +27,7 @@
 
     > div {
       padding: 20px;
-      border-radius: $borderRadius2;
+      border-radius: $borderRadius;
       background: $theme0;
 
       .header {
@@ -47,7 +47,7 @@
           margin-right: 10px;
 
           img {
-            border-radius: $borderRadius1;
+            border-radius: $borderRadius;
           }
         }
       }

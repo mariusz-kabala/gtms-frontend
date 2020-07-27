@@ -1,7 +1,7 @@
 import {
   updateNotificationsSettingsAPI,
   INotificationsSettingsPayload,
-  fetchGNotificationsSettings,
+  fetchNotificationsSettings,
   followAPI,
   unfollowAPI,
 } from '@gtms/api-notifications'
@@ -40,7 +40,9 @@ export async function saveNotificationsSettings() {
 }
 
 export async function loadNotificationsSettings(force = false) {
-  if (!force && notificationsSettingsStore.getValue().isLoaded) {
+  const storeValue = notificationsSettingsStore.getValue()
+
+  if (!force && (storeValue.isLoading || storeValue.isLoaded)) {
     return
   }
 
@@ -51,7 +53,7 @@ export async function loadNotificationsSettings(force = false) {
   })
 
   try {
-    const settings = await fetchGNotificationsSettings()
+    const settings = await fetchNotificationsSettings()
 
     notificationsSettingsStore.update({
       isLoading: false,

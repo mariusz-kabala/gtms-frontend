@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.58.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.2...@gtms/app-andrew@0.58.3) (2020-07-27)
+
+
+### Bug Fixes
+
+* GEOT-365: GEOT-365-notification-sidebar-styles ([#772](https://github.com/gtms-org/gtms-frontend/issues/772)) ([14cd0e9](https://github.com/gtms-org/gtms-frontend/commit/14cd0e9d662c2f9b6605098264ecbca3e206f6a5))
+
+
+
+
+
+## [0.58.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.1...@gtms/app-andrew@0.58.2) (2020-07-27)
+
+
+### Bug Fixes
+
+* GEOT-384: styles for user page ([#775](https://github.com/gtms-org/gtms-frontend/issues/775)) ([638562f](https://github.com/gtms-org/gtms-frontend/commit/638562f11ceb60adefca828f9613490e8d66d2b0))
+
+
+
+
+
+## [0.58.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.0...@gtms/app-andrew@0.58.1) (2020-07-27)
+
+**Note:** Version bump only for package @gtms/app-andrew
+
+
+
+
+
+# [0.58.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.8...@gtms/app-andrew@0.58.0) (2020-07-26)
+
+
+### Features
+
+* GEOT-385: css for secutiry page ([#774](https://github.com/gtms-org/gtms-frontend/issues/774)) ([3a64e6a](https://github.com/gtms-org/gtms-frontend/commit/3a64e6a87f8dd7a9c61924ee8b16cf42118219e0))
+
+
+
+
+
 ## [0.57.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.57.7...@gtms/app-andrew@0.57.8) (2020-07-26)
 
 

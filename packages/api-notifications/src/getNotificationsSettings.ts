@@ -10,7 +10,7 @@ export interface INotificationsSettingsResponse {
   newMemberInAdminnedGroup: boolean
 }
 
-export const fetchGNotificationsSettings = () => {
+export const fetchNotificationsSettings = () => {
   return fetchJSON<null, INotificationsSettingsResponse>(
     makeApiUrl('notifications/settings')
   )

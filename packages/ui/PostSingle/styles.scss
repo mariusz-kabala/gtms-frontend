@@ -9,7 +9,7 @@
   cursor: pointer;
   opacity: 0.85;
   padding: 10px;
-  border-radius: $borderRadius1;
+  border-radius: $borderRadius;
   background: $theme0;
   border: 2px solid $theme0;
 
@@ -91,7 +91,7 @@
       display: block;
       width: 40px;
       height: 40px;
-      border-radius: $borderRadius1;
+      border-radius: $borderRadius;
       margin-right: 10px;
       cursor: pointer;
       border: 1px solid $theme2;
@@ -117,7 +117,7 @@
   .respondBtn {
     @include buttonDefault();
     @include buttonShapePrimary();
-    @include buttonSizeMd();
+    @include buttonSizeDefault();
     @include buttonColorsDefault();
     margin-right: auto;
 
@@ -129,7 +129,7 @@
   .readMoreBtn {
     @include buttonDefault();
     @include buttonShapePrimary();
-    @include buttonSizeMd();
+    @include buttonSizeDefault();
     @include buttonColorsDefault();
 
     &:hover {
