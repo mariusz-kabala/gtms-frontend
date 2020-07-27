@@ -17,7 +17,6 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
     .item {
-      position: relative;
       cursor: pointer;
       overflow: hidden;
       border-radius: $borderRadius1;
@@ -26,8 +25,9 @@
         margin-bottom: 0;
       }
 
+      // @todo create mixin
+      position: relative;
       &:after {
-        // @todo create mixin
         content: '';
         position: absolute;
         top: 0;

@@ -44,12 +44,23 @@ export const GroupBackgroundSettings: FC<{ bg?: IGroupBg }> = ({ bg }) => {
   const [showUploadFileGroupBg, setShowUploadFileGroupBg] = useState<boolean>(
     false
   )
+  const [isFullScreenGalleryOpen, setIsFullScreenGalleryOpen] = useState<
+    boolean
+  >(false)
 
   return (
-    <div data-testid="group-settings-images" className={styles.wrapper}>
-      <FullScreenGallery isActive onClose={null}>
-        adfasf
-      </FullScreenGallery>
+    <div
+      data-testid="group-settings-background-image"
+      className={styles.wrapper}
+    >
+      {isFullScreenGalleryOpen && (
+        <FullScreenGallery
+          isActive={true}
+          onClose={() => setIsFullScreenGalleryOpen(false)}
+        >
+          adfasf
+        </FullScreenGallery>
+      )}
       {showUploadFileGroupBg && (
         <Modal onClose={() => setShowUploadFileGroupBg(false)}>
           <UploadFile
@@ -65,6 +76,12 @@ export const GroupBackgroundSettings: FC<{ bg?: IGroupBg }> = ({ bg }) => {
           additionalStyles={styles.imagePreview}
           src={bg?.files['200x200'] || GroupBgNoImage['200x200']}
         />
+        <Button
+          onClick={() => setIsFullScreenGalleryOpen(true)}
+          additionalStyles={styles.btn}
+        >
+          Open gallery
+        </Button>
         <Button
           onClick={() => setShowUploadFileGroupBg(true)}
           additionalStyles={styles.btn}

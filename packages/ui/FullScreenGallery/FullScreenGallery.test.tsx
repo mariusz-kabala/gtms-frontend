@@ -5,7 +5,7 @@ import { FullScreenGallery } from './index'
 describe('<FullScreenGallery />', () => {
   it('Should be on the page', () => {
     const { getByTestId, getByText } = render(
-      <FullScreenGallery onClose={jest.fn()}>
+      <FullScreenGallery isActive={true} onClose={jest.fn()}>
         <span>content</span>
       </FullScreenGallery>
     )
@@ -16,7 +16,11 @@ describe('<FullScreenGallery />', () => {
 
   it('Should add additional css classes', () => {
     const { container } = render(
-      <FullScreenGallery additionalStyles={'testingClass'} onClose={jest.fn()}>
+      <FullScreenGallery
+        isActive={true}
+        additionalStyles={'testingClass'}
+        onClose={jest.fn()}
+      >
         <span />
       </FullScreenGallery>
     )
@@ -28,7 +32,11 @@ describe('<FullScreenGallery />', () => {
     const onClose = jest.fn()
 
     const { getByTestId } = render(
-      <FullScreenGallery additionalStyles={'testingClass'} onClose={onClose}>
+      <FullScreenGallery
+        isActive={true}
+        additionalStyles={'testingClass'}
+        onClose={onClose}
+      >
         <span>content</span>
       </FullScreenGallery>
     )
@@ -48,7 +56,11 @@ describe('<FullScreenGallery />', () => {
     })
 
     const { getByTestId } = render(
-      <FullScreenGallery additionalStyles={'testingClass'} onClose={onClose}>
+      <FullScreenGallery
+        isActive={true}
+        additionalStyles={'testingClass'}
+        onClose={onClose}
+      >
         <span>content</span>
       </FullScreenGallery>
     )

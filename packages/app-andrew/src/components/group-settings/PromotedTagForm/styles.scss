@@ -24,9 +24,6 @@
     border-radius: $borderRadius1;
   }
 
-  .textarea {
-  }
-
   .btn {
     @include buttonDefault();
     @include buttonSizeDefault();
