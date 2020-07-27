@@ -4,18 +4,18 @@
 @import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
-  @include font-size(md);
-  @include z-index(navigationGroup);
   display: flex;
   flex-direction: column;
   padding: 5px;
   border: 1px solid $theme2;
   border-radius: $borderRadius;
   margin-bottom: 10px;
+  @include z-index(navigationGroup);
   cursor: pointer;
 
   &:hover {
     border-color: $theme4;
+
     .groupHeader {
       h2 {
         color: $theme4;
@@ -29,7 +29,7 @@
     margin-bottom: 5px;
 
     h2 {
-      @include font-weight(normal);
+      @include font-weight(semiBold);
       @include font-size(xs);
       text-transform: uppercase;
     }
@@ -43,7 +43,6 @@
 
   .notification {
     display: flex;
-    height: 70px;
     margin-bottom: 15px;
     overflow: hidden;
     text-overflow: ellipsis;

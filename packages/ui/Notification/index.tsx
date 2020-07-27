@@ -25,7 +25,7 @@ export const Notification: FC<{
           <IoMdCloseCircle />
         </i>
         <CircularProgressbar
-          className={styles.CircularProgressbar}
+          className={styles.circularProgressbar}
           value={left}
         />
       </div>
