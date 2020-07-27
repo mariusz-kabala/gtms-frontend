@@ -2,10 +2,10 @@ import { Store } from '@datorama/akita'
 
 export interface IFavsStore {
   isLoading: boolean
-  errorOccured: boolean
+  errorOccurred: boolean
   data: {
     [key: string]: {
-      lastCheck: string
+      lastCheck: number
       isInFavs: boolean
     }
   }
@@ -16,7 +16,7 @@ export class FavGroupsStore extends Store<IFavsStore> {
     super(
       {
         isLoading: false,
-        errorOccured: false,
+        errorOccurred: false,
         data: {},
       },
       {

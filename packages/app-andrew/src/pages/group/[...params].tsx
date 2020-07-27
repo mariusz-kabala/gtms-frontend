@@ -48,6 +48,7 @@ import {
   initGroup,
   getGroupMembers,
 } from '@gtms/state-group'
+import { checkGroupsFavStatus } from '@gtms/state-user'
 import {
   promotedTagsQuery,
   loadGroupPromotedTags,
@@ -148,7 +149,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   useEffect(() => {
     if (state.group) {
       getGroupMembers(state.group.slug, 0, 8)
+      checkGroupsFavStatus([state.group.id])
     }
+
     const sub = groupPageState$.subscribe((value) => setState(value))
 
     return () => {

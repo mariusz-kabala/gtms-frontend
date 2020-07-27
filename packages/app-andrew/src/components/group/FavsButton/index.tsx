@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import {
-  myGroupsQuery,
+  favGroupsQuery,
+  IFavRecordStatus,
   addToFavs,
   removeFromFavs,
   userQuery,
@@ -9,7 +10,6 @@ import cx from 'classnames'
 import { openLoginModal } from 'state'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
-import { isGroupInFavsAPI } from '@gtms/api-auth'
 //ui
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -18,52 +18,16 @@ import styles from './styles.scss'
 
 export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
   const { t } = useTranslation('groupPage')
-  const [status, setStatus] = useState<{
-    isLoading: boolean
-    errorOccurred: boolean
-    inFavs: boolean
-  }>({
-    isLoading: true,
-    errorOccurred: false,
-    inFavs: false,
-  })
+  const [status, setStatus] = useState<IFavRecordStatus>(
+    favGroupsQuery.getRecordStatus(group.id)
+  )
 
   useEffect(() => {
-    const statusSub = myGroupsQuery.status$.subscribe((value) => {
-      if (value.isLoaded) {
-        if (myGroupsQuery.isInFavs(group)) {
-          setStatus({
-            isLoading: false,
-            errorOccurred: false,
-            inFavs: true,
-          })
-        } else {
-          isGroupInFavsAPI(group.id)
-            .then((inFavs) => {
-              setStatus({
-                isLoading: false,
-                errorOccurred: false,
-                inFavs,
-              })
-            })
-            .catch(() => {
-              setStatus({
-                isLoading: false,
-                errorOccurred: true,
-                inFavs: false,
-              })
-            })
-        }
-
-        statusSub && !statusSub.closed && statusSub.unsubscribe()
-      } else if (value.errorOccurred) {
-        setStatus({
-          isLoading: false,
-          errorOccurred: true,
-          inFavs: false,
-        })
-      }
-    })
+    const statusSub = favGroupsQuery
+      .getRecordStatus$(group.id)
+      .subscribe((value) => {
+        setStatus(value)
+      })
 
     return () => {
       statusSub && !statusSub.closed && statusSub.unsubscribe()
@@ -88,17 +52,11 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
           return openLoginModal()
         }
 
-        if (status.inFavs) {
+        if (status.isInFavs) {
           removeFromFavs(group)
         } else {
           addToFavs(group)
         }
-
-        setStatus((status) => ({
-          isLoading: false,
-          errorOccurred: false,
-          inFavs: !status.inFavs,
-        }))
       }}
     >
       {status.isLoading && userQuery.isLogged() && (
@@ -109,7 +67,7 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
           {t('favs')}
         </>
       )}
-      {((!status.isLoading && !status.inFavs) || !userQuery.isLogged()) && (
+      {((!status.isLoading && !status.isInFavs) || !userQuery.isLogged()) && (
         <>
           <i>
             <IoIosHeartEmpty />
@@ -117,7 +75,7 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
           {t('add-to-favs')}
         </>
       )}
-      {!status.isLoading && status.inFavs && (
+      {!status.isLoading && status.isInFavs && (
         <>
           <i>
             <IoIosHeart />

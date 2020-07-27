@@ -8,6 +8,7 @@ import {
   updateFavGroupsOrder,
   hasAuthSessionCookies,
   markMyGroupsAsLoading,
+  checkGroupsFavStatus,
 } from '@gtms/state-user'
 import {
   myGroupsPageState,
@@ -107,6 +108,46 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
       })
     }
   }, [favsInMenu, state])
+
+  useEffect(() => {
+    const favsToCheck: string[] = []
+
+    if (Array.isArray(state.admin) && state.admin.length > 0) {
+      for (const group of state.admin) {
+        if (!favsToCheck.includes(group.id)) {
+          favsToCheck.push(group.id)
+        }
+      }
+    }
+
+    if (Array.isArray(state.member) && state.member.length > 0) {
+      for (const group of state.member) {
+        if (!favsToCheck.includes(group.id)) {
+          favsToCheck.push(group.id)
+        }
+      }
+    }
+
+    if (Array.isArray(state.owner) && state.owner.length > 0) {
+      for (const group of state.owner) {
+        if (!favsToCheck.includes(group.id)) {
+          favsToCheck.push(group.id)
+        }
+      }
+    }
+
+    if (Array.isArray(state.favs?.docs) && state.favs.docs.length > 0) {
+      for (const group of state.favs.docs) {
+        if (!favsToCheck.includes(group.id)) {
+          favsToCheck.push(group.id)
+        }
+      }
+    }
+
+    if (favsToCheck.length > 0) {
+      checkGroupsFavStatus(favsToCheck)
+    }
+  }, [state])
 
   const onAddFavToMenuClick = useCallback(
     (group: IGroup) => {
