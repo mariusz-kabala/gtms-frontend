@@ -29,7 +29,7 @@
         height: 100%;
         border: 4px solid $theme4;
         background: rgba($theme4, 0.2);
-        border-radius: $borderRadius1;
+        border-radius: $borderRadius;
         opacity: 0;
       }
       // @todo create mixin for that
@@ -69,7 +69,7 @@
 
       img,
       picture {
-        border-radius: $borderRadius1;
+        border-radius: $borderRadius;
         overflow: hidden;
       }
     }

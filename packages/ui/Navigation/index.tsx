@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
+import cx from 'classnames'
 import { Link } from '@gtms/commons/i18n'
 import { IImage } from '@gtms/commons/types/image'
 // ui
 import styles from './styles.scss'
-import cx from 'classnames'
 import { UserAvatar } from '../UserAvatar'
 import { IoIosLogOut } from 'react-icons/io'
 

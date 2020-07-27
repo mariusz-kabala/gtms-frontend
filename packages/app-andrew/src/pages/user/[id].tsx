@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import styles from './styles.scss'
 import { NextPage, NextPageContext } from 'next'
 import { IUserPageState, userPageState, userPageState$ } from 'queries'
 import { getUserDetails, initialize } from '@gtms/state-user'
 import { Profile } from 'components/user/Profile'
 import { Groups } from 'components/user/Groups'
 import { FollowButton } from 'components/user/FollowButton'
+import styles from './styles.scss'
 
 type UserPageProps = {
   namespacesRequired: readonly string[]
@@ -26,13 +26,15 @@ const UserPage: NextPage<UserPageProps> = ({ initialState }) => {
 
   return (
     <div className={styles.pageWrapper}>
-      <Profile user={state} />
-      <FollowButton user={state} />
-      <Groups
-        groupsMember={state.groupsMember}
-        groupsAdmin={state.groupsAdmin}
-        groupsOwner={state.groupsOwner}
-      />
+      <div className={styles.wrapper}>
+        <Profile user={state} />
+        <FollowButton user={state} />
+        <Groups
+          groupsMember={state.groupsMember}
+          groupsAdmin={state.groupsAdmin}
+          groupsOwner={state.groupsOwner}
+        />
+      </div>
     </div>
   )
 }

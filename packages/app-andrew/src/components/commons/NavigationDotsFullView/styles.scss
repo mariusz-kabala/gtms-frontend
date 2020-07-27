@@ -52,7 +52,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          @include font-size(xlg);
+          @include font-size(md);
         }
       }
 
@@ -98,7 +98,7 @@
       picture {
         // @todo create mixin for that
         overflow: hidden;
-        border-radius: $borderRadius1;
+        border-radius: $borderRadius;
 
         min-width: 50px;
       }
