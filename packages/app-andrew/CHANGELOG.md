@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.58.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.2...@gtms/app-andrew@0.58.3) (2020-07-27)
+
+
+### Bug Fixes
+
+* GEOT-365: GEOT-365-notification-sidebar-styles ([#772](https://github.com/gtms-org/gtms-frontend/issues/772)) ([14cd0e9](https://github.com/gtms-org/gtms-frontend/commit/14cd0e9d662c2f9b6605098264ecbca3e206f6a5))
+
+
+
+
+
 ## [0.58.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.1...@gtms/app-andrew@0.58.2) (2020-07-27)
 
 
