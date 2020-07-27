@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.10.1...@gtms/state-notification@0.10.2) (2020-07-27)
+
+
+### Bug Fixes
+
+* GEOT-387: multiple calls to notification settings endpoint ([#778](https://github.com/gtms-org/gtms-frontend/issues/778)) ([003e5aa](https://github.com/gtms-org/gtms-frontend/commit/003e5aa214398ece8f76e32f76a89522c8da795b))
+
+
+
+
+
 ## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.10.0...@gtms/state-notification@0.10.1) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/state-notification
