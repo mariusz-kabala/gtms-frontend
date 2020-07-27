@@ -14,7 +14,7 @@
 
   width: 980px;
   height: 500px;
-  border-radius: $borderRadius2;
+  border-radius: $borderRadius;
   background: $theme0;
 
   .content {
@@ -36,7 +36,7 @@
     }
 
     .image {
-      border-radius: $borderRadius2;
+      border-radius: $borderRadius;
       width: 500px;
       height: 100%;
       padding: 15px;

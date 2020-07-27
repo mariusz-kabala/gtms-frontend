@@ -1,6 +1,100 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/shadows.scss';
 
 .wrapper {
+  .groupItems {
+    // @todo make mixin of that
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .item {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: $borderRadius;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 4px solid $theme4;
+        background: rgba($theme4, 0.2);
+        border-radius: $borderRadius;
+        opacity: 0;
+      }
+
+      &:hover {
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      .image {
+        img {
+          @include imageCover();
+          width: 100%;
+          @include shadowBoxWithDescription();
+        }
+      }
+
+      .headerAndDesc {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        margin: 10px;
+        width: 100%;
+        color: $theme0;
+
+        .header {
+          @include font-size(md);
+          @include font-weight(semiBold);
+        }
+      }
+    }
+  }
+
+  .navigation {
+    display: flex;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    .header {
+      @include font-weight(semiBold);
+      text-transform: uppercase;
+      @include font-size(xmd);
+    }
+
+    .items {
+      display: flex;
+      align-items: center;
+      @include font-size(xdefault);
+
+      .item {
+        margin-left: 10px;
+
+        a {
+          display: inline-block;
+          padding: 5px 15px;
+          border-radius: $borderRadius;
+          background: $theme2;
+
+          &:hover {
+            background: $theme4;
+            color: $theme0;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,13 +1,14 @@
 import React, { FC, useState, useEffect } from 'react'
-import { Picture } from '@gtms/ui/Picture'
-import { Tag } from '@gtms/ui/Tag'
 import { UserAvatarNoImage } from 'enums'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
-import { TagGroup } from '@gtms/ui/TagGroup'
 import { InviteToGroupButton } from '../InviteToGroupButton'
 import { IUser, IAccountDetails } from '@gtms/commons/models'
-import styles from './styles.scss'
 import { userQuery } from '@gtms/state-user'
+// ui
+import { Picture } from '@gtms/ui/Picture'
+import { Tag } from '@gtms/ui/Tag'
+import { TagGroup } from '@gtms/ui/TagGroup'
+import styles from './styles.scss'
 
 export const Profile: FC<{
   user: IUser
@@ -26,34 +27,31 @@ export const Profile: FC<{
 
   return (
     <div className={styles.wrapper} data-testid="user-profile">
-      <div className={styles.left}>
-        <div className={styles.profileImage}>
-          <Picture {...getImage('800x800', user.avatar, UserAvatarNoImage)} />
+      <div className={styles.header}>
+        <Picture
+          additionalStyles={styles.image}
+          {...getImage('200x200', user.avatar, UserAvatarNoImage)}
+        />
+        <div className={styles.headerAndDesc}>
+          <h2 className={styles.header}>{getDisplayName(user)}</h2>
+          <p className={styles.desc}>
+            {user.description || 'user did not add any description yet'}
+          </p>
         </div>
       </div>
-      <div className={styles.right}>
-        <section className={styles.info}>
-          <h2>{getDisplayName(user)}</h2>
-          <p>{user.description || 'user did not add any description yet'}</p>
-        </section>
-
-        <section className={styles.tags}>
-          <h3>Moje tagi:</h3>
-          <TagGroup>
-            {user.tags.length > 0 &&
-              user.tags.map((tag) => (
-                <Tag label={tag} key={`user-tag-${tag}`} />
-              ))}
-            {user.tags.length === 0 && <p>No tags</p>}
-          </TagGroup>
-        </section>
-
-        {state.id !== user.id && (
-          <section className={styles.actions}>
-            <InviteToGroupButton userId={user.id} />
-          </section>
-        )}
+      <div className={styles.tags}>
+        <h2>Moje tagi:</h2>
+        <TagGroup>
+          {user.tags.length > 0 &&
+            user.tags.map((tag) => <Tag label={tag} key={`user-tag-${tag}`} />)}
+          {user.tags.length === 0 && <p>No tags</p>}
+        </TagGroup>
       </div>
+      {state.id !== user.id && (
+        <div className={styles.actionButtons}>
+          <InviteToGroupButton userId={user.id} />
+        </div>
+      )}
     </div>
   )
 }
