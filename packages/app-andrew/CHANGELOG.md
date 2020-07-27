@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.58.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.1...@gtms/app-andrew@0.58.2) (2020-07-27)
+
+
+### Bug Fixes
+
+* GEOT-384: styles for user page ([#775](https://github.com/gtms-org/gtms-frontend/issues/775)) ([638562f](https://github.com/gtms-org/gtms-frontend/commit/638562f11ceb60adefca828f9613490e8d66d2b0))
+
+
+
+
+
 ## [0.58.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.0...@gtms/app-andrew@0.58.1) (2020-07-27)
 
 **Note:** Version bump only for package @gtms/app-andrew

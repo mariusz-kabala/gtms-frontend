@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.41.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.41.0...@gtms/ui@0.41.1) (2020-07-27)
+
+
+### Bug Fixes
+
+* GEOT-384: styles for user page ([#775](https://github.com/gtms-org/gtms-frontend/issues/775)) ([638562f](https://github.com/gtms-org/gtms-frontend/commit/638562f11ceb60adefca828f9613490e8d66d2b0))
+
+
+
+
+
 # [0.41.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.6...@gtms/ui@0.41.0) (2020-07-26)
 
 
