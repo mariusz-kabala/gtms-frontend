@@ -1,7 +1,10 @@
 import React, { FC } from 'react'
 import { format } from 'date-fns'
-import { Spinner } from '../Spinner'
 import { ILoginHistory } from '@gtms/commons/models'
+// ui
+import { Spinner } from '@gtms/ui/Spinner'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import styles from './styles.scss'
 
 export const LoginHistory: FC<{
   history: ILoginHistory[]
@@ -9,37 +12,38 @@ export const LoginHistory: FC<{
   errorOccured: boolean
 }> = ({ history, isLoading, errorOccured }) => {
   return (
-    <div data-testid="login-history">
-      {isLoading && (
-        <div>
-          <Spinner />
-        </div>
-      )}
+    <div className={styles.wrapper} data-testid="login-history">
+      <h2 className={styles.header}>Login history</h2>
+      {isLoading && <Spinner />}
       {!isLoading && errorOccured && (
-        <p>Can not fetch login history now. Try again later</p>
+        <ErrorWrapper>
+          <h2>Can not fetch login history now. Try again later</h2>
+        </ErrorWrapper>
       )}
       {!isLoading && !errorOccured && history.length == 0 && (
         <p>We have no data about your login history</p>
       )}
       {!isLoading && !errorOccured && history.length > 0 && (
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Ip address</th>
-              <th>User agent</th>
-            </tr>
-          </thead>
-          <tbody>
-            {history.map((history, index) => (
-              <tr key={`history-${index}`}>
-                <td>{format(new Date(history.date), 'HH:mm:ss dd.MM.yyyy')}</td>
-                <td>{history.ipAddress}</td>
-                <td>{history.userAgent}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <ul className={styles.list}>
+          {history.map((history, index) => (
+            <li className={styles.item} key={`history-${index}`}>
+              <div className={styles.row}>
+                <div>
+                  <h3 className={styles.header}>Date</h3>
+                  {format(new Date(history.date), 'HH:mm:ss dd.MM.yyyy')}
+                </div>
+                <div>
+                  <h3 className={styles.header}>IP address</h3>
+                  {history.ipAddress}
+                </div>
+              </div>
+              <div>
+                <h3 className={styles.header}>User agent</h3>
+                {history.userAgent}
+              </div>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   )
