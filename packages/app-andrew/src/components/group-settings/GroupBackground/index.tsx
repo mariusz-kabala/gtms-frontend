@@ -53,14 +53,10 @@ export const GroupBackgroundSettings: FC<{ bg?: IGroupBg }> = ({ bg }) => {
       data-testid="group-settings-background-image"
       className={styles.wrapper}
     >
-      {isFullScreenGalleryOpen && (
-        <FullScreenGallery
-          isActive={true}
-          onClose={() => setIsFullScreenGalleryOpen(false)}
-        >
-          adfasf
-        </FullScreenGallery>
-      )}
+      <FullScreenGallery
+        isActive={isFullScreenGalleryOpen}
+        onClose={() => setIsFullScreenGalleryOpen(false)}
+      />
       {showUploadFileGroupBg && (
         <Modal onClose={() => setShowUploadFileGroupBg(false)}>
           <UploadFile
