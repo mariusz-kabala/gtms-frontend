@@ -32,7 +32,7 @@ export const FullScreenGallery: FC<{
       className={cx(styles.wrapper, additionalStyles, {
         [styles.active]: isActive,
       })}
-      data-testid="fullScreenGallery"
+      data-testid="full-screen-gallery"
     >
       <div
         className={styles.canvas}
