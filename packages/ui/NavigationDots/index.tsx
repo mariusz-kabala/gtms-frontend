@@ -4,6 +4,7 @@ import { Link } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 import { getImage } from '@gtms/commons/helpers'
+import { ReactSortable } from 'react-sortablejs'
 // ui
 import { Overlay } from '@gtms/ui/Overlay'
 import { IoIosKeypad, IoIosCloseCircle } from 'react-icons/io'
@@ -12,8 +13,10 @@ import styles from './styles.scss'
 export const NavigationDots: FC<{
   groups: IGroup[]
   noImage: { [key: string]: IImage }
-}> = ({ groups, noImage, children }) => {
+  onOrderChange?: (groups: IGroup[]) => unknown
+}> = ({ groups, noImage, children, onOrderChange }) => {
   const [showFullView, setShowFullView] = useState<boolean>(false)
+  const [sortedGroups, setSortedGroups] = useState<IGroup[]>(groups)
 
   useLayoutEffect(() => {
     const body = document.body
@@ -28,7 +31,6 @@ export const NavigationDots: FC<{
   if (groups.length === 0) {
     return null
   }
-
   return (
     <div className={styles.wrapper}>
       <div
@@ -49,19 +51,27 @@ export const NavigationDots: FC<{
           <i>{showFullView ? <IoIosCloseCircle /> : <IoIosKeypad />}</i>
           <span>close</span>
         </li>
-        {groups.map((value, index) => (
-          <li className={styles.item} key={index}>
-            <Link href={`/group/${value.slug}`}>
-              <div
-                style={{
-                  backgroundImage: `url(${
-                    getImage('50x50', value.avatar, noImage).jpg
-                  })`,
-                }}
-              />
-            </Link>
-          </li>
-        ))}
+        <ReactSortable
+          list={sortedGroups}
+          setList={setSortedGroups}
+          onEnd={() => {
+            onOrderChange && onOrderChange(sortedGroups)
+          }}
+        >
+          {sortedGroups.map((value, index) => (
+            <li className={styles.item} key={index}>
+              <Link href={`/group/${value.slug}`}>
+                <div
+                  style={{
+                    backgroundImage: `url(${
+                      getImage('50x50', value.avatar, noImage).jpg
+                    })`,
+                  }}
+                />
+              </Link>
+            </li>
+          ))}
+        </ReactSortable>
       </ul>
     </div>
   )

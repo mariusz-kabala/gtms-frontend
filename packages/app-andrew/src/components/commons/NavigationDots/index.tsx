@@ -1,9 +1,10 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useCallback } from 'react'
 import { NavigationDots as NavigationDotsUI } from '@gtms/ui/NavigationDots'
 import { NavigationDotsFullView } from '../NavigationDotsFullView'
 import { INavigationDotsProps, baseUIQuery } from 'queries'
-import { loadMyGroups } from '@gtms/state-user'
+import { loadMyGroups, updateFavGroupsOrder } from '@gtms/state-user'
 import { GroupAvatarNoImage } from 'enums'
+import { IGroup } from '@gtms/commons/models'
 
 export const NavigationDots: FC = () => {
   const [state, setState] = useState<INavigationDotsProps>(
@@ -26,12 +27,23 @@ export const NavigationDots: FC = () => {
     }
   }, [state])
 
+  const onOrderChangeCallback = useCallback((groups: IGroup[]) => {
+    updateFavGroupsOrder(
+      groups.map((group) => group.id),
+      false
+    )
+  }, [])
+
   if (!state.isVisible) {
     return null
   }
 
   return (
-    <NavigationDotsUI groups={state.groups} noImage={GroupAvatarNoImage}>
+    <NavigationDotsUI
+      onOrderChange={onOrderChangeCallback}
+      groups={state.groups}
+      noImage={GroupAvatarNoImage}
+    >
       <NavigationDotsFullView />
     </NavigationDotsUI>
   )

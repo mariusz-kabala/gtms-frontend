@@ -214,12 +214,15 @@ export const leaveGroup = async (group: IGroup) => {
   }
 }
 
-export const updateFavGroupsOrder = async (groups: string[]) => {
+export const updateFavGroupsOrder = async (
+  groups: string[],
+  reloadMyGroups = true
+) => {
   try {
     await updateFavGroupsOrderAPI(groups)
   } catch {
     return
   }
 
-  loadMyGroups()
+  reloadMyGroups && loadMyGroups()
 }
