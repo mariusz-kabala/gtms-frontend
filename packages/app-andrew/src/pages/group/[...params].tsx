@@ -163,17 +163,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     }
   }, [])
 
-  // return (
-  //   <div className={styles.wrapper}>
-  //     <ErrorWrapper>
-  //       <h2>ERROR OCCURED</h2>
-  //       <p>
-  //         Create a proper component that can be used here when 500 from BE
-  //       </p>
-  //     </ErrorWrapper>
-  //   </div>
-  // )
-
   return (
     <>
       <div className={styles.wrapper}>
