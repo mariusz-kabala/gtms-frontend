@@ -106,20 +106,7 @@ export const PostSingle: FC<{
         </div>
       </div>
       <div className={styles.desc}>
-        <div>
-          <ReactMarkdown className={styles.text} source={text} />
-          <ul className={styles.images}>
-            <li>
-              <Picture jpg={'/images/temp_images/logo-wioska-1.png'} />
-            </li>
-            <li>
-              <Picture jpg={'/images/temp_images/logo-wioska-2.png'} />
-            </li>
-            <li>
-              <Picture jpg={'/images/temp_images/logo-wioska-3.png'} />
-            </li>
-          </ul>
-        </div>
+        <ReactMarkdown className={styles.text} source={text} />
         {tags.length > 0 && (
           <TagGroup additionalStyles={styles.tagGroup}>
             {tags.map((tag) => (
