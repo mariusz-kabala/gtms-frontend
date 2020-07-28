@@ -2,9 +2,11 @@ import {
   fetchMyGroups,
   addGroupToFavsAPI,
   removeGroupFromFavsAPI,
+  updateFavGroupsOrderAPI,
 } from '@gtms/api-auth'
 import { joinGroupAPI, leaveGroupAPI } from '@gtms/api-group'
 import { myGroupsStore } from './myGroups.store'
+import { myFavGroupsStore } from '../favs/favs.store'
 import { parseFiles, IGroup, FileStatus } from '@gtms/commons'
 import {
   addSuccessNotification,
@@ -101,6 +103,17 @@ export const addToFavs = (group: IGroup) => {
       addErrorNotification('Error occured, can not add group to favs')
     })
 
+  const favsData = { ...myFavGroupsStore.getValue().data }
+
+  favsData[group.id] = {
+    isInFavs: true,
+    lastCheck: new Date().getTime(),
+  }
+
+  myFavGroupsStore.update({
+    data: favsData,
+  })
+
   if (favs.docs.some((g) => g.id === group.id)) {
     return
   }
@@ -110,6 +123,7 @@ export const addToFavs = (group: IGroup) => {
   myGroupsStore.update({
     favs: {
       ...favs,
+      total: favs.total + 1,
     },
   })
 }
@@ -126,6 +140,17 @@ export const removeFromFavs = (group: IGroup) => {
       addErrorNotification('Error occured, can not delete group from favs')
     })
 
+  const favsData = { ...myFavGroupsStore.getValue().data }
+
+  favsData[group.id] = {
+    isInFavs: false,
+    lastCheck: new Date().getTime(),
+  }
+
+  myFavGroupsStore.update({
+    data: favsData,
+  })
+
   if (index === -1) {
     return
   }
@@ -135,6 +160,7 @@ export const removeFromFavs = (group: IGroup) => {
   myGroupsStore.update({
     favs: {
       ...favs,
+      total: favs.total - 1,
     },
   })
 }
@@ -186,4 +212,14 @@ export const leaveGroup = async (group: IGroup) => {
       `Error occured, you can not leave this group now. Try later`
     )
   }
+}
+
+export const updateFavGroupsOrder = async (groups: string[]) => {
+  try {
+    await updateFavGroupsOrderAPI(groups)
+  } catch {
+    return
+  }
+
+  loadMyGroups()
 }

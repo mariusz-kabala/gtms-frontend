@@ -5,8 +5,10 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
 import {
   loadMyGroups,
+  updateFavGroupsOrder,
   hasAuthSessionCookies,
   markMyGroupsAsLoading,
+  checkGroupsFavStatus,
 } from '@gtms/state-user'
 import {
   myGroupsPageState,
@@ -106,6 +108,46 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
       })
     }
   }, [favsInMenu, state])
+
+  useEffect(() => {
+    const favsToCheck: string[] = []
+
+    if (Array.isArray(state.admin) && state.admin.length > 0) {
+      for (const group of state.admin) {
+        if (!favsToCheck.includes(group.id)) {
+          favsToCheck.push(group.id)
+        }
+      }
+    }
+
+    if (Array.isArray(state.member) && state.member.length > 0) {
+      for (const group of state.member) {
+        if (!favsToCheck.includes(group.id)) {
+          favsToCheck.push(group.id)
+        }
+      }
+    }
+
+    if (Array.isArray(state.owner) && state.owner.length > 0) {
+      for (const group of state.owner) {
+        if (!favsToCheck.includes(group.id)) {
+          favsToCheck.push(group.id)
+        }
+      }
+    }
+
+    if (Array.isArray(state.favs?.docs) && state.favs.docs.length > 0) {
+      for (const group of state.favs.docs) {
+        if (!favsToCheck.includes(group.id)) {
+          favsToCheck.push(group.id)
+        }
+      }
+    }
+
+    if (favsToCheck.length > 0) {
+      checkGroupsFavStatus(favsToCheck)
+    }
+  }, [state])
 
   const onAddFavToMenuClick = useCallback(
     (group: IGroup) => {
@@ -267,7 +309,15 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
           </>
         )}
 
-        {favsInMenu.isChanged && <Button>Save changes</Button>}
+        {favsInMenu.isChanged && (
+          <Button
+            onClick={() => {
+              updateFavGroupsOrder(favsInMenu.favs)
+            }}
+          >
+            Save changes
+          </Button>
+        )}
       </div>
     </div>
   )
