@@ -11,7 +11,6 @@ import { Link } from '@gtms/commons/i18n'
 import { IImage } from '@gtms/commons/types/image'
 // ui
 import { DeletePost } from './DeletePost'
-import { Picture } from '../Picture'
 import { PostCreate } from '../PostCreate'
 import { PostResponse } from './PostResponse'
 import { Tag } from '../Tag'
