@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.3...@gtms/api-auth@0.13.4) (2020-07-28)
+
+
+### Bug Fixes
+
+* GEOT-374 my groups page ([#777](https://github.com/gtms-org/gtms-frontend/issues/777)) ([03307f0](https://github.com/gtms-org/gtms-frontend/commit/03307f0de4c4555f2b84be827e2f18b367033499))
+
+
+
+
+
 ## [0.13.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.2...@gtms/api-auth@0.13.3) (2020-07-24)
 
 

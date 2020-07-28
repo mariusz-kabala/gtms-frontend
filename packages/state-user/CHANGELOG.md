@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.9...@gtms/state-user@0.17.10) (2020-07-28)
+
+
+### Bug Fixes
+
+* GEOT-374 my groups page ([#777](https://github.com/gtms-org/gtms-frontend/issues/777)) ([03307f0](https://github.com/gtms-org/gtms-frontend/commit/03307f0de4c4555f2b84be827e2f18b367033499))
+
+
+
+
+
 ## [0.17.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.8...@gtms/state-user@0.17.9) (2020-07-24)
 
 
