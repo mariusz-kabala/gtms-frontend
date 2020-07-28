@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useCallback } from 'react'
 import { IoIosStarOutline, IoIosStar } from 'react-icons/io'
 import cx from 'classnames'
 import { IFavsState, favsState, favsState$ } from './state.query'
@@ -14,16 +14,46 @@ export const Favs: FC<{
   id: string
 }> = ({ favs, id }) => {
   const [state, setState] = useState<IFavsState>(favsState())
+  const [favsCounter, setfavsCounter] = useState<number>(favs.length)
   const [isInFavs, setIsInFavs] = useState<boolean>(
     state.isLogged && favs.includes(`${state.account.id}`)
   )
   const [tooltipContent, setTooltipContent] = useState<{
-    isLoaded: boolean
     text: string
+    lastCheck: null | number
   }>({
-    isLoaded: false,
     text: 'loading...',
+    lastCheck: null,
   })
+
+  const onTooltipShow = useCallback(() => {
+    const now = new Date().getTime()
+
+    if (
+      tooltipContent.lastCheck !== null &&
+      now - tooltipContent.lastCheck < 120000
+    ) {
+      // 2min
+      return
+    }
+
+    getPostFavs(id)
+      .then((result) => {
+        setTooltipContent({
+          lastCheck: now,
+          text:
+            result.length > 0
+              ? result.map((user) => getDisplayName(user)).join(', ')
+              : 'empty favs',
+        })
+      })
+      .catch(() => {
+        setTooltipContent({
+          lastCheck: null,
+          text: 'Can not fetch data now, try later',
+        })
+      })
+  }, [tooltipContent])
 
   useEffect(() => {
     const sub = favsState$.subscribe((value) => {
@@ -48,15 +78,18 @@ export const Favs: FC<{
         setIsInFavs(!isInFavs)
 
         apiMethod(id)
+          .then(() => {
+            setfavsCounter(!isInFavs ? favsCounter + 1 : favsCounter - 1)
+          })
           .catch(() => {
             setIsInFavs(isInFavs)
 
             addErrorNotification('Error occured, try later')
           })
-          .final(() =>
+          .finally(() =>
             setTooltipContent({
-              isLoaded: false,
               text: 'loading...',
+              lastCheck: null,
             })
           )
       }}
@@ -66,34 +99,14 @@ export const Favs: FC<{
       })}
     >
       <Tooltip
-        onShow={() => {
-          if (tooltipContent.isLoaded) {
-            return
-          }
-          getPostFavs(id)
-            .then((result) => {
-              setTooltipContent({
-                isLoaded: true,
-                text:
-                  result.length > 0
-                    ? result.map((user) => getDisplayName(user)).join(', ')
-                    : 'empty favs',
-              })
-            })
-            .catch(() =>
-              setTooltipContent({
-                isLoaded: false,
-                text: 'Can not fetch data now, try later',
-              })
-            )
-        }}
+        onShow={onTooltipShow}
         position={'top'}
         arrow={true}
         title={tooltipContent.text}
       >
         {isInFavs && <IoIosStar />}
         {!isInFavs && <IoIosStarOutline />}
-        {favs.length > 0 && <span>{favs.length}</span>}
+        {favsCounter > 0 && <span>{favsCounter}</span>}
       </Tooltip>
     </div>
   )

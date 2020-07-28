@@ -12,7 +12,7 @@ export interface IIsGroupInFavsAPIResponse {
 export const addGroupToFavsAPI = (
   payload: IAddGroupToFavsPayload
 ): Promise<void> =>
-  fetchJSON<IAddGroupToFavsPayload, void>(makeApiUrl('auth/favs/groups'), {
+  fetchJSON<IAddGroupToFavsPayload, void>(makeApiUrl('auth/me/favs/groups'), {
     values: payload,
   })
 
@@ -31,7 +31,7 @@ export const isGroupInFavsAPI = (
 }
 
 export const removeGroupFromFavsAPI = (groupId: string) =>
-  deleteRequest(makeApiUrl(`auth/favs/groups/${groupId}`))
+  deleteRequest(makeApiUrl(`auth/me/favs/groups/${groupId}`))
 
 export const updateFavGroupsOrderAPI = (payload: string[]) =>
   fetchJSON<string[], void>(makeApiUrl('auth/me/favs/groups'), {

@@ -149,10 +149,14 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   useEffect(() => {
     if (state.group) {
       getGroupMembers(state.group.slug, 0, 8)
-      checkGroupsFavStatus([state.group.id])
     }
 
-    const sub = groupPageState$.subscribe((value) => setState(value))
+    const sub = groupPageState$.subscribe((value) => {
+      if (value.group && value.user?.id) {
+        checkGroupsFavStatus([value.group.id])
+      }
+      setState(value)
+    })
 
     return () => {
       sub && !sub.closed && sub.unsubscribe()
