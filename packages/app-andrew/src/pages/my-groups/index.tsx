@@ -313,6 +313,10 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
           <Button
             onClick={() => {
               updateFavGroupsOrder(favsInMenu.favs)
+              setFavsInMenu((value) => ({
+                ...value,
+                isInitialized: false,
+              }))
             }}
           >
             Save changes
