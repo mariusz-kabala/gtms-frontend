@@ -5,7 +5,7 @@ export const Button: FC<{
   children: ReactNode
   testid?: string
   disabled?: boolean
-  onClick?: () => unknown
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => unknown
   type?: 'button' | 'submit' | 'reset'
 }> = forwardRef(
   (

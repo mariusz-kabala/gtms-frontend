@@ -9,7 +9,13 @@ export const AddFavToMenuButton: FC<{
   group: IGroup
 }> = ({ isChecked, onClick, group }) => {
   return (
-    <Button onClick={() => onClick(group)}>
+    <Button
+      onClick={(e) => {
+        e?.preventDefault()
+        e?.stopPropagation()
+        onClick(group)
+      }}
+    >
       <Checkbox checked={isChecked} label={'Add to menu'} />
     </Button>
   )

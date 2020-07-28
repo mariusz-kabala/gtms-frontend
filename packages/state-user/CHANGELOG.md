@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.10...@gtms/state-user@0.18.0) (2020-07-28)
+
+
+### Features
+
+* GEOT-390: allow user to sort fav groups in menu ([#780](https://github.com/gtms-org/gtms-frontend/issues/780)) ([8736531](https://github.com/gtms-org/gtms-frontend/commit/87365314aa13ec4e8efc523f284f7e68060b0c7c))
+
+
+
+
+
 ## [0.17.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.9...@gtms/state-user@0.17.10) (2020-07-28)
 
 
