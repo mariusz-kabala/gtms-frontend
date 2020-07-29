@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.60.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.59.1...@gtms/app-andrew@0.60.0) (2020-07-29)
+
+
+### Features
+
+* GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
+
+
+
+
+
 ## [0.59.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.59.0...@gtms/app-andrew@0.59.1) (2020-07-29)
 
 ### Bug Fixes
