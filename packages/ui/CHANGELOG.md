@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.42.0...@gtms/ui@0.43.0) (2020-07-29)
+
+
+### Features
+
+* GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
+
+
+
+
+
 # [0.42.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.41.3...@gtms/ui@0.42.0) (2020-07-28)
 
 
