@@ -9,8 +9,10 @@ import styles from './styles.scss'
 import { IoIosHelpCircle } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { GroupType, GroupVisibility } from '@gtms/commons/enums'
+import { IGroup } from '@gtms/commons/models'
 import { updateGroup } from '@gtms/state-group'
 import { Spinner } from '@gtms/ui/Spinner'
+import { BasicInfoSetup } from '../BasicInfoSetup'
 
 interface IFormData {
   name?: string
@@ -18,12 +20,8 @@ interface IFormData {
 }
 
 export const BasicSettings: FC<{
-  name: string
-  description?: string
-  slug: string
-  type: GroupType
-  visibility: GroupVisibility
-}> = ({ name, description, type, visibility, slug }) => {
+  group: IGroup
+}> = ({ group }) => {
   const { t } = useTranslation('groupSettings')
   const { register, handleSubmit, errors, setError } = useForm<IFormData>()
   const [isSaving, setIsSaving] = useState<boolean>(false)
@@ -31,8 +29,8 @@ export const BasicSettings: FC<{
     type: GroupType
     visibility: GroupVisibility
   }>({
-    type,
-    visibility,
+    type: group.type,
+    visibility: group.visibility,
   })
   const validate = (data: IFormData) => {
     let hasErrors = false
@@ -59,7 +57,7 @@ export const BasicSettings: FC<{
           ...data,
           ...settings,
         },
-        slug
+        group.slug
       )
     } finally {
       setIsSaving(false)
@@ -68,6 +66,7 @@ export const BasicSettings: FC<{
 
   return (
     <div data-testid="group-settings-basic">
+      <BasicInfoSetup group={group} />
       <form onSubmit={handleSubmit(onSubmit)} method="post">
         <Input
           type="text"
@@ -80,7 +79,7 @@ export const BasicSettings: FC<{
         <ExpandingTextarea
           placeholder={t('form.labels.description')}
           name="description"
-          defaultValue={description}
+          defaultValue={group.description}
           reference={register({ required: true })}
         />
         <div className={styles.bools}>
