@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.59.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.59.0...@gtms/app-andrew@0.59.1) (2020-07-29)
+
+
+### Bug Fixes
+
+* GEOT-391: links dont work in navgation dots ([#782](https://github.com/gtms-org/gtms-frontend/issues/782)) ([a57f0e8](https://github.com/gtms-org/gtms-frontend/commit/a57f0e8c6c39529e8d30b6d3146f30861f90ca4c))
+
+
+
+
+
 # [0.59.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.4...@gtms/app-andrew@0.59.0) (2020-07-28)
 
 
