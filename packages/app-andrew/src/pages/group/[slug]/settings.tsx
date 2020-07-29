@@ -10,7 +10,6 @@ import {
 } from '@gtms/state-group'
 import { hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import { GroupType, GroupVisibility } from '@gtms/commons/enums'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
 //sections
@@ -69,6 +68,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
       if (!value.isLoading && !groupQuery.hasAdminRights()) {
         return redirect(`/group/${slug}`)
       }
+
       setGroup(value)
     })
 
@@ -154,13 +154,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
               <>
                 <GroupAvatarSettings avatar={group.group?.avatar} />
                 <GroupBackgroundSettings bg={group.group?.avatar} />
-                <BasicSettings
-                  slug={group.group?.slug || ''}
-                  name={group.group?.name || ''}
-                  description={group.group?.description || ''}
-                  visibility={group.group?.visibility || GroupVisibility.public}
-                  type={group.group?.type || GroupType.public}
-                />
+                {group.group && <BasicSettings group={group.group} />}
 
                 <div className={styles.deleteAccount}>
                   <div className={styles.btn}>

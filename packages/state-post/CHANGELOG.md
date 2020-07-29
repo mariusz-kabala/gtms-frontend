@@ -7,17 +7,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 ## [0.8.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.8...@gtms/state-post@0.8.9) (2020-07-28)
 
 **Note:** Version bump only for package @gtms/state-post
-
-
-
-
 
 ## [0.8.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.7...@gtms/state-post@0.8.8) (2020-07-27)
 

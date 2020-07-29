@@ -1,0 +1,42 @@
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+.wrapper {
+  display: flex;
+}
+
+.imagePreview {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: $borderRadius;
+
+  .btn {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    @include buttonDefault();
+    @include buttonShapePrimary();
+    @include buttonColorsDefault();
+    padding: 10px;
+
+    i {
+      line-height: 0;
+    }
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+  }
+}
+
+.btn {
+  @include buttonDefault();
+  @include buttonSizeDefault();
+  @include buttonShapePrimary();
+  @include buttonColorsDefault();
+  margin: auto;
+  margin-top: 40px;
+
+  &:hover {
+    @include buttonColorsPrimary();
+  }
+}

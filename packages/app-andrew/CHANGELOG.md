@@ -16,36 +16,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.59.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.59.0...@gtms/app-andrew@0.59.1) (2020-07-29)
 
-
 ### Bug Fixes
 
-* GEOT-391: links dont work in navgation dots ([#782](https://github.com/gtms-org/gtms-frontend/issues/782)) ([a57f0e8](https://github.com/gtms-org/gtms-frontend/commit/a57f0e8c6c39529e8d30b6d3146f30861f90ca4c))
-
-
-
-
+- GEOT-391: links dont work in navgation dots ([#782](https://github.com/gtms-org/gtms-frontend/issues/782)) ([a57f0e8](https://github.com/gtms-org/gtms-frontend/commit/a57f0e8c6c39529e8d30b6d3146f30861f90ca4c))
 
 # [0.59.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.4...@gtms/app-andrew@0.59.0) (2020-07-28)
 
-
 ### Features
 
-* GEOT-390: allow user to sort fav groups in menu ([#780](https://github.com/gtms-org/gtms-frontend/issues/780)) ([8736531](https://github.com/gtms-org/gtms-frontend/commit/87365314aa13ec4e8efc523f284f7e68060b0c7c))
-
-
-
-
+- GEOT-390: allow user to sort fav groups in menu ([#780](https://github.com/gtms-org/gtms-frontend/issues/780)) ([8736531](https://github.com/gtms-org/gtms-frontend/commit/87365314aa13ec4e8efc523f284f7e68060b0c7c))
 
 ## [0.58.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.3...@gtms/app-andrew@0.58.4) (2020-07-28)
 
-
 ### Bug Fixes
 
-* GEOT-374 my groups page ([#777](https://github.com/gtms-org/gtms-frontend/issues/777)) ([03307f0](https://github.com/gtms-org/gtms-frontend/commit/03307f0de4c4555f2b84be827e2f18b367033499))
-
-
-
-
+- GEOT-374 my groups page ([#777](https://github.com/gtms-org/gtms-frontend/issues/777)) ([03307f0](https://github.com/gtms-org/gtms-frontend/commit/03307f0de4c4555f2b84be827e2f18b367033499))
 
 ## [0.58.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.58.2...@gtms/app-andrew@0.58.3) (2020-07-27)
 
