@@ -1,4 +1,4 @@
-@import '~@gtms/styles/scss/variables';
+@import '~@gtms/styles/scss/variables.scss';
 
 .checkboxWrapper {
   display: flex;
@@ -64,21 +64,21 @@
 
 .input {
   display: none;
-}
 
-.input:checked + label svg {
-  stroke: $theme4;
-}
+  &:checked + label svg {
+    stroke: $theme4;
+  }
 
-.input:checked + label svg path {
-  stroke-dashoffset: 60;
-  transition: all 0.3s linear;
-}
+  &:checked + label svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+  }
 
-.input:checked + label svg polyline {
-  stroke-dashoffset: 42;
-  transition: all 0.2s linear;
-  transition-delay: 0.15s;
+  &:checked + label svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+  }
 }
 
 .selected {

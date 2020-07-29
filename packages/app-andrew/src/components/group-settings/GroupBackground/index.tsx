@@ -5,6 +5,7 @@ import { updateGroupAvatar } from '@gtms/state-group'
 // ui
 import { IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
+import { FullScreenGallery } from '@gtms/ui/FullScreenGallery'
 import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
 import { Modal } from '@gtms/ui/Modal'
 import { UploadFile } from '@gtms/ui/UploadFile'
@@ -43,9 +44,19 @@ export const GroupBackgroundSettings: FC<{ bg?: IGroupBg }> = ({ bg }) => {
   const [showUploadFileGroupBg, setShowUploadFileGroupBg] = useState<boolean>(
     false
   )
+  const [isFullScreenGalleryOpen, setIsFullScreenGalleryOpen] = useState<
+    boolean
+  >(false)
 
   return (
-    <div data-testid="group-settings-images" className={styles.wrapper}>
+    <div
+      data-testid="group-settings-background-image"
+      className={styles.wrapper}
+    >
+      <FullScreenGallery
+        isActive={isFullScreenGalleryOpen}
+        onClose={() => setIsFullScreenGalleryOpen(false)}
+      />
       {showUploadFileGroupBg && (
         <Modal onClose={() => setShowUploadFileGroupBg(false)}>
           <UploadFile
@@ -61,6 +72,12 @@ export const GroupBackgroundSettings: FC<{ bg?: IGroupBg }> = ({ bg }) => {
           additionalStyles={styles.imagePreview}
           src={bg?.files['200x200'] || GroupBgNoImage['200x200']}
         />
+        <Button
+          onClick={() => setIsFullScreenGalleryOpen(true)}
+          additionalStyles={styles.btn}
+        >
+          Open gallery
+        </Button>
         <Button
           onClick={() => setShowUploadFileGroupBg(true)}
           additionalStyles={styles.btn}

@@ -1,6 +1,6 @@
 import React, { FC, useState, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
-import { updateGroup } from '@gtms/state-group'
+import { updateGroup, updateGroupAvatar } from '@gtms/state-group'
 import { GroupAvatarNoImage } from 'enums'
 import { IoIosSettings } from 'react-icons/io'
 // commons
@@ -14,6 +14,7 @@ import { Modal } from '@gtms/ui/Modal'
 import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
+import { UploadFile } from '@gtms/ui/UploadFile'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
@@ -32,6 +33,15 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
     isOpen: false,
     isSaving: false,
   })
+  const [fileUploadState, setFileUploadState] = useState<{
+    isOpen: boolean
+    isSaving: boolean
+    isError: boolean
+  }>({
+    isOpen: false,
+    isError: false,
+    isSaving: false,
+  })
   const { register, handleSubmit, errors, setError } = useForm<IFormData>()
 
   const onFormModalClose = useCallback(
@@ -41,6 +51,26 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
 
   const onFormModalOpen = useCallback(
     () => setFormState({ isOpen: true, isSaving: false }),
+    []
+  )
+
+  const onUploadFileModalClose = useCallback(
+    () =>
+      setFileUploadState({
+        isOpen: false,
+        isError: false,
+        isSaving: false,
+      }),
+    []
+  )
+
+  const onUploadFileModalOpen = useCallback(
+    () =>
+      setFileUploadState({
+        isOpen: true,
+        isError: false,
+        isSaving: false,
+      }),
     []
   )
 
@@ -75,6 +105,30 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
     }
   }
 
+  const onAvatarDrop = useCallback((acceptedFiles) => {
+    setFileUploadState({
+      isOpen: true,
+      isSaving: true,
+      isError: false,
+    })
+
+    updateGroupAvatar(acceptedFiles[0])
+      .then(() => {
+        setFileUploadState({
+          isSaving: false,
+          isError: false,
+          isOpen: false,
+        })
+      })
+      .catch(() => {
+        setFileUploadState({
+          isOpen: true,
+          isSaving: false,
+          isError: true,
+        })
+      })
+  }, [])
+
   return (
     <div data-testid="group-basic-info-setup" className={styles.wrapper}>
       <div className={styles.imagePreview}>
@@ -82,7 +136,7 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
           additionalStyles={styles.imagePreview}
           src={getImage('200x200', group.avatar, GroupAvatarNoImage)}
         />
-        <Button onClick={() => null} additionalStyles={styles.btn}>
+        <Button onClick={onUploadFileModalOpen} additionalStyles={styles.btn}>
           <i>
             <IoIosSettings />
           </i>
@@ -94,13 +148,17 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
       </div>
       {formState.isOpen && (
         <Modal onClose={onFormModalClose}>
-          <form onSubmit={handleSubmit(onSubmit)} method="post">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            method="post"
+            data-testid="group-basic-info-setup-form"
+          >
             <Input
               type="text"
               name="name"
               defaultValue={group.name}
               placeholder={t('form.labels.name')}
-              reference={register}
+              reference={register({ required: true })}
             />
             {errors.name && (
               <Error text={t('form.validation.name.isRequired')} />
@@ -109,7 +167,7 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
               placeholder={t('form.labels.description')}
               name="description"
               defaultValue={group.description}
-              reference={register({ required: true })}
+              reference={register({ required: false })}
             />
             {formState.isSaving && <Spinner />}
             <Button
@@ -120,6 +178,17 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
               Save
             </Button>
           </form>
+        </Modal>
+      )}
+
+      {fileUploadState.isOpen && (
+        <Modal onClose={onUploadFileModalClose}>
+          <UploadFile
+            additionalStyles={styles.uploadFile}
+            isError={fileUploadState.isError}
+            isLoading={fileUploadState.isSaving}
+            onDrop={onAvatarDrop}
+          />
         </Modal>
       )}
     </div>

@@ -24,10 +24,13 @@ export const MockData: FC<{
   text?: string
   onClick?: () => unknown
   numberOfElements?: number
-}> = ({ additionalStyles, numberOfElements, onClick, text }) => {
+  theme?: string
+}> = ({ additionalStyles, numberOfElements, onClick, text, theme }) => {
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles)}
+      className={cx(styles.wrapper, additionalStyles, {
+        [styles.themeDark]: theme == 'dark',
+      })}
       data-testid={'mock-data'}
     >
       {text ? (

@@ -5,38 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.10.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.10.1...@gtms/state-notification@0.10.2) (2020-07-27)
 
-
 ### Bug Fixes
 
-* GEOT-387: multiple calls to notification settings endpoint ([#778](https://github.com/gtms-org/gtms-frontend/issues/778)) ([003e5aa](https://github.com/gtms-org/gtms-frontend/commit/003e5aa214398ece8f76e32f76a89522c8da795b))
-
-
-
-
+- GEOT-387: multiple calls to notification settings endpoint ([#778](https://github.com/gtms-org/gtms-frontend/issues/778)) ([003e5aa](https://github.com/gtms-org/gtms-frontend/commit/003e5aa214398ece8f76e32f76a89522c8da795b))
 
 ## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.10.0...@gtms/state-notification@0.10.1) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/state-notification
 
-
-
-
-
 # [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.9.0...@gtms/state-notification@0.10.0) (2020-07-06)
-
 
 ### Bug Fixes
 
-* GEOT-317: webpush fixes and login redirection loop fixes ([#705](https://github.com/gtms-org/gtms-frontend/issues/705)) ([019fe0a](https://github.com/gtms-org/gtms-frontend/commit/019fe0ad2853b359ae476fd07d9706180b1ab04f))
-
+- GEOT-317: webpush fixes and login redirection loop fixes ([#705](https://github.com/gtms-org/gtms-frontend/issues/705)) ([019fe0a](https://github.com/gtms-org/gtms-frontend/commit/019fe0ad2853b359ae476fd07d9706180b1ab04f))
 
 ### Features
 
-* GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
-
-
-
-
+- GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
 
 # [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.8.0...@gtms/state-notification@0.9.0) (2020-07-01)
 

@@ -11,7 +11,6 @@ import { Link } from '@gtms/commons/i18n'
 import { IImage } from '@gtms/commons/types/image'
 // ui
 import { DeletePost } from './DeletePost'
-import { Picture } from '../Picture'
 import { PostCreate } from '../PostCreate'
 import { PostResponse } from './PostResponse'
 import { Tag } from '../Tag'
@@ -106,20 +105,7 @@ export const PostSingle: FC<{
         </div>
       </div>
       <div className={styles.desc}>
-        <div>
-          <ReactMarkdown className={styles.text} source={text} />
-          <ul className={styles.images}>
-            <li>
-              <Picture jpg={'/images/temp_images/logo-wioska-1.png'} />
-            </li>
-            <li>
-              <Picture jpg={'/images/temp_images/logo-wioska-2.png'} />
-            </li>
-            <li>
-              <Picture jpg={'/images/temp_images/logo-wioska-3.png'} />
-            </li>
-          </ul>
-        </div>
+        <ReactMarkdown className={styles.text} source={text} />
         {tags.length > 0 && (
           <TagGroup additionalStyles={styles.tagGroup}>
             {tags.map((tag) => (

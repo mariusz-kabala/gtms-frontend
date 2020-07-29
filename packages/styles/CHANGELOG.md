@@ -5,96 +5,55 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.13.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.13.2...@gtms/styles@0.13.3) (2020-07-27)
 
-
 ### Bug Fixes
 
-* GEOT-384: styles for user page ([#775](https://github.com/gtms-org/gtms-frontend/issues/775)) ([638562f](https://github.com/gtms-org/gtms-frontend/commit/638562f11ceb60adefca828f9613490e8d66d2b0))
-
-
-
-
+- GEOT-384: styles for user page ([#775](https://github.com/gtms-org/gtms-frontend/issues/775)) ([638562f](https://github.com/gtms-org/gtms-frontend/commit/638562f11ceb60adefca828f9613490e8d66d2b0))
 
 ## [0.13.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.13.1...@gtms/styles@0.13.2) (2020-07-25)
 
-
 ### Bug Fixes
 
-* GEOT-380: styles for group not found and group no ([#769](https://github.com/gtms-org/gtms-frontend/issues/769)) ([cc4c4fe](https://github.com/gtms-org/gtms-frontend/commit/cc4c4feca2985be9c15949c8e06daf594f77082c))
-
-
-
-
+- GEOT-380: styles for group not found and group no ([#769](https://github.com/gtms-org/gtms-frontend/issues/769)) ([cc4c4fe](https://github.com/gtms-org/gtms-frontend/commit/cc4c4feca2985be9c15949c8e06daf594f77082c))
 
 ## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.13.0...@gtms/styles@0.13.1) (2020-07-25)
 
-
 ### Bug Fixes
 
-* GEOT-376: GEOT-376: group general settings ([#766](https://github.com/gtms-org/gtms-frontend/issues/766)) ([2428eef](https://github.com/gtms-org/gtms-frontend/commit/2428eefd9dfe67e3294a3971163be3a506128732))
-
-
-
-
+- GEOT-376: GEOT-376: group general settings ([#766](https://github.com/gtms-org/gtms-frontend/issues/766)) ([2428eef](https://github.com/gtms-org/gtms-frontend/commit/2428eefd9dfe67e3294a3971163be3a506128732))
 
 # [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.12.0...@gtms/styles@0.13.0) (2020-07-23)
 
-
 ### Features
 
-* GEOT-359: styles for all groups sidebar ([#758](https://github.com/gtms-org/gtms-frontend/issues/758)) ([b828057](https://github.com/gtms-org/gtms-frontend/commit/b82805726515c88257be49f45683e0a363110186))
-
-
-
-
+- GEOT-359: styles for all groups sidebar ([#758](https://github.com/gtms-org/gtms-frontend/issues/758)) ([b828057](https://github.com/gtms-org/gtms-frontend/commit/b82805726515c88257be49f45683e0a363110186))
 
 # [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.11.2...@gtms/styles@0.12.0) (2020-07-22)
 
-
 ### Features
 
-* GEOT-351: styles for promoted tags below search bar ([#753](https://github.com/gtms-org/gtms-frontend/issues/753)) ([ad42f10](https://github.com/gtms-org/gtms-frontend/commit/ad42f100475b7e9612582aae411f49f41a3d5037))
-
-
-
-
+- GEOT-351: styles for promoted tags below search bar ([#753](https://github.com/gtms-org/gtms-frontend/issues/753)) ([ad42f10](https://github.com/gtms-org/gtms-frontend/commit/ad42f100475b7e9612582aae411f49f41a3d5037))
 
 ## [0.11.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.11.1...@gtms/styles@0.11.2) (2020-07-21)
 
-
 ### Bug Fixes
 
-* GEOT-324: mixin for buttons ([#747](https://github.com/gtms-org/gtms-frontend/issues/747)) ([c142e31](https://github.com/gtms-org/gtms-frontend/commit/c142e31a870fa3a14201b2b71d59da1000a22025))
-
-
-
-
+- GEOT-324: mixin for buttons ([#747](https://github.com/gtms-org/gtms-frontend/issues/747)) ([c142e31](https://github.com/gtms-org/gtms-frontend/commit/c142e31a870fa3a14201b2b71d59da1000a22025))
 
 ## [0.11.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.11.0...@gtms/styles@0.11.1) (2020-07-07)
 
-
 ### Bug Fixes
 
-* GEOT-323 group page css changes ([#710](https://github.com/gtms-org/gtms-frontend/issues/710)) ([e3d0cfa](https://github.com/gtms-org/gtms-frontend/commit/e3d0cfa449f38734784f3bb0e5efbbe4ea93987a))
-
-
-
-
+- GEOT-323 group page css changes ([#710](https://github.com/gtms-org/gtms-frontend/issues/710)) ([e3d0cfa](https://github.com/gtms-org/gtms-frontend/commit/e3d0cfa449f38734784f3bb0e5efbbe4ea93987a))
 
 # [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.10.1...@gtms/styles@0.11.0) (2020-07-07)
 
-
 ### Bug Fixes
 
-* GEOT-324: mixin for buttons ([#711](https://github.com/gtms-org/gtms-frontend/issues/711)) ([cb1323d](https://github.com/gtms-org/gtms-frontend/commit/cb1323daf522e90262dc11a9ed8ea145593e3de4))
-
+- GEOT-324: mixin for buttons ([#711](https://github.com/gtms-org/gtms-frontend/issues/711)) ([cb1323d](https://github.com/gtms-org/gtms-frontend/commit/cb1323daf522e90262dc11a9ed8ea145593e3de4))
 
 ### Features
 
-* GEOT-321: display post comments ([#708](https://github.com/gtms-org/gtms-frontend/issues/708)) ([1f9d1df](https://github.com/gtms-org/gtms-frontend/commit/1f9d1dfd2fdfa1b1398f443e33ae266bda56897c))
-
-
-
-
+- GEOT-321: display post comments ([#708](https://github.com/gtms-org/gtms-frontend/issues/708)) ([1f9d1df](https://github.com/gtms-org/gtms-frontend/commit/1f9d1dfd2fdfa1b1398f443e33ae266bda56897c))
 
 ## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.10.0...@gtms/styles@0.10.1) (2020-07-07)
 

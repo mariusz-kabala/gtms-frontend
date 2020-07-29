@@ -5,359 +5,197 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.42.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.41.3...@gtms/ui@0.42.0) (2020-07-28)
 
-
 ### Features
 
-* GEOT-390: allow user to sort fav groups in menu ([#780](https://github.com/gtms-org/gtms-frontend/issues/780)) ([8736531](https://github.com/gtms-org/gtms-frontend/commit/87365314aa13ec4e8efc523f284f7e68060b0c7c))
-
-
-
-
+- GEOT-390: allow user to sort fav groups in menu ([#780](https://github.com/gtms-org/gtms-frontend/issues/780)) ([8736531](https://github.com/gtms-org/gtms-frontend/commit/87365314aa13ec4e8efc523f284f7e68060b0c7c))
 
 ## [0.41.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.41.2...@gtms/ui@0.41.3) (2020-07-28)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.41.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.41.1...@gtms/ui@0.41.2) (2020-07-27)
-
 
 ### Bug Fixes
 
-* GEOT-365: GEOT-365-notification-sidebar-styles ([#772](https://github.com/gtms-org/gtms-frontend/issues/772)) ([14cd0e9](https://github.com/gtms-org/gtms-frontend/commit/14cd0e9d662c2f9b6605098264ecbca3e206f6a5))
-
-
-
-
+- GEOT-365: GEOT-365-notification-sidebar-styles ([#772](https://github.com/gtms-org/gtms-frontend/issues/772)) ([14cd0e9](https://github.com/gtms-org/gtms-frontend/commit/14cd0e9d662c2f9b6605098264ecbca3e206f6a5))
 
 ## [0.41.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.41.0...@gtms/ui@0.41.1) (2020-07-27)
 
-
 ### Bug Fixes
 
-* GEOT-384: styles for user page ([#775](https://github.com/gtms-org/gtms-frontend/issues/775)) ([638562f](https://github.com/gtms-org/gtms-frontend/commit/638562f11ceb60adefca828f9613490e8d66d2b0))
-
-
-
-
+- GEOT-384: styles for user page ([#775](https://github.com/gtms-org/gtms-frontend/issues/775)) ([638562f](https://github.com/gtms-org/gtms-frontend/commit/638562f11ceb60adefca828f9613490e8d66d2b0))
 
 # [0.41.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.6...@gtms/ui@0.41.0) (2020-07-26)
 
-
 ### Features
 
-* GEOT-385: css for secutiry page ([#774](https://github.com/gtms-org/gtms-frontend/issues/774)) ([3a64e6a](https://github.com/gtms-org/gtms-frontend/commit/3a64e6a87f8dd7a9c61924ee8b16cf42118219e0))
-
-
-
-
+- GEOT-385: css for secutiry page ([#774](https://github.com/gtms-org/gtms-frontend/issues/774)) ([3a64e6a](https://github.com/gtms-org/gtms-frontend/commit/3a64e6a87f8dd7a9c61924ee8b16cf42118219e0))
 
 ## [0.40.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.5...@gtms/ui@0.40.6) (2020-07-26)
 
-
 ### Bug Fixes
 
-* GEOT-383: react errors in dev consol ([#771](https://github.com/gtms-org/gtms-frontend/issues/771)) ([f5f1829](https://github.com/gtms-org/gtms-frontend/commit/f5f18293fbc52a0dc0d7b1ff09737e3a168973af))
-
-
-
-
+- GEOT-383: react errors in dev consol ([#771](https://github.com/gtms-org/gtms-frontend/issues/771)) ([f5f1829](https://github.com/gtms-org/gtms-frontend/commit/f5f18293fbc52a0dc0d7b1ff09737e3a168973af))
 
 ## [0.40.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.4...@gtms/ui@0.40.5) (2020-07-25)
 
-
 ### Bug Fixes
 
-* GEOT-380: styles for group not found and group no ([#769](https://github.com/gtms-org/gtms-frontend/issues/769)) ([cc4c4fe](https://github.com/gtms-org/gtms-frontend/commit/cc4c4feca2985be9c15949c8e06daf594f77082c))
-
-
-
-
+- GEOT-380: styles for group not found and group no ([#769](https://github.com/gtms-org/gtms-frontend/issues/769)) ([cc4c4fe](https://github.com/gtms-org/gtms-frontend/commit/cc4c4feca2985be9c15949c8e06daf594f77082c))
 
 ## [0.40.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.3...@gtms/ui@0.40.4) (2020-07-25)
 
-
 ### Bug Fixes
 
-* GEOT-378: styles for error wrapper ([#768](https://github.com/gtms-org/gtms-frontend/issues/768)) ([c984910](https://github.com/gtms-org/gtms-frontend/commit/c984910cd5601fa15f601d4178b47249e45ccbd1))
-
-
-
-
+- GEOT-378: styles for error wrapper ([#768](https://github.com/gtms-org/gtms-frontend/issues/768)) ([c984910](https://github.com/gtms-org/gtms-frontend/commit/c984910cd5601fa15f601d4178b47249e45ccbd1))
 
 ## [0.40.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.2...@gtms/ui@0.40.3) (2020-07-25)
 
-
 ### Bug Fixes
 
-* GEOT-376: GEOT-376: group general settings ([#766](https://github.com/gtms-org/gtms-frontend/issues/766)) ([2428eef](https://github.com/gtms-org/gtms-frontend/commit/2428eefd9dfe67e3294a3971163be3a506128732))
-
-
-
-
+- GEOT-376: GEOT-376: group general settings ([#766](https://github.com/gtms-org/gtms-frontend/issues/766)) ([2428eef](https://github.com/gtms-org/gtms-frontend/commit/2428eefd9dfe67e3294a3971163be3a506128732))
 
 ## [0.40.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.1...@gtms/ui@0.40.2) (2020-07-24)
 
-
 ### Bug Fixes
 
-* GEOT-374: show more info on my groups page, allow user to se ([#765](https://github.com/gtms-org/gtms-frontend/issues/765)) ([93309d2](https://github.com/gtms-org/gtms-frontend/commit/93309d21f245df19c4274ecfd898adcfff9dc01e))
-
-
-
-
+- GEOT-374: show more info on my groups page, allow user to se ([#765](https://github.com/gtms-org/gtms-frontend/issues/765)) ([93309d2](https://github.com/gtms-org/gtms-frontend/commit/93309d21f245df19c4274ecfd898adcfff9dc01e))
 
 ## [0.40.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.40.0...@gtms/ui@0.40.1) (2020-07-24)
 
-
 ### Bug Fixes
 
-* GEOT-361: styles for navigation wrapper ([#760](https://github.com/gtms-org/gtms-frontend/issues/760)) ([53882d8](https://github.com/gtms-org/gtms-frontend/commit/53882d8e7707cb9466037fe9aa17799cd55ef29b))
-
-
-
-
+- GEOT-361: styles for navigation wrapper ([#760](https://github.com/gtms-org/gtms-frontend/issues/760)) ([53882d8](https://github.com/gtms-org/gtms-frontend/commit/53882d8e7707cb9466037fe9aa17799cd55ef29b))
 
 # [0.40.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.39.0...@gtms/ui@0.40.0) (2020-07-23)
 
-
 ### Features
 
-* GEOT-359: styles for all groups sidebar ([#758](https://github.com/gtms-org/gtms-frontend/issues/758)) ([b828057](https://github.com/gtms-org/gtms-frontend/commit/b82805726515c88257be49f45683e0a363110186))
-
-
-
-
+- GEOT-359: styles for all groups sidebar ([#758](https://github.com/gtms-org/gtms-frontend/issues/758)) ([b828057](https://github.com/gtms-org/gtms-frontend/commit/b82805726515c88257be49f45683e0a363110186))
 
 # [0.39.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.38.0...@gtms/ui@0.39.0) (2020-07-22)
 
-
 ### Features
 
-* GEOT-357: remove unneeded mock ([#756](https://github.com/gtms-org/gtms-frontend/issues/756)) ([1dc69f9](https://github.com/gtms-org/gtms-frontend/commit/1dc69f95a8a8a05e21798f33429aafeafc974e70))
-
-
-
-
+- GEOT-357: remove unneeded mock ([#756](https://github.com/gtms-org/gtms-frontend/issues/756)) ([1dc69f9](https://github.com/gtms-org/gtms-frontend/commit/1dc69f95a8a8a05e21798f33429aafeafc974e70))
 
 # [0.38.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.37.4...@gtms/ui@0.38.0) (2020-07-22)
 
-
 ### Features
 
-* GEOT-351: styles for promoted tags below search bar ([#753](https://github.com/gtms-org/gtms-frontend/issues/753)) ([ad42f10](https://github.com/gtms-org/gtms-frontend/commit/ad42f100475b7e9612582aae411f49f41a3d5037))
-
-
-
-
+- GEOT-351: styles for promoted tags below search bar ([#753](https://github.com/gtms-org/gtms-frontend/issues/753)) ([ad42f10](https://github.com/gtms-org/gtms-frontend/commit/ad42f100475b7e9612582aae411f49f41a3d5037))
 
 ## [0.37.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.37.3...@gtms/ui@0.37.4) (2020-07-22)
 
-
 ### Bug Fixes
 
-* GEOT-354: fill account page with real data ([#754](https://github.com/gtms-org/gtms-frontend/issues/754)) ([97398b0](https://github.com/gtms-org/gtms-frontend/commit/97398b03ac077319aad27d36fbccd656c1dc8bff))
-
-
-
-
+- GEOT-354: fill account page with real data ([#754](https://github.com/gtms-org/gtms-frontend/issues/754)) ([97398b0](https://github.com/gtms-org/gtms-frontend/commit/97398b03ac077319aad27d36fbccd656c1dc8bff))
 
 ## [0.37.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.37.2...@gtms/ui@0.37.3) (2020-07-22)
 
-
 ### Bug Fixes
 
-* GEOT-353: allow user to have a quick access to all related groups ([#752](https://github.com/gtms-org/gtms-frontend/issues/752)) ([51c4f93](https://github.com/gtms-org/gtms-frontend/commit/51c4f93fc31d5c746021195ab341ffc500f4428c))
-
-
-
-
+- GEOT-353: allow user to have a quick access to all related groups ([#752](https://github.com/gtms-org/gtms-frontend/issues/752)) ([51c4f93](https://github.com/gtms-org/gtms-frontend/commit/51c4f93fc31d5c746021195ab341ffc500f4428c))
 
 ## [0.37.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.37.1...@gtms/ui@0.37.2) (2020-07-21)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.37.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.37.0...@gtms/ui@0.37.1) (2020-07-21)
-
 
 ### Bug Fixes
 
-* GEOT-324: mixin for buttons ([#747](https://github.com/gtms-org/gtms-frontend/issues/747)) ([c142e31](https://github.com/gtms-org/gtms-frontend/commit/c142e31a870fa3a14201b2b71d59da1000a22025))
-
-
-
-
+- GEOT-324: mixin for buttons ([#747](https://github.com/gtms-org/gtms-frontend/issues/747)) ([c142e31](https://github.com/gtms-org/gtms-frontend/commit/c142e31a870fa3a14201b2b71d59da1000a22025))
 
 # [0.37.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.36.0...@gtms/ui@0.37.0) (2020-07-20)
 
-
 ### Features
 
-* GEOT-348 add account security page ([#749](https://github.com/gtms-org/gtms-frontend/issues/749)) ([c9dbc11](https://github.com/gtms-org/gtms-frontend/commit/c9dbc115e59eb2ffc0362d45cf6f2e0d4d28fdaf))
-
-
-
-
+- GEOT-348 add account security page ([#749](https://github.com/gtms-org/gtms-frontend/issues/749)) ([c9dbc11](https://github.com/gtms-org/gtms-frontend/commit/c9dbc115e59eb2ffc0362d45cf6f2e0d4d28fdaf))
 
 # [0.36.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.35.1...@gtms/ui@0.36.0) (2020-07-19)
 
-
 ### Features
 
-* GEOT-343: autocomplete users ([#746](https://github.com/gtms-org/gtms-frontend/issues/746)) ([37a52ef](https://github.com/gtms-org/gtms-frontend/commit/37a52efc57223907ccbd0f0a946cf9a7f501f195))
-
-
-
-
+- GEOT-343: autocomplete users ([#746](https://github.com/gtms-org/gtms-frontend/issues/746)) ([37a52ef](https://github.com/gtms-org/gtms-frontend/commit/37a52efc57223907ccbd0f0a946cf9a7f501f195))
 
 ## [0.35.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.35.0...@gtms/ui@0.35.1) (2020-07-19)
 
-
 ### Bug Fixes
 
-* GEOT-342: allow to type username during registration ([#745](https://github.com/gtms-org/gtms-frontend/issues/745)) ([9dfcffe](https://github.com/gtms-org/gtms-frontend/commit/9dfcffed75449a73712a5b470b06803f464927f3))
-
-
-
-
+- GEOT-342: allow to type username during registration ([#745](https://github.com/gtms-org/gtms-frontend/issues/745)) ([9dfcffe](https://github.com/gtms-org/gtms-frontend/commit/9dfcffed75449a73712a5b470b06803f464927f3))
 
 # [0.35.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.34.0...@gtms/ui@0.35.0) (2020-07-16)
 
-
 ### Features
 
-* GEOT-337: managed promoted tags from group page ([#742](https://github.com/gtms-org/gtms-frontend/issues/742)) ([154f20d](https://github.com/gtms-org/gtms-frontend/commit/154f20dd9f57e4180eb1e6a08369d98bb8aa65c2))
-
-
-
-
+- GEOT-337: managed promoted tags from group page ([#742](https://github.com/gtms-org/gtms-frontend/issues/742)) ([154f20d](https://github.com/gtms-org/gtms-frontend/commit/154f20dd9f57e4180eb1e6a08369d98bb8aa65c2))
 
 # [0.34.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.33.0...@gtms/ui@0.34.0) (2020-07-15)
 
-
 ### Features
 
-* GEOT-336 favs posts ([#738](https://github.com/gtms-org/gtms-frontend/issues/738)) ([9baf034](https://github.com/gtms-org/gtms-frontend/commit/9baf0347567ebc8c6646f7f3343277743b28a933))
-
-
-
-
+- GEOT-336 favs posts ([#738](https://github.com/gtms-org/gtms-frontend/issues/738)) ([9baf034](https://github.com/gtms-org/gtms-frontend/commit/9baf0347567ebc8c6646f7f3343277743b28a933))
 
 # [0.33.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.32.0...@gtms/ui@0.33.0) (2020-07-13)
 
-
 ### Features
 
-* GEOT-335: indicate active filter tags in posts ([#734](https://github.com/gtms-org/gtms-frontend/issues/734)) ([4ff2122](https://github.com/gtms-org/gtms-frontend/commit/4ff2122751e472aba75a1b3fe249e41c227ebe16))
-
-
-
-
+- GEOT-335: indicate active filter tags in posts ([#734](https://github.com/gtms-org/gtms-frontend/issues/734)) ([4ff2122](https://github.com/gtms-org/gtms-frontend/commit/4ff2122751e472aba75a1b3fe249e41c227ebe16))
 
 # [0.32.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.31.0...@gtms/ui@0.32.0) (2020-07-11)
 
-
 ### Features
 
-* GEOT-331: filter posts by tag on group page ([#729](https://github.com/gtms-org/gtms-frontend/issues/729)) ([1487b44](https://github.com/gtms-org/gtms-frontend/commit/1487b448102e8133ad739045cbb9333f3a8e868b))
-
-
-
-
+- GEOT-331: filter posts by tag on group page ([#729](https://github.com/gtms-org/gtms-frontend/issues/729)) ([1487b44](https://github.com/gtms-org/gtms-frontend/commit/1487b448102e8133ad739045cbb9333f3a8e868b))
 
 # [0.31.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.6...@gtms/ui@0.31.0) (2020-07-10)
 
-
 ### Features
 
-* GEOT-329: add suggested tags UI ([#726](https://github.com/gtms-org/gtms-frontend/issues/726)) ([0b38f99](https://github.com/gtms-org/gtms-frontend/commit/0b38f99939b72df38b7b4cb17e3f234b47f42137))
-
-
-
-
+- GEOT-329: add suggested tags UI ([#726](https://github.com/gtms-org/gtms-frontend/issues/726)) ([0b38f99](https://github.com/gtms-org/gtms-frontend/commit/0b38f99939b72df38b7b4cb17e3f234b47f42137))
 
 ## [0.30.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.5...@gtms/ui@0.30.6) (2020-07-09)
 
-
 ### Bug Fixes
 
-* GEOT-327 subcomments handling ([#725](https://github.com/gtms-org/gtms-frontend/issues/725)) ([bfd01c6](https://github.com/gtms-org/gtms-frontend/commit/bfd01c67507516f6b8091ee2309bf22c3994b008))
-
-
-
-
+- GEOT-327 subcomments handling ([#725](https://github.com/gtms-org/gtms-frontend/issues/725)) ([bfd01c6](https://github.com/gtms-org/gtms-frontend/commit/bfd01c67507516f6b8091ee2309bf22c3994b008))
 
 ## [0.30.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.4...@gtms/ui@0.30.5) (2020-07-09)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.30.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.3...@gtms/ui@0.30.4) (2020-07-09)
-
 
 ### Bug Fixes
 
-* GEOT-325: better comments handling ([#714](https://github.com/gtms-org/gtms-frontend/issues/714)) ([774968f](https://github.com/gtms-org/gtms-frontend/commit/774968fe48b174058f68db6fe72aed4d0f3ea096))
-
-
-
-
+- GEOT-325: better comments handling ([#714](https://github.com/gtms-org/gtms-frontend/issues/714)) ([774968f](https://github.com/gtms-org/gtms-frontend/commit/774968fe48b174058f68db6fe72aed4d0f3ea096))
 
 ## [0.30.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.2...@gtms/ui@0.30.3) (2020-07-09)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.30.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.1...@gtms/ui@0.30.2) (2020-07-08)
-
 
 ### Bug Fixes
 
-* GEOT-325: post creation fixes ([#712](https://github.com/gtms-org/gtms-frontend/issues/712)) ([3637245](https://github.com/gtms-org/gtms-frontend/commit/3637245c1215358d80162b34516646cd803c27b6))
-
-
-
-
+- GEOT-325: post creation fixes ([#712](https://github.com/gtms-org/gtms-frontend/issues/712)) ([3637245](https://github.com/gtms-org/gtms-frontend/commit/3637245c1215358d80162b34516646cd803c27b6))
 
 ## [0.30.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.30.0...@gtms/ui@0.30.1) (2020-07-07)
 
-
 ### Bug Fixes
 
-* GEOT-323 group page css changes ([#710](https://github.com/gtms-org/gtms-frontend/issues/710)) ([e3d0cfa](https://github.com/gtms-org/gtms-frontend/commit/e3d0cfa449f38734784f3bb0e5efbbe4ea93987a))
-
-
-
-
+- GEOT-323 group page css changes ([#710](https://github.com/gtms-org/gtms-frontend/issues/710)) ([e3d0cfa](https://github.com/gtms-org/gtms-frontend/commit/e3d0cfa449f38734784f3bb0e5efbbe4ea93987a))
 
 # [0.30.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.29.1...@gtms/ui@0.30.0) (2020-07-07)
 
-
 ### Bug Fixes
 
-* GEOT-324: mixin for buttons ([#711](https://github.com/gtms-org/gtms-frontend/issues/711)) ([cb1323d](https://github.com/gtms-org/gtms-frontend/commit/cb1323daf522e90262dc11a9ed8ea145593e3de4))
-
+- GEOT-324: mixin for buttons ([#711](https://github.com/gtms-org/gtms-frontend/issues/711)) ([cb1323d](https://github.com/gtms-org/gtms-frontend/commit/cb1323daf522e90262dc11a9ed8ea145593e3de4))
 
 ### Features
 
-* GEOT-321: display post comments ([#708](https://github.com/gtms-org/gtms-frontend/issues/708)) ([1f9d1df](https://github.com/gtms-org/gtms-frontend/commit/1f9d1dfd2fdfa1b1398f443e33ae266bda56897c))
-
-
-
-
+- GEOT-321: display post comments ([#708](https://github.com/gtms-org/gtms-frontend/issues/708)) ([1f9d1df](https://github.com/gtms-org/gtms-frontend/commit/1f9d1dfd2fdfa1b1398f443e33ae266bda56897c))
 
 ## [0.29.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.29.0...@gtms/ui@0.29.1) (2020-07-07)
 
