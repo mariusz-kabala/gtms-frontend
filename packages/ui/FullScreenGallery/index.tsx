@@ -11,12 +11,21 @@ import styles from './styles.scss'
 export const FullScreenGallery: FC<{
   additionalStyles?: string
   isActive: boolean
+  currentBg: string
   gallery: {
     name: string
     className: string
   }[]
+  onBgChange: (name: string) => unknown
   onClose: () => unknown
-}> = ({ additionalStyles, isActive, onClose, gallery }) => {
+}> = ({
+  additionalStyles,
+  isActive,
+  onClose,
+  gallery,
+  onBgChange,
+  currentBg,
+}) => {
   useEffect(() => {
     disableBodyScroll(document.body)
 
@@ -30,7 +39,9 @@ export const FullScreenGallery: FC<{
   const [isImageWrapperActive, setIsImageWrapperActive] = useState<boolean>(
     true
   )
-  const [activeBg, setActiveBg] = useState<number>(0)
+  const [activeBg, setActiveBg] = useState<number>(
+    gallery.findIndex((g) => g.name === currentBg)
+  )
 
   return (
     <div
@@ -58,7 +69,13 @@ export const FullScreenGallery: FC<{
             </i>
             Browse gallery
           </Button>
-          <Button additionalStyles={styles.btn} onClick={() => onClose()}>
+          <Button
+            additionalStyles={styles.btn}
+            onClick={() => {
+              onBgChange(gallery[activeBg].name)
+              onClose()
+            }}
+          >
             <i>
               <IoIosCheckmarkCircle />
             </i>
