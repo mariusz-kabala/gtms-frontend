@@ -10,7 +10,6 @@ import {
 } from '@gtms/state-group'
 import { hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
-import { GroupType, GroupVisibility } from '@gtms/commons/enums'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
 //sections
@@ -24,6 +23,7 @@ import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
@@ -68,6 +68,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
       if (!value.isLoading && !groupQuery.hasAdminRights()) {
         return redirect(`/group/${slug}`)
       }
+
       setGroup(value)
     })
 
@@ -153,17 +154,18 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
               <>
                 <GroupAvatarSettings avatar={group.group?.avatar} />
                 <GroupBackgroundSettings bg={group.group?.avatar} />
-                <BasicSettings
-                  slug={group.group?.slug || ''}
-                  name={group.group?.name || ''}
-                  description={group.group?.description || ''}
-                  visibility={group.group?.visibility || GroupVisibility.public}
-                  type={group.group?.type || GroupType.public}
-                />
-                <GroupDeleteGroup
-                  additionalStyles={styles.btn}
-                  onConfirm={() => null}
-                />
+                {group.group && <BasicSettings group={group.group} />}
+
+                <div className={styles.deleteAccount}>
+                  <div className={styles.btn}>
+                    <h2>Oh no! Do not</h2>
+                    <GroupDeleteGroup onConfirm={() => null} />
+                  </div>
+                  <Picture
+                    additionalStyles={styles.ohnoimage}
+                    jpg={'/images/white-theme/ohno.png'}
+                  />
+                </div>
               </>
             )}
 

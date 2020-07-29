@@ -4,8 +4,10 @@
 .wrapper {
   display: none; // for show hide functionality
   flex: 1;
+
   .list {
     width: 100%;
+
     li {
       border-radius: $borderRadius;
       overflow: hidden;

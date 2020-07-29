@@ -5,38 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.4.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-notifications@0.4.1...@gtms/api-notifications@0.4.2) (2020-07-27)
 
-
 ### Bug Fixes
 
-* GEOT-387: multiple calls to notification settings endpoint ([#778](https://github.com/gtms-org/gtms-frontend/issues/778)) ([003e5aa](https://github.com/gtms-org/gtms-frontend/commit/003e5aa214398ece8f76e32f76a89522c8da795b))
-
-
-
-
+- GEOT-387: multiple calls to notification settings endpoint ([#778](https://github.com/gtms-org/gtms-frontend/issues/778)) ([003e5aa](https://github.com/gtms-org/gtms-frontend/commit/003e5aa214398ece8f76e32f76a89522c8da795b))
 
 ## [0.4.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-notifications@0.4.0...@gtms/api-notifications@0.4.1) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/api-notifications
 
-
-
-
-
 # [0.4.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-notifications@0.3.0...@gtms/api-notifications@0.4.0) (2020-07-06)
-
 
 ### Bug Fixes
 
-* GEOT-317: webpush fixes and login redirection loop fixes ([#705](https://github.com/gtms-org/gtms-frontend/issues/705)) ([019fe0a](https://github.com/gtms-org/gtms-frontend/commit/019fe0ad2853b359ae476fd07d9706180b1ab04f))
-
+- GEOT-317: webpush fixes and login redirection loop fixes ([#705](https://github.com/gtms-org/gtms-frontend/issues/705)) ([019fe0a](https://github.com/gtms-org/gtms-frontend/commit/019fe0ad2853b359ae476fd07d9706180b1ab04f))
 
 ### Features
 
-* GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
-
-
-
-
+- GEOT-316: general styles part5 ([#702](https://github.com/gtms-org/gtms-frontend/issues/702)) ([29d101f](https://github.com/gtms-org/gtms-frontend/commit/29d101f8a85e3cd1a9d629336aede625ca8e876a))
 
 # [0.3.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-notifications@0.2.1...@gtms/api-notifications@0.3.0) (2020-06-30)
 

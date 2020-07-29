@@ -1,6 +1,6 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/fontSize';
-@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
@@ -10,6 +10,7 @@
 
 .wrapper {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   padding: 20px;
   max-width: 980px;
@@ -41,6 +42,29 @@
           }
         }
       }
+    }
+  }
+
+  .deleteAccount {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    max-width: 600px;
+
+    .btn {
+      position: absolute;
+      top: 110px;
+      left: 90px;
+
+      h2 {
+        @include font-size(lg);
+        @include font-weight(semiBold);
+      }
+    }
+
+    .ohnoimage {
+      width: 100%;
     }
   }
 }

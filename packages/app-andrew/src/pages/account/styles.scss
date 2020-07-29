@@ -1,12 +1,12 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
-@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
   @include pageWrapper();
-  max-width: 600px;
+  max-width: 700px;
   padding-left: 6px;
   margin-left: -6px;
 }
@@ -40,14 +40,17 @@
       @include font-size(xdefault);
 
       li {
-        margin-left: 10px;
-        padding: 5px 15px;
-        border-radius: $borderRadius;
-        background: $theme2;
+        a {
+          display: block;
+          margin-left: 10px;
+          padding: 5px 15px;
+          border-radius: $borderRadius;
+          background: $theme2;
 
-        &:hover {
-          background: $theme4;
-          color: $theme0;
+          &:hover {
+            background: $theme4;
+            color: $theme0;
+          }
         }
       }
     }
@@ -86,10 +89,13 @@
   .userHeader {
     display: flex;
     align-items: center;
+    margin: 5px 0;
 
     .avatarWrapper {
       min-width: 100px;
       min-height: 100px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       overflow: hidden;
 
@@ -99,7 +105,7 @@
     }
 
     .userNameSurnameLogin {
-      @include font-size(xlg);
+      @include font-size(md);
       @include font-weight(semiBold);
       margin-left: 15px;
 
@@ -140,6 +146,7 @@
         @include buttonDefault();
         @include buttonSizeDefault();
         @include buttonShapePrimary();
+        @include buttonWithIcon();
         @include buttonColorsDefault();
 
         i {
@@ -154,7 +161,7 @@
   }
 
   .userTags {
-    margin-top: 10px;
+    margin-top: 15px;
 
     span {
       // @todo create mixin of that
@@ -167,7 +174,7 @@
 
   .userStats {
     display: flex;
-    margin: 10px 0;
+    margin: 15px 0;
     text-transform: uppercase;
 
     .item {
@@ -177,6 +184,10 @@
         display: block;
         @include font-size(xdefault);
         @include font-weight(bold);
+      }
+
+      &:hover {
+        color: $theme4;
       }
     }
   }
@@ -197,15 +208,18 @@
       display: inline-block;
       @include font-size(xxs);
       text-transform: uppercase;
-      margin-bottom: 3px;
+      margin-bottom: 10px;
     }
-    ul {
-      li {
-        width: 100%;
-        height: 350px;
-        margin-top: 10px;
-        border-radius: $borderRadius;
-        background: $theme2;
+
+    .noRecords {
+      width: 100%;
+
+      > div {
+        margin-bottom: 20px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
   }

@@ -7,133 +7,69 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 ## [0.8.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.8...@gtms/state-post@0.8.9) (2020-07-28)
 
 **Note:** Version bump only for package @gtms/state-post
-
-
-
-
 
 ## [0.8.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.7...@gtms/state-post@0.8.8) (2020-07-27)
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 ## [0.8.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.6...@gtms/state-post@0.8.7) (2020-07-24)
 
 **Note:** Version bump only for package @gtms/state-post
-
-
-
-
 
 ## [0.8.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.5...@gtms/state-post@0.8.6) (2020-07-22)
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 ## [0.8.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.4...@gtms/state-post@0.8.5) (2020-07-21)
 
 **Note:** Version bump only for package @gtms/state-post
-
-
-
-
 
 ## [0.8.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.3...@gtms/state-post@0.8.4) (2020-07-20)
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 ## [0.8.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.2...@gtms/state-post@0.8.3) (2020-07-19)
 
 **Note:** Version bump only for package @gtms/state-post
-
-
-
-
 
 ## [0.8.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.1...@gtms/state-post@0.8.2) (2020-07-19)
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 ## [0.8.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.0...@gtms/state-post@0.8.1) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 # [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.7.0...@gtms/state-post@0.8.0) (2020-07-11)
-
 
 ### Features
 
-* GEOT-331: filter posts by tag on group page ([#729](https://github.com/gtms-org/gtms-frontend/issues/729)) ([1487b44](https://github.com/gtms-org/gtms-frontend/commit/1487b448102e8133ad739045cbb9333f3a8e868b))
-
-
-
-
+- GEOT-331: filter posts by tag on group page ([#729](https://github.com/gtms-org/gtms-frontend/issues/729)) ([1487b44](https://github.com/gtms-org/gtms-frontend/commit/1487b448102e8133ad739045cbb9333f3a8e868b))
 
 # [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.6.3...@gtms/state-post@0.7.0) (2020-07-11)
 
-
 ### Features
 
-* GEOT-333: search post store ([#730](https://github.com/gtms-org/gtms-frontend/issues/730)) ([663b620](https://github.com/gtms-org/gtms-frontend/commit/663b620285642245917130fde4e99b41ec4a3bc3))
-
-
-
-
+- GEOT-333: search post store ([#730](https://github.com/gtms-org/gtms-frontend/issues/730)) ([663b620](https://github.com/gtms-org/gtms-frontend/commit/663b620285642245917130fde4e99b41ec4a3bc3))
 
 ## [0.6.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.6.2...@gtms/state-post@0.6.3) (2020-07-09)
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 ## [0.6.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.6.1...@gtms/state-post@0.6.2) (2020-07-09)
-
 
 ### Bug Fixes
 
-* GEOT-325: better comments handling ([#714](https://github.com/gtms-org/gtms-frontend/issues/714)) ([774968f](https://github.com/gtms-org/gtms-frontend/commit/774968fe48b174058f68db6fe72aed4d0f3ea096))
-
-
-
-
+- GEOT-325: better comments handling ([#714](https://github.com/gtms-org/gtms-frontend/issues/714)) ([774968f](https://github.com/gtms-org/gtms-frontend/commit/774968fe48b174058f68db6fe72aed4d0f3ea096))
 
 ## [0.6.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.6.0...@gtms/state-post@0.6.1) (2020-07-09)
 
-
 ### Bug Fixes
 
-* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
-
-
-
-
+- GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
 
 # [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.5.0...@gtms/state-post@0.6.0) (2020-07-07)
 
