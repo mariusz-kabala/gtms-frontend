@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.61.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.60.0...@gtms/app-andrew@0.61.0) (2020-07-29)
+
+
+### Features
+
+* GEOT-391: basic group settings component ([#783](https://github.com/gtms-org/gtms-frontend/issues/783)) ([4282657](https://github.com/gtms-org/gtms-frontend/commit/4282657365d4a1c49286f6003fe71d99cf8616b1))
+
+
+
+
+
 # [0.60.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.59.1...@gtms/app-andrew@0.60.0) (2020-07-29)
 
 
