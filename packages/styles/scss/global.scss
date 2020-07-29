@@ -1,7 +1,7 @@
 @import '~reset-css/sass/reset';
 @import './variables.scss';
-@import '~@gtms/styles/scss/mixins/fontSize';
-@import '~@gtms/styles/scss/mixins/fontWeight';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 html {
   box-sizing: border-box;
