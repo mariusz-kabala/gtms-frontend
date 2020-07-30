@@ -15,15 +15,13 @@ export const InviteFriends: FC<{
       data-testid="invite-friends"
     >
       <div className={styles.content}>
-        <h2 className={styles.header}>
-          {t('header')}
-          <span className={styles.subheader}>{t('subheader')}</span>
-          <ClickToCopy
-            additionalStyles={styles.btn}
-            text="wejdz na www.jedziemyna.pl"
-          />
-          <img src="images/polandrock/invite-bg.png" />
-        </h2>
+        <h2 className={styles.header}>{t('header')}</h2>
+        <span className={styles.subheader}>{t('subheader')}</span>
+        <ClickToCopy
+          additionalStyles={styles.btn}
+          text="wejdz na www.jedziemyna.pl"
+        />
+        <img src="images/polandrock/invite-bg.png" />
       </div>
     </div>
   )

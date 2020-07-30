@@ -6,8 +6,22 @@
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapePrimary();
-  @include buttonColorsDefault();
+  @include buttonWithIcon();
+  @include buttonColorsPrimary();
+  @include buttonWithoutBackground();
+
   &:hover {
-    @include buttonColorsPrimary();
+    @include buttonColorsQuaternary();
+  }
+
+  &.isLoading {
+    padding-left: 55px;
+    position: relative;
+
+    .loader {
+      position: absolute;
+      width: 45px;
+      left: 5px;
+    }
   }
 }

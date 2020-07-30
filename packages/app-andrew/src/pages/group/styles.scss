@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
   max-width: 900px;
   border-radius: $borderRadius;
@@ -76,6 +75,7 @@
         @include buttonDefault();
         @include buttonSizeDefault();
         @include buttonShapePrimary();
+        @include buttonWithIcon();
         @include buttonColorsSecondary();
         position: relative;
         margin-right: 15px;
@@ -111,7 +111,7 @@
   .groupPostsListWrapper {
     width: 100%;
     overflow: hidden;
-    display: none;
+    background: $theme2;
 
     > div {
       margin: 10px;

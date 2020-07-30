@@ -11,24 +11,27 @@
   left: 0;
   bottom: 0;
   right: 0;
-  margin: auto;
-  padding: 40px;
   width: 700px;
+  padding: 40px;
+  margin: auto;
+  border-radius: $borderRadius;
   max-height: 85%;
   background: #bdd3eb;
   color: #584147;
   @include imageCover();
 
-  h2 {
+  .header {
+    @include font-size(xlg);
     @include font-weight(bold);
-    @include font-size(xxlg);
     text-transform: uppercase;
+  }
 
-    .subheader {
-      display: block;
-      @include font-size(lg);
-      text-transform: initial;
-    }
+  .subheader {
+    @include font-size(lg);
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-transform: initial;
   }
 
   .btn {

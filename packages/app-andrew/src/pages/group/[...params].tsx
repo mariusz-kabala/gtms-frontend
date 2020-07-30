@@ -39,6 +39,7 @@ import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
+import { IoMdGrid } from 'react-icons/io'
 // state
 import { openLoginModal } from 'state'
 import {
@@ -219,6 +220,10 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </div>
             </div>
             <WelcomeSlider />
+            <GroupMembers
+              additionalStyles={styles.groupMembers}
+              {...state.members}
+            />
             <div className={styles.groupPostsListWrapper}>
               <div className={styles.searchInput}>
                 <div className={styles.search}>
@@ -228,6 +233,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       [styles.active]: showPromoted,
                     })}
                   >
+                    <i>
+                      <IoMdGrid />
+                    </i>
                     Tags
                   </Button>
                   <SearchBar
@@ -241,19 +249,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </div>
               </div>
               {showPromoted && <PromotedTags />}
-              <GroupMembers
-                additionalStyles={styles.groupMembers}
-                {...state.members}
-              />
+              <NavigationTabs>
+                <h2 className={styles.header}>Posts</h2>
+                <ul className={styles.elements}>
+                  <li className={cx(styles.item, styles.active)}>latest</li>
+                  <li className={styles.item}>popular</li>
+                </ul>
+              </NavigationTabs>
               <div className={styles.posts}>
                 <div>
-                  <NavigationTabs>
-                    <h2 className={styles.header}>Posts</h2>
-                    <ul className={styles.elements}>
-                      <li className={cx(styles.item, styles.active)}>latest</li>
-                      <li className={styles.item}>popular</li>
-                    </ul>
-                  </NavigationTabs>
                   <PostCreate
                     fetchTags={findTagsAPI}
                     fetchUsers={findbyUsernameAPI}

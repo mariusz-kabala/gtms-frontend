@@ -3,11 +3,13 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  width: 0;
-  height: 100vh;
-  max-width: 400px;
+  position: relative;
+  z-index: 1;
   padding: 10px;
-  border-radius: $borderRadius;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
   background: $theme0;
 
   &.opened {
@@ -20,7 +22,7 @@
     display: flex;
     margin: 5px 0 10px 0;
 
-    h2 {
+    .header {
       display: flex;
       align-items: center;
       @include font-weight(semiBold);
@@ -33,13 +35,13 @@
       }
     }
 
-    ul {
+    .items {
       display: flex;
       align-items: center;
       margin-left: 10px;
       cursor: pointer;
 
-      li {
+      .item {
         padding: 5px 10px;
         border-radius: $borderRadius;
         margin-right: 10px;

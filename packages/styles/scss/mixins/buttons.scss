@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   background: none;
+  border-color: $theme0;
   border: none;
   outline: none;
   justify-content: center;
@@ -18,6 +19,7 @@
   &:focus,
   &:hover {
     outline: none;
+    border-color: $theme4;
   }
 }
 
@@ -37,6 +39,10 @@
       margin-left: 3px;
     }
   }
+}
+
+@mixin buttonWithoutBackground() {
+  background: none;
 }
 
 // SIZES
@@ -84,4 +90,9 @@
 @mixin buttonColorsTertiary() {
   background: $theme9;
   color: $theme1;
+}
+
+@mixin buttonColorsQuaternary() {
+  background: $theme0;
+  color: $theme4;
 }

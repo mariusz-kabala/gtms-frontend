@@ -29,11 +29,11 @@
       border-radius: $borderRadius;
       background: $theme0;
 
-      .header {
+      .headerWrapper {
         display: flex;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
 
-        h2 {
+        .header {
           // @todo make mixin of that
           font-size: 2em;
           text-transform: uppercase;

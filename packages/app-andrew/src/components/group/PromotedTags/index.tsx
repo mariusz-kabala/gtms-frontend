@@ -6,14 +6,15 @@ import {
 } from './state.query'
 import { PromotedTagsForm } from 'components/group-settings/PromotedTagForm'
 import { PromotedTagNoImage } from 'enums'
-import { PromotedTags as PromotedTagsUI } from '@gtms/ui/PromotedTags'
-import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
 import {
   reloadGroupPromotedTagsSilently,
   deletePromotedTag,
 } from '@gtms/state-tag'
-import { Modal } from '@gtms/ui/Modal'
 import { IPromotedTag } from '@gtms/commons/models'
+// ui
+import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
+import { Modal } from '@gtms/ui/Modal'
+import { PromotedTags as PromotedTagsUI } from '@gtms/ui/PromotedTags'
 
 export const PromotedTags: FC<{}> = () => {
   const [state, setState] = useState<IPromotedTagsState>(promotedTagsState())

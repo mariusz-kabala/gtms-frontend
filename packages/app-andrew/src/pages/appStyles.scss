@@ -4,33 +4,16 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+
+.pageWrapper {
+  @include pageWrapper();
+  max-width: 100%;
+}
 
 .wrapper {
   width: 100%;
-  background: #7f993d;
-
-  > section {
-    position: relative;
-    margin: 0 20px;
-    padding: 40px;
-    margin-bottom: 20px;
-
-    .header {
-      @include header(h3, textUppercase);
-      @include font-weight(bold);
-      margin-bottom: 20px;
-    }
-  }
-
-  .search {
-    padding: 20px 0 50px 0;
-    text-align: center;
-    @include font-size(lg);
-  }
-
-  .recentPosts {
-    margin-top: 20px;
-  }
+  padding: 20px;
 
   .btn {
     margin-left: 5px;

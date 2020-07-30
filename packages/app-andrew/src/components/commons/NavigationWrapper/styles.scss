@@ -1,10 +1,17 @@
 @import '~@gtms/styles/scss/variables.scss';
 
-.mainNav {
+.wrapper {
+  position: relative;
+  z-index: 1;
+  min-width: 62px;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
   border-radius: $borderRadius;
   background: $theme0;
+
+  .positionFixed {
+    position: fixed;
+  }
 }

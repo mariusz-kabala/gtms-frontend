@@ -1,13 +1,14 @@
 import React, { FC, useState } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
-import { GroupCard } from '@gtms/ui/GroupCard'
-import { Modal } from '@gtms/ui/Modal'
-import { UserCardMini } from '@gtms/ui/UserCardMini'
 import { IGroup, IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { fetchGroupMembers } from '@gtms/api-group'
 import { GroupAvatarNoImage, UserAvatarNoImage } from 'enums'
+// ui
+import { GroupCard } from '@gtms/ui/GroupCard'
+import { Modal } from '@gtms/ui/Modal'
+import { GridCard } from '@gtms/ui/GridCard'
+import styles from './styles.scss'
 
 export const RecentlyCreatedGroups: FC<{
   groups: IGroup[]
@@ -58,7 +59,7 @@ export const RecentlyCreatedGroups: FC<{
         </Modal>
       )}
       {groups.map((group) => (
-        <UserCardMini
+        <GridCard
           onClick={async () => {
             setModalState({
               isLoading: true,

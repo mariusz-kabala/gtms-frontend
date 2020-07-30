@@ -8,8 +8,10 @@ import {
   leaveGroup,
 } from '@gtms/state-user'
 import { openLoginModal } from '../../../state'
-import styles from './styles.scss'
+// ui
+import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 export const JoinLeaveButton: FC<{ group: IGroup }> = ({ group }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -42,21 +44,13 @@ export const JoinLeaveButton: FC<{ group: IGroup }> = ({ group }) => {
   }, [])
   const { t } = useTranslation('groupPage')
 
-  if (status.isLoading || isLoading) {
-    return (
-      <button className={styles.btn}>
-        <Spinner />
-      </button>
-    )
-  }
-
   if (status.errorOccurred || status.isGroupAdmin || status.isGroupOwner) {
     return null
   }
 
   return (
-    <button
-      className={styles.btn}
+    <Button
+      additionalStyles={styles.btn}
       onClick={() => {
         if (!userQuery.isLogged()) {
           return openLoginModal()
@@ -69,9 +63,10 @@ export const JoinLeaveButton: FC<{ group: IGroup }> = ({ group }) => {
         method(group).finally(() => setIsLoading(false))
       }}
     >
+      {(status.isLoading || isLoading) && <Spinner />}
       {status.canJoinGroup || !userQuery.isLogged()
         ? t('join-this-group')
         : t('leave-this-group')}
-    </button>
+    </Button>
   )
 }

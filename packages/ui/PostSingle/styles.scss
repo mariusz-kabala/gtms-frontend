@@ -1,28 +1,15 @@
 @import '@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
 .wrapper {
   position: relative;
   overflow: hidden; // for delete post component that overflows this component
   cursor: pointer;
-  opacity: 0.85;
-  padding: 10px;
   border-radius: $borderRadius;
   background: $theme0;
-  border: 2px solid $theme0;
-
-  &:hover {
-    border-color: $theme4;
-    opacity: 1;
-
-    .header {
-      .deleteBtn {
-        opacity: 0.8;
-      }
-    }
-  }
 
   .header {
     display: flex;
@@ -76,15 +63,21 @@
   .desc {
     .text {
       margin-top: 5px;
+      @include font-size(sm);
 
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
       }
     }
-  }
 
-  .tagGroup {
-    margin: 10px 0;
+    .tagGroup {
+      margin: 10px 0;
+
+      .activeTag {
+        background-color: $theme4;
+        color: $theme0;
+      }
+    }
   }
 
   .postResponseCreate {
@@ -98,7 +91,7 @@
   .respondBtn {
     @include buttonDefault();
     @include buttonShapePrimary();
-    @include buttonSizeDefault();
+    @include buttonSizeSm();
     @include buttonColorsDefault();
     margin-right: auto;
 
@@ -110,16 +103,11 @@
   .readMoreBtn {
     @include buttonDefault();
     @include buttonShapePrimary();
-    @include buttonSizeDefault();
+    @include buttonSizeSm();
     @include buttonColorsDefault();
 
     &:hover {
       @include buttonColorsPrimary();
     }
   }
-}
-
-.activeTag {
-  background-color: $theme4;
-  color: $theme0;
 }

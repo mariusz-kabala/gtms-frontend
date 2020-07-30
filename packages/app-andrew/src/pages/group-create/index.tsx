@@ -15,8 +15,8 @@ export const GroupCreatePage: NextPage<{}> = () => {
       <div className={styles.wrapper} data-testid="group-create-page">
         <div>
           <Picture jpg={'/images/white-theme/group-create.png'} />
-          <h2>{t('header')}</h2>
-          <p>{t('subheader')}</p>
+          <h2 className={styles.header}>{t('header')}</h2>
+          <p className={styles.desc}>{t('subheader')}</p>
           <GroupCreate />
         </div>
       </div>
