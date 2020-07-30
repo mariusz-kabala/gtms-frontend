@@ -1,52 +1,28 @@
 import React, { FC, useCallback, useState } from 'react'
-import { IGroupBg } from '@gtms/commons/models'
-import { GroupBgNoImage } from '../../../enums'
-import { updateGroupAvatar } from '@gtms/state-group'
+import { IGroup } from '@gtms/commons/models'
+import { updateGroup } from '@gtms/state-group'
 // ui
-import { IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { FullScreenGallery } from '@gtms/ui/FullScreenGallery'
-import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
-import { Modal } from '@gtms/ui/Modal'
-import { UploadFile } from '@gtms/ui/UploadFile'
+// styles
 import styles from './styles.scss'
+import { BACKGROUNDS_GALLERY } from 'enums'
+import { changePageBackground } from 'state'
 
-export const GroupBackgroundSettings: FC<{ bg?: IGroupBg }> = ({ bg }) => {
-  const [bgUploadStatus, setBgUploadStatus] = useState<{
-    isUploading: boolean
-    isError: boolean
-  }>({
-    isError: false,
-    isUploading: false,
-  })
-
-  const onBgDrop = useCallback((acceptedFiles) => {
-    setBgUploadStatus({
-      isUploading: true,
-      isError: false,
-    })
-
-    updateGroupAvatar(acceptedFiles[0])
-      .then(() => {
-        setBgUploadStatus({
-          isUploading: false,
-          isError: false,
-        })
-      })
-      .catch(() => {
-        setBgUploadStatus({
-          isUploading: false,
-          isError: true,
-        })
-      })
-  }, [])
-
-  const [showUploadFileGroupBg, setShowUploadFileGroupBg] = useState<boolean>(
-    false
-  )
+export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
   const [isFullScreenGalleryOpen, setIsFullScreenGalleryOpen] = useState<
     boolean
   >(false)
+
+  const onBgChange = useCallback((name: string) => {
+    updateGroup(
+      {
+        bgType: name,
+      },
+      group.slug
+    )
+    changePageBackground(name)
+  }, [])
 
   return (
     <div
@@ -54,39 +30,18 @@ export const GroupBackgroundSettings: FC<{ bg?: IGroupBg }> = ({ bg }) => {
       className={styles.wrapper}
     >
       <FullScreenGallery
+        currentBg={group.bgType}
+        onBgChange={onBgChange}
+        gallery={BACKGROUNDS_GALLERY}
         isActive={isFullScreenGalleryOpen}
         onClose={() => setIsFullScreenGalleryOpen(false)}
       />
-      {showUploadFileGroupBg && (
-        <Modal onClose={() => setShowUploadFileGroupBg(false)}>
-          <UploadFile
-            additionalStyles={styles.uploadFile}
-            isError={bgUploadStatus.isError}
-            isLoading={bgUploadStatus.isUploading}
-            onDrop={onBgDrop}
-          />
-        </Modal>
-      )}
-      <div className={styles.imagePreview}>
-        <ImageWithLightbox
-          additionalStyles={styles.imagePreview}
-          src={bg?.files['200x200'] || GroupBgNoImage['200x200']}
-        />
-        <Button
-          onClick={() => setIsFullScreenGalleryOpen(true)}
-          additionalStyles={styles.btn}
-        >
-          Open gallery
-        </Button>
-        <Button
-          onClick={() => setShowUploadFileGroupBg(true)}
-          additionalStyles={styles.btn}
-        >
-          <i>
-            <IoIosSettings />
-          </i>
-        </Button>
-      </div>
+      <Button
+        onClick={() => setIsFullScreenGalleryOpen(true)}
+        additionalStyles={styles.btn}
+      >
+        Change group page background
+      </Button>
     </div>
   )
 }

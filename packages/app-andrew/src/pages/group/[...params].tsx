@@ -70,6 +70,7 @@ import {
   IPostCommentsState,
   initPostCommentsStore,
 } from '@gtms/state-comment'
+import { changePageBackground } from 'state'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
@@ -87,7 +88,13 @@ const getInitData = ({
   post,
   comments,
 }: GroupPageProps) => () => {
-  group && initGroup(group)
+  if (group) {
+    initGroup(group)
+
+    if (group.group?.bgType) {
+      changePageBackground(group.group?.bgType)
+    }
+  }
   posts && initPostsStore(posts, post)
   promoted && initPromoted(promoted)
   comments && initPostCommentsStore(comments)
@@ -351,9 +358,11 @@ GroupPage.getInitialProps = async (
     getGroupPosts(id, 0, 50, tag).catch(() => null),
     loadGroupPromotedTags(id).catch(() => null),
   ]).then(([post]) => {
+    const group = groupQuery.getValue()
+
     return {
       namespacesRequired: ['groupPage', 'postCreate'],
-      group: groupQuery.getValue(),
+      group,
       posts: postsQuery.getValue(),
       promoted: promotedTagsQuery.getValue(),
       comments: post ? postCommentsQuery.getValue() : undefined,

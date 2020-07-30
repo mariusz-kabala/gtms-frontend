@@ -8,6 +8,7 @@ export interface IGroupData {
   visibility?: string
   tags?: string[]
   slug?: string
+  bgType?: string
 }
 
 export const updateGroupAPI = (

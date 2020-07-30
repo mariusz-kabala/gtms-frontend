@@ -29,3 +29,8 @@ export const toggleSidebarNotifications = () =>
   uiStore.update((values) => ({
     isNotificationsBarOpen: !values.isNotificationsBarOpen,
   }))
+
+export const changePageBackground = (background: string) =>
+  uiStore.update({
+    background,
+  })

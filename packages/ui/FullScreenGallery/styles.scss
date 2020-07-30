@@ -104,7 +104,8 @@
           cursor: pointer;
         }
 
-        &:hover {
+        &:hover,
+        &.active {
           &:after {
             opacity: 1;
           }

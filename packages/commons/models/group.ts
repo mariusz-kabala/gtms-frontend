@@ -30,4 +30,5 @@ export interface IGroup {
   owner: string
   membersCounter: number
   postsCounter: number
+  bgType: string
 }
