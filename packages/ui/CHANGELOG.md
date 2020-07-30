@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.44.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.44.0...@gtms/ui@0.44.1) (2020-07-30)
+
+
+### Bug Fixes
+
+* GEOT-382: apply custom bg on group page ([#787](https://github.com/gtms-org/gtms-frontend/issues/787)) ([2423998](https://github.com/gtms-org/gtms-frontend/commit/242399893325e3f69bf93d3b028850a03212df55))
+
+
+
+
+
 # [0.44.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.43.0...@gtms/ui@0.44.0) (2020-07-29)
 
 
