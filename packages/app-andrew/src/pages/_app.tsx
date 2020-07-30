@@ -1,4 +1,5 @@
 import React from 'react'
+import cx from 'classnames'
 import App, { AppContext } from 'next/app'
 import Head from 'next/head'
 import { appWithTranslation } from '@gtms/commons/i18n'
@@ -8,6 +9,7 @@ import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from 'components/commons/LoginWindow'
+import { uiQuery } from 'state'
 
 import '@gtms/styles/scss/global.scss'
 import './tooltip.scss'
@@ -22,9 +24,32 @@ interface GTMSAppProps {
   pageProps: any
 }
 
-class GTMSApp extends App<GTMSAppProps> {
+interface GTMSAppState {
+  background: {
+    name: string
+    className: string
+  }
+}
+
+class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
+  private subscription: any
+
+  constructor(props: any) {
+    super(props)
+
+    this.state = {
+      background: uiQuery.pageBackground(),
+    }
+  }
+
   componentDidMount() {
     const { auth } = this.props
+
+    this.subscription = uiQuery.pageBackground$.subscribe((value) =>
+      this.setState({
+        background: value,
+      })
+    )
 
     if (auth?.accessToken && auth.refreshToken) {
       init(
@@ -35,6 +60,12 @@ class GTMSApp extends App<GTMSAppProps> {
       )
       initWPN()
     }
+  }
+
+  componentWillUnmount() {
+    this.subscription &&
+      !this.subscription.closed &&
+      this.subscription.unsubscribe()
   }
 
   render() {
@@ -50,12 +81,7 @@ class GTMSApp extends App<GTMSAppProps> {
         <NotificationsSidebar />
         <NavigationWrapper />
         <Component {...pageProps} />
-        <div
-          className={styles.bg}
-          style={{
-            backgroundImage: `url('/images/temp_images/group_bg_4.png')`,
-          }}
-        />
+        <div className={cx(styles.bg, this.state.background.className)} />
       </div>
     )
   }
