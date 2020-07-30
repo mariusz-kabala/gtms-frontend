@@ -1,13 +1,13 @@
 $columns: (
-  // 2: 1fr 1fr,
-    // 3: 1fr 1fr 1fr,
-    // 4: 1fr 1fr 1fr 1fr,
-    5: 1fr 1fr 1fr 1fr 1fr,
-  // 6: 1fr 1fr 1fr 1fr 1fr 1fr,
+  2: 1fr 1fr,
+  3: 1fr 1fr 1fr,
+  4: 1fr 1fr 1fr 1fr,
+  5: 1fr 1fr 1fr 1fr 1fr,
+  7: 1fr 1fr 1fr 1fr 1fr 1fr 1fr,
 );
 
 @function getColumnSize($key) {
-  @return map-get($font-size, $key);
+  @return map-get($columns, $key);
 }
 
 @mixin gridDefault($key) {
