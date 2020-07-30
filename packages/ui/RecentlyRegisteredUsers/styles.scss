@@ -22,6 +22,7 @@
   }
 
   .users {
+    // @todo create mixin for that
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-gap: 15px;

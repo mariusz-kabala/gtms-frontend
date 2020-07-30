@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
@@ -103,9 +104,7 @@
       }
 
       .socialButtons {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr 1fr;
+        @include gridDefault(2);
       }
     }
   }
