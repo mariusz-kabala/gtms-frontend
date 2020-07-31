@@ -11,8 +11,21 @@ import styles from './styles.scss'
 export const FullScreenGallery: FC<{
   additionalStyles?: string
   isActive: boolean
+  currentBg: string
+  gallery: {
+    name: string
+    className: string
+  }[]
+  onBgChange: (name: string) => unknown
   onClose: () => unknown
-}> = ({ additionalStyles, isActive, onClose }) => {
+}> = ({
+  additionalStyles,
+  isActive,
+  onClose,
+  gallery,
+  onBgChange,
+  currentBg,
+}) => {
   useEffect(() => {
     disableBodyScroll(document.body)
 
@@ -26,6 +39,9 @@ export const FullScreenGallery: FC<{
   const [isImageWrapperActive, setIsImageWrapperActive] = useState<boolean>(
     true
   )
+  const [activeBg, setActiveBg] = useState<number>(
+    gallery.findIndex((g) => g.name === currentBg)
+  )
 
   return (
     <div
@@ -35,11 +51,8 @@ export const FullScreenGallery: FC<{
       data-testid="full-screen-gallery"
     >
       <div
-        className={styles.canvas}
+        className={cx(styles.canvas, gallery[activeBg].className)}
         onClick={() => setIsImageWrapperActive(false)}
-        style={{
-          backgroundImage: `url('/images/temp_images/group_bg_4.png')`,
-        }}
       />
       <div
         className={cx(styles.imagesWrapper, {
@@ -56,7 +69,13 @@ export const FullScreenGallery: FC<{
             </i>
             Browse gallery
           </Button>
-          <Button additionalStyles={styles.btn} onClick={() => onClose()}>
+          <Button
+            additionalStyles={styles.btn}
+            onClick={() => {
+              onBgChange(gallery[activeBg].name)
+              onClose()
+            }}
+          >
             <i>
               <IoIosCheckmarkCircle />
             </i>
@@ -64,168 +83,19 @@ export const FullScreenGallery: FC<{
           </Button>
         </div>
         <Scrollbars style={{ width: '100%', height: '80%' }}>
-          <ul
-            className={styles.images}
-            onClick={() =>
-              isImageWrapperActive
-                ? setIsImageWrapperActive(false)
-                : setIsImageWrapperActive(true)
-            }
-          >
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-1.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-2.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-3.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-4.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-5.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-6.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-7.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-8.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-9.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-10.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-1.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-2.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-3.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-4.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-5.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-6.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-7.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-8.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-9.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-10.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-11.png')`,
-              }}
-            />
-            <li
-              onClick={() => setIsImageWrapperActive(false)}
-              className={styles.item}
-              style={{
-                backgroundImage: `url('/images/temp_images/logo-wioska-3.png')`,
-              }}
-            />
+          <ul className={styles.images}>
+            {gallery.map((bg, index) => (
+              <li
+                key={`bg-${index}`}
+                onClick={() => {
+                  setIsImageWrapperActive(false)
+                  setActiveBg(index)
+                }}
+                className={cx(styles.item, bg.className, {
+                  [styles.active]: index === activeBg,
+                })}
+              />
+            ))}
           </ul>
         </Scrollbars>
       </div>

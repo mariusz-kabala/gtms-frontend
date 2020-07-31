@@ -9,6 +9,7 @@ import {
   markAsLoading,
 } from '@gtms/state-group'
 import { hasAuthSessionCookies } from '@gtms/state-user'
+import { changePageBackground } from 'state'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
@@ -67,6 +68,10 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
     const groupSub = groupQuery.allState$.subscribe((value) => {
       if (!value.isLoading && !groupQuery.hasAdminRights()) {
         return redirect(`/group/${slug}`)
+      }
+
+      if (value.group?.bgType) {
+        changePageBackground(value.group?.bgType)
       }
 
       setGroup(value)
@@ -153,7 +158,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             {tab === Tabs.general && (
               <>
                 <GroupAvatarSettings avatar={group.group?.avatar} />
-                <GroupBackgroundSettings bg={group.group?.avatar} />
+                {group.group && <GroupBackgroundSettings group={group.group} />}
                 {group.group && <BasicSettings group={group.group} />}
 
                 <div className={styles.deleteAccount}>

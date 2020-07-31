@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.7...@gtms/api-group@0.13.8) (2020-07-30)
+
+
+### Bug Fixes
+
+* GEOT-382: apply custom bg on group page ([#787](https://github.com/gtms-org/gtms-frontend/issues/787)) ([2423998](https://github.com/gtms-org/gtms-frontend/commit/242399893325e3f69bf93d3b028850a03212df55))
+
+
+
+
+
 ## [0.13.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.6...@gtms/api-group@0.13.7) (2020-07-24)
 
 **Note:** Version bump only for package @gtms/api-group
