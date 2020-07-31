@@ -1,0 +1,13 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+
+.pageWrapper {
+  @include pageWrapper();
+  max-width: 600px;
+  padding-left: 6px;
+  margin-left: -6px;
+}
+
+.wrapper {
+  padding: 15px;
+}

@@ -123,19 +123,19 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
         {!state.isLoading && !state.errorOccured && (
           <>
             <div className={styles.navigation}>
-              <h2>My profile</h2>
-              <ul>
-                <li>
+              <h2 className={styles.header}>My profile</h2>
+              <ul className={styles.items}>
+                <li className={styles.item}>
                   <Link href="/account">
                     <a>My profile card</a>
                   </Link>
                 </li>
-                <li>
+                <li className={styles.item}>
                   <Link href="/account/security">
                     <a>Security</a>
                   </Link>
                 </li>
-                <li>
+                <li className={styles.item}>
                   <Link href="/account/notifications">
                     <a>Notifications</a>
                   </Link>
