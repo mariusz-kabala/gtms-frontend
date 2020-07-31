@@ -2,6 +2,8 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
+@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .btnDeleteAccount {
   @include buttonDefault();
@@ -15,55 +17,8 @@
 }
 
 .modalContent {
-  > div {
-    min-width: 45%;
-    min-height: 200px;
-  }
-
-  > div {
-    h2,
-    p {
-      text-align: center;
-      @include font-weight(normal);
-    }
-
-    h2 {
-      @include font-size(lg);
-    }
-
-    p {
-      margin-top: 5px;
-      @include font-size(xdefault);
-      color: $theme9;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      grid-template-columns: 1fr 1fr;
-
-      > * {
-        margin-right: 15px;
-        @include buttonDefault();
-        @include buttonSizeDefault();
-        @include buttonShapePrimary();
-        @include buttonColorsDefault();
-
-        &:hover {
-          @include buttonColorsPrimary();
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-
-      .yes {
-        &:hover {
-          background: $theme14;
-        }
-      }
-    }
+  @include modalContent();
+  .buttons {
+    @include gridTwoButtons();
   }
 }

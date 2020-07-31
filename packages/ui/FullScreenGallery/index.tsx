@@ -1,6 +1,5 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import cx from 'classnames'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
 // ui
 import { Button } from '@gtms/ui/Button'
@@ -26,12 +25,6 @@ export const FullScreenGallery: FC<{
   onBgChange,
   currentBg,
 }) => {
-  useEffect(() => {
-    disableBodyScroll(document.body)
-
-    return () => enableBodyScroll(document.body)
-  }, [])
-
   useKey(() => onClose(), {
     detectKeys: [27],
   })

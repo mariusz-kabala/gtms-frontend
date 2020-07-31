@@ -48,7 +48,10 @@ export const GroupAvatarSettings: FC<{ avatar?: IGroupAvatar }> = ({
   return (
     <div data-testid="group-settings-avatar" className={styles.wrapper}>
       {showUploadFileGroupAvatar && (
-        <Modal onClose={() => setShowUploadFileGroupAvatar(false)}>
+        <Modal
+          additionalStyles={styles.modalContent}
+          onClose={() => setShowUploadFileGroupAvatar(false)}
+        >
           <UploadFile
             additionalStyles={styles.uploadFile}
             isError={avatarUploadStatus.isError}

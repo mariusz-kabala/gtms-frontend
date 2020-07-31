@@ -74,6 +74,7 @@ export const PromotedTags: FC<{}> = () => {
         ))}
       {promotedTagEditor.isOpen && (
         <Modal
+          additionalStyles={styles.modalContent}
           onClose={() => {
             setPromotedTagEditor({
               isOpen: false,

@@ -149,7 +149,10 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
         </p>
       </div>
       {formState.isOpen && (
-        <Modal onClose={onFormModalClose}>
+        <Modal
+          additionalStyles={styles.modalContent}
+          onClose={onFormModalClose}
+        >
           <form
             onSubmit={handleSubmit(onSubmit)}
             method="post"
