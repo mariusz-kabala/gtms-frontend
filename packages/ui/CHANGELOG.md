@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.44.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.44.1...@gtms/ui@0.44.2) (2020-07-31)
+
+
+### Bug Fixes
+
+* GEOT-392: styles for account notifications ([#789](https://github.com/gtms-org/gtms-frontend/issues/789)) ([bf580a1](https://github.com/gtms-org/gtms-frontend/commit/bf580a1e7a1eede54db7209cc34a1dc9fcc438b4))
+
+
+
+
+
 ## [0.44.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.44.0...@gtms/ui@0.44.1) (2020-07-30)
 
 
