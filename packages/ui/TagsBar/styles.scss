@@ -76,7 +76,10 @@
   .tag {
     margin-right: 5px;
     padding: 5px;
-    background: #595272;
+    background: $theme4;
+    border: none;
+    border-radius: $borderRadius;
+    color: $theme0;
     cursor: pointer;
 
     &:first-child {

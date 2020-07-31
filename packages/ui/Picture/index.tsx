@@ -7,7 +7,7 @@ export const Picture: FC<{
   alt?: string
   jpg?: string
   webp?: string
-  coverImage: boolean
+  coverImage?: boolean
 }> = ({ additionalStyles, alt, coverImage, jpg, webp }) =>
   coverImage ? (
     <div

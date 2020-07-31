@@ -12,6 +12,9 @@
   @include gridDefault(5);
 
   .item {
+    overflow: hidden;
+    border-radius: $borderRadius;
+
     .imageWrapper {
       width: 100%;
       cursor: pointer;
@@ -117,7 +120,7 @@
 
         .no {
           &:hover {
-            background: red;
+            background: $theme14;
           }
         }
       }

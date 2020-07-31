@@ -1,42 +1,41 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
-.bools {
-  display: flex;
-  flex-direction: column;
+.toremove {
+  display: none;
+}
 
-  .element {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-  }
+.checkboxes {
+  .item {
+    margin-top: 15px;
 
-  .help {
-    flex-basis: 40px;
-    flex-grow: 1;
-    i {
-      font-size: 32px;
+    > div {
+      display: flex;
+      align-items: center;
     }
-  }
 
-  .label {
-    flex-grow: 3;
-  }
+    label {
+      @include font-weight(semiBold);
+      @include font-size(xdefault);
+      margin-left: 5px;
+    }
 
-  .formEl {
-    flex-grow: 2;
+    span {
+      display: block;
+      margin-top: 3px;
+      font-style: italic;
+    }
   }
 }
 
 .btn {
+  width: 100%;
+  margin-top: 10px;
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapePrimary();
   @include buttonColorsDefault();
-  margin: auto;
-  margin-top: 40px;
-
   &:hover {
     @include buttonColorsPrimary();
   }

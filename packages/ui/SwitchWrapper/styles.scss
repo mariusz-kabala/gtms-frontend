@@ -1,5 +1,36 @@
 @import '~@gtms/styles/scss/mixins/zindex';
 @import '~@gtms/styles/scss/variables.scss';
 
-.switchWrapper {
+.wrapper {
+  // importants here are because inline styles are applied
+  display: block !important;
+  opacity: 0.65 !important;
+
+  &,
+  * {
+    border-radius: $borderRadius !important;
+    transition-duration: 0.15s !important;
+  }
+
+  [class*='react-switch-bg'] {
+    background: $theme3 !important;
+    height: 32px;
+  }
+
+  [class*='react-switch-handle'] {
+    width: 20px !important;
+    height: 20px !important;
+    margin: 3px !important;
+    background: $theme4 !important;
+  }
+
+  path {
+    fill: $theme4 !important;
+  }
+
+  // CHECKED STATE
+  &.checked {
+    opacity: 1 !important;
+    transition: opacity 0.5s;
+  }
 }

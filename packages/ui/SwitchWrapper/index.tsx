@@ -12,7 +12,9 @@ export const SwitchWrapper: FC<{
   <div data-testid="switch-wrapper">
     <Switch
       checked={checked}
-      className={cx(styles.overlay, additionalStyles)}
+      className={cx(styles.wrapper, additionalStyles, {
+        [styles.checked]: checked,
+      })}
       disabled={disabled}
       onChange={onChange}
     />
