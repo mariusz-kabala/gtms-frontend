@@ -1,17 +1,16 @@
 @import '~@gtms/styles/scss/variables.scss';
 
 .wrapper {
-  position: relative;
+  position: fixed;
   z-index: 1;
   min-width: 62px;
+  height: 100%;
   padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  border-radius: $borderRadius;
-  background: $theme0;
 
-  .positionFixed {
-    position: fixed;
+  > div {
+    height: 100%;
+    padding: 10px;
+    background: $theme0;
+    border-radius: $borderRadius;
   }
 }

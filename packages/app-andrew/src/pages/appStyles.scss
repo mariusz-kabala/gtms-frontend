@@ -7,23 +7,37 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper();
+  // @include pageWrapper();
+  background: #fffbf2;
   max-width: 100%;
 }
 
 .wrapper {
   width: 100%;
-  padding: 20px;
+  padding-left: 72px;
 
   .btn {
-    margin-left: 5px;
-    margin-right: 5px;
     @include buttonDefault();
     @include buttonSizeDefault();
     @include buttonShapePrimary();
     @include buttonColorsDefault();
     &:hover {
       @include buttonColorsPrimary();
+    }
+  }
+
+  .section {
+    padding: 15px;
+
+    .header {
+      @include font-size(xmd);
+      @include font-weight(semiBold);
+    }
+
+    .recentlyCreatedGroups {
+    }
+
+    .recentlyRegisteredUsers {
     }
   }
 }

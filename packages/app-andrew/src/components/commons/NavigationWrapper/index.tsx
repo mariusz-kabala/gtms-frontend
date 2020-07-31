@@ -21,7 +21,7 @@ export const NavigationWrapper: FC<{}> = () => {
 
   return (
     <div className={styles.wrapper} data-testid="navigation-wrapper">
-      <div className={styles.positionFixed}>
+      <div>
         <Navigation />
         <NavigationDots />
       </div>

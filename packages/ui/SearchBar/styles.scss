@@ -12,11 +12,12 @@
   .inputWrapper {
     position: relative;
     display: flex;
-    flex-basis: 100%;
+    width: 100%;
+    margin-left: 10px;
 
     i {
       position: absolute;
-      top: 12px;
+      top: 10px;
       left: 8px;
       color: $theme9;
     }
@@ -25,7 +26,7 @@
       display: block;
       width: 100%;
       padding-left: 22px;
-      border: 2px solid $theme0;
+      border: 2px solid $theme1;
       border-radius: $borderRadius;
       background: $theme0;
 

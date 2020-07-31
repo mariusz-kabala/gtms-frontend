@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { NextPage } from 'next'
+import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IUser, IGroup } from '@gtms/commons/models'
-import { RecentlyCreatedGroups } from 'components/home/RecentlyCreatedGroups'
 import { getRecentUsers, usersListQuery } from '@gtms/state-user'
 import { getRecentGroups, groupsListQuery } from '@gtms/state-group'
 // ui
-import { IoIosSearch } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
+import { Picture } from '@gtms/ui/Picture'
+import { RecentlyCreatedGroups } from 'components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
 import styles from './appStyles.scss'
 
@@ -30,32 +31,24 @@ export const HomePage: NextPage<HomePageProps> = ({ users, groups }) => {
           <InviteFriends />
         </Modal>
       )}
+      <Picture
+        additionalStyles={styles.ohnoimage}
+        jpg={'/images/white-theme/spotted-bg.png'}
+      />
       <div className={styles.wrapper}>
-        <div className={styles.search}>
-          <div>
-            <h2 className={styles.header}>
-              <IoIosSearch />
-              {t('header')}
-            </h2>
-            <p>
-              {t('subheaderone')}
-              <Button
-                additionalStyles={styles.btn}
-                onClick={() => setIsModalOpen(true)}
-                type="submit"
-              >
-                {t('btn')}
-              </Button>
-              {t('subheadertwo')}
-            </p>
-          </div>
-        </div>
-        <div className={styles.recentlyCreatedGroups}>
+        <div className={cx(styles.section, styles.recentlyCreatedGroups)}>
+          <Button
+            additionalStyles={styles.btn}
+            onClick={() => setIsModalOpen(true)}
+            type="submit"
+          >
+            {t('btn')}
+          </Button>
           <h2 className={styles.header}>{t('header')}</h2>
           <RecentlyCreatedGroups groups={groups} />
         </div>
-        <div>
-          <h2 className={styles.header}>{t('Zaproś znajomych')}</h2>
+        <div className={cx(styles.section, styles.recentlyRegisteredUsers)}>
+          <h2 className={styles.header}>{t('header')}</h2>
           <RecentlyRegisteredUsers users={users} />
         </div>
       </div>

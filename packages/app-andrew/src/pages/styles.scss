@@ -26,4 +26,11 @@
     width: 100%;
     @include imageCover();
   }
+
+  .bg2 {
+    position: fixed;
+    height: 290px;
+    width: 100%;
+    @include imageCover();
+  }
 }
