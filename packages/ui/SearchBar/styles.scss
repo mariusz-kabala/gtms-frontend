@@ -69,19 +69,18 @@
   }
 
   .tag {
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapePrimary();
+    @include buttonColorsDefault();
+    margin-left: 5px;
+
     &:first-child {
       margin-left: 0;
     }
-  }
-}
 
-.tag {
-  @include buttonDefault();
-  @include buttonSizeDefault();
-  @include buttonShapePrimary();
-  @include buttonColorsDefault();
-
-  &:hover {
-    @include buttonColorsDefault();
+    &:hover {
+      @include buttonColorsPrimary();
+    }
   }
 }

@@ -24,18 +24,21 @@ export const RecentlyRegisteredUsers: FC<{
           <InviteFriends />
         </Modal>
       )}
-      <Button
-        additionalStyles={styles.invite}
-        onClick={() => setIsModalOpen(true)}
-      >
-        {t('btn')}
-      </Button>
+      <div className={styles.headerWrapper}>
+        <h2 className={styles.header}>Recently registered users</h2>
+        <Button
+          additionalStyles={styles.btnInvite}
+          onClick={() => setIsModalOpen(true)}
+        >
+          {t('btn')}
+        </Button>
+      </div>
       <ul
         className={cx(styles.users, additionalStyles)}
         data-testid="recently-registered-users"
       >
         {users.map((user) => (
-          <li key={`recent-user-${user.id}`} className={styles.user}>
+          <li className={styles.user} key={`recent-user-${user.id}`}>
             <UserAvatar
               image={
                 user.avatar &&

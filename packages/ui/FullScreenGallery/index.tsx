@@ -43,6 +43,11 @@ export const FullScreenGallery: FC<{
       })}
       data-testid="full-screen-gallery"
     >
+      <style global jsx>{`
+        body {
+          overflow: 'hidden';
+        }
+      `}</style>
       <div
         className={cx(styles.canvas, gallery[activeBg].className)}
         onClick={() => setIsImageWrapperActive(false)}

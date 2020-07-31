@@ -2,21 +2,5 @@
   > div {
     min-width: 45%;
     min-height: 200px;
-
-    h2,
-    p {
-      text-align: center;
-      @include font-weight(normal);
-    }
-
-    h2 {
-      @include font-size(lg);
-    }
-
-    p {
-      margin-top: 5px;
-      @include font-size(xdefault);
-      color: $theme9;
-    }
   }
 }
