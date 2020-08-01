@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, ReactNode } from 'react'
 import { NextPage } from 'next'
 import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
@@ -12,15 +12,21 @@ import { Modal } from '@gtms/ui/Modal'
 import { Picture } from '@gtms/ui/Picture'
 import { RecentlyCreatedGroups } from 'components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
-import styles from './appStyles.scss'
+import { SearchBar } from '@gtms/ui/SearchBar'
+import styles from './styles.scss'
 
 type HomePageProps = {
+  children: ReactNode
+  groups: IGroup[]
   namespacesRequired: readonly string[]
   users: IUser[]
-  groups: IGroup[]
 }
 
-export const HomePage: NextPage<HomePageProps> = ({ users, groups }) => {
+export const HomePage: NextPage<HomePageProps> = ({
+  children,
+  groups,
+  users,
+}) => {
   const { t } = useTranslation('homePage')
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
@@ -31,25 +37,40 @@ export const HomePage: NextPage<HomePageProps> = ({ users, groups }) => {
           <InviteFriends />
         </Modal>
       )}
-      <Picture
-        additionalStyles={styles.ohnoimage}
-        jpg={'/images/white-theme/spotted-bg.png'}
-      />
+      <div className={styles.welcomeSlider}>
+        <Picture jpg={'/images/white-theme/spotted-bg.png'} />
+      </div>
       <div className={styles.wrapper}>
-        <div className={cx(styles.section, styles.recentlyCreatedGroups)}>
-          <Button
-            additionalStyles={styles.btn}
-            onClick={() => setIsModalOpen(true)}
-            type="submit"
-          >
-            {t('btn')}
-          </Button>
-          <h2 className={styles.header}>{t('header')}</h2>
-          <RecentlyCreatedGroups groups={groups} />
-        </div>
-        <div className={cx(styles.section, styles.recentlyRegisteredUsers)}>
-          <h2 className={styles.header}>{t('header')}</h2>
-          <RecentlyRegisteredUsers users={users} />
+        {children}
+        <div className={styles.sections}>
+          <div className={styles.headerWrapper}>
+            <h1 className={styles.header}>Spotted.pl</h1>
+            <p className={styles.desc}>
+              Aliquip officia voluptate voluptate nulla lorem ipsum dolor
+              officia in incididunt labore.
+            </p>
+            <SearchBar
+              onTagAdd={() => null}
+              onTagRemove={() => null}
+              onLoadSuggestion={() => null}
+              onQueryChange={() => null}
+              onLoadSuggestionCancel={() => null}
+            />
+            <Button
+              additionalStyles={styles.btn}
+              onClick={() => setIsModalOpen(true)}
+              type="submit"
+            >
+              {t('btn')}
+            </Button>
+          </div>
+          <div className={cx(styles.section, styles.recentlyCreatedGroups)}>
+            <RecentlyCreatedGroups groups={groups} />
+          </div>
+          <div className={cx(styles.section, styles.recentlyRegisteredUsers)}>
+            {/* <h2 className={styles.header}>{t('header')}</h2> */}
+            <RecentlyRegisteredUsers users={users} />
+          </div>
         </div>
       </div>
     </div>

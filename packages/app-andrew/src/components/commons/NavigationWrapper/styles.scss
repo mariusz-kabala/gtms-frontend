@@ -1,16 +1,16 @@
 @import '~@gtms/styles/scss/variables.scss';
 
-.wrapper {
-  position: fixed;
-  z-index: 1;
-  min-width: 62px;
+.mainNavigationWrapper {
   height: 100%;
+  position: sticky;
+  top: 0;
+  border-radius: $borderRadius;
   padding: 10px;
+  padding-right: 0;
 
   > div {
-    height: 100%;
-    padding: 10px;
     background: $theme0;
+    padding: 10px;
     border-radius: $borderRadius;
   }
 }

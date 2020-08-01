@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, ReactNode } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
@@ -79,6 +79,7 @@ type GroupPageProps = {
   promoted?: IPromotedTagsState
   post?: IPost
   comments?: IPostCommentsState
+  children: ReactNode
 }
 
 const getInitData = ({
@@ -173,6 +174,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   return (
     <>
+      {props.children}
       <div className={styles.wrapper}>
         {state.isLoading && <Spinner />}
 

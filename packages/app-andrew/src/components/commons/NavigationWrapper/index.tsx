@@ -20,7 +20,10 @@ export const NavigationWrapper: FC<{}> = () => {
   }
 
   return (
-    <div className={styles.wrapper} data-testid="navigation-wrapper">
+    <div
+      className={styles.mainNavigationWrapper}
+      data-testid="navigation-wrapper"
+    >
       <div>
         <Navigation />
         <NavigationDots />

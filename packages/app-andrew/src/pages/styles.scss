@@ -1,36 +1,96 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
-.wrapper {
-  display: flex;
-  flex: 1;
+.pageWrapper {
+  // @include pageWrapper();
+  background: #fffbf2;
+  max-width: 100%;
 
-  .sidebar {
-    min-width: 60px;
-    padding: 10px;
-    margin: 10px 0 10px 10px;
-    border-radius: $borderRadius;
-    background: $theme0;
-    display: flex;
+  div[class*='mainNavigationWrapper'] {
+    padding-top: 15px;
 
-    .nav {
-      position: fixed;
+    > div {
+      background: none;
     }
   }
+}
 
-  .bg {
-    position: fixed;
-    top: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    @include imageCover();
-  }
+.welcomeSlider {
+  padding-top: 20px;
+  background: #a0dfee;
+}
 
-  .bg2 {
-    position: fixed;
-    height: 290px;
+.wrapper {
+  width: 100%;
+  display: flex;
+
+  .sections {
     width: 100%;
-    @include imageCover();
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 30px;
+
+    .headerWrapper {
+      position: sticky;
+      top: 10px;
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      background: $theme4;
+      color: $theme0;
+      border-radius: $borderRadius;
+      z-index: 20;
+
+      .header {
+        @include font-size(xxlg);
+        @include font-weight(bold);
+        text-transform: uppercase;
+        margin-right: 10px;
+      }
+
+      .desc {
+        max-width: 300px;
+        align-items: center;
+        @include font-size(xdefault);
+      }
+
+      .btn {
+        position: absolute;
+        right: 0;
+        top: -45px;
+        @include buttonDefault();
+        @include buttonSizeDefault();
+        @include buttonShapePrimary();
+        @include buttonColorsPrimary();
+
+        &:hover {
+          @include buttonColorsDefault();
+        }
+      }
+    }
+
+    .section {
+      padding: 10px 0;
+
+      .header {
+        @include font-size(xmd);
+        @include font-weight(semiBold);
+        text-transform: uppercase;
+      }
+
+      .recentlyCreatedGroups {
+      }
+
+      .recentlyRegisteredUsers {
+      }
+    }
+
+    .searchBar {
+    }
   }
 }

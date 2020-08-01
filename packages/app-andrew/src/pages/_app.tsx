@@ -13,7 +13,7 @@ import { uiQuery } from 'state'
 
 import '@gtms/styles/scss/global.scss'
 import './tooltip.scss'
-import styles from './styles.scss'
+import styles from './appStyles.scss'
 
 interface GTMSAppProps {
   auth?: {
@@ -79,8 +79,9 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <NotificationsActive />
         <LoginWindow />
         <NotificationsSidebar />
-        <NavigationWrapper />
-        <Component {...pageProps} />
+        <Component {...pageProps}>
+          <NavigationWrapper />
+        </Component>
         <div className={cx(styles.bg, this.state.background.className)} />
       </div>
     )

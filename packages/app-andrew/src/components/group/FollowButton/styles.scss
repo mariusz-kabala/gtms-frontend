@@ -3,7 +3,7 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .wrapper {
-  @include font-size(xxs);
+  display: flex;
   @include font-weight(normal);
   text-transform: uppercase;
 
