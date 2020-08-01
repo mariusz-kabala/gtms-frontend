@@ -369,7 +369,6 @@ GroupPage.getInitialProps = async (
       promoted: promotedTagsQuery.getValue(),
       comments: post ? postCommentsQuery.getValue() : undefined,
       post,
-      children,
     }
   })
 }
