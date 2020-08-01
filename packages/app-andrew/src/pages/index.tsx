@@ -38,7 +38,7 @@ export const HomePage: NextPage<HomePageProps> = ({
         </Modal>
       )}
       <div className={styles.welcomeSlider}>
-        <Picture jpg={'/images/white-theme/spotted-bg.png'} />
+        <Picture jpg={'/images/white-theme/spotted-bg-highschool.png'} />
       </div>
       <div className={styles.wrapper}>
         {children}
