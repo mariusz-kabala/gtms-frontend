@@ -6,7 +6,6 @@ import { IGroup } from '@gtms/commons/models'
 import { updateGroup } from '@gtms/state-group'
 import { BasicInfoSetup } from '../BasicInfoSetup'
 // ui
-import { IoIosHelpCircle } from 'react-icons/io'
 import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
