@@ -32,6 +32,13 @@ export const RecentlyCreatedGroups: FC<{
       <GroupCard
         isLoading={groupCard.isLoading}
         isActive={groupCard.isOpen}
+        onClose={() => {
+          setGroupCard({
+            isLoading: false,
+            isOpen: false,
+            users: [],
+          })
+        }}
         members={groupCard.users}
         name={groupCard.current?.name}
         description={groupCard.current?.description}

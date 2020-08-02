@@ -103,7 +103,11 @@
     @include buttonWithIcon();
     @include buttonWithoutBackground();
     @include buttonWithBorder();
-    margin-right: 50px;
+    margin-left: 20px;
+
+    &:last-child {
+      margin-right: 50px;
+    }
 
     &:hover {
       @include buttonColorsQuaternary();
