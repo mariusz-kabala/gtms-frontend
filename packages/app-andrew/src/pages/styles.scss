@@ -5,6 +5,7 @@
 @import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+@import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .pageWrapper {
   // @include pageWrapper();
@@ -44,7 +45,7 @@
       background: $theme4;
       color: $theme0;
       border-radius: $borderRadius;
-      z-index: 20;
+      @include z-index(headerWrapper);
 
       .header {
         @include font-size(xxlg);

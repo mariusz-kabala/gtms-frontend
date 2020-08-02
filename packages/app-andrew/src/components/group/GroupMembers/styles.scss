@@ -5,6 +5,8 @@
 $groupMembersAvatarSize: 50px;
 
 .wrapper {
+  color: $theme0;
+
   .users {
     // @todo create mixin for that
     display: grid;

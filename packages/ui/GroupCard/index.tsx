@@ -1,16 +1,18 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
-import { ImageWithLightbox } from '../ImageWithLightbox'
-import { Tag } from '../Tag'
-import { TagGroup } from '../TagGroup'
-import { Spinner } from '../Spinner'
-import { UserAvatar } from '../UserAvatar'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Link } from '@gtms/commons/i18n'
 import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
+// ui
 import styles from './styles.scss'
+import { Picture } from '../Picture'
+import { Tag } from '../Tag'
+import { Button } from '@gtms/ui/Button'
+import { Spinner } from '../Spinner'
+import { UserAvatar } from '../UserAvatar'
+import { IoIosArrowDropright } from 'react-icons/io'
 
 export const GroupCard: FC<{
   name: string
@@ -19,6 +21,7 @@ export const GroupCard: FC<{
   tags: string[]
   logo: IImage
   noUserAvatar: { [key: string]: IImage }
+  isActive: boolean
   isLoading: boolean
   members: IUser[]
   additionalStyles?: string
@@ -29,6 +32,7 @@ export const GroupCard: FC<{
   tags,
   logo,
   slug,
+  isActive,
   isLoading,
   members,
   noUserAvatar,
@@ -37,61 +41,62 @@ export const GroupCard: FC<{
 
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles)}
+      className={cx(styles.wrapper, additionalStyles, {
+        [styles.active]: isActive,
+      })}
       data-testid="group-card"
     >
-      <div className={styles.content}>
-        <div className={styles.left}>
-          <Link href={`/group/${slug}`}>
-            {/* THIS SHOULD BE A REGURAL IMAGE SO USER CAN CLICK AND OPEN GROUP PAGE */}
-            <ImageWithLightbox additionalStyles={styles.image} src={logo} />
-          </Link>
-        </div>
-        <div className={styles.right}>
-          <div className={styles.desc}>
-            <Link href={`/group/${slug}`}>
-              <h2 className={styles.nameSurname}>{name}</h2>
-            </Link>
-            {description && (
-              <Link href={`/group/${slug}`}>
-                <p className={styles.desc}>{description}</p>
-              </Link>
-            )}
-            <h3>{t('groupTags')}</h3>
-            {Array.isArray(tags) && tags.length > 0 ? (
-              <TagGroup additionalStyles={styles.userTags}>
-                {tags.map((tag) => (
-                  <Tag key={`tag-${tag}`} label={tag} />
-                ))}
-              </TagGroup>
-            ) : (
-              <p>{t('tags-not-added-yet')}</p>
-            )}
-            <h3>{t('groupsMembers')}</h3>
-            {isLoading && (
-              <p className={styles.spinner}>
-                <Spinner />
-              </p>
-            )}
-            {!isLoading && members.length > 0 && (
-              <ul
-                className={cx(styles.users, additionalStyles)}
-                data-testid="recently-registered-users"
-              >
-                {members.map((member) => (
-                  <li className={styles.user} key={`member-${member.id}`}>
-                    <UserAvatar
-                      image={getImage('50x50', member.avatar, noUserAvatar)}
-                      additionalStyles={styles.userAvatar}
-                    />
-                    <span />
-                  </li>
-                ))}
-              </ul>
-            )}
+      <>
+        <div className={styles.content}>
+          <div className={styles.partOne}>
+            <Picture additionalStyles={styles.avatar} {...logo} />
+            <div className={styles.nameDesc}>
+              <div className={styles.desc}>
+                <h2 className={styles.header}>{name}</h2>
+                {description && <p className={styles.desc}>{description}</p>}
+              </div>
+            </div>
+            <div className={cx(styles.users)}>
+              <h3 className={styles.header}>{t('groupsMembers')}</h3>
+
+              {isLoading && <Spinner additionalStyles={styles.spinner} />}
+
+              {!isLoading && members.length > 0 && (
+                <ul data-testid="recently-registered-users">
+                  {members.map((member) => (
+                    <>
+                      <li className={styles.user} key={`member-${member.id}`}>
+                        <UserAvatar
+                          image={getImage('50x50', member.avatar, noUserAvatar)}
+                          additionalStyles={styles.userAvatar}
+                        />
+                      </li>
+                    </>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+          <div className={styles.partTwo}>
+            <div className={styles.tags}>
+              <h3 className={styles.header}>{t('groupTags')}:</h3>
+              {Array.isArray(tags) && tags.length > 0 ? (
+                tags.map((tag) => <Tag key={`tag-${tag}`} label={tag} />)
+              ) : (
+                <p>{t('tags-not-added-yet')}</p>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+        <Link href={`/group/${slug}`}>
+          <Button additionalStyles={styles.btn}>
+            <i>
+              <IoIosArrowDropright />
+            </i>
+            Open this group
+          </Button>
+        </Link>
+      </>
     </div>
   )
 }

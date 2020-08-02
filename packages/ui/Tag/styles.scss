@@ -5,10 +5,9 @@
   display: inline-block;
   padding: 3px 6px;
   border-radius: $borderRadius;
-  background: $theme4;
-  color: $theme0;
+  background: $theme2;
+  color: $black;
   cursor: pointer;
-  display: none;
 
   &:hover {
     background: $theme4;

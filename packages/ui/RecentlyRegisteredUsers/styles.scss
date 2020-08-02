@@ -7,28 +7,6 @@
 .wrapper {
   position: relative;
 
-  .headerWrapper {
-    display: flex;
-    align-items: center;
-
-    .header {
-      @include font-weight(semiBold);
-      @include font-size(xmd);
-    }
-
-    .btnInvite {
-      @include buttonDefault();
-      @include buttonSizeDefault();
-      @include buttonShapePrimary();
-      @include buttonColorsDefault();
-      margin-left: 10px;
-
-      &:hover {
-        @include buttonColorsPrimary();
-      }
-    }
-  }
-
   .users {
     gap: 30px;
     display: flex;

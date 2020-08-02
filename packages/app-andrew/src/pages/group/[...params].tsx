@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback, ReactNode } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  ReactNode,
+} from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
@@ -154,6 +160,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     },
     [state]
   )
+  const promotedTagsRef = useRef(null)
+  const groupHeaderRef = useRef(null)
 
   useEffect(() => {
     if (state.group) {
@@ -174,7 +182,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   return (
     <>
-      {props.children}
+      {props.children} {/* main navigation */}
       <div className={styles.wrapper}>
         {state.isLoading && <Spinner />}
 
@@ -193,34 +201,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
         {state.group && (
           <>
-            <div className={styles.groupHeader}>
-              <GroupAvatar
-                additionalStyles={styles.groupAvatar}
-                files={groupQuery.getAvatar('50x50', state)}
-                filesStatus={groupQuery.getAvatarFileStatus()}
-                isEditAllowed={groupQuery.hasAdminRights()}
+            <div className={styles.top}>
+              <WelcomeSlider />
+              <GroupMembers
+                additionalStyles={styles.groupMembers}
+                {...state.members}
               />
-              <div className={styles.descWrapper}>
-                <h2
-                  className={styles.header}
-                  data-tip={t('click-here-to-edit')}
-                  data-type="dark"
-                >
-                  {state.group?.name}
-                </h2>
-                <GroupDescription
-                  additionalStyles={styles.desc}
-                  isEditAllowed={groupQuery.hasAdminRights()}
-                  slug={state.group?.slug || ''}
-                  text={
-                    !state.group?.description
-                      ? groupQuery.hasAdminRights()
-                        ? 'you did not add group description yet, click here to change it'
-                        : ''
-                      : state.group?.description || ''
-                  }
-                />
-              </div>
               <div className={styles.actionButtons}>
                 <FavsButton group={state.group} />
                 <JoinLeaveButton group={state.group} />
@@ -228,98 +214,145 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <FollowButton group={state.group} />
               </div>
             </div>
-            <WelcomeSlider />
-            <GroupMembers
-              additionalStyles={styles.groupMembers}
-              {...state.members}
-            />
-            <div className={styles.groupPostsListWrapper}>
-              <div className={styles.searchInput}>
-                <div className={styles.search}>
-                  <Button
-                    onClick={() => setShowPromoted((value) => !value)}
-                    additionalStyles={cx(styles.btnTags, {
-                      [styles.active]: showPromoted,
-                    })}
+            <div ref={groupHeaderRef} className={styles.groupHeader}>
+              <div>
+                <GroupAvatar
+                  additionalStyles={styles.groupAvatar}
+                  files={groupQuery.getAvatar('50x50', state)}
+                  filesStatus={groupQuery.getAvatarFileStatus()}
+                  isEditAllowed={groupQuery.hasAdminRights()}
+                />
+                <div className={styles.descWrapper}>
+                  <h2
+                    className={styles.header}
+                    data-tip={t('click-here-to-edit')}
+                    data-type="dark"
                   >
-                    <i>
-                      <IoMdGrid />
-                    </i>
-                    Tags
-                  </Button>
-                  <SearchBar
-                    onTagAdd={() => null}
-                    onTagRemove={() => null}
-                    onLoadSuggestion={() => null}
-                    onQueryChange={() => null}
-                    onLoadSuggestionCancel={() => null}
-                    tags={state.activeTags || []}
+                    {state.group?.name}
+                  </h2>
+                  <GroupDescription
+                    additionalStyles={styles.desc}
+                    isEditAllowed={groupQuery.hasAdminRights()}
+                    slug={state.group?.slug || ''}
+                    text={
+                      !state.group?.description
+                        ? groupQuery.hasAdminRights()
+                          ? 'you did not add group description yet, click here to change it'
+                          : ''
+                        : state.group?.description || ''
+                    }
                   />
                 </div>
-              </div>
-              {showPromoted && <PromotedTags />}
-              <NavigationTabs>
-                <h2 className={styles.header}>Posts</h2>
-                <ul className={styles.elements}>
-                  <li className={cx(styles.item, styles.active)}>latest</li>
-                  <li className={styles.item}>popular</li>
-                </ul>
-              </NavigationTabs>
-              <div className={styles.posts}>
-                <div>
-                  <PostCreate
-                    fetchTags={findTagsAPI}
-                    fetchUsers={findbyUsernameAPI}
-                    fetchSuggestedTags={fetchSuggestedTagsAPI}
-                    user={state.user}
-                    noImage={UserAvatarNoImage}
-                    onSubmit={(text: string) => {
-                      createNewPost({
-                        group: state.group?.id || '',
-                        text,
-                      })
-                    }}
-                    additionalStyles={styles.postCreate}
-                    onLoginRequest={openLoginModal}
-                  />
-                  <RecentlyAddedPosts
-                    fetchTags={findTagsAPI}
-                    fetchUsers={findbyUsernameAPI}
-                    onPostClick={onPostClick}
-                    onTagClick={(tag) => {
-                      router.push(`/group/${state.group?.slug}/tag/${tag}`)
-                    }}
-                    user={state.user}
-                    renderFavs={renderFavs}
-                    activePost={state.activePost}
-                    createComment={createNewComment}
-                    noImage={UserAvatarNoImage}
-                    posts={state.posts}
-                    onLoginRequest={openLoginModal}
-                    activeTags={state.activeTags || []}
-                  />
-                </div>
-                <div>
-                  {!state.activePost && (
-                    <div className={styles.noPostPicture}>
-                      <Picture
-                        jpg={
-                          '/images/white-theme/icon-click-post-and-read-full-content.png'
+                <div className={styles.searchInput}>
+                  <div className={styles.search}>
+                    <Button
+                      onClick={() => {
+                        if (!showPromoted) {
+                          setTimeout(() => {
+                            window.scroll({
+                              top:
+                                promotedTagsRef?.current?.offsetTop -
+                                groupHeaderRef?.current.clientHeight,
+                              left: 0,
+                              behavior: 'smooth',
+                            })
+                          }, 200)
                         }
-                      />
-                      <span>Click post and read full content here </span>
-                    </div>
-                  )}
-                  {state.activePost && (
-                    <PostDetails
-                      comments={state.comments}
-                      user={state.user}
-                      activeTags={state.activeTags || []}
-                      post={state.activePost}
+                        setShowPromoted((value) => !value)
+                      }}
+                      additionalStyles={cx(styles.btnTags, {
+                        [styles.active]: showPromoted,
+                      })}
+                    >
+                      <i>
+                        <IoMdGrid />
+                      </i>
+                      Tags
+                    </Button>
+                    <SearchBar
+                      onTagAdd={() => null}
+                      onTagRemove={() => null}
+                      onLoadSuggestion={() => null}
+                      onQueryChange={() => null}
+                      onLoadSuggestionCancel={() => null}
+                      tags={state.activeTags || []}
                     />
-                  )}
+                  </div>
                 </div>
               </div>
+            </div>
+            <div className={styles.groupPostsListWrapper}>
+              {showPromoted && (
+                <div ref={promotedTagsRef}>
+                  <PromotedTags />
+                </div>
+              )}
+              {state && state.posts && state.posts.length > 0 && (
+                <>
+                  <NavigationTabs>
+                    <h2 className={styles.header}>Posts</h2>
+                    <ul className={styles.elements}>
+                      <li className={cx(styles.item, styles.active)}>latest</li>
+                      <li className={styles.item}>popular</li>
+                    </ul>
+                  </NavigationTabs>
+                  <div className={styles.posts}>
+                    <div>
+                      <PostCreate
+                        fetchTags={findTagsAPI}
+                        fetchUsers={findbyUsernameAPI}
+                        fetchSuggestedTags={fetchSuggestedTagsAPI}
+                        user={state.user}
+                        noImage={UserAvatarNoImage}
+                        onSubmit={(text: string) => {
+                          createNewPost({
+                            group: state.group?.id || '',
+                            text,
+                          })
+                        }}
+                        additionalStyles={styles.postCreate}
+                        onLoginRequest={openLoginModal}
+                      />
+                      <RecentlyAddedPosts
+                        fetchTags={findTagsAPI}
+                        fetchUsers={findbyUsernameAPI}
+                        onPostClick={onPostClick}
+                        onTagClick={(tag) => {
+                          router.push(`/group/${state.group?.slug}/tag/${tag}`)
+                        }}
+                        user={state.user}
+                        renderFavs={renderFavs}
+                        activePost={state.activePost}
+                        createComment={createNewComment}
+                        noImage={UserAvatarNoImage}
+                        posts={state.posts}
+                        onLoginRequest={openLoginModal}
+                        activeTags={state.activeTags || []}
+                      />
+                    </div>
+                    <div>
+                      {!state.activePost && (
+                        <div className={styles.noPostPicture}>
+                          <Picture
+                            jpg={
+                              '/images/white-theme/icon-click-post-and-read-full-content.png'
+                            }
+                          />
+                          <span>Click post and read full content here </span>
+                        </div>
+                      )}
+                      {state.activePost && (
+                        <PostDetails
+                          comments={state.comments}
+                          user={state.user}
+                          activeTags={state.activeTags || []}
+                          post={state.activePost}
+                        />
+                      )}
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </>
         )}

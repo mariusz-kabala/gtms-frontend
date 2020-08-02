@@ -1,12 +1,10 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
-@import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  @include z-index(navigationGroup);
   min-width: 250px;
 
   li {

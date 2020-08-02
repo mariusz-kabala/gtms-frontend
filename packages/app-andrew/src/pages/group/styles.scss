@@ -15,103 +15,124 @@
   margin: 10px;
   background: $theme0;
 
-  .groupHeader {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-top-left-radius: $borderRadius;
-    border-top-right-radius: $borderRadius;
+  .top {
     width: 100%;
+    padding: 10px;
+    padding-bottom: 0;
+    overflow: hidden;
     background: $theme4;
+  }
+
+  .groupHeader {
+    position: sticky;
+    top: 0px;
+    z-index: 13;
+    width: 100%;
     color: $theme0;
+    background: $theme2;
 
-    .groupAvatar {
-      border-radius: $borderRadius;
-      overflow: hidden;
+    > div {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      background: $theme4;
 
-      picture {
+      .groupAvatar {
+        border-radius: $borderRadius;
         min-width: 45px;
         min-height: 45px;
-      }
-    }
+        overflow: hidden;
 
-    .descWrapper {
-      max-width: 250px;
-      min-width: 250px;
-      line-height: 1;
-      margin-left: 10px;
-
-      .header {
-        @include font-weight(semiBold);
-        letter-spacing: 1.2px;
-        text-transform: uppercase;
+        picture {
+          min-width: 45px;
+          min-height: 45px;
+        }
       }
 
-      .desc {
-        @include font-size(sm);
+      .descWrapper {
+        max-width: 200px;
+        min-width: 200px;
+        line-height: 1;
+        margin: 0 10px;
+
+        .header {
+          @include font-weight(semiBold);
+          letter-spacing: 1.1px;
+          text-transform: uppercase;
+          word-wrap: break-word;
+        }
+
+        .desc {
+          @include font-size(sm);
+        }
       }
-    }
 
-    .actionButtons {
-      display: flex;
-      margin-left: auto;
+      .searchInput {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
 
-      > * {
-        margin-left: 10px;
+        .search {
+          display: flex;
+          width: 100%;
+          border-radius: $borderRadius;
+          height: 40px;
+
+          .btnTags {
+            @include buttonDefault();
+            @include buttonSizeDefault();
+            @include buttonShapePrimary();
+            @include buttonWithIcon();
+            @include buttonColorsPrimary();
+            position: relative;
+            margin-right: 15px;
+
+            &.active,
+            &:hover {
+              @include buttonColorsQuaternary();
+            }
+
+            &:after,
+            &:before {
+              content: '';
+              position: absolute;
+              right: -8px;
+              width: 1px;
+              height: 15px;
+              background: rgba($black, 0.5);
+            }
+
+            &::before {
+              right: -7px;
+              background: rgba($theme0, 0.2);
+            }
+          }
+        }
       }
     }
   }
 
-  .searchInput {
+  .actionButtons {
     display: flex;
-    overflow: hidden;
+    margin-left: auto;
+    display: none;
 
-    .search {
-      display: flex;
-      width: 100%;
-      border-radius: $borderRadius;
-      height: 40px;
-
-      .btnTags {
-        @include buttonDefault();
-        @include buttonSizeDefault();
-        @include buttonShapePrimary();
-        @include buttonWithIcon();
-        @include buttonColorsSecondary();
-        position: relative;
-        margin-right: 15px;
-
-        &.active,
-        &:hover,
-        &:focus {
-          @include buttonColorsPrimary();
-        }
-
-        &:after,
-        &:before {
-          content: '';
-          position: absolute;
-          right: -8px;
-          width: 1px;
-          height: 15px;
-          background: $theme9;
-        }
-
-        &::before {
-          right: -7px;
-          background: $theme0;
-        }
-      }
+    > * {
+      margin-left: 10px;
     }
   }
 
   .groupMembers {
-    margin: 20px 0;
+    width: 100%;
+    padding: 10px;
+    background: #a2943c;
   }
 
   .groupPostsListWrapper {
     width: 100%;
     overflow: hidden;
+    border-radius: $borderRadius;
     background: $theme2;
 
     > div {
@@ -132,19 +153,24 @@
 
 .noPostPicture {
   position: relative;
-  display: flex;
-  align-items: center;
   margin-top: 100px;
+  text-align: center;
 
   img {
     opacity: 0.4;
-    width: 180px;
+    max-width: 100px;
+    margin: auto;
+    margin-bottom: 10px;
   }
 
   span {
-    margin-top: 70px;
-    margin-left: 10px;
     @include font-size(md);
     color: $theme9;
+  }
+
+  &:hover {
+    span {
+      color: $theme4;
+    }
   }
 }

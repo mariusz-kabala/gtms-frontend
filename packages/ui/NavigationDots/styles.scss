@@ -8,7 +8,6 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
 .wrapper {
   position: relative;
   display: flex;
-  @include z-index(navigationGroup);
 
   .fullView {
     position: fixed;

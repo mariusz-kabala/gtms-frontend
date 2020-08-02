@@ -1,7 +1,6 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
-@import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
   display: flex;
@@ -10,7 +9,6 @@
   border: 1px solid $theme2;
   border-radius: $borderRadius;
   margin-bottom: 10px;
-  @include z-index(navigationGroup);
   cursor: pointer;
 
   &:hover {

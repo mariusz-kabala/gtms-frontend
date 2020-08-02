@@ -1,11 +1,7 @@
 import React, { FC, useState } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
-import { Button } from '@gtms/ui/Button'
-import { InviteFriends } from '@gtms/ui/InviteFriends'
-import { Modal } from '@gtms/ui/Modal'
 import { UserAvatar } from '../UserAvatar'
-import { useTranslation } from '@gtms/commons/i18n'
 import { IUser } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
 import { getDisplayName } from '@gtms/commons/helpers'
@@ -14,25 +10,8 @@ export const RecentlyRegisteredUsers: FC<{
   additionalStyles?: string
   users: IUser[]
 }> = ({ additionalStyles, users }) => {
-  const { t } = useTranslation('recentlyRegisteredUsersComponent')
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-
   return (
     <div className={cx(styles.wrapper, additionalStyles)}>
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <InviteFriends />
-        </Modal>
-      )}
-      <div className={styles.headerWrapper}>
-        <h2 className={styles.header}>Recently registered users</h2>
-        <Button
-          additionalStyles={styles.btnInvite}
-          onClick={() => setIsModalOpen(true)}
-        >
-          {t('btn')}
-        </Button>
-      </div>
       <ul
         className={cx(styles.users, additionalStyles)}
         data-testid="recently-registered-users"
