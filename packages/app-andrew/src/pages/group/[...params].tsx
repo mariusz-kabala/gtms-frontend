@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  ReactNode,
-} from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
@@ -85,7 +79,6 @@ type GroupPageProps = {
   promoted?: IPromotedTagsState
   post?: IPost
   comments?: IPostCommentsState
-  children: ReactNode
 }
 
 const getInitData = ({
@@ -160,8 +153,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     },
     [state]
   )
-  const promotedTagsRef = useRef(null)
-  const groupHeaderRef = useRef(null)
+  const promotedTagsRef = useRef<HTMLDivElement>(null)
+  const groupHeaderRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (state.group) {
@@ -249,10 +242,16 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       onClick={() => {
                         if (!showPromoted) {
                           setTimeout(() => {
+                            if (
+                              !promotedTagsRef.current ||
+                              !groupHeaderRef.current
+                            ) {
+                              return
+                            }
                             window.scroll({
                               top:
-                                promotedTagsRef?.current?.offsetTop -
-                                groupHeaderRef?.current.clientHeight,
+                                promotedTagsRef.current.offsetTop -
+                                groupHeaderRef.current.clientHeight,
                               left: 0,
                               behavior: 'smooth',
                             })

@@ -22,8 +22,8 @@ export const GroupCard: FC<{
   logo: IImage
   noUserAvatar: { [key: string]: IImage }
   isActive: boolean
-  isLoading: () => unknown
-  onClose: boolean
+  isLoading: boolean
+  onClose: () => unknown
   members: IUser[]
   additionalStyles?: string
 }> = ({

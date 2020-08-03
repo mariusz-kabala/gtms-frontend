@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react'
+import React, { useState } from 'react'
 import { NextPage } from 'next'
 import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
@@ -16,7 +16,6 @@ import { SearchBar } from '@gtms/ui/SearchBar'
 import styles from './styles.scss'
 
 type HomePageProps = {
-  children: ReactNode
   groups: IGroup[]
   namespacesRequired: readonly string[]
   users: IUser[]
