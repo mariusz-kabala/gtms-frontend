@@ -18,11 +18,12 @@ import {
   tagPageState$,
 } from 'queries/tagPage.query'
 // ui
+import { FourHundredFour } from '@gtms/ui/FourHundredFour'
 import { GroupsList } from 'components/tag/GroupsList'
-import { UsersList } from 'components/tag/UsersList'
+import { MockData } from '@gtms/ui/MockData'
 import { PostsList } from 'components/tag/PostsList'
 import { TagsHeader } from '@gtms/ui/TagsHeader'
-import { FourHundredFour } from '@gtms/ui/FourHundredFour'
+import { UsersList } from 'components/tag/UsersList'
 // styles
 import styles from './styles.scss'
 
@@ -106,41 +107,44 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags, posts }) => {
   )
 
   const onTagRemove = useCallback(() => {
-    // todo UI needs to be implemented
+    // @todo UI needs to be implemented
   }, [])
 
   if (groups === null) {
+    // @todo add proper error component
     return <FourHundredFour />
   }
 
   return (
-    <div data-testid="tag-page" className={styles.wrapper}>
-      <TagsHeader
-        tags={tags}
-        isLoading={tagsHints.isLoading}
-        suggestions={tagsHints.tags}
-        onLoadSuggestion={onLoadSuggestion}
-        onLoadSuggestionCancel={onLoadSuggestionCancel}
-        onTagAdd={onTagAdd}
-        onTagRemove={onTagRemove}
-      />
-
-      <div className={styles.content}>
-        <div className={styles.column}>
+    <div data-testid="tag-page" className={styles.pageWrapper}>
+      <div className={styles.wrapper}>
+        <TagsHeader
+          tags={tags}
+          isLoading={tagsHints.isLoading}
+          suggestions={tagsHints.tags}
+          onLoadSuggestion={onLoadSuggestion}
+          onLoadSuggestionCancel={onLoadSuggestionCancel}
+          onTagAdd={onTagAdd}
+          onTagRemove={onTagRemove}
+        />
+        <section className={styles.section}>
+          <h3 className={styles.header}>Groups</h3>
           <GroupsList
             records={state.groups.docs}
             isLoading={state.groups.isLoading}
           />
-        </div>
+        </section>
 
-        <div className={styles.column}>
+        <section className={styles.section}>
+          <h3 className={styles.header}>Users</h3>
           <UsersList
             records={state.users.docs}
             isLoading={state.users.isLoading}
           />
-        </div>
+        </section>
 
-        <div className={styles.column}>
+        <section className={styles.section}>
+          <h3 className={styles.header}>Posts</h3>
           {state.posts && (
             <PostsList
               user={null}
@@ -148,7 +152,14 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags, posts }) => {
               isLoading={state.posts.isLoading}
             />
           )}
-        </div>
+          {!state.posts && (
+            <MockData
+              additionalStyles={styles.noRecords}
+              theme="dark"
+              numberOfElements={4}
+            />
+          )}
+        </section>
       </div>
     </div>
   )
