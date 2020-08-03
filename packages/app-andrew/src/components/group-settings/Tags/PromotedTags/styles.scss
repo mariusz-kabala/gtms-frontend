@@ -30,7 +30,6 @@
         height: 100%;
         border: 4px solid $theme4;
         background: rgba($theme4, 0.2);
-        bborderradius: $borderRadius;
         opacity: 0;
       }
       // @todo create mixin for that
@@ -70,7 +69,6 @@
 
       img,
       picture {
-        bborderradius: $borderRadius;
         overflow: hidden;
       }
     }
@@ -83,47 +81,4 @@
       }
     }
   }
-
-  // .content {
-  //   min-width: 500px;
-  //   min-height: 300px;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   background: none !important;
-
-  //   > div {
-  //     h2 {
-  //       text-align: center;
-  //       @include font-size(lg);
-  //     }
-
-  //     .buttons {
-  //       display: flex;
-  //       margin-top: 20px;
-
-  //       > * {
-  //         @include buttonDefault();
-  //         @include buttonSizeDefault();
-  //         @include buttonShapePrimary();
-  //         @include buttonColorsDefault();
-  //         margin-right: 15px;
-
-  //         &:hover {
-  //           @include buttonColorsPrimary();
-  //         }
-
-  //         &:last-child {
-  //           margin-right: 0;
-  //         }
-  //       }
-
-  //       .no {
-  //         &:hover {
-  //           background: $theme14;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }

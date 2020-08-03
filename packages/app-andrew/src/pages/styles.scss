@@ -8,7 +8,6 @@
 @import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .pageWrapper {
-  // @include pageWrapper();
   background: #fffbf2;
   max-width: 100%;
 
@@ -43,26 +42,21 @@
       align-items: center;
       padding: 10px 15px;
       background: $theme4;
+      color: $theme0;
       border-radius: $borderRadius;
       @include z-index(headerWrapper);
 
-      a {
-        display: flex;
+      .header {
+        @include font-size(xxlg);
+        @include font-weight(bold);
+        text-transform: uppercase;
+        margin-right: 10px;
+      }
+
+      .desc {
+        max-width: 300px;
         align-items: center;
-        min-width: 380px;
-        color: $theme0;
-
-        .header {
-          @include font-size(xxlg);
-          @include font-weight(bold);
-          text-transform: uppercase;
-          margin-right: 10px;
-        }
-
-        .desc {
-          align-items: center;
-          @include font-size(sm);
-        }
+        @include font-size(xdefault);
       }
 
       .btn {

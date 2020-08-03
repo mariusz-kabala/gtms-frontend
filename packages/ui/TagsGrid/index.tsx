@@ -5,7 +5,6 @@ import { Button } from '@gtms/ui/Button'
 import { GridCard } from '@gtms/ui/GridCard'
 import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
-import { distinctUntilArrayItemChanged } from '@datorama/akita'
 
 export const TagsGrid: FC<{
   additionalStyles?: string
@@ -17,84 +16,108 @@ export const TagsGrid: FC<{
       name: '#berlin2020',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-1.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-1.png',
+      },
     },
     {
       id: 1,
       name: '#cdp',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-8.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-8.png',
+      },
     },
     {
       id: 2,
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
       name: '#nightCity',
-      image: '/images/temp_images/logo-wioska-3.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-3.png',
+      },
     },
     {
       id: 3,
       name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-5.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-5.png',
+      },
     },
     {
       id: 4,
       name: '#cdp',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-6.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-6.png',
+      },
     },
     {
       id: 5,
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
       name: '#nightCity',
-      image: '/images/temp_images/logo-wioska-7.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-7.png',
+      },
     },
     {
       id: 6,
       name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-8.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-8.png',
+      },
     },
     {
       id: 7,
       name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-1.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-1.png',
+      },
     },
     {
       id: 8,
       name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-10.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-10.png',
+      },
     },
     {
       id: 9,
       name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-3.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-3.png',
+      },
     },
     {
       id: 10,
       name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-2.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-2.png',
+      },
     },
     {
       id: 11,
       name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-3.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-3.png',
+      },
     },
   ]
 
@@ -108,7 +131,7 @@ export const TagsGrid: FC<{
               <li className={styles.item} key={item.id}>
                 <GridCard
                   name={item.name}
-                  desc={distinctUntilArrayItemChanged.description}
+                  desc={item.description}
                   image={item.image}
                 />
               </li>

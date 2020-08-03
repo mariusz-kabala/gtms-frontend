@@ -1,11 +1,8 @@
 import React, { FC } from 'react'
 import { IGroup } from '@gtms/commons/models'
-import { getImage } from '@gtms/commons/helpers'
-import { GroupAvatarNoImage, UserAvatarNoImage } from 'enums'
 // ui
-import { GroupCard } from '@gtms/ui/GroupCard'
-import { MockData } from '@gtms/ui/MockData'
 import { Spinner } from '@gtms/ui/Spinner'
+import { MockData } from '@gtms/ui/MockData'
 import styles from './styles.scss'
 
 export const GroupsList: FC<{ records: IGroup[]; isLoading: boolean }> = ({
@@ -18,18 +15,10 @@ export const GroupsList: FC<{ records: IGroup[]; isLoading: boolean }> = ({
       {!isLoading &&
         records.length > 0 &&
         records.map((group) => (
-          // something else should be used here to display a group
-          <GroupCard
-            key={`group-${group.id}`}
-            isLoading={false}
-            members={[]}
-            name={group.name}
-            description={group.description}
-            tags={group.tags || []}
-            slug={group.slug}
-            noUserAvatar={UserAvatarNoImage}
-            logo={getImage('200x200', group.avatar, GroupAvatarNoImage)}
-          />
+          <div key={group.id}>
+            <h1>Proper component is missing</h1>
+            {JSON.stringify(group)}
+          </div>
         ))}
       {!isLoading && records.length === 0 && (
         <MockData

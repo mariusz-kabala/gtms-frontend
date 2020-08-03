@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.62.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.61.4...@gtms/app-andrew@0.62.0) (2020-08-03)
+
+### Features
+
+- GEOT-394: main page ([#792](https://github.com/gtms-org/gtms-frontend/issues/792)) ([4386543](https://github.com/gtms-org/gtms-frontend/commit/43865436e6edc74881fb5c39e228ee4a34a41174))
+
 ## [0.61.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.61.3...@gtms/app-andrew@0.61.4) (2020-07-31)
 
 ### Bug Fixes

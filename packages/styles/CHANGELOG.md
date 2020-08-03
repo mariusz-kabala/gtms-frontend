@@ -3,16 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.13.3...@gtms/styles@0.14.0) (2020-07-29)
-
+# [0.15.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.14.0...@gtms/styles@0.15.0) (2020-08-03)
 
 ### Features
 
-* GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
+- GEOT-394: main page ([#792](https://github.com/gtms-org/gtms-frontend/issues/792)) ([4386543](https://github.com/gtms-org/gtms-frontend/commit/43865436e6edc74881fb5c39e228ee4a34a41174))
 
+# [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.13.3...@gtms/styles@0.14.0) (2020-07-29)
 
+### Features
 
-
+- GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
 
 ## [0.13.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.13.2...@gtms/styles@0.13.3) (2020-07-27)
 
