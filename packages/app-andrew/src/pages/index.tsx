@@ -43,7 +43,7 @@ export const HomePage: NextPage<HomePageProps> = ({
         {children}
         <div className={styles.sections}>
           <div className={styles.headerWrapper}>
-            <h1 className={styles.header}>Name.com</h1>
+            <h1 className={styles.header}>spotted.pl</h1>
             <p className={styles.desc}>
               Aliquip officia voluptate voluptate nulla lorem ipsum dolor
               officia in incididunt labore.

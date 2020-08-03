@@ -61,7 +61,7 @@ export const RecentlyCreatedGroups: FC<{
       {groups.map((group) => {
         currentIteration++
 
-        if (currentIteration === 3) {
+        if (currentIteration === 8) {
           return <CreateYourOwnGroup />
         }
 

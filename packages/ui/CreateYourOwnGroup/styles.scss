@@ -14,9 +14,11 @@
   background: $theme4;
   @include imageCover();
   color: $theme0;
+  cursor: pointer;
 
   > div {
     background: rgba($theme4, 0.9);
+    padding: 10px 0;
 
     .header {
       @include font-weight(normal);
