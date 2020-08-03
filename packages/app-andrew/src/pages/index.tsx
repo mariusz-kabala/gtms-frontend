@@ -5,6 +5,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { IUser, IGroup } from '@gtms/commons/models'
 import { getRecentUsers, usersListQuery } from '@gtms/state-user'
 import { getRecentGroups, groupsListQuery } from '@gtms/state-group'
+import { Link } from '@gtms/commons/i18n'
 // ui
 import { Button } from '@gtms/ui/Button'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
@@ -44,11 +45,15 @@ export const HomePage: NextPage<HomePageProps> = ({
         {children}
         <div className={styles.sections}>
           <div className={styles.headerWrapper}>
-            <h1 className={styles.header}>Spotted.pl</h1>
-            <p className={styles.desc}>
-              Aliquip officia voluptate voluptate nulla lorem ipsum dolor
-              officia in incididunt labore.
-            </p>
+            <Link href="/">
+              <a>
+                <h1 className={styles.header}>Spotted.pl</h1>
+                <p className={styles.desc}>
+                  Aliquip officia voluptate voluptate nulla lorem ipsum dolor
+                  officia in incididunt labor.
+                </p>
+              </a>
+            </Link>
             <SearchBar
               onTagAdd={() => null}
               onTagRemove={() => null}

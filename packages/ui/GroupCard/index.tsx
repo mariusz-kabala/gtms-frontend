@@ -49,6 +49,13 @@ export const GroupCard: FC<{
       data-testid="group-card"
     >
       <>
+        {isActive && (
+          <style global jsx>{`
+            body {
+              padding-bottom: 150px;
+            }
+          `}</style>
+        )}
         <div className={styles.content}>
           <div className={styles.partOne}>
             <Picture additionalStyles={styles.avatar} {...logo} />

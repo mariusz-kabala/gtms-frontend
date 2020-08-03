@@ -5,9 +5,11 @@ import styles from './styles.scss'
 export const Tag: FC<{
   label: string
   additionalStyles?: string
+  key?: string
   onClick?: () => unknown
-}> = ({ label, onClick, additionalStyles }) => (
+}> = ({ additionalStyles, key, label, onClick }) => (
   <div
+    key={key}
     onClick={onClick}
     data-testid="tag"
     className={cx(styles.tag, additionalStyles)}

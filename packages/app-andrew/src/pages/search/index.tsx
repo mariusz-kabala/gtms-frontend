@@ -7,6 +7,7 @@ import { Button } from '@gtms/ui/Button'
 import { MockData } from '@gtms/ui/MockData'
 import { Picture } from '@gtms/ui/Picture'
 import { SearchBar } from '@gtms/ui/SearchBar'
+import { IoMdGrid } from 'react-icons/io'
 import styles from './styles.scss'
 
 export const SearchPage: NextPage<{}> = () => {
@@ -32,6 +33,9 @@ export const SearchPage: NextPage<{}> = () => {
               [styles.active]: true,
             })}
           >
+            <i>
+              <IoMdGrid />
+            </i>
             Tags
           </Button>
           <SearchBar

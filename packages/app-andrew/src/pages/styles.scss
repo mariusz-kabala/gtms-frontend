@@ -43,21 +43,26 @@
       align-items: center;
       padding: 10px 15px;
       background: $theme4;
-      color: $theme0;
       border-radius: $borderRadius;
       @include z-index(headerWrapper);
 
-      .header {
-        @include font-size(xxlg);
-        @include font-weight(bold);
-        text-transform: uppercase;
-        margin-right: 10px;
-      }
-
-      .desc {
-        max-width: 300px;
+      a {
+        display: flex;
         align-items: center;
-        @include font-size(xdefault);
+        min-width: 380px;
+        color: $theme0;
+
+        .header {
+          @include font-size(xxlg);
+          @include font-weight(bold);
+          text-transform: uppercase;
+          margin-right: 10px;
+        }
+
+        .desc {
+          align-items: center;
+          @include font-size(sm);
+        }
       }
 
       .btn {

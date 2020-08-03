@@ -5,33 +5,23 @@
 .wrapper {
   color: $theme7;
 
-  header {
+  .header {
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    @include font-size(xxlg);
+  }
 
-    h2 {
-      @include font-size(xxlg);
-    }
+  .inputWrapper {
+    margin: 10px 0;
 
-    a {
-      @include font-size(xxlg);
-      @include font-weight(bold);
-      margin-left: 10px;
-      cursor: pointer;
-    }
-
-    .inputWrapper {
-      margin-left: 10px;
-
-      input {
-        background: black;
-        min-width: 300px;
-        border: none;
-        padding: 5px;
-        color: $theme7;
-        border-bottom: 1px solid $theme7;
-      }
+    input {
+      background: black;
+      min-width: 300px;
+      border: none;
+      padding: 5px;
+      color: $theme7;
+      border-bottom: 1px solid $theme7;
     }
   }
 }
