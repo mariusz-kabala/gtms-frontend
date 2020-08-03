@@ -15,6 +15,7 @@
   @include imageCover();
   color: $theme0;
   cursor: pointer;
+  border: 5px solid $theme4;
 
   > div {
     background: rgba($theme4, 0.9);
@@ -28,5 +29,9 @@
     .desc {
       @include font-weight(normal);
     }
+  }
+
+  &:hover {
+    border-color: $theme4 * 0.7;
   }
 }

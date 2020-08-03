@@ -11,20 +11,20 @@ export const CreateYourOwnGroup: FC<{
   const { t } = useTranslation('createYourOwnGroup')
 
   return (
-    <div
-      className={cx(styles.wrapper, additionalStyles)}
-      data-testid="create-your-own-group"
-      onClick={() => (onClick ? onClick : null)}
-      style={{
-        backgroundImage: `url('/images/white-theme/create-your-own-group.png')`,
-      }}
-    >
-      <Link href={'/group/group-create'}>
+    <Link href={'/group/group-create'}>
+      <div
+        className={cx(styles.wrapper, additionalStyles)}
+        data-testid="create-your-own-group"
+        onClick={() => (onClick ? onClick : null)}
+        style={{
+          backgroundImage: `url('/images/white-theme/create-your-own-group.png')`,
+        }}
+      >
         <div>
           <h4 className={styles.header}>{t('header')}</h4>
           <p className={styles.desc}>{t('description')}</p>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   )
 }
