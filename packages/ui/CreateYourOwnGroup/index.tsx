@@ -11,7 +11,7 @@ export const CreateYourOwnGroup: FC<{
   const { t } = useTranslation('createYourOwnGroup')
 
   return (
-    <Link href={'/group/group-create'}>
+    <Link href={'/group-create'}>
       <div
         className={cx(styles.wrapper, additionalStyles)}
         data-testid="create-your-own-group"
