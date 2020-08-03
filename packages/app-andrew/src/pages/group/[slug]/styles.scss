@@ -16,6 +16,7 @@
 
   .navigationWrapper {
     display: flex;
+    align-items: center;
     margin-bottom: 15px;
 
     .header {
@@ -41,15 +42,6 @@
           }
         }
       }
-    }
-  }
-
-  .general {
-    .avatarAndName {
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-      // width: 100%;
     }
   }
 

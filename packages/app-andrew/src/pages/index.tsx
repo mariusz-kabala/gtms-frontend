@@ -43,7 +43,7 @@ export const HomePage: NextPage<HomePageProps> = ({
         {children}
         <div className={styles.sections}>
           <div className={styles.headerWrapper}>
-            <h1 className={styles.header}>Spotted.pl</h1>
+            <h1 className={styles.header}>Name.com</h1>
             <p className={styles.desc}>
               Aliquip officia voluptate voluptate nulla lorem ipsum dolor
               officia in incididunt labore.
@@ -67,7 +67,6 @@ export const HomePage: NextPage<HomePageProps> = ({
             <RecentlyCreatedGroups groups={groups} />
           </div>
           <div className={cx(styles.section, styles.recentlyRegisteredUsers)}>
-            {/* <h2 className={styles.header}>{t('header')}</h2> */}
             <RecentlyRegisteredUsers users={users} />
           </div>
         </div>

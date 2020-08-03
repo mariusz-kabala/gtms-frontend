@@ -156,7 +156,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             </div>
 
             {tab === Tabs.general && (
-              <div className={styles.general}>
+              <>
                 {group.group && <GroupBackgroundSettings group={group.group} />}
                 <div className={styles.avatarAndName}>
                   <GroupAvatarSettings avatar={group.group?.avatar} />
@@ -172,7 +172,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                     jpg={'/images/white-theme/ohno.png'}
                   />
                 </div>
-              </div>
+              </>
             )}
 
             {tab === Tabs.tags && (
