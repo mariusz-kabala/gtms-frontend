@@ -1,18 +1,18 @@
 import React, { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
+import { GroupType, GroupVisibility } from '@gtms/commons/enums'
+import { IGroup } from '@gtms/commons/models'
+import { updateGroup } from '@gtms/state-group'
+import { BasicInfoSetup } from '../BasicInfoSetup'
+// ui
 import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
-import styles from './styles.scss'
-import { IoIosHelpCircle } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
-import { GroupType, GroupVisibility } from '@gtms/commons/enums'
-import { IGroup } from '@gtms/commons/models'
-import { updateGroup } from '@gtms/state-group'
 import { Spinner } from '@gtms/ui/Spinner'
-import { BasicInfoSetup } from '../BasicInfoSetup'
+import styles from './styles.scss'
 
 interface IFormData {
   name?: string
@@ -68,38 +68,25 @@ export const BasicSettings: FC<{
     <div data-testid="group-settings-basic">
       <BasicInfoSetup group={group} />
       <form onSubmit={handleSubmit(onSubmit)} method="post">
-        <Input
-          type="text"
-          name="name"
-          defaultValue={name}
-          placeholder={t('form.labels.name')}
-          reference={register}
-        />
-        {errors.name && <Error text={t('form.validation.name.isRequired')} />}
-        <ExpandingTextarea
-          placeholder={t('form.labels.description')}
-          name="description"
-          defaultValue={group.description}
-          reference={register({ required: true })}
-        />
-        <div className={styles.bools}>
-          <div className={styles.element}>
-            <div className={styles.help}>
-              <i
-                data-tip={
-                  "Any user can join the group. Joining does not require group's admin acceptation"
-                }
-                data-place="right"
-                data-background-color="black"
-                data-text-color="white"
-              >
-                <IoIosHelpCircle />
-              </i>
-            </div>
-            <div className={styles.label}>
-              <label>Anyone can join</label>
-            </div>
-            <div className={styles.formEl}>
+        <div className={styles.toremove}>
+          <Input
+            type="text"
+            name="name"
+            defaultValue={name}
+            placeholder={t('form.labels.name')}
+            reference={register}
+          />
+          {errors.name && <Error text={t('form.validation.name.isRequired')} />}
+          <ExpandingTextarea
+            placeholder={t('form.labels.description')}
+            name="description"
+            defaultValue={group.description}
+            reference={register({ required: true })}
+          />
+        </div>
+        <div className={styles.checkboxes}>
+          <div className={styles.item}>
+            <div>
               <SwitchWrapper
                 onChange={(value) =>
                   setSettings({
@@ -109,26 +96,15 @@ export const BasicSettings: FC<{
                 }
                 checked={settings.type === GroupType.public}
               />
+              <label>Anyone can join</label>
             </div>
+            <span>
+              Any user can join the group. Joining does not require groups admin
+              acceptation
+            </span>
           </div>
-
-          <div className={styles.element}>
-            <div className={styles.help}>
-              <i
-                data-tip={
-                  "If group is public, anyone can find it, and read it's content. If not - only members can do that"
-                }
-                data-place="right"
-                data-background-color="black"
-                data-text-color="white"
-              >
-                <IoIosHelpCircle />
-              </i>
-            </div>
-            <div className={styles.label}>
-              <label>Group is public</label>
-            </div>
-            <div className={styles.formEl}>
+          <div className={styles.item}>
+            <div>
               <SwitchWrapper
                 onChange={(value) =>
                   setSettings({
@@ -140,7 +116,12 @@ export const BasicSettings: FC<{
                 }
                 checked={settings.visibility === GroupVisibility.public}
               />
+              <label>Group is public</label>
             </div>
+            <span>
+              If group is public, anyone can find it, and read its content. If
+              not - only members can do that
+            </span>
           </div>
         </div>
         {isSaving && <Spinner />}

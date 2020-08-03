@@ -110,7 +110,10 @@ export const InviteToGroupButton: FC<{
   return (
     <>
       {internalState.isModalOpen && (
-        <Modal onClose={() => setInternalState(getInitialInternalState())}>
+        <Modal
+          additionalStyles={styles.modalContent}
+          onClose={() => setInternalState(getInitialInternalState())}
+        >
           {externalState.isLoading && <Spinner />}
           {externalState.errorOccured && (
             <ErrorWrapper>

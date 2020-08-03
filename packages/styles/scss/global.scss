@@ -25,7 +25,7 @@ button {
 body {
   @include font-size(default);
   line-height: normal;
-  background-color: black;
+  background-color: $black;
   @include font-weight(semiNormal);
 }
 

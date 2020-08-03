@@ -5,52 +5,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.44.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.44.1...@gtms/ui@0.44.2) (2020-07-31)
 
-
 ### Bug Fixes
 
-* GEOT-392: styles for account notifications ([#789](https://github.com/gtms-org/gtms-frontend/issues/789)) ([bf580a1](https://github.com/gtms-org/gtms-frontend/commit/bf580a1e7a1eede54db7209cc34a1dc9fcc438b4))
-
-
-
-
+- GEOT-392: styles for account notifications ([#789](https://github.com/gtms-org/gtms-frontend/issues/789)) ([bf580a1](https://github.com/gtms-org/gtms-frontend/commit/bf580a1e7a1eede54db7209cc34a1dc9fcc438b4))
 
 ## [0.44.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.44.0...@gtms/ui@0.44.1) (2020-07-30)
 
-
 ### Bug Fixes
 
-* GEOT-382: apply custom bg on group page ([#787](https://github.com/gtms-org/gtms-frontend/issues/787)) ([2423998](https://github.com/gtms-org/gtms-frontend/commit/242399893325e3f69bf93d3b028850a03212df55))
-
-
-
-
+- GEOT-382: apply custom bg on group page ([#787](https://github.com/gtms-org/gtms-frontend/issues/787)) ([2423998](https://github.com/gtms-org/gtms-frontend/commit/242399893325e3f69bf93d3b028850a03212df55))
 
 # [0.44.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.43.0...@gtms/ui@0.44.0) (2020-07-29)
 
-
 ### Bug Fixes
 
-* GEOT-382: bg chooser - make the ui works ([#786](https://github.com/gtms-org/gtms-frontend/issues/786)) ([8e28e26](https://github.com/gtms-org/gtms-frontend/commit/8e28e263b260559a951d4731b3cc6c9b4fcdfab9))
-
+- GEOT-382: bg chooser - make the ui works ([#786](https://github.com/gtms-org/gtms-frontend/issues/786)) ([8e28e26](https://github.com/gtms-org/gtms-frontend/commit/8e28e263b260559a951d4731b3cc6c9b4fcdfab9))
 
 ### Features
 
-* GEOT-391: basic group settings component ([#783](https://github.com/gtms-org/gtms-frontend/issues/783)) ([4282657](https://github.com/gtms-org/gtms-frontend/commit/4282657365d4a1c49286f6003fe71d99cf8616b1))
-
-
-
-
+- GEOT-391: basic group settings component ([#783](https://github.com/gtms-org/gtms-frontend/issues/783)) ([4282657](https://github.com/gtms-org/gtms-frontend/commit/4282657365d4a1c49286f6003fe71d99cf8616b1))
 
 # [0.43.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.42.0...@gtms/ui@0.43.0) (2020-07-29)
 
-
 ### Features
 
-* GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
-
-
-
-
+- GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
 
 # [0.42.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.41.3...@gtms/ui@0.42.0) (2020-07-28)
 

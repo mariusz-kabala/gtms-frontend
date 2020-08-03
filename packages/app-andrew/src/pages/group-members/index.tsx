@@ -4,7 +4,7 @@ import styles from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
 import { Button } from '@gtms/ui/Button'
 import { UserCard } from '@gtms/ui/UserCard'
-import { UserCardMini } from '@gtms/ui/UserCardMini'
+import { GridCard } from '@gtms/ui/GridCard'
 
 export const GroupMembersPage: NextPage<{}> = () => {
   const { t } = useTranslation('groupMembers')
@@ -21,133 +21,133 @@ export const GroupMembersPage: NextPage<{}> = () => {
               image={'/images/temp_images/avatar-1.png'}
             />
           )}
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-1.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-2.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-3.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-4.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-5.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-6.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-7.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-8.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-9.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-10.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-11.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-1.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-2.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-3.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-4.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-5.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-6.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-7.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-8.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-9.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}
             image={{ jpg: '/images/temp_images/logo-wioska-10.png' }}
           />
-          <UserCardMini
+          <GridCard
             name="Johnny Silverhand"
             desc=" Cupidatat nisi aliquip culpa enim laborum cupidatat consequat consequat non occaecat sit et. Reprehenderit quis"
             onClick={() => setIsModalOpen(true)}

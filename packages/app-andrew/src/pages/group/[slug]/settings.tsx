@@ -157,10 +157,11 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
 
             {tab === Tabs.general && (
               <>
-                <GroupAvatarSettings avatar={group.group?.avatar} />
                 {group.group && <GroupBackgroundSettings group={group.group} />}
-                {group.group && <BasicSettings group={group.group} />}
-
+                <div className={styles.avatarAndName}>
+                  <GroupAvatarSettings avatar={group.group?.avatar} />
+                  {group.group && <BasicSettings group={group.group} />}
+                </div>
                 <div className={styles.deleteAccount}>
                   <div className={styles.btn}>
                     <h2>Oh no! Do not</h2>

@@ -7,21 +7,17 @@ export const Picture: FC<{
   alt?: string
   jpg?: string
   webp?: string
-  maxWidth?: number
-  maxHeight?: number
-}> = ({ additionalStyles, alt, maxWidth, maxHeight, jpg, webp }) =>
-  maxWidth || maxHeight ? (
+  coverImage?: boolean
+}> = ({ additionalStyles, alt, coverImage, jpg, webp }) =>
+  coverImage ? (
     <div
-      className={cx(styles.img, additionalStyles)}
-      style={{
-        backgroundImage: `url(${jpg})`,
-        maxHeight: maxHeight,
-      }}
+      className={cx(styles.image, additionalStyles)}
+      style={{ backgroundImage: `url(${jpg})` }}
     />
   ) : (
     <picture className={additionalStyles}>
       {webp && <source srcSet={webp} type="image/webp" />}
       <source srcSet={jpg} type="image/jpeg" />
-      <img className={styles.img} src={jpg} alt={alt ? alt : 'image'} />
+      <img className={styles.image} src={jpg} alt={alt ? alt : 'image'} />
     </picture>
   )

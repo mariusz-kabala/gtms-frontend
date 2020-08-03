@@ -2,18 +2,19 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
 
 .noRecords {
   text-align: center;
 }
 
 .promotedList {
-  // @todo make mixin of that
-  display: grid;
-  gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  @include gridDefault(5);
 
   .item {
+    overflow: hidden;
+    border-radius: $borderRadius;
+
     .imageWrapper {
       width: 100%;
       cursor: pointer;
@@ -29,7 +30,6 @@
         height: 100%;
         border: 4px solid $theme4;
         background: rgba($theme4, 0.2);
-        border-radius: $borderRadius;
         opacity: 0;
       }
       // @todo create mixin for that
@@ -69,7 +69,6 @@
 
       img,
       picture {
-        border-radius: $borderRadius;
         overflow: hidden;
       }
     }
@@ -79,49 +78,6 @@
         margin-top: 5px;
         @include font-size(md);
         @include font-weight(semiBold);
-      }
-    }
-  }
-
-  .modalContent {
-    min-width: 500px;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none !important;
-
-    > div {
-      h2 {
-        text-align: center;
-        @include font-size(lg);
-      }
-
-      .buttons {
-        display: flex;
-        margin-top: 20px;
-
-        > * {
-          @include buttonDefault();
-          @include buttonSizeDefault();
-          @include buttonShapePrimary();
-          @include buttonColorsDefault();
-          margin-right: 15px;
-
-          &:hover {
-            @include buttonColorsPrimary();
-          }
-
-          &:last-child {
-            margin-right: 0;
-          }
-        }
-
-        .no {
-          &:hover {
-            background: red;
-          }
-        }
       }
     }
   }

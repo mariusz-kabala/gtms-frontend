@@ -10,13 +10,13 @@
 
 .wrapper {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   padding: 20px;
   max-width: 980px;
 
   .navigationWrapper {
     display: flex;
+    align-items: center;
     margin-bottom: 15px;
 
     .header {
@@ -49,6 +49,7 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -20px;
     margin-top: 50px;
     max-width: 600px;
 

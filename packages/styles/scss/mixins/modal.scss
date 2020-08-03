@@ -1,0 +1,6 @@
+@mixin modalContent() {
+  > div {
+    min-width: 45%;
+    min-height: 200px;
+  }
+}

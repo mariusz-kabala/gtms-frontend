@@ -143,11 +143,16 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
         </Button>
       </div>
       <div onClick={onFormModalOpen}>
-        <h1>{group.name}</h1>
-        <p>{group.description || 'no group description'}</p>
+        <h2 className={styles.header}>{group.name}</h2>
+        <p className={styles.description}>
+          {group.description || 'no group description'}
+        </p>
       </div>
       {formState.isOpen && (
-        <Modal onClose={onFormModalClose}>
+        <Modal
+          additionalStyles={styles.modalContent}
+          onClose={onFormModalClose}
+        >
           <form
             onSubmit={handleSubmit(onSubmit)}
             method="post"

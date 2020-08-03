@@ -55,13 +55,13 @@ export const NotificationsSidebar: FC<{
       })}
     >
       <div className={styles.navigation}>
-        <h2>
+        <h2 className={styles.header}>
           Notofications {state.unreadCount && `(${state.unreadCount})`}
           {/* @todo add translation here */}
         </h2>
-        <ul>
-          <li>Latest</li>
-          <li>By groups</li>
+        <ul className={styles.items}>
+          <li className={styles.item}>Latest</li>
+          <li className={styles.item}>By groups</li>
         </ul>
         <CloseIcon onClick={closeSidebarNotifications} />
       </div>

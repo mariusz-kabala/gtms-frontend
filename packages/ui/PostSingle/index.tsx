@@ -56,7 +56,7 @@ export const PostSingle: FC<{
   onLoginRequest,
   renderFavs,
   favs = [],
-  allowToRespond = true,
+  allowToRespond = false,
   activeTags = [],
 }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)

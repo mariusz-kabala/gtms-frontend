@@ -1,9 +1,10 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/modal.scss';
 
-.loginWindow {
-  padding: 15px;
+.modalContent {
+  @include modalContent();
 
   button[type='submit'] {
     margin-bottom: 20px;

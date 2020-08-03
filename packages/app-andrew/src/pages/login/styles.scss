@@ -2,6 +2,7 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
@@ -29,11 +30,11 @@
       border-radius: $borderRadius;
       background: $theme0;
 
-      .header {
+      .headerWrapper {
         display: flex;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
 
-        h2 {
+        .header {
           // @todo make mixin of that
           font-size: 2em;
           text-transform: uppercase;
@@ -81,11 +82,7 @@
       }
 
       .actionButtons {
-        // @todo use mixin for that
-        display: grid;
-        gap: 15px; // @todo set standard gap
-        grid-template-columns: 1fr 1fr;
-
+        @include gridDefault(2);
         margin: 10px 0;
         margin-top: 25px;
 
@@ -108,9 +105,7 @@
       }
 
       .socialButtons {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr 1fr;
+        @include gridDefault(2);
       }
     }
   }

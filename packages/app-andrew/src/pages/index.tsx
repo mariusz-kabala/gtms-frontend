@@ -1,44 +1,60 @@
 import React, { useState } from 'react'
 import { NextPage } from 'next'
-import styles from './appStyles.scss'
+import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IUser, IGroup } from '@gtms/commons/models'
+import { getRecentUsers, usersListQuery } from '@gtms/state-user'
+import { getRecentGroups, groupsListQuery } from '@gtms/state-group'
+// ui
 import { Button } from '@gtms/ui/Button'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
-import { PolAndRock } from '@gtms/ui/PolAndRock'
+import { Picture } from '@gtms/ui/Picture'
 import { RecentlyCreatedGroups } from 'components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
-import { IoIosSearch } from 'react-icons/io'
-import { getRecentUsers, usersListQuery } from '@gtms/state-user'
-import { getRecentGroups, groupsListQuery } from '@gtms/state-group'
+import { SearchBar } from '@gtms/ui/SearchBar'
+import styles from './styles.scss'
 
 type HomePageProps = {
+  groups: IGroup[]
   namespacesRequired: readonly string[]
   users: IUser[]
-  groups: IGroup[]
 }
 
-export const HomePage: NextPage<HomePageProps> = ({ users, groups }) => {
+export const HomePage: NextPage<HomePageProps> = ({
+  children,
+  groups,
+  users,
+}) => {
   const { t } = useTranslation('homePage')
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
-    <div className={styles.wrapper} data-testid="home-page">
+    <div className={styles.pageWrapper} data-testid="home-page">
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
           <InviteFriends />
         </Modal>
       )}
-      <PolAndRock />
-      <div className={styles.search}>
-        <div>
-          <h2 className={styles.header}>
-            <IoIosSearch />
-            {t('header')}
-          </h2>
-          <p>
-            {t('subheaderone')}
+      <div className={styles.welcomeSlider}>
+        <Picture jpg={'/images/white-theme/spotted-bg-highschool.png'} />
+      </div>
+      <div className={styles.wrapper}>
+        {children}
+        <div className={styles.sections}>
+          <div className={styles.headerWrapper}>
+            <h1 className={styles.header}>Name.com</h1>
+            <p className={styles.desc}>
+              Aliquip officia voluptate voluptate nulla lorem ipsum dolor
+              officia in incididunt labore.
+            </p>
+            <SearchBar
+              onTagAdd={() => null}
+              onTagRemove={() => null}
+              onLoadSuggestion={() => null}
+              onQueryChange={() => null}
+              onLoadSuggestionCancel={() => null}
+            />
             <Button
               additionalStyles={styles.btn}
               onClick={() => setIsModalOpen(true)}
@@ -46,18 +62,15 @@ export const HomePage: NextPage<HomePageProps> = ({ users, groups }) => {
             >
               {t('btn')}
             </Button>
-            {t('subheadertwo')}
-          </p>
+          </div>
+          <div className={cx(styles.section, styles.recentlyCreatedGroups)}>
+            <RecentlyCreatedGroups groups={groups} />
+          </div>
+          <div className={cx(styles.section, styles.recentlyRegisteredUsers)}>
+            <RecentlyRegisteredUsers users={users} />
+          </div>
         </div>
       </div>
-      <section className={styles.recentPosts}>
-        <h2 className={styles.header}>{t('header')}</h2>
-        <RecentlyCreatedGroups groups={groups} />
-      </section>
-      <section>
-        <h2 className={styles.header}>{t('Zaproś znajomych')}</h2>
-        <RecentlyRegisteredUsers users={users} />
-      </section>
     </div>
   )
 }

@@ -4,8 +4,6 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  padding: 20px;
-
   .header {
     // @todo create mixin of that
     font-size: 1.5em;
@@ -15,6 +13,7 @@
   }
 
   .grid {
+    // @todo create mixin for that
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     grid-gap: 15px;

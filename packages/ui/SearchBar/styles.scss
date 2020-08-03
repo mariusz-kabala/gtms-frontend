@@ -12,20 +12,23 @@
   .inputWrapper {
     position: relative;
     display: flex;
-    flex-basis: 100%;
+    width: 100%;
+    min-height: 38px;
+    margin-left: 10px;
 
     i {
       position: absolute;
       top: 12px;
       left: 8px;
       color: $theme9;
+      line-height: 0;
     }
 
     input[type='text'] {
       display: block;
       width: 100%;
       padding-left: 22px;
-      border: 2px solid $theme0;
+      border: 2px solid $theme1;
       border-radius: $borderRadius;
       background: $theme0;
 
@@ -69,19 +72,18 @@
   }
 
   .tag {
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapePrimary();
+    @include buttonColorsDefault();
+    margin-left: 5px;
+
     &:first-child {
       margin-left: 0;
     }
-  }
-}
 
-.tag {
-  @include buttonDefault();
-  @include buttonSizeDefault();
-  @include buttonShapePrimary();
-  @include buttonColorsDefault();
-
-  &:hover {
-    @include buttonColorsDefault();
+    &:hover {
+      @include buttonColorsPrimary();
+    }
   }
 }

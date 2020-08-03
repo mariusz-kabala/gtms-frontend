@@ -19,7 +19,7 @@
   }
 
   .iconClose {
-    background: red;
+    background: $theme14;
     padding: 10px;
     @include font-size(lg);
   }
@@ -76,6 +76,7 @@
 
     .images {
       position: relative;
+      // @todo create mixin for that
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
       grid-gap: 15px;

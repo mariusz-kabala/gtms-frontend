@@ -5,7 +5,7 @@ import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
 // ui
 import { Button } from '@gtms/ui/Button'
-import { Picture } from '@gtms/ui/Picture'
+import { GridCard } from '@gtms/ui/GridCard'
 import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
@@ -23,15 +23,11 @@ export const UserGroups: FC<{
           <ul className={styles.items}>
             {groups.map((group) => (
               <li className={styles.item} key={`group-${group.id}`}>
-                <Picture
-                  additionalStyles={styles.image}
-                  maxHeight={250}
-                  {...getImage('200x200', group.avatar, noImage)}
+                <GridCard
+                  name={group.name}
+                  desc={group.description}
+                  image={getImage('200x200', group.avatar, noImage)}
                 />
-                <div className={styles.desc}>
-                  <h3>{group.name}</h3>
-                  <p>{group.description}</p>
-                </div>
               </li>
             ))}
           </ul>

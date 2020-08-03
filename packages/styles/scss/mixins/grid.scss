@@ -1,0 +1,40 @@
+$columns: (
+  2: 1fr 1fr,
+  3: 1fr 1fr 1fr,
+  4: 1fr 1fr 1fr 1fr,
+  5: 1fr 1fr 1fr 1fr 1fr,
+  7: 1fr 1fr 1fr 1fr 1fr 1fr 1fr,
+);
+
+@function getColumnSize($key) {
+  @return map-get($columns, $key);
+}
+
+@mixin gridDefault($key) {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: getColumnSize($key);
+}
+
+@mixin gridTwoButtons() {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  grid-template-columns: 1fr 1fr;
+
+  > * {
+    margin-right: 15px;
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapePrimary();
+    @include buttonColorsDefault();
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

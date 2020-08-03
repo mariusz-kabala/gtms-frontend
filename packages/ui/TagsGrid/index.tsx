@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
+// ui
 import { Button } from '@gtms/ui/Button'
-import { Picture } from '@gtms/ui/Picture'
+import { GridCard } from '@gtms/ui/GridCard'
 import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 export const TagsGrid: FC<{
   additionalStyles?: string
@@ -12,87 +13,111 @@ export const TagsGrid: FC<{
   const mock = [
     {
       id: 0,
-      title: '#berlin2020',
+      name: '#berlin2020',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-1.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-1.png',
+      },
     },
     {
       id: 1,
-      title: '#cdp',
+      name: '#cdp',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-8.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-8.png',
+      },
     },
     {
       id: 2,
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      title: '#nightCity',
-      image: '/images/temp_images/logo-wioska-3.png',
+      name: '#nightCity',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-3.png',
+      },
     },
     {
       id: 3,
-      title: '#metro',
+      name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-5.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-5.png',
+      },
     },
     {
       id: 4,
-      title: '#cdp',
+      name: '#cdp',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-6.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-6.png',
+      },
     },
     {
       id: 5,
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      title: '#nightCity',
-      image: '/images/temp_images/logo-wioska-7.png',
+      name: '#nightCity',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-7.png',
+      },
     },
     {
       id: 6,
-      title: '#metro',
+      name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-8.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-8.png',
+      },
     },
     {
       id: 7,
-      title: '#metro',
+      name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-1.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-1.png',
+      },
     },
     {
       id: 8,
-      title: '#metro',
+      name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-10.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-10.png',
+      },
     },
     {
       id: 9,
-      title: '#metro',
+      name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-3.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-3.png',
+      },
     },
     {
       id: 10,
-      title: '#metro',
+      name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-2.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-2.png',
+      },
     },
     {
       id: 11,
-      title: '#metro',
+      name: '#metro',
       description:
         'Proident elit excepteur consectetur velit ex incididunt aliqua ullamco',
-      image: '/images/temp_images/logo-wioska-3.png',
+      image: {
+        jpg: '/images/temp_images/logo-wioska-3.png',
+      },
     },
   ]
 
@@ -104,15 +129,11 @@ export const TagsGrid: FC<{
           <ul className={styles.items}>
             {mock.map((item) => (
               <li className={styles.item} key={item.id}>
-                <Picture
-                  additionalStyles={styles.image}
-                  jpg={item.image}
-                  maxHeight={250}
+                <GridCard
+                  name={item.name}
+                  desc={item.description}
+                  image={item.image}
                 />
-                <div className={styles.headerAndDesc}>
-                  <h2 className={styles.header}>{item.title}</h2>
-                  <p>{item.description}</p>
-                </div>
               </li>
             ))}
           </ul>

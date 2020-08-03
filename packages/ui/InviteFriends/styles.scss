@@ -5,39 +5,45 @@
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
 .wrapper {
-  position: fixed;
-  z-index: 11;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  padding: 40px;
-  width: 700px;
-  max-height: 85%;
+  border-radius: $borderRadius;
   background: #bdd3eb;
   color: #584147;
   @include imageCover();
 
-  h2 {
-    @include font-weight(bold);
-    @include font-size(xxlg);
-    text-transform: uppercase;
+  .content {
+    max-width: 650px;
+    padding: 20px;
+
+    .header,
+    .subheader {
+      text-align: center;
+    }
+
+    .header {
+      @include font-size(xlg);
+      @include font-weight(bold);
+      text-transform: uppercase;
+    }
 
     .subheader {
-      display: block;
       @include font-size(lg);
+      @include font-weight(semiBold);
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 15px;
       text-transform: initial;
     }
-  }
 
-  .btn {
-    @include buttonDefault();
-    @include buttonSizeDefault();
-    @include buttonShapePrimary();
-    @include buttonColorsDefault();
-    &:hover {
-      @include buttonColorsPrimary();
+    .btn {
+      @include buttonDefault();
+      @include buttonSizeMd();
+      @include buttonShapePrimary();
+      @include buttonColorsDefault();
+      margin: auto;
+
+      &:hover {
+        @include buttonColorsPrimary();
+      }
     }
   }
 }

@@ -45,13 +45,13 @@ export const LoginPage: NextPage<{}> = () => {
         <div className={styles.content}>
           <div>
             {error && <div data-testid="login-page-error">{t(error)}</div>}
-            <div className={styles.header}>
+            <div className={styles.headerWrapper}>
               <Picture
                 additionalStyles={styles.avatar}
                 jpg={'/images/avatars/avatar-10.png'}
               />
               <div>
-                <h2>Sign in</h2>
+                <h2 className={styles.header}>Sign in</h2>
                 <p>
                   Sunt sint deserunt occaecat reprehenderit est fugiat ex sunt
                   quis nulla deserunt sit culpa.

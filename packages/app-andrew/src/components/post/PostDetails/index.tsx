@@ -25,7 +25,7 @@ export const PostDetails: FC<{
     <div className={styles.wrapper}>
       <PostSingle
         createComment={createNewComment}
-        allowToRespond={false}
+        allowToRespond={true}
         fetchTags={findTagsAPI}
         fetchUsers={findbyUsernameAPI}
         user={user}

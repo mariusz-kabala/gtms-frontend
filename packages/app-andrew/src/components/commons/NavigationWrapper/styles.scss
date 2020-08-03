@@ -1,10 +1,18 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/zindex.scss';
 
-.mainNav {
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+.mainNavigationWrapper {
+  height: 100%;
+  position: sticky;
+  top: 0;
+  @include z-index(mainNavigation);
   border-radius: $borderRadius;
-  background: $theme0;
+  padding: 10px;
+  padding-right: 0;
+
+  > div {
+    background: $theme1;
+    padding: 10px;
+    border-radius: $borderRadius;
+  }
 }
