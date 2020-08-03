@@ -32,7 +32,7 @@ export const RegistrationPage: NextPage<{}> = () => {
       <div
         className={styles.wrapper}
         style={{
-          backgroundImage: `url('/images/temp_images/login_bg.png')`,
+          backgroundImage: `url('/images/temp-images/login_bg.png')`,
         }}
       >
         <div className={styles.content}>
