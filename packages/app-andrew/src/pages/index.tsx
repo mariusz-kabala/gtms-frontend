@@ -64,7 +64,7 @@ export const HomePage: NextPage<HomePageProps> = ({
             </Button>
           </div>
           <div className={cx(styles.section, styles.recentlyCreatedGroups)}>
-            <RecentlyCreatedGroups groups={groups} />
+            <RecentlyCreatedGroups createYourOwnGroup={true} groups={groups} />
           </div>
           <div className={cx(styles.section, styles.recentlyRegisteredUsers)}>
             <RecentlyRegisteredUsers users={users} />
