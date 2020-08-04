@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.65.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.64.0...@gtms/app-andrew@0.65.0) (2020-08-04)
+
+
+### Features
+
+* GEOT-403: sorting on group page ([#799](https://github.com/gtms-org/gtms-frontend/issues/799)) ([96fa87c](https://github.com/gtms-org/gtms-frontend/commit/96fa87c1f5384dbc2b90ed31bb0cfab907364679))
+
+
+
+
+
 # [0.64.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.63.1...@gtms/app-andrew@0.64.0) (2020-08-04)
 
 
