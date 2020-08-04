@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.66.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.65.0...@gtms/app-andrew@0.66.0) (2020-08-04)
+
+
+### Features
+
+* GEOT-400: create your own group ([#796](https://github.com/gtms-org/gtms-frontend/issues/796)) ([6c5af3d](https://github.com/gtms-org/gtms-frontend/commit/6c5af3d0d811ab49f6100cc101bf40144eb5c3f6))
+
+
+
+
+
 # [0.65.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.64.0...@gtms/app-andrew@0.65.0) (2020-08-04)
 
 
