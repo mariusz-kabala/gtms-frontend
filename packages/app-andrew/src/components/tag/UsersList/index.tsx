@@ -1,14 +1,17 @@
 import React, { FC } from 'react'
-import { Spinner } from '@gtms/ui/Spinner'
 import { IUser } from '@gtms/commons/models'
 import { getDisplayName } from '@gtms/commons/helpers'
+// ui
+import { MockData } from '@gtms/ui/MockData'
+import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 export const UsersList: FC<{ records: IUser[]; isLoading: boolean }> = ({
   records,
   isLoading,
 }) => {
   return (
-    <div data-testid="users-list">
+    <div className={styles.wrapper} data-testid="users-list">
       {isLoading && <Spinner />}
       {!isLoading &&
         records.length > 0 &&
@@ -16,7 +19,13 @@ export const UsersList: FC<{ records: IUser[]; isLoading: boolean }> = ({
           // proper UI needs to be done here
           <div key={`user-${user.id}`}>{getDisplayName(user)}</div>
         ))}
-      {!isLoading && records.length === 0 && <p>No users found</p>}
+      {!isLoading && records.length === 0 && (
+        <MockData
+          additionalStyles={styles.noRecords}
+          theme="dark"
+          numberOfElements={4}
+        />
+      )}
     </div>
   )
 }

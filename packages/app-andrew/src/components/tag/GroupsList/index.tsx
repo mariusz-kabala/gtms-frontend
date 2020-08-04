@@ -1,13 +1,16 @@
 import React, { FC } from 'react'
 import { IGroup } from '@gtms/commons/models'
+// ui
 import { Spinner } from '@gtms/ui/Spinner'
+import { MockData } from '@gtms/ui/MockData'
+import styles from './styles.scss'
 
 export const GroupsList: FC<{ records: IGroup[]; isLoading: boolean }> = ({
   records,
   isLoading,
 }) => {
   return (
-    <div data-testid="groups-list">
+    <div className={styles.wrapper} data-testid="groups-list">
       {isLoading && <Spinner />}
       {!isLoading &&
         records.length > 0 &&
@@ -17,7 +20,13 @@ export const GroupsList: FC<{ records: IGroup[]; isLoading: boolean }> = ({
             {JSON.stringify(group)}
           </div>
         ))}
-      {!isLoading && records.length === 0 && <p>No groups found</p>}
+      {!isLoading && records.length === 0 && (
+        <MockData
+          additionalStyles={styles.noRecords}
+          theme="dark"
+          numberOfElements={4}
+        />
+      )}
     </div>
   )
 }
