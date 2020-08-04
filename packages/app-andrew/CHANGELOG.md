@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.63.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.63.0...@gtms/app-andrew@0.63.1) (2020-08-04)
+
+
+### Bug Fixes
+
+* GEOT-401: cleanup group settings page ([#797](https://github.com/gtms-org/gtms-frontend/issues/797)) ([df20a6e](https://github.com/gtms-org/gtms-frontend/commit/df20a6e91979e94b1d16d3031ce58670c180e30d))
+
+
+
+
+
 # [0.63.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.62.0...@gtms/app-andrew@0.63.0) (2020-08-04)
 
 
