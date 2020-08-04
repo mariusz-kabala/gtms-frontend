@@ -5,6 +5,7 @@ import { redirect } from '@gtms/commons/helpers/redirect'
 import { ILoginHistory, IActiveSession } from '@gtms/commons/models'
 import { ChangePassword } from 'components/account/ChangePassword'
 import { DeleteAccount } from 'components/account/DeleteAccount'
+import { Navigation, Tabs } from 'components/account/Navigation'
 import {
   fetchLoginHistoryAPI,
   fetchActiveSessionsAPI,
@@ -98,6 +99,7 @@ export const AccountSecurityPage: NextPage<IAccountSecurityPageProps> = () => {
   return (
     <div className={styles.pageWrapper} data-testid="account-security-page">
       <div className={styles.wrapper}>
+        <Navigation current={Tabs.security} />
         <ChangePassword additionalStyles={styles.changePassword} />
         <UserSessions {...userSession} onDeleteClick={onDeleteSessionClick} />
         <LoginHistory {...loginHistory} />
