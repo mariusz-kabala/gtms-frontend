@@ -15,7 +15,7 @@ export const CreateYourOwnGroup: FC<{
       <div
         className={cx(styles.wrapper, additionalStyles)}
         data-testid="create-your-own-group"
-        onClick={() => (onClick ? onClick : null)}
+        onClick={onClick}
         style={{
           backgroundImage: `url('/images/white-theme/create-your-own-group.png')`,
         }}

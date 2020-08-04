@@ -13,7 +13,8 @@ import styles from './styles.scss'
 export const RecentlyCreatedGroups: FC<{
   groups: IGroup[]
   additionalStyles?: string
-}> = ({ additionalStyles, groups }) => {
+  createYourOwnGroup?: boolean
+}> = ({ additionalStyles, groups, createYourOwnGroup = false }) => {
   const [groupCard, setGroupCard] = useState<{
     isOpen: boolean
     isLoading: boolean
@@ -25,7 +26,12 @@ export const RecentlyCreatedGroups: FC<{
     users: [],
   })
 
-  let currentIteration = 0
+  const groupsToRender: Array<IGroup | null> =
+    createYourOwnGroup && groups.length > 0 ? [...groups] : groups
+
+  if (createYourOwnGroup && groups.length) {
+    groupsToRender.splice(groups.length / 2, 0, null)
+  }
 
   return (
     <div
@@ -58,10 +64,8 @@ export const RecentlyCreatedGroups: FC<{
         />
       )}
 
-      {groups.map((group) => {
-        currentIteration++
-
-        if (currentIteration === 8) {
+      {groupsToRender.map((group) => {
+        if (group === null) {
           return <CreateYourOwnGroup />
         }
 
