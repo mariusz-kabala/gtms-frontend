@@ -17,7 +17,6 @@ import { useInitState } from '@gtms/commons/hooks'
 import { AdminsSettings } from 'components/group-settings/Admins'
 import { BasicSettings } from 'components/group-settings/Basic'
 import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
-import { GroupAvatarSettings } from 'components/group-settings/GroupAvatar'
 import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
 import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { MembersSettings } from 'components/group-settings/Members'
@@ -159,7 +158,6 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
               <>
                 {group.group && <GroupBackgroundSettings group={group.group} />}
                 <div className={styles.avatarAndName}>
-                  <GroupAvatarSettings avatar={group.group?.avatar} />
                   {group.group && <BasicSettings group={group.group} />}
                 </div>
                 <div className={styles.deleteAccount}>
