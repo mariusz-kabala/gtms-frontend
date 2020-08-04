@@ -6,13 +6,13 @@ import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
 // ui
-import styles from './styles.scss'
-import { Picture } from '../Picture'
-import { Tag } from '../Tag'
 import { Button } from '@gtms/ui/Button'
+import { Picture } from '../Picture'
 import { Spinner } from '../Spinner'
+import { Tag } from '../Tag'
 import { UserAvatar } from '../UserAvatar'
 import { IoIosArrowDropright, IoIosArrowDown } from 'react-icons/io'
+import styles from './styles.scss'
 
 export const GroupCard: FC<{
   name: string
@@ -21,7 +21,6 @@ export const GroupCard: FC<{
   tags: string[]
   logo: IImage
   noUserAvatar: { [key: string]: IImage }
-  isActive: boolean
   isLoading: boolean
   onClose: () => unknown
   members: IUser[]
@@ -33,7 +32,6 @@ export const GroupCard: FC<{
   tags,
   logo,
   slug,
-  isActive,
   isLoading,
   onClose,
   members,
@@ -43,9 +41,7 @@ export const GroupCard: FC<{
 
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles, {
-        [styles.active]: isActive,
-      })}
+      className={cx(styles.wrapper, additionalStyles)}
       data-testid="group-card"
     >
       <>
