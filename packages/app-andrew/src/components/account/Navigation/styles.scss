@@ -1,0 +1,44 @@
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/variables.scss';
+
+.navigation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+
+  h2 {
+    @include font-weight(semiBold);
+    text-transform: uppercase;
+    @include font-size(xmd);
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    @include font-size(xdefault);
+
+    li {
+      a {
+        display: block;
+        margin-left: 10px;
+        padding: 5px 15px;
+        border-radius: $borderRadius;
+        background: $theme2;
+
+        &:hover {
+          background: $theme4;
+          color: $theme0;
+        }
+      }
+
+      &.current {
+        a {
+          background: $theme4;
+          color: $theme0;
+        }
+      }
+    }
+  }
+}

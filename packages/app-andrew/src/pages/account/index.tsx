@@ -1,9 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
-import { useTranslation, Link } from '@gtms/commons/i18n'
+import { useTranslation } from '@gtms/commons/i18n'
 import { FileStatus } from '@gtms/commons/enums'
 import { UserEmail } from 'components/account/UserEmail'
 import { UserName } from 'components/account/UserName'
+import { Navigation, Tabs } from 'components/account/Navigation'
 import { UserDescription } from 'components/account/UserDescription'
 import { ImageEditor } from '@gtms/ui/ImageEditor'
 import {
@@ -122,26 +123,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
         )}
         {!state.isLoading && !state.errorOccured && (
           <>
-            <div className={styles.navigation}>
-              <h2 className={styles.header}>My profile</h2>
-              <ul className={styles.items}>
-                <li className={styles.item}>
-                  <Link href="/account">
-                    <a>My profile card</a>
-                  </Link>
-                </li>
-                <li className={styles.item}>
-                  <Link href="/account/security">
-                    <a>Security</a>
-                  </Link>
-                </li>
-                <li className={styles.item}>
-                  <Link href="/account/notifications">
-                    <a>Notifications</a>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <Navigation current={Tabs.profile} />
             <div className={styles.hint}>
               That is how other people can see your profile
               <span>You can edit your profile here, show and hide things</span>
