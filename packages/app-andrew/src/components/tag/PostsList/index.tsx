@@ -1,11 +1,15 @@
 import React, { FC } from 'react'
-import { Spinner } from '@gtms/ui/Spinner'
-import { PostSingle } from '@gtms/ui/PostSingle'
 import { IPost, IAccountDetails } from '@gtms/commons/models'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 import { UserAvatarNoImage } from 'enums'
 import { openLoginModal } from 'state'
+
+// ui
+import { MockData } from '@gtms/ui/MockData'
+import { PostSingle } from '@gtms/ui/PostSingle'
+import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 export const PostsList: FC<{
   records: IPost[]
@@ -13,7 +17,7 @@ export const PostsList: FC<{
   user: IAccountDetails | null
 }> = ({ records, isLoading, user }) => {
   return (
-    <div data-testid="posts-list">
+    <div className={styles.wrapper} data-testid="posts-list">
       {isLoading && <Spinner />}
       {!isLoading &&
         records.length > 0 &&
@@ -29,7 +33,13 @@ export const PostsList: FC<{
             onLoginRequest={openLoginModal}
           />
         ))}
-      {!isLoading && records.length === 0 && <p>No posts found</p>}
+      {!isLoading && records.length === 0 && (
+        <MockData
+          additionalStyles={styles.noRecords}
+          theme="dark"
+          numberOfElements={4}
+        />
+      )}
     </div>
   )
 }

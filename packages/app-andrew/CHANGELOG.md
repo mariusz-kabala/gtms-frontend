@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.63.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.62.0...@gtms/app-andrew@0.63.0) (2020-08-04)
+
+
+### Features
+
+* GEOT-396: styles for tag page ([#795](https://github.com/gtms-org/gtms-frontend/issues/795)) ([8853c8c](https://github.com/gtms-org/gtms-frontend/commit/8853c8cf465ea62d16117ed1044306181e737044))
+
+
+
+
+
 # [0.62.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.61.4...@gtms/app-andrew@0.62.0) (2020-08-03)
 
 
