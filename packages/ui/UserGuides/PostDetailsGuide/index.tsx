@@ -8,7 +8,7 @@ export const PostDetailsGuide: FC<{
 }> = ({ additionalStyles }) => {
   return (
     <div
-      data-testid={'postDetailsGuide'}
+      data-testid={'post-details-guide'}
       className={cx(styles.wrapper, additionalStyles)}
     >
       <Picture

@@ -27,6 +27,7 @@ import { GroupNotFound } from 'components/group/GroupNotFound'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 import { PostDetails } from 'components/post/PostDetails'
+import { PostDetailsGuide } from '@gtms/ui/UserGuides/PostDetailsGuide'
 import { PromotedTags } from 'components/group/PromotedTags'
 import { Favs } from 'components/post/Favs'
 // ui
@@ -70,7 +71,6 @@ import {
   initPostCommentsStore,
 } from '@gtms/state-comment'
 import { changePageBackground } from 'state'
-import { PostDetailsGuide } from '@gtms/ui/UserGuides/PostDetailsGuide'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
