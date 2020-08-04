@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.64.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.63.1...@gtms/app-andrew@0.64.0) (2020-08-04)
+
+
+### Features
+
+* GEOT-402: common nav component for user account ([#798](https://github.com/gtms-org/gtms-frontend/issues/798)) ([5793f71](https://github.com/gtms-org/gtms-frontend/commit/5793f71cb9be7a2653b8e5ca64bcd4fd31c0748c))
+
+
+
+
+
 ## [0.63.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.63.0...@gtms/app-andrew@0.63.1) (2020-08-04)
 
 
