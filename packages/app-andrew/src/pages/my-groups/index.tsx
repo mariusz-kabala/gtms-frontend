@@ -248,14 +248,12 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
               groups={state.owner}
               renderGroupMenu={(group) => <GroupMenu group={group} />}
               noRecords={
-                <div>
+                <>
                   <p>You do not own any group, maybe its time to create one?</p>
-                  <p>
-                    <Link href="/group-create">
-                      <a>Create a group!</a>
-                    </Link>
-                  </p>
-                </div>
+                  <Link href="/group-create">
+                    <a>Create a group!</a>
+                  </Link>
+                </>
               }
             />
 

@@ -7,12 +7,14 @@ import { GroupAvatarNoImage, UserAvatarNoImage } from 'enums'
 // ui
 import { GroupCard } from '@gtms/ui/GroupCard'
 import { GridCard } from '@gtms/ui/GridCard'
+import { CreateYourOwnGroup } from '@gtms/ui/CreateYourOwnGroup'
 import styles from './styles.scss'
 
 export const RecentlyCreatedGroups: FC<{
   groups: IGroup[]
   additionalStyles?: string
-}> = ({ additionalStyles, groups }) => {
+  createYourOwnGroup?: boolean
+}> = ({ additionalStyles, groups, createYourOwnGroup = false }) => {
   const [groupCard, setGroupCard] = useState<{
     isOpen: boolean
     isLoading: boolean
@@ -23,6 +25,13 @@ export const RecentlyCreatedGroups: FC<{
     isLoading: false,
     users: [],
   })
+
+  const groupsToRender: Array<IGroup | null> =
+    createYourOwnGroup && groups.length > 0 ? [...groups] : groups
+
+  if (createYourOwnGroup && groups.length) {
+    groupsToRender.splice(groups.length / 2, 0, null)
+  }
 
   return (
     <div
@@ -54,31 +63,38 @@ export const RecentlyCreatedGroups: FC<{
           )}
         />
       )}
-      {groups.map((group) => (
-        <GridCard
-          onClick={async () => {
-            setGroupCard({
-              isLoading: true,
-              isOpen: true,
-              users: [],
-              current: group,
-            })
 
-            const { docs } = await fetchGroupMembers(group.slug, 0, 6)
+      {groupsToRender.map((group) => {
+        if (group === null) {
+          return <CreateYourOwnGroup />
+        }
 
-            setGroupCard({
-              isLoading: false,
-              isOpen: true,
-              users: docs,
-              current: group,
-            })
-          }}
-          key={`recent-group-${group.id}`}
-          name={group.name}
-          desc={group.description}
-          image={getImage('200x200', group.avatar, GroupAvatarNoImage)}
-        />
-      ))}
+        return (
+          <GridCard
+            onClick={async () => {
+              setGroupCard({
+                isLoading: true,
+                isOpen: true,
+                users: [],
+                current: group,
+              })
+
+              const { docs } = await fetchGroupMembers(group.slug, 0, 6)
+
+              setGroupCard({
+                isLoading: false,
+                isOpen: true,
+                users: docs,
+                current: group,
+              })
+            }}
+            key={`recent-group-${group.id}`}
+            name={group.name}
+            desc={group.description}
+            image={getImage('200x200', group.avatar, GroupAvatarNoImage)}
+          />
+        )
+      })}
     </div>
   )
 }
