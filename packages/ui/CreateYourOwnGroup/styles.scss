@@ -21,6 +21,12 @@
     padding: 10px 0;
     color: $theme0;
 
+    .picture {
+      display: flex;
+      justify-content: center;
+      max-height: 100px;
+    }
+
     .header,
     .desc {
       text-shadow: 1px 1px 40px rgba($black, 0.4);
