@@ -1,4 +1,5 @@
 import { userQuery } from '@gtms/state-user'
+import { Sorting } from '@gtms/api-post'
 import { groupQuery, groupMembersQuery } from '@gtms/state-group'
 import { postCommentsQuery } from '@gtms/state-comment'
 import { postsQuery } from '@gtms/state-post'
@@ -19,6 +20,7 @@ export interface IGroupPageState {
   errorOccured: boolean
   group: IGroup | null
   posts: IPost[]
+  postsSorting: Sorting
   activeTags?: string[]
   activePost?: IPost
   comments?: {
@@ -44,6 +46,7 @@ export const groupPageState = (): IGroupPageState => {
   return {
     ...groupQuery.getValue(),
     posts: postsQuery.getAll(),
+    postsSorting: postsQuery.getValue().sort,
     activeTags: postsQuery.getValue().tags || [],
     user: userQuery.isLogged() ? userQuery.accountDetails() : null,
     members: {

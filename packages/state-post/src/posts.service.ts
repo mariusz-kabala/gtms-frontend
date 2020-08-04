@@ -1,4 +1,9 @@
-import { ICreatePostData, createPostAPI, fetchGroupPosts } from '@gtms/api-post'
+import {
+  ICreatePostData,
+  createPostAPI,
+  fetchGroupPosts,
+  Sorting,
+} from '@gtms/api-post'
 import { ICreateCommentData, createCommentAPI } from '@gtms/api-comment'
 import {
   addSuccessNotification,
@@ -57,25 +62,36 @@ export const initPostsStore = (data: IPostsState, post?: IPost) => {
   }
 }
 
-export const getGroupPosts = async (
-  group: string,
+export const getGroupPosts = async ({
+  group,
   requestedOffset = 0,
   requestedLimit = 50,
-  tags: string[] = []
-) => {
+  tags = [],
+  sort = Sorting.latest,
+}: {
+  group: string
+  requestedOffset?: number
+  requestedLimit?: number
+  tags?: string[]
+  sort?: Sorting
+}) => {
   applyTransaction(() => {
     postsStore.reset()
     postsStore.setLoading(true)
     postsStore.setError(false)
+    postsStore.update({
+      sort,
+    })
   })
 
   try {
-    const { docs, total, offset } = await fetchGroupPosts(
+    const { docs, total, offset } = await fetchGroupPosts({
       group,
-      requestedOffset,
-      requestedLimit,
-      tags
-    )
+      offset: requestedOffset,
+      limit: requestedLimit,
+      tags,
+      sort,
+    })
 
     applyTransaction(() => {
       postsStore.upsertMany(docs.map(parsePostOwnersAvatar))

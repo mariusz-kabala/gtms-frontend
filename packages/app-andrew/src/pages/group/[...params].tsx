@@ -13,7 +13,7 @@ import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IPost } from '@gtms/commons/models'
 // api
-import { fetchPost } from '@gtms/api-post'
+import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI, fetchSuggestedTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
@@ -105,13 +105,15 @@ const parseParams = (params: string[]) => {
     tag: string[]
     post: string[]
     slug: null | string
+    sort: Sorting[]
   } = {
     tag: [],
     post: [],
     slug: null,
+    sort: [],
   }
 
-  let index: 'tag' | 'post' | null = null
+  let index: 'tag' | 'post' | 'sort' | null = null
 
   for (const param of params) {
     if (result.slug === null) {
@@ -119,13 +121,13 @@ const parseParams = (params: string[]) => {
       continue
     }
 
-    if (['tag', 'post'].includes(param)) {
-      index = param as 'tag' | 'post'
+    if (['tag', 'post', 'sort'].includes(param)) {
+      index = param as 'tag' | 'post' | 'sort'
       continue
     }
 
     if (index !== null) {
-      result[index].push(param)
+      result[index].push(param as any)
     }
   }
 
@@ -141,15 +143,23 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
-  const onPostClick = useCallback(
-    (id) => {
+  const onClick = useCallback(
+    ({ sort, post }: { sort?: Sorting; post?: string }) => {
       let url = `/group/${state.group?.slug}`
+
+      if (sort) {
+        url += `/sort/${sort}`
+      }
 
       if (Array.isArray(state.activeTags) && state.activeTags.length > 0) {
         url += `/tag/${state.activeTags.join('/')}`
       }
 
-      router.push(`${url}/post/${id}`)
+      if (post) {
+        url += `/post/${post}`
+      }
+
+      router.push(url)
     },
     [state]
   )
@@ -290,9 +300,35 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <>
                   <NavigationTabs>
                     <h2 className={styles.header}>Posts</h2>
-                    <ul className={styles.elements}>
-                      <li className={cx(styles.item, styles.active)}>latest</li>
-                      <li className={styles.item}>popular</li>
+                    <ul>
+                      <li
+                        onClick={() => onClick({ sort: Sorting.latest })}
+                        className={cx({
+                          [styles.active]:
+                            state.postsSorting === Sorting.latest,
+                        })}
+                      >
+                        latest
+                      </li>
+                      <li
+                        onClick={() => onClick({ sort: Sorting.active })}
+                        className={cx({
+                          [styles.active]:
+                            state.postsSorting === Sorting.active,
+                        })}
+                      >
+                        active
+                      </li>
+                      <li
+                        onClick={() => onClick({ sort: Sorting.popular })}
+                        className={cx({
+                          [styles.active]:
+                            state.postsSorting === Sorting.popular,
+                        })}
+                      >
+                        popular
+                      </li>
+                      <li className={cx(styles.item)}>my</li>
                     </ul>
                   </NavigationTabs>
                   <div className={styles.posts}>
@@ -315,7 +351,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       <RecentlyAddedPosts
                         fetchTags={findTagsAPI}
                         fetchUsers={findbyUsernameAPI}
-                        onPostClick={onPostClick}
+                        onPostClick={(id) => onClick({ post: id })}
                         onTagClick={(tag) => {
                           router.push(`/group/${state.group?.slug}/tag/${tag}`)
                         }}
@@ -364,7 +400,7 @@ GroupPage.getInitialProps = async (
   ctx: NextPageContext
 ): Promise<GroupPageProps> => {
   const { params } = ctx?.query
-  const { slug, tag, post } = parseParams(params as string[])
+  const { slug, tag, post, sort } = parseParams(params as string[])
   const postId = Array.isArray(post) && post.length > 0 ? post[0] : undefined
 
   await getGroup(slug as string)
@@ -389,7 +425,13 @@ GroupPage.getInitialProps = async (
 
       getPostComments(postId).then(callback).catch(callback)
     }),
-    getGroupPosts(id, 0, 50, tag).catch(() => null),
+    getGroupPosts({
+      group: id,
+      requestedOffset: 0,
+      requestedLimit: 50,
+      tags: tag,
+      sort: sort[0] || Sorting.latest,
+    }).catch(() => null),
     loadGroupPromotedTags(id).catch(() => null),
   ]).then(([post]) => {
     const group = groupQuery.getValue()
