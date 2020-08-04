@@ -33,7 +33,6 @@ import { Favs } from 'components/post/Favs'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
-import { Picture } from '@gtms/ui/Picture'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
@@ -71,6 +70,7 @@ import {
   initPostCommentsStore,
 } from '@gtms/state-comment'
 import { changePageBackground } from 'state'
+import { PostDetailsGuide } from '@gtms/ui/UserGuides/PostDetailsGuide'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
@@ -366,16 +366,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       />
                     </div>
                     <div>
-                      {!state.activePost && (
-                        <div className={styles.noPostPicture}>
-                          <Picture
-                            jpg={
-                              '/images/white-theme/icon-click-post-and-read-full-content.png'
-                            }
-                          />
-                          <span>Click post and read full content here </span>
-                        </div>
-                      )}
+                      {!state.activePost && <PostDetailsGuide />}
                       {state.activePost && (
                         <PostDetails
                           comments={state.comments}

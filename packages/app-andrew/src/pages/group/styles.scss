@@ -151,30 +151,6 @@
   }
 }
 
-.noPostPicture {
-  position: relative;
-  margin-top: 100px;
-  text-align: center;
-
-  img {
-    opacity: 0.4;
-    max-width: 100px;
-    margin: auto;
-    margin-bottom: 10px;
-  }
-
-  span {
-    @include font-size(md);
-    color: $theme9;
-  }
-
-  &:hover {
-    span {
-      color: $theme4;
-    }
-  }
-}
-
 .active {
   background: $theme4;
   color: $theme0;
