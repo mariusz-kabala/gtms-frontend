@@ -6,13 +6,14 @@ import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
 // ui
-import styles from './styles.scss'
 import { Picture } from '../Picture'
 import { Tag } from '../Tag'
-import { Button } from '@gtms/ui/Button'
+import { Button } from '../Button'
 import { Spinner } from '../Spinner'
 import { UserAvatar } from '../UserAvatar'
 import { IoIosArrowDropright, IoIosArrowDown } from 'react-icons/io'
+// styles
+import styles from './styles.scss'
 
 export const GroupCard: FC<{
   name: string
