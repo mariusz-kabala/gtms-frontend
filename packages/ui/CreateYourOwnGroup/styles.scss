@@ -21,6 +21,10 @@
     padding: 10px 0;
     color: $theme0;
 
+    &:visited {
+      color: $theme0;
+    }
+
     .picture {
       display: flex;
       justify-content: center;
