@@ -37,7 +37,6 @@ export const RecentlyCreatedGroups: FC<{
         {groupCard.current && (
           <GroupCard
             isLoading={groupCard.isLoading}
-            isActive={groupCard.isOpen}
             onClose={() =>
               setGroupCard({
                 isLoading: false,
