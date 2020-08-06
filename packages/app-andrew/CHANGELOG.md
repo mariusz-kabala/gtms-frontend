@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.67.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.66.0...@gtms/app-andrew@0.67.0) (2020-08-06)
+
+
+### Features
+
+* GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
+
+
+
+
+
 # [0.66.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.65.0...@gtms/app-andrew@0.66.0) (2020-08-04)
 
 
