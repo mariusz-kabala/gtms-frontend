@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.9.0...@gtms/api-post@0.10.0) (2020-08-06)
+
+
+### Features
+
+* GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
+
+
+
+
+
+# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.8.6...@gtms/api-post@0.9.0) (2020-08-04)
+
+
+### Features
+
+* GEOT-403: sorting on group page ([#799](https://github.com/gtms-org/gtms-frontend/issues/799)) ([96fa87c](https://github.com/gtms-org/gtms-frontend/commit/96fa87c1f5384dbc2b90ed31bb0cfab907364679))
+
+
+
+
+
 ## [0.8.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.8.5...@gtms/api-post@0.8.6) (2020-07-30)
 
 **Note:** Version bump only for package @gtms/api-post

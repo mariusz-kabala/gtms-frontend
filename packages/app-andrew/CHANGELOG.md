@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.67.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.66.0...@gtms/app-andrew@0.67.0) (2020-08-06)
+
+
+### Features
+
+* GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
+
+
+
+
+
+# [0.66.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.65.0...@gtms/app-andrew@0.66.0) (2020-08-04)
+
+
+### Features
+
+* GEOT-400: create your own group ([#796](https://github.com/gtms-org/gtms-frontend/issues/796)) ([6c5af3d](https://github.com/gtms-org/gtms-frontend/commit/6c5af3d0d811ab49f6100cc101bf40144eb5c3f6))
+
+
+
+
+
+# [0.65.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.64.0...@gtms/app-andrew@0.65.0) (2020-08-04)
+
+
+### Features
+
+* GEOT-403: sorting on group page ([#799](https://github.com/gtms-org/gtms-frontend/issues/799)) ([96fa87c](https://github.com/gtms-org/gtms-frontend/commit/96fa87c1f5384dbc2b90ed31bb0cfab907364679))
+
+
+
+
+
 # [0.64.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.63.1...@gtms/app-andrew@0.64.0) (2020-08-04)
 
 

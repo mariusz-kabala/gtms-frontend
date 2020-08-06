@@ -16,7 +16,7 @@
   height: 100%;
   @include imageCover();
 
-  img {
+  .image img {
     display: flex;
     margin: auto;
     margin-top: 20px;

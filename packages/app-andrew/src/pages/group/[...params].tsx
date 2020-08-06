@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
@@ -11,7 +10,7 @@ import {
 } from 'queries/groupPage.query'
 import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IPost } from '@gtms/commons/models'
+import { IPost, IUser } from '@gtms/commons/models'
 // api
 import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI, fetchSuggestedTagsAPI } from '@gtms/api-tags'
@@ -39,6 +38,7 @@ import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
+import { UserPreview } from '@gtms/ui/UserPreview'
 import { IoMdGrid } from 'react-icons/io'
 // state
 import { openLoginModal } from 'state'
@@ -71,6 +71,8 @@ import {
   initPostCommentsStore,
 } from '@gtms/state-comment'
 import { changePageBackground } from 'state'
+// styles
+import styles from './styles.scss'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
@@ -104,16 +106,18 @@ const parseParams = (params: string[]) => {
   const result: {
     tag: string[]
     post: string[]
+    user: string[]
     slug: null | string
     sort: Sorting[]
   } = {
     tag: [],
     post: [],
+    user: [],
     slug: null,
     sort: [],
   }
 
-  let index: 'tag' | 'post' | 'sort' | null = null
+  let index: 'tag' | 'post' | 'sort' | 'user' | null = null
 
   for (const param of params) {
     if (result.slug === null) {
@@ -121,8 +125,8 @@ const parseParams = (params: string[]) => {
       continue
     }
 
-    if (['tag', 'post', 'sort'].includes(param)) {
-      index = param as 'tag' | 'post' | 'sort'
+    if (['tag', 'post', 'sort', 'user'].includes(param)) {
+      index = param as 'tag' | 'post' | 'sort' | 'user'
       continue
     }
 
@@ -142,10 +146,23 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const { t } = useTranslation('groupPage')
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
+  const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
   const onClick = useCallback(
-    ({ sort, post }: { sort?: Sorting; post?: string }) => {
+    ({
+      sort,
+      post,
+      user,
+    }: {
+      sort?: Sorting
+      post?: string
+      user?: string
+    }) => {
       let url = `/group/${state.group?.slug}`
+
+      if (user) {
+        url += `/user/${user}`
+      }
 
       if (sort) {
         url += `/sort/${sort}`
@@ -163,6 +180,13 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     },
     [state]
   )
+  const onUserClick = useCallback((user: IUser) => {
+    setUserPreview(user)
+  }, [])
+  const onCloseUserPreview = useCallback(() => {
+    setUserPreview(undefined)
+  }, [])
+
   const promotedTagsRef = useRef<HTMLDivElement>(null)
   const groupHeaderRef = useRef<HTMLDivElement>(null)
 
@@ -285,6 +309,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       onQueryChange={() => null}
                       onLoadSuggestionCancel={() => null}
                       tags={state.activeTags || []}
+                      users={state.activeUsers}
                     />
                   </div>
                 </div>
@@ -355,6 +380,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         onTagClick={(tag) => {
                           router.push(`/group/${state.group?.slug}/tag/${tag}`)
                         }}
+                        onUserClick={onUserClick}
                         user={state.user}
                         renderFavs={renderFavs}
                         activePost={state.activePost}
@@ -383,6 +409,14 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           </>
         )}
       </div>
+      {userPreview && (
+        <UserPreview
+          user={userPreview}
+          noUserAvatar={UserAvatarNoImage}
+          onUserPostsClick={(user) => onClick({ user: user.username })}
+          onClose={onCloseUserPreview}
+        />
+      )}
     </>
   )
 }
@@ -391,7 +425,7 @@ GroupPage.getInitialProps = async (
   ctx: NextPageContext
 ): Promise<GroupPageProps> => {
   const { params } = ctx?.query
-  const { slug, tag, post, sort } = parseParams(params as string[])
+  const { slug, tag, post, user, sort } = parseParams(params as string[])
   const postId = Array.isArray(post) && post.length > 0 ? post[0] : undefined
 
   await getGroup(slug as string)
@@ -421,6 +455,7 @@ GroupPage.getInitialProps = async (
       requestedOffset: 0,
       requestedLimit: 50,
       tags: tag,
+      users: user,
       sort: sort[0] || Sorting.latest,
     }).catch(() => null),
     loadGroupPromotedTags(id).catch(() => null),

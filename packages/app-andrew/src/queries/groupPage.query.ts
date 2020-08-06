@@ -22,6 +22,7 @@ export interface IGroupPageState {
   posts: IPost[]
   postsSorting: Sorting
   activeTags?: string[]
+  activeUsers?: string[]
   activePost?: IPost
   comments?: {
     offset: number
@@ -42,12 +43,14 @@ export interface IGroupPageState {
 export const groupPageState = (): IGroupPageState => {
   const groupMembersState = groupMembersQuery.getValue()
   const postCommentsState = postCommentsQuery.getValue()
+  const postsState = postsQuery.getValue()
   const activePost = postsQuery.getActive() as IPost | undefined
   return {
     ...groupQuery.getValue(),
     posts: postsQuery.getAll(),
-    postsSorting: postsQuery.getValue().sort,
-    activeTags: postsQuery.getValue().tags || [],
+    postsSorting: postsState.sort,
+    activeTags: postsState.tags || [],
+    activeUsers: postsState.users || [],
     user: userQuery.isLogged() ? userQuery.accountDetails() : null,
     members: {
       isLoading: groupMembersState.loading || false,

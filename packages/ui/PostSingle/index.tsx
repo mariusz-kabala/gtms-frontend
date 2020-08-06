@@ -7,7 +7,6 @@ import { pl } from 'date-fns/locale'
 import { getDisplayName } from '@gtms/commons/helpers'
 import { IAccountDetails, IUser, IComment } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
-import { Link } from '@gtms/commons/i18n'
 import { IImage } from '@gtms/commons/types/image'
 // ui
 import { DeletePost } from './DeletePost'
@@ -35,6 +34,7 @@ export const PostSingle: FC<{
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   fetchUsers: (query: string, signal: AbortSignal) => Promise<string[]>
   noImage: { [key: string]: IImage }
+  onUserClick?: (user: IUser) => unknown
   onClick?: (id: string) => unknown
   onTagClick?: (tag: string) => unknown
   onLoginRequest?: () => unknown
@@ -53,6 +53,7 @@ export const PostSingle: FC<{
   user,
   onClick,
   onTagClick,
+  onUserClick,
   onLoginRequest,
   renderFavs,
   favs = [],
@@ -72,22 +73,19 @@ export const PostSingle: FC<{
     >
       <div className={styles.header}>
         <div className={styles.user}>
-          <Link href={`/user/${owner.id}`}>
-            <>
-              <UserAvatar
-                image={
-                  owner.avatar?.status === FileStatus.ready
-                    ? (owner.avatar.files['35x35'] as IImage)
-                    : noImage['35x35']
-                }
-                additionalStyles={styles.userAvatar}
-              />
-            </>
-          </Link>
+          <UserAvatar
+            onClick={() => onUserClick && onUserClick(owner)}
+            image={
+              owner.avatar?.status === FileStatus.ready
+                ? (owner.avatar.files['35x35'] as IImage)
+                : noImage['35x35']
+            }
+            additionalStyles={styles.userAvatar}
+          />
           <div>
-            <Link href={`/user/${owner.id}`}>
+            <a onClick={() => onUserClick && onUserClick(owner)}>
               <span>{getDisplayName(owner)}</span>
-            </Link>
+            </a>
             <a onClick={onClickCallback}>
               <span className={styles.date}>
                 {formatDistance(new Date(createdAt), new Date(), {
