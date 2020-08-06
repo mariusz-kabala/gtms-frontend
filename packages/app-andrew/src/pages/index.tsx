@@ -21,11 +21,7 @@ type HomePageProps = {
   users: IUser[]
 }
 
-export const HomePage: NextPage<HomePageProps> = ({
-  children,
-  groups,
-  users,
-}) => {
+export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
   const { t } = useTranslation('homePage')
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
@@ -40,7 +36,6 @@ export const HomePage: NextPage<HomePageProps> = ({
         <Picture jpg={'/images/white-theme/spotted-bg-highschool.png'} />
       </div>
       <div className={styles.wrapper}>
-        {children}
         <div className={styles.sections}>
           <div className={styles.headerWrapper}>
             <h1 className={styles.header}>spotted.pl</h1>

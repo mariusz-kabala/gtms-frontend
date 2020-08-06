@@ -209,7 +209,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   return (
     <>
-      {props.children} {/* main navigation */}
       <div className={styles.wrapper}>
         {state.isLoading && <Spinner />}
 
