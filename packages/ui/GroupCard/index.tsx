@@ -21,6 +21,7 @@ export const GroupCard: FC<{
   tags: string[]
   logo: IImage
   noUserAvatar: { [key: string]: IImage }
+  isActive: boolean
   isLoading: boolean
   onClose: () => unknown
   members: IUser[]
@@ -32,6 +33,7 @@ export const GroupCard: FC<{
   tags,
   logo,
   slug,
+  isActive,
   isLoading,
   onClose,
   members,
