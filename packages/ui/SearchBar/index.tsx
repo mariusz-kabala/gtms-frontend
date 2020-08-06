@@ -5,6 +5,7 @@ import { IoIosSearch } from 'react-icons/io'
 
 export const SearchBar: FC<{
   tags?: string[]
+  users?: string[]
   query?: string
   suggestions?: string[]
   isLoading?: boolean
@@ -18,6 +19,7 @@ export const SearchBar: FC<{
 }> = (params) => {
   const {
     tags = [],
+    users = [],
     query = '',
     suggestions = [],
     onTagAdd,
@@ -57,19 +59,34 @@ export const SearchBar: FC<{
     <>
       <div data-testid="searchBar" className={cx(styles.searchBar)}>
         {query === '' && !noInlineTags && (
-          <div className={styles.tags}>
-            {tags.map((tag) => (
-              <button
-                className={styles.tag}
-                key={`tag-${tag}`}
-                type="button"
-                title="click to remove"
-                onClick={() => onTagRemove(tag)}
-              >
-                #{tag}
-              </button>
-            ))}
-          </div>
+          <>
+            <div className={styles.tags}>
+              {tags.map((tag) => (
+                <button
+                  className={styles.tag}
+                  key={`tag-${tag}`}
+                  type="button"
+                  title="click to remove"
+                  onClick={() => onTagRemove(tag)}
+                >
+                  #{tag}
+                </button>
+              ))}
+            </div>
+            {users.length > 0 && (
+              <div className={styles.tags}>
+                {users.map((user: string) => (
+                  <button
+                    key={`user-${user}`}
+                    type="button"
+                    title="click to remove"
+                  >
+                    @{user}
+                  </button>
+                ))}
+              </div>
+            )}
+          </>
         )}
         <div className={styles.inputWrapper}>
           <i>

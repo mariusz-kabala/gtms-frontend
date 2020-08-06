@@ -3,17 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.10...@gtms/state-post@0.9.0) (2020-07-30)
-
+# [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.10.0...@gtms/state-post@0.11.0) (2020-08-06)
 
 ### Features
 
-* GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
-* GEOT-391: basic group settings component ([#783](https://github.com/gtms-org/gtms-frontend/issues/783)) ([4282657](https://github.com/gtms-org/gtms-frontend/commit/4282657365d4a1c49286f6003fe71d99cf8616b1))
+- GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
 
+# [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.9.0...@gtms/state-post@0.10.0) (2020-08-04)
 
+### Features
 
+- GEOT-403: sorting on group page ([#799](https://github.com/gtms-org/gtms-frontend/issues/799)) ([96fa87c](https://github.com/gtms-org/gtms-frontend/commit/96fa87c1f5384dbc2b90ed31bb0cfab907364679))
 
+# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.10...@gtms/state-post@0.9.0) (2020-07-30)
+
+### Features
+
+- GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
+- GEOT-391: basic group settings component ([#783](https://github.com/gtms-org/gtms-frontend/issues/783)) ([4282657](https://github.com/gtms-org/gtms-frontend/commit/4282657365d4a1c49286f6003fe71d99cf8616b1))
 
 ## [0.8.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.8.9...@gtms/state-post@0.8.10) (2020-07-28)
 

@@ -1,17 +1,17 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
-import { useTranslation } from '@gtms/commons/i18n'
-import { Link } from '@gtms/commons/i18n'
+import { useTranslation, Link } from '@gtms/commons/i18n'
 import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
 // ui
-import { Button } from '@gtms/ui/Button'
 import { Picture } from '../Picture'
-import { Spinner } from '../Spinner'
 import { Tag } from '../Tag'
+import { Button } from '../Button'
+import { Spinner } from '../Spinner'
 import { UserAvatar } from '../UserAvatar'
 import { IoIosArrowDropright, IoIosArrowDown } from 'react-icons/io'
+// styles
 import styles from './styles.scss'
 
 export const GroupCard: FC<{

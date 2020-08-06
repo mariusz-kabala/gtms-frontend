@@ -3,16 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.45.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.44.2...@gtms/ui@0.45.0) (2020-08-03)
-
+# [0.47.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.46.0...@gtms/ui@0.47.0) (2020-08-06)
 
 ### Features
 
-* GEOT-394: main page ([#792](https://github.com/gtms-org/gtms-frontend/issues/792)) ([4386543](https://github.com/gtms-org/gtms-frontend/commit/43865436e6edc74881fb5c39e228ee4a34a41174))
+- GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
 
+# [0.46.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.45.0...@gtms/ui@0.46.0) (2020-08-04)
 
+### Features
 
+- GEOT-400: create your own group ([#796](https://github.com/gtms-org/gtms-frontend/issues/796)) ([6c5af3d](https://github.com/gtms-org/gtms-frontend/commit/6c5af3d0d811ab49f6100cc101bf40144eb5c3f6))
 
+# [0.45.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.44.2...@gtms/ui@0.45.0) (2020-08-03)
+
+### Features
+
+- GEOT-394: main page ([#792](https://github.com/gtms-org/gtms-frontend/issues/792)) ([4386543](https://github.com/gtms-org/gtms-frontend/commit/43865436e6edc74881fb5c39e228ee4a34a41174))
 
 ## [0.44.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.44.1...@gtms/ui@0.44.2) (2020-07-31)
 

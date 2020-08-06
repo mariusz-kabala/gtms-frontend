@@ -3,7 +3,7 @@ import cx from 'classnames'
 // ui
 import { PostSingle } from '../PostSingle'
 // commons
-import { IPost, IAccountDetails } from '@gtms/commons/models'
+import { IPost, IAccountDetails, IUser } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 // styles
 import styles from './styles.scss'
@@ -12,6 +12,7 @@ export const RecentlyAddedPosts: FC<{
   additionalStyles?: string
   onPostClick?: (id: string) => unknown
   onTagClick?: (tag: string) => unknown
+  onUserClick?: (id: IUser) => unknown
   posts: IPost[]
   activePost?: IPost
   user: IAccountDetails | null
@@ -32,6 +33,7 @@ export const RecentlyAddedPosts: FC<{
   createComment,
   onPostClick,
   onTagClick,
+  onUserClick,
   activePost,
   renderFavs,
   onLoginRequest,
@@ -49,6 +51,7 @@ export const RecentlyAddedPosts: FC<{
           allowToRespond={post.id !== activePost?.id}
           onClick={onPostClick}
           onTagClick={onTagClick}
+          onUserClick={onUserClick}
           fetchTags={fetchTags}
           fetchUsers={fetchUsers}
           createComment={createComment}
