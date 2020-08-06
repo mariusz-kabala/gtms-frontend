@@ -106,16 +106,18 @@ const parseParams = (params: string[]) => {
   const result: {
     tag: string[]
     post: string[]
+    user: string[]
     slug: null | string
     sort: Sorting[]
   } = {
     tag: [],
     post: [],
+    user: [],
     slug: null,
     sort: [],
   }
 
-  let index: 'tag' | 'post' | 'sort' | null = null
+  let index: 'tag' | 'post' | 'sort' | 'user' | null = null
 
   for (const param of params) {
     if (result.slug === null) {
@@ -123,8 +125,8 @@ const parseParams = (params: string[]) => {
       continue
     }
 
-    if (['tag', 'post', 'sort'].includes(param)) {
-      index = param as 'tag' | 'post' | 'sort'
+    if (['tag', 'post', 'sort', 'user'].includes(param)) {
+      index = param as 'tag' | 'post' | 'sort' | 'user'
       continue
     }
 
@@ -147,8 +149,20 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
   const onClick = useCallback(
-    ({ sort, post }: { sort?: Sorting; post?: string }) => {
+    ({
+      sort,
+      post,
+      user,
+    }: {
+      sort?: Sorting
+      post?: string
+      user?: string
+    }) => {
       let url = `/group/${state.group?.slug}`
+
+      if (user) {
+        url += `/user/${user}`
+      }
 
       if (sort) {
         url += `/sort/${sort}`
@@ -172,6 +186,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const onCloseUserPreview = useCallback(() => {
     setUserPreview(undefined)
   }, [])
+
   const promotedTagsRef = useRef<HTMLDivElement>(null)
   const groupHeaderRef = useRef<HTMLDivElement>(null)
 
@@ -294,6 +309,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       onQueryChange={() => null}
                       onLoadSuggestionCancel={() => null}
                       tags={state.activeTags || []}
+                      users={state.activeUsers}
                     />
                   </div>
                 </div>
@@ -406,6 +422,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
         <UserPreview
           user={userPreview}
           noUserAvatar={UserAvatarNoImage}
+          onUserPostsClick={(user) => onClick({ user: user.username })}
           onClose={onCloseUserPreview}
         />
       )}
@@ -417,7 +434,7 @@ GroupPage.getInitialProps = async (
   ctx: NextPageContext
 ): Promise<GroupPageProps> => {
   const { params } = ctx?.query
-  const { slug, tag, post, sort } = parseParams(params as string[])
+  const { slug, tag, post, user, sort } = parseParams(params as string[])
   const postId = Array.isArray(post) && post.length > 0 ? post[0] : undefined
 
   await getGroup(slug as string)
@@ -447,6 +464,7 @@ GroupPage.getInitialProps = async (
       requestedOffset: 0,
       requestedLimit: 50,
       tags: tag,
+      users: user,
       sort: sort[0] || Sorting.latest,
     }).catch(() => null),
     loadGroupPromotedTags(id).catch(() => null),

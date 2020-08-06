@@ -19,8 +19,9 @@ import styles from './styles.scss'
 export const UserPreview: FC<{
   user: IUser
   noUserAvatar: { [key: string]: IImage }
+  onUserPostsClick: (user: IUser) => unknown
   onClose: () => unknown
-}> = ({ user, noUserAvatar, onClose }) => {
+}> = ({ user, noUserAvatar, onClose, onUserPostsClick }) => {
   return (
     <div className={styles.wrapper} data-testid="user-preview">
       <UserAvatar
@@ -50,7 +51,10 @@ export const UserPreview: FC<{
         </Button>
       </Link>
 
-      <Button additionalStyles={styles.btn}>
+      <Button
+        additionalStyles={styles.btn}
+        onClick={() => onUserPostsClick(user)}
+      >
         <i>
           <IoIosArrowDropright />
         </i>

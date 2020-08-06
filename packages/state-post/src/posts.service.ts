@@ -66,12 +66,14 @@ export const getGroupPosts = async ({
   group,
   requestedOffset = 0,
   requestedLimit = 50,
+  users = [],
   tags = [],
   sort = Sorting.latest,
 }: {
   group: string
   requestedOffset?: number
   requestedLimit?: number
+  users?: string[]
   tags?: string[]
   sort?: Sorting
 }) => {
@@ -91,6 +93,7 @@ export const getGroupPosts = async ({
       limit: requestedLimit,
       tags,
       sort,
+      users,
     })
 
     applyTransaction(() => {
@@ -99,6 +102,7 @@ export const getGroupPosts = async ({
         offset,
         total,
         tags,
+        users,
       })
     })
   } catch {
