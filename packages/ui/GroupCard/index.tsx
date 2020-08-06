@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
-import { useTranslation } from '@gtms/commons/i18n'
-import { Link } from '@gtms/commons/i18n'
+import { useTranslation, Link } from '@gtms/commons/i18n'
 import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'

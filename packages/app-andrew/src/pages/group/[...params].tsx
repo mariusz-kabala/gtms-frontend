@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
@@ -11,7 +10,7 @@ import {
 } from 'queries/groupPage.query'
 import { useInitState } from '@gtms/commons/hooks'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IPost } from '@gtms/commons/models'
+import { IPost, IUser } from '@gtms/commons/models'
 // api
 import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI, fetchSuggestedTagsAPI } from '@gtms/api-tags'
@@ -39,6 +38,7 @@ import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
+import { UserPreview } from '@gtms/ui/UserPreview'
 import { IoMdGrid } from 'react-icons/io'
 // state
 import { openLoginModal } from 'state'
@@ -71,6 +71,8 @@ import {
   initPostCommentsStore,
 } from '@gtms/state-comment'
 import { changePageBackground } from 'state'
+// styles
+import styles from './styles.scss'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
@@ -142,6 +144,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const { t } = useTranslation('groupPage')
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
+  const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
   const onClick = useCallback(
     ({ sort, post }: { sort?: Sorting; post?: string }) => {
@@ -163,6 +166,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     },
     [state]
   )
+  const onUserClick = useCallback((user: IUser) => {
+    setUserPreview(user)
+  }, [])
+  const onCloseUserPreview = useCallback(() => {
+    setUserPreview(undefined)
+  }, [])
   const promotedTagsRef = useRef<HTMLDivElement>(null)
   const groupHeaderRef = useRef<HTMLDivElement>(null)
 
@@ -355,6 +364,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         onTagClick={(tag) => {
                           router.push(`/group/${state.group?.slug}/tag/${tag}`)
                         }}
+                        onUserClick={onUserClick}
                         user={state.user}
                         renderFavs={renderFavs}
                         activePost={state.activePost}
@@ -392,6 +402,13 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           </>
         )}
       </div>
+      {userPreview && (
+        <UserPreview
+          user={userPreview}
+          noUserAvatar={UserAvatarNoImage}
+          onClose={onCloseUserPreview}
+        />
+      )}
     </>
   )
 }
