@@ -20,7 +20,7 @@
     padding: 10px;
     padding-bottom: 0;
     overflow: hidden;
-    background: $theme4;
+    background: $black;
   }
 
   .groupHeader {
@@ -36,7 +36,7 @@
       align-items: center;
       width: 100%;
       padding: 10px;
-      background: $theme4;
+      background: $black;
 
       .groupAvatar {
         border-radius: $borderRadius;
@@ -86,7 +86,7 @@
             @include buttonWithIcon();
             @include buttonColorsPrimary();
             position: relative;
-            margin-right: 15px;
+            margin-right: 5px;
 
             &.active,
             &:hover {
@@ -149,9 +149,4 @@
       }
     }
   }
-}
-
-.active {
-  background: $theme4;
-  color: $theme0;
 }
