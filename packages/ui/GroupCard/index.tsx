@@ -21,7 +21,6 @@ export const GroupCard: FC<{
   tags: string[]
   logo: IImage
   noUserAvatar: { [key: string]: IImage }
-  isActive: boolean
   isLoading: boolean
   onClose: () => unknown
   members: IUser[]
@@ -33,7 +32,6 @@ export const GroupCard: FC<{
   tags,
   logo,
   slug,
-  isActive,
   isLoading,
   onClose,
   members,
@@ -43,9 +41,7 @@ export const GroupCard: FC<{
 
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles, {
-        [styles.active]: isActive,
-      })}
+      className={cx(styles.wrapper, additionalStyles)}
       data-testid="group-card"
     >
       <>
