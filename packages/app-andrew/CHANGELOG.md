@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.69.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.68.0...@gtms/app-andrew@0.69.0) (2020-08-07)
+
+
+### Features
+
+* GEOT-405: restore main navigation ([#803](https://github.com/gtms-org/gtms-frontend/issues/803)) ([01a9e54](https://github.com/gtms-org/gtms-frontend/commit/01a9e54af42f502cd785ee25e595bff7e526ef1b))
+
+
+
+
+
 # [0.68.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.67.0...@gtms/app-andrew@0.68.0) (2020-08-07)
 
 
