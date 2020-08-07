@@ -16,7 +16,9 @@ import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
 import { Modal } from '@gtms/ui/Modal'
 import { PromotedTags as PromotedTagsUI } from '@gtms/ui/PromotedTags'
 
-export const PromotedTags: FC<{}> = () => {
+export const PromotedTags: FC<{
+  onTagClick?: (tag: IPromotedTag) => unknown
+}> = ({ onTagClick }) => {
   const [state, setState] = useState<IPromotedTagsState>(promotedTagsState())
   const [promotedTagEditor, setPromotedTagEditor] = useState<{
     isOpen: boolean
@@ -64,9 +66,11 @@ export const PromotedTags: FC<{}> = () => {
         (state.tags.length > 0 && (
           <PromotedTagsUI
             tags={state.tags}
+            activeTags={state.activeTags}
             isLoading={state.isLoading}
             noImage={PromotedTagNoImage}
             isAdmin={state.isAdmin}
+            onTagClick={onTagClick}
             onNoRecordsClick={onAddTagClick}
             onEditRecordClick={onEditTagClick}
             onDeleteRecordClick={onDeleteTagClick}

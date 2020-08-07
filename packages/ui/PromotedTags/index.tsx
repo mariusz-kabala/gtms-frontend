@@ -20,9 +20,11 @@ export const PromotedTags: FC<{
   noImage: {
     '200x200': IImage
   }
+  activeTags?: string[]
   onNoRecordsClick?: () => unknown
   onEditRecordClick?: (promotedTag: IPromotedTag) => unknown
   onDeleteRecordClick?: (promotedTag: IPromotedTag) => unknown
+  onTagClick?: (promotedTag: IPromotedTag) => unknown
 }> = ({
   additionalStyles,
   isLoading,
@@ -31,7 +33,9 @@ export const PromotedTags: FC<{
   onNoRecordsClick,
   onEditRecordClick,
   onDeleteRecordClick,
+  onTagClick,
   isAdmin = false,
+  activeTags = [],
 }) => {
   const onClick = useCallback(() => {
     onNoRecordsClick && onNoRecordsClick()
@@ -43,10 +47,16 @@ export const PromotedTags: FC<{
       data-testid="promoted-tags"
     >
       {isLoading && <Spinner />}
-      <div className={styles.items}>
+      <div className={cx(styles.items)}>
         {tags.length > 0 &&
           tags.map((tag) => (
-            <div className={styles.item} key={`promoted-${tag.id}`}>
+            <div
+              onClick={() => onTagClick && onTagClick(tag)}
+              className={cx(styles.item, {
+                [styles.active]: activeTags.includes(tag.tag),
+              })}
+              key={`promoted-${tag.id}`}
+            >
               {!tag.logo.status && <Picture {...noImage['200x200']} />}
               {tag.logo.status === FileStatus.ready && (
                 <Picture
