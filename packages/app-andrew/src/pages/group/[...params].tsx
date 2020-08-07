@@ -154,12 +154,19 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       sort,
       post,
       user,
+      tag,
     }: {
       sort?: Sorting
       post?: string
       user?: string
+      tag?: string
     }) => {
       let url = `/group/${state.group?.slug}`
+      const tags = Array.isArray(state.activeTags) ? state.activeTags : []
+
+      if (tag) {
+        tags.push(tag)
+      }
 
       if (user) {
         url += `/user/${user}`
@@ -169,8 +176,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
         url += `/sort/${sort}`
       }
 
-      if (Array.isArray(state.activeTags) && state.activeTags.length > 0) {
-        url += `/tag/${state.activeTags.join('/')}`
+      if (tags.length > 0) {
+        url += `/tag/${tags.join('/')}`
       }
 
       if (post) {
@@ -318,7 +325,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <div className={styles.groupPostsListWrapper}>
               {showPromoted && (
                 <div ref={promotedTagsRef}>
-                  <PromotedTags />
+                  <PromotedTags
+                    onTagClick={(tag) => onClick({ tag: tag.tag })}
+                  />
                 </div>
               )}
               {state && state.posts && state.posts.length === 0 && (

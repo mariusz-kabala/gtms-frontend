@@ -38,7 +38,8 @@
         opacity: 0;
       }
 
-      &:hover {
+      &:hover,
+      &.active {
         &:after {
           opacity: 1;
         }
