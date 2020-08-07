@@ -145,7 +145,41 @@
       margin-top: 0;
 
       .postCreate {
+        display: flex;
+        padding: 10px;
+        border-radius: $borderRadius;
+        background: $theme0;
         margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.noPostsFound {
+  display: flex;
+  justify-content: center;
+  background: $theme0;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    padding: 40px;
+
+    .header {
+      @include font-weight(semiNormal);
+      @include font-size(xlg);
+      margin-bottom: 20px;
+
+      span {
+        @include font-weight(semiBold);
+      }
+    }
+
+    .image {
+      img {
+        max-width: 350px;
       }
     }
   }
