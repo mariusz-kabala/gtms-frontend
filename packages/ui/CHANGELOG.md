@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.50.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.50.0...@gtms/ui@0.50.1) (2020-08-07)
+
+
+### Bug Fixes
+
+* GEOT-410: make promoted tag work ([#806](https://github.com/gtms-org/gtms-frontend/issues/806)) ([dc97411](https://github.com/gtms-org/gtms-frontend/commit/dc97411958fb326cd53840086022bb910759d906))
+
+
+
+
+
 # [0.50.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.49.0...@gtms/ui@0.50.0) (2020-08-07)
 
 
