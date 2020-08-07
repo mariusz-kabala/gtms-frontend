@@ -7,29 +7,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/state-comment
 
-
-
-
-
 ## [0.2.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.2.0...@gtms/state-comment@0.2.1) (2020-08-04)
 
 **Note:** Version bump only for package @gtms/state-comment
 
-
-
-
-
 # [0.2.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.1.16...@gtms/state-comment@0.2.0) (2020-07-30)
-
 
 ### Features
 
-* GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
-* GEOT-391: basic group settings component ([#783](https://github.com/gtms-org/gtms-frontend/issues/783)) ([4282657](https://github.com/gtms-org/gtms-frontend/commit/4282657365d4a1c49286f6003fe71d99cf8616b1))
-
-
-
-
+- GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
+- GEOT-391: basic group settings component ([#783](https://github.com/gtms-org/gtms-frontend/issues/783)) ([4282657](https://github.com/gtms-org/gtms-frontend/commit/4282657365d4a1c49286f6003fe71d99cf8616b1))
 
 ## [0.1.16](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.1.15...@gtms/state-comment@0.1.16) (2020-07-28)
 

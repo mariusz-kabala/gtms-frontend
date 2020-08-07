@@ -3,82 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.67.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.66.0...@gtms/app-andrew@0.67.0) (2020-08-06)
+# [0.68.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.67.0...@gtms/app-andrew@0.68.0) (2020-08-07)
 
 
 ### Features
 
-* GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
+* GEOT-398: post details explanaiton ([#802](https://github.com/gtms-org/gtms-frontend/issues/802)) ([260c66b](https://github.com/gtms-org/gtms-frontend/commit/260c66b23a76502f38c3a15bdfc3c4a20425c1aa))
+* GEOT-404: animation for group card ([#804](https://github.com/gtms-org/gtms-frontend/issues/804)) ([0b54b54](https://github.com/gtms-org/gtms-frontend/commit/0b54b54b563a415470a82449764c9400c1d05d6c))
 
 
 
 
+
+# [0.67.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.66.0...@gtms/app-andrew@0.67.0) (2020-08-06)
+
+### Features
+
+- GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
 
 # [0.66.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.65.0...@gtms/app-andrew@0.66.0) (2020-08-04)
 
-
 ### Features
 
-* GEOT-400: create your own group ([#796](https://github.com/gtms-org/gtms-frontend/issues/796)) ([6c5af3d](https://github.com/gtms-org/gtms-frontend/commit/6c5af3d0d811ab49f6100cc101bf40144eb5c3f6))
-
-
-
-
+- GEOT-400: create your own group ([#796](https://github.com/gtms-org/gtms-frontend/issues/796)) ([6c5af3d](https://github.com/gtms-org/gtms-frontend/commit/6c5af3d0d811ab49f6100cc101bf40144eb5c3f6))
 
 # [0.65.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.64.0...@gtms/app-andrew@0.65.0) (2020-08-04)
 
-
 ### Features
 
-* GEOT-403: sorting on group page ([#799](https://github.com/gtms-org/gtms-frontend/issues/799)) ([96fa87c](https://github.com/gtms-org/gtms-frontend/commit/96fa87c1f5384dbc2b90ed31bb0cfab907364679))
-
-
-
-
+- GEOT-403: sorting on group page ([#799](https://github.com/gtms-org/gtms-frontend/issues/799)) ([96fa87c](https://github.com/gtms-org/gtms-frontend/commit/96fa87c1f5384dbc2b90ed31bb0cfab907364679))
 
 # [0.64.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.63.1...@gtms/app-andrew@0.64.0) (2020-08-04)
 
-
 ### Features
 
-* GEOT-402: common nav component for user account ([#798](https://github.com/gtms-org/gtms-frontend/issues/798)) ([5793f71](https://github.com/gtms-org/gtms-frontend/commit/5793f71cb9be7a2653b8e5ca64bcd4fd31c0748c))
-
-
-
-
+- GEOT-402: common nav component for user account ([#798](https://github.com/gtms-org/gtms-frontend/issues/798)) ([5793f71](https://github.com/gtms-org/gtms-frontend/commit/5793f71cb9be7a2653b8e5ca64bcd4fd31c0748c))
 
 ## [0.63.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.63.0...@gtms/app-andrew@0.63.1) (2020-08-04)
 
-
 ### Bug Fixes
 
-* GEOT-401: cleanup group settings page ([#797](https://github.com/gtms-org/gtms-frontend/issues/797)) ([df20a6e](https://github.com/gtms-org/gtms-frontend/commit/df20a6e91979e94b1d16d3031ce58670c180e30d))
-
-
-
-
+- GEOT-401: cleanup group settings page ([#797](https://github.com/gtms-org/gtms-frontend/issues/797)) ([df20a6e](https://github.com/gtms-org/gtms-frontend/commit/df20a6e91979e94b1d16d3031ce58670c180e30d))
 
 # [0.63.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.62.0...@gtms/app-andrew@0.63.0) (2020-08-04)
 
-
 ### Features
 
-* GEOT-396: styles for tag page ([#795](https://github.com/gtms-org/gtms-frontend/issues/795)) ([8853c8c](https://github.com/gtms-org/gtms-frontend/commit/8853c8cf465ea62d16117ed1044306181e737044))
-
-
-
-
+- GEOT-396: styles for tag page ([#795](https://github.com/gtms-org/gtms-frontend/issues/795)) ([8853c8c](https://github.com/gtms-org/gtms-frontend/commit/8853c8cf465ea62d16117ed1044306181e737044))
 
 # [0.62.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.61.4...@gtms/app-andrew@0.62.0) (2020-08-03)
 
-
 ### Features
 
-* GEOT-394: main page ([#792](https://github.com/gtms-org/gtms-frontend/issues/792)) ([4386543](https://github.com/gtms-org/gtms-frontend/commit/43865436e6edc74881fb5c39e228ee4a34a41174))
-
-
-
-
+- GEOT-394: main page ([#792](https://github.com/gtms-org/gtms-frontend/issues/792)) ([4386543](https://github.com/gtms-org/gtms-frontend/commit/43865436e6edc74881fb5c39e228ee4a34a41174))
 
 ## [0.61.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.61.3...@gtms/app-andrew@0.61.4) (2020-07-31)
 
