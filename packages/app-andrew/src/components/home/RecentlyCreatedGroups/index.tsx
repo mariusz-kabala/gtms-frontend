@@ -38,32 +38,36 @@ export const RecentlyCreatedGroups: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="recently-created-groups"
     >
-      {groupCard.current && (
-        <GroupCard
-          isLoading={groupCard.isLoading}
-          isActive={groupCard.isOpen}
-          onClose={() =>
-            setGroupCard({
-              isLoading: false,
-              isOpen: false,
-              users: [],
-              current: undefined,
-            })
-          }
-          members={groupCard.users}
-          name={groupCard.current.name}
-          description={groupCard.current.description}
-          tags={groupCard.current.tags || []}
-          slug={groupCard.current.slug}
-          noUserAvatar={UserAvatarNoImage}
-          logo={getImage(
-            '200x200',
-            groupCard.current.avatar,
-            GroupAvatarNoImage
-          )}
-        />
-      )}
-
+      <div
+        className={cx(styles.groupCardWrapper, {
+          [styles.active]: groupCard.isOpen,
+        })}
+      >
+        {groupCard.current && (
+          <GroupCard
+            isLoading={groupCard.isLoading}
+            onClose={() =>
+              setGroupCard({
+                isLoading: false,
+                isOpen: false,
+                users: [],
+                current: undefined,
+              })
+            }
+            members={groupCard.users}
+            name={groupCard.current.name}
+            description={groupCard.current.description}
+            tags={groupCard.current.tags || []}
+            slug={groupCard.current.slug}
+            noUserAvatar={UserAvatarNoImage}
+            logo={getImage(
+              '200x200',
+              groupCard.current.avatar,
+              GroupAvatarNoImage
+            )}
+          />
+        )}
+      </div>
       {groupsToRender.map((group) => {
         if (group === null) {
           return <CreateYourOwnGroup />

@@ -5,120 +5,65 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.9.0...@gtms/api-post@0.10.0) (2020-08-06)
 
-
 ### Features
 
-* GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
-
-
-
-
+- GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
 
 # [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.8.6...@gtms/api-post@0.9.0) (2020-08-04)
 
-
 ### Features
 
-* GEOT-403: sorting on group page ([#799](https://github.com/gtms-org/gtms-frontend/issues/799)) ([96fa87c](https://github.com/gtms-org/gtms-frontend/commit/96fa87c1f5384dbc2b90ed31bb0cfab907364679))
-
-
-
-
+- GEOT-403: sorting on group page ([#799](https://github.com/gtms-org/gtms-frontend/issues/799)) ([96fa87c](https://github.com/gtms-org/gtms-frontend/commit/96fa87c1f5384dbc2b90ed31bb0cfab907364679))
 
 ## [0.8.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.8.5...@gtms/api-post@0.8.6) (2020-07-30)
 
 **Note:** Version bump only for package @gtms/api-post
 
-
-
-
-
 ## [0.8.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.8.4...@gtms/api-post@0.8.5) (2020-07-28)
-
 
 ### Bug Fixes
 
-* GEOT-374 my groups page ([#777](https://github.com/gtms-org/gtms-frontend/issues/777)) ([03307f0](https://github.com/gtms-org/gtms-frontend/commit/03307f0de4c4555f2b84be827e2f18b367033499))
-
-
-
-
+- GEOT-374 my groups page ([#777](https://github.com/gtms-org/gtms-frontend/issues/777)) ([03307f0](https://github.com/gtms-org/gtms-frontend/commit/03307f0de4c4555f2b84be827e2f18b367033499))
 
 ## [0.8.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.8.3...@gtms/api-post@0.8.4) (2020-07-24)
 
 **Note:** Version bump only for package @gtms/api-post
 
-
-
-
-
 ## [0.8.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.8.2...@gtms/api-post@0.8.3) (2020-07-22)
 
 **Note:** Version bump only for package @gtms/api-post
-
-
-
-
 
 ## [0.8.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.8.1...@gtms/api-post@0.8.2) (2020-07-20)
 
 **Note:** Version bump only for package @gtms/api-post
 
-
-
-
-
 ## [0.8.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.8.0...@gtms/api-post@0.8.1) (2020-07-19)
 
 **Note:** Version bump only for package @gtms/api-post
 
-
-
-
-
 # [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.7.0...@gtms/api-post@0.8.0) (2020-07-15)
-
 
 ### Features
 
-* GEOT-336 favs posts ([#738](https://github.com/gtms-org/gtms-frontend/issues/738)) ([9baf034](https://github.com/gtms-org/gtms-frontend/commit/9baf0347567ebc8c6646f7f3343277743b28a933))
-
-
-
-
+- GEOT-336 favs posts ([#738](https://github.com/gtms-org/gtms-frontend/issues/738)) ([9baf034](https://github.com/gtms-org/gtms-frontend/commit/9baf0347567ebc8c6646f7f3343277743b28a933))
 
 # [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.6.0...@gtms/api-post@0.7.0) (2020-07-11)
 
-
 ### Features
 
-* GEOT-331: filter posts by tag on group page ([#729](https://github.com/gtms-org/gtms-frontend/issues/729)) ([1487b44](https://github.com/gtms-org/gtms-frontend/commit/1487b448102e8133ad739045cbb9333f3a8e868b))
-
-
-
-
+- GEOT-331: filter posts by tag on group page ([#729](https://github.com/gtms-org/gtms-frontend/issues/729)) ([1487b44](https://github.com/gtms-org/gtms-frontend/commit/1487b448102e8133ad739045cbb9333f3a8e868b))
 
 # [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.5.1...@gtms/api-post@0.6.0) (2020-07-11)
 
-
 ### Features
 
-* GEOT-333: search post store ([#730](https://github.com/gtms-org/gtms-frontend/issues/730)) ([663b620](https://github.com/gtms-org/gtms-frontend/commit/663b620285642245917130fde4e99b41ec4a3bc3))
-
-
-
-
+- GEOT-333: search post store ([#730](https://github.com/gtms-org/gtms-frontend/issues/730)) ([663b620](https://github.com/gtms-org/gtms-frontend/commit/663b620285642245917130fde4e99b41ec4a3bc3))
 
 ## [0.5.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.5.0...@gtms/api-post@0.5.1) (2020-07-09)
 
-
 ### Bug Fixes
 
-* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
-
-
-
-
+- GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
 
 # [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.4.0...@gtms/api-post@0.5.0) (2020-07-07)
 
