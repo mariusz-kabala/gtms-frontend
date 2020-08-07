@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.70.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.69.0...@gtms/app-andrew@0.70.0) (2020-08-07)
+
+
+### Features
+
+* GEOT-409: GEOT-409: group has no popsts yet info ([#805](https://github.com/gtms-org/gtms-frontend/issues/805)) ([3d5ed7c](https://github.com/gtms-org/gtms-frontend/commit/3d5ed7cd4ab4cf22a259c54822c9e874183331b9))
+
+
+
+
+
 # [0.69.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.68.0...@gtms/app-andrew@0.69.0) (2020-08-07)
 
 ### Features
