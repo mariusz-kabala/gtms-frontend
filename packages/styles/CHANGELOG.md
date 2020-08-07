@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.15.0...@gtms/styles@0.16.0) (2020-08-07)
+
+
+### Features
+
+* GEOT-404: animation for group card ([#804](https://github.com/gtms-org/gtms-frontend/issues/804)) ([0b54b54](https://github.com/gtms-org/gtms-frontend/commit/0b54b54b563a415470a82449764c9400c1d05d6c))
+
+
+
+
+
 # [0.15.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.14.0...@gtms/styles@0.15.0) (2020-08-03)
 
 

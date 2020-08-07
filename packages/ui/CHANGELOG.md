@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.48.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.47.0...@gtms/ui@0.48.0) (2020-08-07)
+
+
+### Features
+
+* GEOT-398: post details explanaiton ([#802](https://github.com/gtms-org/gtms-frontend/issues/802)) ([260c66b](https://github.com/gtms-org/gtms-frontend/commit/260c66b23a76502f38c3a15bdfc3c4a20425c1aa))
+* GEOT-404: animation for group card ([#804](https://github.com/gtms-org/gtms-frontend/issues/804)) ([0b54b54](https://github.com/gtms-org/gtms-frontend/commit/0b54b54b563a415470a82449764c9400c1d05d6c))
+
+
+
+
+
 # [0.47.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.46.0...@gtms/ui@0.47.0) (2020-08-06)
 
 ### Features
