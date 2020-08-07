@@ -1173,10 +1173,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@datorama/akita@^4.19.2":
-  version "4.23.1"
-  resolved "https://npm.kabala.tech/@datorama%2fakita/-/akita-4.23.1.tgz#f6f4a425632f97241f4a7c088015e75984482db0"
-  integrity sha512-ehZ9c+kJrnZuja7e5CCCb0D/5B93oYJvPaZ8ZwNZhR5OueE4sSzHFbtZy1ppivbV4Q97PtHo/sv0TD+exbv5lQ==
+"@datorama/akita@^5.2.1":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@datorama/akita/-/akita-5.2.1.tgz#47d13093ca009c2f0d4c95c68277979372a9733d"
+  integrity sha512-4dp4RmMvEVVnFPzLuk4sxM+wTYwgUV+CXdni47fsrFcjY2M6DfW62qJs9u1AVtAcof1ZMmaR1IY34n8av/K7Yg==
   dependencies:
     schematics-utilities "^1.1.1"
 
