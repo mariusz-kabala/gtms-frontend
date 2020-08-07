@@ -79,9 +79,8 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <NotificationsActive />
         <LoginWindow />
         <NotificationsSidebar />
-        <Component {...pageProps}>
-          <NavigationWrapper />
-        </Component>
+        <NavigationWrapper />
+        <Component {...pageProps} />
         <div className={cx(styles.bg, this.state.background.className)} />
       </div>
     )
