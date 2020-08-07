@@ -20,7 +20,7 @@
     padding: 10px;
     padding-bottom: 0;
     overflow: hidden;
-    background: $theme4;
+    background: $black;
   }
 
   .groupHeader {
@@ -36,7 +36,7 @@
       align-items: center;
       width: 100%;
       padding: 10px;
-      background: $theme4;
+      background: $black;
 
       .groupAvatar {
         border-radius: $borderRadius;
@@ -72,6 +72,7 @@
         display: flex;
         width: 100%;
         overflow: hidden;
+        margin-left: 150px;
 
         .search {
           display: flex;
@@ -86,7 +87,7 @@
             @include buttonWithIcon();
             @include buttonColorsPrimary();
             position: relative;
-            margin-right: 15px;
+            margin-right: 5px;
 
             &.active,
             &:hover {
@@ -149,33 +150,4 @@
       }
     }
   }
-}
-
-.noPostPicture {
-  position: relative;
-  margin-top: 100px;
-  text-align: center;
-
-  img {
-    opacity: 0.4;
-    max-width: 100px;
-    margin: auto;
-    margin-bottom: 10px;
-  }
-
-  span {
-    @include font-size(md);
-    color: $theme9;
-  }
-
-  &:hover {
-    span {
-      color: $theme4;
-    }
-  }
-}
-
-.active {
-  background: $theme4;
-  color: $theme0;
 }
