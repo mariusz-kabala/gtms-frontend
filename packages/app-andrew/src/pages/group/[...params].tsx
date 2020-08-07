@@ -33,6 +33,7 @@ import { Favs } from 'components/post/Favs'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
+import { Picture } from '@gtms/ui/Picture'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
@@ -320,6 +321,36 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   <PromotedTags />
                 </div>
               )}
+              {state && state.posts && state.posts.length === 0 && (
+                <div className={styles.noPostsFound}>
+                  <div>
+                    <div>
+                      <h3 className={styles.header}>
+                        <span>Ooops</span>, wygląda na to, że nikt nie dodał
+                        jeszcze żadnego posta :( Możesz być pierwszy!
+                      </h3>
+                      <PostCreate
+                        fetchTags={findTagsAPI}
+                        fetchUsers={findbyUsernameAPI}
+                        fetchSuggestedTags={fetchSuggestedTagsAPI}
+                        user={state.user}
+                        noImage={UserAvatarNoImage}
+                        onSubmit={(text: string) => {
+                          createNewPost({
+                            group: state.group?.id || '',
+                            text,
+                          })
+                        }}
+                        onLoginRequest={openLoginModal}
+                      />
+                    </div>
+                    <Picture
+                      additionalStyles={styles.image}
+                      jpg={'/images/white-theme/no-posts-yet.png'}
+                    />
+                  </div>
+                </div>
+              )}
               {state && state.posts && state.posts.length > 0 && (
                 <>
                   <NavigationTabs>
@@ -358,6 +389,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   <div className={styles.posts}>
                     <div>
                       <PostCreate
+                        additionalStyles={styles.postCreate}
                         fetchTags={findTagsAPI}
                         fetchUsers={findbyUsernameAPI}
                         fetchSuggestedTags={fetchSuggestedTagsAPI}
@@ -369,7 +401,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                             text,
                           })
                         }}
-                        additionalStyles={styles.postCreate}
                         onLoginRequest={openLoginModal}
                       />
                       <RecentlyAddedPosts
