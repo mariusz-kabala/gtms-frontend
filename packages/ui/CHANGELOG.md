@@ -3,38 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.47.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.46.0...@gtms/ui@0.47.0) (2020-08-06)
-
+# [0.49.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.48.0...@gtms/ui@0.49.0) (2020-08-07)
 
 ### Features
 
-* GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
+- GEOT-405: restore main navigation ([#803](https://github.com/gtms-org/gtms-frontend/issues/803)) ([01a9e54](https://github.com/gtms-org/gtms-frontend/commit/01a9e54af42f502cd785ee25e595bff7e526ef1b))
 
+# [0.48.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.47.0...@gtms/ui@0.48.0) (2020-08-07)
 
+### Features
 
+- GEOT-398: post details explanaiton ([#802](https://github.com/gtms-org/gtms-frontend/issues/802)) ([260c66b](https://github.com/gtms-org/gtms-frontend/commit/260c66b23a76502f38c3a15bdfc3c4a20425c1aa))
+- GEOT-404: animation for group card ([#804](https://github.com/gtms-org/gtms-frontend/issues/804)) ([0b54b54](https://github.com/gtms-org/gtms-frontend/commit/0b54b54b563a415470a82449764c9400c1d05d6c))
 
+# [0.47.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.46.0...@gtms/ui@0.47.0) (2020-08-06)
+
+### Features
+
+- GEOT-407: user preview ([#801](https://github.com/gtms-org/gtms-frontend/issues/801)) ([a703284](https://github.com/gtms-org/gtms-frontend/commit/a70328414b32aff2d6f605dcb7a74b52a751b346))
 
 # [0.46.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.45.0...@gtms/ui@0.46.0) (2020-08-04)
 
-
 ### Features
 
-* GEOT-400: create your own group ([#796](https://github.com/gtms-org/gtms-frontend/issues/796)) ([6c5af3d](https://github.com/gtms-org/gtms-frontend/commit/6c5af3d0d811ab49f6100cc101bf40144eb5c3f6))
-
-
-
-
+- GEOT-400: create your own group ([#796](https://github.com/gtms-org/gtms-frontend/issues/796)) ([6c5af3d](https://github.com/gtms-org/gtms-frontend/commit/6c5af3d0d811ab49f6100cc101bf40144eb5c3f6))
 
 # [0.45.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.44.2...@gtms/ui@0.45.0) (2020-08-03)
 
-
 ### Features
 
-* GEOT-394: main page ([#792](https://github.com/gtms-org/gtms-frontend/issues/792)) ([4386543](https://github.com/gtms-org/gtms-frontend/commit/43865436e6edc74881fb5c39e228ee4a34a41174))
-
-
-
-
+- GEOT-394: main page ([#792](https://github.com/gtms-org/gtms-frontend/issues/792)) ([4386543](https://github.com/gtms-org/gtms-frontend/commit/43865436e6edc74881fb5c39e228ee4a34a41174))
 
 ## [0.44.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.44.1...@gtms/ui@0.44.2) (2020-07-31)
 

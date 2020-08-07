@@ -1,5 +1,23 @@
+@import '@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/zindex.scss';
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   grid-gap: 15px;
+
+  .groupCardWrapper {
+    position: fixed;
+    left: 0;
+    bottom: -150px;
+    width: 100%;
+    height: 150px;
+    background: $theme4;
+    @include z-index(groupCard);
+    transition: bottom 0.25s ease-in-out;
+
+    &.active {
+      bottom: 0;
+    }
+  }
 }

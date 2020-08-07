@@ -26,6 +26,7 @@ import { GroupNotFound } from 'components/group/GroupNotFound'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 import { PostDetails } from 'components/post/PostDetails'
+import { PostDetailsGuide } from '@gtms/ui/UserGuides/PostDetailsGuide'
 import { PromotedTags } from 'components/group/PromotedTags'
 import { Favs } from 'components/post/Favs'
 // ui
@@ -209,7 +210,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   return (
     <>
-      {props.children} {/* main navigation */}
       <div className={styles.wrapper}>
         {state.isLoading && <Spinner />}
 
@@ -422,16 +422,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       />
                     </div>
                     <div>
-                      {!state.activePost && (
-                        <div className={styles.noPostPicture}>
-                          <Picture
-                            jpg={
-                              '/images/white-theme/icon-click-post-and-read-full-content.png'
-                            }
-                          />
-                          <span>Click post and read full content here </span>
-                        </div>
-                      )}
+                      {!state.activePost && <PostDetailsGuide />}
                       {state.activePost && (
                         <PostDetails
                           comments={state.comments}
