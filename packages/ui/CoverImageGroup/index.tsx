@@ -9,7 +9,7 @@ import styles from './styles.scss'
 
 export const CoverImageGroup: FC<{
   additionalStyles?: string
-  setShowCoverImage?: (value: boolean) => unknown
+  setShowCoverImage: (value: boolean) => unknown
 }> = ({ additionalStyles, setShowCoverImage }) => {
   const [isStepTwo, setIsStepTwo] = useState<boolean>(false)
 
