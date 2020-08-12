@@ -25,7 +25,6 @@ import { PromotedTags as PromotedTagsUI } from '@gtms/ui/PromotedTags'
 
 export const PromotedTags: FC<{
   onTagClick?: (tag: IPromotedTag) => unknown
-  children: React.ReactNode
 }> = forwardRef(({ onTagClick }, ref: Ref<any>) => {
   const [state, setState] = useState<IPromotedTagsState>(promotedTagsState())
   const [promotedTagEditor, setPromotedTagEditor] = useState<{
