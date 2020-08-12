@@ -6,6 +6,8 @@ import {
 } from '@gtms/state-group'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { IGroup } from '@gtms/commons/models'
+// ui
+import { GoPlus } from 'react-icons/go'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
@@ -28,7 +30,7 @@ export const AdminsSettings: FC<{ group: IGroup }> = ({ group }) => {
   }, [])
 
   return (
-    <div data-testid="group-settings-admins">
+    <div className={styles.wrapper} data-testid="group-settings-admins">
       {state.isLoading && <Spinner />}
 
       {!state.isLoading && state.errorOccured && (
@@ -46,11 +48,19 @@ export const AdminsSettings: FC<{ group: IGroup }> = ({ group }) => {
       {!state.isLoading && !state.errorOccured && state.records.length > 0 && (
         <ul className={styles.adminsList}>
           {state.records.map((user) => (
-            <li key={`group-admin-${user.id}`}>
+            <li className={styles.item} key={`group-admin-${user.id}`}>
               <UserAvatar image={getImage('200x200', user.avatar)} />
-              <span>{getDisplayName(user)}</span>
+              <span className={styles.name}>{getDisplayName(user)}</span>
             </li>
           ))}
+          <li key="add-new-admin">
+            <button className={styles.btn} onClick={() => null}>
+              <i>
+                <GoPlus />
+              </i>
+              <span className={styles.name}>add item</span>
+            </button>
+          </li>
         </ul>
       )}
     </div>

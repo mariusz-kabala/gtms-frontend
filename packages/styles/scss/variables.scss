@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-$defaultFontFamily: 'Roboto Condensed', sans-serif;
 
 $theme0: #ffffff;
 $theme1: #efefef;
@@ -21,3 +20,6 @@ $black: #000;
 
 $borderRadius: 5px;
 $borderRadius2: 25px;
+
+$defaultFontFamily: 'Roboto Condensed', sans-serif;
+$defaultTextColor: $theme7;

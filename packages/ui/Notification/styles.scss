@@ -8,8 +8,10 @@
   padding: 10px;
   margin-bottom: 3px;
   @include font-size(sm);
+  border-radius: $borderRadius;
   background: $theme4;
   color: $theme0;
+  opacity: 0.9;
   cursor: pointer;
 
   .notificationIcon {
@@ -22,11 +24,7 @@
   }
 
   &:hover {
-    .close {
-      .iconClose {
-        color: $theme4;
-      }
-    }
+    opacity: 1;
   }
 
   .close {
