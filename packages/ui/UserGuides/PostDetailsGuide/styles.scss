@@ -17,10 +17,4 @@
     @include font-size(md);
     color: $theme9;
   }
-
-  &:hover {
-    span {
-      color: $theme4;
-    }
-  }
 }

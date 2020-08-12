@@ -32,7 +32,7 @@
         background: $theme4;
       }
 
-      &.active {
+      &[class*='active'] {
         background: $theme4;
         color: $theme0;
       }

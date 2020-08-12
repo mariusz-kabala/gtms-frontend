@@ -48,9 +48,9 @@ export const UploadFile: FC<{
               <IoIosCloudUpload />
             </i>
             {isDragActive ? (
-              <p>{t('dropFilesHere')}</p>
+              <p className={styles.text}>{t('dropFilesHere')}</p>
             ) : (
-              <p>{t('dragAndDropFilesHere')}</p>
+              <p className={styles.text}>{t('dragAndDropFilesHere')}</p>
             )}
           </>
         )}

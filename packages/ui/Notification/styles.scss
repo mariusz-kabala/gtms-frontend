@@ -8,6 +8,7 @@
   padding: 10px;
   margin-bottom: 3px;
   @include font-size(sm);
+  border-radius: $borderRadius;
   background: $theme4;
   color: $theme0;
   cursor: pointer;

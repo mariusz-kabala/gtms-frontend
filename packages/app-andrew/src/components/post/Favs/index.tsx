@@ -7,6 +7,8 @@ import { getDisplayName } from '@gtms/commons/helpers'
 import { openLoginModal } from 'state'
 import { addErrorNotification } from '@gtms/state-notification'
 import { Tooltip } from 'react-tippy'
+// ui
+import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
 export const Favs: FC<{
@@ -67,7 +69,7 @@ export const Favs: FC<{
   }, [])
 
   return (
-    <div
+    <Button
       onClick={() => {
         if (!state.isLogged) {
           return openLoginModal()
@@ -93,8 +95,8 @@ export const Favs: FC<{
             })
           )
       }}
-      data-testid="post-favs"
-      className={cx(styles.wrapper, {
+      testid="post-favs"
+      additionalStyles={cx(styles.btn, {
         [styles.withStars]: favs.length > 0,
       })}
     >
@@ -104,10 +106,18 @@ export const Favs: FC<{
         arrow={true}
         title={tooltipContent.text}
       >
-        {isInFavs && <IoIosStar />}
-        {!isInFavs && <IoIosStarOutline />}
+        {isInFavs && (
+          <i>
+            <IoIosStar />
+          </i>
+        )}
+        {!isInFavs && (
+          <i>
+            <IoIosStarOutline />
+          </i>
+        )}
         {favsCounter > 0 && <span>{favsCounter}</span>}
       </Tooltip>
-    </div>
+    </Button>
   )
 }

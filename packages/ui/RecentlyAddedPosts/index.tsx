@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
-// ui
-import { PostSingle } from '../PostSingle'
 // commons
 import { IPost, IAccountDetails, IUser } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
+// ui
+import { PostSingle } from '../PostSingle'
 // styles
 import styles from './styles.scss'
 
