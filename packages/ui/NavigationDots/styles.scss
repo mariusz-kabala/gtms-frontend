@@ -66,10 +66,6 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
           @include font-size(md);
         }
 
-        span {
-          margin-left: 20px;
-        }
-
         &:hover,
         &:focus {
           background: $theme4;

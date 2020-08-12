@@ -7,8 +7,6 @@
 .pageWrapper {
   @include pageWrapper();
   max-width: 700px;
-  padding-left: 6px;
-  margin-left: -6px;
 }
 
 .wrapper {

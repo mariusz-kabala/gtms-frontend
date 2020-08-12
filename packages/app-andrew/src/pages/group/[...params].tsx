@@ -324,11 +324,10 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             </div>
             <div className={styles.groupPostsListWrapper}>
               {showPromoted && (
-                <div ref={promotedTagsRef}>
-                  <PromotedTags
-                    onTagClick={(tag) => onClick({ tag: tag.tag })}
-                  />
-                </div>
+                <PromotedTags
+                  onTagClick={(tag) => onClick({ tag: tag.tag })}
+                  ref={promotedTagsRef}
+                />
               )}
               {state && state.posts && state.posts.length === 0 && (
                 <div className={styles.noPostsFound}>
