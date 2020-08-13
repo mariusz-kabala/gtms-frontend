@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.16.0...@gtms/styles@0.17.0) (2020-08-13)
+
+
+### Features
+
+* GEOT-409: GEOT-409: group has no popsts yet info ([#805](https://github.com/gtms-org/gtms-frontend/issues/805)) ([3d5ed7c](https://github.com/gtms-org/gtms-frontend/commit/3d5ed7cd4ab4cf22a259c54822c9e874183331b9))
+* GEOT-417: GEOT-417: add new admin button in group settings ([#817](https://github.com/gtms-org/gtms-frontend/issues/817)) ([d98553c](https://github.com/gtms-org/gtms-frontend/commit/d98553c3ba76829d1d58c03134a2a86f684632de))
+
+
+
+
+
 # [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.15.0...@gtms/styles@0.16.0) (2020-08-07)
 
 ### Features
