@@ -33,8 +33,10 @@ $mockDataSize1: 55px;
   }
 
   .line {
+    position: relative;
+    overflow: hidden;
     width: 100%;
-    height: 10px;
+    height: 5px;
     border-radius: $borderRadius;
     background: $mockDataColor3;
 
@@ -52,6 +54,70 @@ $mockDataSize1: 55px;
     &.lg {
       height: 15px;
       background: $mockDataColor2;
+    }
+
+    @keyframes bar2 {
+      0% {
+        transform: scaleX(0.08);
+      }
+
+      36.65% {
+        animation-timing-function: cubic-bezier(0.334731, 0.12482, 0.785844, 1);
+        transform: scaleX(0.08);
+      }
+
+      69.15% {
+        animation-timing-function: cubic-bezier(0.06, 0.11, 0.6, 1);
+        transform: scaleX(0.661479);
+      }
+
+      100% {
+        transform: scaleX(0.08);
+      }
+    }
+
+    @keyframes bar1 {
+      0% {
+        transform: translateX(0);
+      }
+
+      20% {
+        animation-timing-function: cubic-bezier(0.5, 0, 0.701732, 0.495819);
+        transform: translateX(0);
+      }
+
+      59.15% {
+        animation-timing-function: cubic-bezier(
+          0.302435,
+          0.381352,
+          0.55,
+          0.956352
+        );
+        transform: translateX(83.67142%);
+      }
+
+      100% {
+        transform: translateX(200.611057%);
+      }
+    }
+
+    .bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .bar1 {
+      left: -100%;
+      background-color: $theme4;
+      animation: bar1 4s infinite linear;
+    }
+
+    .bar2 {
+      background-color: $theme4;
+      animation: bar2 2s infinite linear;
     }
   }
 
@@ -73,20 +139,20 @@ $mockDataSize1: 55px;
 
     .line {
       &.sm {
-        width: 45%;
+        width: 65%;
       }
 
       &.md {
-        width: 50%;
+        width: 100%;
       }
 
       &.lg {
-        width: 100%;
+        width: 80%;
       }
     }
 
     .twoLines {
-      width: 75%;
+      width: 90%;
     }
 
     .textLines {

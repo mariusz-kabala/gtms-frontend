@@ -38,8 +38,8 @@ import { PostCreate } from '@gtms/ui/PostCreate'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
-import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
 import { UserPreview } from '@gtms/ui/UserPreview'
+import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
 import { IoMdGrid } from 'react-icons/io'
 // state
 import { openLoginModal } from 'state'
@@ -447,14 +447,20 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           </>
         )}
       </div>
-      {userPreview && (
-        <UserPreview
-          user={userPreview}
-          noUserAvatar={UserAvatarNoImage}
-          onUserPostsClick={(user) => onClick({ user: user.username })}
-          onClose={onCloseUserPreview}
-        />
-      )}
+      <div
+        className={cx(styles.userPreviewWrapper, {
+          [styles.active]: userPreview,
+        })}
+      >
+        {userPreview && (
+          <UserPreview
+            user={userPreview}
+            noUserAvatar={UserAvatarNoImage}
+            onUserPostsClick={(user) => onClick({ user: user.username })}
+            onClose={onCloseUserPreview}
+          />
+        )}
+      </div>
     </>
   )
 }
