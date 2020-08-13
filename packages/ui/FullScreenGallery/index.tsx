@@ -2,9 +2,9 @@ import React, { FC, useState } from 'react'
 import cx from 'classnames'
 import useKey from 'use-key-hook'
 // ui
+import { Scrollbars } from 'react-custom-scrollbars'
 import { Button } from '@gtms/ui/Button'
 import { IoMdGrid, IoIosCheckmarkCircle } from 'react-icons/io'
-import { Scrollbars } from 'react-custom-scrollbars'
 import styles from './styles.scss'
 
 export const FullScreenGallery: FC<{
