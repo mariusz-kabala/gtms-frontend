@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.52.0...@gtms/ui@0.53.0) (2020-08-13)
+
+
+### Features
+
+* GEOT-411: add cover ([#812](https://github.com/gtms-org/gtms-frontend/issues/812)) ([6238c2e](https://github.com/gtms-org/gtms-frontend/commit/6238c2e8ff735b24dc46fc4497cfde6c91de272b))
+
+
+
+
+
 # [0.52.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.51.0...@gtms/ui@0.52.0) (2020-08-13)
 
 ### Features

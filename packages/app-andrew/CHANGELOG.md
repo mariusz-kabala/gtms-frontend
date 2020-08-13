@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.73.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.72.0...@gtms/app-andrew@0.73.0) (2020-08-13)
+
+
+### Features
+
+* GEOT-411: add cover ([#812](https://github.com/gtms-org/gtms-frontend/issues/812)) ([6238c2e](https://github.com/gtms-org/gtms-frontend/commit/6238c2e8ff735b24dc46fc4497cfde6c91de272b))
+
+
+
+
+
 # [0.72.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.71.0...@gtms/app-andrew@0.72.0) (2020-08-13)
 
 ### Features
