@@ -81,14 +81,14 @@
 
     &.two {
       position: absolute;
-      left: -2000px;
+      top: -500px;
       width: 100%;
       height: 100%;
-      transition: left 0.3s ease-in-out;
+      transition: top 0.3s ease-in-out;
       background: $theme2;
 
       &.active {
-        left: 0;
+        top: 0;
       }
 
       .header,
@@ -141,6 +141,7 @@
     ul {
       display: grid;
       transition: opacity 2s ease;
+      transition-delay: 0.25s;
       opacity: 0;
       @include gridDefault(6);
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
