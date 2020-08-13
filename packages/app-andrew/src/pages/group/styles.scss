@@ -111,9 +111,18 @@
     display: flex;
     margin-left: auto;
     background: $theme4;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     > * {
       color: $theme0;
       margin-left: 10px;
+
+      &:hover {
+        background: $theme0;
+        color: $theme4;
+      }
     }
   }
 
