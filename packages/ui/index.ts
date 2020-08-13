@@ -1,7 +1,6 @@
 export * from './Button'
 export * from './ClickToCopy'
 export * from './CookiePolicy'
-export * from './CoverImage'
 export * from './EmptyPromotedTags'
 export * from './ErrorWrapper'
 export * from './ExpandingItem'

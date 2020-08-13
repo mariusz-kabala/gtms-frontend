@@ -20,7 +20,6 @@
     padding: 10px;
     padding-bottom: 0;
     overflow: hidden;
-    background: $black;
   }
 
   .groupHeader {
@@ -28,8 +27,7 @@
     top: 0px;
     z-index: 13;
     width: 100%;
-    color: $theme0;
-    background: $theme2;
+    color: $theme9;
 
     > div {
       display: flex;
@@ -52,8 +50,8 @@
       }
 
       .descWrapper {
-        max-width: 200px;
-        min-width: 200px;
+        max-width: 300px;
+        width: 100%;
         line-height: 1;
         margin: 0 10px;
         cursor: pointer;
@@ -63,10 +61,18 @@
           letter-spacing: 1.1px;
           text-transform: uppercase;
           word-wrap: break-word;
+          color: $theme7;
         }
 
         .desc {
           @include font-size(sm);
+        }
+
+        &:hover {
+          .header,
+          .desc {
+            color: $theme4;
+          }
         }
       }
 
@@ -74,7 +80,7 @@
         display: flex;
         width: 100%;
         overflow: hidden;
-        margin-left: 150px;
+        margin-left: 50px;
 
         .search {
           display: flex;
@@ -95,21 +101,6 @@
             &:hover {
               @include buttonColorsQuaternary();
             }
-
-            &:after,
-            &:before {
-              content: '';
-              position: absolute;
-              right: -8px;
-              width: 1px;
-              height: 15px;
-              background: rgba($black, 0.5);
-            }
-
-            &::before {
-              right: -7px;
-              background: rgba($theme0, 0.2);
-            }
           }
         }
       }
@@ -119,7 +110,7 @@
   .actionButtons {
     display: flex;
     margin-left: auto;
-    display: none;
+    display: none; // temporary hidden
 
     > * {
       margin-left: 10px;
@@ -130,6 +121,7 @@
     width: 100%;
     padding: 10px;
     background: #a2943c;
+    display: none; // temporary hidden
   }
 
   .groupPostsListWrapper {
@@ -139,6 +131,7 @@
     background: $theme2;
 
     > div {
+      display: flex;
       margin: 10px;
       border-radius: $borderRadius;
     }

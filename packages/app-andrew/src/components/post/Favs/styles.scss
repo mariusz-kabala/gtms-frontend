@@ -2,7 +2,7 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
-.wrapper {
+.btn {
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapePrimary();

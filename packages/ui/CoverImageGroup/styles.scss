@@ -1,0 +1,122 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  padding-bottom: 0;
+  background: $theme2;
+  border-top-left-radius: $borderRadius;
+  border-top-right-radius: $borderRadius;
+  @include imageCover();
+
+  .header {
+    @include font-weight(semiBold);
+    @include font-size(xlg);
+  }
+
+  .text {
+    @include font-size(md);
+    color: $theme9;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &.one {
+      text-align: center;
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        @include gridTwoButtons();
+
+        .btn {
+          @include buttonDefault();
+          @include buttonSizeDefault();
+          @include buttonShapePrimary();
+          @include buttonColorsTertiary();
+          @include buttonSizeMd();
+          @include buttonWithIcon();
+
+          &:hover {
+            @include buttonColorsPrimary();
+          }
+        }
+      }
+
+      .icon,
+      .header {
+        opacity: 0.65;
+      }
+
+      .icon {
+        display: inline-block;
+        line-height: 0;
+        font-size: 100px;
+        color: $theme9;
+      }
+    }
+
+    &.two {
+      position: absolute;
+      bottom: -400px;
+      width: 100%;
+      height: 100%;
+      transition: bottom 0.3s ease-in-out;
+      background: $theme2;
+
+      &.active {
+        bottom: 0;
+      }
+
+      .header,
+      .text {
+        @include font-weight(semiBold);
+        @include font-size(lg);
+      }
+
+      .header {
+        margin-top: 25px;
+      }
+
+      .text {
+        margin-left: 5px;
+      }
+
+      .btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        @include buttonDefault();
+        @include buttonSizeDefault();
+        @include buttonShapePrimary();
+        @include buttonWithIcon();
+        @include buttonColorsTertiary();
+
+        &:hover {
+          @include buttonColorsPrimary();
+        }
+      }
+
+      .fileUpload {
+        margin-top: 20px;
+        max-height: 50%;
+        width: 70%;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -29,18 +29,6 @@ import { PostDetails } from 'components/post/PostDetails'
 import { PostDetailsGuide } from '@gtms/ui/UserGuides/PostDetailsGuide'
 import { PromotedTags } from 'components/group/PromotedTags'
 import { Favs } from 'components/post/Favs'
-// ui
-import { Button } from '@gtms/ui/Button'
-import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
-import { NavigationTabs } from '@gtms/ui/NavigationTabs'
-import { Picture } from '@gtms/ui/Picture'
-import { PostCreate } from '@gtms/ui/PostCreate'
-import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
-import { SearchBar } from '@gtms/ui/SearchBar'
-import { Spinner } from '@gtms/ui/Spinner'
-import { UserPreview } from '@gtms/ui/UserPreview'
-import { WelcomeSlider } from '@gtms/ui/WelcomeSlider'
-import { IoMdGrid } from 'react-icons/io'
 // state
 import { openLoginModal } from 'state'
 import {
@@ -72,7 +60,18 @@ import {
   initPostCommentsStore,
 } from '@gtms/state-comment'
 import { changePageBackground } from 'state'
-// styles
+// ui
+import { IoMdGrid } from 'react-icons/io'
+import { Button } from '@gtms/ui/Button'
+import { CoverImageGroup } from '@gtms/ui/CoverImageGroup'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { NavigationTabs } from '@gtms/ui/NavigationTabs'
+import { Picture } from '@gtms/ui/Picture'
+import { PostCreate } from '@gtms/ui/PostCreate'
+import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
+import { SearchBar } from '@gtms/ui/SearchBar'
+import { Spinner } from '@gtms/ui/Spinner'
+import { UserPreview } from '@gtms/ui/UserPreview'
 import styles from './styles.scss'
 
 type GroupPageProps = {
@@ -149,6 +148,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
+  const [showCoverImage, setShowCoverImage] = useState<boolean>(true)
   const onClick = useCallback(
     ({
       sort,
@@ -235,19 +235,21 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
         {state.group && (
           <>
-            <div className={styles.top}>
-              <WelcomeSlider />
-              <GroupMembers
-                additionalStyles={styles.groupMembers}
-                {...state.members}
-              />
-              <div className={styles.actionButtons}>
-                <FavsButton group={state.group} />
-                <JoinLeaveButton group={state.group} />
-                <SettingsButton group={state.group} />
-                <FollowButton group={state.group} />
+            {showCoverImage && (
+              <div className={styles.top}>
+                <CoverImageGroup setShowCoverImage={setShowCoverImage} />
+                <GroupMembers
+                  additionalStyles={styles.groupMembers}
+                  {...state.members}
+                />
+                <div className={styles.actionButtons}>
+                  <FavsButton group={state.group} />
+                  <JoinLeaveButton group={state.group} />
+                  <SettingsButton group={state.group} />
+                  <FollowButton group={state.group} />
+                </div>
               </div>
-            </div>
+            )}
             <div ref={groupHeaderRef} className={styles.groupHeader}>
               <div>
                 <GroupAvatar
@@ -429,17 +431,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         activeTags={state.activeTags || []}
                       />
                     </div>
-                    <div>
-                      {!state.activePost && <PostDetailsGuide />}
-                      {state.activePost && (
-                        <PostDetails
-                          comments={state.comments}
-                          user={state.user}
-                          activeTags={state.activeTags || []}
-                          post={state.activePost}
-                        />
-                      )}
-                    </div>
+                    {!state.activePost && <PostDetailsGuide />}
+                    {state.activePost && (
+                      <PostDetails
+                        comments={state.comments}
+                        user={state.user}
+                        activeTags={state.activeTags || []}
+                        post={state.activePost}
+                      />
+                    )}
                   </div>
                 </>
               )}
