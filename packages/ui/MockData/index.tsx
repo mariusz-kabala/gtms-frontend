@@ -3,18 +3,34 @@ import cx from 'classnames'
 import { FaRegLightbulb } from 'react-icons/fa'
 import styles from './styles.scss'
 
+const Line: FC<{
+  size: string
+}> = ({ size }) => (
+  <div
+    className={cx(styles.line, {
+      [styles.sm]: size == 'sm',
+      [styles.md]: size == 'md',
+      [styles.lg]: size == 'lg',
+    })}
+  >
+    <div className={cx(styles.bar, styles.bar1)}>
+      <div className={cx(styles.bar, styles.bar2)} />
+    </div>
+  </div>
+)
+
 const AvatarAndText: FC<{
   index?: number
 }> = ({ index }) => (
   <div className={styles.avatarAndText} key={index}>
     <div className={cx(styles.square, styles.sm)} />
     <div className={styles.textLines}>
-      <div className={cx(styles.line, styles.lg)} />
+      <Line size="lg" />
       <div className={styles.twoLines}>
-        <div className={cx(styles.line, styles.md)} />
-        <div className={cx(styles.line, styles.md)} />
+        <Line size="md" />
+        <Line size="md" />
       </div>
-      <div className={cx(styles.line, styles.sm)} />
+      <Line size="sm" />
     </div>
   </div>
 )
