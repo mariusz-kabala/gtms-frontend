@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.51.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.50.1...@gtms/ui@0.51.0) (2020-08-13)
+
+
+### Features
+
+* GEOT-412: animate mock data ([#811](https://github.com/gtms-org/gtms-frontend/issues/811)) ([acae87a](https://github.com/gtms-org/gtms-frontend/commit/acae87ad5a22c5254bc4bfe1388b4ec5a1641be6))
+* GEOT-414: showAllGroups with esc ([#814](https://github.com/gtms-org/gtms-frontend/issues/814)) ([4a8b2b0](https://github.com/gtms-org/gtms-frontend/commit/4a8b2b0e7af64fb8bff02cf272fee9d33a829e3a))
+* GEOT-415: GEOT-415: animation for user preview ([#815](https://github.com/gtms-org/gtms-frontend/issues/815)) ([ac842a9](https://github.com/gtms-org/gtms-frontend/commit/ac842a9445ccd12a0cc5c77068088e14c83a46c9))
+* GEOT-417: GEOT-417: add new admin button in group settings ([#817](https://github.com/gtms-org/gtms-frontend/issues/817)) ([d98553c](https://github.com/gtms-org/gtms-frontend/commit/d98553c3ba76829d1d58c03134a2a86f684632de))
+* GEOT-420: yet another styling for main nav ([#819](https://github.com/gtms-org/gtms-frontend/issues/819)) ([6ea6a2b](https://github.com/gtms-org/gtms-frontend/commit/6ea6a2bac0a6277aa598f10d21842837266d84cb))
+
+
+
+
+
 ## [0.50.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.50.0...@gtms/ui@0.50.1) (2020-08-07)
 
 
