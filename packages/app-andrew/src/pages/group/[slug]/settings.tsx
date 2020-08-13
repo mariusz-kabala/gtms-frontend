@@ -22,6 +22,11 @@ import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
 // ui
+import { AiOutlineTags } from 'react-icons/ai'
+import { FaEnvelopeOpenText } from 'react-icons/fa'
+import { FiUsers } from 'react-icons/fi'
+import { RiUserStarLine } from 'react-icons/ri'
+import { GoSettings } from 'react-icons/go'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -109,6 +114,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                   })}
                 >
                   <a href="#general" onClick={() => setTab(Tabs.general)}>
+                    <i>
+                      <GoSettings />
+                    </i>
                     General Settings
                   </a>
                 </li>
@@ -118,6 +126,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                   })}
                 >
                   <a href="#tags" onClick={() => setTab(Tabs.tags)}>
+                    <i>
+                      <AiOutlineTags />
+                    </i>
                     Tags
                   </a>
                 </li>
@@ -130,6 +141,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                     href="#invitations"
                     onClick={() => setTab(Tabs.invitations)}
                   >
+                    <i>
+                      <FaEnvelopeOpenText />
+                    </i>
                     Invitations
                   </a>
                 </li>
@@ -139,6 +153,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                   })}
                 >
                   <a href="#admins" onClick={() => setTab(Tabs.admins)}>
+                    <i>
+                      <RiUserStarLine />
+                    </i>
                     Admins
                   </a>
                 </li>
@@ -148,6 +165,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                   })}
                 >
                   <a href="#members" onClick={() => setTab(Tabs.members)}>
+                    <i>
+                      <FiUsers />
+                    </i>
                     Members
                   </a>
                 </li>
