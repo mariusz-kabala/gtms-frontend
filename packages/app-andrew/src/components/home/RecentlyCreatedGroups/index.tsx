@@ -39,7 +39,7 @@ export const RecentlyCreatedGroups: FC<{
       data-testid="recently-created-groups"
     >
       <div
-        className={cx(styles.groupCardWrapper, {
+        className={cx(styles.groupPreviewWrapper, {
           [styles.active]: groupCard.isOpen,
         })}
       >

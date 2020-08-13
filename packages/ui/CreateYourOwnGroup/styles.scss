@@ -21,7 +21,10 @@
     padding: 10px 0;
     color: $theme0;
 
-    &:visited {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
       color: $theme0;
     }
 

@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useCallback } from 'react'
+import React, { forwardRef, useState, useEffect, useCallback } from 'react'
 import {
   IPromotedTagsState,
   promotedTagsState,
@@ -16,9 +16,12 @@ import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
 import { Modal } from '@gtms/ui/Modal'
 import { PromotedTags as PromotedTagsUI } from '@gtms/ui/PromotedTags'
 
-export const PromotedTags: FC<{
+type Ref = HTMLDivElement
+type Props = {
   onTagClick?: (tag: IPromotedTag) => unknown
-}> = ({ onTagClick }) => {
+}
+
+export const PromotedTags = forwardRef<Ref, Props>(({ onTagClick }, ref) => {
   const [state, setState] = useState<IPromotedTagsState>(promotedTagsState())
   const [promotedTagEditor, setPromotedTagEditor] = useState<{
     isOpen: boolean
@@ -58,7 +61,7 @@ export const PromotedTags: FC<{
   }, [])
 
   return (
-    <div>
+    <div ref={ref}>
       {!state.isLoading && state.tags.length === 0 && (
         <EmptyPromotedTags onAddClick={onAddTagClick} isAdmin={state.isAdmin} />
       )}
@@ -104,4 +107,4 @@ export const PromotedTags: FC<{
       )}
     </div>
   )
-}
+})

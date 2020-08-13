@@ -1,11 +1,11 @@
 import React, { FC, useCallback } from 'react'
 import cx from 'classnames'
-import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
 // commons
 import { FileStatus } from '@gtms/commons/enums'
 import { IPromotedTag } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 // ui
+import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
 import { Spinner } from '../Spinner'
 import { Picture } from '../Picture'
 import { UploadedPicture } from '../UploadedPicture'

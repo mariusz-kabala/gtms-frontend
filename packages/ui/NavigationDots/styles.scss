@@ -57,8 +57,8 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
         @include z-index(closeAllMyGroupsSidebar);
         padding: 10px;
         border: 2px solid rgba($theme4, 0);
-        color: $theme4;
-        background: rgba($theme4, 0.3);
+        color: $theme0;
+        background: $theme4;
 
         i {
           line-height: 0;
@@ -66,15 +66,11 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
           @include font-size(md);
         }
 
-        span {
-          margin-left: 20px;
-        }
-
         &:hover,
         &:focus {
-          background: $theme4;
-          color: $theme0;
-          border-color: $theme4;
+          background: $theme0;
+          color: $theme4;
+          border-color: $theme0;
         }
 
         &.active {

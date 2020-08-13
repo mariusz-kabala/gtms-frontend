@@ -34,6 +34,16 @@
         border-radius: $borderRadius;
         background: $theme2;
 
+        a {
+          display: flex;
+          align-items: center;
+
+          i {
+            margin-right: 5px;
+            line-height: 0;
+          }
+        }
+
         &.current,
         &:hover {
           background: $theme4;

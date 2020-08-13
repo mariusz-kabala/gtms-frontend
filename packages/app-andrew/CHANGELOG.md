@@ -3,27 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.70.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.70.0...@gtms/app-andrew@0.70.1) (2020-08-07)
-
-
-### Bug Fixes
-
-* GEOT-410: make promoted tag work ([#806](https://github.com/gtms-org/gtms-frontend/issues/806)) ([dc97411](https://github.com/gtms-org/gtms-frontend/commit/dc97411958fb326cd53840086022bb910759d906))
-
-
-
-
-
-# [0.70.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.69.0...@gtms/app-andrew@0.70.0) (2020-08-07)
-
+# [0.72.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.71.0...@gtms/app-andrew@0.72.0) (2020-08-13)
 
 ### Features
 
-* GEOT-409: GEOT-409: group has no popsts yet info ([#805](https://github.com/gtms-org/gtms-frontend/issues/805)) ([3d5ed7c](https://github.com/gtms-org/gtms-frontend/commit/3d5ed7cd4ab4cf22a259c54822c9e874183331b9))
+- GEOT-413: no tags better styles ([#813](https://github.com/gtms-org/gtms-frontend/issues/813)) ([0e937ad](https://github.com/gtms-org/gtms-frontend/commit/0e937ad06cd6b256ab88f947b5d4741f8ba9b47b))
 
+# [0.71.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.70.1...@gtms/app-andrew@0.71.0) (2020-08-13)
 
+### Features
 
+- GEOT-415: GEOT-415: animation for user preview ([#815](https://github.com/gtms-org/gtms-frontend/issues/815)) ([ac842a9](https://github.com/gtms-org/gtms-frontend/commit/ac842a9445ccd12a0cc5c77068088e14c83a46c9))
+- GEOT-417: GEOT-417: add new admin button in group settings ([#817](https://github.com/gtms-org/gtms-frontend/issues/817)) ([d98553c](https://github.com/gtms-org/gtms-frontend/commit/d98553c3ba76829d1d58c03134a2a86f684632de))
+- GEOT-419: add nice icons to group settings tabs ([#818](https://github.com/gtms-org/gtms-frontend/issues/818)) ([53becc0](https://github.com/gtms-org/gtms-frontend/commit/53becc0c4b772f84601baafc24db59ba6f6ad2f7))
+- GEOT-420: yet another styling for main nav ([#819](https://github.com/gtms-org/gtms-frontend/issues/819)) ([6ea6a2b](https://github.com/gtms-org/gtms-frontend/commit/6ea6a2bac0a6277aa598f10d21842837266d84cb))
 
+## [0.70.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.70.0...@gtms/app-andrew@0.70.1) (2020-08-07)
+
+### Bug Fixes
+
+- GEOT-410: make promoted tag work ([#806](https://github.com/gtms-org/gtms-frontend/issues/806)) ([dc97411](https://github.com/gtms-org/gtms-frontend/commit/dc97411958fb326cd53840086022bb910759d906))
+
+# [0.70.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.69.0...@gtms/app-andrew@0.70.0) (2020-08-07)
+
+### Features
+
+- GEOT-409: GEOT-409: group has no popsts yet info ([#805](https://github.com/gtms-org/gtms-frontend/issues/805)) ([3d5ed7c](https://github.com/gtms-org/gtms-frontend/commit/3d5ed7cd4ab4cf22a259c54822c9e874183331b9))
 
 # [0.69.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.68.0...@gtms/app-andrew@0.69.0) (2020-08-07)
 

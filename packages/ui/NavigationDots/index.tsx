@@ -6,8 +6,9 @@ import { IImage } from '@gtms/commons/types/image'
 import { getImage } from '@gtms/commons/helpers'
 import { ReactSortable } from 'react-sortablejs'
 // ui
+import useKey from 'use-key-hook'
 import { Overlay } from '@gtms/ui/Overlay'
-import { IoIosKeypad, IoIosCloseCircle } from 'react-icons/io'
+import { IoIosKeypad } from 'react-icons/io'
 import styles from './styles.scss'
 
 export const NavigationDots: FC<{
@@ -28,9 +29,19 @@ export const NavigationDots: FC<{
     }
   }, [showFullView])
 
+  useKey(
+    () => {
+      setShowFullView(false)
+    },
+    {
+      detectKeys: [27],
+    }
+  )
+
   if (groups.length === 0) {
     return null
   }
+
   return (
     <div className={styles.wrapper}>
       <div
@@ -48,8 +59,9 @@ export const NavigationDots: FC<{
           })}
           onClick={() => setShowFullView((value) => !value)}
         >
-          <i>{showFullView ? <IoIosCloseCircle /> : <IoIosKeypad />}</i>
-          <span>close</span>
+          <i>
+            <IoIosKeypad />
+          </i>
         </li>
         <ReactSortable
           list={sortedGroups}
