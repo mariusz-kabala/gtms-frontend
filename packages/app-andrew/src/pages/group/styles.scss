@@ -36,7 +36,8 @@
       align-items: center;
       width: 100%;
       padding: 10px;
-      background: $black;
+      background: $theme0;
+      box-shadow: 0px 15px 25px -12px rgba(0, 0, 0, 0.2);
 
       .groupAvatar {
         border-radius: $borderRadius;
@@ -55,6 +56,7 @@
         min-width: 200px;
         line-height: 1;
         margin: 0 10px;
+        cursor: pointer;
 
         .header {
           @include font-weight(semiBold);

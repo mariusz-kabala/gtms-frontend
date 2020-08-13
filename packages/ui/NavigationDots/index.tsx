@@ -8,7 +8,7 @@ import { ReactSortable } from 'react-sortablejs'
 // ui
 import useKey from 'use-key-hook'
 import { Overlay } from '@gtms/ui/Overlay'
-import { IoIosKeypad, IoIosCloseCircle } from 'react-icons/io'
+import { IoIosKeypad } from 'react-icons/io'
 import styles from './styles.scss'
 
 export const NavigationDots: FC<{
@@ -59,8 +59,9 @@ export const NavigationDots: FC<{
           })}
           onClick={() => setShowFullView((value) => !value)}
         >
-          <i>{showFullView ? <IoIosCloseCircle /> : <IoIosKeypad />}</i>
-          <span>close</span>
+          <i>
+            <IoIosKeypad />
+          </i>
         </li>
         <ReactSortable
           list={sortedGroups}
