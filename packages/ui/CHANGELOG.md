@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.52.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.51.0...@gtms/ui@0.52.0) (2020-08-13)
+
+
+### Features
+
+* GEOT-413: no tags better styles ([#813](https://github.com/gtms-org/gtms-frontend/issues/813)) ([0e937ad](https://github.com/gtms-org/gtms-frontend/commit/0e937ad06cd6b256ab88f947b5d4741f8ba9b47b))
+
+
+
+
+
 # [0.51.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.50.1...@gtms/ui@0.51.0) (2020-08-13)
 
 

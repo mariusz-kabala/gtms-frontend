@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.72.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.71.0...@gtms/app-andrew@0.72.0) (2020-08-13)
+
+
+### Features
+
+* GEOT-413: no tags better styles ([#813](https://github.com/gtms-org/gtms-frontend/issues/813)) ([0e937ad](https://github.com/gtms-org/gtms-frontend/commit/0e937ad06cd6b256ab88f947b5d4741f8ba9b47b))
+
+
+
+
+
 # [0.71.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.70.1...@gtms/app-andrew@0.71.0) (2020-08-13)
 
 
