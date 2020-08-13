@@ -6,16 +6,8 @@
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
 .wrapper {
-  // position: relative;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
   width: 100%;
   min-height: 300px;
-  // padding-bottom: 0;
-  // border-top-left-radius: $borderRadius;
-  // border-top-right-radius: $borderRadius;
   @include imageCover();
   background: $theme2;
 
