@@ -146,9 +146,10 @@
       }
 
       li {
-        background: $theme4;
         width: 100%;
         height: 100px;
+        background: $theme4;
+        border-radius: $borderRadius;
 
         &:first-child {
           background: none;
