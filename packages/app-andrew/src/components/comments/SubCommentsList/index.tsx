@@ -24,7 +24,7 @@ export const SubCommentsList: FC<{
           {subComments.map((subComment) => (
             <PostResponse
               key={`subComment-${subComment.id}`}
-              text={subComment.text}
+              html={subComment.html}
               createdAt={subComment.createdAt}
               owner={subComment.owner as IUser}
               user={user}

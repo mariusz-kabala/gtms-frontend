@@ -1,6 +1,5 @@
 import React, { FC, useState, useRef, useCallback } from 'react'
 import cx from 'classnames'
-import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 // commons
@@ -123,7 +122,7 @@ export const PostSingle: FC<{
             {firstComments.map((comment) => (
               <PostResponse
                 key={`comment-${comment.id}`}
-                text={comment.text}
+                html={comment.html}
                 createdAt={comment.createdAt}
                 owner={comment.owner as IUser}
                 noImage={noImage}

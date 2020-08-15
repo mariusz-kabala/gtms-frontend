@@ -30,7 +30,7 @@ export const PostDetails: FC<{
         fetchUsers={findbyUsernameAPI}
         user={user}
         id={post.id}
-        text={post.text}
+        html={post.html}
         createdAt={post.createdAt}
         tags={post.tags}
         owner={post.owner}
