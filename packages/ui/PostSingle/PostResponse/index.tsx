@@ -3,7 +3,6 @@ import styles from './styles.scss'
 import cx from 'classnames'
 import { DeletePost } from '../DeletePost'
 import { UserAvatar } from '../../UserAvatar'
-import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 import { Link } from '@gtms/commons/i18n'
@@ -12,13 +11,13 @@ import { IAccountDetails, IUser } from '@gtms/commons/models'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
 
 export const PostResponse: FC<{
-  text: string
+  html: string
   createdAt: string
   additionalStyles?: string
   owner: IUser
   noImage: { [key: string]: IImage }
   user: IAccountDetails | null
-}> = ({ additionalStyles, text, createdAt, owner, noImage, user }) => {
+}> = ({ additionalStyles, html, createdAt, owner, noImage, user }) => {
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -44,7 +43,10 @@ export const PostResponse: FC<{
         )}
       </div>
       <div className={styles.desc}>
-        <ReactMarkdown className={styles.text} source={text} />
+        <div
+          className={styles.text}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </div>
     </div>
   )

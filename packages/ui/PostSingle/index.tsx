@@ -19,7 +19,7 @@ import styles from './styles.scss'
 
 export const PostSingle: FC<{
   id: string
-  text: string
+  html: string
   createdAt: string
   additionalStyles?: string
   firstComments: IComment[]
@@ -41,7 +41,7 @@ export const PostSingle: FC<{
 }> = ({
   id,
   additionalStyles,
-  text,
+  html,
   createdAt,
   owner,
   noImage,
@@ -103,7 +103,7 @@ export const PostSingle: FC<{
         </div>
       </div>
       <div className={styles.desc}>
-        <ReactMarkdown className={styles.text} source={text} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
         {tags.length > 0 && (
           <TagGroup additionalStyles={styles.tagGroup}>
             {tags.map((tag) => (

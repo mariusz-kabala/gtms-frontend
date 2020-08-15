@@ -7,12 +7,14 @@ export interface ISubComment {
   createdAt: string
   updatedAt: string
   text: string
+  html: string
   tags: string[]
 }
 
 export interface IComment {
   id: string
   text: string
+  html: string
   subComments: ISubComment[]
   tags: string[]
   owner: IUser | IAccountDetails

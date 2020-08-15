@@ -5,6 +5,7 @@ export interface IPost {
   id: string
   group: string
   text: string
+  html: string
   tags: string[]
   owner: IUser
   favs: string[]
