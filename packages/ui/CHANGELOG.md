@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.54.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.53.0...@gtms/ui@0.54.0) (2020-08-15)
+
+
+### Features
+
+* GEOT-423: choose group cover photo ([#821](https://github.com/gtms-org/gtms-frontend/issues/821)) ([9330c1c](https://github.com/gtms-org/gtms-frontend/commit/9330c1c79af9516ed908bc931fc3eaf42dda898e))
+
+
+
+
+
 # [0.53.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.52.0...@gtms/ui@0.53.0) (2020-08-13)
 
 
