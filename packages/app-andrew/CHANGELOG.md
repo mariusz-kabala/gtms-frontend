@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.74.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.73.0...@gtms/app-andrew@0.74.0) (2020-08-13)
+
+
+### Features
+
+* GEOT-421: unhide group actions buttons ([#820](https://github.com/gtms-org/gtms-frontend/issues/820)) ([c007949](https://github.com/gtms-org/gtms-frontend/commit/c0079495a6e8a1a871f4a63dc9b9cb722c251bc9))
+
+
+
+
+
 # [0.73.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.72.0...@gtms/app-andrew@0.73.0) (2020-08-13)
 
 
