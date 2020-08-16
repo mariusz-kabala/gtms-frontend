@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.74.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.74.0...@gtms/app-andrew@0.74.1) (2020-08-15)
+
+**Note:** Version bump only for package @gtms/app-andrew
+
+
+
+
+
 # [0.74.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.73.0...@gtms/app-andrew@0.74.0) (2020-08-13)
 
 

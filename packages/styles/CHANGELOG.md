@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.17.0...@gtms/styles@0.18.0) (2020-08-15)
+
+
+### Features
+
+* GEOT-411: add cover ([#812](https://github.com/gtms-org/gtms-frontend/issues/812)) ([6238c2e](https://github.com/gtms-org/gtms-frontend/commit/6238c2e8ff735b24dc46fc4497cfde6c91de272b))
+* GEOT-423: choose group cover photo ([#821](https://github.com/gtms-org/gtms-frontend/issues/821)) ([9330c1c](https://github.com/gtms-org/gtms-frontend/commit/9330c1c79af9516ed908bc931fc3eaf42dda898e))
+
+
+
+
+
 # [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.16.0...@gtms/styles@0.17.0) (2020-08-13)
 
 ### Features
