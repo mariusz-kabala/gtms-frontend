@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.3...@gtms/commons@0.27.4) (2020-08-16)
+
+
+### Bug Fixes
+
+* GEOT-422: use html generated on BE for post and comment cont ([#822](https://github.com/gtms-org/gtms-frontend/issues/822)) ([8a9bdd7](https://github.com/gtms-org/gtms-frontend/commit/8a9bdd72dd8cf49fa5358cf1a7d7018e994ecef3))
+
+
+
+
+
 ## [0.27.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.2...@gtms/commons@0.27.3) (2020-07-30)
 
 

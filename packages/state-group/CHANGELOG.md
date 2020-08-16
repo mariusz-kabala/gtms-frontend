@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.9...@gtms/state-group@0.15.10) (2020-08-16)
+
+**Note:** Version bump only for package @gtms/state-group
+
+
+
+
+
 ## [0.15.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.8...@gtms/state-group@0.15.9) (2020-07-30)
 
 **Note:** Version bump only for package @gtms/state-group

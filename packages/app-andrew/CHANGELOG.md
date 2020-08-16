@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.74.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.74.1...@gtms/app-andrew@0.74.2) (2020-08-16)
+
+
+### Bug Fixes
+
+* GEOT-422: use html generated on BE for post and comment cont ([#822](https://github.com/gtms-org/gtms-frontend/issues/822)) ([8a9bdd7](https://github.com/gtms-org/gtms-frontend/commit/8a9bdd72dd8cf49fa5358cf1a7d7018e994ecef3))
+
+
+
+
+
 ## [0.74.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.74.0...@gtms/app-andrew@0.74.1) (2020-08-15)
 
 **Note:** Version bump only for package @gtms/app-andrew
