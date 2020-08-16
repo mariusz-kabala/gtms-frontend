@@ -1,6 +1,5 @@
 import React, { FC, useState, useRef, useCallback } from 'react'
 import cx from 'classnames'
-import ReactMarkdown from 'react-markdown'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 // commons
@@ -19,7 +18,7 @@ import styles from './styles.scss'
 
 export const PostSingle: FC<{
   id: string
-  text: string
+  html: string
   createdAt: string
   additionalStyles?: string
   firstComments: IComment[]
@@ -41,7 +40,7 @@ export const PostSingle: FC<{
 }> = ({
   id,
   additionalStyles,
-  text,
+  html,
   createdAt,
   owner,
   noImage,
@@ -103,7 +102,7 @@ export const PostSingle: FC<{
         </div>
       </div>
       <div className={styles.desc}>
-        <ReactMarkdown className={styles.text} source={text} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
         {tags.length > 0 && (
           <TagGroup additionalStyles={styles.tagGroup}>
             {tags.map((tag) => (
@@ -123,7 +122,7 @@ export const PostSingle: FC<{
             {firstComments.map((comment) => (
               <PostResponse
                 key={`comment-${comment.id}`}
-                text={comment.text}
+                html={comment.html}
                 createdAt={comment.createdAt}
                 owner={comment.owner as IUser}
                 noImage={noImage}

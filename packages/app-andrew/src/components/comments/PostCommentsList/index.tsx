@@ -77,7 +77,7 @@ export const PostCommentsList: FC<{
       {comments.map((comment) => (
         <div key={`comment-${comment.id}`}>
           <PostResponse
-            text={comment.text}
+            html={comment.html}
             createdAt={comment.createdAt}
             owner={comment.owner as IUser}
             user={user}
