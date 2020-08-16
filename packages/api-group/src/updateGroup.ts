@@ -1,4 +1,5 @@
 import { fetchJSON, makeApiUrl } from '@gtms/api-common'
+import { GroupCoverType } from '@gtms/commons/enums'
 import { IGroupDetailsResponse } from './getGroup'
 
 export interface IGroupData {
@@ -9,6 +10,7 @@ export interface IGroupData {
   tags?: string[]
   slug?: string
   bgType?: string
+  coverType?: GroupCoverType
 }
 
 export const updateGroupAPI = (

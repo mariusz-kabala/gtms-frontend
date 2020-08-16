@@ -28,6 +28,7 @@ import { SettingsButton } from 'components/group/SettingsButton'
 import { PostDetails } from 'components/post/PostDetails'
 import { PostDetailsGuide } from '@gtms/ui/UserGuides/PostDetailsGuide'
 import { PromotedTags } from 'components/group/PromotedTags'
+import { GroupCover } from 'components/group/GroupCover'
 import { Favs } from 'components/post/Favs'
 // state
 import { openLoginModal } from 'state'
@@ -63,7 +64,6 @@ import { changePageBackground } from 'state'
 // ui
 import { IoMdGrid } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
-import { CoverImageGroup } from '@gtms/ui/CoverImageGroup'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Picture } from '@gtms/ui/Picture'
@@ -148,7 +148,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
-  const [showCoverImage, setShowCoverImage] = useState<boolean>(true)
   const onClick = useCallback(
     ({
       sort,
@@ -235,15 +234,16 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
         {state.group && (
           <>
-            {showCoverImage && (
-              <div className={styles.top}>
-                <CoverImageGroup setShowCoverImage={setShowCoverImage} />
-                <GroupMembers
-                  additionalStyles={styles.groupMembers}
-                  {...state.members}
-                />
-              </div>
-            )}
+            <div className={styles.top}>
+              <GroupCover
+                group={state.group}
+                isEditAllowed={groupQuery.hasAdminRights()}
+              />
+              <GroupMembers
+                additionalStyles={styles.groupMembers}
+                {...state.members}
+              />
+            </div>
             <div ref={groupHeaderRef} className={styles.groupHeader}>
               <div>
                 <GroupAvatar
