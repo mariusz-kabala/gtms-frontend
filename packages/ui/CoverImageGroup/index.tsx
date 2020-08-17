@@ -1,25 +1,37 @@
 import React, { FC, useState } from 'react'
 import cx from 'classnames'
 // ui
-import { BsCardImage } from 'react-icons/bs'
+import { BsCardImage, BsCloudUpload } from 'react-icons/bs'
 import { IoMdCloseCircle, IoIosAddCircle } from 'react-icons/io'
-import { Button } from '@gtms/ui/Button'
-import { UploadFile } from '@gtms/ui/UploadFile'
+import { Button } from '../Button'
+import { UploadFile } from '../UploadFile'
 import styles from './styles.scss'
 
 export const CoverImageGroup: FC<{
+  cover?: string
+  stepTwo?: boolean
+  options: {
+    className: string
+    cover: string
+  }[]
   additionalStyles?: string
-  setShowCoverImage: (value: boolean) => unknown
-}> = ({ additionalStyles, setShowCoverImage }) => {
-  const [isStepTwo, setIsStepTwo] = useState<boolean>(false)
+  onClose: () => unknown
+  onSave: (value: string) => unknown
+}> = ({
+  additionalStyles,
+  onClose,
+  onSave,
+  cover,
+  options,
+  stepTwo = false,
+}) => {
+  const [activeCover, setActiveCover] = useState<string | undefined>(cover)
+  const [isStepTwo, setIsStepTwo] = useState<boolean>(stepTwo)
 
   return (
     <div
       data-testid="cover-image-group"
       className={cx(styles.wrapper, additionalStyles)}
-      // style={{
-      //   backgroundImage: `url('/images/white-theme/spotted-bg-highschool.png')`,
-      // }}
     >
       <div className={styles.steps}>
         <div className={cx(styles.step, styles.one)}>
@@ -28,10 +40,7 @@ export const CoverImageGroup: FC<{
           </i>
           <h2 className={styles.header}>You can add cover photo</h2>
           <div className={styles.buttons}>
-            <Button
-              additionalStyles={styles.btn}
-              onClick={() => setShowCoverImage(false)}
-            >
+            <Button additionalStyles={styles.btn} onClick={onClose}>
               <i>
                 <IoMdCloseCircle />
               </i>
@@ -49,20 +58,41 @@ export const CoverImageGroup: FC<{
           </div>
         </div>
         <div
-          className={cx(styles.step, styles.two, {
-            [styles.active]: isStepTwo,
-          })}
+          className={cx(
+            styles.step,
+            styles.two,
+            options.reduce(
+              (classes, option) => {
+                classes[option.className] = activeCover === option.cover
+
+                return classes
+              },
+              {
+                [styles.active]: isStepTwo,
+              }
+            )
+          )}
         >
           <div>
-            <Button
-              additionalStyles={styles.btn}
-              onClick={() => setShowCoverImage(false)}
-            >
-              <i>
-                <IoMdCloseCircle />
-              </i>
-              Nah, I do not want cover image
-            </Button>
+            <div className={styles.buttons}>
+              <Button additionalStyles={styles.btn} onClick={onClose}>
+                <i>
+                  <IoMdCloseCircle />
+                </i>
+                Nah, I do not want cover image
+              </Button>
+              {cover !== activeCover && (
+                <Button
+                  additionalStyles={styles.btn}
+                  onClick={() => onSave(activeCover as string)}
+                >
+                  <i>
+                    <BsCloudUpload />
+                  </i>
+                  Save changes
+                </Button>
+              )}
+            </div>
             <h2 className={styles.header}>
               Great!
               <span className={styles.text}>
@@ -86,20 +116,15 @@ export const CoverImageGroup: FC<{
               isError={false}
             />
           </li>
-          <li />
-          <li />
-          <li />
-          <li />
-          <li />
-          <li />
-          <li />
-          <li />
-          <li />
-          <li />
-          <li />
-          <li />
-          <li />
-          <li />
+          {options.map((option, index) => (
+            <li
+              key={`cover-${index}`}
+              className={cx(option.className, {
+                [styles.active]: activeCover === option.cover,
+              })}
+              onClick={() => setActiveCover(option.cover)}
+            />
+          ))}
         </ul>
       </div>
     </div>

@@ -1,4 +1,9 @@
-import { GroupType, GroupVisibility, FileStatus } from '../enums'
+import {
+  GroupType,
+  GroupVisibility,
+  FileStatus,
+  GroupCoverType,
+} from '../enums'
 import { IImage } from '../types/image'
 
 export interface IGroupAvatar {
@@ -11,6 +16,14 @@ export interface IGroupAvatar {
 }
 
 export interface IGroupBg {
+  status: FileStatus
+  files: {
+    '200x200'?: IImage
+  }
+}
+
+export interface IGroupCover {
+  // proper type is needed here
   status: FileStatus
   files: {
     '200x200'?: IImage
@@ -31,4 +44,6 @@ export interface IGroup {
   membersCounter: number
   postsCounter: number
   bgType: string
+  cover: IGroupCover
+  coverType: GroupCoverType
 }
