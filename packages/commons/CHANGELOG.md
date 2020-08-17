@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.4...@gtms/commons@0.27.5) (2020-08-17)
+
+
+### Bug Fixes
+
+* GEOT-423: working version of group cover photo chooser ([#824](https://github.com/gtms-org/gtms-frontend/issues/824)) ([d9ffdc2](https://github.com/gtms-org/gtms-frontend/commit/d9ffdc2a78c3bd6949a956356ed189421bf04224))
+
+
+
+
+
 ## [0.27.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.3...@gtms/commons@0.27.4) (2020-08-16)
 
 

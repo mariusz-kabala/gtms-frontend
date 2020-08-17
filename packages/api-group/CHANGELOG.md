@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.9...@gtms/api-group@0.13.10) (2020-08-17)
+
+
+### Bug Fixes
+
+* GEOT-423: working version of group cover photo chooser ([#824](https://github.com/gtms-org/gtms-frontend/issues/824)) ([d9ffdc2](https://github.com/gtms-org/gtms-frontend/commit/d9ffdc2a78c3bd6949a956356ed189421bf04224))
+
+
+
+
+
 ## [0.13.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.8...@gtms/api-group@0.13.9) (2020-08-16)
 
 **Note:** Version bump only for package @gtms/api-group
