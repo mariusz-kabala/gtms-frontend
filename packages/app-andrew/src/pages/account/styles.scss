@@ -25,8 +25,8 @@
     padding: 10px;
     margin-bottom: 15px;
     border-radius: $borderRadius;
-    background: $theme4;
-    color: $theme0;
+    background: $theme2;
+    color: $theme8;
     @include font-weight(semiBold);
 
     span {
@@ -46,7 +46,7 @@
       height: 0;
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
-      border-top: 10px solid $theme4;
+      border-top: 10px solid $theme2;
     }
   }
 

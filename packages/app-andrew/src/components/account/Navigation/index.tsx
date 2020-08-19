@@ -18,9 +18,9 @@ export const Navigation: FC<{ current: Tabs }> = ({ current }) => {
   return (
     <div className={styles.navigation}>
       <h2>{titleMapper[current]}</h2>
-      <ul>
+      <ul className={styles.items}>
         <li
-          className={cx({
+          className={cx(styles.item, {
             [styles.current]: current === Tabs.profile,
           })}
         >
@@ -29,7 +29,7 @@ export const Navigation: FC<{ current: Tabs }> = ({ current }) => {
           </Link>
         </li>
         <li
-          className={cx({
+          className={cx(styles.item, {
             [styles.current]: current === Tabs.security,
           })}
         >
@@ -38,7 +38,7 @@ export const Navigation: FC<{ current: Tabs }> = ({ current }) => {
           </Link>
         </li>
         <li
-          className={cx({
+          className={cx(styles.item, {
             [styles.current]: current === Tabs.notifications,
           })}
         >

@@ -107,8 +107,8 @@ export const CoverImageGroup: FC<{
           [styles.active]: isStepTwo,
         })}
       >
-        <ul>
-          <li>
+        <ul className={styles.items}>
+          <li className={styles.item}>
             <UploadFile
               additionalStyles={styles.fileUpload}
               onDrop={() => null}
@@ -119,7 +119,7 @@ export const CoverImageGroup: FC<{
           {options.map((option, index) => (
             <li
               key={`cover-${index}`}
-              className={cx(option.className, {
+              className={cx(option.className, styles.item, {
                 [styles.active]: activeCover === option.cover,
               })}
               onClick={() => setActiveCover(option.cover)}

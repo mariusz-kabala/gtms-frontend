@@ -14,12 +14,12 @@
     @include font-size(xmd);
   }
 
-  ul {
+  .items {
     display: flex;
     align-items: center;
     @include font-size(xdefault);
 
-    li {
+    .item {
       a {
         display: block;
         margin-left: 10px;

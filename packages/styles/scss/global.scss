@@ -23,10 +23,11 @@ button {
 }
 
 body {
+  width: 100%;
   @include font-size(default);
+  @include font-weight(semiNormal);
   line-height: normal;
   background-color: $black;
-  @include font-weight(semiNormal);
 }
 
 body > div:first-of-type {

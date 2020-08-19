@@ -1,8 +1,10 @@
 import React, { FC, useState, useEffect } from 'react'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
-import styles from './styles.scss'
 import { myGroupsQuery, userQuery } from '@gtms/state-user'
+// ui
+import { IoIosHeart } from 'react-icons/io'
+import styles from './styles.scss'
 
 export const SettingsButton: FC<{ group: IGroup }> = ({ group }) => {
   const [status, setStatus] = useState<{
@@ -38,7 +40,10 @@ export const SettingsButton: FC<{ group: IGroup }> = ({ group }) => {
 
   return (
     <Link href={`/group/${group.slug}/settings`}>
-      <button className={styles.btn}>Change group settings</button>
+      <button className={styles.btn}>
+        <i><IoIosHeart /></i>
+        Group settings
+      </button>
     </Link>
   )
 }

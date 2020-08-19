@@ -20,30 +20,41 @@ export const Navigation: FC<{
   avatar: IImage | null
 }> = ({ menu, onLogout, avatar, active = [] }) => {
   return (
-    <div className={styles.wrapper}>
-      <nav className={styles.navigation} data-testid="navigation">
-        {avatar && (
-          <Link href="/account">
-            <a>
-              <UserAvatar additionalStyles={styles.avatar} image={avatar} />
-            </a>
-          </Link>
-        )}
-        <ul>
-          {menu.map((value, index) => {
-            return (
-              <li
-                className={cx(styles.link, {
-                  [styles.active]: active.includes(value.id),
-                })}
-                key={index}
-              >
-                {value?.onClick && (
-                  <a
-                    onClick={() =>
-                      value.onClick === undefined ? null : value.onClick()
-                    }
+    <nav className={styles.navigation} data-testid="navigation">
+      {avatar && (
+        <Link href="/account">
+          <a>
+            <UserAvatar additionalStyles={styles.avatar} image={avatar} />
+          </a>
+        </Link>
+      )}
+      <ul className={styles.items}>
+        {menu.map((value, index) => {
+          return (
+            <li
+              className={cx(styles.item, {
+                [styles.active]: active.includes(value.id),
+              })}
+              key={index}
+            >
+              {value?.onClick && (
+                <a
+                  onClick={() =>
+                    value.onClick === undefined ? null : value.onClick()
+                  }
+                >
+                  <i
+                    data-tip={value.label}
+                    data-background-color="black"
+                    data-text-color="white"
                   >
+                    {value.icon}
+                  </i>
+                </a>
+              )}
+              {!value.onClick && (
+                <Link href={value.url || '#'}>
+                  <a>
                     <i
                       data-tip={value.label}
                       data-background-color="black"
@@ -52,37 +63,24 @@ export const Navigation: FC<{
                       {value.icon}
                     </i>
                   </a>
-                )}
-                {!value.onClick && (
-                  <Link href={value.url || '#'}>
-                    <a>
-                      <i
-                        data-tip={value.label}
-                        data-background-color="black"
-                        data-text-color="white"
-                      >
-                        {value.icon}
-                      </i>
-                    </a>
-                  </Link>
-                )}
-              </li>
-            )
-          })}
-          <li>
-            <a
-              onClick={() => {
-                onLogout && onLogout()
-              }}
-              href="/logout"
-            >
-              <i>
-                <IoIosLogOut />
-              </i>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+                </Link>
+              )}
+            </li>
+          )
+        })}
+        <li className={styles.item}>
+          <a
+            onClick={() => {
+              onLogout && onLogout()
+            }}
+            href="/logout"
+          >
+            <i>
+              <IoIosLogOut />
+            </i>
+          </a>
+        </li>
+      </ul>
+    </nav>
   )
 }

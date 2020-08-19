@@ -5,6 +5,7 @@ import { GroupCoverType } from '@gtms/commons/enums'
 import { updateGroup } from '@gtms/state-group'
 // ui
 import { CoverImageGroup } from '@gtms/ui/CoverImageGroup'
+import { GoSettings } from 'react-icons/go'
 // styles
 import styles from './styles.scss'
 
@@ -104,36 +105,40 @@ export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
 
   if (!editorState.show && group.coverType !== GroupCoverType.unknown) {
     return (
-      <div
-        className={cx(styles.cover, {
-          [styles.cover1]: group.coverType === GroupCoverType.cover1,
-          [styles.cover2]: group.coverType === GroupCoverType.cover2,
-          [styles.cover3]: group.coverType === GroupCoverType.cover3,
-          [styles.cover4]: group.coverType === GroupCoverType.cover4,
-          [styles.cover5]: group.coverType === GroupCoverType.cover5,
-          [styles.cover6]: group.coverType === GroupCoverType.cover6,
-          [styles.cover7]: group.coverType === GroupCoverType.cover7,
-          [styles.cover8]: group.coverType === GroupCoverType.cover8,
-          [styles.cover9]: group.coverType === GroupCoverType.cover9,
-          [styles.cover10]: group.coverType === GroupCoverType.cover10,
-          [styles.cover11]: group.coverType === GroupCoverType.cover11,
-          [styles.cover12]: group.coverType === GroupCoverType.cover12,
-          [styles.cover13]: group.coverType === GroupCoverType.cover13,
-          [styles.cover14]: group.coverType === GroupCoverType.cover14,
-        })}
-      >
-        {isEditAllowed && (
-          <button
-            onClick={() =>
-              setEditorState({
-                show: true,
-                isStepTwo: true,
-              })
-            }
-          >
-            Change cover image
-          </button>
-        )}
+      <div className={styles.wrapper}>
+        <div
+          className={cx(styles.cover, {
+            [styles.cover1]: group.coverType === GroupCoverType.cover1,
+            [styles.cover2]: group.coverType === GroupCoverType.cover2,
+            [styles.cover3]: group.coverType === GroupCoverType.cover3,
+            [styles.cover4]: group.coverType === GroupCoverType.cover4,
+            [styles.cover5]: group.coverType === GroupCoverType.cover5,
+            [styles.cover6]: group.coverType === GroupCoverType.cover6,
+            [styles.cover7]: group.coverType === GroupCoverType.cover7,
+            [styles.cover8]: group.coverType === GroupCoverType.cover8,
+            [styles.cover9]: group.coverType === GroupCoverType.cover9,
+            [styles.cover10]: group.coverType === GroupCoverType.cover10,
+            [styles.cover11]: group.coverType === GroupCoverType.cover11,
+            [styles.cover12]: group.coverType === GroupCoverType.cover12,
+            [styles.cover13]: group.coverType === GroupCoverType.cover13,
+            [styles.cover14]: group.coverType === GroupCoverType.cover14,
+          })}
+        >
+          {isEditAllowed && (
+            <button
+              className={styles.btn}
+              onClick={() =>
+                setEditorState({
+                  show: true,
+                  isStepTwo: true,
+                })
+              }
+            >
+              <i><GoSettings /></i>
+              Change cover image
+            </button>
+          )}
+        </div>
       </div>
     )
   }
@@ -143,12 +148,14 @@ export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
   }
 
   return (
-    <CoverImageGroup
-      onClose={onClose}
-      onSave={onSave}
-      options={COVERS}
-      stepTwo={editorState.isStepTwo}
-      cover={group.coverType}
-    />
+    <div className={styles.wrapper}>
+      <CoverImageGroup
+        onClose={onClose}
+        onSave={onSave}
+        options={COVERS}
+        stepTwo={editorState.isStepTwo}
+        cover={group.coverType}
+      />
+    </div>
   )
 }
