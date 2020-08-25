@@ -33,7 +33,9 @@ export const GroupsList: FC<{
               </div>
               <div className={styles.headerAndDesc}>
                 <h2 className={styles.header}>{group.name}</h2>
-                <p className={styles.desc}>{group.description || 'no description'}</p>
+                <p className={styles.desc}>
+                  {group.description || 'no description'}
+                </p>
                 {group.tags && group.tags.length > 0 && (
                   <TagGroup>
                     {group.tags.map((tag) => (

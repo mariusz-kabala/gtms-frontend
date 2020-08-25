@@ -41,7 +41,9 @@ export const SettingsButton: FC<{ group: IGroup }> = ({ group }) => {
   return (
     <Link href={`/group/${group.slug}/settings`}>
       <button className={styles.btn}>
-        <i><IoIosHeart /></i>
+        <i>
+          <IoIosHeart />
+        </i>
         Group settings
       </button>
     </Link>

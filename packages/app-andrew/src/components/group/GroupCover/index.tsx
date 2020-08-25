@@ -134,7 +134,9 @@ export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
                 })
               }
             >
-              <i><GoSettings /></i>
+              <i>
+                <GoSettings />
+              </i>
               Change cover image
             </button>
           )}
