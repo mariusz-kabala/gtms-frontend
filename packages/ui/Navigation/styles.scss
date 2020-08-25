@@ -21,6 +21,9 @@
   .items {
     .item {
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 5px;
 
       a {
@@ -48,7 +51,7 @@
       &.active {
         overflow: initial;
         border-color: $theme4;
-        
+
         a {
           background: $theme0;
           color: $theme4;
