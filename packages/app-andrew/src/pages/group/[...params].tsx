@@ -62,7 +62,15 @@ import {
 import { changePageBackground } from 'state'
 // ui
 import { IoMdGrid } from 'react-icons/io'
-import { GoArchive, GoDatabase, GoGitCompare, GoRepoForked, GoWatch, GoFileMedia, GoGift } from 'react-icons/go'
+import {
+  GoArchive,
+  GoDatabase,
+  GoGitCompare,
+  GoRepoForked,
+  GoWatch,
+  GoFileMedia,
+  GoGift,
+} from 'react-icons/go'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
@@ -214,7 +222,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
-  console.log(isSidebarOpen)
+
   return (
     <div className={styles.wrapper}>
       {state.isLoading && <Spinner />}
@@ -238,7 +246,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             className={cx(styles.groupSidebar, {
               [styles.active]: isSidebarOpen,
             })}
-            ref={groupHeaderRef}>
+            ref={groupHeaderRef}
+          >
             <div className={styles.makeItSticky}>
               <div className={styles.avatarAndDesc}>
                 <GroupAvatar
@@ -278,14 +287,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               <Button
                 additionalStyles={cx(styles.btnTags, {
                   [styles.active]: showPromoted,
-                })}            
+                })}
                 onClick={() => {
                   if (!showPromoted) {
                     setTimeout(() => {
-                      if (
-                        !promotedTagsRef.current ||
-                        !groupHeaderRef.current
-                      ) {
+                      if (!promotedTagsRef.current || !groupHeaderRef.current) {
                         return
                       }
                       window.scroll({
@@ -307,31 +313,48 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </Button>
               <ul className={styles.navmock}>
                 <li className={styles.item}>
-                  <i><GoArchive /></i>
+                  <i>
+                    <GoArchive />
+                  </i>
                   {/* <span>Posts</span> */}
                 </li>
                 <li className={styles.item}>
-                  <i><GoDatabase /></i>
+                  <i>
+                    <GoDatabase />
+                  </i>
                   {/* <span>Users</span> */}
                 </li>
                 <li className={styles.item}>
-                  <i><GoGitCompare /></i>
+                  <i>
+                    <GoGitCompare />
+                  </i>
                   {/* <span>Tags</span> */}
                 </li>
                 <li className={styles.item}>
-                  <i><GoRepoForked /></i>
+                  <i>
+                    <GoRepoForked />
+                  </i>
                   {/* <span>Settings</span> */}
                 </li>
                 <li className={styles.item}>
-                  <i><GoWatch /></i>
+                  <i>
+                    <GoWatch />
+                  </i>
                   {/* <span>Posts</span> */}
                 </li>
                 <li className={styles.item}>
-                  <i><GoFileMedia /></i>
+                  <i>
+                    <GoFileMedia />
+                  </i>
                   {/* <span>Posts</span> */}
                 </li>
-                <li className={styles.item} onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-                  <i><GoGift /></i>
+                <li
+                  className={styles.item}
+                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                >
+                  <i>
+                    <GoGift />
+                  </i>
                   {/* <span>Posts</span> */}
                 </li>
               </ul>
@@ -358,7 +381,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <GroupMembers
               additionalStyles={styles.groupMembers}
               {...state.members}
-            />         
+            />
             <div className={styles.groupPostsListWrapper}>
               {showPromoted && (
                 <PromotedTags
@@ -477,7 +500,21 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   </div>
                 </>
               )}
-            </div>            
+            </div>
+          </div>
+          <div
+            className={cx(styles.userPreviewWrapper, {
+              [styles.active]: userPreview,
+            })}
+          >
+            {userPreview && (
+              <UserPreview
+                user={userPreview}
+                noUserAvatar={UserAvatarNoImage}
+                onUserPostsClick={(user) => onClick({ user: user.username })}
+                onClose={onCloseUserPreview}
+              />
+            )}
           </div>
         </>
       )}
