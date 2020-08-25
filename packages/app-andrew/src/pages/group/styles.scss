@@ -37,22 +37,12 @@
       position: sticky;
       top: 0;
 
-      .actionButtons {
-        display: none;
-      }
-
       .avatarAndDesc {
         display: flex;
         padding: 5px;
-
-        .descWrapper {
-          display: none;
-        }
       }
 
       .groupAvatar {
-        width: 40px;
-        height: 40px;
         overflow: hidden;
         border-radius: $borderRadius;
       }
