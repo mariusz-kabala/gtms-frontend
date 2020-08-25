@@ -2,16 +2,17 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .wrapper {
+  @include pageWrapper();
+
   position: relative;
   display: flex;
   flex: 1;
   width: 100%;
-  max-width: 760px;
-  margin: 15px 0;
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.25);
-  
+
   .groupSidebar {
     position: relative;
     width: 50px;
@@ -24,8 +25,8 @@
 
     &.active {
       width: 250px;
-    
-      .avatarAndDesc {        
+
+      .avatarAndDesc {
         .descWrapper {
           display: flex;
         }
@@ -39,23 +40,23 @@
       .actionButtons {
         display: none;
       }
-      
+
       .avatarAndDesc {
         display: flex;
         padding: 5px;
-  
+
         .descWrapper {
           display: none;
         }
       }
-  
+
       .groupAvatar {
         width: 40px;
         height: 40px;
         overflow: hidden;
         border-radius: $borderRadius;
       }
-  
+
       .descWrapper {
         display: flex;
         flex-direction: column;
@@ -65,7 +66,7 @@
         margin-left: 5px;
         line-height: 1;
         cursor: pointer;
-  
+
         .header {
           @include font-weight(semiBold);
           letter-spacing: 1.1px;
@@ -73,11 +74,11 @@
           word-wrap: break-word;
           color: $theme7;
         }
-  
+
         .desc {
           @include font-size(sm);
         }
-  
+
         &:hover {
           .header,
           .desc {
@@ -85,8 +86,8 @@
           }
         }
       }
-  
-      .navmock {      
+
+      .navmock {
         .item {
           display: flex;
           // align-items: center;
@@ -94,49 +95,49 @@
           // margin-bottom: 15px;
           @include font-weight(semiBold);
           text-transform: uppercase;
-  
+
           i {
             color: $black;
             line-height: 0;
             @include font-size(lg);
           }
-      
+
           &:hover {
             cursor: pointer;
             color: $theme4;
-      
+
             i {
               color: $theme4;
             }
           }
         }
       }
-  
+
       .btnTags {
         @include buttonDefault();
         @include buttonWithIcon();
         width: 100%;
         padding: 12px 14px;
         justify-content: flex-start;
-  
+
         i {
           font-size: 24px;
           margin-right: 15px;
         }
-  
+
         &.active,
         &:hover {
           @include buttonColorsQuaternary();
         }
       }
-  
+
       .searchInput {
         display: flex;
         display: none;
         width: 100%;
         margin: 15px;
         overflow: hidden;
-  
+
         .search {
           width: 100%;
         }
@@ -156,18 +157,18 @@
     border-top-right-radius: $borderRadius;
     border-bottom-right-radius: $borderRadius;
     background: $theme2;
-  
+
     .groupPostsListWrapper {
       width: 100%;
-  
+
       > div {
         margin: 10px;
         border-radius: $borderRadius;
       }
-  
+
       .posts {
         margin-top: 0;
-  
+
         .postCreate {
           display: flex;
           padding: 10px;
@@ -176,29 +177,29 @@
           margin-bottom: 10px;
         }
       }
-  
+
       .noPostsFound {
         display: flex;
         justify-content: center;
         background: $theme0;
-  
+
         > div {
           display: flex;
           align-items: center;
           justify-content: center;
           max-width: 900px;
           padding: 40px;
-  
+
           .header {
             @include font-weight(semiNormal);
             @include font-size(xlg);
             margin-bottom: 20px;
-  
+
             span {
               @include font-weight(semiBold);
             }
           }
-  
+
           .image {
             img {
               max-width: 350px;
@@ -208,7 +209,6 @@
       }
     }
   }
-
 }
 
 .userPreviewWrapper {
