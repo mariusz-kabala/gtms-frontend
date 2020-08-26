@@ -15,6 +15,7 @@ import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
+import { UploadFile } from '../UploadFile'
 import { IoMdSend } from 'react-icons/io'
 
 export const PostCreate: FC<{
@@ -46,6 +47,9 @@ export const PostCreate: FC<{
     value: '',
     type: 'tag',
   })
+  const [isFileUploadAreaVisible, setIsFileUploadAreaVisible] = useState<
+    boolean
+  >(false)
   const [suggestedTags, setSuggestedTags] = useState<{
     isLoading: boolean
     tags: string[]
@@ -187,6 +191,14 @@ export const PostCreate: FC<{
           onFocus={() => {
             if (!user && onLoginRequest) {
               onLoginRequest()
+              return
+            }
+
+            setIsFileUploadAreaVisible(true)
+          }}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as any)) {
+              setIsFileUploadAreaVisible(false)
             }
           }}
           className={styles.textarea}
@@ -337,6 +349,16 @@ export const PostCreate: FC<{
             ))}
             <button onClick={addAllSuggestedTags}>Add all suggestions</button>
           </TagGroup>
+        </div>
+      )}
+      {isFileUploadAreaVisible && (
+        <div>
+          <UploadFile
+            placeholder="uploadPostImages"
+            onDrop={() => null}
+            isLoading={false}
+            isError={false}
+          />
         </div>
       )}
     </>
