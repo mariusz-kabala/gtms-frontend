@@ -1,6 +1,6 @@
 resource "docker_container" "gtms-frontend" {
   name  = "gtms-frontend"
-  image = "${var.DOCKER_REGISTRY}/gtms-frontend:${var.tag}"
+  image = "${var.DOCKER_REGISTRY}/gtms/appandrew:${var.tag}"
   restart = "always"
   networks_advanced {
       name = "kabala-net"
