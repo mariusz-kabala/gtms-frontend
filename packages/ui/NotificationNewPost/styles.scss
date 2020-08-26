@@ -8,20 +8,19 @@
   padding: 5px;
   border: 1px solid $theme2;
   border-radius: $borderRadius;
-  margin-bottom: 10px;
   cursor: pointer;
 
   &:hover {
     border-color: $theme4;
 
-    .groupHeader {
+    .groupSidebar {
       h2 {
         color: $theme4;
       }
     }
   }
 
-  .groupHeader {
+  .groupSidebar {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
@@ -41,7 +40,6 @@
 
   .notification {
     display: flex;
-    margin-bottom: 15px;
     overflow: hidden;
     text-overflow: ellipsis;
 

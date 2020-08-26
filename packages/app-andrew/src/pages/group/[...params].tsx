@@ -26,7 +26,6 @@ import { GroupNotFound } from 'components/group/GroupNotFound'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 import { PostDetails } from 'components/post/PostDetails'
-import { PostDetailsGuide } from '@gtms/ui/UserGuides/PostDetailsGuide'
 import { PromotedTags } from 'components/group/PromotedTags'
 import { GroupCover } from 'components/group/GroupCover'
 import { Favs } from 'components/post/Favs'
@@ -63,6 +62,15 @@ import {
 import { changePageBackground } from 'state'
 // ui
 import { IoMdGrid } from 'react-icons/io'
+import {
+  GoArchive,
+  GoDatabase,
+  GoGitCompare,
+  GoRepoForked,
+  GoWatch,
+  GoFileMedia,
+  GoGift,
+} from 'react-icons/go'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
@@ -145,6 +153,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   const { t } = useTranslation('groupPage')
   const router = useRouter()
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false)
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
@@ -215,37 +224,32 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   }, [])
 
   return (
-    <>
-      <div className={styles.wrapper}>
-        {state.isLoading && <Spinner />}
+    <div className={styles.wrapper}>
+      {state.isLoading && <Spinner />}
 
-        {state.errorOccured && (
-          <ErrorWrapper>
-            <h2>ERROR OCCURED</h2>
-            <p>
-              Create a proper component that can be used here when 500 from BE
-            </p>
-          </ErrorWrapper>
-        )}
+      {state.errorOccured && (
+        <ErrorWrapper>
+          <h2>ERROR OCCURED</h2>
+          <p>
+            Create a proper component that can be used here when 500 from BE
+          </p>
+        </ErrorWrapper>
+      )}
 
-        {state.notFound && <GroupNotFound />}
+      {state.notFound && <GroupNotFound />}
 
-        {state.hasNoAccess && <GroupNoAccess />}
+      {state.hasNoAccess && <GroupNoAccess />}
 
-        {state.group && (
-          <>
-            <div className={styles.top}>
-              <GroupCover
-                group={state.group}
-                isEditAllowed={groupQuery.hasAdminRights()}
-              />
-              <GroupMembers
-                additionalStyles={styles.groupMembers}
-                {...state.members}
-              />
-            </div>
-            <div ref={groupHeaderRef} className={styles.groupHeader}>
-              <div>
+      {state.group && (
+        <>
+          <div
+            className={cx(styles.groupSidebar, {
+              [styles.active]: isSidebarOpen,
+            })}
+            ref={groupHeaderRef}
+          >
+            <div className={styles.makeItSticky}>
+              <div className={styles.avatarAndDesc}>
                 <GroupAvatar
                   additionalStyles={styles.groupAvatar}
                   files={groupQuery.getAvatar('50x50', state)}
@@ -273,57 +277,111 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     }
                   />
                 </div>
-                <div className={styles.searchInput}>
-                  <div className={styles.search}>
-                    <Button
-                      onClick={() => {
-                        if (!showPromoted) {
-                          setTimeout(() => {
-                            if (
-                              !promotedTagsRef.current ||
-                              !groupHeaderRef.current
-                            ) {
-                              return
-                            }
-                            window.scroll({
-                              top:
-                                promotedTagsRef.current.offsetTop -
-                                groupHeaderRef.current.clientHeight,
-                              left: 0,
-                              behavior: 'smooth',
-                            })
-                          }, 200)
-                        }
-                        setShowPromoted((value) => !value)
-                      }}
-                      additionalStyles={cx(styles.btnTags, {
-                        [styles.active]: showPromoted,
-                      })}
-                    >
-                      <i>
-                        <IoMdGrid />
-                      </i>
-                      Tags
-                    </Button>
-                    <SearchBar
-                      onTagAdd={() => null}
-                      onTagRemove={() => null}
-                      onLoadSuggestion={() => null}
-                      onQueryChange={() => null}
-                      onLoadSuggestionCancel={() => null}
-                      tags={state.activeTags || []}
-                      users={state.activeUsers}
-                    />
-                  </div>
+              </div>
+              <div className={styles.actionButtons}>
+                <FavsButton group={state.group} />
+                <JoinLeaveButton group={state.group} />
+                <SettingsButton group={state.group} />
+                <FollowButton group={state.group} />
+              </div>
+              <Button
+                additionalStyles={cx(styles.btnTags, {
+                  [styles.active]: showPromoted,
+                })}
+                onClick={() => {
+                  if (!showPromoted) {
+                    setTimeout(() => {
+                      if (!promotedTagsRef.current || !groupHeaderRef.current) {
+                        return
+                      }
+                      window.scroll({
+                        top:
+                          promotedTagsRef.current.offsetTop -
+                          groupHeaderRef.current.clientHeight,
+                        left: 0,
+                        behavior: 'smooth',
+                      })
+                    }, 200)
+                  }
+                  setShowPromoted((value) => !value)
+                }}
+              >
+                <i>
+                  <IoMdGrid />
+                </i>
+                {/* Tags */}
+              </Button>
+              <ul className={styles.navmock}>
+                <li className={styles.item}>
+                  <i>
+                    <GoArchive />
+                  </i>
+                  {/* <span>Posts</span> */}
+                </li>
+                <li className={styles.item}>
+                  <i>
+                    <GoDatabase />
+                  </i>
+                  {/* <span>Users</span> */}
+                </li>
+                <li className={styles.item}>
+                  <i>
+                    <GoGitCompare />
+                  </i>
+                  {/* <span>Tags</span> */}
+                </li>
+                <li className={styles.item}>
+                  <i>
+                    <GoRepoForked />
+                  </i>
+                  {/* <span>Settings</span> */}
+                </li>
+                <li className={styles.item}>
+                  <i>
+                    <GoWatch />
+                  </i>
+                  {/* <span>Posts</span> */}
+                </li>
+                <li className={styles.item}>
+                  <i>
+                    <GoFileMedia />
+                  </i>
+                  {/* <span>Posts</span> */}
+                </li>
+                <li
+                  className={styles.item}
+                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                >
+                  <i>
+                    <GoGift />
+                  </i>
+                  {/* <span>Posts</span> */}
+                </li>
+              </ul>
+              <div className={styles.searchInput}>
+                <div className={styles.search}>
+                  <SearchBar
+                    onTagAdd={() => null}
+                    onTagRemove={() => null}
+                    onLoadSuggestion={() => null}
+                    onQueryChange={() => null}
+                    onLoadSuggestionCancel={() => null}
+                    tags={state.activeTags || []}
+                    users={state.activeUsers}
+                  />
                 </div>
               </div>
             </div>
-            <div className={styles.actionButtons}>
-              <FavsButton group={state.group} />
-              <JoinLeaveButton group={state.group} />
-              <SettingsButton group={state.group} />
-              <FollowButton group={state.group} />
-            </div>
+          </div>
+          <div className={styles.groupContent}>
+            <GroupCover
+              group={state.group}
+              isEditAllowed={groupQuery.hasAdminRights()}
+            />
+            <GroupMembers
+              additionalStyles={styles.groupMembers}
+              {...state.members}
+            />
             <div className={styles.groupPostsListWrapper}>
               {showPromoted && (
                 <PromotedTags
@@ -431,7 +489,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         activeTags={state.activeTags || []}
                       />
                     </div>
-                    {!state.activePost && <PostDetailsGuide />}
                     {state.activePost && (
                       <PostDetails
                         comments={state.comments}
@@ -444,24 +501,24 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </>
               )}
             </div>
-          </>
-        )}
-      </div>
-      <div
-        className={cx(styles.userPreviewWrapper, {
-          [styles.active]: userPreview,
-        })}
-      >
-        {userPreview && (
-          <UserPreview
-            user={userPreview}
-            noUserAvatar={UserAvatarNoImage}
-            onUserPostsClick={(user) => onClick({ user: user.username })}
-            onClose={onCloseUserPreview}
-          />
-        )}
-      </div>
-    </>
+          </div>
+          <div
+            className={cx(styles.userPreviewWrapper, {
+              [styles.active]: userPreview,
+            })}
+          >
+            {userPreview && (
+              <UserPreview
+                user={userPreview}
+                noUserAvatar={UserAvatarNoImage}
+                onUserPostsClick={(user) => onClick({ user: user.username })}
+                onClose={onCloseUserPreview}
+              />
+            )}
+          </div>
+        </>
+      )}
+    </div>
   )
 }
 

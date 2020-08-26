@@ -196,7 +196,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
         {!state.isLoading && !state.errorOccurred && (
           <>
             <div className={styles.navigation}>
-              <h2>My groups</h2>
+              <h2 className={styles.header}>My groups</h2>
               <ul className={styles.items}>
                 <li
                   onClick={() => setCurrentTab('owner')}

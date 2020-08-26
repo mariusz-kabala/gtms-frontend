@@ -60,7 +60,10 @@ export const GroupCard: FC<{
               {isLoading && <Spinner additionalStyles={styles.spinner} />}
 
               {!isLoading && members.length > 0 && (
-                <ul data-testid="recently-registered-users">
+                <ul
+                  className={styles.items}
+                  data-testid="recently-registered-users"
+                >
                   {members.map((member) => (
                     <>
                       <li className={styles.user} key={`member-${member.id}`}>

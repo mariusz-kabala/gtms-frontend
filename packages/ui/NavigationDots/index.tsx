@@ -44,16 +44,8 @@ export const NavigationDots: FC<{
 
   return (
     <div className={styles.wrapper}>
-      <div
-        className={cx(styles.fullView, {
-          [styles.active]: showFullView,
-        })}
-      >
-        <div className={styles.content}>{children}</div>
-        <Overlay onClick={() => setShowFullView((value) => !value)} />
-      </div>
-      <ul className={styles.navigationDot} data-testid="navigation-dots">
-        <li
+      <div className={styles.navigationDot} data-testid="navigation-dots">
+        <div
           className={cx(styles.item, styles.showAllGroups, {
             [styles.active]: showFullView,
           })}
@@ -62,7 +54,7 @@ export const NavigationDots: FC<{
           <i>
             <IoIosKeypad />
           </i>
-        </li>
+        </div>
         <ReactSortable
           list={sortedGroups}
           setList={setSortedGroups}
@@ -71,7 +63,7 @@ export const NavigationDots: FC<{
           }}
         >
           {sortedGroups.map((value, index) => (
-            <li className={styles.item} key={index}>
+            <div className={styles.item} key={index}>
               <Link href={`/group/${value.slug}`}>
                 <div
                   style={{
@@ -81,10 +73,18 @@ export const NavigationDots: FC<{
                   }}
                 />
               </Link>
-            </li>
+            </div>
           ))}
         </ReactSortable>
-      </ul>
+      </div>
+      <div
+        className={cx(styles.fullView, {
+          [styles.active]: showFullView,
+        })}
+      >
+        <div className={styles.content}>{children}</div>
+        <Overlay onClick={() => setShowFullView((value) => !value)} />
+      </div>
     </div>
   )
 }

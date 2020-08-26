@@ -37,7 +37,6 @@ export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
   return (
     <div className={styles.wrapper} data-testid="follow-button">
       <label>
-        <span>Follow</span>
         <SwitchWrapper
           onChange={(value) => {
             if (!state.isLogged) {
@@ -52,6 +51,7 @@ export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
           }}
           checked={state.isFollowing}
         />
+        <span>Follow</span>
       </label>
     </div>
   )

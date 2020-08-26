@@ -1,14 +1,14 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/shadows.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
   display: none; // for show hide functionality
-  flex: 1;
 
-  .list {
+  .items {
     width: 100%;
 
-    li {
+    .item {
       border-radius: $borderRadius;
       overflow: hidden;
       display: flex;
@@ -18,18 +18,18 @@
       align-items: center;
       margin-bottom: 10px;
 
-      .image {
-        flex-basis: 50px;
-      }
-      .dsc {
-        flex-basis: 35%;
-      }
-      .stats {
-        flex-basis: 90px;
+      .avatar {
+        border-radius: $borderRadius;
+        min-width: 50px;
+        min-height: 50px;
+        overflow: hidden;
       }
 
-      .actions {
-        flex-basis: 40%;
+      .headerAndDesc {
+        .header {
+          @include font-size(md);
+          @include font-weight(semiBold);
+        }
       }
     }
   }

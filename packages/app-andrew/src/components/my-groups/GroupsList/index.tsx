@@ -19,10 +19,10 @@ export const GroupsList: FC<{
     <div className={cx(styles.wrapper, additionalStyles)}>
       {groups.length === 0 && noRecords}
       {groups.length > 0 && (
-        <ul className={styles.list}>
+        <ul className={styles.items}>
           {groups.map((group) => (
-            <li key={`owner-${group.id}`}>
-              <div className={styles.image}>
+            <li className={styles.item} key={`owner-${group.id}`}>
+              <div className={styles.avatar}>
                 <Link href={`/group/${group.slug}`}>
                   <a>
                     <Picture
@@ -31,8 +31,8 @@ export const GroupsList: FC<{
                   </a>
                 </Link>
               </div>
-              <div className={styles.dsc}>
-                <h2>{group.name}</h2>
+              <div className={styles.headerAndDesc}>
+                <h2 className={styles.header}>{group.name}</h2>
                 <p>{group.description || 'no description'}</p>
                 {group.tags && group.tags.length > 0 && (
                   <TagGroup>
@@ -43,7 +43,7 @@ export const GroupsList: FC<{
                 )}
               </div>
               <div className={styles.stats}>
-                <ul>
+                <ul className={styles.items}>
                   <li>
                     Members: <span>{group.membersCounter}</span>
                   </li>

@@ -98,9 +98,8 @@
       picture {
         // @todo create mixin for that
         overflow: hidden;
+        width: 50px;
         border-radius: $borderRadius;
-
-        min-width: 50px;
       }
 
       &:last-child {

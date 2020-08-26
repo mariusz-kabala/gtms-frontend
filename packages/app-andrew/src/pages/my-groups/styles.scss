@@ -10,7 +10,7 @@
   // for centering spinner
   display: flex;
   flex-direction: column;
-
+  
   height: 100%;
   width: 100%;
   padding: 20px;
@@ -21,7 +21,7 @@
     margin-bottom: 10px;
     cursor: pointer;
 
-    h2 {
+    .header {
       margin-right: 10px;
       font-size: 1.5em;
       @include font-weight(semiBold);
@@ -47,7 +47,10 @@
         &.current {
           @include font-weight(bold);
           background: $theme4;
-          color: $theme0;
+
+          a {
+            color: $theme0;
+          }
         }
 
         &:last-child {

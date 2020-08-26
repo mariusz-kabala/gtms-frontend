@@ -6,7 +6,9 @@
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapePrimary();
-  @include buttonColorsPrimary();
+  @include buttonWithIcon();
+  @include buttonColorsDefault();
+  @include buttonWithoutBackground();
 
   &:hover {
     @include buttonColorsQuaternary();

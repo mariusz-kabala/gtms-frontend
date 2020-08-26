@@ -2,58 +2,63 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
-@import '~@gtms/styles/scss/mixins/grid.scss';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .wrapper {
+  @include pageWrapper();
+
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex: 1;
   width: 100%;
-  max-width: 900px;
-  border-radius: $borderRadius;
-  margin: 10px;
-  background: $theme0;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.25);
 
-  .top {
-    width: 100%;
-    padding: 10px;
-    padding-bottom: 0;
-    overflow: hidden;
-  }
-
-  .groupHeader {
-    position: sticky;
-    top: 0px;
-    z-index: 13;
-    width: 100%;
+  .groupSidebar {
+    position: relative;
+    width: 50px;
+    background: $theme0;
+    border-top-left-radius: $borderRadius;
+    border-bottom-left-radius: $borderRadius;
+    box-shadow: 0px 15px 10px 0px rgba(0, 0, 0, 0.1);
     color: $theme9;
+    transition: width 500ms;
 
-    > div {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      padding: 10px;
-      background: $theme0;
-      box-shadow: 0px 15px 25px -12px rgba(0, 0, 0, 0.2);
+    &.active {
+      width: 250px;
+
+      .avatarAndDesc {
+        .descWrapper {
+          display: flex;
+        }
+      }
+    }
+
+    .actionButtons {
+      overflow: hidden;
+    }
+
+    .makeItSticky {
+      position: sticky;
+      top: 0;
+
+      .avatarAndDesc {
+        display: flex;
+        padding: 5px;
+      }
 
       .groupAvatar {
-        border-radius: $borderRadius;
-        min-width: 45px;
-        min-height: 45px;
         overflow: hidden;
-
-        picture {
-          min-width: 45px;
-          min-height: 45px;
-        }
+        border-radius: $borderRadius;
       }
 
       .descWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         max-width: 300px;
         width: 100%;
+        margin-left: 5px;
         line-height: 1;
-        margin: 0 10px;
         cursor: pointer;
 
         .header {
@@ -76,52 +81,58 @@
         }
       }
 
-      .searchInput {
-        display: flex;
-        width: 100%;
-        overflow: hidden;
-        margin-left: 50px;
-
-        .search {
+      .navmock {
+        .item {
           display: flex;
-          width: 100%;
-          border-radius: $borderRadius;
-          height: 40px;
+          padding: 15px;
+          @include font-weight(semiBold);
+          text-transform: uppercase;
 
-          .btnTags {
-            @include buttonDefault();
-            @include buttonSizeDefault();
-            @include buttonShapePrimary();
-            @include buttonWithIcon();
-            @include buttonColorsPrimary();
-            position: relative;
-            margin-right: 5px;
+          i {
+            color: $black;
+            line-height: 0;
+            @include font-size(lg);
+          }
 
-            &.active,
-            &:hover {
-              @include buttonColorsQuaternary();
+          &:hover {
+            cursor: pointer;
+            color: $theme4;
+
+            i {
+              color: $theme4;
             }
           }
         }
       }
-    }
-  }
 
-  .actionButtons {
-    display: flex;
-    margin-left: auto;
-    background: $theme4;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    > * {
-      color: $theme0;
-      margin-left: 10px;
+      .btnTags {
+        @include buttonDefault();
+        @include buttonWithIcon();
+        width: 100%;
+        padding: 12px 14px;
+        justify-content: flex-start;
 
-      &:hover {
-        background: $theme0;
-        color: $theme4;
+        i {
+          font-size: 24px;
+          margin-right: 15px;
+        }
+
+        &.active,
+        &:hover {
+          @include buttonColorsQuaternary();
+        }
+      }
+
+      .searchInput {
+        display: flex;
+        display: none;
+        width: 100%;
+        margin: 15px;
+        overflow: hidden;
+
+        .search {
+          width: 100%;
+        }
       }
     }
   }
@@ -133,56 +144,58 @@
     display: none; // temporary hidden
   }
 
-  .groupPostsListWrapper {
+  .groupContent {
     width: 100%;
-    overflow: hidden;
-    border-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
     background: $theme2;
 
-    > div {
-      display: flex;
-      margin: 10px;
-      border-radius: $borderRadius;
-    }
-
-    .posts {
-      @include gridDefault(2);
-      margin-top: 0;
-
-      .postCreate {
-        display: flex;
-        padding: 10px;
-        border-radius: $borderRadius;
-        background: $theme0;
-        margin-bottom: 10px;
-      }
-    }
-
-    .noPostsFound {
-      display: flex;
-      justify-content: center;
-      background: $theme0;
+    .groupPostsListWrapper {
+      width: 100%;
 
       > div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        max-width: 900px;
-        padding: 40px;
+        margin: 10px;
+        border-radius: $borderRadius;
+      }
 
-        .header {
-          @include font-weight(semiNormal);
-          @include font-size(xlg);
-          margin-bottom: 20px;
+      .posts {
+        margin-top: 0;
 
-          span {
-            @include font-weight(semiBold);
-          }
+        .postCreate {
+          display: flex;
+          padding: 10px;
+          border-radius: $borderRadius;
+          background: $theme0;
+          margin-bottom: 10px;
         }
+      }
 
-        .image {
-          img {
-            max-width: 350px;
+      .noPostsFound {
+        display: flex;
+        justify-content: center;
+        background: $theme0;
+
+        > div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          max-width: 900px;
+          padding: 40px;
+
+          .header {
+            @include font-weight(semiNormal);
+            @include font-size(xlg);
+            margin-bottom: 20px;
+
+            span {
+              @include font-weight(semiBold);
+            }
+          }
+
+          .image {
+            img {
+              max-width: 350px;
+            }
           }
         }
       }

@@ -76,8 +76,9 @@
       top: -500px;
       width: 100%;
       height: 100%;
+      @include imageCover();
+      border-radius: $borderRadius;
       transition: top 0.3s ease-in-out;
-      background: $theme2;
 
       &.active {
         top: 0;
@@ -87,6 +88,13 @@
       .text {
         @include font-weight(semiBold);
         @include font-size(lg);
+      }
+      
+      &.active {
+        .header,
+        .text {
+          display: none;
+        }
       }
 
       .header {
@@ -122,7 +130,7 @@
 
   .choosePhoto {
     width: 100%;
-    padding: 10px;
+    margin-top: 10px;
     visibility: hidden;
     transition: 2s ease;
     height: 0;
@@ -136,7 +144,7 @@
       }
     }
 
-    ul {
+    .items {
       display: grid;
       transition: opacity 2s ease;
       transition-delay: 0.25s;
@@ -145,26 +153,41 @@
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       list-style-type: none;
 
-      .fileUpload {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
-
-      li {
+      .item {
         width: 100%;
         height: 100px;
-        background: $theme4;
         border-radius: $borderRadius;
         cursor: pointer;
+        @include imageCover();
+        
+        // @todo create mixin for that
+        position: relative;
+        overflow: hidden;
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: 4px solid $theme4;
+          background: rgba($theme4, 0.2);
+          opacity: 0;
+        }
+        &:hover {
+          &:after {
+            opacity: 1;
+          }
+        }
+
+        .fileUpload {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
 
         &:first-child {
           background: none;
-        }
-
-        &:hover,
-        &.active {
-          border: 5px solid $theme0;
         }
       }
     }
