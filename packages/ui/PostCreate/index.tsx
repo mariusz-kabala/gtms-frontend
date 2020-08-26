@@ -196,11 +196,6 @@ export const PostCreate: FC<{
 
             setIsFileUploadAreaVisible(true)
           }}
-          onBlur={(e) => {
-            if (!e.currentTarget.contains(e.relatedTarget as any)) {
-              setIsFileUploadAreaVisible(false)
-            }
-          }}
           className={styles.textarea}
           data-testid="form-expanding-textarea"
           value={value}
