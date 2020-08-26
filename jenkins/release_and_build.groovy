@@ -129,7 +129,7 @@ pipeline {
 
                     env.VERSION = "v${props['version']}" 
 
-                    docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                    docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
                         currentApp.push("v${props['version']}")
                     }
                 }
