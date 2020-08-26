@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.75.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.74.3...@gtms/app-andrew@0.75.0) (2020-08-26)
+
+
+### Features
+
+* GEOT-429: general changes part2 ([#828](https://github.com/gtms-org/gtms-frontend/issues/828)) ([4841cb0](https://github.com/gtms-org/gtms-frontend/commit/4841cb00ffe9cc1f9cc4f4c3ec7915b420af072a))
+
+
+
+
+
 ## [0.74.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.74.2...@gtms/app-andrew@0.74.3) (2020-08-17)
 
 
