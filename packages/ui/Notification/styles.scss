@@ -6,17 +6,14 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  margin-bottom: 3px;
   @include font-size(sm);
   border-radius: $borderRadius;
-  background: $theme4;
-  color: $theme0;
-  opacity: 0.9;
+  background: $theme0;
   cursor: pointer;
 
   .notificationIcon {
     max-width: 30px;
-    margin-left: 8px;
+    margin-right: 5px;
   }
 
   .desc {
@@ -24,7 +21,9 @@
   }
 
   &:hover {
-    opacity: 1;
+    .close {
+      opacity: 1;
+    }
   }
 
   .close {
@@ -32,10 +31,11 @@
     align-items: center;
     justify-content: center;
     margin-left: 10px;
+    opacity: 0.4;
 
     .iconClose {
       position: absolute;
-      color: $theme0;
+      color: $theme9;
       display: flex;
       @include font-size(md);
     }
@@ -45,13 +45,14 @@
       vertical-align: middle;
       margin-left: auto;
       width: 30px;
+
       > * {
         &:nth-child(1) {
-          stroke: $theme0;
+          stroke: $theme9;
         }
 
         &:nth-child(2) {
-          stroke: $theme4;
+          stroke: $theme9;
         }
       }
     }

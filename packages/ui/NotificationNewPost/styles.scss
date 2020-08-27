@@ -14,28 +14,28 @@
   &:hover {
     border-color: $theme4;
 
-    .groupSidebar {
-      h2 {
+    .group {
+      .header {
         color: $theme4;
       }
     }
   }
 
-  .groupSidebar {
+  .group {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
 
-    h2 {
-      @include font-weight(semiBold);
-      @include font-size(xs);
-      text-transform: uppercase;
-    }
-
-    img {
+    .groupAvatar {
       margin-right: 5px;
       max-width: 20px;
       border-radius: $borderRadius;
+    }
+
+    .header {
+      @include font-weight(semiBold);
+      @include font-size(xs);
+      text-transform: uppercase;
     }
   }
 
@@ -54,11 +54,11 @@
     }
 
     .desc {
-      h3 {
+      .header {
         @include font-weight(normal);
       }
 
-      p {
+      .text {
         @include font-size(sm);
       }
     }

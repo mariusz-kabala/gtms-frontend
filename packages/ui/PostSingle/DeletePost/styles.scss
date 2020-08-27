@@ -6,14 +6,15 @@
 
 .buttonDelete {
   @include buttonDefault();
+  @include buttonSizeDefault();
   @include buttonShapePrimary();
-  @include buttonSizeSm();
-  @include buttonWithIcon();
-  @include buttonColorsDefault();
+  @include buttonWithoutPadding();
+  @include buttonWithoutBackground();
   margin-right: 10px;
 
-  &:hover {
-    @include buttonColorsPrimary();
+  &:hover,
+  &:focus,
+  &:active {
   }
 }
 
