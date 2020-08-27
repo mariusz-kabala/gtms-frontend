@@ -302,7 +302,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <i>
                   <IoMdGrid />
                 </i>
-                <span>Posts</span>
+                <span>Tags</span>
               </Button>
               <ul className={styles.navmock}>
                 <li className={styles.item}>

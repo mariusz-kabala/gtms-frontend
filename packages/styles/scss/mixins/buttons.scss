@@ -51,6 +51,10 @@
   color: $theme0;
 }
 
+@mixin buttonWithoutPadding() {
+  padding: 0;
+}
+
 // SIZES
 @mixin buttonSizeDefault() {
   padding: 8px;
@@ -70,10 +74,6 @@
 
 // SHAPES
 @mixin buttonShapePrimary() {
-  border-radius: $borderRadius;
-}
-
-@mixin buttonShapeSecondary() {
   border-radius: $borderRadius;
 }
 
