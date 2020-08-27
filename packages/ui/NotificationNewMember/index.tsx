@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import { IGroup } from '@gtms/commons/models'
-import { getImage } from '@gtms/commons/helpers'
+// import { getImage } from '@gtms/commons/helpers'
 // ui
 import styles from './styles.scss'
-import { Picture } from '../Picture'
+// import { Picture } from '../Picture'
 
 export const NotificationNewMember: FC<{
   group: IGroup
-}> = ({ group }) => {
+}> = () => {
   return (
     <li className={styles.wrapper} data-testid={'notification-new-member'}>
       <div className={styles.group}>
