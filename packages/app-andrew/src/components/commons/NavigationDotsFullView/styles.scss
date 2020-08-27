@@ -92,13 +92,11 @@
     .item {
       display: flex;
       cursor: pointer;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
 
-      img,
-      picture {
-        // @todo create mixin for that
+      .image img {
         overflow: hidden;
-        width: 50px;
+        min-width: 50px;
         border-radius: $borderRadius;
       }
 
@@ -115,7 +113,8 @@
         }
 
         h2 {
-          @include font-size(md) @include font-weight(semiBold);
+          @include font-size(md);
+          @include font-weight(semiBold);
         }
       }
     }

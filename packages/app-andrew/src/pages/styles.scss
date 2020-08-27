@@ -10,14 +10,6 @@
 .pageWrapper {
   background: #fffbf2;
   max-width: 100%;
-
-  div[class*='mainNavigationWrapper'] {
-    padding-top: 15px;
-
-    > div {
-      background: none;
-    }
-  }
 }
 
 .welcomeSlider {
@@ -32,7 +24,7 @@
   .sections {
     width: 100%;
     padding-top: 10px;
-    padding-left: 20px;
+    padding-left: 80px;
     padding-right: 30px;
 
     .headerWrapper {

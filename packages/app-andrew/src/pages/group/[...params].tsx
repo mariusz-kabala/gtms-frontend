@@ -62,19 +62,12 @@ import {
 import { changePageBackground } from 'state'
 // ui
 import { IoMdGrid } from 'react-icons/io'
-import {
-  GoArchive,
-  GoDatabase,
-  GoGitCompare,
-  GoRepoForked,
-  GoWatch,
-  GoFileMedia,
-  GoGift,
-} from 'react-icons/go'
+import { GoDatabase, GoGitCompare, GoRepoForked, GoGift } from 'react-icons/go'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Picture } from '@gtms/ui/Picture'
+import { Pagination } from '@gtms/ui/Pagination'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
@@ -153,7 +146,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   const { t } = useTranslation('groupPage')
   const router = useRouter()
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true)
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
@@ -249,14 +242,14 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             ref={groupHeaderRef}
           >
             <div className={styles.makeItSticky}>
-              <div className={styles.avatarAndDesc}>
-                <GroupAvatar
-                  additionalStyles={styles.groupAvatar}
-                  files={groupQuery.getAvatar('50x50', state)}
-                  filesStatus={groupQuery.getAvatarFileStatus()}
-                  isEditAllowed={groupQuery.hasAdminRights()}
-                />
-                <div className={styles.descWrapper}>
+              <div className={styles.avatarNamedDesc}>
+                <div className={styles.avatarName}>
+                  <GroupAvatar
+                    additionalStyles={styles.groupAvatar}
+                    files={groupQuery.getAvatar('50x50', state)}
+                    filesStatus={groupQuery.getAvatarFileStatus()}
+                    isEditAllowed={groupQuery.hasAdminRights()}
+                  />
                   <h2
                     className={styles.header}
                     data-tip={t('click-here-to-edit')}
@@ -264,19 +257,19 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   >
                     {state.group?.name}
                   </h2>
-                  <GroupDescription
-                    additionalStyles={styles.desc}
-                    isEditAllowed={groupQuery.hasAdminRights()}
-                    slug={state.group?.slug || ''}
-                    text={
-                      !state.group?.description
-                        ? groupQuery.hasAdminRights()
-                          ? 'you did not add group description yet, click here to change it'
-                          : ''
-                        : state.group?.description || ''
-                    }
-                  />
                 </div>
+                <GroupDescription
+                  additionalStyles={styles.desc}
+                  isEditAllowed={groupQuery.hasAdminRights()}
+                  slug={state.group?.slug || ''}
+                  text={
+                    !state.group?.description
+                      ? groupQuery.hasAdminRights()
+                        ? 'you did not add group description yet, click here to change it'
+                        : ''
+                      : state.group?.description || ''
+                  }
+                />
               </div>
               <div className={styles.actionButtons}>
                 <FavsButton group={state.group} />
@@ -309,44 +302,26 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <i>
                   <IoMdGrid />
                 </i>
-                {/* Tags */}
+                <span>Posts</span>
               </Button>
               <ul className={styles.navmock}>
                 <li className={styles.item}>
                   <i>
-                    <GoArchive />
-                  </i>
-                  {/* <span>Posts</span> */}
-                </li>
-                <li className={styles.item}>
-                  <i>
                     <GoDatabase />
                   </i>
-                  {/* <span>Users</span> */}
+                  <span>Users</span>
                 </li>
                 <li className={styles.item}>
                   <i>
                     <GoGitCompare />
                   </i>
-                  {/* <span>Tags</span> */}
+                  <span>Tags</span>
                 </li>
                 <li className={styles.item}>
                   <i>
                     <GoRepoForked />
                   </i>
-                  {/* <span>Settings</span> */}
-                </li>
-                <li className={styles.item}>
-                  <i>
-                    <GoWatch />
-                  </i>
-                  {/* <span>Posts</span> */}
-                </li>
-                <li className={styles.item}>
-                  <i>
-                    <GoFileMedia />
-                  </i>
-                  {/* <span>Posts</span> */}
+                  <span>Settings</span>
                 </li>
                 <li
                   className={styles.item}
@@ -355,9 +330,13 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   <i>
                     <GoGift />
                   </i>
-                  {/* <span>Posts</span> */}
+                  <span>Posts</span>
                 </li>
               </ul>
+              <GroupMembers
+                additionalStyles={styles.groupMembers}
+                {...state.members}
+              />
               <div className={styles.searchInput}>
                 <div className={styles.search}>
                   <SearchBar
@@ -378,10 +357,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               group={state.group}
               isEditAllowed={groupQuery.hasAdminRights()}
             />
-            <GroupMembers
-              additionalStyles={styles.groupMembers}
-              {...state.members}
-            />
             <div className={styles.groupPostsListWrapper}>
               {showPromoted && (
                 <PromotedTags
@@ -398,6 +373,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         jeszcze żadnego posta :( Możesz być pierwszy!
                       </h3>
                       <PostCreate
+                        additionalStyles={styles.postCreate}
                         fetchTags={findTagsAPI}
                         fetchUsers={findbyUsernameAPI}
                         fetchSuggestedTags={fetchSuggestedTagsAPI}
@@ -412,10 +388,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         onLoginRequest={openLoginModal}
                       />
                     </div>
-                    <Picture
-                      additionalStyles={styles.image}
-                      jpg={'/images/white-theme/no-posts-yet.png'}
-                    />
                   </div>
                 </div>
               )}
@@ -497,6 +469,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         post={state.activePost}
                       />
                     )}
+                    <br />
+                    <br />
+                    <Pagination />
+                    <br />
+                    <br />
                   </div>
                 </>
               )}

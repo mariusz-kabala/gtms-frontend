@@ -1,4 +1,5 @@
 import React, { FC, useState, useCallback } from 'react'
+import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { updateGroupAvatar } from '@gtms/state-group'
 import { FileStatus } from '@gtms/commons/enums'
@@ -49,8 +50,9 @@ export const GroupAvatar: FC<{
 
   return (
     <div
-      className={additionalStyles}
+      className={cx(styles.wrapper, additionalStyles)}
       data-testid="group-avatar"
+      data-tip={isEditAllowed ? t('clickToUploadNewImage') : ''}
       onClick={() => {
         if (isEditAllowed && !isEditModeActive) {
           setIsEditModeActive(true)
@@ -58,7 +60,10 @@ export const GroupAvatar: FC<{
       }}
     >
       {isEditModeActive && (
-        <Modal onClose={() => setIsEditModeActive(false)}>
+        <Modal
+          additionalStyles={styles.modal}
+          onClose={() => setIsEditModeActive(false)}
+        >
           <UploadFile
             onDrop={onDrop}
             isLoading={uploadStatus.isUploading}
@@ -66,16 +71,10 @@ export const GroupAvatar: FC<{
           />
         </Modal>
       )}
-
-      <div
-        className={styles.wrapper}
-        data-tip={isEditAllowed ? t('clickToUploadNewImage') : ''}
-      >
-        {[FileStatus.uploaded, FileStatus.processing].includes(filesStatus) && (
-          <Spinner additionalStyles={styles.spinner} />
-        )}
-        <Picture {...files} />
-      </div>
+      {[FileStatus.uploaded, FileStatus.processing].includes(filesStatus) && (
+        <Spinner additionalStyles={styles.spinner} />
+      )}
+      <Picture {...files} />
     </div>
   )
 }

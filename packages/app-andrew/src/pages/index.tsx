@@ -26,47 +26,57 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
-    <div className={styles.pageWrapper} data-testid="home-page">
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <InviteFriends />
-        </Modal>
-      )}
-      <div className={styles.welcomeSlider}>
-        <Picture jpg={'/images/white-theme/spotted-bg-highschool.png'} />
-      </div>
-      <div className={styles.wrapper}>
-        <div className={styles.sections}>
-          <div className={styles.headerWrapper}>
-            <h1 className={styles.header}>spotted.pl</h1>
-            <p className={styles.desc}>
-              Aliquip officia voluptate voluptate nulla lorem ipsum dolor
-              officia in incididunt labore.
-            </p>
-            <SearchBar
-              onTagAdd={() => null}
-              onTagRemove={() => null}
-              onLoadSuggestion={() => null}
-              onQueryChange={() => null}
-              onLoadSuggestionCancel={() => null}
-            />
-            <Button
-              additionalStyles={styles.btn}
-              onClick={() => setIsModalOpen(true)}
-              type="submit"
-            >
-              {t('btn')}
-            </Button>
-          </div>
-          <div className={cx(styles.section, styles.recentlyCreatedGroups)}>
-            <RecentlyCreatedGroups createYourOwnGroup={true} groups={groups} />
-          </div>
-          <div className={cx(styles.section, styles.recentlyRegisteredUsers)}>
-            <RecentlyRegisteredUsers users={users} />
+    <>
+      <style global jsx>{`
+        div[class*='mainNavigationWrapper'] {
+          position: fixed;
+        }
+      `}</style>
+      <div className={styles.pageWrapper} data-testid="home-page">
+        {isModalOpen && (
+          <Modal onClose={() => setIsModalOpen(false)}>
+            <InviteFriends />
+          </Modal>
+        )}
+        <div className={styles.welcomeSlider}>
+          <Picture jpg={'/images/white-theme/spotted-bg-highschool.png'} />
+        </div>
+        <div className={styles.wrapper}>
+          <div className={styles.sections}>
+            <div className={styles.headerWrapper}>
+              <h1 className={styles.header}>spotted.pl</h1>
+              <p className={styles.desc}>
+                Aliquip officia voluptate voluptate nulla lorem ipsum dolor
+                officia in incididunt labore.
+              </p>
+              <SearchBar
+                onTagAdd={() => null}
+                onTagRemove={() => null}
+                onLoadSuggestion={() => null}
+                onQueryChange={() => null}
+                onLoadSuggestionCancel={() => null}
+              />
+              <Button
+                additionalStyles={styles.btn}
+                onClick={() => setIsModalOpen(true)}
+                type="submit"
+              >
+                {t('btn')}
+              </Button>
+            </div>
+            <div className={cx(styles.section, styles.recentlyCreatedGroups)}>
+              <RecentlyCreatedGroups
+                createYourOwnGroup={true}
+                groups={groups}
+              />
+            </div>
+            <div className={cx(styles.section, styles.recentlyRegisteredUsers)}>
+              <RecentlyRegisteredUsers users={users} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

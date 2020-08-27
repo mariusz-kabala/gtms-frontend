@@ -1,4 +1,5 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .wrapper {
   .spinner {
@@ -14,4 +15,8 @@
       height: 100%;
     }
   }
+}
+
+.modal {
+  @include modalContent();
 }

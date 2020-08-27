@@ -2,7 +2,7 @@
 @import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .mainNavigationWrapper {
-  width: 40px;
+  min-width: 40px;
   margin: 0 20px;
   margin-right: 10px;
   @include z-index(mainNavigation);

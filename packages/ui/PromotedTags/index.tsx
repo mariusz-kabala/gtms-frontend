@@ -11,6 +11,7 @@ import { Picture } from '../Picture'
 import { UploadedPicture } from '../UploadedPicture'
 // style
 import styles from './styles.scss'
+import { isNull } from 'util'
 
 export const PromotedTags: FC<{
   additionalStyles?: string
@@ -55,15 +56,16 @@ export const PromotedTags: FC<{
               className={cx(styles.item, {
                 [styles.active]: activeTags.includes(tag.tag),
               })}
+              style={{
+                backgroundImage: `url(${
+                  tag.logo.status === FileStatus.ready
+                    ? tag.logo.files['200x200'].jpg
+                    : isNull
+                })`,
+              }}
               key={`promoted-${tag.id}`}
             >
               {!tag.logo.status && <Picture {...noImage['200x200']} />}
-              {tag.logo.status === FileStatus.ready && (
-                <Picture
-                  additionalStyles={styles.image}
-                  {...tag.logo.files['200x200']}
-                />
-              )}
               {tag.logo.status && tag.logo.status !== FileStatus.ready && (
                 <UploadedPicture jpg={tag.logo.files[0]} />
               )}

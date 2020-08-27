@@ -38,7 +38,10 @@ const GroupsList: FC<{ groups: IGroup[] }> = ({ groups }) => (
       <li key={`group-${group.id}`} className={styles.item}>
         <Link href={`/group/${group.slug}`}>
           <a>
-            <Picture {...getImage('50x50', group.avatar, GroupAvatarNoImage)} />
+            <Picture
+              additionalStyles={styles.image}
+              {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
+            />
           </a>
         </Link>
         <div className={styles.desc}>

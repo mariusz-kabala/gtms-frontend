@@ -18,6 +18,7 @@
 
 .modalContent {
   @include modalContent();
+
   .buttons {
     @include gridTwoButtons();
   }
