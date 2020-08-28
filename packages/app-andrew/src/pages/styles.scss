@@ -10,6 +10,10 @@
 .pageWrapper {
   background: #fffbf2;
   max-width: 100%;
+
+  &.isLoggedIn {
+    margin-left: -70px;
+  }
 }
 
 .welcomeSlider {

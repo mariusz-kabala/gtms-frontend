@@ -27,12 +27,12 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
 
   return (
     <>
-      <style global jsx>{`
-        div[class*='mainNavigationWrapper'] {
-          position: fixed;
-        }
-      `}</style>
-      <div className={styles.pageWrapper} data-testid="home-page">
+      <div
+        data-testid="home-page"
+        className={cx(styles.pageWrapper, {
+          [styles.isLoggedIn]: true,
+        })}
+      >
         {isModalOpen && (
           <Modal onClose={() => setIsModalOpen(false)}>
             <InviteFriends />
