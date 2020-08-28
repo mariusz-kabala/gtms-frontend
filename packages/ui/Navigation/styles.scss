@@ -55,6 +55,7 @@
         padding: 10px 5px;
         text-decoration: none;
         color: $theme0;
+        border: 2px solid $theme4;
         border-radius: 50%;
         background: $theme4;
 
@@ -72,7 +73,6 @@
       &.active {
         overflow: initial;
         border-color: $theme4;
-
         a {
           background: $theme0;
           color: $theme4;
