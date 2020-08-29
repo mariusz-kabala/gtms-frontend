@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
 import { IGroup } from '@gtms/commons/models'
+// ui
+import { IoMdCheckmark, IoMdClose } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
-import { Checkbox } from '@gtms/ui/Forms/Checkbox'
+import styles from './styles.scss'
 
 export const AddFavToMenuButton: FC<{
   isChecked: boolean
@@ -10,13 +12,15 @@ export const AddFavToMenuButton: FC<{
 }> = ({ isChecked, onClick, group }) => {
   return (
     <Button
+      additionalStyles={styles.btn}
       onClick={(e) => {
         e?.preventDefault()
         e?.stopPropagation()
         onClick(group)
       }}
     >
-      <Checkbox checked={isChecked} label={'Add to menu'} />
+      <i>{isChecked ? <IoMdCheckmark /> : <IoMdClose />}</i>
+      {isChecked ? 'checked' : 'unchecked'}
     </Button>
   )
 }

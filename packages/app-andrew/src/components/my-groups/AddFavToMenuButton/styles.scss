@@ -1,0 +1,14 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+
+.btn {
+  @include buttonDefault();
+  @include buttonSizeDefault();
+  @include buttonShapePrimary();
+  @include buttonColorsDefault();
+  @include buttonWithIcon();
+
+  &:hover {
+    @include buttonColorsPrimary();
+  }
+}

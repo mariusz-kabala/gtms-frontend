@@ -60,6 +60,7 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
         @include z-index(closeAllMyGroupsSidebar);
         color: $theme0;
         background: $theme4;
+        border: 2px solid $theme4;
 
         i {
           line-height: 0;
