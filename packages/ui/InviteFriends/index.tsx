@@ -21,7 +21,7 @@ export const InviteFriends: FC<{
           additionalStyles={styles.btn}
           text="wejdz na www.jedziemyna.pl"
         />
-        <img src="images/polandrock/invite-bg.png" />
+        <img src="/images/polandrock/invite-bg.png" />
       </div>
     </div>
   )
