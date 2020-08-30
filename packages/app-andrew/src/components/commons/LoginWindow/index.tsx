@@ -29,16 +29,14 @@ export const LoginWindow: FC<{}> = () => {
       additionalStyles={styles.modalContent}
       onClose={() => setIsOpen(false)}
     >
-      <div>
-        <h2 className={styles.header}>Login</h2>
-        <LoginForm />
-        <SocialButtons onFailure={() => null} />
-        <Link href="/registration">
-          <a className={styles.registrationLink}>
-            You do not have an account? Register now!
-          </a>
-        </Link>
-      </div>
+      <h2 className={styles.header}>Login</h2>
+      <LoginForm />
+      <SocialButtons onFailure={() => null} />
+      <Link href="/registration">
+        <a className={styles.registrationLink}>
+          You do not have an account? Register now!
+        </a>
+      </Link>
     </Modal>
   )
 }

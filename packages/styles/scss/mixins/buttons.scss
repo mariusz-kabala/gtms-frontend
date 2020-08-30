@@ -42,6 +42,23 @@
   }
 }
 
+@mixin buttonWithSpinner($position: 'left') {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+
+  @if $position == 'left' {
+    div {
+      margin-right: 10px;
+    }
+  }
+  @if $position == 'right' {
+    div {
+      margin-left: 10px;
+    }
+  }
+}
+
 @mixin buttonWithoutBackground() {
   background: none;
 }
@@ -100,5 +117,9 @@
 
 @mixin buttonColorsQuaternary() {
   background: $theme0;
+  color: $theme4;
+}
+
+@mixin buttonColorBlue() {
   color: $theme4;
 }

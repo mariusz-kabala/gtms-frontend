@@ -7,6 +7,8 @@ import { SocialButtons } from '../../components/login/SocialButtons'
 import { userQuery, hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 // ui
+import { AiOutlineForm } from 'react-icons/ai'
+import { MdSettingsBackupRestore } from 'react-icons/md'
 import { Button } from '@gtms/ui/Button'
 import { Picture } from '@gtms/ui/Picture'
 import { TagsGrid } from '@gtms/ui/TagsGrid'
@@ -67,14 +69,20 @@ export const LoginPage: NextPage<{}> = () => {
             </div>
             <LoginForm additionalStyles={styles.form} />
             <div className={styles.actionButtons}>
-              <Link href="/registration">
-                <Button additionalStyles={styles.btn}>
-                  {t('goToRegistration')}
-                </Button>
-              </Link>
               <Link href="/remind-password">
                 <Button additionalStyles={styles.btn}>
+                  <i>
+                    <MdSettingsBackupRestore />
+                  </i>
                   {t('goToRemindPassword')}
+                </Button>
+              </Link>
+              <Link href="/registration">
+                <Button additionalStyles={styles.btn}>
+                  <i>
+                    <AiOutlineForm />
+                  </i>
+                  {t('goToRegistration')}
                 </Button>
               </Link>
             </div>

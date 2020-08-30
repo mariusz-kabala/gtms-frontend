@@ -11,7 +11,7 @@
   &:hover,
   &:focus,
   &:active {
-    @include buttonColorsQuaternary();
+    @include buttonColorBlue();
   }
 
   span {

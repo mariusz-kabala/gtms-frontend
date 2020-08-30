@@ -1,12 +1,14 @@
 import React, { FC, useState } from 'react'
-import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { ILoginData } from '@gtms/api-auth'
 import { loginUser } from '@gtms/state-user'
-import { Input } from '@gtms/ui/Forms/Input'
-import { Error } from '@gtms/ui/Forms/Error'
+// ui
 import { Button } from '@gtms/ui/Button'
+import { Error } from '@gtms/ui/Forms/Error'
+import { Input } from '@gtms/ui/Forms/Input'
+import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 export const LoginForm: FC<{
   additionalStyles?: string
@@ -79,6 +81,7 @@ export const LoginForm: FC<{
         additionalStyles={styles.btnSubmit}
         disabled={isMakingRequest}
       >
+        <Spinner type="authentication" />
         {t('form.submitButton')}
       </Button>
     </form>

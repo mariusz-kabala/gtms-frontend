@@ -10,7 +10,7 @@
   @include buttonWithoutBackground();
 
   &:hover {
-    @include buttonColorsQuaternary();
+    @include buttonColorBlue();
   }
 
   &.isLoading {

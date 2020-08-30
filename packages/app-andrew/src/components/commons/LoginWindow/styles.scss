@@ -5,6 +5,9 @@
 
 .modalContent {
   @include modalContent();
+  > div {
+    min-width: auto; // to overwrite include modalContent()
+  }
 
   button[type='submit'] {
     margin-bottom: 20px;
@@ -20,6 +23,7 @@
 }
 
 .registrationLink {
+  width: 100%;
   margin-top: 15px;
 
   @include buttonDefault();

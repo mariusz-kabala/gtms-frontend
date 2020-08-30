@@ -8,6 +8,7 @@ import { UserAvatarNoImage } from 'enums'
 import styles from './styles.scss'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
+import { IoMdArrowForward } from 'react-icons/io'
 
 export const GroupMembers: FC<{
   additionalStyles: string
@@ -27,9 +28,9 @@ export const GroupMembers: FC<{
       {users.length > 0 && (
         <>
           <h2 className={styles.header}>Recently joined</h2>
-          <ul className={styles.users}>
+          <ul className={styles.items}>
             {users.map((user) => (
-              <li key={`group-member-${user.id}`}>
+              <li className={styles.item} key={`group-member-${user.id}`}>
                 <Link href={`/user/${user.id}`}>
                   <a>
                     <UserAvatar
@@ -41,6 +42,14 @@ export const GroupMembers: FC<{
               </li>
             ))}
           </ul>
+          <Link href={`/group-members`}>
+            <button className={styles.btn}>
+              show all users
+              <i>
+                <IoMdArrowForward />
+              </i>
+            </button>
+          </Link>
         </>
       )}
 

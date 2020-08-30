@@ -15,6 +15,7 @@
   &:hover,
   &:focus,
   &:active {
+    @include buttonColorBlue();
   }
 }
 

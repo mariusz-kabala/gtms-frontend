@@ -8,6 +8,7 @@ import { RegistrationForm } from '../../components/registration/Form'
 import { SocialButtons } from '../../components/login/SocialButtons'
 import { redirect } from '@gtms/commons/helpers/redirect'
 // ui
+import { IoMdLogIn } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { Picture } from '@gtms/ui/Picture'
 import { TagsGrid } from '@gtms/ui/TagsGrid'
@@ -67,7 +68,12 @@ export const RegistrationPage: NextPage<{}> = () => {
             />
             <div className={styles.actionButtons}>
               <Link href="/login">
-                <Button additionalStyles={styles.btn}>{t('goToLogin')}</Button>
+                <Button additionalStyles={styles.btn}>
+                  <i>
+                    <IoMdLogIn />
+                  </i>
+                  {t('goToLogin')}
+                </Button>
               </Link>
             </div>
           </div>

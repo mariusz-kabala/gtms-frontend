@@ -7,6 +7,8 @@
   @include buttonShapePrimary();
   @include buttonColorsDefault();
   @include buttonSizeDefault();
+  @include buttonWithSpinner();
+
   &:hover {
     @include buttonColorsPrimary();
   }
