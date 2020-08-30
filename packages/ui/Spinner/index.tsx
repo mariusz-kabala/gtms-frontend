@@ -8,12 +8,14 @@ import { BsUnlock } from 'react-icons/bs'
 
 export const Spinner: FC<{
   additionalStyles?: string
-  type?: string
+  centered?: boolean
   size?: string
-}> = ({ additionalStyles, size, type }) => (
+  type?: string
+}> = ({ additionalStyles, centered, size, type }) => (
   <div
     className={cx(styles.wrapper, additionalStyles, {
       [styles.sm]: size === 'sm',
+      [styles.centered]: centered,
     })}
     data-testid={'spinner'}
   >

@@ -2,7 +2,6 @@ $dark: rgba(0, 0, 0, 0.35);
 
 .wrapper {
   position: relative;
-  margin: auto;
   min-width: 60px;
   min-height: 60px;
   width: 60px;
@@ -62,6 +61,10 @@ $dark: rgba(0, 0, 0, 0.35);
       width: 12px;
       height: 12px;
     }
+  }
+
+  &.centered {
+    margin: auto;
   }
 }
 
