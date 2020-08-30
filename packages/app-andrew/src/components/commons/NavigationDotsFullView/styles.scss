@@ -90,12 +90,19 @@
 
   .list {
     .item {
-      display: flex;
-      cursor: pointer;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
 
-      .image img {
+      a {
+        display: flex;
+        cursor: pointer;
+        color: $theme0;
+      }
+
+      img,
+      picture {
+        // @todo create mixin for that
         overflow: hidden;
+        width: 50px;
         min-width: 50px;
         border-radius: $borderRadius;
       }
@@ -113,8 +120,7 @@
         }
 
         h2 {
-          @include font-size(md);
-          @include font-weight(semiBold);
+          @include font-size(md) @include font-weight(semiBold);
         }
       }
     }

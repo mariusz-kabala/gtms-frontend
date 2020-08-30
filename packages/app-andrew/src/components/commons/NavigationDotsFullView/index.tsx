@@ -42,14 +42,14 @@ const GroupsList: FC<{ groups: IGroup[] }> = ({ groups }) => (
               additionalStyles={styles.image}
               {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
             />
+            <div className={styles.desc}>
+              <Link href={`/group/${group.slug}`}>
+                <h2>{group.name}</h2>
+              </Link>
+              <p>{group.description || 'No description'}</p>
+            </div>
           </a>
         </Link>
-        <div className={styles.desc}>
-          <Link href={`/group/${group.slug}`}>
-            <h2>{group.name}</h2>
-          </Link>
-          <p>{group.description || 'No description'}</p>
-        </div>
       </li>
     ))}
   </ul>
