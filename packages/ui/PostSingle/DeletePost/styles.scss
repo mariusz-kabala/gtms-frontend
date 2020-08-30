@@ -37,7 +37,7 @@
     @include gridDefault(2);
   }
 
-  h2 {
+  .header {
     width: 100%;
     @include font-size(xmd);
     margin-bottom: 10px;

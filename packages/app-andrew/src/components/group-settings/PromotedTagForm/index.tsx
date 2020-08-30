@@ -1,15 +1,16 @@
 import React, { FC, useState, useRef, useCallback } from 'react'
 import cx from 'classnames'
-import { Tag } from '@gtms/ui/Tag'
-import { TagGroup } from '@gtms/ui/TagGroup'
 import { useTranslation } from '@gtms/commons/i18n'
-import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
-import styles from './styles.scss'
-import { Spinner } from '@gtms/ui'
-import { Error } from '@gtms/ui/Forms/Error'
 import { createPromotedTag, updatePromotedTag } from '@gtms/state-tag'
 import { uploadPromotedTagLogo } from '@gtms/api-tags'
+// ui
+import { Error } from '@gtms/ui/Forms/Error'
+import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
+import { Spinner } from '@gtms/ui'
+import { Tag } from '@gtms/ui/Tag'
+import { TagGroup } from '@gtms/ui/TagGroup'
 import { UploadFile } from '@gtms/ui/UploadFile'
+import styles from './styles.scss'
 
 enum FormSteps {
   one,
@@ -111,6 +112,7 @@ export const PromotedTagsForm: FC<{
           </li>
         </ul>
       </nav>
+
       {promotedTagId && stateTag.value && (
         <div className={styles.promoted}>
           <TagGroup>
@@ -118,6 +120,7 @@ export const PromotedTagsForm: FC<{
           </TagGroup>
         </div>
       )}
+
       {step === FormSteps.one && (
         <div>
           {!tag && !promotedTagId && (
