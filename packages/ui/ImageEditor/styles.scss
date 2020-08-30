@@ -1,43 +1,74 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
-@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
+@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .wrapper {
-  min-width: 800px;
-}
+  @include modalContent();
 
-.editor {
-  display: flex;
-  flex-direction: row;
-
-  .tools {
+  .editor {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
-    .option {
-      margin: 5px 0;
-      label {
-        @include font-weight(bold);
-        @include font-size(default);
-        display: block;
-        margin-bottom: 5px;
-        color: $theme4;
-      }
-      button {
-        margin-right: 10px;
+    .tools {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+
+      .option {
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .zoom {
+          cursor: pointer;
+        }
+
+        label {
+          display: block;
+          text-transform: uppercase;
+          margin-bottom: 5px;
+        }
+
+        .buttons {
+          @include gridTwoButtons();
+        }
+
+        &:hover {
+          label {
+            color: $theme4;
+          }
+        }
       }
     }
-  }
-}
 
-.btn {
-  @include buttonDefault();
-  @include buttonSizeDefault();
-  @include buttonShapePrimary();
-  @include buttonColorsDefault();
+    .btn {
+      width: 100%;
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapePrimary();
+      @include buttonWithIcon();
+      @include buttonColorsDefault();
 
-  &:hover {
-    @include buttonColorsPrimary();
+      &:hover {
+        @include buttonColorsPrimary();
+      }
+    }
+
+    .btnSave {
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapePrimary();
+      @include buttonColorsDefault();
+      width: 100%;
+      margin-top: 15px;
+
+      &:hover {
+        @include buttonColorsPrimary();
+      }
+    }
   }
 }

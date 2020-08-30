@@ -185,7 +185,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.wrapper}>
-        {state.isLoading && <Spinner additionalStyles={styles.spinner} />}
+        {state.isLoading && <Spinner centered />}
         {!state.isLoading && state.errorOccurred && (
           <ErrorWrapper>
             <h2>

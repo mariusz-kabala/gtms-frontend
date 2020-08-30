@@ -24,7 +24,7 @@
       @include buttonSizeDefault();
       @include buttonShapePrimary();
       @include buttonWithSpinner();
-      @include buttonColorsTertiary();
+      @include buttonColorsDefault();
 
       &:hover {
         @include buttonColorsPrimary();

@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import cx from 'classnames'
 import { Link } from '@gtms/commons/i18n'
 // ui
-
 import { AiOutlineBell } from 'react-icons/ai'
 import { FaIdCard } from 'react-icons/fa'
 import { MdSecurity } from 'react-icons/md'
