@@ -20,7 +20,7 @@
     text-align: center;
     @include font-weight(semiBold);
 
-    i {
+    > i {
       @include font-size(xxlg);
       color: $theme9;
     }
@@ -40,7 +40,7 @@
       color: $theme4;
       border-color: $theme4;
 
-      i {
+      > i {
         color: $theme4;
       }
 

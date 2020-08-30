@@ -216,284 +216,291 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   }, [])
 
   return (
-    <div className={styles.wrapper}>
-      {state.isLoading && <Spinner />}
+    <div className={styles.pageWrapper}>
+      <div className={styles.wrapper}>
+        {state.isLoading && <Spinner />}
 
-      {state.errorOccured && (
-        <ErrorWrapper>
-          <h2>ERROR OCCURED</h2>
-          <p>
-            Create a proper component that can be used here when 500 from BE
-          </p>
-        </ErrorWrapper>
-      )}
+        {state.errorOccured && (
+          <ErrorWrapper>
+            <h2>ERROR OCCURED</h2>
+            <p>
+              Create a proper component that can be used here when 500 from BE
+            </p>
+          </ErrorWrapper>
+        )}
 
-      {state.notFound && <GroupNotFound />}
+        {state.notFound && <GroupNotFound />}
 
-      {state.hasNoAccess && <GroupNoAccess />}
+        {state.hasNoAccess && <GroupNoAccess />}
 
-      {state.group && (
-        <>
-          <div
-            className={cx(styles.groupSidebar, {
-              [styles.active]: isSidebarOpen,
-            })}
-            ref={groupHeaderRef}
-          >
-            <div className={styles.makeItSticky}>
-              <div className={styles.avatarNamedDesc}>
-                <div className={styles.avatarName}>
-                  <GroupAvatar
-                    additionalStyles={styles.groupAvatar}
-                    files={groupQuery.getAvatar('50x50', state)}
-                    filesStatus={groupQuery.getAvatarFileStatus()}
+        {state.group && (
+          <>
+            <div
+              className={cx(styles.groupSidebar, {
+                [styles.active]: isSidebarOpen,
+              })}
+              ref={groupHeaderRef}
+            >
+              <div className={styles.makeItSticky}>
+                <div className={styles.avatarNamedDesc}>
+                  <div className={styles.avatarName}>
+                    <GroupAvatar
+                      additionalStyles={styles.groupAvatar}
+                      files={groupQuery.getAvatar('50x50', state)}
+                      filesStatus={groupQuery.getAvatarFileStatus()}
+                      isEditAllowed={groupQuery.hasAdminRights()}
+                    />
+                    <h2
+                      className={styles.header}
+                      data-tip={t('click-here-to-edit')}
+                      data-type="dark"
+                    >
+                      {state.group?.name}
+                    </h2>
+                  </div>
+                  <GroupDescription
+                    additionalStyles={styles.desc}
                     isEditAllowed={groupQuery.hasAdminRights()}
+                    slug={state.group?.slug || ''}
+                    text={
+                      !state.group?.description
+                        ? groupQuery.hasAdminRights()
+                          ? 'you did not add group description yet, click here to change it'
+                          : ''
+                        : state.group?.description || ''
+                    }
                   />
-                  <h2
-                    className={styles.header}
-                    data-tip={t('click-here-to-edit')}
-                    data-type="dark"
-                  >
-                    {state.group?.name}
-                  </h2>
                 </div>
-                <GroupDescription
-                  additionalStyles={styles.desc}
-                  isEditAllowed={groupQuery.hasAdminRights()}
-                  slug={state.group?.slug || ''}
-                  text={
-                    !state.group?.description
-                      ? groupQuery.hasAdminRights()
-                        ? 'you did not add group description yet, click here to change it'
-                        : ''
-                      : state.group?.description || ''
-                  }
-                />
-              </div>
-              <div className={styles.actionButtons}>
-                <FavsButton group={state.group} />
-                <JoinLeaveButton group={state.group} />
-                <SettingsButton group={state.group} />
-                <FollowButton group={state.group} />
-              </div>
-              <Button
-                additionalStyles={cx(styles.btnTags, {
-                  [styles.active]: showPromoted,
-                })}
-                onClick={() => {
-                  if (!showPromoted) {
-                    setTimeout(() => {
-                      if (!promotedTagsRef.current || !groupHeaderRef.current) {
-                        return
-                      }
-                      window.scroll({
-                        top:
-                          promotedTagsRef.current.offsetTop -
-                          groupHeaderRef.current.clientHeight,
-                        left: 0,
-                        behavior: 'smooth',
-                      })
-                    }, 200)
-                  }
-                  setShowPromoted((value) => !value)
-                }}
-              >
-                <i>
-                  <IoMdGrid />
-                </i>
-                <span>Tags</span>
-              </Button>
-              <ul className={styles.navmock}>
-                <li className={styles.item}>
-                  <i>
-                    <GoDatabase />
-                  </i>
-                  <span>Users</span>
-                </li>
-                <li className={styles.item}>
-                  <i>
-                    <GoGitCompare />
-                  </i>
-                  <span>Tags</span>
-                </li>
-                <li className={styles.item}>
-                  <i>
-                    <GoRepoForked />
-                  </i>
-                  <span>Settings</span>
-                </li>
-                <li
-                  className={styles.item}
-                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                <div className={styles.actionButtons}>
+                  <FavsButton group={state.group} />
+                  <JoinLeaveButton group={state.group} />
+                  <SettingsButton group={state.group} />
+                  <FollowButton group={state.group} />
+                </div>
+                <Button
+                  additionalStyles={cx(styles.btnTags, {
+                    [styles.active]: showPromoted,
+                  })}
+                  onClick={() => {
+                    if (!showPromoted) {
+                      setTimeout(() => {
+                        if (
+                          !promotedTagsRef.current ||
+                          !groupHeaderRef.current
+                        ) {
+                          return
+                        }
+                        window.scroll({
+                          top:
+                            promotedTagsRef.current.offsetTop -
+                            groupHeaderRef.current.clientHeight,
+                          left: 0,
+                          behavior: 'smooth',
+                        })
+                      }, 200)
+                    }
+                    setShowPromoted((value) => !value)
+                  }}
                 >
                   <i>
-                    <GoGift />
+                    <IoMdGrid />
                   </i>
-                  <span>Posts</span>
-                </li>
-              </ul>
-              <GroupMembers
-                additionalStyles={styles.groupMembers}
-                {...state.members}
-              />
-              <div className={styles.searchInput}>
-                <div className={styles.search}>
-                  <SearchBar
-                    onTagAdd={() => null}
-                    onTagRemove={() => null}
-                    onLoadSuggestion={() => null}
-                    onQueryChange={() => null}
-                    onLoadSuggestionCancel={() => null}
-                    tags={state.activeTags || []}
-                    users={state.activeUsers}
-                  />
+                  <span>Tags</span>
+                </Button>
+                <ul className={styles.navmock}>
+                  <li className={styles.item}>
+                    <i>
+                      <GoDatabase />
+                    </i>
+                    <span>Users</span>
+                  </li>
+                  <li className={styles.item}>
+                    <i>
+                      <GoGitCompare />
+                    </i>
+                    <span>Tags</span>
+                  </li>
+                  <li className={styles.item}>
+                    <i>
+                      <GoRepoForked />
+                    </i>
+                    <span>Settings</span>
+                  </li>
+                  <li
+                    className={styles.item}
+                    onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                  >
+                    <i>
+                      <GoGift />
+                    </i>
+                    <span>Posts</span>
+                  </li>
+                </ul>
+                <GroupMembers
+                  additionalStyles={styles.groupMembers}
+                  {...state.members}
+                />
+                <div className={styles.searchInput}>
+                  <div className={styles.search}>
+                    <SearchBar
+                      onTagAdd={() => null}
+                      onTagRemove={() => null}
+                      onLoadSuggestion={() => null}
+                      onQueryChange={() => null}
+                      onLoadSuggestionCancel={() => null}
+                      tags={state.activeTags || []}
+                      users={state.activeUsers}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className={styles.groupContent}>
-            <GroupCover
-              group={state.group}
-              isEditAllowed={groupQuery.hasAdminRights()}
-            />
-            <div className={styles.groupPostsListWrapper}>
-              {showPromoted && (
-                <PromotedTags
-                  onTagClick={(tag) => onClick({ tag: tag.tag })}
-                  ref={promotedTagsRef}
+            <div className={styles.groupContent}>
+              <GroupCover
+                group={state.group}
+                isEditAllowed={groupQuery.hasAdminRights()}
+              />
+              <div className={styles.groupPostsListWrapper}>
+                {showPromoted && (
+                  <PromotedTags
+                    onTagClick={(tag) => onClick({ tag: tag.tag })}
+                    ref={promotedTagsRef}
+                  />
+                )}
+                {state && state.posts && state.posts.length === 0 && (
+                  <div className={styles.noPostsFound}>
+                    <div>
+                      <div>
+                        <h3 className={styles.header}>
+                          <span>Ooops</span>, wygląda na to, że nikt nie dodał
+                          jeszcze żadnego posta :( Możesz być pierwszy!
+                        </h3>
+                        <PostCreate
+                          additionalStyles={styles.postCreate}
+                          fetchTags={findTagsAPI}
+                          fetchUsers={findbyUsernameAPI}
+                          fetchSuggestedTags={fetchSuggestedTagsAPI}
+                          user={state.user}
+                          noImage={UserAvatarNoImage}
+                          onSubmit={(text: string) => {
+                            createNewPost({
+                              group: state.group?.id || '',
+                              text,
+                            })
+                          }}
+                          onLoginRequest={openLoginModal}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {state && state.posts && state.posts.length > 0 && (
+                  <>
+                    <NavigationTabs>
+                      <h2 className={styles.header}>Posts</h2>
+                      <ul>
+                        <li
+                          onClick={() => onClick({ sort: Sorting.latest })}
+                          className={cx({
+                            [styles.active]:
+                              state.postsSorting === Sorting.latest,
+                          })}
+                        >
+                          latest
+                        </li>
+                        <li
+                          onClick={() => onClick({ sort: Sorting.active })}
+                          className={cx({
+                            [styles.active]:
+                              state.postsSorting === Sorting.active,
+                          })}
+                        >
+                          active
+                        </li>
+                        <li
+                          onClick={() => onClick({ sort: Sorting.popular })}
+                          className={cx({
+                            [styles.active]:
+                              state.postsSorting === Sorting.popular,
+                          })}
+                        >
+                          popular
+                        </li>
+                        <li className={cx(styles.item)}>my</li>
+                      </ul>
+                    </NavigationTabs>
+                    <div className={styles.posts}>
+                      <div>
+                        <PostCreate
+                          additionalStyles={styles.postCreate}
+                          fetchTags={findTagsAPI}
+                          fetchUsers={findbyUsernameAPI}
+                          fetchSuggestedTags={fetchSuggestedTagsAPI}
+                          user={state.user}
+                          noImage={UserAvatarNoImage}
+                          onSubmit={(text: string) => {
+                            createNewPost({
+                              group: state.group?.id || '',
+                              text,
+                            })
+                          }}
+                          onLoginRequest={openLoginModal}
+                        />
+                        <RecentlyAddedPosts
+                          fetchTags={findTagsAPI}
+                          fetchUsers={findbyUsernameAPI}
+                          onPostClick={(id) => onClick({ post: id })}
+                          onTagClick={(tag) => {
+                            router.push(
+                              `/group/${state.group?.slug}/tag/${tag}`
+                            )
+                          }}
+                          onUserClick={onUserClick}
+                          user={state.user}
+                          renderFavs={renderFavs}
+                          activePost={state.activePost}
+                          createComment={createNewComment}
+                          noImage={UserAvatarNoImage}
+                          posts={state.posts}
+                          onLoginRequest={openLoginModal}
+                          activeTags={state.activeTags || []}
+                        />
+                      </div>
+                      {state.activePost && (
+                        <PostDetails
+                          comments={state.comments}
+                          user={state.user}
+                          activeTags={state.activeTags || []}
+                          post={state.activePost}
+                        />
+                      )}
+                      <br />
+                      <br />
+                      <Pagination />
+                      <br />
+                      <br />
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+            <div
+              className={cx(styles.userPreviewWrapper, {
+                [styles.active]: userPreview,
+              })}
+            >
+              {userPreview && (
+                <UserPreview
+                  user={userPreview}
+                  noUserAvatar={UserAvatarNoImage}
+                  onUserPostsClick={(user) => onClick({ user: user.username })}
+                  onClose={onCloseUserPreview}
                 />
               )}
-              {state && state.posts && state.posts.length === 0 && (
-                <div className={styles.noPostsFound}>
-                  <div>
-                    <div>
-                      <h3 className={styles.header}>
-                        <span>Ooops</span>, wygląda na to, że nikt nie dodał
-                        jeszcze żadnego posta :( Możesz być pierwszy!
-                      </h3>
-                      <PostCreate
-                        additionalStyles={styles.postCreate}
-                        fetchTags={findTagsAPI}
-                        fetchUsers={findbyUsernameAPI}
-                        fetchSuggestedTags={fetchSuggestedTagsAPI}
-                        user={state.user}
-                        noImage={UserAvatarNoImage}
-                        onSubmit={(text: string) => {
-                          createNewPost({
-                            group: state.group?.id || '',
-                            text,
-                          })
-                        }}
-                        onLoginRequest={openLoginModal}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-              {state && state.posts && state.posts.length > 0 && (
-                <>
-                  <NavigationTabs>
-                    <h2 className={styles.header}>Posts</h2>
-                    <ul>
-                      <li
-                        onClick={() => onClick({ sort: Sorting.latest })}
-                        className={cx({
-                          [styles.active]:
-                            state.postsSorting === Sorting.latest,
-                        })}
-                      >
-                        latest
-                      </li>
-                      <li
-                        onClick={() => onClick({ sort: Sorting.active })}
-                        className={cx({
-                          [styles.active]:
-                            state.postsSorting === Sorting.active,
-                        })}
-                      >
-                        active
-                      </li>
-                      <li
-                        onClick={() => onClick({ sort: Sorting.popular })}
-                        className={cx({
-                          [styles.active]:
-                            state.postsSorting === Sorting.popular,
-                        })}
-                      >
-                        popular
-                      </li>
-                      <li className={cx(styles.item)}>my</li>
-                    </ul>
-                  </NavigationTabs>
-                  <div className={styles.posts}>
-                    <div>
-                      <PostCreate
-                        additionalStyles={styles.postCreate}
-                        fetchTags={findTagsAPI}
-                        fetchUsers={findbyUsernameAPI}
-                        fetchSuggestedTags={fetchSuggestedTagsAPI}
-                        user={state.user}
-                        noImage={UserAvatarNoImage}
-                        onSubmit={(text: string) => {
-                          createNewPost({
-                            group: state.group?.id || '',
-                            text,
-                          })
-                        }}
-                        onLoginRequest={openLoginModal}
-                      />
-                      <RecentlyAddedPosts
-                        fetchTags={findTagsAPI}
-                        fetchUsers={findbyUsernameAPI}
-                        onPostClick={(id) => onClick({ post: id })}
-                        onTagClick={(tag) => {
-                          router.push(`/group/${state.group?.slug}/tag/${tag}`)
-                        }}
-                        onUserClick={onUserClick}
-                        user={state.user}
-                        renderFavs={renderFavs}
-                        activePost={state.activePost}
-                        createComment={createNewComment}
-                        noImage={UserAvatarNoImage}
-                        posts={state.posts}
-                        onLoginRequest={openLoginModal}
-                        activeTags={state.activeTags || []}
-                      />
-                    </div>
-                    {state.activePost && (
-                      <PostDetails
-                        comments={state.comments}
-                        user={state.user}
-                        activeTags={state.activeTags || []}
-                        post={state.activePost}
-                      />
-                    )}
-                    <br />
-                    <br />
-                    <Pagination />
-                    <br />
-                    <br />
-                  </div>
-                </>
-              )}
             </div>
-          </div>
-          <div
-            className={cx(styles.userPreviewWrapper, {
-              [styles.active]: userPreview,
-            })}
-          >
-            {userPreview && (
-              <UserPreview
-                user={userPreview}
-                noUserAvatar={UserAvatarNoImage}
-                onUserPostsClick={(user) => onClick({ user: user.username })}
-                onClose={onCloseUserPreview}
-              />
-            )}
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   )
 }
