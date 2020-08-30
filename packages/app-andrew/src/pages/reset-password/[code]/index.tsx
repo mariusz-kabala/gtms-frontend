@@ -33,7 +33,7 @@ export const ResetPasswordPage: NextPage<{}> = () => {
     <div className={styles.pageWrapper} data-testid="remind-password-page">
       <div className={styles.wrapper}>
         <div>
-          <h2>
+          <h2 className={styles.header}>
             {/* @todo GEOT-109 - put proper translations everywhere */}
             {t('Podaj nowe haslo do swojego konta')}
           </h2>

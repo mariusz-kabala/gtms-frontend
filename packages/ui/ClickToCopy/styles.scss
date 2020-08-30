@@ -1,13 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
-@import '~@gtms/styles/scss/mixins/header.scss';
 
 .wrapper {
-  h2 {
-    @include header(h4);
-    margin-bottom: 20px;
-  }
-
   .btn {
     @include buttonDefault();
     @include buttonSizeDefault();

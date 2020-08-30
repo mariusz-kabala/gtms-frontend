@@ -29,7 +29,10 @@ export const ActivateAccountPage: NextPage<{}> = () => {
       <div className={styles.wrapper}>
         {isLoading && <Spinner />}
         {!isLoading && !hasError && (
-          <h2 data-testid="activate-account-page-confirmation">
+          <h2
+            className={styles.header}
+            data-testid="activate-account-page-confirmation"
+          >
             {t('accountActivated')}
           </h2>
         )}

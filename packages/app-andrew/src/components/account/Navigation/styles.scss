@@ -8,7 +8,7 @@
   margin-bottom: 20px;
   cursor: pointer;
 
-  h2 {
+  .header {
     @include font-weight(semiBold);
     text-transform: uppercase;
     @include font-size(xmd);

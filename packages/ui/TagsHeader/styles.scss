@@ -10,7 +10,7 @@
     flex-direction: row;
     align-items: baseline;
 
-    h2 {
+    .header {
       @include font-size(xxlg);
     }
 

@@ -41,6 +41,7 @@
     @include buttonDefault();
     @include buttonSizeMd();
     @include buttonShapePrimary();
+    @include buttonWithIcon();
     @include buttonColorsDefault();
     margin-top: 20px;
 

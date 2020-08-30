@@ -6,6 +6,7 @@ import { IPromotedTag } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 // ui
 import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
+import { Button } from '../Button'
 import { Spinner } from '../Spinner'
 import { Picture } from '../Picture'
 import { UploadedPicture } from '../UploadedPicture'
@@ -48,6 +49,7 @@ export const PromotedTags: FC<{
       data-testid="promoted-tags"
     >
       {isLoading && <Spinner />}
+
       <div className={cx(styles.items)}>
         {tags.length > 0 &&
           tags.map((tag) => (
@@ -105,6 +107,10 @@ export const PromotedTags: FC<{
           </button>
         )}
       </div>
+      <Button additionalStyles={styles.btn}>
+        <Spinner size="sm" />
+        Show more...
+      </Button>
     </div>
   )
 }

@@ -2,10 +2,11 @@ $dark: rgba(0, 0, 0, 0.35);
 
 .wrapper {
   position: relative;
-  border-radius: 50%;
+  margin: auto;
   min-width: 60px;
   min-height: 60px;
   width: 60px;
+  border-radius: 50%;
   height: 60px;
   background: $dark;
 

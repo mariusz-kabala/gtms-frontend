@@ -13,7 +13,7 @@
   height: 100%;
   background: $theme0;
 
-  h2 {
+  .header {
     @include header(h1, textUppercase);
     margin-bottom: 20px;
   }

@@ -1,14 +1,17 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import cx from 'classnames'
 import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
 import { UserAvatarNoImage } from 'enums'
 // ui
-import styles from './styles.scss'
+import { IoMdArrowForward } from 'react-icons/io'
+import { InviteFriends } from '@gtms/ui/InviteFriends'
+import { Button } from '@gtms/ui/Button'
+import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
-import { IoMdArrowForward } from 'react-icons/io'
+import styles from './styles.scss'
 
 export const GroupMembers: FC<{
   additionalStyles: string
@@ -16,11 +19,19 @@ export const GroupMembers: FC<{
   isLoading: boolean
   users: IUser[]
 }> = ({ additionalStyles, errorOccured, isLoading, users }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
   return (
     <div
       data-testid="group-members"
       className={cx(styles.wrapper, additionalStyles)}
     >
+      {isModalOpen && (
+        <Modal onClose={() => setIsModalOpen(false)}>
+          <InviteFriends />
+        </Modal>
+      )}
+
       {isLoading && <Spinner />}
 
       {errorOccured && <p>Sorry we can not show you groups members now</p>}
@@ -41,6 +52,17 @@ export const GroupMembers: FC<{
                 </Link>
               </li>
             ))}
+            <li
+              className={cx(styles.item, styles.invite)}
+              key={`group-member-invite}`}
+            >
+              <Button
+                additionalStyles={styles.btnInvite}
+                onClick={() => setIsModalOpen(true)}
+              >
+                +
+              </Button>
+            </li>
           </ul>
           <Link href={`/group-members`}>
             <button className={styles.btn}>

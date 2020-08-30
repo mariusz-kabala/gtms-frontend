@@ -17,7 +17,7 @@ export const Navigation: FC<{ current: Tabs }> = ({ current }) => {
   })
   return (
     <div className={styles.navigation}>
-      <h2>{titleMapper[current]}</h2>
+      <h2 className={styles.header}>{titleMapper[current]}</h2>
       <ul className={styles.items}>
         <li
           className={cx(styles.item, {

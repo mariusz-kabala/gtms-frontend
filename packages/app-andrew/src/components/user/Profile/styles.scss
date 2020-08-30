@@ -33,7 +33,7 @@
   .tags {
     margin: 20px 0;
 
-    h2 {
+    .header {
       @include font-size(lg);
       @include font-weight(semiBold);
       margin-bottom: 5px;

@@ -105,7 +105,7 @@ export const AccountSecurityPage: NextPage<IAccountSecurityPageProps> = () => {
         <LoginHistory {...loginHistory} />
         <div className={styles.deleteAccount}>
           <div className={styles.btn}>
-            <h2>Oh no! Do not</h2>
+            <h2 className={styles.header}>Oh no! Do not</h2>
             <DeleteAccount onConfirm={() => null} />
           </div>
           <Picture

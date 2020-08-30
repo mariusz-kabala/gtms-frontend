@@ -32,11 +32,11 @@ export const Pagination: FC<{
         {renderDots()}
 
         {/* mock for active state */}
-        <li className={cx(styles.item, styles.active)}>x</li>
+        <li className={cx(styles.item, styles.active)}>12</li>
 
         <li className={styles.item}>
           next
-          <i>
+          <i className={styles.icon}>
             <GoChevronRight />
           </i>
         </li>
