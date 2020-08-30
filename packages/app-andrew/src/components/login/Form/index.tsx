@@ -81,7 +81,7 @@ export const LoginForm: FC<{
         additionalStyles={styles.btnSubmit}
         disabled={isMakingRequest}
       >
-        <Spinner type="authentication" />
+        <Spinner size="sm" type="authentication" />
         {t('form.submitButton')}
       </Button>
     </form>

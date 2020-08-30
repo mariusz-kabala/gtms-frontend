@@ -31,12 +31,12 @@
   line-height: 0;
 
   @if $position == 'left' {
-    i {
+    > i {
       margin-right: 3px;
     }
   }
   @if $position == 'right' {
-    i {
+    > i {
       margin-left: 3px;
     }
   }

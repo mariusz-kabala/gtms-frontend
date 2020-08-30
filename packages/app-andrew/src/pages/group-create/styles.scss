@@ -26,9 +26,9 @@
     padding: 50px;
 
     .header {
-      font-size: 3em;
-      text-transform: uppercase;
       @include font-weight(bold);
+      @include font-size(xlg);
+      text-transform: uppercase;
     }
 
     .desc {

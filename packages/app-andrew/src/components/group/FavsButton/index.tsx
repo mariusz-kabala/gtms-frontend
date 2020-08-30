@@ -41,6 +41,27 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
       </button>
     )
   }
+  return (
+    <Button
+      additionalStyles={cx(styles.btn, {
+        [styles.isLoading]: status.isLoading && userQuery.isLogged(),
+      })}
+      onClick={() => {
+        if (!userQuery.isLogged()) {
+          return openLoginModal()
+        }
+
+        if (status.isInFavs) {
+          removeFromFavs(group)
+        } else {
+          addToFavs(group)
+        }
+      }}
+    >
+      <Spinner size="sm" />
+      {t('favs')}
+    </Button>
+  )
 
   return (
     <Button
