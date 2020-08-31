@@ -12,7 +12,7 @@ import { Picture } from '../Picture'
 import { UploadedPicture } from '../UploadedPicture'
 // style
 import styles from './styles.scss'
-import { isNull } from 'util'
+import { getImage } from '@gtms/commons'
 
 export const PromotedTags: FC<{
   additionalStyles?: string
@@ -58,13 +58,15 @@ export const PromotedTags: FC<{
               className={cx(styles.item, {
                 [styles.active]: activeTags.includes(tag.tag),
               })}
-              style={{
-                backgroundImage: `url(${
-                  tag.logo.status === FileStatus.ready
-                    ? tag.logo.files['200x200'].jpg
-                    : isNull
-                })`,
-              }}
+              style={
+                tag.logo.status === FileStatus.ready
+                  ? {
+                      backgroundImage: `url(${
+                        getImage('200x200', tag.logo).jpg
+                      }`,
+                    }
+                  : {}
+              }
               key={`promoted-${tag.id}`}
             >
               {!tag.logo.status && <Picture {...noImage['200x200']} />}

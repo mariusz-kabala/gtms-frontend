@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
-import { useTranslation } from '@gtms/commons/i18n'
 // ui
 import { IoMdArrowBack } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
@@ -10,8 +9,6 @@ import styles from './styles.scss'
 export const FourHundredFour: FC<{ additionalStyles?: string }> = ({
   additionalStyles,
 }) => {
-  const { t } = useTranslation('page404')
-
   return (
     <div
       data-testid={'four-hundred-four'}
