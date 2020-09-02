@@ -28,6 +28,7 @@ export const PostCreate: FC<{
   user: IAccountDetails | null
   noImage: { [key: string]: IImage }
   onLoginRequest?: () => unknown
+  onFocus?: () => unknown
 }> = ({
   additionalStyles,
   onSubmit,
@@ -37,6 +38,7 @@ export const PostCreate: FC<{
   fetchUsers,
   fetchSuggestedTags,
   onLoginRequest,
+  onFocus,
   isLoading = false,
   hintMinLenght = 3,
 }) => {
@@ -187,7 +189,10 @@ export const PostCreate: FC<{
           onFocus={() => {
             if (!user && onLoginRequest) {
               onLoginRequest()
+              return
             }
+
+            onFocus && onFocus()
           }}
           className={styles.textarea}
           data-testid="form-expanding-textarea"

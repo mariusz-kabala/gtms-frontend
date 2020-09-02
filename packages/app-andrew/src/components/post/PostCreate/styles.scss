@@ -1,0 +1,42 @@
+.wrapper {
+  // todo
+}
+
+.uploadWrapper {
+  position: relative;
+
+  .close {
+    position: absolute;
+    cursor: pointer;
+    right: 5px;
+    top: 5px;
+
+    svg {
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+}
+
+.gallery {
+  display: flex;
+  justify-content: flex-start;
+  margin: 2% 0;
+
+  .img {
+    max-width: 120px;
+    max-height: 120px;
+    margin-right: 2%;
+    position: relative;
+
+    a.close {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+      svg {
+        fill: red;
+      }
+    }
+  }
+}

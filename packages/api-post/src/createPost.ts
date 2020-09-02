@@ -5,6 +5,9 @@ export interface ICreatePostData {
   group: string
   text: string
   tags?: string[]
+  files?: {
+    id: string
+  }[]
 }
 
 export const createPostAPI = (payload: ICreatePostData): Promise<IPost> =>

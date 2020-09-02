@@ -13,7 +13,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { IPost, IUser } from '@gtms/commons/models'
 // api
 import { fetchPost, Sorting } from '@gtms/api-post'
-import { findTagsAPI, fetchSuggestedTagsAPI } from '@gtms/api-tags'
+import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
 import { FavsButton } from 'components/group/FavsButton'
@@ -29,6 +29,7 @@ import { PostDetails } from 'components/post/PostDetails'
 import { PromotedTags } from 'components/group/PromotedTags'
 import { GroupCover } from 'components/group/GroupCover'
 import { Favs } from 'components/post/Favs'
+import { PostCreate } from 'components/post/PostCreate'
 // state
 import { openLoginModal } from 'state'
 import {
@@ -46,7 +47,6 @@ import {
   initPromoted,
 } from '@gtms/state-tag'
 import {
-  createNewPost,
   createNewComment,
   getGroupPosts,
   postsQuery,
@@ -67,7 +67,6 @@ import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Pagination } from '@gtms/ui/Pagination'
-import { PostCreate } from '@gtms/ui/PostCreate'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
 import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -375,21 +374,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                           <span>Ooops</span>, wygląda na to, że nikt nie dodał
                           jeszcze żadnego posta :( Możesz być pierwszy!
                         </h3>
-                        <PostCreate
-                          additionalStyles={styles.postCreate}
-                          fetchTags={findTagsAPI}
-                          fetchUsers={findbyUsernameAPI}
-                          fetchSuggestedTags={fetchSuggestedTagsAPI}
-                          user={state.user}
-                          noImage={UserAvatarNoImage}
-                          onSubmit={(text: string) => {
-                            createNewPost({
-                              group: state.group?.id || '',
-                              text,
-                            })
-                          }}
-                          onLoginRequest={openLoginModal}
-                        />
+                        <PostCreate groupId={state.group?.id || ''} />
                       </div>
                     </div>
                   </div>
@@ -431,21 +416,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     </NavigationTabs>
                     <div className={styles.posts}>
                       <div>
-                        <PostCreate
-                          additionalStyles={styles.postCreate}
-                          fetchTags={findTagsAPI}
-                          fetchUsers={findbyUsernameAPI}
-                          fetchSuggestedTags={fetchSuggestedTagsAPI}
-                          user={state.user}
-                          noImage={UserAvatarNoImage}
-                          onSubmit={(text: string) => {
-                            createNewPost({
-                              group: state.group?.id || '',
-                              text,
-                            })
-                          }}
-                          onLoginRequest={openLoginModal}
-                        />
+                        <PostCreate groupId={state.group?.id || ''} />
                         <RecentlyAddedPosts
                           fetchTags={findTagsAPI}
                           fetchUsers={findbyUsernameAPI}

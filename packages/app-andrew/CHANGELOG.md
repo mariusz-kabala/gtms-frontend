@@ -3,76 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.76.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.75.1...@gtms/app-andrew@0.76.0) (2020-09-02)
+
+### Features
+
+- GEOT-430: allow user to upload files together with a post ([#833](https://github.com/gtms-org/gtms-frontend/issues/833)) ([a5474eb](https://github.com/gtms-org/gtms-frontend/commit/a5474eb3b7aabeff4104d734a99a31ddce3d27d8))
+
 ## [0.75.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.75.0...@gtms/app-andrew@0.75.1) (2020-08-26)
 
 **Note:** Version bump only for package @gtms/app-andrew
 
-
-
-
-
 # [0.75.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.74.3...@gtms/app-andrew@0.75.0) (2020-08-26)
-
 
 ### Features
 
-* GEOT-429: general changes part2 ([#828](https://github.com/gtms-org/gtms-frontend/issues/828)) ([4841cb0](https://github.com/gtms-org/gtms-frontend/commit/4841cb00ffe9cc1f9cc4f4c3ec7915b420af072a))
-
-
-
-
+- GEOT-429: general changes part2 ([#828](https://github.com/gtms-org/gtms-frontend/issues/828)) ([4841cb0](https://github.com/gtms-org/gtms-frontend/commit/4841cb00ffe9cc1f9cc4f4c3ec7915b420af072a))
 
 ## [0.74.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.74.2...@gtms/app-andrew@0.74.3) (2020-08-17)
 
-
 ### Bug Fixes
 
-* GEOT-423: working version of group cover photo chooser ([#824](https://github.com/gtms-org/gtms-frontend/issues/824)) ([d9ffdc2](https://github.com/gtms-org/gtms-frontend/commit/d9ffdc2a78c3bd6949a956356ed189421bf04224))
-
-
-
-
+- GEOT-423: working version of group cover photo chooser ([#824](https://github.com/gtms-org/gtms-frontend/issues/824)) ([d9ffdc2](https://github.com/gtms-org/gtms-frontend/commit/d9ffdc2a78c3bd6949a956356ed189421bf04224))
 
 ## [0.74.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.74.1...@gtms/app-andrew@0.74.2) (2020-08-16)
 
-
 ### Bug Fixes
 
-* GEOT-422: use html generated on BE for post and comment cont ([#822](https://github.com/gtms-org/gtms-frontend/issues/822)) ([8a9bdd7](https://github.com/gtms-org/gtms-frontend/commit/8a9bdd72dd8cf49fa5358cf1a7d7018e994ecef3))
-
-
-
-
+- GEOT-422: use html generated on BE for post and comment cont ([#822](https://github.com/gtms-org/gtms-frontend/issues/822)) ([8a9bdd7](https://github.com/gtms-org/gtms-frontend/commit/8a9bdd72dd8cf49fa5358cf1a7d7018e994ecef3))
 
 ## [0.74.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.74.0...@gtms/app-andrew@0.74.1) (2020-08-15)
 
 **Note:** Version bump only for package @gtms/app-andrew
 
-
-
-
-
 # [0.74.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.73.0...@gtms/app-andrew@0.74.0) (2020-08-13)
-
 
 ### Features
 
-* GEOT-421: unhide group actions buttons ([#820](https://github.com/gtms-org/gtms-frontend/issues/820)) ([c007949](https://github.com/gtms-org/gtms-frontend/commit/c0079495a6e8a1a871f4a63dc9b9cb722c251bc9))
-
-
-
-
+- GEOT-421: unhide group actions buttons ([#820](https://github.com/gtms-org/gtms-frontend/issues/820)) ([c007949](https://github.com/gtms-org/gtms-frontend/commit/c0079495a6e8a1a871f4a63dc9b9cb722c251bc9))
 
 # [0.73.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.72.0...@gtms/app-andrew@0.73.0) (2020-08-13)
 
-
 ### Features
 
-* GEOT-411: add cover ([#812](https://github.com/gtms-org/gtms-frontend/issues/812)) ([6238c2e](https://github.com/gtms-org/gtms-frontend/commit/6238c2e8ff735b24dc46fc4497cfde6c91de272b))
-
-
-
-
+- GEOT-411: add cover ([#812](https://github.com/gtms-org/gtms-frontend/issues/812)) ([6238c2e](https://github.com/gtms-org/gtms-frontend/commit/6238c2e8ff735b24dc46fc4497cfde6c91de272b))
 
 # [0.72.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.71.0...@gtms/app-andrew@0.72.0) (2020-08-13)
 

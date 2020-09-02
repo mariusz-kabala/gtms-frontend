@@ -13,6 +13,7 @@ export const UploadFile: FC<{
   isLoading?: boolean
   isError?: boolean
   accept?: string[] | string
+  placeholder?: string
   onDrop: (
     acceptedFiles: File[],
     rejectedFiles: File[],
@@ -24,6 +25,7 @@ export const UploadFile: FC<{
   onDrop,
   isLoading = false,
   isError = false,
+  placeholder = 'dragAndDropFilesHere',
   accept,
 }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -50,7 +52,7 @@ export const UploadFile: FC<{
             {isDragActive ? (
               <p className={styles.text}>{t('dropFilesHere')}</p>
             ) : (
-              <p className={styles.text}>{t('dragAndDropFilesHere')}</p>
+              <p className={styles.text}>{t(placeholder)}</p>
             )}
           </>
         )}

@@ -3,60 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.55.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.54.2...@gtms/ui@0.55.0) (2020-08-26)
-
+# [0.56.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.55.0...@gtms/ui@0.56.0) (2020-09-02)
 
 ### Features
 
-* GEOT-429: general changes part2 ([#828](https://github.com/gtms-org/gtms-frontend/issues/828)) ([4841cb0](https://github.com/gtms-org/gtms-frontend/commit/4841cb00ffe9cc1f9cc4f4c3ec7915b420af072a))
+- GEOT-430: allow user to upload files together with a post ([#833](https://github.com/gtms-org/gtms-frontend/issues/833)) ([a5474eb](https://github.com/gtms-org/gtms-frontend/commit/a5474eb3b7aabeff4104d734a99a31ddce3d27d8))
 
+# [0.55.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.54.2...@gtms/ui@0.55.0) (2020-08-26)
 
+### Features
 
-
+- GEOT-429: general changes part2 ([#828](https://github.com/gtms-org/gtms-frontend/issues/828)) ([4841cb0](https://github.com/gtms-org/gtms-frontend/commit/4841cb00ffe9cc1f9cc4f4c3ec7915b420af072a))
 
 ## [0.54.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.54.1...@gtms/ui@0.54.2) (2020-08-17)
 
-
 ### Bug Fixes
 
-* GEOT-423: working version of group cover photo chooser ([#824](https://github.com/gtms-org/gtms-frontend/issues/824)) ([d9ffdc2](https://github.com/gtms-org/gtms-frontend/commit/d9ffdc2a78c3bd6949a956356ed189421bf04224))
-
-
-
-
+- GEOT-423: working version of group cover photo chooser ([#824](https://github.com/gtms-org/gtms-frontend/issues/824)) ([d9ffdc2](https://github.com/gtms-org/gtms-frontend/commit/d9ffdc2a78c3bd6949a956356ed189421bf04224))
 
 ## [0.54.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.54.0...@gtms/ui@0.54.1) (2020-08-16)
 
-
 ### Bug Fixes
 
-* GEOT-422: use html generated on BE for post and comment cont ([#822](https://github.com/gtms-org/gtms-frontend/issues/822)) ([8a9bdd7](https://github.com/gtms-org/gtms-frontend/commit/8a9bdd72dd8cf49fa5358cf1a7d7018e994ecef3))
-
-
-
-
+- GEOT-422: use html generated on BE for post and comment cont ([#822](https://github.com/gtms-org/gtms-frontend/issues/822)) ([8a9bdd7](https://github.com/gtms-org/gtms-frontend/commit/8a9bdd72dd8cf49fa5358cf1a7d7018e994ecef3))
 
 # [0.54.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.53.0...@gtms/ui@0.54.0) (2020-08-15)
 
-
 ### Features
 
-* GEOT-423: choose group cover photo ([#821](https://github.com/gtms-org/gtms-frontend/issues/821)) ([9330c1c](https://github.com/gtms-org/gtms-frontend/commit/9330c1c79af9516ed908bc931fc3eaf42dda898e))
-
-
-
-
+- GEOT-423: choose group cover photo ([#821](https://github.com/gtms-org/gtms-frontend/issues/821)) ([9330c1c](https://github.com/gtms-org/gtms-frontend/commit/9330c1c79af9516ed908bc931fc3eaf42dda898e))
 
 # [0.53.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.52.0...@gtms/ui@0.53.0) (2020-08-13)
 
-
 ### Features
 
-* GEOT-411: add cover ([#812](https://github.com/gtms-org/gtms-frontend/issues/812)) ([6238c2e](https://github.com/gtms-org/gtms-frontend/commit/6238c2e8ff735b24dc46fc4497cfde6c91de272b))
-
-
-
-
+- GEOT-411: add cover ([#812](https://github.com/gtms-org/gtms-frontend/issues/812)) ([6238c2e](https://github.com/gtms-org/gtms-frontend/commit/6238c2e8ff735b24dc46fc4497cfde6c91de272b))
 
 # [0.52.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.51.0...@gtms/ui@0.52.0) (2020-08-13)
 
