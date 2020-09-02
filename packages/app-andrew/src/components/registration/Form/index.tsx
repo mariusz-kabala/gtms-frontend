@@ -1,13 +1,15 @@
 import React, { useState, FC, useRef } from 'react'
-import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { registerUserAccount } from '@gtms/state-user'
 import { IRegistrationData, checkUsernameAPI } from '@gtms/api-auth'
-import { Input } from '@gtms/ui/Forms/Input'
-import { Error } from '@gtms/ui/Forms/Error'
+// ui
+import { AiOutlineForm } from 'react-icons/ai'
 import { Button } from '@gtms/ui/Button'
+import { Error } from '@gtms/ui/Forms/Error'
+import { Input } from '@gtms/ui/Forms/Input'
 import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 const validate = (data: IRegistrationData, setError: any): boolean => {
   let hasErrors = false
@@ -184,6 +186,9 @@ export const RegistrationForm: FC<{
         additionalStyles={styles.btnSubmit}
         disabled={isMakingRequest || usernameStatus.isValid === false}
       >
+        <i>
+          <AiOutlineForm />
+        </i>
         {t('form.submitButton')}
       </Button>
     </form>

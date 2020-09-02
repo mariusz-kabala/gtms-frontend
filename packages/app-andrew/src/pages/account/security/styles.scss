@@ -24,7 +24,7 @@
       top: 110px;
       left: 90px;
 
-      h2 {
+      .header {
         @include font-size(lg);
         @include font-weight(semiBold);
       }

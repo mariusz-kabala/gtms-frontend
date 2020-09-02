@@ -14,7 +14,7 @@ export const RemindPasswordPage: NextPage<{}> = () => {
     <div className={styles.pageWrapper} data-testid="remind-password-page">
       <div className={styles.wrapper}>
         <div>
-          <h2>Remind password</h2>
+          <h2 className={styles.header}>Remind password</h2>
           <p>
             Wyślemy Ci link do zresetowania hasła na Twój adres mailowy. Podaj
             go w polu ponizej.

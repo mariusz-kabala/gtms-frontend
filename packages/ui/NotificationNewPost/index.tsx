@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
 import { IPost, IUser, IGroup } from '@gtms/commons/models'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
+// ui
+import styles from './styles.scss'
 import { Picture } from '../Picture'
 
 export const NotificationNewPost: FC<{
@@ -11,9 +12,12 @@ export const NotificationNewPost: FC<{
 }> = ({ group, postOwner, post }) => {
   return (
     <li className={styles.wrapper} data-testid={'notification-new-post'}>
-      <div className={styles.groupSidebar}>
-        <Picture {...getImage('200x200', group.avatar)} />
-        <h2>New post in {group.name}</h2>
+      <div className={styles.group}>
+        <Picture
+          additionalStyles={styles.groupAvatar}
+          {...getImage('200x200', group.avatar)}
+        />
+        <h2 className={styles.header}>New post in {group.name}</h2>
       </div>
       <div className={styles.notification}>
         <Picture
@@ -21,8 +25,8 @@ export const NotificationNewPost: FC<{
           {...getImage('50x50', postOwner.avatar)}
         />
         <div className={styles.desc}>
-          <h3>{getDisplayName(postOwner)}</h3>
-          <p>{post.text}</p>
+          <h3 className={styles.header}>{getDisplayName(postOwner)}</h3>
+          <p className={styles.text}>{post.text}</p>
         </div>
       </div>
     </li>

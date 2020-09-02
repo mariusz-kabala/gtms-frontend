@@ -15,6 +15,7 @@ import { IPromotedTag } from '@gtms/commons/models'
 import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
 import { Modal } from '@gtms/ui/Modal'
 import { PromotedTags as PromotedTagsUI } from '@gtms/ui/PromotedTags'
+import styles from './styles.scss'
 
 type Ref = HTMLDivElement
 type Props = {
@@ -81,6 +82,7 @@ export const PromotedTags = forwardRef<Ref, Props>(({ onTagClick }, ref) => {
         ))}
       {promotedTagEditor.isOpen && (
         <Modal
+          additionalStyles={styles.modalContent}
           onClose={() => {
             setPromotedTagEditor({
               isOpen: false,

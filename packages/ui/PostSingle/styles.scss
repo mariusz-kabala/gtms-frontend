@@ -59,10 +59,6 @@
     .deleteBtn {
       opacity: 0;
       margin-left: auto;
-
-      &:hover {
-        opacity: 1;
-      }
     }
   }
 
@@ -88,6 +84,14 @@
 
   .postResponseCreate {
     margin-top: 10px;
+  }
+
+  &:hover {
+    .header {
+      .deleteBtn {
+        opacity: 1;
+      }
+    }
   }
 }
 

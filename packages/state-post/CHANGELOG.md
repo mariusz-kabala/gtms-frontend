@@ -7,28 +7,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 ## [0.12.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.12.0...@gtms/state-post@0.12.1) (2020-08-17)
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 # [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.11.0...@gtms/state-post@0.12.0) (2020-08-16)
-
 
 ### Features
 
-* GEOT-404: animation for group card ([#804](https://github.com/gtms-org/gtms-frontend/issues/804)) ([0b54b54](https://github.com/gtms-org/gtms-frontend/commit/0b54b54b563a415470a82449764c9400c1d05d6c))
-
-
-
-
+- GEOT-404: animation for group card ([#804](https://github.com/gtms-org/gtms-frontend/issues/804)) ([0b54b54](https://github.com/gtms-org/gtms-frontend/commit/0b54b54b563a415470a82449764c9400c1d05d6c))
 
 # [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.10.0...@gtms/state-post@0.11.0) (2020-08-06)
 

@@ -1,13 +1,14 @@
 import React, { FC, ReactNode } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { IGroup } from '@gtms/commons'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
+import { GroupAvatarNoImage } from 'enums'
+// ui
 import { Picture } from '@gtms/ui/Picture'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { Tag } from '@gtms/ui/Tag'
-import { GroupAvatarNoImage } from 'enums'
+import styles from './styles.scss'
 
 export const GroupsList: FC<{
   additionalStyles?: string
@@ -22,25 +23,20 @@ export const GroupsList: FC<{
         <ul className={styles.items}>
           {groups.map((group) => (
             <li className={styles.item} key={`owner-${group.id}`}>
-              <div className={styles.avatar}>
-                <Link href={`/group/${group.slug}`}>
-                  <a>
-                    <Picture
-                      {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
-                    />
-                  </a>
-                </Link>
-              </div>
-              <div className={styles.headerAndDesc}>
-                <h2 className={styles.header}>{group.name}</h2>
-                <p>{group.description || 'no description'}</p>
-                {group.tags && group.tags.length > 0 && (
-                  <TagGroup>
-                    {group.tags.map((tag) => (
-                      <Tag key={`tag-${tag}`} label={tag} />
-                    ))}
-                  </TagGroup>
-                )}
+              <div className={styles.partOne}>
+                <div className={styles.avatar}>
+                  <Link href={`/group/${group.slug}`}>
+                    <a>
+                      <Picture
+                        {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
+                      />
+                    </a>
+                  </Link>
+                </div>
+                <div className={styles.headerAndDesc}>
+                  <h2 className={styles.header}>{group.name}</h2>
+                  <p>{group.description || 'no description'}</p>
+                </div>
               </div>
               <div className={styles.stats}>
                 <ul className={styles.items}>
@@ -52,6 +48,13 @@ export const GroupsList: FC<{
                   </li>
                 </ul>
               </div>
+              {group.tags && group.tags.length > 0 && (
+                <TagGroup>
+                  {group.tags.map((tag) => (
+                    <Tag key={`tag-${tag}`} label={tag} />
+                  ))}
+                </TagGroup>
+              )}
               <div className={styles.actions}>{renderGroupMenu(group)}</div>
             </li>
           ))}

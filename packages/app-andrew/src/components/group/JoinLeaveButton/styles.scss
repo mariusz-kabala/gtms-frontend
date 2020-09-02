@@ -7,11 +7,10 @@
   @include buttonSizeDefault();
   @include buttonShapePrimary();
   @include buttonWithIcon();
-  @include buttonColorsPrimary();
   @include buttonWithoutBackground();
 
   &:hover {
-    @include buttonColorsQuaternary();
+    @include buttonColorBlue();
   }
 
   &.isLoading {

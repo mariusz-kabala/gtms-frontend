@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
 import { IImage } from '@gtms/commons/types/image'
 import cx from 'classnames'
-import { IoMdCloseCircle } from 'react-icons/io'
-import { Picture } from '../Picture'
+// ui
 import { CircularProgressbar } from 'react-circular-progressbar'
+import { IoMdCloseCircle } from 'react-icons/io'
 import styles from './styles.scss'
+import { Picture } from '../Picture'
 
 export const Notification: FC<{
   additionalStyles?: string

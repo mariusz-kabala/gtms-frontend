@@ -1,10 +1,11 @@
 import React, { FC, useState } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
-import { Button } from '../../Button'
 import useKey from 'use-key-hook'
+// ui
+import { Button } from '../../Button'
 import { IoIosCloseCircle, IoIosCheckbox, IoMdTrash } from 'react-icons/io'
+import styles from './styles.scss'
 
 export const DeletePost: FC<{
   additionalStyles?: string
@@ -21,7 +22,7 @@ export const DeletePost: FC<{
       className={styles.wrapperConfirm}
       data-testid="post-single-delete-post-question"
     >
-      <h2>{t('header')}</h2>
+      <h2 className={styles.header}>{t('header')}</h2>
       <div className={styles.buttons}>
         <Button
           additionalStyles={styles.btn}

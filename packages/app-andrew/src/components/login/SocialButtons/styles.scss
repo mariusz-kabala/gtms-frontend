@@ -4,6 +4,7 @@
 
 .wrapper {
   @include gridDefault(2);
+  width: 100%;
 
   // apply styles for custom button component and npm component
   button,

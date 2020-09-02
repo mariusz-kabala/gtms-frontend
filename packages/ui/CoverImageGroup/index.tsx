@@ -107,15 +107,13 @@ export const CoverImageGroup: FC<{
           [styles.active]: isStepTwo,
         })}
       >
+        <UploadFile
+          additionalStyles={styles.fileUpload}
+          onDrop={() => null}
+          isLoading={false}
+          isError={false}
+        />
         <ul className={styles.items}>
-          <li className={styles.item}>
-            <UploadFile
-              additionalStyles={styles.fileUpload}
-              onDrop={() => null}
-              isLoading={false}
-              isError={false}
-            />
-          </li>
           {options.map((option, index) => (
             <li
               key={`cover-${index}`}

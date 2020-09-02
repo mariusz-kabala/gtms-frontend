@@ -30,9 +30,8 @@
       border: none;
       min-width: 100px;
       min-height: 100px;
-      background: $theme9;
       border-radius: 50%;
-      color: $theme0;
+      background: $theme2;
       cursor: pointer;
 
       &:active,
@@ -45,7 +44,7 @@
         position: relative;
         @include font-size(lg);
         line-height: 0;
-        color: $theme0;
+        color: $theme9;
       }
 
       span {
@@ -57,6 +56,10 @@
 
       &:hover {
         background: $theme4;
+
+        i {
+          color: $theme0;
+        }
       }
     }
   }

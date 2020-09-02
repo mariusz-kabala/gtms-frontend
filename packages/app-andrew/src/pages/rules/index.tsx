@@ -10,7 +10,7 @@ export const RulesPage: NextPage<{}> = () => {
   return (
     <div className={styles.pageWrapper} data-testid="rules-page">
       <div className={styles.wrapper}>
-        <h2>{t('header.subtitle')}</h2>
+        <h2 className={styles.header}>{t('header.subtitle')}</h2>
         <p>
           Lorem et est aliquip nisi et laborum enim proident amet velit esse
           voluptate laboris anim. Nisi ullamco labore tempor esse aliquip ea.

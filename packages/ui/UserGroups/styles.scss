@@ -17,13 +17,15 @@
 
   .btnWrapper {
     text-align: center;
-    margin: 20px auto;
+    margin-top: 20px;
 
     .btn {
       @include buttonDefault();
       @include buttonSizeDefault();
       @include buttonShapePrimary();
-      @include buttonColorsTertiary();
+      @include buttonWithSpinner();
+      @include buttonColorsDefault();
+      width: 100%;
 
       &:hover {
         @include buttonColorsPrimary();

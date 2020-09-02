@@ -6,11 +6,13 @@ import { IPromotedTag } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 // ui
 import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
+import { Button } from '../Button'
 import { Spinner } from '../Spinner'
 import { Picture } from '../Picture'
 import { UploadedPicture } from '../UploadedPicture'
 // style
 import styles from './styles.scss'
+import { getImage } from '@gtms/commons'
 
 export const PromotedTags: FC<{
   additionalStyles?: string
@@ -47,6 +49,7 @@ export const PromotedTags: FC<{
       data-testid="promoted-tags"
     >
       {isLoading && <Spinner />}
+
       <div className={cx(styles.items)}>
         {tags.length > 0 &&
           tags.map((tag) => (
@@ -55,15 +58,18 @@ export const PromotedTags: FC<{
               className={cx(styles.item, {
                 [styles.active]: activeTags.includes(tag.tag),
               })}
+              style={
+                tag.logo.status === FileStatus.ready
+                  ? {
+                      backgroundImage: `url(${
+                        getImage('200x200', tag.logo).jpg
+                      }`,
+                    }
+                  : {}
+              }
               key={`promoted-${tag.id}`}
             >
               {!tag.logo.status && <Picture {...noImage['200x200']} />}
-              {tag.logo.status === FileStatus.ready && (
-                <Picture
-                  additionalStyles={styles.image}
-                  {...tag.logo.files['200x200']}
-                />
-              )}
               {tag.logo.status && tag.logo.status !== FileStatus.ready && (
                 <UploadedPicture jpg={tag.logo.files[0]} />
               )}
@@ -103,6 +109,10 @@ export const PromotedTags: FC<{
           </button>
         )}
       </div>
+      <Button additionalStyles={styles.btn}>
+        <Spinner size="sm" />
+        Show more...
+      </Button>
     </div>
   )
 }

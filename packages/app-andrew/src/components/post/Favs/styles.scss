@@ -1,17 +1,17 @@
 @import '@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
-@import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .btn {
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapePrimary();
-  @include buttonColorsDefault();
+  @include buttonWithoutPadding();
+  @include buttonWithoutBackground();
 
   &:hover,
   &:focus,
   &:active {
-    @include buttonColorsPrimary();
+    @include buttonColorBlue();
   }
 
   span {

@@ -1,7 +1,9 @@
 import React, { FC, useState, useCallback, useRef, useEffect } from 'react'
-import { UploadFile } from '../UploadFile'
-import { Modal } from '../Modal'
 import ReactAvatarEditor from 'react-avatar-editor'
+// ui
+import { AiOutlineRotateLeft, AiOutlineRotateRight } from 'react-icons/ai'
+import { Modal } from '../Modal'
+import { UploadFile } from '../UploadFile'
 import styles from './styles.scss'
 
 enum EditorSteps {
@@ -62,14 +64,12 @@ export const ImageEditor: FC<{
   return (
     <Modal additionalStyles={styles.wrapper} onClose={onClose}>
       {state.step === EditorSteps.upload && (
-        <section>
-          <UploadFile
-            accept={['image/png', 'image/jpeg']}
-            onDrop={onAvatarDrop}
-            isLoading={false}
-            isError={false}
-          />
-        </section>
+        <UploadFile
+          accept={['image/png', 'image/jpeg']}
+          onDrop={onAvatarDrop}
+          isLoading={false}
+          isError={false}
+        />
       )}
       {state.step === EditorSteps.edit && (
         <section className={styles.editor}>
@@ -97,6 +97,7 @@ export const ImageEditor: FC<{
             <div className={styles.option}>
               <label>Change file</label>
               <input
+                className={styles.btn}
                 type="file"
                 onChange={(e) => {
                   if (e?.target?.files && e.target.files.length > 0) {
@@ -112,6 +113,7 @@ export const ImageEditor: FC<{
             <div className={styles.option}>
               <label>Zoom</label>
               <input
+                className={styles.zoom}
                 name="scale"
                 type="range"
                 onChange={(e) =>
@@ -128,30 +130,40 @@ export const ImageEditor: FC<{
             </div>
             <div className={styles.option}>
               <label>Rotate</label>
-              <button
-                onClick={() =>
-                  setState({
-                    ...state,
-                    rotate: state.rotate - 90,
-                  })
-                }
-              >
-                Left
-              </button>
-              <button
-                onClick={() =>
-                  setState({
-                    ...state,
-                    rotate: state.rotate + 90,
-                  })
-                }
-              >
-                Right
-              </button>
+              <div className={styles.buttons}>
+                <button
+                  className={styles.btn}
+                  onClick={() =>
+                    setState({
+                      ...state,
+                      rotate: state.rotate - 90,
+                    })
+                  }
+                >
+                  <i>
+                    <AiOutlineRotateLeft />
+                  </i>
+                  Left
+                </button>
+                <button
+                  className={styles.btn}
+                  onClick={() =>
+                    setState({
+                      ...state,
+                      rotate: state.rotate + 90,
+                    })
+                  }
+                >
+                  <i>
+                    <AiOutlineRotateRight />
+                  </i>
+                  Right
+                </button>
+              </div>
             </div>
             <div className={styles.option}>
               <button
-                className={styles.btn}
+                className={styles.btnSave}
                 onClick={() => {
                   if (!editorRef.current) {
                     return

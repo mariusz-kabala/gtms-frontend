@@ -7,95 +7,49 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/state-group
 
-
-
-
-
 ## [0.15.11](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.10...@gtms/state-group@0.15.11) (2020-08-17)
 
 **Note:** Version bump only for package @gtms/state-group
-
-
-
-
 
 ## [0.15.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.9...@gtms/state-group@0.15.10) (2020-08-16)
 
 **Note:** Version bump only for package @gtms/state-group
 
-
-
-
-
 ## [0.15.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.8...@gtms/state-group@0.15.9) (2020-07-30)
 
 **Note:** Version bump only for package @gtms/state-group
-
-
-
-
 
 ## [0.15.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.7...@gtms/state-group@0.15.8) (2020-07-24)
 
 **Note:** Version bump only for package @gtms/state-group
 
-
-
-
-
 ## [0.15.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.6...@gtms/state-group@0.15.7) (2020-07-22)
 
 **Note:** Version bump only for package @gtms/state-group
-
-
-
-
 
 ## [0.15.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.5...@gtms/state-group@0.15.6) (2020-07-20)
 
 **Note:** Version bump only for package @gtms/state-group
 
-
-
-
-
 ## [0.15.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.4...@gtms/state-group@0.15.5) (2020-07-19)
 
 **Note:** Version bump only for package @gtms/state-group
-
-
-
-
 
 ## [0.15.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.3...@gtms/state-group@0.15.4) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/state-group
 
-
-
-
-
 ## [0.15.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.2...@gtms/state-group@0.15.3) (2020-07-09)
-
 
 ### Bug Fixes
 
-* GEOT-326: better performance by using transactions ([#715](https://github.com/gtms-org/gtms-frontend/issues/715)) ([8a80054](https://github.com/gtms-org/gtms-frontend/commit/8a80054bf5a90577eb71f187f5b86621ca42d065))
-
-
-
-
+- GEOT-326: better performance by using transactions ([#715](https://github.com/gtms-org/gtms-frontend/issues/715)) ([8a80054](https://github.com/gtms-org/gtms-frontend/commit/8a80054bf5a90577eb71f187f5b86621ca42d065))
 
 ## [0.15.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.1...@gtms/state-group@0.15.2) (2020-07-09)
 
-
 ### Bug Fixes
 
-* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
-
-
-
-
+- GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
 
 ## [0.15.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.0...@gtms/state-group@0.15.1) (2020-07-07)
 

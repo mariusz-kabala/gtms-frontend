@@ -1,16 +1,15 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
   @include pageWrapper();
+  background: $theme2;
 }
 
 .wrapper {
-  // for centering spinner
-  display: flex;
-  flex-direction: column;
-  
   height: 100%;
   width: 100%;
   padding: 20px;
@@ -32,8 +31,6 @@
       display: flex;
 
       .item {
-        display: flex;
-        align-items: center;
         margin-right: 10px;
         padding: 5px 15px;
         border-radius: $borderRadius;
@@ -60,16 +57,34 @@
     }
   }
 
+  .btnSaveChanges {
+    margin: auto;
+    margin-top: 15px;
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapePrimary();
+    @include buttonColorsSecondary();
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+  }
+
+  .currentList {
+    display: flex !important;
+  }
+
+  .noRecords {
+    margin: auto;
+    margin-top: 40px;
+
+    @include font-weight(semiBold);
+    @include font-size(lg);
+  }
+
   .groupMenu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    > * {
-      margin: 0 10px;
-    }
   }
-}
-
-.currentList {
-  display: flex !important;
 }

@@ -18,7 +18,24 @@
 
 .modalContent {
   @include modalContent();
+
+  .header {
+    @include font-weight(semiBold);
+    @include font-size(lg);
+  }
+
+  .desc {
+    margin-top: 5px;
+    @include font-size(xdefault);
+  }
+
   .buttons {
     @include gridTwoButtons();
+    margin-top: 20px;
+
+    .yes,
+    .no {
+      @include buttonWithIcon();
+    }
   }
 }

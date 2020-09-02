@@ -33,6 +33,7 @@ export const UserGroups: FC<{
           </ul>
           <div className={styles.btnWrapper}>
             <Button type="submit" additionalStyles={styles.btn}>
+              <Spinner size="sm" />
               show more...
             </Button>
           </div>

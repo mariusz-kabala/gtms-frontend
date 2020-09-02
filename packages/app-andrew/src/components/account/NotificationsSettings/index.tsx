@@ -12,6 +12,7 @@ import {
   loadNotificationsSettings,
 } from '@gtms/state-notification'
 // ui
+import { GoSettings } from 'react-icons/go'
 import { Button } from '@gtms/ui/Button'
 import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
@@ -174,6 +175,9 @@ export const NotificationsSettings: FC<{
         disabled={state.isLoading}
         onClick={saveNotificationsSettings}
       >
+        <i>
+          <GoSettings />
+        </i>
         Save changes
       </Button>
     </div>

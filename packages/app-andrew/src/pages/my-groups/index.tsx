@@ -185,7 +185,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.wrapper}>
-        {state.isLoading && <Spinner additionalStyles={styles.spinner} />}
+        {state.isLoading && <Spinner centered />}
         {!state.isLoading && state.errorOccurred && (
           <ErrorWrapper>
             <h2>
@@ -285,7 +285,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
               })}
               groups={state.admin}
               renderGroupMenu={(group) => <GroupMenu group={group} />}
-              noRecords={<p>No records</p>}
+              noRecords={<p className={styles.noRecords}>No records</p>}
             />
             <GroupsList
               additionalStyles={cx(styles.groupsList, {
@@ -309,6 +309,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
 
         {favsInMenu.isChanged && (
           <Button
+            additionalStyles={styles.btnSaveChanges}
             onClick={() => {
               updateFavGroupsOrder(favsInMenu.favs)
               setFavsInMenu((value) => ({

@@ -1,9 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import useKey from 'use-key-hook'
-import { Notification } from '@gtms/ui/Notification'
-import { CloseIcon } from '@gtms/ui/ExpandingRow/CloseIcon'
 import { INotificationsSidebarProps, baseUIQuery } from 'queries'
 import { NotificationIcons } from 'enums'
 import {
@@ -15,6 +12,10 @@ import {
 import { NotificationAPI } from '../NotificationAPI'
 import { closeSidebarNotifications } from 'state'
 import { INotification } from '@gtms/commons/models'
+// ui
+import { Notification } from '@gtms/ui/Notification'
+import { CloseIcon } from '@gtms/ui/ExpandingRow/CloseIcon'
+import styles from './styles.scss'
 
 export const NotificationsSidebar: FC<{
   additionalStyles?: string
@@ -59,13 +60,13 @@ export const NotificationsSidebar: FC<{
           Notofications {state.unreadCount && `(${state.unreadCount})`}
           {/* @todo add translation here */}
         </h2>
-        <ul className={styles.items}>
-          <li className={styles.item}>Latest</li>
-          <li className={styles.item}>By groups</li>
+        <ul className={styles.navitems}>
+          <li className={styles.navitem}>Latest</li>
+          <li className={styles.navitem}>By groups</li>
         </ul>
         <CloseIcon onClick={closeSidebarNotifications} />
       </div>
-      <ul>
+      <ul className={styles.notifications}>
         {state.notifications.map((notification: INotificationRecord) => {
           switch (notification.type) {
             case 'internal':

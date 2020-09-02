@@ -5,95 +5,51 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.10...@gtms/api-group@0.14.0) (2020-09-02)
 
-
 ### Features
 
-* GEOT-430: allow user to upload files together with a post ([#833](https://github.com/gtms-org/gtms-frontend/issues/833)) ([a5474eb](https://github.com/gtms-org/gtms-frontend/commit/a5474eb3b7aabeff4104d734a99a31ddce3d27d8))
-
-
-
-
+- GEOT-430: allow user to upload files together with a post ([#833](https://github.com/gtms-org/gtms-frontend/issues/833)) ([a5474eb](https://github.com/gtms-org/gtms-frontend/commit/a5474eb3b7aabeff4104d734a99a31ddce3d27d8))
 
 ## [0.13.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.9...@gtms/api-group@0.13.10) (2020-08-17)
 
-
 ### Bug Fixes
 
-* GEOT-423: working version of group cover photo chooser ([#824](https://github.com/gtms-org/gtms-frontend/issues/824)) ([d9ffdc2](https://github.com/gtms-org/gtms-frontend/commit/d9ffdc2a78c3bd6949a956356ed189421bf04224))
-
-
-
-
+- GEOT-423: working version of group cover photo chooser ([#824](https://github.com/gtms-org/gtms-frontend/issues/824)) ([d9ffdc2](https://github.com/gtms-org/gtms-frontend/commit/d9ffdc2a78c3bd6949a956356ed189421bf04224))
 
 ## [0.13.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.8...@gtms/api-group@0.13.9) (2020-08-16)
 
 **Note:** Version bump only for package @gtms/api-group
 
-
-
-
-
 ## [0.13.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.7...@gtms/api-group@0.13.8) (2020-07-30)
-
 
 ### Bug Fixes
 
-* GEOT-382: apply custom bg on group page ([#787](https://github.com/gtms-org/gtms-frontend/issues/787)) ([2423998](https://github.com/gtms-org/gtms-frontend/commit/242399893325e3f69bf93d3b028850a03212df55))
-
-
-
-
+- GEOT-382: apply custom bg on group page ([#787](https://github.com/gtms-org/gtms-frontend/issues/787)) ([2423998](https://github.com/gtms-org/gtms-frontend/commit/242399893325e3f69bf93d3b028850a03212df55))
 
 ## [0.13.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.6...@gtms/api-group@0.13.7) (2020-07-24)
 
 **Note:** Version bump only for package @gtms/api-group
 
-
-
-
-
 ## [0.13.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.5...@gtms/api-group@0.13.6) (2020-07-22)
 
 **Note:** Version bump only for package @gtms/api-group
-
-
-
-
 
 ## [0.13.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.4...@gtms/api-group@0.13.5) (2020-07-20)
 
 **Note:** Version bump only for package @gtms/api-group
 
-
-
-
-
 ## [0.13.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.3...@gtms/api-group@0.13.4) (2020-07-19)
 
 **Note:** Version bump only for package @gtms/api-group
-
-
-
-
 
 ## [0.13.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.2...@gtms/api-group@0.13.3) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/api-group
 
-
-
-
-
 ## [0.13.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.1...@gtms/api-group@0.13.2) (2020-07-09)
-
 
 ### Bug Fixes
 
-* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
-
-
-
-
+- GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
 
 ## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.0...@gtms/api-group@0.13.1) (2020-07-07)
 

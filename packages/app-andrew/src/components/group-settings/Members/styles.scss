@@ -1,0 +1,24 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
+
+.wrapper {
+  .membersList {
+    @include gridDefault(7);
+
+    .item {
+      max-width: 100px;
+      max-height: 100px;
+      display: inline-block;
+      text-align: center;
+
+      .name {
+        display: inline-block;
+        @include font-size(md);
+        @include font-weight(semiBold);
+        margin-top: 5px;
+      }
+    }
+  }
+}

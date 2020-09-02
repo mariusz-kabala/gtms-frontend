@@ -40,7 +40,7 @@ export const Profile: FC<{
         </div>
       </div>
       <div className={styles.tags}>
-        <h2>Moje tagi:</h2>
+        <h2 className={styles.header}>Moje tagi:</h2>
         <TagGroup>
           {user.tags.length > 0 &&
             user.tags.map((tag) => <Tag label={tag} key={`user-tag-${tag}`} />)}

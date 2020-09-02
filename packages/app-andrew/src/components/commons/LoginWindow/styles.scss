@@ -1,10 +1,13 @@
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
-@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/modal.scss';
 
 .modalContent {
   @include modalContent();
+  > div {
+    min-width: auto; // to overwrite include modalContent()
+  }
 
   button[type='submit'] {
     margin-bottom: 20px;
@@ -20,6 +23,7 @@
 }
 
 .registrationLink {
+  width: 100%;
   margin-top: 15px;
 
   @include buttonDefault();

@@ -7,142 +7,75 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 ## [0.18.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.18.2...@gtms/state-user@0.18.3) (2020-08-17)
 
 **Note:** Version bump only for package @gtms/state-user
-
-
-
-
 
 ## [0.18.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.18.1...@gtms/state-user@0.18.2) (2020-08-16)
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 ## [0.18.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.18.0...@gtms/state-user@0.18.1) (2020-07-30)
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 # [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.10...@gtms/state-user@0.18.0) (2020-07-28)
-
 
 ### Features
 
-* GEOT-390: allow user to sort fav groups in menu ([#780](https://github.com/gtms-org/gtms-frontend/issues/780)) ([8736531](https://github.com/gtms-org/gtms-frontend/commit/87365314aa13ec4e8efc523f284f7e68060b0c7c))
-
-
-
-
+- GEOT-390: allow user to sort fav groups in menu ([#780](https://github.com/gtms-org/gtms-frontend/issues/780)) ([8736531](https://github.com/gtms-org/gtms-frontend/commit/87365314aa13ec4e8efc523f284f7e68060b0c7c))
 
 ## [0.17.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.9...@gtms/state-user@0.17.10) (2020-07-28)
 
-
 ### Bug Fixes
 
-* GEOT-374 my groups page ([#777](https://github.com/gtms-org/gtms-frontend/issues/777)) ([03307f0](https://github.com/gtms-org/gtms-frontend/commit/03307f0de4c4555f2b84be827e2f18b367033499))
-
-
-
-
+- GEOT-374 my groups page ([#777](https://github.com/gtms-org/gtms-frontend/issues/777)) ([03307f0](https://github.com/gtms-org/gtms-frontend/commit/03307f0de4c4555f2b84be827e2f18b367033499))
 
 ## [0.17.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.8...@gtms/state-user@0.17.9) (2020-07-24)
 
-
 ### Bug Fixes
 
-* GEOT-374: show more info on my groups page, allow user to se ([#765](https://github.com/gtms-org/gtms-frontend/issues/765)) ([93309d2](https://github.com/gtms-org/gtms-frontend/commit/93309d21f245df19c4274ecfd898adcfff9dc01e))
-
-
-
-
+- GEOT-374: show more info on my groups page, allow user to se ([#765](https://github.com/gtms-org/gtms-frontend/issues/765)) ([93309d2](https://github.com/gtms-org/gtms-frontend/commit/93309d21f245df19c4274ecfd898adcfff9dc01e))
 
 ## [0.17.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.7...@gtms/state-user@0.17.8) (2020-07-22)
 
-
 ### Bug Fixes
 
-* GEOT-354: fill account page with real data ([#754](https://github.com/gtms-org/gtms-frontend/issues/754)) ([97398b0](https://github.com/gtms-org/gtms-frontend/commit/97398b03ac077319aad27d36fbccd656c1dc8bff))
-
-
-
-
+- GEOT-354: fill account page with real data ([#754](https://github.com/gtms-org/gtms-frontend/issues/754)) ([97398b0](https://github.com/gtms-org/gtms-frontend/commit/97398b03ac077319aad27d36fbccd656c1dc8bff))
 
 ## [0.17.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.6...@gtms/state-user@0.17.7) (2020-07-21)
 
-
 ### Bug Fixes
 
-* GEOT-352: fixes for fav button on group page ([#751](https://github.com/gtms-org/gtms-frontend/issues/751)) ([31d82bd](https://github.com/gtms-org/gtms-frontend/commit/31d82bd06f3b2fa7ece7f4bc9300462bd19374f5))
-
-
-
-
+- GEOT-352: fixes for fav button on group page ([#751](https://github.com/gtms-org/gtms-frontend/issues/751)) ([31d82bd](https://github.com/gtms-org/gtms-frontend/commit/31d82bd06f3b2fa7ece7f4bc9300462bd19374f5))
 
 ## [0.17.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.5...@gtms/state-user@0.17.6) (2020-07-20)
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 ## [0.17.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.4...@gtms/state-user@0.17.5) (2020-07-19)
 
 **Note:** Version bump only for package @gtms/state-user
-
-
-
-
 
 ## [0.17.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.3...@gtms/state-user@0.17.4) (2020-07-19)
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 ## [0.17.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.2...@gtms/state-user@0.17.3) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 ## [0.17.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.1...@gtms/state-user@0.17.2) (2020-07-09)
-
 
 ### Bug Fixes
 
-* GEOT-326: better performance by using transactions ([#715](https://github.com/gtms-org/gtms-frontend/issues/715)) ([8a80054](https://github.com/gtms-org/gtms-frontend/commit/8a80054bf5a90577eb71f187f5b86621ca42d065))
-
-
-
-
+- GEOT-326: better performance by using transactions ([#715](https://github.com/gtms-org/gtms-frontend/issues/715)) ([8a80054](https://github.com/gtms-org/gtms-frontend/commit/8a80054bf5a90577eb71f187f5b86621ca42d065))
 
 ## [0.17.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.17.0...@gtms/state-user@0.17.1) (2020-07-09)
 
-
 ### Bug Fixes
 
-* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
-
-
-
-
+- GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
 
 # [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.16.0...@gtms/state-user@0.17.0) (2020-07-07)
 

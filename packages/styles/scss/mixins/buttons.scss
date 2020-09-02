@@ -31,13 +31,30 @@
   line-height: 0;
 
   @if $position == 'left' {
-    i {
+    > i {
       margin-right: 3px;
     }
   }
   @if $position == 'right' {
-    i {
+    > i {
       margin-left: 3px;
+    }
+  }
+}
+
+@mixin buttonWithSpinner($position: 'left') {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+
+  @if $position == 'left' {
+    div {
+      margin-right: 10px;
+    }
+  }
+  @if $position == 'right' {
+    div {
+      margin-left: 10px;
     }
   }
 }
@@ -49,6 +66,10 @@
 @mixin buttonWithBorder() {
   border: 2px solid $theme0;
   color: $theme0;
+}
+
+@mixin buttonWithoutPadding() {
+  padding: 0;
 }
 
 // SIZES
@@ -70,10 +91,6 @@
 
 // SHAPES
 @mixin buttonShapePrimary() {
-  border-radius: $borderRadius;
-}
-
-@mixin buttonShapeSecondary() {
   border-radius: $borderRadius;
 }
 
@@ -100,5 +117,9 @@
 
 @mixin buttonColorsQuaternary() {
   background: $theme0;
+  color: $theme4;
+}
+
+@mixin buttonColorBlue() {
   color: $theme4;
 }

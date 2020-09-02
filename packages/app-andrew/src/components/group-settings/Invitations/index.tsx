@@ -33,6 +33,7 @@ export const InvitationsSettings: FC<{ group: IGroup }> = ({ group }) => {
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
+
   return (
     <div data-testid="group-invitation-settings">
       {state.isLoading && (

@@ -167,7 +167,6 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
       </div>
       {promotedTagEditor.isOpen && (
         <Modal
-          additionalStyles={styles.modalContent}
           onClose={() => {
             setPromotedTagEditor({
               tag: '',

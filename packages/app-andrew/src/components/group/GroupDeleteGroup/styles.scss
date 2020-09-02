@@ -18,7 +18,9 @@
 
 .modalContent {
   @include modalContent();
+
   .buttons {
     @include gridTwoButtons();
+    margin-top: 20px;
   }
 }

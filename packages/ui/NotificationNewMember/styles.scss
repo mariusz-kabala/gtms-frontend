@@ -1,0 +1,13 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background: $theme0;
+  border: 1px solid $theme2;
+  border-radius: $borderRadius;
+  cursor: pointer;
+}

@@ -3,7 +3,9 @@
 .textarea {
   width: 100%;
   height: 100%;
+  padding: 10px;
   background: $theme0;
+  border-radius: $borderRadius;
   resize: vertical;
 }
 

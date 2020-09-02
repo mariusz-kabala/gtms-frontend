@@ -58,7 +58,6 @@ export const AdminsSettings: FC<{ group: IGroup }> = ({ group }) => {
               <i>
                 <GoPlus />
               </i>
-              <span className={styles.name}>add item</span>
             </button>
           </li>
         </ul>

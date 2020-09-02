@@ -99,8 +99,7 @@
     }
 
     &:hover {
-      @include buttonColorsQuaternary();
-      border-color: $theme0; // @todo create better bordered type button mixin
+      @include buttonColorBlue();
     }
   }
 }
