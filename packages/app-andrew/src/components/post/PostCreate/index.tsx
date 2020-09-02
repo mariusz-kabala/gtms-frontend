@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect, useCallback } from 'react'
 import { findTagsAPI, fetchSuggestedTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 import { uploadPostImage } from '@gtms/api-post'
+import { deleteTmpFileAPI } from '@gtms/api-file'
 import { UserAvatarNoImage } from 'enums'
 import { openLoginModal } from 'state'
 import {
@@ -19,11 +20,11 @@ import styles from './styles.scss'
 
 export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
   const [state, setState] = useState<IPostCreateState>(postCreateState())
-  const [fileUploadState, sefileUploadState] = useState<{
+  const [fileUploadState, setfileUploadState] = useState<{
     isVisible: boolean
     isLoading: boolean
     isError: boolean
-    files: { url: string; file: string | ArrayBuffer | null }[]
+    files: { url: string; id: string; file: string | ArrayBuffer | null }[]
   }>({
     isVisible: false,
     isLoading: false,
@@ -32,7 +33,7 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
   })
 
   const closeUploadArea = useCallback(() => {
-    sefileUploadState({
+    setfileUploadState({
       isVisible: false,
       isLoading: false,
       isError: false,
@@ -41,8 +42,12 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
   }, [])
 
   const onRemoveUploadedImage = useCallback((index: number) => {
-    sefileUploadState((state) => {
-      const { files } = fileUploadState
+    setfileUploadState((state) => {
+      const { files } = state
+      const deletedFile = files[index]
+
+      deleteTmpFileAPI(deletedFile.id)
+
       files.splice(index, 1)
 
       return {
@@ -53,7 +58,7 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
   }, [])
 
   const onImageDrop = useCallback(async (acceptedFiles) => {
-    sefileUploadState((state) => ({
+    setfileUploadState((state) => ({
       ...state,
       isError: false,
       isLoading: true,
@@ -64,16 +69,17 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
         (file: File) =>
           new Promise(async (resolve, reject) => {
             try {
-              const { url } = await uploadPostImage(file)
+              const { url, id } = await uploadPostImage(file)
               const reader = new FileReader()
 
               reader.onload = (e) => {
-                sefileUploadState((state) => ({
+                setfileUploadState((state) => ({
                   ...state,
                   files: [
                     ...state.files,
                     {
                       url,
+                      id,
                       file: e.target ? e.target.result : null,
                     },
                   ],
@@ -90,14 +96,14 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
       )
     )
       .then(() => {
-        sefileUploadState((state) => ({
+        setfileUploadState((state) => ({
           ...state,
           isError: false,
           isLoading: false,
         }))
       })
       .catch(() => {
-        sefileUploadState((state) => ({
+        setfileUploadState((state) => ({
           ...state,
           isError: true,
           isLoading: false,
@@ -121,7 +127,7 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
         fetchUsers={findbyUsernameAPI}
         fetchSuggestedTags={fetchSuggestedTagsAPI}
         onFocus={() =>
-          sefileUploadState((state) => ({
+          setfileUploadState((state) => ({
             ...state,
             isVisible: true,
           }))
@@ -132,6 +138,9 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
           createNewPost({
             group: groupId,
             text,
+            files: fileUploadState.files.map((file) => ({
+              id: file.id,
+            })),
           })
         }}
         onLoginRequest={openLoginModal}

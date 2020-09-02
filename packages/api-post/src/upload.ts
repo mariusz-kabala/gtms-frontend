@@ -1,6 +1,13 @@
 import { makeApiUrl } from '@gtms/api-common'
 
-export const uploadPostImage = (file: File) => {
+export interface IUploadedImageResponse {
+  url: string
+  id: string
+}
+
+export const uploadPostImage = (
+  file: File
+): Promise<IUploadedImageResponse> => {
   const data = new FormData()
   data.append('file', file)
 
