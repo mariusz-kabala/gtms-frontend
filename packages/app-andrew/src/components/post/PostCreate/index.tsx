@@ -140,6 +140,7 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
             text,
             files: fileUploadState.files.map((file) => ({
               id: file.id,
+              url: file.url,
             })),
           })
         }}
