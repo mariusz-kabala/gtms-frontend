@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.77.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.77.0...@gtms/app-andrew@0.77.1) (2020-09-03)
+
+
+### Bug Fixes
+
+* master: pass file url together with post ([8e67f15](https://github.com/gtms-org/gtms-frontend/commit/8e67f15fdcf685ca702f0ba06c32470c4fd7677c))
+
+
+
+
+
 # [0.77.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.76.0...@gtms/app-andrew@0.77.0) (2020-09-02)
 
 

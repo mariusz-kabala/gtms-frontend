@@ -145,6 +145,7 @@ export const PostCreate: FC<{
             text,
             files: fileUploadState.files.map((file) => ({
               id: file.id,
+              url: file.url,
             })),
           })
         }}
