@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
-import styles from './styles.scss'
 import { IoIosAirplane, IoIosPaw, IoMdMusicalNote } from 'react-icons/io'
 import { FaRegUser } from 'react-icons/fa'
 import { FiKey } from 'react-icons/fi'
 import { BsUnlock } from 'react-icons/bs'
+import styles from './styles.scss'
 
 export const Spinner: FC<{
   additionalStyles?: string

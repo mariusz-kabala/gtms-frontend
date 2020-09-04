@@ -9,9 +9,9 @@
   cursor: pointer;
 
   .header {
+    @include font-size(xmd);
     @include font-weight(semiBold);
     text-transform: uppercase;
-    @include font-size(xmd);
   }
 
   .items {
