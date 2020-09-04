@@ -1,78 +1,94 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/inputs.scss';
 
 .wrapper {
-  display: flex;
+  width: 100%;
 
-  .user {
+  .avatarAndText {
     display: flex;
-    width: 35px;
-    height: 35px;
-    min-width: 35px;
-    min-height: 35px;
-    margin-right: 10px;
-
-    img {
-      border-radius: 50%;
-    }
-
-    span {
-      position: absolute;
-      color: $theme7;
-      margin-top: 8px;
-      margin-left: 45px;
-    }
-  }
-
-  .textarea {
-    display: block;
     width: 100%;
-    border: none;
-    border-top-left-radius: $borderRadius;
-    border-bottom-left-radius: $borderRadius;
-    padding: 10px;
-    background: $theme2;
-    @include placeholderFocus;
+
+    .user {
+      display: flex;
+      width: 35px;
+      height: 35px;
+      min-width: 35px;
+      min-height: 35px;
+      margin-right: 5px;
+
+      img {
+        border-radius: 50%;
+      }
+
+      span {
+        position: absolute;
+        color: $theme7;
+        margin-top: 8px;
+        margin-left: 45px;
+      }
+    }
+
+    .textarea {
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: $borderRadius;
+      padding: 10px;
+      background: $theme2;
+      @include placeholderFocus;
+    }
   }
 
-  .btn {
-    @include buttonDefault();
-    @include buttonShapePrimary();
-    @include buttonSizeSm();
-    @include buttonWithIcon('right');
-    @include buttonColorsDefault();
-    display: flex;
-    align-items: center;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-
-    span {
-      @include font-size(sm);
-    }
-
-    i {
+  .tags {
+    .tagsSuggestions {
       display: flex;
+      margin-top: 10px;
     }
 
-    &:hover {
-      @include buttonColorsPrimary();
+    .otherTagsSuggestions {
+      .header {
+        @include font-size(sm);
+        text-transform: uppercase;
+        padding: 5px 0;
+      }
+
+      .list {
+        display: flex;
+      }
+    }
+
+    .tag {
+      padding: 5px 5px;
+      cursor: pointer;
+      margin-right: 5px;
+      background: $theme2;
+      border-radius: $borderRadius;
+      @include font-weight(semiBold);
+
+      &:hover {
+        color: $theme0;
+        background: $theme4;
+      }
+    }
+
+    .btnAddSuggestions {
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapePrimary();
+      @include buttonColorsDefault();
+      @include buttonWithIcon('right');
+      padding: 5px;
+
+      &:hover {
+        @include buttonColorsPrimary();
+      }
     }
   }
 }
 
-.suggestions {
-  border: 1px solid $theme14;
-  background: #fff;
-  color: black;
-
-  ul {
-    margin: 10px;
-
-    li {
-      padding: 5px;
-      cursor: pointer;
-    }
-  }
+.btn {
+  display: none;
 }

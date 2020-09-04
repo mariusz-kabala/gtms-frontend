@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect, useCallback } from 'react'
+import cx from 'classnames'
 import { findTagsAPI, fetchSuggestedTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 import { uploadPostImage } from '@gtms/api-post'
@@ -13,12 +14,16 @@ import {
 import { createNewPost } from '@gtms/state-post'
 // ui
 import { PostCreate as PostCreateUI } from '@gtms/ui/PostCreate'
+import { Button } from '@gtms/ui/Button'
 import { UploadFile } from '@gtms/ui/UploadFile'
-import { IoIosCloseCircle } from 'react-icons/io'
+import { IoIosCloseCircle, IoMdSend } from 'react-icons/io'
 // styles
 import styles from './styles.scss'
 
-export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
+export const PostCreate: FC<{
+  additionalStyles?: string
+  groupId: string
+}> = ({ additionalStyles, groupId }) => {
   const [state, setState] = useState<IPostCreateState>(postCreateState())
   const [fileUploadState, setfileUploadState] = useState<{
     isVisible: boolean
@@ -121,7 +126,7 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
     }
   }, [])
   return (
-    <div className={styles.wrapper}>
+    <div className={cx(styles.wrapper, additionalStyles)}>
       <PostCreateUI
         fetchTags={findTagsAPI}
         fetchUsers={findbyUsernameAPI}
@@ -145,6 +150,7 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
         }}
         onLoginRequest={openLoginModal}
       />
+
       {fileUploadState.isVisible && fileUploadState.files.length < 5 && (
         <div className={styles.uploadWrapper}>
           <a className={styles.close} onClick={closeUploadArea}>
@@ -161,10 +167,11 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
           />
         </div>
       )}
+
       {fileUploadState.files.length > 0 && (
-        <div className={styles.gallery}>
+        <div className={styles.attachedImages}>
           {fileUploadState.files.map((file, index) => (
-            <div key={`image-${index}`} className={styles.img}>
+            <div key={`image-${index}`} className={styles.item}>
               <a
                 className={styles.close}
                 onClick={() => onRemoveUploadedImage(index)}
@@ -178,6 +185,13 @@ export const PostCreate: FC<{ groupId: string }> = ({ groupId }) => {
           ))}
         </div>
       )}
+
+      <Button additionalStyles={styles.btnSubmit} type="submit">
+        send
+        <i>
+          <IoMdSend />
+        </i>
+      </Button>
     </div>
   )
 }

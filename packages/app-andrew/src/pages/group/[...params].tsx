@@ -16,20 +16,20 @@ import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
+import { Favs } from 'components/post/Favs'
 import { FavsButton } from 'components/group/FavsButton'
 import { FollowButton } from 'components/group/FollowButton'
 import { GroupAvatar } from 'components/group/GroupAvatar'
+import { GroupCover } from 'components/group/GroupCover'
 import { GroupDescription } from 'components/group/GroupDescription'
 import { GroupMembers } from 'components/group/GroupMembers'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
-import { SettingsButton } from 'components/group/SettingsButton'
+import { PostCreate } from 'components/post/PostCreate'
 import { PostDetails } from 'components/post/PostDetails'
 import { PromotedTags } from 'components/group/PromotedTags'
-import { GroupCover } from 'components/group/GroupCover'
-import { Favs } from 'components/post/Favs'
-import { PostCreate } from 'components/post/PostCreate'
+import { SettingsButton } from 'components/group/SettingsButton'
 // state
 import { openLoginModal } from 'state'
 import {
@@ -416,7 +416,10 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     </NavigationTabs>
                     <div className={styles.posts}>
                       <div>
-                        <PostCreate groupId={state.group?.id || ''} />
+                        <PostCreate
+                          additionalStyles={styles.postCreate}
+                          groupId={state.group?.id || ''}
+                        />
                         <RecentlyAddedPosts
                           fetchTags={findTagsAPI}
                           fetchUsers={findbyUsernameAPI}

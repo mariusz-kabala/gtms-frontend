@@ -1,42 +1,86 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+
 .wrapper {
-  // todo
-}
+  display: flex;
+  flex-direction: column;
 
-.uploadWrapper {
-  position: relative;
+  .uploadWrapper {
+    position: relative;
+    margin-top: 10px;
 
-  .close {
-    position: absolute;
-    cursor: pointer;
-    right: 5px;
-    top: 5px;
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      @include font-size(lg);
+      cursor: pointer;
 
-    svg {
-      width: 1.5em;
-      height: 1.5em;
+      svg {
+        color: $theme9;
+      }
+
+      &:hover {
+        svg {
+          color: $theme4;
+        }
+      }
     }
   }
-}
 
-.gallery {
-  display: flex;
-  justify-content: flex-start;
-  margin: 2% 0;
+  .attachedImages {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2% 0;
 
-  .img {
-    max-width: 120px;
-    max-height: 120px;
-    margin-right: 2%;
-    position: relative;
-
-    a.close {
+    .item {
+      max-width: 120px;
+      max-height: 120px;
+      margin-right: 2%;
+      position: relative;
+      border: 2px solid $theme2;
+      border-radius: $borderRadius;
+      overflow: hidden;
       cursor: pointer;
-      position: absolute;
-      top: 0;
-      right: 0;
-      svg {
-        fill: red;
+
+      .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        @include font-size(lg);
+        display: none;
+
+        &:hover i {
+          color: $theme4;
+        }
+
+        i {
+          color: $theme8;
+        }
       }
+
+      &:hover {
+        border-color: $theme4;
+
+        .close {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .btnSubmit {
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapePrimary();
+    @include buttonColorsDefault();
+    @include buttonWithIcon('right');
+    margin-top: 10px;
+    width: 100%;
+
+    &:hover {
+      @include buttonColorsPrimary();
     }
   }
 }
