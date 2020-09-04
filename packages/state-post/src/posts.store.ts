@@ -8,6 +8,7 @@ export interface IPostsState extends EntityState<IPost, string> {
   tags: string[]
   users: string[]
   sort: Sorting
+  limit: number
 }
 
 export class PostsStore extends EntityStore<IPostsState> {
@@ -15,6 +16,7 @@ export class PostsStore extends EntityStore<IPostsState> {
     super(
       {
         offset: 0,
+        limit: 50,
         total: -1,
         sort: Sorting.latest,
         tags: [],
