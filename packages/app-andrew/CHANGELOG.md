@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.79.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.78.0...@gtms/app-andrew@0.79.0) (2020-09-04)
+
+
+### Features
+
+* GEOT-454: styles for adding posts ([#844](https://github.com/gtms-org/gtms-frontend/issues/844)) ([7a99f41](https://github.com/gtms-org/gtms-frontend/commit/7a99f41b0bc71a6c7cbe2797ac89e6fd42671d5f))
+
+
+
+
+
 # [0.78.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.77.1...@gtms/app-andrew@0.78.0) (2020-09-04)
 
 
