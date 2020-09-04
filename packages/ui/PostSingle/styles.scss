@@ -121,3 +121,17 @@
     }
   }
 }
+
+.images {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  img {
+    max-width: 200px;
+    border: 1px solid red;
+    margin-bottom: 20px;
+  }
+}

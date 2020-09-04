@@ -34,6 +34,7 @@ export const PostDetails: FC<{
         createdAt={post.createdAt}
         tags={post.tags}
         owner={post.owner}
+        images={post.images}
         firstComments={[]}
         noImage={UserAvatarNoImage}
         activeTags={activeTags}
