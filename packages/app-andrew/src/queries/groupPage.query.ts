@@ -38,6 +38,11 @@ export interface IGroupPageState {
     errorOccured: boolean
     users: IUser[]
   }
+  pagination: {
+    limit: number
+    offset: number
+    total: number
+  }
 }
 
 export const groupPageState = (): IGroupPageState => {
@@ -68,6 +73,11 @@ export const groupPageState = (): IGroupPageState => {
           total: postCommentsState.total,
         }
       : undefined,
+    pagination: {
+      limit: postsState.limit,
+      offset: postsState.offset,
+      total: postsState.total,
+    },
   }
 }
 

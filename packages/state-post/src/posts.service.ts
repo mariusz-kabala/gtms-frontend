@@ -124,6 +124,7 @@ export const getGroupPosts = async ({
         total,
         tags,
         users,
+        limit: requestedLimit,
       })
     })
   } catch {

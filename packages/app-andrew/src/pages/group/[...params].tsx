@@ -107,16 +107,18 @@ const parseParams = (params: string[]) => {
     post: string[]
     user: string[]
     slug: null | string
+    page: string[]
     sort: Sorting[]
   } = {
     tag: [],
     post: [],
     user: [],
     slug: null,
+    page: [],
     sort: [],
   }
 
-  let index: 'tag' | 'post' | 'sort' | 'user' | null = null
+  let index: 'tag' | 'post' | 'sort' | 'user' | 'page' | null = null
 
   for (const param of params) {
     if (result.slug === null) {
@@ -124,8 +126,8 @@ const parseParams = (params: string[]) => {
       continue
     }
 
-    if (['tag', 'post', 'sort', 'user'].includes(param)) {
-      index = param as 'tag' | 'post' | 'sort' | 'user'
+    if (['tag', 'post', 'sort', 'user', 'page'].includes(param)) {
+      index = param as 'tag' | 'post' | 'sort' | 'user' | 'page'
       continue
     }
 
@@ -148,40 +150,87 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
-  const onClick = useCallback(
+  const generateUrl = useCallback(
     ({
       sort,
       post,
       user,
       tag,
+      page,
+      fillEmptyValues = false,
     }: {
       sort?: Sorting
       post?: string
-      user?: string
-      tag?: string
+      user?: string | string[]
+      tag?: string | string[]
+      page?: string | number
+      fillEmptyValues?: boolean
     }) => {
-      let url = `/group/${state.group?.slug}`
-      const tags = Array.isArray(state.activeTags) ? state.activeTags : []
-
-      if (tag) {
-        tags.push(tag)
+      if (fillEmptyValues) {
+        sort = sort || state.postsSorting
+        user = user || state.activeUsers
+        tag = tag || state.activeTags
       }
 
-      if (user) {
-        url += `/user/${user}`
+      let url = `/group/${state.group?.slug}`
+
+      if (page) {
+        url += `/page/${page}`
+      }
+
+      if (
+        (typeof user === 'string' && user !== '') ||
+        (Array.isArray(user) && user.length > 0)
+      ) {
+        url += `/user/${Array.isArray(user) ? user.join('/') : user}`
       }
 
       if (sort) {
         url += `/sort/${sort}`
       }
 
-      if (tags.length > 0) {
-        url += `/tag/${tags.join('/')}`
+      if (
+        (typeof tag === 'string' && tag !== '') ||
+        (Array.isArray(tag) && tag.length > 0)
+      ) {
+        url += `/tag/${Array.isArray(tag) ? tag.join('/') : tag}`
       }
 
       if (post) {
         url += `/post/${post}`
       }
+
+      return url
+    },
+    [state]
+  )
+  const onClick = useCallback(
+    ({
+      sort,
+      post,
+      user,
+      tag,
+      page,
+    }: {
+      sort?: Sorting
+      post?: string
+      user?: string
+      tag?: string
+      page?: string | number
+    }) => {
+      const tags = Array.isArray(state.activeTags) ? state.activeTags : []
+
+      if (tag) {
+        tags.push(tag)
+      }
+
+      const url = generateUrl({
+        sort,
+        post,
+        user,
+        tag: tags,
+        page,
+      })
 
       router.push(url)
     },
@@ -445,11 +494,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                           post={state.activePost}
                         />
                       )}
-                      <br />
-                      <br />
-                      <Pagination />
-                      <br />
-                      <br />
+                      <Pagination
+                        {...state.pagination}
+                        onClick={(page: number) => {
+                          onClick({ page })
+                        }}
+                        getCurrentUrl={(page: number) => {
+                          return generateUrl({ page, fillEmptyValues: true })
+                        }}
+                      />
                     </div>
                   </>
                 )}
@@ -480,8 +533,10 @@ GroupPage.getInitialProps = async (
   ctx: NextPageContext
 ): Promise<GroupPageProps> => {
   const { params } = ctx?.query
-  const { slug, tag, post, user, sort } = parseParams(params as string[])
+  const { slug, tag, post, user, sort, page } = parseParams(params as string[])
   const postId = Array.isArray(post) && post.length > 0 ? post[0] : undefined
+  const POSTS_LIMIT = 10
+  const postsOffset = (parseInt(page[0] || '1', 10) - 1) * POSTS_LIMIT
 
   await getGroup(slug as string)
 
@@ -507,8 +562,8 @@ GroupPage.getInitialProps = async (
     }),
     getGroupPosts({
       group: id,
-      requestedOffset: 0,
-      requestedLimit: 50,
+      requestedOffset: postsOffset,
+      requestedLimit: POSTS_LIMIT,
       tags: tag,
       users: user,
       sort: sort[0] || Sorting.latest,
