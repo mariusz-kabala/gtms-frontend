@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.78.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.77.1...@gtms/app-andrew@0.78.0) (2020-09-04)
+
+
+### Bug Fixes
+
+* GEOT-397: working pagination ([#843](https://github.com/gtms-org/gtms-frontend/issues/843)) ([6c8823c](https://github.com/gtms-org/gtms-frontend/commit/6c8823cb3d16914582244a4a132c303803f65705))
+
+
+### Features
+
+* GEOT-453: display post images ([#841](https://github.com/gtms-org/gtms-frontend/issues/841)) ([b85c92a](https://github.com/gtms-org/gtms-frontend/commit/b85c92a0bcb84101ceb39ad8d5fd4767faf43b02))
+
+
+
+
+
 ## [0.77.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.77.0...@gtms/app-andrew@0.77.1) (2020-09-03)
 
 
