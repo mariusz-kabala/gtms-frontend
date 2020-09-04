@@ -13,6 +13,7 @@ import { uiQuery } from 'state'
 
 import '@gtms/styles/scss/global.scss'
 import './tooltip.scss'
+import './lightbox.scss'
 import styles from './appStyles.scss'
 
 interface GTMSAppProps {
