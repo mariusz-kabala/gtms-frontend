@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.12.0...@gtms/api-post@0.13.0) (2020-09-04)
+
+
+### Features
+
+* GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
+
+
+
+
+
 # [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.11.1...@gtms/api-post@0.12.0) (2020-09-02)
 
 ### Features

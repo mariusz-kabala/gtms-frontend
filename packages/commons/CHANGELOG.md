@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.5...@gtms/commons@0.28.0) (2020-09-04)
+
+
+### Features
+
+* GEOT-453: display post images ([#841](https://github.com/gtms-org/gtms-frontend/issues/841)) ([b85c92a](https://github.com/gtms-org/gtms-frontend/commit/b85c92a0bcb84101ceb39ad8d5fd4767faf43b02))
+
+
+
+
+
 ## [0.27.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.4...@gtms/commons@0.27.5) (2020-08-17)
 
 
