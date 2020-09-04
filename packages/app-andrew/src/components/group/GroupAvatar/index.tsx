@@ -72,7 +72,7 @@ export const GroupAvatar: FC<{
         </Modal>
       )}
       {[FileStatus.uploaded, FileStatus.processing].includes(filesStatus) && (
-        <Spinner additionalStyles={styles.spinner} />
+        <Spinner size="sm" additionalStyles={styles.spinner} />
       )}
       <Picture {...files} />
     </div>

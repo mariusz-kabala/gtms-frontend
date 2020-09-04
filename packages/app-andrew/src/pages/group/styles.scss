@@ -39,8 +39,13 @@
       position: sticky;
       top: 0;
 
+      > div {
+        display: none;
+      }
+
       .avatarNamedDesc {
         padding: 10px;
+        display: block;
 
         &:hover {
           cursor: pointer;
@@ -62,6 +67,7 @@
             @include font-size(xdefault);
             @include font-weight(semiBold);
             margin-left: 10px;
+            display: none;
           }
         }
 
@@ -69,10 +75,13 @@
           margin-top: 5px;
           @include font-size(sm);
           @include font-weight(semiBold);
+          display: none;
         }
       }
 
       .navmock {
+        display: none;
+
         .item {
           display: flex;
           align-items: center;
@@ -107,6 +116,7 @@
         width: 100%;
         padding: 12px 14px;
         justify-content: flex-start;
+        display: none;
 
         i {
           font-size: 24px;

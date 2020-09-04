@@ -1,5 +1,4 @@
 import React, { FC, useRef, useEffect, useState, useCallback } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 // commons
 import { useTranslation } from '@gtms/commons/i18n'
@@ -15,7 +14,7 @@ import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
-import { IoMdSend } from 'react-icons/io'
+import styles from './styles.scss'
 
 export const PostCreate: FC<{
   additionalStyles?: string
@@ -169,12 +168,13 @@ export const PostCreate: FC<{
   }, [debouncedQuery])
 
   return (
-    <>
-      <div
-        className={cx(styles.wrapper, additionalStyles)}
-        data-testid="postCreate"
-      >
-        {isLoading && <Spinner />}
+    <div
+      className={cx(styles.wrapper, additionalStyles)}
+      data-testid="postCreate"
+    >
+      {isLoading && <Spinner />}
+
+      <div className={styles.avatarAndText}>
         <div className={styles.user}>
           <Link href={`/user/${user?.id}`}>
             <div>
@@ -257,33 +257,14 @@ export const PostCreate: FC<{
           placeholder={t('yourMessage')}
           ref={ref as any}
         />
-        <Button
-          additionalStyles={styles.btn}
-          disabled={false}
-          onClick={() => {
-            if (!user) {
-              if (onLoginRequest) {
-                onLoginRequest()
-              }
-
-              return
-            }
-            onSubmit(value)
-            setValue('')
-          }}
-          type="submit"
-        >
-          {t('send')}{' '}
-          <i>
-            <IoMdSend />
-          </i>
-        </Button>
       </div>
-      {tagsHints.tags.length > 0 && query.type === 'tag' && (
-        <div className={styles.suggestions}>
-          <ul>
+
+      <div className={styles.tags}>
+        {tagsHints.tags.length > 0 && query.type === 'tag' && (
+          <ul className={styles.tagsSuggestions}>
             {(tagsHints.tags as string[]).map((tag: string) => (
               <li
+                className={styles.tag}
                 onClick={() => {
                   const pat = new RegExp(
                     '(\\b' + query.value + '\\b)(?!.*\\b\\1\\b)',
@@ -302,11 +283,10 @@ export const PostCreate: FC<{
               </li>
             ))}
           </ul>
-        </div>
-      )}
-      {tagsHints.tags.length > 0 && query.type === 'user' && (
-        <div className={styles.suggestions}>
-          <ul>
+        )}
+
+        {tagsHints.tags.length > 0 && query.type === 'user' && (
+          <ul className={styles.userSuggestions}>
             {(tagsHints.tags as IUser[]).map((tag: IUser) => (
               <li
                 onClick={() => {
@@ -327,23 +307,50 @@ export const PostCreate: FC<{
               </li>
             ))}
           </ul>
-        </div>
-      )}
-      {!suggestedTags.isLoading && suggestedTags.tags.length > 0 && (
-        <div>
-          <h3>Suggested tags:</h3>
-          <TagGroup>
-            {suggestedTags.tags.map((tag) => (
-              <Tag
-                onClick={() => addSuggestedTag(tag)}
-                label={tag}
-                key={`suggested-tag-${tag}`}
-              />
-            ))}
-            <button onClick={addAllSuggestedTags}>Add all suggestions</button>
-          </TagGroup>
-        </div>
-      )}
-    </>
+        )}
+
+        {!suggestedTags.isLoading && suggestedTags.tags.length > 0 && (
+          <div className={styles.otherTagsSuggestions}>
+            <h2 className={styles.header}>Suggested tags:</h2>
+            <div className={styles.list}>
+              <TagGroup>
+                {suggestedTags.tags.map((tag) => (
+                  <Tag
+                    onClick={() => addSuggestedTag(tag)}
+                    label={tag}
+                    key={`suggested-tag-${tag}`}
+                  />
+                ))}
+              </TagGroup>
+              <button
+                className={styles.btnAddSuggestions}
+                onClick={addAllSuggestedTags}
+              >
+                Add all suggestions
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <Button
+        additionalStyles={styles.btn}
+        disabled={false}
+        onClick={() => {
+          if (!user) {
+            if (onLoginRequest) {
+              onLoginRequest()
+            }
+
+            return
+          }
+          onSubmit(value)
+          setValue('')
+        }}
+        type="submit"
+      >
+        button to be removed
+      </Button>
+    </div>
   )
 }
