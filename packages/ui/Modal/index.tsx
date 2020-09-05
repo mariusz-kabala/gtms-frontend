@@ -26,7 +26,10 @@ export const Modal: FC<{
 
   return portal
     ? createPortal(
-        <div className={cx(styles.modal, additionalStyles)} data-testid="modal">
+        <div
+          className={cx(styles.wrapper, additionalStyles)}
+          data-testid="modal"
+        >
           <div className={styles.content}>{children}</div>
           <Overlay onClick={onClose} />
         </div>,
