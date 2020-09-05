@@ -43,10 +43,6 @@
 }
 
 @mixin buttonWithSpinner($position: 'left') {
-  display: flex;
-  align-items: center;
-  line-height: 0;
-
   @if $position == 'left' {
     div {
       margin-right: 10px;
