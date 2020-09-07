@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from 'react'
+import React, { FC, ReactNode, useEffect, useLayoutEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import cx from 'classnames'
 // ui
@@ -18,22 +18,21 @@ export const Modal: FC<{
     return () => enableBodyScroll(document.body)
   }, [])
 
+  const portalNode = useRef(document.createElement('div'))
+
+  useLayoutEffect(() => {
+    document.body.appendChild(portalNode.current)
+  }, [])
+
   useKey(() => onClose(), {
     detectKeys: [27],
   })
 
-  const portal = document.getElementById('__next')
-
-  return portal
-    ? createPortal(
-        <div
-          className={cx(styles.wrapper, additionalStyles)}
-          data-testid="modal"
-        >
-          <div className={styles.content}>{children}</div>
-          <Overlay onClick={onClose} />
-        </div>,
-        portal
-      )
-    : null
+  return createPortal(
+    <div className={cx(styles.wrapper, additionalStyles)} data-testid="modal">
+      <div className={styles.content}>{children}</div>
+      <Overlay onClick={onClose} />
+    </div>,
+    portalNode.current
+  )
 }

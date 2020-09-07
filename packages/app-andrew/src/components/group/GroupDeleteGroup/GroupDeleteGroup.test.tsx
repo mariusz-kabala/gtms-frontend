@@ -4,13 +4,17 @@ import { GroupDeleteGroup } from './index'
 
 describe('<GroupDeleteGroup />', () => {
   it('Should be on the page', () => {
-    const { getByTestId } = render(<GroupDeleteGroup onConfirm={jest.fn()} />)
+    const { getByTestId } = render(<GroupDeleteGroup onConfirm={jest.fn()} />, {
+      container: document.body,
+    })
 
     expect(getByTestId('delete-group')).toBeInTheDocument()
   })
 
   it('Should open modal when clicking on button', () => {
-    const { getByTestId } = render(<GroupDeleteGroup onConfirm={jest.fn()} />)
+    const { getByTestId } = render(<GroupDeleteGroup onConfirm={jest.fn()} />, {
+      container: document.body,
+    })
 
     fireEvent.click(getByTestId('delete-group-button'))
 
@@ -19,7 +23,8 @@ describe('<GroupDeleteGroup />', () => {
 
   it('Should close modal when user cancel group deletion', () => {
     const { getByTestId, queryByTestId } = render(
-      <GroupDeleteGroup onConfirm={jest.fn()} />
+      <GroupDeleteGroup onConfirm={jest.fn()} />,
+      { container: document.body }
     )
 
     fireEvent.click(getByTestId('delete-group-button'))

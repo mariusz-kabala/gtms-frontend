@@ -18,7 +18,8 @@ describe('<Modal />', () => {
     const { container } = render(
       <Modal additionalStyles={'testingClass'} onClose={jest.fn()}>
         <span />
-      </Modal>
+      </Modal>,
+      { container: document.body }
     )
 
     expect(container.querySelector('.testingClass')).toBeInTheDocument()
@@ -30,7 +31,8 @@ describe('<Modal />', () => {
     const { getByTestId } = render(
       <Modal additionalStyles={'testingClass'} onClose={onClose}>
         <span>content</span>
-      </Modal>
+      </Modal>,
+      { container: document.body }
     )
 
     fireEvent.click(getByTestId('overlay'))
@@ -50,7 +52,8 @@ describe('<Modal />', () => {
     const { getByTestId } = render(
       <Modal additionalStyles={'testingClass'} onClose={onClose}>
         <span>content</span>
-      </Modal>
+      </Modal>,
+      { container: document.body }
     )
 
     expect(getByTestId('modal')).toBeInTheDocument()
