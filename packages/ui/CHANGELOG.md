@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.61.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.60.0...@gtms/ui@0.61.0) (2020-09-07)
+
+
+### Features
+
+* GEOT-456: support file uploading for group cover image ([#850](https://github.com/gtms-org/gtms-frontend/issues/850)) ([8c47356](https://github.com/gtms-org/gtms-frontend/commit/8c47356564e18df941155d076ae6d0580f091edb))
+
+
+
+
+
 # [0.60.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.59.0...@gtms/ui@0.60.0) (2020-09-07)
 
 
