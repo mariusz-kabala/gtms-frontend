@@ -15,17 +15,27 @@ export const CoverImageGroup: FC<{
     cover: string
   }[]
   additionalStyles?: string
+  upload: {
+    onDrop: (acceptedFiles: File[]) => unknown
+    isLoading: boolean
+    isError: boolean
+    file: ArrayBuffer | string | null
+  }
   onClose: () => unknown
-  onSave: (value: string) => unknown
+  onSave: () => unknown
+  activeCover?: string
+  setActiveCover: (cover: string) => unknown
 }> = ({
+  upload,
   additionalStyles,
   onClose,
   onSave,
   cover,
   options,
+  activeCover,
+  setActiveCover,
   stepTwo = false,
 }) => {
-  const [activeCover, setActiveCover] = useState<string | undefined>(cover)
   const [isStepTwo, setIsStepTwo] = useState<boolean>(stepTwo)
 
   return (
@@ -33,30 +43,38 @@ export const CoverImageGroup: FC<{
       data-testid="cover-image-group"
       className={cx(styles.wrapper, additionalStyles)}
     >
-      <div className={styles.steps}>
-        <div className={cx(styles.step, styles.one)}>
-          <i className={styles.icon}>
-            <BsCardImage />
-          </i>
-          <h2 className={styles.header}>You can add cover photo</h2>
-          <div className={styles.buttons}>
-            <Button additionalStyles={styles.btn} onClick={onClose}>
-              <i>
-                <IoMdCloseCircle />
-              </i>
-              No, thanks
-            </Button>
-            <Button
-              additionalStyles={styles.btn}
-              onClick={() => setIsStepTwo(true)}
-            >
-              <i>
-                <IoIosAddCircle />
-              </i>
-              Lets add it
-            </Button>
+      <div
+        className={cx(styles.steps, {
+          [styles.showCover]: ![undefined, 'noCover', 'unknown'].includes(
+            activeCover
+          ),
+        })}
+      >
+        {!isStepTwo && (
+          <div className={cx(styles.step, styles.one)}>
+            <i className={styles.icon}>
+              <BsCardImage />
+            </i>
+            <h2 className={styles.header}>You can add cover photo</h2>
+            <div className={styles.buttons}>
+              <Button additionalStyles={styles.btn} onClick={onClose}>
+                <i>
+                  <IoMdCloseCircle />
+                </i>
+                No, thanks
+              </Button>
+              <Button
+                additionalStyles={styles.btn}
+                onClick={() => setIsStepTwo(true)}
+              >
+                <i>
+                  <IoIosAddCircle />
+                </i>
+                Lets add it
+              </Button>
+            </div>
           </div>
-        </div>
+        )}
         <div
           className={cx(
             styles.step,
@@ -72,6 +90,14 @@ export const CoverImageGroup: FC<{
               }
             )
           )}
+          style={
+            upload.file
+              ? {
+                  backgroundImage: `url(${upload.file})`,
+                  backgroundSize: 'contain',
+                }
+              : undefined
+          }
         >
           <div>
             <div className={styles.buttons}>
@@ -79,13 +105,10 @@ export const CoverImageGroup: FC<{
                 <i>
                   <IoMdCloseCircle />
                 </i>
-                Nah, I do not want cover image
+                Cancel
               </Button>
-              {cover !== activeCover && (
-                <Button
-                  additionalStyles={styles.btn}
-                  onClick={() => onSave(activeCover as string)}
-                >
+              {(cover !== activeCover || upload.file) && (
+                <Button additionalStyles={styles.btn} onClick={onSave}>
                   <i>
                     <BsCloudUpload />
                   </i>
@@ -109,9 +132,9 @@ export const CoverImageGroup: FC<{
       >
         <UploadFile
           additionalStyles={styles.fileUpload}
-          onDrop={() => null}
-          isLoading={false}
-          isError={false}
+          onDrop={upload.onDrop}
+          isLoading={upload.isLoading}
+          isError={upload.isError}
         />
         <ul className={styles.items}>
           {options.map((option, index) => (
@@ -123,6 +146,17 @@ export const CoverImageGroup: FC<{
               onClick={() => setActiveCover(option.cover)}
             />
           ))}
+          <li
+            onClick={() => setActiveCover('noCover')}
+            className={cx(styles.item, styles.noCover, {
+              [styles.active]: activeCover === 'noCover',
+            })}
+          >
+            <i>
+              <IoMdCloseCircle />
+            </i>
+            Nah, I do not want cover image
+          </li>
         </ul>
       </div>
     </div>

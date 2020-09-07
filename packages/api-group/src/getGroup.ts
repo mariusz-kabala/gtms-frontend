@@ -12,6 +12,10 @@ export interface IGroupDetailsResponse {
     status: string
     files: string[]
   }
+  cover?: {
+    status: string
+    files: string[]
+  }
   bg?: {
     status: string
     files: string[]

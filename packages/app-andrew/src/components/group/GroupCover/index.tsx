@@ -1,8 +1,10 @@
 import React, { FC, useState, useCallback, useEffect } from 'react'
 import cx from 'classnames'
 import { IGroup } from '@gtms/commons/models'
-import { GroupCoverType } from '@gtms/commons/enums'
+import { GroupCoverType, FileStatus } from '@gtms/commons/enums'
+import { getImage } from '@gtms/commons/helpers'
 import { updateGroup } from '@gtms/state-group'
+import { uploadGroupCover } from '@gtms/api-group'
 // ui
 import { CoverImageGroup } from '@gtms/ui/CoverImageGroup'
 import { GoSettings } from 'react-icons/go'
@@ -79,6 +81,18 @@ export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
     show: isEditAllowed && group.coverType === GroupCoverType.unknown,
     isStepTwo: false,
   })
+  const [fileUploadState, setfileUploadState] = useState<{
+    isLoading: boolean
+    isError: boolean
+    file: ArrayBuffer | string | null
+  }>({
+    isLoading: false,
+    isError: false,
+    file: null,
+  })
+  const [activeCover, setActiveCover] = useState<string | undefined>(
+    group.coverType
+  )
   const onClose = useCallback(
     () =>
       setEditorState({
@@ -87,13 +101,75 @@ export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
       }),
     []
   )
-  const onSave = useCallback(async (coverType: string) => {
+  const onSave = useCallback(async () => {
+    let coverType: string | undefined = activeCover
+
+    if (!coverType && fileUploadState.file) {
+      coverType = GroupCoverType.file
+    }
+
+    if (!coverType) {
+      coverType = GroupCoverType.noCover
+    }
+
     await updateGroup(
       {
         coverType: coverType as GroupCoverType,
       },
       group.slug
     )
+  }, [fileUploadState, activeCover])
+  const onImageDrop = useCallback(
+    async (acceptedFiles) => {
+      setfileUploadState((state) => ({
+        ...state,
+        isError: false,
+        isLoading: true,
+      }))
+
+      const file = acceptedFiles[0]
+
+      try {
+        await uploadGroupCover(group.id, file)
+        const reader = new FileReader()
+
+        reader.onload = (e) => {
+          setfileUploadState((state) => ({
+            ...state,
+            file: e.target ? e.target.result : null,
+          }))
+
+          setEditorState((state) => ({
+            ...state,
+            isStepTwo: true,
+          }))
+          setActiveCover(undefined)
+        }
+
+        reader.readAsDataURL(file)
+
+        setfileUploadState((state) => ({
+          ...state,
+          isError: false,
+          isLoading: false,
+        }))
+      } catch (err) {
+        setfileUploadState((state) => ({
+          ...state,
+          isError: true,
+          isLoading: false,
+        }))
+      }
+    },
+    [group]
+  )
+  const onSetActiveCover = useCallback((cover: string) => {
+    setActiveCover(cover)
+    setfileUploadState({
+      isLoading: false,
+      isError: false,
+      file: null,
+    })
   }, [])
 
   useEffect(() => {
@@ -103,9 +179,12 @@ export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
     })
   }, [group, isEditAllowed])
 
-  if (!editorState.show && group.coverType !== GroupCoverType.unknown) {
+  if (
+    !editorState.show &&
+    ![GroupCoverType.unknown, GroupCoverType.noCover].includes(group.coverType)
+  ) {
     return (
-      <div className={styles.wrapper}>
+      <div data-testid="group-cover-view" className={styles.wrapper}>
         <div
           className={cx(styles.cover, {
             [styles.cover1]: group.coverType === GroupCoverType.cover1,
@@ -123,7 +202,23 @@ export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
             [styles.cover13]: group.coverType === GroupCoverType.cover13,
             [styles.cover14]: group.coverType === GroupCoverType.cover14,
           })}
+          style={
+            group.coverType === GroupCoverType.file &&
+            group.cover.status === FileStatus.ready
+              ? {
+                  background: `url(${
+                    getImage('685x300', group.cover).jpg
+                  }) no-repeat top center`,
+                }
+              : undefined
+          }
         >
+          {group.coverType === GroupCoverType.file &&
+            group.cover.status !== FileStatus.ready && (
+              <div data-testid="group-cover-processing-msg">
+                Group cover image is being process, will be available soon
+              </div>
+            )}
           {isEditAllowed && (
             <button
               className={styles.btn}
@@ -153,10 +248,16 @@ export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
     <div className={styles.wrapper}>
       <CoverImageGroup
         onClose={onClose}
+        activeCover={activeCover}
+        setActiveCover={onSetActiveCover}
         onSave={onSave}
         options={COVERS}
         stepTwo={editorState.isStepTwo}
         cover={group.coverType}
+        upload={{
+          ...fileUploadState,
+          onDrop: onImageDrop,
+        }}
       />
     </div>
   )

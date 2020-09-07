@@ -66,9 +66,16 @@ export const getGroup = async (slug: string) => {
       group.avatar.files = parseFiles(group.avatar.files)
     }
 
+    if (
+      Array.isArray(group.cover?.files) &&
+      group.cover?.status === FileStatus.ready
+    ) {
+      group.cover.files = parseFiles(group.cover.files)
+    }
+
     groupStore.update({
       isLoading: false,
-      group: group as IGroup,
+      group: (group as unknown) as IGroup,
     })
   } catch (res) {
     switch (res.status) {
@@ -110,7 +117,7 @@ export const updateGroup = async (data: IGroupData, slug: string) => {
     }
 
     groupStore.update({
-      group: group as IGroup,
+      group: (group as unknown) as IGroup,
     })
   } catch {
     addErrorNotification('Error occured, try again later')
