@@ -26,7 +26,11 @@
     display: flex;
     align-items: center;
     height: 100%;
-    min-height: 300px;
+    min-height: 50px;
+
+    &.showCover {
+      min-height: 300px;
+    }
   }
 
   .step {
@@ -182,11 +186,25 @@
           background: rgba($theme4, 0.2);
           opacity: 0;
         }
-        &:hover {
+        &:hover,
+        &.active {
           &:after {
             opacity: 1;
           }
         }
+      }
+
+      .noCover {
+        text-align: center;
+        i {
+          display: block;
+          margin: 5px auto;
+          svg {
+            width: 2.5em;
+            height: 2.5em;
+          }
+        }
+        padding: 5px;
       }
     }
   }
