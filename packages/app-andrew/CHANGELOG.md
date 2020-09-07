@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.80.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.79.0...@gtms/app-andrew@0.80.0) (2020-09-07)
+
+
+### Features
+
+* GEOT-449: render modals in portal ([#848](https://github.com/gtms-org/gtms-frontend/issues/848)) ([e396d25](https://github.com/gtms-org/gtms-frontend/commit/e396d25f8d7289d7b655aaeb9b3d8f79a35ea0fb))
+
+
+
+
+
 # [0.79.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.78.0...@gtms/app-andrew@0.79.0) (2020-09-04)
 
 
