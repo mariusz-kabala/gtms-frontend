@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.81.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.1...@gtms/app-andrew@0.81.2) (2020-09-09)
+
+
+### Bug Fixes
+
+* GEOT-460: allow to upload a custom file for group bg ([#853](https://github.com/gtms-org/gtms-frontend/issues/853)) ([855e2a3](https://github.com/gtms-org/gtms-frontend/commit/855e2a3a528cf05159bfb4b45a4885bb11cb58eb))
+
+
+
+
+
 ## [0.81.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.0...@gtms/app-andrew@0.81.1) (2020-09-09)
 
 ### Bug Fixes
