@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import { UserAvatarNoImage } from 'enums'
+import { getImage } from '@gtms/commons/helpers'
 import { useInitState } from '@gtms/commons/hooks'
 import { IPost, IUser } from '@gtms/commons/models'
 // api
@@ -53,7 +54,7 @@ import {
   IPostCommentsState,
   initPostCommentsStore,
 } from '@gtms/state-comment'
-import { changePageBackground } from 'state'
+import { changePageBackground, changePageBackgroundImage } from 'state'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
@@ -84,7 +85,11 @@ const getInitData = ({
     initGroup(group)
 
     if (group.group?.bgType) {
-      changePageBackground(group.group?.bgType)
+      if (group.group?.bgType === 'file') {
+        changePageBackgroundImage(getImage('origin', group.group.bg).jpg)
+      } else {
+        changePageBackground(group.group?.bgType)
+      }
     }
   }
   posts && initPostsStore(posts, post)

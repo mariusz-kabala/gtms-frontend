@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import cx from 'classnames'
 import useKey from 'use-key-hook'
 // ui
@@ -15,6 +15,7 @@ export const FullScreenGallery: FC<{
     name: string
     className: string
   }[]
+  file: ArrayBuffer | string | null
   onBgChange: (name: string) => unknown
   onClose: () => unknown
 }> = ({
@@ -24,6 +25,8 @@ export const FullScreenGallery: FC<{
   gallery,
   onBgChange,
   currentBg,
+  children,
+  file,
 }) => {
   useKey(() => onClose(), {
     detectKeys: [27],
@@ -32,9 +35,17 @@ export const FullScreenGallery: FC<{
   const [isImageWrapperActive, setIsImageWrapperActive] = useState<boolean>(
     true
   )
+
   const [activeBg, setActiveBg] = useState<number>(
     gallery.findIndex((g) => g.name === currentBg)
   )
+
+  useEffect(() => {
+    if (file) {
+      setIsImageWrapperActive(false)
+      setActiveBg(-1)
+    }
+  }, [file])
 
   return (
     <div
@@ -49,8 +60,18 @@ export const FullScreenGallery: FC<{
         }
       `}</style>
       <div
-        className={cx(styles.canvas, gallery[activeBg].className)}
+        className={cx(
+          styles.canvas,
+          activeBg > -1 ? gallery[activeBg].className : undefined
+        )}
         onClick={() => setIsImageWrapperActive(false)}
+        style={
+          file
+            ? {
+                backgroundImage: `url(${file})`,
+              }
+            : undefined
+        }
       />
       <div
         className={cx(styles.imagesWrapper, {
@@ -70,7 +91,7 @@ export const FullScreenGallery: FC<{
           <Button
             additionalStyles={styles.btn}
             onClick={() => {
-              onBgChange(gallery[activeBg].name)
+              onBgChange(activeBg > -1 ? gallery[activeBg].name : 'file')
               onClose()
             }}
           >
@@ -82,6 +103,7 @@ export const FullScreenGallery: FC<{
         </div>
         <Scrollbars style={{ width: '100%', height: '80%' }}>
           <ul className={styles.images}>
+            {children}
             {gallery.map((bg, index) => (
               <li
                 key={`bg-${index}`}

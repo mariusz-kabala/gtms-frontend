@@ -33,6 +33,7 @@ export const toggleSidebarNotifications = () =>
 export const changePageBackground = (background: string) =>
   uiStore.update({
     background,
+    backgroundImage: undefined,
   })
 
 export const openGroupSidebar = (groupId: string) => {
@@ -66,4 +67,8 @@ export const toggleGroupSidebar = (groupId: string) => {
       [groupId]: !!(sidebar[groupId] || false),
     },
   })
+}
+
+export const changePageBackgroundImage = (backgroundImage: string) => {
+  uiStore.update({ backgroundImage })
 }

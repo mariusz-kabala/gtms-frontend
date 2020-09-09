@@ -1,9 +1,11 @@
 import React, { FC, useCallback, useState } from 'react'
 import { IGroup } from '@gtms/commons/models'
 import { updateGroup } from '@gtms/state-group'
+import { uploadGroupBg } from '@gtms/api-group'
 // ui
 import { Button } from '@gtms/ui/Button'
 import { FullScreenGallery } from '@gtms/ui/FullScreenGallery'
+import { UploadFile } from '@gtms/ui/UploadFile'
 // styles
 import styles from './styles.scss'
 import { BACKGROUNDS_GALLERY } from 'enums'
@@ -13,6 +15,53 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
   const [isFullScreenGalleryOpen, setIsFullScreenGalleryOpen] = useState<
     boolean
   >(false)
+  const [fileUploadState, setfileUploadState] = useState<{
+    isLoading: boolean
+    isError: boolean
+    file: ArrayBuffer | string | null
+  }>({
+    isLoading: false,
+    isError: false,
+    file: null,
+  })
+  const onImageDrop = useCallback(
+    async (acceptedFiles) => {
+      setfileUploadState((state) => ({
+        ...state,
+        isError: false,
+        isLoading: true,
+      }))
+
+      const file = acceptedFiles[0]
+
+      try {
+        await uploadGroupBg(group.id, file)
+        const reader = new FileReader()
+
+        reader.onload = (e) => {
+          setfileUploadState((state) => ({
+            ...state,
+            file: e.target ? e.target.result : null,
+          }))
+        }
+
+        reader.readAsDataURL(file)
+
+        setfileUploadState((state) => ({
+          ...state,
+          isError: false,
+          isLoading: false,
+        }))
+      } catch (err) {
+        setfileUploadState((state) => ({
+          ...state,
+          isError: true,
+          isLoading: false,
+        }))
+      }
+    },
+    [group]
+  )
 
   const onBgChange = useCallback((name: string) => {
     updateGroup(
@@ -35,7 +84,14 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
         gallery={BACKGROUNDS_GALLERY}
         isActive={isFullScreenGalleryOpen}
         onClose={() => setIsFullScreenGalleryOpen(false)}
-      />
+        file={fileUploadState.file}
+      >
+        <UploadFile
+          onDrop={onImageDrop}
+          isLoading={fileUploadState.isLoading}
+          isError={fileUploadState.isError}
+        />
+      </FullScreenGallery>
       <Button
         onClick={() => setIsFullScreenGalleryOpen(true)}
         additionalStyles={styles.btn}
