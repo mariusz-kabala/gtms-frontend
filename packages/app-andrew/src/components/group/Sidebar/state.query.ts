@@ -1,18 +1,16 @@
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
-import {
-  IGroupPageState,
-  groupPageState,
-  groupPageState$,
-} from 'queries/groupPage.query'
+import { groupQuery } from '@gtms/state-group'
+import { IGroup } from '@gtms/commons/models'
 import { uiQuery } from 'state'
 
-export interface IGroupSidebarState extends IGroupPageState {
+export interface IGroupSidebarState {
   isOpen: boolean
+  group: IGroup | null
 }
 
 export const groupSidebarState = (): IGroupSidebarState => {
-  const groupState = groupPageState()
+  const groupState = groupQuery.getValue()
 
   return {
     ...groupState,
@@ -23,6 +21,6 @@ export const groupSidebarState = (): IGroupSidebarState => {
 }
 
 export const groupSidebarState$: Observable<IGroupSidebarState> = combineLatest(
-  groupPageState$,
+  groupQuery.allState$,
   uiQuery.select()
 ).pipe(map(() => groupSidebarState()))

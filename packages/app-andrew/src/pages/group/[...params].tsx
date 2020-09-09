@@ -18,6 +18,7 @@ import { PostCreate } from 'components/post/PostCreate'
 import { PostDetails } from 'components/post/PostDetails'
 import { PromotedTags } from 'components/group/PromotedTags'
 import { GroupSidebar } from 'components/group/Sidebar'
+import { GroupSidebarContent } from 'components/group/Sidebar/content'
 // state
 import {
   IGroupPageState,
@@ -270,7 +271,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
         {state.group && (
           <>
-            <GroupSidebar />
+            <GroupSidebar>
+              <GroupSidebarContent />
+            </GroupSidebar>
             <div className={styles.groupContent}>
               <GroupCover
                 group={state.group}
