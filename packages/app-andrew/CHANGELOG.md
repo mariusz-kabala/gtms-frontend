@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.81.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.0...@gtms/app-andrew@0.81.1) (2020-09-09)
+
+
+### Bug Fixes
+
+* GEOT-434: move sidebar to a separate component ([#851](https://github.com/gtms-org/gtms-frontend/issues/851)) ([7263191](https://github.com/gtms-org/gtms-frontend/commit/7263191db0465df64be16fdeb6571db66c48c121))
+
+
+
+
+
 # [0.81.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.80.0...@gtms/app-andrew@0.81.0) (2020-09-07)
 
 
