@@ -3,76 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.81.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.80.0...@gtms/app-andrew@0.81.0) (2020-09-07)
+## [0.81.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.0...@gtms/app-andrew@0.81.1) (2020-09-09)
 
+### Bug Fixes
+
+- GEOT-434: move sidebar to a separate component ([#851](https://github.com/gtms-org/gtms-frontend/issues/851)) ([7263191](https://github.com/gtms-org/gtms-frontend/commit/7263191db0465df64be16fdeb6571db66c48c121))
+
+# [0.81.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.80.0...@gtms/app-andrew@0.81.0) (2020-09-07)
 
 ### Features
 
-* GEOT-456: support file uploading for group cover image ([#850](https://github.com/gtms-org/gtms-frontend/issues/850)) ([8c47356](https://github.com/gtms-org/gtms-frontend/commit/8c47356564e18df941155d076ae6d0580f091edb))
-
-
-
-
+- GEOT-456: support file uploading for group cover image ([#850](https://github.com/gtms-org/gtms-frontend/issues/850)) ([8c47356](https://github.com/gtms-org/gtms-frontend/commit/8c47356564e18df941155d076ae6d0580f091edb))
 
 # [0.80.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.79.0...@gtms/app-andrew@0.80.0) (2020-09-07)
 
-
 ### Features
 
-* GEOT-449: render modals in portal ([#848](https://github.com/gtms-org/gtms-frontend/issues/848)) ([e396d25](https://github.com/gtms-org/gtms-frontend/commit/e396d25f8d7289d7b655aaeb9b3d8f79a35ea0fb))
-
-
-
-
+- GEOT-449: render modals in portal ([#848](https://github.com/gtms-org/gtms-frontend/issues/848)) ([e396d25](https://github.com/gtms-org/gtms-frontend/commit/e396d25f8d7289d7b655aaeb9b3d8f79a35ea0fb))
 
 # [0.79.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.78.0...@gtms/app-andrew@0.79.0) (2020-09-04)
 
-
 ### Features
 
-* GEOT-454: styles for adding posts ([#844](https://github.com/gtms-org/gtms-frontend/issues/844)) ([7a99f41](https://github.com/gtms-org/gtms-frontend/commit/7a99f41b0bc71a6c7cbe2797ac89e6fd42671d5f))
-
-
-
-
+- GEOT-454: styles for adding posts ([#844](https://github.com/gtms-org/gtms-frontend/issues/844)) ([7a99f41](https://github.com/gtms-org/gtms-frontend/commit/7a99f41b0bc71a6c7cbe2797ac89e6fd42671d5f))
 
 # [0.78.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.77.1...@gtms/app-andrew@0.78.0) (2020-09-04)
 
-
 ### Bug Fixes
 
-* GEOT-397: working pagination ([#843](https://github.com/gtms-org/gtms-frontend/issues/843)) ([6c8823c](https://github.com/gtms-org/gtms-frontend/commit/6c8823cb3d16914582244a4a132c303803f65705))
-
+- GEOT-397: working pagination ([#843](https://github.com/gtms-org/gtms-frontend/issues/843)) ([6c8823c](https://github.com/gtms-org/gtms-frontend/commit/6c8823cb3d16914582244a4a132c303803f65705))
 
 ### Features
 
-* GEOT-453: display post images ([#841](https://github.com/gtms-org/gtms-frontend/issues/841)) ([b85c92a](https://github.com/gtms-org/gtms-frontend/commit/b85c92a0bcb84101ceb39ad8d5fd4767faf43b02))
-
-
-
-
+- GEOT-453: display post images ([#841](https://github.com/gtms-org/gtms-frontend/issues/841)) ([b85c92a](https://github.com/gtms-org/gtms-frontend/commit/b85c92a0bcb84101ceb39ad8d5fd4767faf43b02))
 
 ## [0.77.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.77.0...@gtms/app-andrew@0.77.1) (2020-09-03)
 
-
 ### Bug Fixes
 
-* master: pass file url together with post ([8e67f15](https://github.com/gtms-org/gtms-frontend/commit/8e67f15fdcf685ca702f0ba06c32470c4fd7677c))
-
-
-
-
+- master: pass file url together with post ([8e67f15](https://github.com/gtms-org/gtms-frontend/commit/8e67f15fdcf685ca702f0ba06c32470c4fd7677c))
 
 # [0.77.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.76.0...@gtms/app-andrew@0.77.0) (2020-09-02)
 
-
 ### Features
 
-* GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
-
-
-
-
+- GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
 
 # [0.76.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.75.1...@gtms/app-andrew@0.76.0) (2020-09-02)
 

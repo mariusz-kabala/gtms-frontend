@@ -36,6 +36,39 @@ export const changePageBackground = (background: string) =>
     backgroundImage: undefined,
   })
 
+export const openGroupSidebar = (groupId: string) => {
+  const sidebar = uiStore.getValue().groupsSidebar
+
+  uiStore.update({
+    groupsSidebar: {
+      ...sidebar,
+      [groupId]: true,
+    },
+  })
+}
+
+export const closeGroupSidebar = (groupId: string) => {
+  const sidebar = uiStore.getValue().groupsSidebar
+
+  uiStore.update({
+    groupsSidebar: {
+      ...sidebar,
+      [groupId]: false,
+    },
+  })
+}
+
+export const toggleGroupSidebar = (groupId: string) => {
+  const sidebar = uiStore.getValue().groupsSidebar
+
+  uiStore.update({
+    groupsSidebar: {
+      ...sidebar,
+      [groupId]: !!(sidebar[groupId] || false),
+    },
+  })
+}
+
 export const changePageBackgroundImage = (backgroundImage: string) => {
   uiStore.update({ backgroundImage })
 }

@@ -3,4 +3,7 @@ export interface IUI {
   isNotificationsBarOpen: boolean
   background: string
   backgroundImage?: string
+  groupsSidebar: {
+    [groupsId: string]: boolean
+  }
 }

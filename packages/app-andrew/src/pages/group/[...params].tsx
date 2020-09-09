@@ -4,13 +4,7 @@ import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import { UserAvatarNoImage } from 'enums'
 import { getImage } from '@gtms/commons/helpers'
-import {
-  IGroupPageState,
-  groupPageState,
-  groupPageState$,
-} from 'queries/groupPage.query'
 import { useInitState } from '@gtms/commons/hooks'
-import { useTranslation } from '@gtms/commons/i18n'
 import { IPost, IUser } from '@gtms/commons/models'
 // api
 import { fetchPost, Sorting } from '@gtms/api-post'
@@ -18,20 +12,20 @@ import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
 import { Favs } from 'components/post/Favs'
-import { FavsButton } from 'components/group/FavsButton'
-import { FollowButton } from 'components/group/FollowButton'
-import { GroupAvatar } from 'components/group/GroupAvatar'
 import { GroupCover } from 'components/group/GroupCover'
-import { GroupDescription } from 'components/group/GroupDescription'
-import { GroupMembers } from 'components/group/GroupMembers'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
-import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { PostCreate } from 'components/post/PostCreate'
 import { PostDetails } from 'components/post/PostDetails'
 import { PromotedTags } from 'components/group/PromotedTags'
-import { SettingsButton } from 'components/group/SettingsButton'
+import { GroupSidebar } from 'components/group/Sidebar'
+import { GroupSidebarContent } from 'components/group/Sidebar/content'
 // state
+import {
+  IGroupPageState,
+  groupPageState,
+  groupPageState$,
+} from 'queries/groupPage.query'
 import { openLoginModal } from 'state'
 import {
   groupQuery,
@@ -62,16 +56,13 @@ import {
 } from '@gtms/state-comment'
 import { changePageBackground, changePageBackgroundImage } from 'state'
 // ui
-import { IoMdGrid } from 'react-icons/io'
-import { GoDatabase, GoGitCompare, GoRepoForked, GoGift } from 'react-icons/go'
-import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Pagination } from '@gtms/ui/Pagination'
 import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
-import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserPreview } from '@gtms/ui/UserPreview'
+// styles
 import styles from './styles.scss'
 
 type GroupPageProps = {
@@ -149,12 +140,10 @@ const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
 const GroupPage: NextPage<GroupPageProps> = (props) => {
   useInitState(getInitData(props))
 
-  const { t } = useTranslation('groupPage')
   const router = useRouter()
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true)
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
-  const [showPromoted, setShowPromoted] = useState<boolean>(false)
+  const [showPromoted] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
       sort,
@@ -249,7 +238,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   }, [])
 
   const promotedTagsRef = useRef<HTMLDivElement>(null)
-  const groupHeaderRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (state.group) {
@@ -288,126 +276,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
         {state.group && (
           <>
-            <div
-              className={cx(styles.groupSidebar, {
-                [styles.active]: isSidebarOpen,
-              })}
-              ref={groupHeaderRef}
-            >
-              <div className={styles.makeItSticky}>
-                <div className={styles.avatarNamedDesc}>
-                  <div className={styles.avatarName}>
-                    <GroupAvatar
-                      additionalStyles={styles.groupAvatar}
-                      files={groupQuery.getAvatar('50x50', state)}
-                      filesStatus={groupQuery.getAvatarFileStatus()}
-                      isEditAllowed={groupQuery.hasAdminRights()}
-                    />
-                    <h2
-                      className={styles.header}
-                      data-tip={t('click-here-to-edit')}
-                      data-type="dark"
-                    >
-                      {state.group?.name}
-                    </h2>
-                  </div>
-                  <GroupDescription
-                    additionalStyles={styles.desc}
-                    isEditAllowed={groupQuery.hasAdminRights()}
-                    slug={state.group?.slug || ''}
-                    text={
-                      !state.group?.description
-                        ? groupQuery.hasAdminRights()
-                          ? 'you did not add group description yet, click here to change it'
-                          : ''
-                        : state.group?.description || ''
-                    }
-                  />
-                </div>
-                <div className={styles.actionButtons}>
-                  <FavsButton group={state.group} />
-                  <JoinLeaveButton group={state.group} />
-                  <SettingsButton group={state.group} />
-                  <FollowButton group={state.group} />
-                </div>
-                <Button
-                  additionalStyles={cx(styles.btnTags, {
-                    [styles.active]: showPromoted,
-                  })}
-                  onClick={() => {
-                    if (!showPromoted) {
-                      setTimeout(() => {
-                        if (
-                          !promotedTagsRef.current ||
-                          !groupHeaderRef.current
-                        ) {
-                          return
-                        }
-                        window.scroll({
-                          top:
-                            promotedTagsRef.current.offsetTop -
-                            groupHeaderRef.current.clientHeight,
-                          left: 0,
-                          behavior: 'smooth',
-                        })
-                      }, 200)
-                    }
-                    setShowPromoted((value) => !value)
-                  }}
-                >
-                  <i>
-                    <IoMdGrid />
-                  </i>
-                  <span>Tags</span>
-                </Button>
-                <ul className={styles.navmock}>
-                  <li className={styles.item}>
-                    <i>
-                      <GoDatabase />
-                    </i>
-                    <span>Users</span>
-                  </li>
-                  <li className={styles.item}>
-                    <i>
-                      <GoGitCompare />
-                    </i>
-                    <span>Tags</span>
-                  </li>
-                  <li className={styles.item}>
-                    <i>
-                      <GoRepoForked />
-                    </i>
-                    <span>Settings</span>
-                  </li>
-                  <li
-                    className={styles.item}
-                    onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  >
-                    <i>
-                      <GoGift />
-                    </i>
-                    <span>Posts</span>
-                  </li>
-                </ul>
-                <GroupMembers
-                  additionalStyles={styles.groupMembers}
-                  {...state.members}
-                />
-                <div className={styles.searchInput}>
-                  <div className={styles.search}>
-                    <SearchBar
-                      onTagAdd={() => null}
-                      onTagRemove={() => null}
-                      onLoadSuggestion={() => null}
-                      onQueryChange={() => null}
-                      onLoadSuggestionCancel={() => null}
-                      tags={state.activeTags || []}
-                      users={state.activeUsers}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <GroupSidebar>
+              <GroupSidebarContent />
+            </GroupSidebar>
             <div className={styles.groupContent}>
               <GroupCover
                 group={state.group}
