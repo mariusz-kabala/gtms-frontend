@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
-import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import {
   groupQuery,
@@ -13,7 +12,12 @@ import { changePageBackground } from 'state'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
-//sections
+// components
+import { GroupSidebar } from 'components/group/Sidebar'
+import {
+  Tabs,
+  GroupSettingsSidebarContent,
+} from 'components/group/Sidebar/content'
 import { AdminsSettings } from 'components/group-settings/Admins'
 import { BasicSettings } from 'components/group-settings/Basic'
 import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
@@ -22,27 +26,15 @@ import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
 // ui
-import { AiOutlineTags } from 'react-icons/ai'
-import { FaEnvelopeOpenText } from 'react-icons/fa'
-import { FiUsers } from 'react-icons/fi'
-import { RiUserStarLine } from 'react-icons/ri'
-import { GoSettings } from 'react-icons/go'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
+// styles
 import styles from './styles.scss'
 
 type GroupSettingsPageProps = {
   namespacesRequired: readonly string[]
   slug: string
-}
-
-enum Tabs {
-  general = 'general',
-  tags = 'tags',
-  invitations = 'invitations',
-  admins = 'admins',
-  members = 'members',
 }
 
 const getInitialTab = () => {
@@ -102,76 +94,13 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             <h2>Can not fetch group details, try again later</h2>
           </ErrorWrapper>
         )}
-
+        <GroupSidebar>
+          <GroupSettingsSidebarContent tab={tab} setTab={setTab} />
+        </GroupSidebar>
         {!group.isLoading && !group.errorOccured && (
           <>
             <div className={styles.navigationWrapper}>
               <h2 className={styles.header}>{t('header')}</h2>
-              <ul className={styles.navigation}>
-                <li
-                  className={cx({
-                    [styles.current]: tab === Tabs.general,
-                  })}
-                >
-                  <a href="#general" onClick={() => setTab(Tabs.general)}>
-                    <i>
-                      <GoSettings />
-                    </i>
-                    General Settings
-                  </a>
-                </li>
-                <li
-                  className={cx({
-                    [styles.current]: tab === Tabs.tags,
-                  })}
-                >
-                  <a href="#tags" onClick={() => setTab(Tabs.tags)}>
-                    <i>
-                      <AiOutlineTags />
-                    </i>
-                    Tags
-                  </a>
-                </li>
-                <li
-                  className={cx({
-                    [styles.current]: tab === Tabs.invitations,
-                  })}
-                >
-                  <a
-                    href="#invitations"
-                    onClick={() => setTab(Tabs.invitations)}
-                  >
-                    <i>
-                      <FaEnvelopeOpenText />
-                    </i>
-                    Invitations
-                  </a>
-                </li>
-                <li
-                  className={cx({
-                    [styles.current]: tab === Tabs.admins,
-                  })}
-                >
-                  <a href="#admins" onClick={() => setTab(Tabs.admins)}>
-                    <i>
-                      <RiUserStarLine />
-                    </i>
-                    Admins
-                  </a>
-                </li>
-                <li
-                  className={cx({
-                    [styles.current]: tab === Tabs.members,
-                  })}
-                >
-                  <a href="#members" onClick={() => setTab(Tabs.members)}>
-                    <i>
-                      <FiUsers />
-                    </i>
-                    Members
-                  </a>
-                </li>
-              </ul>
             </div>
 
             {tab === Tabs.general && (
