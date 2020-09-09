@@ -40,6 +40,31 @@ export class UIQuery extends Query<IUI> {
     return this.pageBackground(value)
   })
 
+  public pageBackgroundImage = (
+    value = this.getValue()
+  ): string | undefined => {
+    return value.backgroundImage
+  }
+
+  public pageBackgroundImage$: Observable<string | undefined> = this.select(
+    (value) => {
+      return this.pageBackgroundImage(value)
+    }
+  )
+
+  public pageBackgrounds = (value = this.getValue()) => ({
+    background: this.pageBackground(value),
+    backgroundImage: this.pageBackgroundImage(value),
+  })
+
+  public pageBackgrounds$: Observable<{
+    background: {
+      name: string
+      className: string
+    }
+    backgroundImage: string | undefined
+  }> = this.select((value) => this.pageBackgrounds(value))
+
   public isNotificationsBarOpen = (values = this.getValue()) => {
     return values.isNotificationsBarOpen
   }

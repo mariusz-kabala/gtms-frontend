@@ -30,6 +30,7 @@ interface GTMSAppState {
     name: string
     className: string
   }
+  backgroundImage?: string
 }
 
 class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
@@ -39,7 +40,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
     super(props)
 
     this.state = {
-      background: uiQuery.pageBackground(),
+      ...uiQuery.pageBackgrounds(),
     }
   }
 
@@ -71,6 +72,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
 
   render() {
     const { Component, pageProps } = this.props
+    const { background, backgroundImage } = this.state
 
     return (
       <div className={styles.wrapper}>
@@ -82,7 +84,19 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <NotificationsSidebar />
         <NavigationWrapper />
         <Component {...pageProps} />
-        <div className={cx(styles.bg, this.state.background.className)} />
+        <div
+          className={cx(
+            styles.bg,
+            !backgroundImage ? background.className : undefined
+          )}
+          style={
+            backgroundImage
+              ? {
+                  background: `url(${backgroundImage}) no-repeat`,
+                }
+              : undefined
+          }
+        />
       </div>
     )
   }

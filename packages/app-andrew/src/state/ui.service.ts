@@ -33,4 +33,9 @@ export const toggleSidebarNotifications = () =>
 export const changePageBackground = (background: string) =>
   uiStore.update({
     background,
+    backgroundImage: undefined,
   })
+
+export const changePageBackgroundImage = (backgroundImage: string) => {
+  uiStore.update({ backgroundImage })
+}
