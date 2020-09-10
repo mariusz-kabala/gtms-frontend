@@ -4,7 +4,7 @@
 
 .groupSidebar {
   position: relative;
-  width: 50px;
+  width: 250px;
   background: $theme0;
   border-top-left-radius: $borderRadius;
   border-bottom-left-radius: $borderRadius;
@@ -19,10 +19,6 @@
   .makeItSticky {
     position: sticky;
     top: 0;
-
-    > div {
-      display: none;
-    }
 
     .avatarNamedDesc {
       padding: 10px;
@@ -48,7 +44,6 @@
           @include font-size(xdefault);
           @include font-weight(semiBold);
           margin-left: 10px;
-          display: none;
         }
       }
 
@@ -56,7 +51,6 @@
         margin-top: 5px;
         @include font-size(sm);
         @include font-weight(semiBold);
-        display: none;
       }
     }
   }

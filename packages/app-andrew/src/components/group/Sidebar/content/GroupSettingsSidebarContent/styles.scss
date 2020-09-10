@@ -1,13 +1,12 @@
 @import '~@gtms/styles/scss/variables.scss';
 
 .navigation {
-  display: flex;
-  margin-left: 10px;
+  padding: 10px 15px;
 
-  li {
-    margin-right: 10px;
+  .item {
     border-radius: $borderRadius;
     background: $theme2;
+    margin-bottom: 10px;
 
     a {
       display: flex;
@@ -23,6 +22,7 @@
     &.current,
     &:hover {
       background: $theme4;
+
       a {
         color: $theme0;
       }

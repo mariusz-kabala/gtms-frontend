@@ -72,12 +72,6 @@ export const GroupSidebarContent: FC<{}> = () => {
           </i>
           <span>Tags</span>
         </li>
-        <li className={styles.item}>
-          <i>
-            <GoRepoForked />
-          </i>
-          <span>Settings</span>
-        </li>
         <li
           className={styles.item}
           onClick={() => state.group && toggleGroupSidebar(state.group.id)}
@@ -86,6 +80,12 @@ export const GroupSidebarContent: FC<{}> = () => {
             <GoGift />
           </i>
           <span>Posts</span>
+        </li>
+        <li className={styles.item}>
+          <i>
+            <GoRepoForked />
+          </i>
+          <span>Settings</span>
         </li>
       </ul>
       <GroupMembers additionalStyles={styles.groupMembers} {...state.members} />

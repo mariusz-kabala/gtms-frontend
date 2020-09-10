@@ -1,9 +1,10 @@
 import React, { FC, useState } from 'react'
-import styles from './styles.scss'
-import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { useForm } from 'react-hook-form'
-import { Button } from '@gtms/ui/Button'
 import { updateAccountDetails } from '@gtms/state-user'
+// ui
+import { Button } from '@gtms/ui/Button'
+import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
+import styles from './styles.scss'
 
 export const UserDescription: FC<{
   description?: string

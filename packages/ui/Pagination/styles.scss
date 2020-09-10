@@ -2,7 +2,6 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  width: 100px;
   display: flex;
 
   .items {
@@ -30,6 +29,9 @@
         background: $theme4;
         border-color: $theme4;
         color: $theme0;
+        a {
+          color: $theme0;
+        }
       }
     }
   }

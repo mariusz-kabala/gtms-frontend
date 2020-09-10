@@ -63,6 +63,10 @@
   }
 
   .desc {
+    .response {
+      margin: 10px 0;
+    }
+
     .text {
       margin-top: 5px;
       @include font-size(sm);

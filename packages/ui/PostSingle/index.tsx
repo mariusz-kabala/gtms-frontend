@@ -155,11 +155,12 @@ export const PostSingle: FC<{
           <>
             {firstComments.map((comment) => (
               <PostResponse
-                key={`comment-${comment.id}`}
-                html={comment.html}
+                additionalStyles={styles.response}
                 createdAt={comment.createdAt}
-                owner={comment.owner as IUser}
+                html={comment.html}
+                key={`comment-${comment.id}`}
                 noImage={noImage}
+                owner={comment.owner as IUser}
                 user={user}
               />
             ))}

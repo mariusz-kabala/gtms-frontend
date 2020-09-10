@@ -98,7 +98,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
           <GroupSettingsSidebarContent tab={tab} setTab={setTab} />
         </GroupSidebar>
         {!group.isLoading && !group.errorOccured && (
-          <>
+          <div className={styles.content}>
             <div className={styles.navigationWrapper}>
               <h2 className={styles.header}>{t('header')}</h2>
             </div>
@@ -110,14 +110,16 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                   {group.group && <BasicSettings group={group.group} />}
                 </div>
                 <div className={styles.deleteAccount}>
-                  <div className={styles.btn}>
-                    <h2>Oh no! Do not</h2>
-                    <GroupDeleteGroup onConfirm={() => null} />
+                  <div>
+                    <div className={styles.btn}>
+                      <h2>Oh no! Do not</h2>
+                      <GroupDeleteGroup onConfirm={() => null} />
+                    </div>
+                    <Picture
+                      additionalStyles={styles.ohnoimage}
+                      jpg={'/images/white-theme/ohno.png'}
+                    />
                   </div>
-                  <Picture
-                    additionalStyles={styles.ohnoimage}
-                    jpg={'/images/white-theme/ohno.png'}
-                  />
                 </div>
               </>
             )}
@@ -140,7 +142,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             {tab === Tabs.members && (
               <MembersSettings group={group.group as IGroup} />
             )}
-          </>
+          </div>
         )}
       </div>
     </div>

@@ -10,7 +10,14 @@
   }
 
   .section {
+    padding: 10px;
     margin-bottom: 20px;
+    background: $theme0;
+    border-radius: $borderRadius;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     .header {
       display: flex;

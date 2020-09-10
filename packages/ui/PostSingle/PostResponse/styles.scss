@@ -14,10 +14,12 @@
 
   .header {
     display: flex;
+    align-items: center;
     @include font-weight(semiBold);
 
     .user {
       display: flex;
+      align-items: center;
 
       // @todo create mixin with highlighted text
       &:hover {

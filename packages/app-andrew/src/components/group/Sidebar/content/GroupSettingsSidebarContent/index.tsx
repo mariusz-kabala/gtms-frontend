@@ -24,7 +24,7 @@ export const GroupSettingsSidebarContent: FC<{
   return (
     <ul className={styles.navigation}>
       <li
-        className={cx({
+        className={cx(styles.item, {
           [styles.current]: tab === Tabs.general,
         })}
       >
@@ -36,7 +36,7 @@ export const GroupSettingsSidebarContent: FC<{
         </a>
       </li>
       <li
-        className={cx({
+        className={cx(styles.item, {
           [styles.current]: tab === Tabs.tags,
         })}
       >
@@ -48,7 +48,7 @@ export const GroupSettingsSidebarContent: FC<{
         </a>
       </li>
       <li
-        className={cx({
+        className={cx(styles.item, {
           [styles.current]: tab === Tabs.invitations,
         })}
       >
@@ -60,7 +60,7 @@ export const GroupSettingsSidebarContent: FC<{
         </a>
       </li>
       <li
-        className={cx({
+        className={cx(styles.item, {
           [styles.current]: tab === Tabs.admins,
         })}
       >
@@ -72,7 +72,7 @@ export const GroupSettingsSidebarContent: FC<{
         </a>
       </li>
       <li
-        className={cx({
+        className={cx(styles.item, {
           [styles.current]: tab === Tabs.members,
         })}
       >

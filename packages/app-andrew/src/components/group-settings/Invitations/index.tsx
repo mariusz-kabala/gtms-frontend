@@ -15,6 +15,8 @@ import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
+// styles
+import styles from './styles.scss'
 
 const RECORDS_PER_PAGE = 25
 
@@ -36,11 +38,7 @@ export const InvitationsSettings: FC<{ group: IGroup }> = ({ group }) => {
 
   return (
     <div data-testid="group-invitation-settings">
-      {state.isLoading && (
-        <div>
-          <Spinner />
-        </div>
-      )}
+      {state.isLoading && <Spinner />}
       {!state.isLoading && state.errorOccured && (
         <ErrorWrapper>
           <h2>Can not fetch invitations, try later</h2>

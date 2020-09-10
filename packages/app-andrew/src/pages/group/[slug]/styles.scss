@@ -10,42 +10,61 @@
 
 .wrapper {
   display: flex;
-  flex-direction: column;
-  padding: 20px;
   max-width: 980px;
 
-  .navigationWrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-
-    .header {
-      @include header(h3, textUppercase);
-      @include font-weight(semiBold);
-    }
+  .spinner {
+    margin: auto;
   }
 
-  .deleteAccount {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: -20px;
-    margin-top: 50px;
-    max-width: 600px;
+  .content {
+    width: 100%;
+    padding: 20px;
+    background: $theme1;
+    .navigationWrapper {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
 
-    .btn {
-      position: absolute;
-      top: 110px;
-      left: 90px;
-
-      h2 {
-        @include font-size(lg);
+      .header {
+        @include header(h3, textUppercase);
         @include font-weight(semiBold);
       }
     }
 
-    .ohnoimage {
+    .avatarAndName {
+      padding: 10px;
+      background: $theme0;
+      border-radius: $borderRadius;
+    }
+
+    .deleteAccount {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
       width: 100%;
+      border-radius: $borderRadius;
+      background: $theme0;
+
+      > div {
+        max-width: 500px;
+        padding: 35px;
+
+        .btn {
+          position: absolute;
+          top: 110px;
+          left: 90px;
+
+          h2 {
+            @include font-size(lg);
+            @include font-weight(semiBold);
+          }
+        }
+
+        .ohnoimage {
+          width: 100%;
+        }
+      }
     }
   }
 }

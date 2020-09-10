@@ -71,7 +71,7 @@
 
   .btn {
     @include buttonDefault();
-    @include buttonSizeDefault();
+    @include buttonSizeSm();
     @include buttonShapePrimary();
     @include buttonWithIcon(right);
     @include buttonWithoutBackground();
