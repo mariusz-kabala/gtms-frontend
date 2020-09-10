@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.81.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.2...@gtms/app-andrew@0.81.3) (2020-09-10)
+
+
+### Bug Fixes
+
+* GEOT-461: display promoted tags on login and registration pa ([#854](https://github.com/gtms-org/gtms-frontend/issues/854)) ([9324e17](https://github.com/gtms-org/gtms-frontend/commit/9324e1779c3a64eaceb4b37b1c2ce3c307688559))
+
+
+
+
+
 ## [0.81.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.1...@gtms/app-andrew@0.81.2) (2020-09-09)
 
 

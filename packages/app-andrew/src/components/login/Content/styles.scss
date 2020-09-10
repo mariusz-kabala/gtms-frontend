@@ -1,8 +1,8 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
-@import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
@@ -16,7 +16,7 @@
 .wrapper {
   display: flex;
   width: 100%;
-  min-height: 75vh;
+  height: 75vh;
   padding-bottom: 80px;
   @include imageCover();
 
@@ -24,7 +24,6 @@
     display: flex;
     align-items: center;
     padding: 0 40px;
-    margin: 40px 0;
 
     > div {
       padding: 20px;
@@ -79,11 +78,13 @@
       }
 
       .form {
-        margin-top: 20px;
+        margin-top: 10px;
       }
 
       .actionButtons {
+        @include gridDefault(2);
         margin: 10px 0;
+        margin-top: 25px;
 
         > button {
           width: 100%;
@@ -92,10 +93,17 @@
           @include buttonShapePrimary();
           @include buttonWithIcon();
           @include buttonColorsDefault();
+
           &:hover {
             @include buttonColorsPrimary();
           }
         }
+      }
+
+      .btn {
+        // @todo create proper mixin for button
+        display: inline-block;
+        width: 220px;
       }
 
       .socialButtons {
@@ -105,28 +113,8 @@
   }
 }
 
-.tagsGrid {
-  position: relative;
-  padding: 0 40px;
-
-  &:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    content: '';
-    height: 200px;
-    width: 100%;
-    box-shadow: 0px 0px 39px 30px rgba(0, 0, 0, 100);
-  }
-
-  > ul {
-    z-index: 1;
-    margin-top: -80px;
-  }
-}
-
 .image {
+  // do we need that?
   margin: auto;
   height: 500px;
 }
