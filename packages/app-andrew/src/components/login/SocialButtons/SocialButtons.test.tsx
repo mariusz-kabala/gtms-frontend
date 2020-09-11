@@ -100,7 +100,7 @@ describe('<SocialButtons />', () => {
       '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6IlBMIiwiZW1haWwiOiJtYXJpdXN6QGthYmFsYS53YXcucGwiLCJpZCI6IjVjZGZiNmE2YmFkODhiYjVkYmYxZWNjZiIsImxhbmd1YWdlQ29kZSI6InBsLVBMIiwiaXNBY3RpdmUiOnRydWUsInJvbGVzIjpbXSwiaWF0IjoxNTc2MDY0MjU2LCJleHAiOjE1NzYwNjUxNTZ9.PZAa597OZbxtl_vj-5zmDuUnJdwuII4Ld9SQEszRE8s","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3VudHJ5Q29kZSI6IlBMIiwiaXNBY3RpdmUiOnRydWUsImVtYWlsIjoibWFyaXVzekBrYWJhbGEud2F3LnBsIiwiaWQiOiI1Y2RmYjZhNmJhZDg4YmI1ZGJmMWVjY2YiLCJsYW5ndWFnZUNvZGUiOiJwbC1QTCIsInJvbGVzIjpbXSwiaWF0IjoxNTc2MDY0MjU2LCJleHAiOjE1NzYxNTA2NTZ9.ynOY04gvIa_LleZBwg3wZz3AB0fF2Z-3EPqeqpQL-fg"}'
     )
 
-    const fakeonFailed = jest.fn()
+    const fakeOnFailed = jest.fn()
     let onSuccess: any
     ;(GoogleLogin as jest.Mock).mockImplementation(
       (params: { onSuccess: () => void }) => {
@@ -110,21 +110,20 @@ describe('<SocialButtons />', () => {
     )
 
     act(() => {
-      render(<SocialButtons onFailure={fakeonFailed} />)
+      render(<SocialButtons onFailure={fakeOnFailed} />)
     })
 
     await act(async () => {
       await onSuccess({
-        accessToken: 'fake-token',
-        googleId: 'fake-id',
+        code: 'fake-google-code',
       })
     })
 
     expect(fetchMock).toBeCalled()
-    expect(fakeonFailed).not.toBeCalled()
+    expect(fakeOnFailed).not.toBeCalled()
     expect(fetchMock.mock.calls[0][0]).toBe('/v1/auth/google')
     expect((fetchMock.mock.calls[0][1] as { body: string }).body).toEqual(
-      JSON.stringify({ accessToken: 'fake-token', id: 'fake-id' })
+      JSON.stringify({ code: 'fake-google-code' })
     )
   })
 
