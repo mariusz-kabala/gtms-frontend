@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import GoogleLogin, { GoogleLoginResponse } from 'react-google-login'
+import GoogleLogin, { GoogleLoginResponseOffline } from 'react-google-login'
 import styles from './styles.scss'
 import cx from 'classnames'
 import { fbLoginUser, googleLoginUser } from '@gtms/state-user'
@@ -57,18 +57,16 @@ export const SocialButtons: FC<{
             <GoogleLogin
               clientId={publicRuntimeConfig.GOOGLE_CLIENT_ID}
               buttonText="Google"
+              responseType="code"
+              accessType="offline"
               onSuccess={async (response) => {
                 setIsLoading(true)
 
-                const {
-                  accessToken,
-                  googleId,
-                } = response as GoogleLoginResponse
+                const { code } = response as GoogleLoginResponseOffline
 
                 try {
                   await googleLoginUser({
-                    accessToken,
-                    id: googleId,
+                    code,
                   })
                 } catch (err) {
                   onFailure()
