@@ -21,6 +21,7 @@ import { findTagsAPI } from '@gtms/api-tags'
 import { UserAvatarNoImage, GroupAvatarNoImage } from 'enums'
 import { accountPageState, accountPageState$, IAccountPageState } from 'queries'
 // ui
+import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { MockData } from '@gtms/ui/MockData'
@@ -28,7 +29,6 @@ import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 import { TagsBar } from '@gtms/ui/TagsBar'
 import { UserGroups } from '@gtms/ui/UserGroups'
-import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
 import styles from './styles.scss'
 
 type AccountPageProps = {

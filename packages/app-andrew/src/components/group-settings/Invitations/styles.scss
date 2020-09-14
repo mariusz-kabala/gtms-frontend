@@ -3,6 +3,16 @@
 .wrapper {
   width: 100%;
 
+  .noInvitations,
+  .error {
+    background: $theme0;
+    border-radius: $borderRadius;
+  }
+
+  .noInvitations {
+    padding: 20px;
+  }
+
   .spinner {
     margin: auto;
   }

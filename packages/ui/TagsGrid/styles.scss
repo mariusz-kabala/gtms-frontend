@@ -8,11 +8,16 @@
 
 .wrapper {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   .items {
+    position: relative;
+    z-index: 2;
     @include gridDefault(7);
+    width: 100%;
   }
 
   .btnWrapper {

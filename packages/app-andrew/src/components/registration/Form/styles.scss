@@ -6,6 +6,7 @@
   @include buttonSizeDefault();
   @include buttonShapePrimary();
   @include buttonWithIcon();
+  @include buttonWithSpinner();
   @include buttonColorsDefault();
 
   &:hover {
@@ -15,10 +16,4 @@
 
 .usernameWrapper {
   position: relative;
-}
-
-.spinner {
-  position: absolute;
-  right: 0;
-  top: 0;
 }

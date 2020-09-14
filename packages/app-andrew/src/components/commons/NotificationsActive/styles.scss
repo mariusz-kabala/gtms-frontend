@@ -1,9 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/zindex';
 
 .wrapper {
   position: absolute;
-  @include z-index(modalContent);
   top: 0;
   right: 0;
   height: 100%;

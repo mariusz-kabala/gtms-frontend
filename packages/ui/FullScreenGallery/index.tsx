@@ -54,11 +54,13 @@ export const FullScreenGallery: FC<{
       })}
       data-testid="full-screen-gallery"
     >
-      <style global jsx>{`
-        body {
-          overflow: 'hidden';
-        }
-      `}</style>
+      {isActive && (
+        <style global jsx>{`
+          body {
+            overflow: hidden;
+          }
+        `}</style>
+      )}
       <div
         className={cx(
           styles.canvas,
@@ -73,34 +75,34 @@ export const FullScreenGallery: FC<{
             : undefined
         }
       />
+      <div className={styles.btns}>
+        <Button
+          additionalStyles={styles.btn}
+          onClick={() => setIsImageWrapperActive(true)}
+        >
+          <i>
+            <IoMdGrid />
+          </i>
+          Browse gallery
+        </Button>
+        <Button
+          additionalStyles={styles.btn}
+          onClick={() => {
+            onBgChange(activeBg > -1 ? gallery[activeBg].name : 'file')
+            onClose()
+          }}
+        >
+          <i>
+            <IoIosCheckmarkCircle />
+          </i>
+          Choose this photo
+        </Button>
+      </div>
       <div
         className={cx(styles.imagesWrapper, {
           [styles.active]: isImageWrapperActive,
         })}
       >
-        <div className={styles.btns}>
-          <Button
-            additionalStyles={styles.btn}
-            onClick={() => setIsImageWrapperActive(true)}
-          >
-            <i>
-              <IoMdGrid />
-            </i>
-            Browse gallery
-          </Button>
-          <Button
-            additionalStyles={styles.btn}
-            onClick={() => {
-              onBgChange(activeBg > -1 ? gallery[activeBg].name : 'file')
-              onClose()
-            }}
-          >
-            <i>
-              <IoIosCheckmarkCircle />
-            </i>
-            Choose this photo
-          </Button>
-        </div>
         <Scrollbars style={{ width: '100%', height: '80%' }}>
           <ul className={styles.images}>
             {children}

@@ -37,15 +37,19 @@ export const InvitationsSettings: FC<{ group: IGroup }> = ({ group }) => {
   }, [])
 
   return (
-    <div data-testid="group-invitation-settings">
+    <div className={styles.wrapper} data-testid="group-invitation-settings">
       {state.isLoading && <Spinner />}
       {!state.isLoading && state.errorOccured && (
-        <ErrorWrapper>
-          <h2>Can not fetch invitations, try later</h2>
-        </ErrorWrapper>
+        <div className={styles.error}>
+          <ErrorWrapper>
+            <h2>Can not fetch invitations, try later</h2>
+          </ErrorWrapper>
+        </div>
       )}
       {!state.isLoading && state.records.length === 0 && (
-        <div>no invitations, no one likes you, you stupid fuck</div>
+        <p className={styles.noInvitations}>
+          no invitations, no one likes you, you stupid fuck
+        </p>
       )}
       {!state.isLoading && state.records.length > 0 && (
         <ul>

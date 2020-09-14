@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
+import { Link } from '@gtms/commons/i18n'
 // ui
 import { Button } from '@gtms/ui/Button'
 import { GridCard } from '@gtms/ui/GridCard'
@@ -23,11 +24,15 @@ export const UserGroups: FC<{
           <ul className={styles.items}>
             {groups.map((group) => (
               <li className={styles.item} key={`group-${group.id}`}>
-                <GridCard
-                  name={group.name}
-                  desc={group.description}
-                  image={getImage('200x200', group.avatar, noImage)}
-                />
+                <Link href={`/group/${group.slug}`}>
+                  <a>
+                    <GridCard
+                      name={group.name}
+                      desc={group.description}
+                      image={getImage('200x200', group.avatar, noImage)}
+                    />
+                  </a>
+                </Link>
               </li>
             ))}
           </ul>

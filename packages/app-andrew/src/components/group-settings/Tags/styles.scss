@@ -30,8 +30,9 @@
       .btn {
         margin-left: 10px;
         @include buttonDefault();
-        @include buttonSizeDefault();
+        @include buttonSizeSm();
         @include buttonShapePrimary();
+        @include buttonWithIcon();
         @include buttonColorsDefault();
 
         &:hover {

@@ -43,6 +43,8 @@
 }
 
 @mixin buttonWithSpinner($position: 'left') {
+  padding: 5px;
+
   @if $position == 'left' {
     div {
       margin-right: 10px;
@@ -71,6 +73,7 @@
 // SIZES
 @mixin buttonSizeDefault() {
   padding: 8px;
+  min-height: 40px;
 }
 
 @mixin buttonSizeSm() {

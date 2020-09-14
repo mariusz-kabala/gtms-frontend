@@ -3,6 +3,7 @@ import { IGroup } from '@gtms/commons/models'
 import { updateGroup } from '@gtms/state-group'
 import { uploadGroupBg } from '@gtms/api-group'
 // ui
+import { GoSettings } from 'react-icons/go'
 import { Button } from '@gtms/ui/Button'
 import { FullScreenGallery } from '@gtms/ui/FullScreenGallery'
 import { UploadFile } from '@gtms/ui/UploadFile'
@@ -96,6 +97,9 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
         onClick={() => setIsFullScreenGalleryOpen(true)}
         additionalStyles={styles.btn}
       >
+        <i>
+          <GoSettings />
+        </i>
         Change group page background
       </Button>
     </div>

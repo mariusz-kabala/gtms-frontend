@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .wrapper {
   display: flex;
@@ -52,4 +53,9 @@
       @include buttonColorsPrimary();
     }
   }
+}
+
+.formModalContent,
+.fileUploadModalContent {
+  @include modalContent();
 }

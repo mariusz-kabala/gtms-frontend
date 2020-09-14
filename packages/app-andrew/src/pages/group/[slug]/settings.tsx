@@ -88,7 +88,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.wrapper} data-testid="group-settings-page">
-        {group.isLoading && !group.errorOccured && <Spinner />}
+        {group.isLoading && !group.errorOccured && (
+          <Spinner additionalStyles={styles.spinner} />
+        )}
         {!group.isLoading && group.errorOccured && (
           <ErrorWrapper>
             <h2>Can not fetch group details, try again later</h2>

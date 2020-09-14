@@ -1,9 +1,9 @@
 import React, { FC, useState, useEffect } from 'react'
-import { LoginForm } from '../Form'
-import { useTranslation, Link } from '@gtms/commons/i18n'
-import { SocialButtons } from '../SocialButtons'
-import { userQuery } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
+import { useTranslation, Link } from '@gtms/commons/i18n'
+import { userQuery } from '@gtms/state-user'
+import { LoginForm } from '../Form'
+import { SocialButtons } from '../SocialButtons'
 // ui
 import { AiOutlineForm } from 'react-icons/ai'
 import { MdSettingsBackupRestore } from 'react-icons/md'

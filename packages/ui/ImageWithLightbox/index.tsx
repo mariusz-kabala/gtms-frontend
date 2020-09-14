@@ -15,14 +15,17 @@ export const ImageWithLightbox: FC<{
   return (
     <div className={styles.wrapper}>
       {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
+        <Modal
+          additionalStyles={styles.modal}
+          onClose={() => setIsModalOpen(false)}
+        >
           <Picture {...src} />
         </Modal>
       )}
       <div
         className={cx(styles.miniature, additionalStyles)}
-        style={{ backgroundImage: `url(${src.jpg})` }}
         data-testid="image-with-lightbox"
+        style={{ backgroundImage: `url(${src.jpg})` }}
         onClick={() => {
           setIsModalOpen(true)
           onClick && onClick()
