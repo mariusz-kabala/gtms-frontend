@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.81.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.4...@gtms/app-andrew@0.81.5) (2020-09-14)
+
+
+### Bug Fixes
+
+* GEOT-463: pass proper google client id during deployment ([#859](https://github.com/gtms-org/gtms-frontend/issues/859)) ([6c15a7e](https://github.com/gtms-org/gtms-frontend/commit/6c15a7ea0976130eefd8d0581b629c2c79ca31ef))
+
+
+
+
+
 ## [0.81.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.3...@gtms/app-andrew@0.81.4) (2020-09-13)
 
 
