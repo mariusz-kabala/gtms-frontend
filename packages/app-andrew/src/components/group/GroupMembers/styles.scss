@@ -23,23 +23,13 @@
       color: $theme4;
       @include font-size(md);
       @include font-weight(semiBold);
-      @include focusElementEffect();
       cursor: pointer;
 
-      &:hover {
-        &:after {
-          content: '';
-        }
+      @include effectOne();
+      .avatar {
       }
 
       &.invite {
-        // clear standard avatar styles with after pseudoelement
-        &:hover {
-          &:after {
-            content: none;
-          }
-        }
-
         .btnInvite {
           @include buttonDefault();
           @include buttonSizeDefault();

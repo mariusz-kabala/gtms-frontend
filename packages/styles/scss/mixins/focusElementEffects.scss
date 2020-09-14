@@ -1,6 +1,5 @@
-@mixin focusElementEffect() {
+@mixin effectOne($radius: 'false') {
   position: relative;
-
   &:after {
     position: absolute;
     top: 0;
@@ -9,5 +8,16 @@
     height: 100%;
     background: rgba($theme4, 0.2);
     border: 2px solid $theme4;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    &:after {
+      content: '';
+    }
+  }
+
+  @if $radius == 'circle' {
+    border-radius: 50%;
   }
 }

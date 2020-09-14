@@ -87,7 +87,7 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
       > div {
         width: 100%;
         height: 100%;
-        @include focusElementEffect();
+        @include effectOne();
 
         &:hover {
           &:after {

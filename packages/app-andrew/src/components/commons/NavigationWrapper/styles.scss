@@ -4,7 +4,6 @@
 .mainNavigationWrapper {
   min-width: 40px;
   margin: 0 20px;
-  margin-right: 10px;
   @include z-index(mainNavigation);
 
   .centerIt {
