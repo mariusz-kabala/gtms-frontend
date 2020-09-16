@@ -8,7 +8,6 @@
     height: 100%;
     background: rgba($theme4, 0.2);
     border: 2px solid $theme4;
-    border-radius: 50%;
   }
 
   &:hover {
@@ -18,6 +17,8 @@
   }
 
   @if $radius == 'circle' {
-    border-radius: 50%;
+    &:after {
+      border-radius: 50%;
+    }
   }
 }
