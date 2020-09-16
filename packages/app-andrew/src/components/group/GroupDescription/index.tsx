@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react'
 // ui
-import { ExpandingItem } from '@gtms/ui/ExpandingItem'
+import { Modal } from '@gtms/ui/Modal'
 import { GroupDescriptionForm } from './Form'
+import styles from './styles.scss'
 
 export const GroupDescription: FC<{
   additionalStyles?: string
@@ -21,24 +22,23 @@ export const GroupDescription: FC<{
         }
       }}
     >
-      <ExpandingItem
-        isActive={isEditModeActive}
-        closeOnClickOutsie={true}
-        label={text}
-        onClose={() => {
-          setIsEditModeActive(false)
-        }}
-      >
-        <GroupDescriptionForm
-          text={text}
-          slug={slug}
-          onSuccess={() => setIsEditModeActive(false)}
-          onError={() => {
-            setIsEditModeActive(false)
-            // here is place where we should display an error to user - where is global notification system??
-          }}
-        />
-      </ExpandingItem>
+      <p>{text}</p>
+      {isEditModeActive && (
+        <Modal
+          additionalStyles={styles.modalContent}
+          onClose={() => setIsEditModeActive(false)}
+        >
+          <GroupDescriptionForm
+            text={text}
+            slug={slug}
+            onSuccess={() => setIsEditModeActive(false)}
+            onError={() => {
+              setIsEditModeActive(false)
+              // here is place where we should display an error to user - where is global notification system??
+            }}
+          />
+        </Modal>
+      )}
     </div>
   )
 }
