@@ -12,6 +12,7 @@ import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
 import { Favs } from 'components/post/Favs'
+import { PostAdmin } from 'components/post/Admin'
 import { GroupCover } from 'components/group/GroupCover'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
@@ -136,6 +137,13 @@ const parseParams = (params: string[]) => {
 }
 
 const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
+const getRenderPostMenu = (isAdmin: boolean) => () => {
+  if (!isAdmin) {
+    return null
+  }
+
+  return <PostAdmin />
+}
 
 const GroupPage: NextPage<GroupPageProps> = (props) => {
   useInitState(getInitData(props))
@@ -243,6 +251,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const onTagClick = useCallback((tag: string) => onClick({ tag }), [onClick])
 
   const promotedTagsRef = useRef<HTMLDivElement>(null)
+
+  const renderPostMenu = getRenderPostMenu(groupQuery.hasAdminRights())
 
   useEffect(() => {
     if (state.group) {
@@ -354,6 +364,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                           <PostSingle
                             key={`post-${post.id}`}
                             renderFavs={renderFavs}
+                            renderMenu={renderPostMenu}
                             allowToRespond={post.id !== state.activePost?.id}
                             onClick={onPostClick}
                             onTagClick={onTagClick}
@@ -369,7 +380,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                             noImage={UserAvatarNoImage}
                             onLoginRequest={openLoginModal}
                             activeTags={state.activeTags || []}
-                            isAdmin={groupQuery.hasAdminRights()}
                           />
                         ))}
                       </div>
