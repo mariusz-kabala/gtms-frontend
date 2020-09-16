@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.81.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.5...@gtms/app-andrew@0.81.6) (2020-09-16)
+
+
+### Bug Fixes
+
+* GEOT-464: drop RecentlyAddedPosts component ([#863](https://github.com/gtms-org/gtms-frontend/issues/863)) ([9a9be02](https://github.com/gtms-org/gtms-frontend/commit/9a9be0278909c8c6e792e70bdf665de97cc68ee3))
+
+
+
+
+
 ## [0.81.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.4...@gtms/app-andrew@0.81.5) (2020-09-14)
 
 
