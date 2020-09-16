@@ -88,3 +88,25 @@
     bottom: 0;
   }
 }
+
+.post {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid $theme0;
+
+  &:hover {
+    border-color: $theme4;
+    opacity: 1;
+
+    .header {
+      .deleteBtn {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &.active {
+    border-color: $theme4;
+    opacity: 1;
+  }
+}

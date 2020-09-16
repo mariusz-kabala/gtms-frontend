@@ -1,8 +1,7 @@
 import { fetchJSON, makeApiUrl } from '@gtms/api-common'
 
 export interface IGoogleLoginData {
-  accessToken: string
-  id: string
+  code: string
 }
 
 export interface IGoogleLoginResponse {

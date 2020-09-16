@@ -44,6 +44,7 @@ export const PostSingle: FC<{
   onClick?: (id: string) => unknown
   onTagClick?: (tag: string) => unknown
   onLoginRequest?: () => unknown
+  isAdmin?: boolean
 }> = ({
   id,
   additionalStyles,
@@ -66,6 +67,7 @@ export const PostSingle: FC<{
   favs = [],
   allowToRespond = false,
   activeTags = [],
+  isAdmin = false,
 }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const [lightboxState, setLightboxState] = useState<{
@@ -113,6 +115,7 @@ export const PostSingle: FC<{
             <DeletePost additionalStyles={styles.deleteBtn} />
           )}
           {renderFavs && renderFavs(favs, id)}
+          {isAdmin && <div>TODO</div>}
         </div>
       </div>
       <div className={styles.desc}>

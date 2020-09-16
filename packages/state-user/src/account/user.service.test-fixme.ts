@@ -195,8 +195,7 @@ describe('User service', () => {
       })
     )
     const payload = {
-      accessToken: 'Google-fake-token',
-      id: 'Google-fake-id',
+      code: 'Google-code',
     }
     await googleLoginUser(payload)
 

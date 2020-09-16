@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.81.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.5...@gtms/app-andrew@0.81.6) (2020-09-16)
+
+
+### Bug Fixes
+
+* GEOT-464: drop RecentlyAddedPosts component ([#863](https://github.com/gtms-org/gtms-frontend/issues/863)) ([9a9be02](https://github.com/gtms-org/gtms-frontend/commit/9a9be0278909c8c6e792e70bdf665de97cc68ee3))
+
+
+
+
+
+## [0.81.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.4...@gtms/app-andrew@0.81.5) (2020-09-14)
+
+
+### Bug Fixes
+
+* GEOT-463: pass proper google client id during deployment ([#859](https://github.com/gtms-org/gtms-frontend/issues/859)) ([6c15a7e](https://github.com/gtms-org/gtms-frontend/commit/6c15a7ea0976130eefd8d0581b629c2c79ca31ef))
+
+
+
+
+
+## [0.81.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.3...@gtms/app-andrew@0.81.4) (2020-09-13)
+
+
+### Bug Fixes
+
+* GEOT-463: pass google auth code to BE ([#857](https://github.com/gtms-org/gtms-frontend/issues/857)) ([f7d394b](https://github.com/gtms-org/gtms-frontend/commit/f7d394b7e8f0a01c9d4528c267c47f32beecb454))
+
+
+
+
+
 ## [0.81.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.2...@gtms/app-andrew@0.81.3) (2020-09-10)
 
 
