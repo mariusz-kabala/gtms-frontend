@@ -59,7 +59,7 @@ import { changePageBackground, changePageBackgroundImage } from 'state'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Pagination } from '@gtms/ui/Pagination'
-import { RecentlyAddedPosts } from '@gtms/ui/RecentlyAddedPosts'
+import { PostSingle } from '@gtms/ui/PostSingle'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserPreview } from '@gtms/ui/UserPreview'
 // styles
@@ -237,6 +237,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     setUserPreview(undefined)
   }, [])
 
+  const onPostClick = useCallback((id: string) => onClick({ post: id }), [
+    onClick,
+  ])
+  const onTagClick = useCallback((tag: string) => onClick({ tag }), [onClick])
+
   const promotedTagsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -340,31 +345,35 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       </ul>
                     </NavigationTabs>
                     <div className={styles.posts}>
-                      <div>
-                        <PostCreate
-                          additionalStyles={styles.postCreate}
-                          groupId={state.group?.id || ''}
-                        />
-                        <RecentlyAddedPosts
-                          fetchTags={findTagsAPI}
-                          fetchUsers={findbyUsernameAPI}
-                          onPostClick={(id) => onClick({ post: id })}
-                          onTagClick={(tag) => {
-                            router.push(
-                              `/group/${state.group?.slug}/tag/${tag}`
-                            )
-                          }}
-                          onUserClick={onUserClick}
-                          user={state.user}
-                          renderFavs={renderFavs}
-                          activePost={state.activePost}
-                          createComment={createNewComment}
-                          noImage={UserAvatarNoImage}
-                          posts={state.posts}
-                          onLoginRequest={openLoginModal}
-                          activeTags={state.activeTags || []}
-                        />
+                      <PostCreate
+                        additionalStyles={styles.postCreate}
+                        groupId={state.group?.id || ''}
+                      />
+                      <div data-testid="recently-added-posts">
+                        {state.posts.map((post) => (
+                          <PostSingle
+                            key={`post-${post.id}`}
+                            renderFavs={renderFavs}
+                            allowToRespond={post.id !== state.activePost?.id}
+                            onClick={onPostClick}
+                            onTagClick={onTagClick}
+                            onUserClick={onUserClick}
+                            fetchTags={findTagsAPI}
+                            fetchUsers={findbyUsernameAPI}
+                            createComment={createNewComment}
+                            user={state.user}
+                            additionalStyles={cx(styles.post, {
+                              [styles.active]: state.activePost?.id === post.id,
+                            })}
+                            {...post}
+                            noImage={UserAvatarNoImage}
+                            onLoginRequest={openLoginModal}
+                            activeTags={state.activeTags || []}
+                            isAdmin={groupQuery.hasAdminRights()}
+                          />
+                        ))}
                       </div>
+
                       {state.activePost && (
                         <PostDetails
                           comments={state.comments}
