@@ -6,8 +6,7 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper('login');
-  background: $black;
+  @include pageWrapper();
 }
 
 .wrapper {

@@ -1,4 +1,8 @@
-@mixin pageWrapper($page: null) {
+@mixin pageWrapper($bg: null) {
   position: relative;
   width: 100%;
+
+  @if $bg == 'bgdefault' {
+    background: $theme0;
+  }
 }

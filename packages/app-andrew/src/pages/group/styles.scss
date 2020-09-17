@@ -4,7 +4,7 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper();
+  @include pageWrapper('bgdefault');
   position: relative;
   width: 100%;
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.25);

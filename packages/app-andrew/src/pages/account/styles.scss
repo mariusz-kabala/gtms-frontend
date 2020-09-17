@@ -5,15 +5,13 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper();
-  max-width: 700px;
+  @include pageWrapper('bgdefault');
 }
 
 .wrapper {
   // for centering loading spinner
   display: flex;
   flex-direction: column;
-
   padding: 20px;
 
   .spinner {
@@ -86,12 +84,6 @@
         display: block;
         @include font-size(md);
         color: $theme9;
-      }
-
-      &:hover {
-        div > span {
-          color: $theme4;
-        }
       }
     }
 

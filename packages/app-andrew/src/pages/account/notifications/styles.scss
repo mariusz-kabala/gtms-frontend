@@ -2,8 +2,7 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper();
-  max-width: 600px;
+  @include pageWrapper('bgdefault');
 }
 
 .wrapper {

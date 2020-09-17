@@ -1,12 +1,16 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 
-.btnSubmit {
+.wrapper {
   width: 100%;
-  @include buttonDefault();
-  @include buttonSizeDefault();
-  @include buttonShapePrimary();
-  @include buttonColorsDefault();
-  &:hover {
-    @include buttonColorsPrimary();
+
+  .btnSubmit {
+    width: 100%;
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapePrimary();
+    @include buttonColorsDefault();
+    &:hover {
+      @include buttonColorsPrimary();
+    }
   }
 }

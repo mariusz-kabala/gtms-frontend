@@ -6,7 +6,6 @@ import { UserEmail } from 'components/account/UserEmail'
 import { UserName } from 'components/account/UserName'
 import { Navigation, Tabs } from 'components/account/Navigation'
 import { UserDescription } from 'components/account/UserDescription'
-import { ImageEditor } from '@gtms/ui/ImageEditor'
 import {
   userQuery,
   markAsLoading,
@@ -24,6 +23,7 @@ import { accountPageState, accountPageState$, IAccountPageState } from 'queries'
 import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { ImageEditor } from '@gtms/ui/ImageEditor'
 import { MockData } from '@gtms/ui/MockData'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -152,10 +152,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
               </div>
               <div className={styles.userNameSurnameLogin}>
                 <UserName name={state.name} surname={state.surname} />
-                <UserEmail
-                  email={state.email}
-                  additionalStyles={styles.userName}
-                />
+                <UserEmail email={state.email} />
                 <span className={styles.login}>@{state.username}</span>
               </div>
               <div className={styles.desc}>

@@ -1,4 +1,4 @@
-@mixin effectOne($radius: 'false') {
+@mixin effectOne($radius: null) {
   position: relative;
   &:after {
     position: absolute;
@@ -19,6 +19,12 @@
   @if $radius == 'circle' {
     &:after {
       border-radius: 50%;
+    }
+  }
+
+  @if $radius == 'defaultRadius' {
+    &:after {
+      border-radius: 5px;
     }
   }
 }
