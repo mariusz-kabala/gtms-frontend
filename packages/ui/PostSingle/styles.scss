@@ -6,7 +6,6 @@
 
 .wrapper {
   position: relative;
-  overflow: hidden; // for delete post component that overflows this component
   cursor: pointer;
   border-radius: $borderRadius;
   background: $theme0;
