@@ -1,0 +1,32 @@
+@import '@gtms/styles/scss/variables.scss';
+
+.wrapper {
+  position: relative;
+
+  ul {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    min-width: 140px;
+    padding: 5px;
+    background-color: $theme0;
+    border: 1px solid $theme9;
+    box-shadow: 2.5px 2.5px 2.5px 0px $theme8;
+    li {
+      padding: 2.5px;
+
+      &:hover {
+        background-color: $theme6;
+        a {
+          color: $theme0;
+        }
+      }
+    }
+  }
+}
+
+.button {
+  margin-left: 5px;
+}
