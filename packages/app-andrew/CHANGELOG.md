@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.82.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.6...@gtms/app-andrew@0.82.0) (2020-09-17)
+
+
+### Features
+
+* GEOT-465: [ui] add post admin menu ([#864](https://github.com/gtms-org/gtms-frontend/issues/864)) ([2983327](https://github.com/gtms-org/gtms-frontend/commit/2983327eee4bdc1e8b458c95fb24c6df68d93e90))
+
+
+
+
+
 ## [0.81.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.5...@gtms/app-andrew@0.81.6) (2020-09-16)
 
 
