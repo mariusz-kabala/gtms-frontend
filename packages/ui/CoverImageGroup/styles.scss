@@ -7,7 +7,6 @@
 
 .wrapper {
   width: 100%;
-  min-height: 300px;
   @include imageCover();
   background: $theme2;
 

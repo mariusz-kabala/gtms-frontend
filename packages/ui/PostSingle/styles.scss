@@ -133,7 +133,10 @@
   grid-gap: 10px;
   margin: 15px 0;
 
-  .item {
+  .item a {
+    display: block;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     @include effectOne();
     border-radius: $borderRadius;
