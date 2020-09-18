@@ -32,7 +32,7 @@ export const GroupMembers: FC<{
         </Modal>
       )}
 
-      {isLoading && <Spinner />}
+      {isLoading && <Spinner size="sm" />}
 
       {errorOccured && <p>Sorry we can not show you groups members now</p>}
 

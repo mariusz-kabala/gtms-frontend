@@ -9,6 +9,7 @@
   @include buttonSizeDefault();
   @include buttonShapePrimary();
   @include buttonWithoutPadding();
+  @include buttonWithIcon();
   @include buttonWithoutBackground();
   margin-right: 10px;
 

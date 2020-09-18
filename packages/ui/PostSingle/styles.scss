@@ -1,6 +1,7 @@
 @import '@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
@@ -100,6 +101,7 @@
 
 .btns {
   display: flex;
+  margin-top: 10px;
 
   .respondBtn {
     @include buttonDefault();
@@ -126,15 +128,14 @@
 }
 
 .images {
-  margin: 10px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-gap: 10px;
+  margin: 15px 0;
 
-  img {
-    max-width: 200px;
-    border: 1px solid red;
-    margin-bottom: 20px;
+  .item {
+    overflow: hidden;
+    @include effectOne();
+    border-radius: $borderRadius;
   }
 }

@@ -8,12 +8,12 @@
 
   .items {
     width: 100%;
-    @include gridDefault(2);
 
     .item {
       padding: 10px;
       border-radius: $borderRadius;
       border: 2px solid $theme0;
+      margin-bottom: 15px;
       background: $theme0;
       cursor: pointer;
 

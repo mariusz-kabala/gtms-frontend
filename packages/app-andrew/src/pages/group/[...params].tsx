@@ -308,15 +308,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 )}
                 {state && state.posts && state.posts.length === 0 && (
                   <div className={styles.noPostsFound}>
-                    <div>
-                      <div>
-                        <h3 className={styles.header}>
-                          <span>Ooops</span>, wygląda na to, że nikt nie dodał
-                          jeszcze żadnego posta :( Możesz być pierwszy!
-                        </h3>
-                        <PostCreate groupId={state.group?.id || ''} />
-                      </div>
-                    </div>
+                    <h3 className={styles.header}>
+                      <span>Ooops</span>, wygląda na to, że nikt nie dodał
+                      jeszcze żadnego posta :( Możesz być pierwszy!
+                    </h3>
+                    <PostCreate groupId={state.group?.id || ''} />
                   </div>
                 )}
                 {state && state.posts && state.posts.length > 0 && (

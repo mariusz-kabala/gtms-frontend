@@ -15,26 +15,26 @@ export const PostAdmin: FC<{}> = () => {
 
   return (
     <div className={styles.wrapper} ref={ref}>
-      <button onClick={openMenu} className={styles.button}>
+      <button onClick={openMenu} className={styles.btn}>
         <i>
           <IoIosMore />
         </i>
       </button>
       {isVisible && (
-        <ul>
-          <li>
+        <ul className={styles.items}>
+          <li className={styles.item}>
             <a>Edit</a>
           </li>
-          <li>
+          <li className={styles.item}>
             <a>Delete</a>
           </li>
-          <li>
+          <li className={styles.item}>
             <a>Report User</a>
           </li>
-          <li>
+          <li className={styles.item}>
             <a>Block user</a>
           </li>
-          <li>
+          <li className={styles.item}>
             <a>Drop user from group</a>
           </li>
         </ul>

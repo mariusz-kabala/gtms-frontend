@@ -43,7 +43,7 @@ export const GroupSidebar: FC<{}> = ({ children }) => {
       ref={groupHeaderRef}
     >
       <div className={styles.makeItSticky}>
-        <div className={styles.avatarNamedDesc}>
+        <div className={styles.avatarNameDesc}>
           <div className={styles.avatarName}>
             <GroupAvatar
               additionalStyles={styles.groupAvatar}

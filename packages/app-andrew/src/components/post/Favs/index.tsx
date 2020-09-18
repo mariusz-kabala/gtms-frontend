@@ -96,9 +96,7 @@ export const Favs: FC<{
           )
       }}
       testid="post-favs"
-      additionalStyles={cx(styles.btn, {
-        [styles.withStars]: favs.length > 0,
-      })}
+      additionalStyles={styles.btn}
     >
       <Tooltip
         onShow={onTooltipShow}
@@ -106,17 +104,19 @@ export const Favs: FC<{
         arrow={true}
         title={tooltipContent.text}
       >
-        {isInFavs && (
-          <i>
-            <IoIosStar />
-          </i>
-        )}
-        {!isInFavs && (
-          <i>
-            <IoIosStarOutline />
-          </i>
-        )}
-        {favsCounter > 0 && <span>{favsCounter}</span>}
+        <div>
+          {isInFavs && (
+            <i>
+              <IoIosStar />
+            </i>
+          )}
+          {!isInFavs && (
+            <i>
+              <IoIosStarOutline />
+            </i>
+          )}
+          {favsCounter > 0 && <span>{favsCounter}</span>}
+        </div>
       </Tooltip>
     </Button>
   )

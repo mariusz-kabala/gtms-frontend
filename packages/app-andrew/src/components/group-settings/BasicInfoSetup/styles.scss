@@ -42,20 +42,21 @@
   .description {
     @include font-size(xdefault);
   }
-
-  .btn {
-    @include buttonDefault();
-    @include buttonSizeDefault();
-    @include buttonShapePrimary();
-    @include buttonColorsDefault();
-
-    &:hover {
-      @include buttonColorsPrimary();
-    }
-  }
 }
 
 .formModalContent,
 .fileUploadModalContent {
   @include modalContent();
+}
+
+.btnSave {
+  @include buttonDefault();
+  @include buttonSizeDefault();
+  @include buttonShapePrimary();
+  @include buttonColorsDefault();
+  width: 100%;
+
+  &:hover {
+    @include buttonColorsPrimary();
+  }
 }

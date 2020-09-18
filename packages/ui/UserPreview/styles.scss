@@ -14,15 +14,19 @@
   .userInfo {
     margin-left: 15px;
 
-    .header,
-    .username,
-    .description {
-      color: $theme0;
-    }
-
     .header {
       @include font-size(xmd);
       @include font-weight(semiBold);
+    }
+
+    .username {
+      display: inline-block;
+      margin: 3px 0;
+    }
+
+    .description {
+      max-width: 300px;
+      word-break: break-word;
     }
   }
 
@@ -40,20 +44,17 @@
   .btn {
     @include buttonDefault();
     @include buttonSizeDefault();
+    @include buttonWithIcon();
     @include buttonShapePrimary();
     @include buttonColorsDefault();
 
-    @include buttonWithIcon();
-    @include buttonWithoutBackground();
-    @include buttonWithBorder();
-    margin-left: 20px;
-
-    &:last-child {
-      margin-right: 50px;
+    &:hover {
+      @include buttonColorsPrimary();
     }
 
-    &:hover {
-      @include buttonColorBlue();
+    margin-left: 20px;
+    &:last-child {
+      margin-right: 50px;
     }
   }
 

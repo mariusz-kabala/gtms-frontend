@@ -287,6 +287,7 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
               renderGroupMenu={(group) => <GroupMenu group={group} />}
               noRecords={<p className={styles.noRecords}>No records</p>}
             />
+
             <GroupsList
               additionalStyles={cx(styles.groupsList, {
                 [styles.currentList]: currentTab === 'member',

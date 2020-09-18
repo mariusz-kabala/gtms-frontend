@@ -176,9 +176,9 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
             />
             {formState.isSaving && <Spinner />}
             <Button
-              type="submit"
+              additionalStyles={styles.btnSave}
               disabled={formState.isSaving}
-              additionalStyles={styles.btn}
+              type="submit"
             >
               Save
             </Button>
