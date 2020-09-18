@@ -1,4 +1,5 @@
 import React, { FC, useState, useCallback, useRef } from 'react'
+import useKey from 'use-key-hook'
 // commons
 import { useOnClickOutside } from '@gtms/commons/hooks/onClickOutside'
 // ui
@@ -12,6 +13,15 @@ export const PostAdmin: FC<{}> = () => {
   const openMenu = useCallback(() => setIsVisible(true), [])
   const closeMenu = useCallback(() => setIsVisible(false), [])
   useOnClickOutside(ref, closeMenu)
+
+  useKey(
+    () => {
+      closeMenu()
+    },
+    {
+      detectKeys: [27],
+    }
+  )
 
   return (
     <div className={styles.wrapper} ref={ref}>

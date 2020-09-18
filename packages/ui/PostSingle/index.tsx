@@ -98,7 +98,7 @@ export const PostSingle: FC<{
             image={getImage('35x35', owner.avatar, noImage)}
             additionalStyles={styles.userAvatar}
           />
-          <div>
+          <>
             <a onClick={onUserClickCallback}>
               <span>{getDisplayName(owner)}</span>
             </a>
@@ -109,7 +109,7 @@ export const PostSingle: FC<{
                 })}
               </span>
             </a>
-          </div>
+          </>
         </div>
         <div className={styles.actionButtons}>
           {owner.id === user?.id && (

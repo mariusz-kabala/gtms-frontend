@@ -6,6 +6,7 @@ import { UserAvatarNoImage } from 'enums'
 import { getImage } from '@gtms/commons/helpers'
 import { useInitState } from '@gtms/commons/hooks'
 import { IPost, IUser } from '@gtms/commons/models'
+import useKey from 'use-key-hook'
 // api
 import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
@@ -270,6 +271,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
+
+  useKey(
+    () => {
+      setUserPreview(undefined)
+    },
+    {
+      detectKeys: [27],
+    }
+  )
 
   return (
     <div className={styles.pageWrapper}>
