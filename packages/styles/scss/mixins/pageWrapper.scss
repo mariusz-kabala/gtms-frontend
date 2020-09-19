@@ -8,4 +8,9 @@
   @if $bg == 'bgdefault' {
     background: $theme0;
   }
+
+  @if $bg == 'loginRegister' {
+    max-width: initial;
+    margin: initial;
+  }
 }
