@@ -32,9 +32,7 @@ export const AbuseReportForm: FC<{
   view = VIEW.form,
   isMakingRequest = false,
 }) => {
-  const { register, handleSubmit, errors, setError } = useForm<
-    IAbuseReportData
-  >()
+  const { register, handleSubmit } = useForm<IAbuseReportData>()
 
   const { t } = useTranslation('abuseReportForm')
   const onSubmitCallback = useCallback(

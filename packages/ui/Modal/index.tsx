@@ -24,7 +24,7 @@ export const Modal: FC<{
 
   useLayoutEffect(() => {
     if (document) {
-      document.body.appendChild(portalNode.current)
+      document.body.appendChild(portalNode.current as HTMLDivElement)
     }
   }, [])
 
