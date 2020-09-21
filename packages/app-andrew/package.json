@@ -19,6 +19,7 @@
     "@gtms/api-file": "0.2.0",
     "@gtms/api-group": "0.16.0",
     "@gtms/api-tags": "0.7.1",
+    "@gtms/api-abuse": "*",
     "@gtms/commons": "0.28.0",
     "@gtms/state-comment": "0.4.2",
     "@gtms/state-group": "0.17.0",
