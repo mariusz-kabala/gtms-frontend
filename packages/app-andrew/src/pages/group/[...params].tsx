@@ -12,8 +12,6 @@ import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
-import { Favs } from 'components/post/Favs'
-import { PostAdmin } from 'components/post/Admin'
 import { GroupCover } from 'components/group/GroupCover'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
@@ -22,6 +20,7 @@ import { PostDetails } from 'components/post/PostDetails'
 import { PromotedTags } from 'components/group/PromotedTags'
 import { GroupSidebar } from 'components/group/Sidebar'
 import { GroupSidebarContent } from 'components/group/Sidebar/content'
+import { PostsList } from 'components/post/PostsList'
 // state
 import {
   IGroupPageState,
@@ -137,15 +136,6 @@ const parseParams = (params: string[]) => {
   return result
 }
 
-const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
-const getRenderPostMenu = (isAdmin: boolean) => () => {
-  if (!isAdmin) {
-    return null
-  }
-
-  return <PostAdmin />
-}
-
 const GroupPage: NextPage<GroupPageProps> = (props) => {
   useInitState(getInitData(props))
 
@@ -252,8 +242,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const onTagClick = useCallback((tag: string) => onClick({ tag }), [onClick])
 
   const promotedTagsRef = useRef<HTMLDivElement>(null)
-
-  const renderPostMenu = getRenderPostMenu(groupQuery.hasAdminRights())
 
   useEffect(() => {
     if (state.group) {
@@ -365,12 +353,13 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         additionalStyles={styles.postCreate}
                         groupId={state.group?.id || ''}
                       />
-                      <div data-testid="recently-added-posts">
-                        {state.posts.map((post) => (
+
+                      <PostsList
+                        posts={state.posts}
+                        isAdmin={groupQuery.hasAdminRights()}
+                        renderPost={(post) => (
                           <PostSingle
                             key={`post-${post.id}`}
-                            renderFavs={renderFavs}
-                            renderMenu={renderPostMenu}
                             allowToRespond={post.id !== state.activePost?.id}
                             onClick={onPostClick}
                             onTagClick={onTagClick}
@@ -387,8 +376,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                             onLoginRequest={openLoginModal}
                             activeTags={state.activeTags || []}
                           />
-                        ))}
-                      </div>
+                        )}
+                      />
 
                       {state.activePost && (
                         <PostDetails

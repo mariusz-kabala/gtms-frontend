@@ -35,7 +35,7 @@ export const PostSingle: FC<{
   images: IPostImage[]
   favs?: string[]
   renderFavs?: (favs: string[], id: string) => JSX.Element
-  renderMenu?: () => JSX.Element | null
+  renderMenu?: (postId: string) => JSX.Element | null
   user: IAccountDetails | null
   allowToRespond?: boolean
   createComment: (payload: { post: string; text: string }) => unknown
@@ -116,7 +116,7 @@ export const PostSingle: FC<{
             <DeletePost additionalStyles={styles.deleteBtn} />
           )}
           {renderFavs && renderFavs(favs, id)}
-          {renderMenu && renderMenu()}
+          {renderMenu && renderMenu(id)}
         </div>
       </div>
       <div className={styles.desc}>
