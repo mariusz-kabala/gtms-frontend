@@ -11,6 +11,7 @@ const withTM = require('next-transpile-modules')([
   '@gtms/api-file',
   '@gtms/api-notifications',
   '@gtms/api-comment',
+  '@gtms/api-abuse',
   '@gtms/commons',
   '@gtms/state-comment',
   '@gtms/state-user',

@@ -6,11 +6,51 @@ import { IoIosMore } from 'react-icons/io'
 // styles
 import styles from './styles.scss'
 
-export const PostAdmin: FC<{}> = () => {
+export const PostAdmin: FC<{
+  postId: string
+  onEditClick?: (postId: string) => unknown
+  onDeleteClick?: (postId: string) => unknown
+  onReportAbuseClick?: (postId: string) => unknown
+  onBlockUserClick?: (postId: string) => unknown
+  onDropUserFromGroupClick?: (postId: string) => unknown
+}> = ({
+  postId,
+  onEditClick,
+  onDeleteClick,
+  onReportAbuseClick,
+  onBlockUserClick,
+  onDropUserFromGroupClick,
+}) => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>(null)
   const openMenu = useCallback(() => setIsVisible(true), [])
   const closeMenu = useCallback(() => setIsVisible(false), [])
+
+  const onEdit = useCallback(() => {
+    closeMenu()
+    onEditClick && onEditClick(postId)
+  }, [onEditClick, postId])
+
+  const onDelete = useCallback(() => {
+    closeMenu()
+    onDeleteClick && onDeleteClick(postId)
+  }, [onDeleteClick, postId])
+
+  const onReportAbuse = useCallback(() => {
+    closeMenu()
+    onReportAbuseClick && onReportAbuseClick(postId)
+  }, [onReportAbuseClick, postId])
+
+  const onBlockUser = useCallback(() => {
+    closeMenu()
+    onBlockUserClick && onBlockUserClick(postId)
+  }, [onBlockUserClick, postId])
+
+  const onDropUserFromGroup = useCallback(() => {
+    closeMenu()
+    onDropUserFromGroupClick && onDropUserFromGroupClick(postId)
+  }, [onDropUserFromGroupClick, postId])
+
   useOnClickOutside(ref, closeMenu)
 
   return (
@@ -23,19 +63,19 @@ export const PostAdmin: FC<{}> = () => {
       {isVisible && (
         <ul>
           <li>
-            <a>Edit</a>
+            <a onClick={onEdit}>Edit</a>
           </li>
           <li>
-            <a>Delete</a>
+            <a onClick={onDelete}>Delete</a>
           </li>
           <li>
-            <a>Report User</a>
+            <a onClick={onReportAbuse}>Report abuse</a>
           </li>
           <li>
-            <a>Block user</a>
+            <a onClick={onBlockUser}>Block user</a>
           </li>
           <li>
-            <a>Drop user from group</a>
+            <a onClick={onDropUserFromGroup}>Drop user from group</a>
           </li>
         </ul>
       )}

@@ -18,15 +18,23 @@ export const Modal: FC<{
     return () => enableBodyScroll(document.body)
   }, [])
 
-  const portalNode = useRef(document.createElement('div'))
+  const portalNode = useRef(
+    typeof window !== 'undefined' && document.createElement('div')
+  )
 
   useLayoutEffect(() => {
-    document.body.appendChild(portalNode.current)
+    if (document) {
+      document.body.appendChild(portalNode.current as HTMLDivElement)
+    }
   }, [])
 
   useKey(() => onClose(), {
     detectKeys: [27],
   })
+
+  if (!portalNode.current) {
+    return null
+  }
 
   return createPortal(
     <div className={cx(styles.wrapper, additionalStyles)} data-testid="modal">
