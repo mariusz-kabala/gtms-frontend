@@ -44,7 +44,7 @@
     .btn {
       @include buttonDefault();
       @include buttonSizeMd();
-      @include buttonShapePrimary();
+      @include buttonShapeDefault();
       @include buttonWithIcon();
       @include buttonColorsTertiary();
 

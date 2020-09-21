@@ -9,6 +9,7 @@ import {
 } from '@gtms/state-user'
 import { openLoginModal } from '../../../state'
 // ui
+import { IoIosHeart } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
@@ -64,9 +65,17 @@ export const JoinLeaveButton: FC<{ group: IGroup }> = ({ group }) => {
       }}
     >
       {(status.isLoading || isLoading) && <Spinner />}
-      {status.canJoinGroup || !userQuery.isLogged()
-        ? t('join-this-group')
-        : t('leave-this-group')}
+      {status.canJoinGroup || !userQuery.isLogged() ? (
+        <>
+          <IoIosHeart />
+          {t('join-this-group')}
+        </>
+      ) : (
+        <>
+          <IoIosHeart />
+          {t('leave-this-group')}
+        </>
+      )}
     </Button>
   )
 }

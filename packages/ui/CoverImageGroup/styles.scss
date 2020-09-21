@@ -8,7 +8,7 @@
 .wrapper {
   width: 100%;
   @include imageCover();
-  background: $theme2;
+  background: $theme1;
 
   .header {
     @include font-weight(semiBold);
@@ -51,7 +51,7 @@
         .btn {
           @include buttonDefault();
           @include buttonSizeDefault();
-          @include buttonShapePrimary();
+          @include buttonShapeDefault();
           @include buttonColorsTertiary();
           @include buttonSizeMd();
           @include buttonWithIcon();
@@ -121,7 +121,7 @@
         margin: 0 2.5px;
         @include buttonDefault();
         @include buttonSizeDefault();
-        @include buttonShapePrimary();
+        @include buttonShapeDefault();
         @include buttonWithIcon();
         @include buttonColorsTertiary();
 

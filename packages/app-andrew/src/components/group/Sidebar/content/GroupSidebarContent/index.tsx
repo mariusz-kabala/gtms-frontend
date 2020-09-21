@@ -42,12 +42,10 @@ export const GroupSidebarContent: FC<{}> = () => {
 
   return (
     <>
-      <div className={styles.actionButtons}>
-        <FavsButton group={state.group} />
-        <JoinLeaveButton group={state.group} />
-        <SettingsButton group={state.group} />
-        <FollowButton group={state.group} />
-      </div>
+      <FavsButton group={state.group} />
+      <JoinLeaveButton group={state.group} />
+      <SettingsButton group={state.group} />
+      <FollowButton group={state.group} />
       <Button
         additionalStyles={cx(styles.btnTags, {
           [styles.active]: false,

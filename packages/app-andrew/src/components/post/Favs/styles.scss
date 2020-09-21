@@ -4,7 +4,7 @@
 .btn {
   @include buttonDefault();
   @include buttonSizeDefault();
-  @include buttonShapePrimary();
+  @include buttonShapeDefault();
   @include buttonWithoutPadding();
   @include buttonWithIcon();
   @include buttonWithoutBackground();

@@ -37,7 +37,7 @@
       border: none;
       border-radius: $borderRadius;
       padding: 10px;
-      background: $theme2;
+      background: $theme1;
       @include placeholderFocus;
     }
   }
@@ -64,7 +64,7 @@
       padding: 5px 5px;
       cursor: pointer;
       margin-right: 5px;
-      background: $theme2;
+      background: $theme1;
       border-radius: $borderRadius;
       @include font-weight(semiBold);
 
@@ -77,7 +77,7 @@
     .btnAddSuggestions {
       @include buttonDefault();
       @include buttonSizeDefault();
-      @include buttonShapePrimary();
+      @include buttonShapeDefault();
       @include buttonColorsDefault();
       @include buttonWithIcon('right');
       padding: 5px;
@@ -91,12 +91,13 @@
   .btn {
     @include buttonDefault();
     @include buttonSizeDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonColorsDefault();
     @include buttonWithIcon('right');
     width: 100%;
     margin-top: 10px;
 
+    display: none;
     &:hover {
       @include buttonColorsPrimary();
     }

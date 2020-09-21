@@ -13,6 +13,7 @@ import {
 import { openLoginModal } from 'state'
 // ui
 import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
+import styles from './styles.scss'
 
 export const FollowButton: FC<{ user: IUser }> = ({ user }) => {
   const [state, setState] = useState<IFollowButtonState>(
@@ -39,9 +40,8 @@ export const FollowButton: FC<{ user: IUser }> = ({ user }) => {
   }
 
   return (
-    <div data-testid="follow-button">
+    <div className={styles.wrapper} data-testid="follow-button">
       <label>
-        <span>Follow</span>
         <SwitchWrapper
           onChange={(value) => {
             if (!state.isLogged) {
@@ -56,6 +56,7 @@ export const FollowButton: FC<{ user: IUser }> = ({ user }) => {
           }}
           checked={state.isFollowing}
         />
+        <span>Follow</span>
       </label>
     </div>
   )

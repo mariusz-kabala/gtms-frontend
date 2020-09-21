@@ -2,7 +2,7 @@
 
 .btnSubmit {
   @include buttonDefault();
-  @include buttonShapePrimary();
+  @include buttonShapeDefault();
   @include buttonSizeDefault();
   @include buttonWithSpinner();
   @include buttonColorsDefault();

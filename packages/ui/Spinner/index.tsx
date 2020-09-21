@@ -14,8 +14,10 @@ export const Spinner: FC<{
 }> = ({ additionalStyles, centered, size, type }) => (
   <div
     className={cx(styles.wrapper, additionalStyles, {
-      [styles.sm]: size === 'sm',
       [styles.centered]: centered,
+      [styles.sm]: size === 'sm',
+      [styles.xsm]: size === 'xsm',
+      [styles.withoutIcon]: type === 'withoutIcon',
     })}
     data-testid={'spinner'}
   >

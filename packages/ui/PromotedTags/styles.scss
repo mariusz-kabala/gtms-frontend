@@ -106,7 +106,7 @@
 .btn {
   @include buttonDefault();
   @include buttonSizeDefault();
-  @include buttonShapePrimary();
+  @include buttonShapeDefault();
   @include buttonWithIcon();
   @include buttonWithSpinner();
   @include buttonColorsDefault();

@@ -7,7 +7,7 @@
   .btn {
     @include buttonDefault();
     @include buttonSizeDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonWithoutPadding();
     @include buttonWithoutBackground();
     margin-left: 10px;

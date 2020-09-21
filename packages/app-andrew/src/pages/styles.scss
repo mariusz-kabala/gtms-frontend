@@ -61,7 +61,7 @@
         top: -45px;
         @include buttonDefault();
         @include buttonSizeDefault();
-        @include buttonShapePrimary();
+        @include buttonShapeDefault();
         @include buttonColorsPrimary();
 
         &:hover {

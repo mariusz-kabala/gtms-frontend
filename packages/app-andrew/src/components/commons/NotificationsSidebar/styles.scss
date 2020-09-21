@@ -8,7 +8,7 @@
   padding: 10px;
   width: 400px;
   height: 100%;
-  background: $theme2;
+  background: $theme1;
 
   &.opened {
     height: auto;
@@ -41,7 +41,7 @@
         padding: 5px 10px;
         margin-right: 5px;
         border-radius: $borderRadius;
-        background: $theme2;
+        background: $theme1;
         color: $theme7;
 
         &:hover {

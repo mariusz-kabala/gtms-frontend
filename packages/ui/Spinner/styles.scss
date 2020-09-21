@@ -63,6 +63,29 @@ $dark: rgba(0, 0, 0, 0.35);
     }
   }
 
+  &.xsm {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+
+    i {
+      display: none;
+    }
+  }
+
+  &.withoutIcon {
+    background: none;
+
+    > div {
+      border-width: 5px;
+    }
+
+    i {
+      display: none;
+    }
+  }
+
   &.centered {
     margin: auto;
   }

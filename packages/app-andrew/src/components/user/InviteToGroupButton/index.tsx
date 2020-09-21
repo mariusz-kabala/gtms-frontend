@@ -12,6 +12,7 @@ import {
 } from './state.query'
 import { GroupAvatarNoImage } from 'enums'
 // ui
+import { AiOutlineUserAdd } from 'react-icons/ai'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
@@ -27,9 +28,13 @@ const GroupsList: FC<{
   return (
     <ul className={styles.groupList}>
       {groups.map((group) => (
-        <li onClick={() => onClick(group)} key={`group-${group.id}`}>
+        <li
+          className={styles.item}
+          onClick={() => onClick(group)}
+          key={`group-${group.id}`}
+        >
           <Picture {...getImage('200x200', group.avatar, GroupAvatarNoImage)} />
-          <h3>{group.name}</h3>
+          <h2 className={styles.header}>{group.name}</h2>
         </li>
       ))}
     </ul>
@@ -111,7 +116,7 @@ export const InviteToGroupButton: FC<{
     <>
       {internalState.isModalOpen && (
         <Modal
-          additionalStyles={styles.modalContent}
+          additionalStyles={styles.wrapperModal}
           onClose={() => setInternalState(getInitialInternalState())}
         >
           {externalState.isLoading && <Spinner />}
@@ -122,49 +127,47 @@ export const InviteToGroupButton: FC<{
           )}
           {externalState.isLoaded && internalState.step === Steps.start && (
             <div>
-              <nav>
-                <ul>
-                  <li>
-                    <a
-                      onClick={() =>
-                        setInternalState({
-                          ...getInitialInternalState(),
-                          isModalOpen: true,
-                          currentTab: Tabs.groupsMember,
-                        })
-                      }
-                    >
-                      my groups
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      onClick={() =>
-                        setInternalState({
-                          ...getInitialInternalState(),
-                          isModalOpen: true,
-                          currentTab: Tabs.groupsAdmin,
-                        })
-                      }
-                    >
-                      as admin
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      onClick={() =>
-                        setInternalState({
-                          ...getInitialInternalState(),
-                          isModalOpen: true,
-                          currentTab: Tabs.groupsOwner,
-                        })
-                      }
-                    >
-                      as owner
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <ul className={styles.navigation}>
+                <li className={styles.item}>
+                  <a
+                    onClick={() =>
+                      setInternalState({
+                        ...getInitialInternalState(),
+                        isModalOpen: true,
+                        currentTab: Tabs.groupsMember,
+                      })
+                    }
+                  >
+                    my groups
+                  </a>
+                </li>
+                <li className={styles.item}>
+                  <a
+                    onClick={() =>
+                      setInternalState({
+                        ...getInitialInternalState(),
+                        isModalOpen: true,
+                        currentTab: Tabs.groupsAdmin,
+                      })
+                    }
+                  >
+                    as admin
+                  </a>
+                </li>
+                <li className={styles.item}>
+                  <a
+                    onClick={() =>
+                      setInternalState({
+                        ...getInitialInternalState(),
+                        isModalOpen: true,
+                        currentTab: Tabs.groupsOwner,
+                      })
+                    }
+                  >
+                    as owner
+                  </a>
+                </li>
+              </ul>
               <div className={styles.content}>
                 {internalState.currentTab === Tabs.groupsMember &&
                   externalState.member.length > 0 && (
@@ -207,7 +210,7 @@ export const InviteToGroupButton: FC<{
 
           {externalState.isLoaded === true &&
             internalState.step === Steps.invitation && (
-              <section>
+              <div>
                 <header>
                   <Picture
                     {...getImage(
@@ -235,11 +238,12 @@ export const InviteToGroupButton: FC<{
                     Send invitation
                   </Button>
                 </form>
-              </section>
+              </div>
             )}
         </Modal>
       )}
       <button
+        className={additionalStyles}
         onClick={() => {
           if (!userQuery.isLogged()) {
             return openLoginModal()
@@ -250,8 +254,10 @@ export const InviteToGroupButton: FC<{
             isModalOpen: true,
           })
         }}
-        className={additionalStyles}
       >
+        <i>
+          <AiOutlineUserAdd />
+        </i>
         invite to a group
       </button>
     </>

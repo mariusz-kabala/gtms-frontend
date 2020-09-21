@@ -105,7 +105,7 @@
 
   .respondBtn {
     @include buttonDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonSizeSm();
     @include buttonColorsDefault();
     margin-right: auto;
@@ -117,7 +117,7 @@
 
   .readMoreBtn {
     @include buttonDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonSizeSm();
     @include buttonColorsDefault();
 

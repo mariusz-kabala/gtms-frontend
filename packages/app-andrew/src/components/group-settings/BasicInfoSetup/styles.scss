@@ -20,7 +20,7 @@
       top: 5px;
       right: 5px;
       @include buttonDefault();
-      @include buttonShapePrimary();
+      @include buttonShapeDefault();
       @include buttonColorsDefault();
       padding: 10px;
 
@@ -52,7 +52,7 @@
 .btnSave {
   @include buttonDefault();
   @include buttonSizeDefault();
-  @include buttonShapePrimary();
+  @include buttonShapeDefault();
   @include buttonColorsDefault();
   width: 100%;
 

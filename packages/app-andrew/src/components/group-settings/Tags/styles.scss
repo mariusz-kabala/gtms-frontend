@@ -31,7 +31,7 @@
         margin-left: 10px;
         @include buttonDefault();
         @include buttonSizeSm();
-        @include buttonShapePrimary();
+        @include buttonShapeDefault();
         @include buttonWithIcon();
         @include buttonColorsDefault();
 

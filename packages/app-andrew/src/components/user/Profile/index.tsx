@@ -49,7 +49,10 @@ export const Profile: FC<{
       </div>
       {state.id !== user.id && (
         <div className={styles.actionButtons}>
-          <InviteToGroupButton userId={user.id} />
+          <InviteToGroupButton
+            additionalStyles={styles.inviteToGroupButton}
+            userId={user.id}
+          />
         </div>
       )}
     </div>

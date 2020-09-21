@@ -43,16 +43,14 @@
 }
 
 @mixin buttonWithSpinner($position: 'left') {
-  padding: 5px;
-
   @if $position == 'left' {
     div {
-      margin-right: 10px;
+      margin-right: 5px;
     }
   }
   @if $position == 'right' {
     div {
-      margin-left: 10px;
+      margin-left: 5px;
     }
   }
 }
@@ -89,13 +87,13 @@
 }
 
 // SHAPES
-@mixin buttonShapePrimary() {
+@mixin buttonShapeDefault() {
   border-radius: $borderRadius;
 }
 
 // COLORS
 @mixin buttonColorsDefault() {
-  background: $theme2;
+  background: $theme1;
   color: $theme7;
 }
 

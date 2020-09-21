@@ -4,10 +4,6 @@
 
 .btn {
   @include buttonDefault();
-  @include buttonSizeDefault();
-  @include buttonShapePrimary();
-  @include buttonWithIcon();
-  @include buttonWithoutBackground();
 
   &:hover {
     @include buttonColorBlue();

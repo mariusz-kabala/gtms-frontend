@@ -36,7 +36,7 @@
     .btnTags {
       @include buttonDefault();
       @include buttonSizeDefault();
-      @include buttonShapePrimary();
+      @include buttonShapeDefault();
       @include buttonColorsSecondary();
       position: relative;
       margin-right: 15px;
