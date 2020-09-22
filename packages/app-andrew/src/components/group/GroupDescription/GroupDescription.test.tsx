@@ -9,7 +9,6 @@ describe('<GroupDescription />', () => {
     )
 
     expect(getByTestId('group-edit-description')).toBeInTheDocument()
-    expect(getByTestId('expanding-item')).toBeInTheDocument()
   })
 
   it('Should open edit mode of group description when clicked on <GroupDescription /> ', () => {
@@ -19,7 +18,6 @@ describe('<GroupDescription />', () => {
 
     fireEvent.click(getByTestId('group-edit-description'))
 
-    expect(getByTestId('expanding-item')).toBeInTheDocument()
     expect(getByTestId('group-description-form')).toBeInTheDocument()
   })
 
