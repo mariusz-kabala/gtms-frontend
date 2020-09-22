@@ -349,36 +349,47 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       </ul>
                     </NavigationTabs>
                     <div className={styles.posts}>
-                      <PostCreate
-                        additionalStyles={styles.postCreate}
-                        groupId={state.group?.id || ''}
-                      />
-
-                      <PostsList
-                        posts={state.posts}
-                        isAdmin={groupQuery.hasAdminRights()}
-                        renderPost={(post) => (
-                          <PostSingle
-                            key={`post-${post.id}`}
-                            allowToRespond={post.id !== state.activePost?.id}
-                            onClick={onPostClick}
-                            onTagClick={onTagClick}
-                            onUserClick={onUserClick}
-                            fetchTags={findTagsAPI}
-                            fetchUsers={findbyUsernameAPI}
-                            createComment={createNewComment}
-                            user={state.user}
-                            additionalStyles={cx(styles.post, {
-                              [styles.active]: state.activePost?.id === post.id,
-                            })}
-                            {...post}
-                            noImage={UserAvatarNoImage}
-                            onLoginRequest={openLoginModal}
-                            activeTags={state.activeTags || []}
-                          />
-                        )}
-                      />
-
+                      <div>
+                        <PostCreate
+                          additionalStyles={styles.postCreate}
+                          groupId={state.group?.id || ''}
+                        />
+                        <PostsList
+                          posts={state.posts}
+                          isAdmin={groupQuery.hasAdminRights()}
+                          renderPost={(post) => (
+                            <PostSingle
+                              key={`post-${post.id}`}
+                              allowToRespond={post.id !== state.activePost?.id}
+                              onClick={onPostClick}
+                              onTagClick={onTagClick}
+                              onUserClick={onUserClick}
+                              fetchTags={findTagsAPI}
+                              fetchUsers={findbyUsernameAPI}
+                              createComment={createNewComment}
+                              user={state.user}
+                              additionalStyles={cx(styles.post, {
+                                [styles.active]:
+                                  state.activePost?.id === post.id,
+                              })}
+                              {...post}
+                              noImage={UserAvatarNoImage}
+                              onLoginRequest={openLoginModal}
+                              activeTags={state.activeTags || []}
+                            />
+                          )}
+                        />
+                        <Pagination
+                          additionalStyles={styles.pagination}
+                          {...state.pagination}
+                          onClick={(page: number) => {
+                            onClick({ page })
+                          }}
+                          getCurrentUrl={(page: number) => {
+                            return generateUrl({ page, fillEmptyValues: true })
+                          }}
+                        />
+                      </div>
                       {state.activePost && (
                         <PostDetails
                           comments={state.comments}
@@ -387,16 +398,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                           post={state.activePost}
                         />
                       )}
-                      <Pagination
-                        additionalStyles={styles.pagination}
-                        {...state.pagination}
-                        onClick={(page: number) => {
-                          onClick({ page })
-                        }}
-                        getCurrentUrl={(page: number) => {
-                          return generateUrl({ page, fillEmptyValues: true })
-                        }}
-                      />
                     </div>
                   </>
                 )}

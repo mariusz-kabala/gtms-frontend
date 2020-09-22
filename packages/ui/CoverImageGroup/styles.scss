@@ -118,16 +118,15 @@
       }
 
       .btn {
-        margin: 0 2.5px;
-        @include buttonDefault();
-        @include buttonSizeDefault();
-        @include buttonShapeDefault();
-        @include buttonWithIcon();
-        @include buttonColorsTertiary();
+        // @include buttonDefault();
+        // @include buttonSizeDefault();
+        // @include buttonShapeDefault();
+        // @include buttonWithIcon();
+        // @include buttonColorsTertiary();
 
-        &:hover {
-          @include buttonColorsPrimary();
-        }
+        // &:hover {
+        //   @include buttonColorsPrimary();
+        // }
       }
     }
   }
