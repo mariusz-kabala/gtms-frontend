@@ -6,7 +6,6 @@ import { UserAvatarNoImage } from 'enums'
 import { getImage } from '@gtms/commons/helpers'
 import { useInitState } from '@gtms/commons/hooks'
 import { IPost, IUser } from '@gtms/commons/models'
-import useKey from 'use-key-hook'
 // api
 import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
@@ -260,15 +259,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     }
   }, [])
 
-  useKey(
-    () => {
-      setUserPreview(undefined)
-    },
-    {
-      detectKeys: [27],
-    }
-  )
-
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.wrapper}>
@@ -306,11 +296,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 )}
                 {state && state.posts && state.posts.length === 0 && (
                   <div className={styles.noPostsFound}>
-                    <h3 className={styles.header}>
-                      <span>Ooops</span>, wygląda na to, że nikt nie dodał
-                      jeszcze żadnego posta :( Możesz być pierwszy!
-                    </h3>
-                    <PostCreate groupId={state.group?.id || ''} />
+                    <div>
+                      <div>
+                        <h3 className={styles.header}>
+                          <span>Ooops</span>, wygląda na to, że nikt nie dodał
+                          jeszcze żadnego posta :( Możesz być pierwszy!
+                        </h3>
+                        <PostCreate groupId={state.group?.id || ''} />
+                      </div>
+                    </div>
                   </div>
                 )}
                 {state && state.posts && state.posts.length > 0 && (
@@ -349,47 +343,36 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       </ul>
                     </NavigationTabs>
                     <div className={styles.posts}>
-                      <div>
-                        <PostCreate
-                          additionalStyles={styles.postCreate}
-                          groupId={state.group?.id || ''}
-                        />
-                        <PostsList
-                          posts={state.posts}
-                          isAdmin={groupQuery.hasAdminRights()}
-                          renderPost={(post) => (
-                            <PostSingle
-                              key={`post-${post.id}`}
-                              allowToRespond={post.id !== state.activePost?.id}
-                              onClick={onPostClick}
-                              onTagClick={onTagClick}
-                              onUserClick={onUserClick}
-                              fetchTags={findTagsAPI}
-                              fetchUsers={findbyUsernameAPI}
-                              createComment={createNewComment}
-                              user={state.user}
-                              additionalStyles={cx(styles.post, {
-                                [styles.active]:
-                                  state.activePost?.id === post.id,
-                              })}
-                              {...post}
-                              noImage={UserAvatarNoImage}
-                              onLoginRequest={openLoginModal}
-                              activeTags={state.activeTags || []}
-                            />
-                          )}
-                        />
-                        <Pagination
-                          additionalStyles={styles.pagination}
-                          {...state.pagination}
-                          onClick={(page: number) => {
-                            onClick({ page })
-                          }}
-                          getCurrentUrl={(page: number) => {
-                            return generateUrl({ page, fillEmptyValues: true })
-                          }}
-                        />
-                      </div>
+                      <PostCreate
+                        additionalStyles={styles.postCreate}
+                        groupId={state.group?.id || ''}
+                      />
+
+                      <PostsList
+                        posts={state.posts}
+                        isAdmin={groupQuery.hasAdminRights()}
+                        renderPost={(post) => (
+                          <PostSingle
+                            key={`post-${post.id}`}
+                            allowToRespond={post.id !== state.activePost?.id}
+                            onClick={onPostClick}
+                            onTagClick={onTagClick}
+                            onUserClick={onUserClick}
+                            fetchTags={findTagsAPI}
+                            fetchUsers={findbyUsernameAPI}
+                            createComment={createNewComment}
+                            user={state.user}
+                            additionalStyles={cx(styles.post, {
+                              [styles.active]: state.activePost?.id === post.id,
+                            })}
+                            {...post}
+                            noImage={UserAvatarNoImage}
+                            onLoginRequest={openLoginModal}
+                            activeTags={state.activeTags || []}
+                          />
+                        )}
+                      />
+
                       {state.activePost && (
                         <PostDetails
                           comments={state.comments}
@@ -398,6 +381,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                           post={state.activePost}
                         />
                       )}
+                      <Pagination
+                        {...state.pagination}
+                        onClick={(page: number) => {
+                          onClick({ page })
+                        }}
+                        getCurrentUrl={(page: number) => {
+                          return generateUrl({ page, fillEmptyValues: true })
+                        }}
+                      />
                     </div>
                   </>
                 )}
