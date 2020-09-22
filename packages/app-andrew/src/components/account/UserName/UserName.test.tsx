@@ -7,7 +7,6 @@ describe('<UserName />', () => {
     const { getByTestId } = render(<UserName />)
 
     expect(getByTestId('user-name')).toBeInTheDocument()
-    expect(getByTestId('expanding-item')).toBeInTheDocument()
   })
 
   it('Should open edit mode of user name when clicked on <UserName /> ', () => {
@@ -15,7 +14,6 @@ describe('<UserName />', () => {
 
     fireEvent.click(getByTestId('user-name'))
 
-    expect(getByTestId('expanding-item')).toBeInTheDocument()
     expect(getByTestId('user-name-change-form')).toBeInTheDocument()
   })
 
