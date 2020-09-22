@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect, useCallback } from 'react'
 import { IoIosStarOutline, IoIosStar } from 'react-icons/io'
-import cx from 'classnames'
 import { IFavsState, favsState, favsState$ } from './state.query'
 import { addPostToFavs, removeFromFavs, getPostFavs } from '@gtms/api-post'
 import { getDisplayName } from '@gtms/commons/helpers'
