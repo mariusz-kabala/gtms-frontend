@@ -73,19 +73,19 @@ export const PostAdmin: FC<{
       {isVisible && (
         <ul className={styles.items}>
           <li className={styles.item}>
-            <a>Edit</a>
+            <a onClick={onEdit}>Edit</a>
           </li>
           <li className={styles.item}>
-            <a>Delete</a>
+            <a onClick={onDelete}>Delete</a>
           </li>
           <li className={styles.item}>
-            <a>Report User</a>
+            <a onClick={onReportAbuse}>Report abuse</a>
           </li>
           <li className={styles.item}>
-            <a>Block user</a>
+            <a onClick={onBlockUser}>Block user</a>
           </li>
           <li className={styles.item}>
-            <a>Drop user from group</a>
+            <a onClick={onDropUserFromGroup}>Drop user from group</a>
           </li>
         </ul>
       )}
