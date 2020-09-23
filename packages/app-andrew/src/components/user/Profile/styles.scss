@@ -9,7 +9,7 @@
     align-items: center;
 
     .image {
-      max-width: 150px;
+      max-width: 100px;
 
       img {
         border-radius: 50%;
@@ -25,7 +25,8 @@
       }
 
       .desc {
-        @include font-size(md);
+        @include font-size(xdefault);
+        word-break: break-all;
       }
     }
   }
@@ -43,8 +44,9 @@
   .inviteToGroupButton {
     @include buttonDefault();
     @include buttonSizeDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonColorsDefault();
+    @include buttonWithIcon();
 
     &:hover {
       @include buttonColorsPrimary();

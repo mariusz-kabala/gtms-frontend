@@ -8,7 +8,7 @@
 .btnDeleteGroup {
   @include buttonDefault();
   @include buttonSizeDefault();
-  @include buttonShapePrimary();
+  @include buttonShapeDefault();
   @include buttonColorsDefault();
 
   &:hover {

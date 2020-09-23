@@ -1,18 +1,20 @@
 import React, { FC, useState, useCallback } from 'react'
 import { TagsBar } from '@gtms/ui/TagsBar'
 import { findTagsAPI } from '@gtms/api-tags'
-import { Tag } from '@gtms/ui/Tag'
-import { TagGroup } from '@gtms/ui/TagGroup'
-import { Modal } from '@gtms/ui/Modal'
-import { PromotedTagsForm } from '../PromotedTagForm'
-import { PromotedTags } from './PromotedTags'
-import styles from './styles.scss'
 import {
   loadGroupPromotedTags,
   promotedTagsQuery,
   deletePromotedTag,
 } from '@gtms/state-tag'
 import { IPromotedTag } from '@gtms/commons/models'
+// ui
+import { AiOutlineForm } from 'react-icons/ai'
+import { Modal } from '@gtms/ui/Modal'
+import { PromotedTagsForm } from '../PromotedTagForm'
+import { PromotedTags } from './PromotedTags'
+import { TagGroup } from '@gtms/ui/TagGroup'
+import { Tag } from '@gtms/ui/Tag'
+import styles from './styles.scss'
 
 export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
   const [tags, setTags] = useState<string[]>(props.tags)
@@ -83,6 +85,9 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
             onClick={() => setIsInEditMode(!isInEditMode)}
             className={styles.btn}
           >
+            <i>
+              <AiOutlineForm />
+            </i>
             {isInEditMode ? 'close' : 'edit'}
           </button>
         </h3>
@@ -148,8 +153,6 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
         <h3 className={styles.header}>
           {/* @todo add translation */}
           Promoted tags
-          {/* @todo add translation */}
-          <button className={styles.btn}>Change order</button>
         </h3>
         <PromotedTags
           onEdit={(id) => {

@@ -6,7 +6,7 @@
 
 .pageWrapper {
   @include pageWrapper();
-  background: $theme2;
+  background: $theme1;
 }
 
 .wrapper {
@@ -34,7 +34,7 @@
         margin-right: 10px;
         padding: 5px 15px;
         border-radius: $borderRadius;
-        background: $theme2;
+        background: $theme1;
 
         a {
           font-size: 1.1em;
@@ -62,7 +62,7 @@
     margin-top: 15px;
     @include buttonDefault();
     @include buttonSizeDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonColorsSecondary();
 
     &:hover {

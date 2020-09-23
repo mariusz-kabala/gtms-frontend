@@ -4,79 +4,79 @@
 
 .wrapper {
   margin: 10px;
-  
+
   .cover {
     @include imageCover();
     min-height: 300px;
     padding: 10px;
     border-radius: $borderRadius;
-  
+
     .btn {
       @include buttonDefault();
       @include buttonSizeDefault();
-      @include buttonShapePrimary();
+      @include buttonShapeDefault();
       @include buttonWithIcon();
       @include buttonColorsDefault();
-  
+
       &:hover {
         @include buttonColorsPrimary();
       }
     }
   }
-  
+
   // @todo: put proper background images
   .cover1 {
     background-image: url('/images/white-theme/travel-bg.png');
   }
-  
+
   .cover2 {
     background-image: url('/images/white-theme/spotted-bg-highschool.png');
   }
-  
+
   .cover3 {
     background-image: url('/images/white-theme/spotted-bg.png');
   }
-  
+
   .cover4 {
     background-image: url('/images/white-theme/cover1.png');
   }
-  
+
   .cover5 {
     background-image: url('/images/white-theme/cover2.png');
   }
-  
+
   .cover6 {
     background-image: url('/images/white-theme/cover3.png');
   }
-  
+
   .cover7 {
     background-image: url('/images/white-theme/cover4.png');
   }
-  
+
   .cover8 {
     background-image: url('/images/white-theme/cover5.png');
   }
-  
+
   .cover9 {
     background-image: url('/images/white-theme/cover6.png');
   }
-  
+
   .cover10 {
     background-image: url('/images/white-theme/cover7.png');
   }
-  
+
   .cover11 {
     background-image: url('/images/white-theme/cover8.png');
   }
-  
+
   .cover12 {
     background-image: url('/images/white-theme/cover9.png');
   }
-  
+
   .cover13 {
     background-image: url('/images/white-theme/cover10.png');
   }
-  
+
   .cover14 {
     background-image: url('/images/white-theme/cover11.png');
   }

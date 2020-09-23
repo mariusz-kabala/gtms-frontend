@@ -7,8 +7,9 @@
 .buttonDelete {
   @include buttonDefault();
   @include buttonSizeDefault();
-  @include buttonShapePrimary();
+  @include buttonShapeDefault();
   @include buttonWithoutPadding();
+  @include buttonWithIcon();
   @include buttonWithoutBackground();
   margin-right: 10px;
 
@@ -47,7 +48,7 @@
   .btn {
     @include buttonDefault();
     @include buttonSizeDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonWithIcon();
     @include buttonColorsDefault();
 

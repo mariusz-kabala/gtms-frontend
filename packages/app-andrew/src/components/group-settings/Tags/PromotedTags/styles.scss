@@ -12,11 +12,10 @@
   @include gridDefault(5);
 
   .item {
-    overflow: hidden;
-    border-radius: $borderRadius;
-
     .imageWrapper {
       width: 100%;
+      overflow: hidden;
+      border-radius: $borderRadius;
       cursor: pointer;
 
       // @todo create mixin for that
@@ -50,7 +49,7 @@
           margin-right: 10px;
           @include buttonDefault();
           @include buttonSizeDefault();
-          @include buttonShapePrimary();
+          @include buttonShapeDefault();
           @include buttonColorsDefault();
 
           &:hover {

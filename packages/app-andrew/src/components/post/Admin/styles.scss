@@ -1,32 +1,43 @@
 @import '@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 
 .wrapper {
   position: relative;
 
-  ul {
+  .btn {
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapeDefault();
+    @include buttonWithoutPadding();
+    @include buttonWithoutBackground();
+    margin-left: 10px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      @include buttonColorBlue();
+    }
+  }
+
+  .items {
     position: absolute;
     top: 0;
-    left: 5px;
-    border-radius: 5px;
-    border-top-left-radius: 0;
+    right: 5px;
     min-width: 140px;
-    padding: 5px;
-    background-color: $theme0;
     border: 1px solid $theme9;
-    box-shadow: 2.5px 2.5px 2.5px 0px $theme8;
-    li {
+    border-radius: $borderRadius;
+
+    .item {
       padding: 2.5px;
+      background-color: $theme0;
 
       &:hover {
-        background-color: $theme6;
+        background-color: $theme4;
+
         a {
           color: $theme0;
         }
       }
     }
   }
-}
-
-.button {
-  margin-left: 5px;
 }

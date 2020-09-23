@@ -14,11 +14,11 @@ import {
 import { IImage } from '@gtms/commons/types/image'
 // ui
 import { DeletePost } from './DeletePost'
+import { Picture } from '../Picture'
 import { PostCreate } from '../PostCreate'
 import { PostResponse } from './PostResponse'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
-import { Picture } from '../Picture'
 import { UserAvatar } from '../UserAvatar'
 // styles
 import styles from './styles.scss'
@@ -98,7 +98,7 @@ export const PostSingle: FC<{
             image={getImage('35x35', owner.avatar, noImage)}
             additionalStyles={styles.userAvatar}
           />
-          <div>
+          <>
             <a onClick={onUserClickCallback}>
               <span>{getDisplayName(owner)}</span>
             </a>
@@ -109,7 +109,7 @@ export const PostSingle: FC<{
                 })}
               </span>
             </a>
-          </div>
+          </>
         </div>
         <div className={styles.actionButtons}>
           {owner.id === user?.id && (
@@ -122,24 +122,25 @@ export const PostSingle: FC<{
       <div className={styles.desc}>
         <div dangerouslySetInnerHTML={{ __html: html }} />
         {images.length > 0 && (
-          <div className={styles.images}>
+          <ul className={styles.images}>
             {images.map((img, index) => (
-              <a
-                onClick={(e) => {
-                  e.preventDefault()
+              <li className={styles.item} key={`post-img-${index}`}>
+                <a
+                  onClick={(e) => {
+                    e.preventDefault()
 
-                  setLightboxState({
-                    isOpen: true,
-                    current: index,
-                  })
-                }}
-                key={`post-img-${index}`}
-                href={getImage('1300x1300', img).jpg}
-              >
-                <Picture {...getImage('200x200', img)} />
-              </a>
+                    setLightboxState({
+                      isOpen: true,
+                      current: index,
+                    })
+                  }}
+                  href={getImage('1300x1300', img).jpg}
+                >
+                  <Picture {...getImage('200x200', img)} />
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
         {tags.length > 0 && (
           <TagGroup additionalStyles={styles.tagGroup}>
@@ -159,11 +160,12 @@ export const PostSingle: FC<{
           <>
             {firstComments.map((comment) => (
               <PostResponse
-                key={`comment-${comment.id}`}
-                html={comment.html}
+                additionalStyles={styles.response}
                 createdAt={comment.createdAt}
-                owner={comment.owner as IUser}
+                html={comment.html}
+                key={`comment-${comment.id}`}
                 noImage={noImage}
+                owner={comment.owner as IUser}
                 user={user}
               />
             ))}

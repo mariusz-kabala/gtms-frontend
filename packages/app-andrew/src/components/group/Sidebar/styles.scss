@@ -4,7 +4,7 @@
 
 .groupSidebar {
   position: relative;
-  width: 50px;
+  width: 250px;
   background: $theme0;
   border-top-left-radius: $borderRadius;
   border-bottom-left-radius: $borderRadius;
@@ -19,45 +19,40 @@
   .makeItSticky {
     position: sticky;
     top: 0;
+  }
 
-    > div {
-      display: none;
+  .avatarNameDesc {
+    padding: 10px;
+    display: block;
+
+    &:hover {
+      cursor: pointer;
+      color: $theme4;
     }
 
-    .avatarNamedDesc {
-      padding: 10px;
-      display: block;
+    .avatarName {
+      display: flex;
+      align-items: center;
 
-      &:hover {
-        cursor: pointer;
-        color: $theme4;
-      }
+      .groupAvatar {
+        width: 40px;
 
-      .avatarName {
-        display: flex;
-        align-items: center;
-
-        .groupAvatar {
-          picture {
-            border-radius: $borderRadius;
-            overflow: hidden;
-          }
-        }
-
-        .header {
-          @include font-size(xdefault);
-          @include font-weight(semiBold);
-          margin-left: 10px;
-          display: none;
+        picture {
+          border-radius: $borderRadius;
+          overflow: hidden;
         }
       }
 
-      .desc {
-        margin-top: 5px;
-        @include font-size(sm);
+      .header {
+        @include font-size(xdefault);
         @include font-weight(semiBold);
-        display: none;
+        margin-left: 8px;
       }
+    }
+
+    .desc {
+      margin-top: 5px;
+      @include font-size(sm);
     }
   }
 }

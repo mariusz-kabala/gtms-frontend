@@ -14,7 +14,7 @@
 
   .list {
     padding: 10px;
-    border: 2px solid $theme2;
+    border: 2px solid $theme1;
     border-radius: $borderRadius;
 
     &:hover {
@@ -39,7 +39,7 @@
   .btn {
     @include buttonDefault();
     @include buttonSizeDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonColorsDefault();
     @include buttonWithIcon();
     margin-top: 5px;

@@ -8,6 +8,8 @@
   flex-direction: column;
   align-items: center;
   padding: 50px 0;
+  background: $theme0;
+  border-radius: $borderRadius;
   margin: auto;
 
   .content {
@@ -15,6 +17,7 @@
     align-items: center;
     justify-content: center;
     margin: auto;
+    padding: 20px;
     max-width: 700px;
 
     img {
@@ -40,7 +43,7 @@
   button {
     @include buttonDefault();
     @include buttonSizeMd();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonWithIcon();
     @include buttonColorsDefault();
     margin-top: 20px;

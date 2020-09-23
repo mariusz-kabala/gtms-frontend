@@ -27,7 +27,7 @@
   .btn {
     @include buttonDefault();
     @include buttonSizeDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonColorsDefault();
     width: 100%;
     margin-top: 15px;

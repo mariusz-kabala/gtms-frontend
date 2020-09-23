@@ -7,9 +7,8 @@
 
 .wrapper {
   width: 100%;
-  min-height: 300px;
   @include imageCover();
-  background: $theme2;
+  background: $theme1;
 
   .header {
     @include font-weight(semiBold);
@@ -52,7 +51,7 @@
         .btn {
           @include buttonDefault();
           @include buttonSizeDefault();
-          @include buttonShapePrimary();
+          @include buttonShapeDefault();
           @include buttonColorsTertiary();
           @include buttonSizeMd();
           @include buttonWithIcon();
@@ -119,16 +118,15 @@
       }
 
       .btn {
-        margin: 0 2.5px;
-        @include buttonDefault();
-        @include buttonSizeDefault();
-        @include buttonShapePrimary();
-        @include buttonWithIcon();
-        @include buttonColorsTertiary();
+        // @include buttonDefault();
+        // @include buttonSizeDefault();
+        // @include buttonShapeDefault();
+        // @include buttonWithIcon();
+        // @include buttonColorsTertiary();
 
-        &:hover {
-          @include buttonColorsPrimary();
-        }
+        // &:hover {
+        //   @include buttonColorsPrimary();
+        // }
       }
     }
   }

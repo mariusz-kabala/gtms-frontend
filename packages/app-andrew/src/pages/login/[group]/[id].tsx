@@ -55,9 +55,9 @@ export const LoginPage: NextPage<{
     <LoginContent registrationLink={registrationLink}>
       {!state.errorOccured && (
         <TagsGrid
+          additionalStyles={styles.tagsGrid}
           isLoading={state.isLoading}
           tags={state.tags}
-          additionalStyles={styles.tagsGrid}
         />
       )}
     </LoginContent>

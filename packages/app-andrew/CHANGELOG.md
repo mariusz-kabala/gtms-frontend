@@ -5,80 +5,45 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.83.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.82.0...@gtms/app-andrew@0.83.0) (2020-09-21)
 
-
 ### Features
 
-* GEOT-466 abuse form ([#868](https://github.com/gtms-org/gtms-frontend/issues/868)) ([ef698d2](https://github.com/gtms-org/gtms-frontend/commit/ef698d2281869d9cd879f9e1ffd792ad52709a13))
-
-
-
-
+- GEOT-466 abuse form ([#868](https://github.com/gtms-org/gtms-frontend/issues/868)) ([ef698d2](https://github.com/gtms-org/gtms-frontend/commit/ef698d2281869d9cd879f9e1ffd792ad52709a13))
 
 # [0.82.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.6...@gtms/app-andrew@0.82.0) (2020-09-17)
 
-
 ### Features
 
-* GEOT-465: [ui] add post admin menu ([#864](https://github.com/gtms-org/gtms-frontend/issues/864)) ([2983327](https://github.com/gtms-org/gtms-frontend/commit/2983327eee4bdc1e8b458c95fb24c6df68d93e90))
-
-
-
-
+- GEOT-465: [ui] add post admin menu ([#864](https://github.com/gtms-org/gtms-frontend/issues/864)) ([2983327](https://github.com/gtms-org/gtms-frontend/commit/2983327eee4bdc1e8b458c95fb24c6df68d93e90))
 
 ## [0.81.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.5...@gtms/app-andrew@0.81.6) (2020-09-16)
 
-
 ### Bug Fixes
 
-* GEOT-464: drop RecentlyAddedPosts component ([#863](https://github.com/gtms-org/gtms-frontend/issues/863)) ([9a9be02](https://github.com/gtms-org/gtms-frontend/commit/9a9be0278909c8c6e792e70bdf665de97cc68ee3))
-
-
-
-
+- GEOT-464: drop RecentlyAddedPosts component ([#863](https://github.com/gtms-org/gtms-frontend/issues/863)) ([9a9be02](https://github.com/gtms-org/gtms-frontend/commit/9a9be0278909c8c6e792e70bdf665de97cc68ee3))
 
 ## [0.81.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.4...@gtms/app-andrew@0.81.5) (2020-09-14)
 
-
 ### Bug Fixes
 
-* GEOT-463: pass proper google client id during deployment ([#859](https://github.com/gtms-org/gtms-frontend/issues/859)) ([6c15a7e](https://github.com/gtms-org/gtms-frontend/commit/6c15a7ea0976130eefd8d0581b629c2c79ca31ef))
-
-
-
-
+- GEOT-463: pass proper google client id during deployment ([#859](https://github.com/gtms-org/gtms-frontend/issues/859)) ([6c15a7e](https://github.com/gtms-org/gtms-frontend/commit/6c15a7ea0976130eefd8d0581b629c2c79ca31ef))
 
 ## [0.81.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.3...@gtms/app-andrew@0.81.4) (2020-09-13)
 
-
 ### Bug Fixes
 
-* GEOT-463: pass google auth code to BE ([#857](https://github.com/gtms-org/gtms-frontend/issues/857)) ([f7d394b](https://github.com/gtms-org/gtms-frontend/commit/f7d394b7e8f0a01c9d4528c267c47f32beecb454))
-
-
-
-
+- GEOT-463: pass google auth code to BE ([#857](https://github.com/gtms-org/gtms-frontend/issues/857)) ([f7d394b](https://github.com/gtms-org/gtms-frontend/commit/f7d394b7e8f0a01c9d4528c267c47f32beecb454))
 
 ## [0.81.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.2...@gtms/app-andrew@0.81.3) (2020-09-10)
 
-
 ### Bug Fixes
 
-* GEOT-461: display promoted tags on login and registration pa ([#854](https://github.com/gtms-org/gtms-frontend/issues/854)) ([9324e17](https://github.com/gtms-org/gtms-frontend/commit/9324e1779c3a64eaceb4b37b1c2ce3c307688559))
-
-
-
-
+- GEOT-461: display promoted tags on login and registration pa ([#854](https://github.com/gtms-org/gtms-frontend/issues/854)) ([9324e17](https://github.com/gtms-org/gtms-frontend/commit/9324e1779c3a64eaceb4b37b1c2ce3c307688559))
 
 ## [0.81.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.1...@gtms/app-andrew@0.81.2) (2020-09-09)
 
-
 ### Bug Fixes
 
-* GEOT-460: allow to upload a custom file for group bg ([#853](https://github.com/gtms-org/gtms-frontend/issues/853)) ([855e2a3](https://github.com/gtms-org/gtms-frontend/commit/855e2a3a528cf05159bfb4b45a4885bb11cb58eb))
-
-
-
-
+- GEOT-460: allow to upload a custom file for group bg ([#853](https://github.com/gtms-org/gtms-frontend/issues/853)) ([855e2a3](https://github.com/gtms-org/gtms-frontend/commit/855e2a3a528cf05159bfb4b45a4885bb11cb58eb))
 
 ## [0.81.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.81.0...@gtms/app-andrew@0.81.1) (2020-09-09)
 

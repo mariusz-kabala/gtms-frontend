@@ -6,7 +6,7 @@
 .modalContent {
   @include modalContent();
   > div {
-    min-width: auto; // to overwrite include modalContent()
+    min-width: auto; // to overwrite include modal()
   }
 
   button[type='submit'] {
@@ -28,7 +28,7 @@
 
   @include buttonDefault();
   @include buttonSizeDefault();
-  @include buttonShapePrimary();
+  @include buttonShapeDefault();
   @include buttonColorsDefault();
 
   &:hover {

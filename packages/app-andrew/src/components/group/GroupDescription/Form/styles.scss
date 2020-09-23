@@ -2,12 +2,14 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 
 .form {
+  width: 100%;
+
   .btn {
     width: 100%;
     margin-top: 15px;
     @include buttonDefault();
     @include buttonSizeDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonColorsDefault();
     &:hover {
       @include buttonColorsPrimary();

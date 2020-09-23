@@ -49,7 +49,7 @@ export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
 
             unfollowGroup(group.id)
           }}
-          checked={state.isFollowing}
+          checked={false}
         />
         <span>Follow</span>
       </label>

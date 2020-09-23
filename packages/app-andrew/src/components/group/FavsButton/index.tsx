@@ -61,7 +61,7 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
     >
       {status.isLoading && userQuery.isLogged() && (
         <>
-          <Spinner size="sm" />
+          <Spinner size="xsm" type="withoutIcon" />
           {t('favs')}
         </>
       )}

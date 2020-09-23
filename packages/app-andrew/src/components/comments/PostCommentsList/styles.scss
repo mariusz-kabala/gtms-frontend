@@ -3,7 +3,7 @@
 .respondButton {
   text-align: right;
   @include buttonDefault();
-  @include buttonShapePrimary();
+  @include buttonShapeDefault();
   @include buttonSizeDefault();
   @include buttonColorsDefault();
 

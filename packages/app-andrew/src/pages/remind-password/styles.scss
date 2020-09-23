@@ -4,7 +4,7 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper();
+  @include pageWrapper('bgdefault');
 }
 
 .wrapper {
@@ -37,7 +37,7 @@
       width: 100%;
       @include buttonDefault();
       @include buttonSizeDefault();
-      @include buttonShapePrimary();
+      @include buttonShapeDefault();
       @include buttonColorsDefault();
 
       &:hover {

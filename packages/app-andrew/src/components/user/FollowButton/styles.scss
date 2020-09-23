@@ -1,0 +1,15 @@
+@import '~@gtms/styles/scss/variables.scss';
+
+.wrapper {
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  label {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 5px;
+    }
+  }
+}

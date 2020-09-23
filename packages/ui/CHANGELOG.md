@@ -5,126 +5,71 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.63.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.62.0...@gtms/ui@0.63.0) (2020-09-21)
 
-
 ### Features
 
-* GEOT-466 abuse form ([#868](https://github.com/gtms-org/gtms-frontend/issues/868)) ([ef698d2](https://github.com/gtms-org/gtms-frontend/commit/ef698d2281869d9cd879f9e1ffd792ad52709a13))
-
-
-
-
+- GEOT-466 abuse form ([#868](https://github.com/gtms-org/gtms-frontend/issues/868)) ([ef698d2](https://github.com/gtms-org/gtms-frontend/commit/ef698d2281869d9cd879f9e1ffd792ad52709a13))
 
 # [0.62.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.61.4...@gtms/ui@0.62.0) (2020-09-17)
 
-
 ### Features
 
-* GEOT-465: [ui] add post admin menu ([#864](https://github.com/gtms-org/gtms-frontend/issues/864)) ([2983327](https://github.com/gtms-org/gtms-frontend/commit/2983327eee4bdc1e8b458c95fb24c6df68d93e90))
-
-
-
-
+- GEOT-465: [ui] add post admin menu ([#864](https://github.com/gtms-org/gtms-frontend/issues/864)) ([2983327](https://github.com/gtms-org/gtms-frontend/commit/2983327eee4bdc1e8b458c95fb24c6df68d93e90))
 
 ## [0.61.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.61.3...@gtms/ui@0.61.4) (2020-09-16)
 
-
 ### Bug Fixes
 
-* GEOT-464: drop RecentlyAddedPosts component ([#863](https://github.com/gtms-org/gtms-frontend/issues/863)) ([9a9be02](https://github.com/gtms-org/gtms-frontend/commit/9a9be0278909c8c6e792e70bdf665de97cc68ee3))
-
-
-
-
+- GEOT-464: drop RecentlyAddedPosts component ([#863](https://github.com/gtms-org/gtms-frontend/issues/863)) ([9a9be02](https://github.com/gtms-org/gtms-frontend/commit/9a9be0278909c8c6e792e70bdf665de97cc68ee3))
 
 ## [0.61.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.61.2...@gtms/ui@0.61.3) (2020-09-13)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.61.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.61.1...@gtms/ui@0.61.2) (2020-09-10)
-
 
 ### Bug Fixes
 
-* GEOT-461: display promoted tags on login and registration pa ([#854](https://github.com/gtms-org/gtms-frontend/issues/854)) ([9324e17](https://github.com/gtms-org/gtms-frontend/commit/9324e1779c3a64eaceb4b37b1c2ce3c307688559))
-
-
-
-
+- GEOT-461: display promoted tags on login and registration pa ([#854](https://github.com/gtms-org/gtms-frontend/issues/854)) ([9324e17](https://github.com/gtms-org/gtms-frontend/commit/9324e1779c3a64eaceb4b37b1c2ce3c307688559))
 
 ## [0.61.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.61.0...@gtms/ui@0.61.1) (2020-09-09)
 
-
 ### Bug Fixes
 
-* GEOT-460: allow to upload a custom file for group bg ([#853](https://github.com/gtms-org/gtms-frontend/issues/853)) ([855e2a3](https://github.com/gtms-org/gtms-frontend/commit/855e2a3a528cf05159bfb4b45a4885bb11cb58eb))
-
-
-
-
+- GEOT-460: allow to upload a custom file for group bg ([#853](https://github.com/gtms-org/gtms-frontend/issues/853)) ([855e2a3](https://github.com/gtms-org/gtms-frontend/commit/855e2a3a528cf05159bfb4b45a4885bb11cb58eb))
 
 # [0.61.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.60.0...@gtms/ui@0.61.0) (2020-09-07)
 
-
 ### Features
 
-* GEOT-456: support file uploading for group cover image ([#850](https://github.com/gtms-org/gtms-frontend/issues/850)) ([8c47356](https://github.com/gtms-org/gtms-frontend/commit/8c47356564e18df941155d076ae6d0580f091edb))
-
-
-
-
+- GEOT-456: support file uploading for group cover image ([#850](https://github.com/gtms-org/gtms-frontend/issues/850)) ([8c47356](https://github.com/gtms-org/gtms-frontend/commit/8c47356564e18df941155d076ae6d0580f091edb))
 
 # [0.60.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.59.0...@gtms/ui@0.60.0) (2020-09-07)
 
-
 ### Features
 
-* GEOT-449: render modals in portal ([#848](https://github.com/gtms-org/gtms-frontend/issues/848)) ([e396d25](https://github.com/gtms-org/gtms-frontend/commit/e396d25f8d7289d7b655aaeb9b3d8f79a35ea0fb))
-
-
-
-
+- GEOT-449: render modals in portal ([#848](https://github.com/gtms-org/gtms-frontend/issues/848)) ([e396d25](https://github.com/gtms-org/gtms-frontend/commit/e396d25f8d7289d7b655aaeb9b3d8f79a35ea0fb))
 
 # [0.59.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.58.0...@gtms/ui@0.59.0) (2020-09-04)
 
-
 ### Features
 
-* GEOT-454: styles for adding posts ([#844](https://github.com/gtms-org/gtms-frontend/issues/844)) ([7a99f41](https://github.com/gtms-org/gtms-frontend/commit/7a99f41b0bc71a6c7cbe2797ac89e6fd42671d5f))
-
-
-
-
+- GEOT-454: styles for adding posts ([#844](https://github.com/gtms-org/gtms-frontend/issues/844)) ([7a99f41](https://github.com/gtms-org/gtms-frontend/commit/7a99f41b0bc71a6c7cbe2797ac89e6fd42671d5f))
 
 # [0.58.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.57.0...@gtms/ui@0.58.0) (2020-09-04)
 
-
 ### Bug Fixes
 
-* GEOT-397: working pagination ([#843](https://github.com/gtms-org/gtms-frontend/issues/843)) ([6c8823c](https://github.com/gtms-org/gtms-frontend/commit/6c8823cb3d16914582244a4a132c303803f65705))
-
+- GEOT-397: working pagination ([#843](https://github.com/gtms-org/gtms-frontend/issues/843)) ([6c8823c](https://github.com/gtms-org/gtms-frontend/commit/6c8823cb3d16914582244a4a132c303803f65705))
 
 ### Features
 
-* GEOT-453: display post images ([#841](https://github.com/gtms-org/gtms-frontend/issues/841)) ([b85c92a](https://github.com/gtms-org/gtms-frontend/commit/b85c92a0bcb84101ceb39ad8d5fd4767faf43b02))
-
-
-
-
+- GEOT-453: display post images ([#841](https://github.com/gtms-org/gtms-frontend/issues/841)) ([b85c92a](https://github.com/gtms-org/gtms-frontend/commit/b85c92a0bcb84101ceb39ad8d5fd4767faf43b02))
 
 # [0.57.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.56.0...@gtms/ui@0.57.0) (2020-09-02)
 
-
 ### Features
 
-* GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
-
-
-
-
+- GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
 
 # [0.56.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.55.0...@gtms/ui@0.56.0) (2020-09-02)
 

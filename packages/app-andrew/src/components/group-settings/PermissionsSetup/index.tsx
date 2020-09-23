@@ -3,6 +3,7 @@ import { IGroup } from '@gtms/commons/models'
 import { GroupType, GroupVisibility } from '@gtms/commons/enums'
 import { updateGroup } from '@gtms/state-group'
 // ui
+import { BsArrow90DegUp } from 'react-icons/bs'
 import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -46,6 +47,9 @@ export const PermissionsSetup: FC<{ group: IGroup }> = ({ group }) => {
               <label>Anyone can join</label>
             </div>
             <span>
+              <i>
+                <BsArrow90DegUp />
+              </i>
               Any user can join the group. Joining does not require groups admin
               acceptation
             </span>
@@ -66,6 +70,9 @@ export const PermissionsSetup: FC<{ group: IGroup }> = ({ group }) => {
               <label>Group is public</label>
             </div>
             <span>
+              <i>
+                <BsArrow90DegUp />
+              </i>
               If group is public, anyone can find it, and read its content. If
               not - only members can do that
             </span>

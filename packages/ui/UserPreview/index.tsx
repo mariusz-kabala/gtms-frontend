@@ -4,10 +4,10 @@ import { IImage } from '@gtms/commons/types/image'
 import { getImage, getDisplayName } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
 // ui
+import { Button } from '../Button'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
-import { Button } from '../Button'
 import {
   IoIosArrowDropright,
   IoIosArrowDown,
@@ -30,7 +30,7 @@ export const UserPreview: FC<{
       />
       <div className={styles.userInfo}>
         <h2 className={styles.header}>{getDisplayName(user)}</h2>
-        <span className={styles.username}>{user.username}</span>
+        <span className={styles.username}>@{user.username}</span>
         {user.description && (
           <p className={styles.description}>{user.description}</p>
         )}

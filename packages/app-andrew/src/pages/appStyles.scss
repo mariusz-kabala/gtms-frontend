@@ -1,22 +1,9 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
-.wrapper {
+.appWrapper {
   display: flex;
   flex: 1;
-
-  .sidebar {
-    min-width: 60px;
-    padding: 10px;
-    margin: 10px 0 10px 10px;
-    border-radius: $borderRadius;
-    background: $theme0;
-    display: flex;
-
-    .nav {
-      position: fixed;
-    }
-  }
 
   .bg {
     position: fixed;

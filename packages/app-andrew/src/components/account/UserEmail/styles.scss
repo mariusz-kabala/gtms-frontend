@@ -1,13 +1,8 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/modal.scss';
 
 .wrapper {
-  cursor: pointer;
-
-  .miniature {
-    @include imageCover();
-  }
+  width: 100%;
 }
 
 .modal {

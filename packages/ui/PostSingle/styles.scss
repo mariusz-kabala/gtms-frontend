@@ -1,6 +1,7 @@
 @import '@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
@@ -42,7 +43,7 @@
       }
 
       span {
-        margin-left: 10px;
+        margin-left: 5px;
 
         &:hover {
           color: $theme4;
@@ -62,6 +63,10 @@
   }
 
   .desc {
+    .response {
+      margin: 10px 0;
+    }
+
     .text {
       margin-top: 5px;
       @include font-size(sm);
@@ -96,10 +101,11 @@
 
 .btns {
   display: flex;
+  margin-top: 10px;
 
   .respondBtn {
     @include buttonDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonSizeSm();
     @include buttonColorsDefault();
     margin-right: auto;
@@ -111,7 +117,7 @@
 
   .readMoreBtn {
     @include buttonDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonSizeSm();
     @include buttonColorsDefault();
 
@@ -122,15 +128,17 @@
 }
 
 .images {
-  margin: 10px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-gap: 10px;
+  margin: 15px 0;
 
-  img {
-    max-width: 200px;
-    border: 1px solid red;
-    margin-bottom: 20px;
+  .item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    @include effectOne();
+    border-radius: $borderRadius;
   }
 }

@@ -8,7 +8,6 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  color: $theme0;
 
   .content {
     width: 100%;
@@ -87,19 +86,18 @@
 
   .btn {
     @include buttonDefault();
-    @include buttonSizeMd();
-    @include buttonShapePrimary();
+    @include buttonSizeDefault();
+    @include buttonShapeDefault();
     @include buttonWithIcon();
-    @include buttonWithoutBackground();
-    @include buttonWithBorder();
+    @include buttonColorsDefault();
     margin-left: 20px;
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
 
     &:last-child {
       margin-right: 50px;
-    }
-
-    &:hover {
-      @include buttonColorBlue();
     }
   }
 }

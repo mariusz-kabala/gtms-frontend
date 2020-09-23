@@ -143,11 +143,6 @@ export const RegistrationForm: FC<{
             }, 700)
           }}
         />
-        {usernameStatus.isChecking && (
-          <div className={styles.spinner}>
-            <Spinner />
-          </div>
-        )}
         {usernameStatus.isValid === false && (
           <Error text={t('form.validation.username.isNotUnique')} />
         )}
@@ -186,6 +181,7 @@ export const RegistrationForm: FC<{
         additionalStyles={styles.btnSubmit}
         disabled={isMakingRequest || usernameStatus.isValid === false}
       >
+        {usernameStatus.isChecking && <Spinner size="sm" />}
         <i>
           <AiOutlineForm />
         </i>

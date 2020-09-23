@@ -75,7 +75,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
     const { background, backgroundImage } = this.state
 
     return (
-      <div className={styles.wrapper}>
+      <div className={styles.appWrapper}>
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>

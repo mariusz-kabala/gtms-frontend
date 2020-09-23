@@ -3,11 +3,6 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
-.actionButtons {
-  overflow: hidden;
-  padding: 0 10px;
-}
-
 .btnTags {
   @include buttonDefault();
   @include buttonWithIcon();
@@ -28,12 +23,10 @@
 }
 
 .navmock {
-  display: none;
-
   .item {
     display: flex;
     align-items: center;
-    padding: 10px 15px;
+    padding: 8px 10px;
     @include font-weight(semiBold);
     text-transform: uppercase;
 
@@ -42,9 +35,9 @@
     }
 
     i {
-      color: $black;
+      color: $theme8;
       line-height: 0;
-      @include font-size(lg);
+      @include font-size(md);
     }
 
     &:hover {

@@ -1,12 +1,13 @@
 import React, { useState, FC } from 'react'
-import styles from './styles.scss'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
+import { updateAccountDetails } from '@gtms/state-user'
+// ui
 import { Button } from '@gtms/ui/Button'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Input } from '@gtms/ui/Forms/Input'
 import { Spinner } from '@gtms/ui/Spinner'
-import { updateAccountDetails } from '@gtms/state-user'
+import styles from './styles.scss'
 
 export const EmailChangeForm: FC<{
   email: string
@@ -54,6 +55,7 @@ export const EmailChangeForm: FC<{
 
   return (
     <form
+      className={styles.wrapper}
       data-testid="user-email-change-form"
       onSubmit={handleSubmit(onSubmit)}
     >

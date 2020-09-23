@@ -39,7 +39,7 @@
       max-height: 120px;
       margin-right: 2%;
       position: relative;
-      border: 2px solid $theme2;
+      border: 2px solid $theme1;
       border-radius: $borderRadius;
       overflow: hidden;
       cursor: pointer;
@@ -73,7 +73,7 @@
   .btnSubmit {
     @include buttonDefault();
     @include buttonSizeDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonColorsDefault();
     @include buttonWithIcon('right');
     margin-top: 10px;

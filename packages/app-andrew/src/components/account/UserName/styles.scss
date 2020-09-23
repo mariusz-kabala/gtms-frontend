@@ -1,0 +1,6 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/modal.scss';
+
+.modal {
+  @include modalContent();
+}

@@ -66,7 +66,6 @@ export const LoginForm: FC<{
       {errors.email && errors.email.type === 'invalid' && (
         <Error text={t('loginFailed')} />
       )}
-
       <Input
         type="password"
         placeholder={t('form.labels.password')}
@@ -76,7 +75,6 @@ export const LoginForm: FC<{
       {errors.password && (
         <Error text={t('form.validation.password.isRequired')} />
       )}
-
       <Button
         type="submit"
         additionalStyles={styles.btnSubmit}

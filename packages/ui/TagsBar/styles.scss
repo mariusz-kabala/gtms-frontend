@@ -35,7 +35,7 @@
     button[type='submit'] {
       @include buttonDefault();
       @include buttonSizeDefault();
-      @include buttonShapePrimary();
+      @include buttonShapeDefault();
       @include buttonColorsDefault();
 
       &:hover {

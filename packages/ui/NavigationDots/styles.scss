@@ -1,4 +1,5 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/zindex';
@@ -84,27 +85,11 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
       }
 
       > div {
-        position: relative;
         width: 100%;
         height: 100%;
+        border-radius: $borderRadius;
+        @include effectOne('defaultRadius');
         @include imageCover();
-
-        // create a mixin of that
-        &:after {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba($theme4, 0.2);
-          border: 2px solid $theme4;
-        }
-
-        &:hover {
-          &:after {
-            content: '';
-          }
-        }
       }
     }
   }

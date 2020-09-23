@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .wrapper {
   display: flex;
@@ -19,7 +20,7 @@
       top: 5px;
       right: 5px;
       @include buttonDefault();
-      @include buttonShapePrimary();
+      @include buttonShapeDefault();
       @include buttonColorsDefault();
       padding: 10px;
 
@@ -41,15 +42,21 @@
   .description {
     @include font-size(xdefault);
   }
+}
 
-  .btn {
-    @include buttonDefault();
-    @include buttonSizeDefault();
-    @include buttonShapePrimary();
-    @include buttonColorsDefault();
+.formModalContent,
+.fileUploadModalContent {
+  @include modalContent();
+}
 
-    &:hover {
-      @include buttonColorsPrimary();
-    }
+.btnSave {
+  @include buttonDefault();
+  @include buttonSizeDefault();
+  @include buttonShapeDefault();
+  @include buttonColorsDefault();
+  width: 100%;
+
+  &:hover {
+    @include buttonColorsPrimary();
   }
 }

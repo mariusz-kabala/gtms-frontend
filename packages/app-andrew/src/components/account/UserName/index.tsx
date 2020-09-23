@@ -1,6 +1,8 @@
 import React, { FC, useState } from 'react'
-import { ExpandingItem } from '@gtms/ui/ExpandingItem'
 import { UserNameChangeForm } from './Form'
+// ui
+import { Modal } from '@gtms/ui/Modal'
+import styles from './styles.scss'
 
 export const UserName: FC<{
   name?: string
@@ -19,21 +21,22 @@ export const UserName: FC<{
       data-testid="user-name"
       onClick={() => (!isEditModeActive ? setIsEditModeActive(true) : null)}
     >
-      <ExpandingItem
-        isActive={isEditModeActive}
-        label={getName()}
-        closeOnClickOutsie={false}
-        onClose={() => {
-          setIsEditModeActive(false)
-        }}
-      >
-        <UserNameChangeForm
-          name={name}
-          surname={surname}
-          onSaveSuccess={() => setIsEditModeActive(false)}
-          onSaveFail={() => setIsEditModeActive(false)}
-        />
-      </ExpandingItem>
+      <span>{getName()}</span>
+      {isEditModeActive && (
+        <Modal
+          additionalStyles={styles.modal}
+          onClose={() => {
+            setIsEditModeActive(false)
+          }}
+        >
+          <UserNameChangeForm
+            name={name}
+            surname={surname}
+            onSaveSuccess={() => setIsEditModeActive(false)}
+            onSaveFail={() => setIsEditModeActive(false)}
+          />
+        </Modal>
+      )}
     </div>
   )
 }

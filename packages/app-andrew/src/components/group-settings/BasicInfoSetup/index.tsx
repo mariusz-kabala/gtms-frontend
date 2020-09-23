@@ -8,14 +8,14 @@ import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { useTranslation } from '@gtms/commons/i18n'
 // ui
-import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
 import { Button } from '@gtms/ui/Button'
-import { Modal } from '@gtms/ui/Modal'
-import { Input } from '@gtms/ui/Forms/Input'
 import { Error } from '@gtms/ui/Forms/Error'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
-import { UploadFile } from '@gtms/ui/UploadFile'
+import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
+import { Input } from '@gtms/ui/Forms/Input'
+import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
+import { UploadFile } from '@gtms/ui/UploadFile'
 // styles
 import styles from './styles.scss'
 
@@ -136,7 +136,7 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
           additionalStyles={styles.imagePreview}
           src={getImage('200x200', group.avatar, GroupAvatarNoImage)}
         />
-        <Button onClick={onUploadFileModalOpen} additionalStyles={styles.btn}>
+        <Button additionalStyles={styles.btn} onClick={onUploadFileModalOpen}>
           <i>
             <IoIosSettings />
           </i>
@@ -150,7 +150,7 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
       </div>
       {formState.isOpen && (
         <Modal
-          additionalStyles={styles.modalContent}
+          additionalStyles={styles.formModalContent}
           onClose={onFormModalClose}
         >
           <form
@@ -176,18 +176,20 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
             />
             {formState.isSaving && <Spinner />}
             <Button
-              type="submit"
+              additionalStyles={styles.btnSave}
               disabled={formState.isSaving}
-              additionalStyles={styles.btn}
+              type="submit"
             >
               Save
             </Button>
           </form>
         </Modal>
       )}
-
       {fileUploadState.isOpen && (
-        <Modal onClose={onUploadFileModalClose}>
+        <Modal
+          additionalStyles={styles.fileUploadModalContent}
+          onClose={onUploadFileModalClose}
+        >
           <UploadFile
             additionalStyles={styles.uploadFile}
             isError={fileUploadState.isError}

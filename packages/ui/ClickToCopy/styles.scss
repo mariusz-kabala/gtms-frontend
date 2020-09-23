@@ -5,11 +5,11 @@
   .btn {
     @include buttonDefault();
     @include buttonSizeDefault();
-    @include buttonShapePrimary();
+    @include buttonShapeDefault();
     @include buttonColorsDefault();
     width: 100%;
     color: white;
-    background: $theme2;
+    background: $theme1;
 
     &:hover {
       @include buttonColorsPrimary();

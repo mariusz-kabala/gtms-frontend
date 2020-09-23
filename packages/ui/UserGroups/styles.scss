@@ -22,7 +22,7 @@
     .btn {
       @include buttonDefault();
       @include buttonSizeDefault();
-      @include buttonShapePrimary();
+      @include buttonShapeDefault();
       @include buttonWithSpinner();
       @include buttonColorsDefault();
       width: 100%;

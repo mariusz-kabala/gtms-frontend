@@ -4,8 +4,9 @@
 .btn {
   @include buttonDefault();
   @include buttonSizeDefault();
-  @include buttonShapePrimary();
+  @include buttonShapeDefault();
   @include buttonWithoutPadding();
+  @include buttonWithIcon();
   @include buttonWithoutBackground();
 
   &:hover,
@@ -14,15 +15,12 @@
     @include buttonColorBlue();
   }
 
-  span {
-    font-size: 12px;
-    display: inline-block;
-    max-width: 25px;
-    position: relative;
-    top: -2px;
-  }
+  > div > div {
+    display: flex;
+    align-items: center;
 
-  &.withStars {
-    // todo
+    span {
+      margin-left: 3px;
+    }
   }
 }

@@ -5,16 +5,14 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper();
-  max-width: 700px;
+  @include pageWrapper('bgdefault');
 }
 
 .wrapper {
-  // for centering loading spinner
   display: flex;
   flex-direction: column;
-
   padding: 20px;
+  min-height: 100%;
 
   .spinner {
     margin: auto;
@@ -25,7 +23,7 @@
     padding: 10px;
     margin-bottom: 15px;
     border-radius: $borderRadius;
-    background: $theme2;
+    background: $theme1;
     color: $theme8;
     @include font-weight(semiBold);
 
@@ -46,7 +44,7 @@
       height: 0;
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
-      border-top: 10px solid $theme2;
+      border-top: 10px solid $theme1;
     }
 
     &:hover {
@@ -87,12 +85,6 @@
         @include font-size(md);
         color: $theme9;
       }
-
-      &:hover {
-        div > span {
-          color: $theme4;
-        }
-      }
     }
 
     .desc {
@@ -118,7 +110,7 @@
       .btn {
         @include buttonDefault();
         @include buttonSizeDefault();
-        @include buttonShapePrimary();
+        @include buttonShapeDefault();
         @include buttonWithIcon();
         @include buttonColorsDefault();
 
