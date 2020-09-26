@@ -16,7 +16,9 @@
 
       // avatar
       > div {
-        @include effectOne('circle');
+        &:hover {
+          @include effectOne('circle');
+        }
       }
 
       .name {

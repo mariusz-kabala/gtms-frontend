@@ -16,7 +16,10 @@ import { Spinner } from '@gtms/ui/Spinner'
 import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 import styles from './styles.scss'
 
-export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
+export const FavsButton: FC<{
+  additionalStyles?: string
+  group: IGroup
+}> = ({ additionalStyles, group }) => {
   const { t } = useTranslation('groupPage')
   const [status, setStatus] = useState<IFavRecordStatus>(
     favGroupsQuery.getRecordStatus(group.id)
@@ -44,7 +47,7 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
 
   return (
     <Button
-      additionalStyles={cx(styles.btn, {
+      additionalStyles={cx(styles.btn, additionalStyles, {
         [styles.isLoading]: status.isLoading && userQuery.isLogged(),
       })}
       onClick={() => {

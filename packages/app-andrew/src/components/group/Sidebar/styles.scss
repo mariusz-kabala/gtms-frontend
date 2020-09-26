@@ -1,19 +1,31 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .groupSidebar {
   position: relative;
-  width: 250px;
-  background: $theme0;
+  min-width: 150px;
+  width: 150px;
+  overflow: hidden;
   border-top-left-radius: $borderRadius;
   border-bottom-left-radius: $borderRadius;
   box-shadow: 0px 15px 10px 0px rgba(0, 0, 0, 0.1);
+  background: $theme0;
   color: $theme9;
-  transition: width 500ms;
+  transition: all 500ms;
 
-  &.active {
-    width: 250px;
+  &.collapsed {
+    min-width: 50px;
+    width: 50px;
+
+    .avatarNameDesc {
+      padding: 5px;
+    }
+
+    .header {
+      display: none;
+    }
   }
 
   .makeItSticky {
@@ -28,6 +40,10 @@
     &:hover {
       cursor: pointer;
       color: $theme4;
+
+      .groupAvatar {
+        @include effectOne('defaultRadius');
+      }
     }
 
     .avatarName {

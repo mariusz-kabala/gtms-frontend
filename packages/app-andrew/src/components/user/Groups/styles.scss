@@ -50,7 +50,10 @@
     overflow: hidden;
     border-radius: $borderRadius;
     cursor: pointer;
-    @include effectOne();
+
+    &:hover {
+      @include effectOne('circle');
+    }
 
     &:before {
       content: '';

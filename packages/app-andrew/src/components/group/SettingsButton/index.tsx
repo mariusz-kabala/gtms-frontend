@@ -6,7 +6,10 @@ import { myGroupsQuery, userQuery } from '@gtms/state-user'
 import { GoSettings } from 'react-icons/go'
 import styles from './styles.scss'
 
-export const SettingsButton: FC<{ group: IGroup }> = ({ group }) => {
+export const SettingsButton: FC<{
+  additionalStyles?: string
+  group: IGroup
+}> = ({ additionalStyles, group }) => {
   const [status, setStatus] = useState<{
     isGroupAdmin: boolean
     isGroupOwner: boolean
@@ -39,13 +42,15 @@ export const SettingsButton: FC<{ group: IGroup }> = ({ group }) => {
   }
 
   return (
-    <Link href={`/group/${group.slug}/settings`}>
-      <button className={styles.btn}>
-        <i>
-          <GoSettings />
-        </i>
-        Group settings
-      </button>
-    </Link>
+    <div className={additionalStyles}>
+      <Link href={`/group/${group.slug}/settings`}>
+        <button className={styles.btn}>
+          <i>
+            <GoSettings />
+          </i>
+          Group settings
+        </button>
+      </Link>
+    </div>
   )
 }

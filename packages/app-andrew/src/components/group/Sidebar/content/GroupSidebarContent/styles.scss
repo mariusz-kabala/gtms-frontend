@@ -3,67 +3,90 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
-.btnTags {
-  @include buttonDefault();
-  @include buttonWithIcon();
-  width: 100%;
-  padding: 12px 14px;
-  justify-content: flex-start;
-  display: none;
+.wrapper {
+  &.collapsed {
+    .navmock {
+      .item {
+        padding: 8px 15px;
 
-  i {
-    font-size: 24px;
-    margin-right: 5px;
-  }
-
-  &.active,
-  &:hover {
-    @include buttonColorsQuaternary();
-  }
-}
-
-.navmock {
-  .item {
-    display: flex;
-    align-items: center;
-    padding: 8px 10px;
-    @include font-weight(semiBold);
-    text-transform: uppercase;
-
-    span {
-      margin-left: 5px;
-    }
-
-    i {
-      color: $theme8;
-      line-height: 0;
-      @include font-size(md);
-    }
-
-    &:hover {
-      cursor: pointer;
-      color: $theme4;
-
-      i {
-        color: $theme4;
+        span {
+          display: none;
+        }
       }
     }
   }
-}
 
-.groupMembers {
-  width: 100%;
-  padding: 10px;
-}
-
-.searchInput {
-  display: flex;
-  display: none;
-  width: 100%;
-  margin: 15px;
-  overflow: hidden;
-
-  .search {
+  .btnTags {
+    @include buttonDefault();
+    @include buttonWithIcon();
     width: 100%;
+    padding: 12px 14px;
+    justify-content: flex-start;
+    display: none;
+
+    i {
+      font-size: 24px;
+      margin-right: 5px;
+    }
+
+    &.active,
+    &:hover {
+      @include buttonColorsQuaternary();
+    }
   }
+
+  .navmock {
+    margin-top: -5px;
+
+    .item {
+      display: flex;
+      align-items: center;
+      padding: 8px 10px;
+      @include font-weight(semiBold);
+      text-transform: uppercase;
+
+      span {
+        margin-left: 5px;
+      }
+
+      i {
+        color: $theme9;
+        line-height: 0;
+        @include font-size(xmd);
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: $theme4;
+
+        i {
+          color: $theme4;
+        }
+      }
+    }
+  }
+
+  .groupMembers {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .searchInput {
+    display: flex;
+    display: none;
+    width: 100%;
+    margin: 15px;
+    overflow: hidden;
+
+    .search {
+      width: 100%;
+    }
+  }
+}
+
+.joinLeaveButton,
+.settingsButton,
+.followButton,
+.favsButton {
+  margin: 10px;
 }

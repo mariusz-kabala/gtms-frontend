@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styles from './styles.scss'
+import cx from 'classnames'
 import { IPost, IAccountDetails, IComment } from '@gtms/commons/models'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { findTagsAPI } from '@gtms/api-tags'
@@ -7,11 +7,11 @@ import { findbyUsernameAPI } from '@gtms/api-auth'
 import { UserAvatarNoImage } from 'enums'
 import { createNewComment } from '@gtms/state-post'
 import { PostCommentsList } from '../../comments/PostCommentsList'
+import styles from './styles.scss'
 
 export const PostDetails: FC<{
-  post: IPost
+  additionalStyles?: string
   activeTags?: string[]
-  user: IAccountDetails | null
   comments?: {
     isLoading: boolean
     errorOccured: boolean
@@ -20,24 +20,26 @@ export const PostDetails: FC<{
     limit: number
     comments: IComment[]
   }
-}> = ({ post, user, comments, activeTags = [] }) => {
+  post: IPost
+  user: IAccountDetails | null
+}> = ({ additionalStyles, activeTags = [], comments, post, user }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={cx(styles.wrapper, additionalStyles)}>
       <PostSingle
-        createComment={createNewComment}
+        activeTags={activeTags}
         allowToRespond={true}
+        createComment={createNewComment}
+        createdAt={post.createdAt}
         fetchTags={findTagsAPI}
         fetchUsers={findbyUsernameAPI}
-        user={user}
-        id={post.id}
-        html={post.html}
-        createdAt={post.createdAt}
-        tags={post.tags}
-        owner={post.owner}
-        images={post.images}
         firstComments={[]}
+        html={post.html}
+        id={post.id}
+        images={post.images}
         noImage={UserAvatarNoImage}
-        activeTags={activeTags}
+        owner={post.owner}
+        tags={post.tags}
+        user={user}
       />
       {comments && (
         <PostCommentsList postId={post.id} user={user} {...comments} />

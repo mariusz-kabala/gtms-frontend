@@ -21,7 +21,7 @@ import { GoDatabase, GoGitCompare, GoRepoForked, GoGift } from 'react-icons/go'
 // styles
 import styles from './styles.scss'
 
-export const GroupSidebarContent: FC<{}> = () => {
+export const GroupSidebarContent: FC<{}> = ({ isSidebarOpen }) => {
   const [state, setState] = useState<IGroupSidebarContentState>(
     groupSidebarContentState()
   )
@@ -41,11 +41,24 @@ export const GroupSidebarContent: FC<{}> = () => {
   }
 
   return (
-    <>
-      <FavsButton group={state.group} />
-      <JoinLeaveButton group={state.group} />
-      <SettingsButton group={state.group} />
-      <FollowButton group={state.group} />
+    <div
+      className={cx(styles.wrapper, {
+        [styles.collapsed]: !isSidebarOpen,
+      })}
+    >
+      <FavsButton additionalStyles={styles.favsButton} group={state.group} />
+      <JoinLeaveButton
+        additionalStyles={styles.joinLeaveButton}
+        group={state.group}
+      />
+      <SettingsButton
+        additionalStyles={styles.settingsButton}
+        group={state.group}
+      />
+      <FollowButton
+        additionalStyles={styles.followButton}
+        group={state.group}
+      />
       <Button
         additionalStyles={cx(styles.btnTags, {
           [styles.active]: false,
@@ -100,6 +113,6 @@ export const GroupSidebarContent: FC<{}> = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   )
 }

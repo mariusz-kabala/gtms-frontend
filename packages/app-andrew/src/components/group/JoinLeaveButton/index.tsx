@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
+import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
 import {
@@ -14,7 +15,10 @@ import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
-export const JoinLeaveButton: FC<{ group: IGroup }> = ({ group }) => {
+export const JoinLeaveButton: FC<{
+  additionalStyles?: string
+  group: IGroup
+}> = ({ additionalStyles, group }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [status, setStatus] = useState<{
     isGroupAdmin: boolean
@@ -51,7 +55,7 @@ export const JoinLeaveButton: FC<{ group: IGroup }> = ({ group }) => {
 
   return (
     <Button
-      additionalStyles={styles.btn}
+      additionalStyles={cx(styles.btn, additionalStyles)}
       onClick={() => {
         if (!userQuery.isLogged()) {
           return openLoginModal()

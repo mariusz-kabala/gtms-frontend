@@ -41,7 +41,10 @@
       overflow: hidden;
       border-radius: $borderRadius;
       cursor: pointer;
-      @include effectOne('defaultRadius');
+
+      &:hover {
+        @include effectOne('defaultRadius');
+      }
 
       &:before {
         content: '';

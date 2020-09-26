@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import styles from './styles.scss'
+import cx from 'classnames'
 import { IGroup } from '@gtms/commons/models'
 import {
   followButtonState,
@@ -11,10 +11,14 @@ import {
   followGroup,
   unfollowGroup,
 } from '@gtms/state-notification'
-import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
+import { IoIosStarOutline, IoIosStar } from 'react-icons/io'
 import { openLoginModal } from 'state'
+import styles from './styles.scss'
 
-export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
+export const FollowButton: FC<{
+  additionalStyles?: string
+  group: IGroup
+}> = ({ additionalStyles, group }) => {
   const [state, setState] = useState<IFollowButtonState>(
     followButtonState(group.id)
   )
@@ -35,24 +39,41 @@ export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
   }
 
   return (
-    <div className={styles.wrapper} data-testid="follow-button">
-      <label>
-        <SwitchWrapper
-          onChange={(value) => {
-            if (!state.isLogged) {
-              return openLoginModal()
-            }
+    <div
+      className={cx(styles.wrapper, additionalStyles)}
+      data-testid="follow-button"
+    >
+      <button
+        className={styles.btn}
+        onClick={() => {
+          if (!state.isLogged) {
+            return openLoginModal()
+          }
 
-            if (value) {
-              return followGroup(group.id)
-            }
+          if (!state.isFollowing) {
+            return followGroup(group.id)
+          }
 
-            unfollowGroup(group.id)
-          }}
-          checked={false}
-        />
-        <span>Follow</span>
-      </label>
+          unfollowGroup(group.id)
+        }}
+      >
+        {state.isFollowing && (
+          <>
+            <i>
+              <IoIosStar />
+            </i>{' '}
+            Unfollow
+          </>
+        )}
+        {!state.isFollowing && (
+          <>
+            <i>
+              <IoIosStarOutline />
+            </i>{' '}
+            Follow
+          </>
+        )}
+      </button>
     </div>
   )
 }

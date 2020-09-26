@@ -23,7 +23,9 @@
       max-height: 40px;
 
       .avatar {
-        @include effectOne('circle');
+        &:hover {
+          @include effectOne('circle');
+        }
       }
 
       &.invite {

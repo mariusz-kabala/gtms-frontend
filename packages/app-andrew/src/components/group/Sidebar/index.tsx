@@ -16,7 +16,7 @@ import { GroupDescription } from 'components/group/GroupDescription'
 // styles
 import styles from './styles.scss'
 
-export const GroupSidebar: FC<{}> = ({ children }) => {
+export const GroupSidebar: FC<{}> = ({ children, isSidebarOpen }) => {
   const [state, setState] = useState<IGroupSidebarState>(groupSidebarState())
   const groupHeaderRef = useRef<HTMLDivElement>(null)
   const { t } = useTranslation('groupPage')
@@ -38,7 +38,7 @@ export const GroupSidebar: FC<{}> = ({ children }) => {
   return (
     <div
       className={cx(styles.groupSidebar, {
-        [styles.active]: state.isOpen,
+        [styles.collapsed]: !isSidebarOpen,
       })}
       ref={groupHeaderRef}
     >
