@@ -13,11 +13,13 @@ export const findPostsAPI = (
     tags?: string[]
   },
   offset = 0,
-  limit = 50
+  limit = 50,
+  showGroups = false
 ) => {
   const params = new URLSearchParams()
   params.set('offset', `${offset}`)
   params.set('limit', `${limit}`)
+  params.set('showGroups', `${showGroups ? 1 : 0}`)
 
   if (Array.isArray(query.tags) && query.tags.length > 0) {
     for (const tag of query.tags) {

@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import { UserAvatarNoImage } from 'enums'
-import { getImage } from '@gtms/commons/helpers'
+import { getImage, onlyUnique } from '@gtms/commons/helpers'
 import { useInitState } from '@gtms/commons/hooks'
 import { IPost, IUser } from '@gtms/commons/models'
 // api
@@ -174,7 +174,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
         (typeof user === 'string' && user !== '') ||
         (Array.isArray(user) && user.length > 0)
       ) {
-        url += `/user/${Array.isArray(user) ? user.join('/') : user}`
+        url += `/user/${
+          Array.isArray(user) ? user.filter(onlyUnique).join('/') : user
+        }`
       }
 
       if (sort) {
@@ -185,7 +187,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
         (typeof tag === 'string' && tag !== '') ||
         (Array.isArray(tag) && tag.length > 0)
       ) {
-        url += `/tag/${Array.isArray(tag) ? tag.join('/') : tag}`
+        url += `/tag/${
+          Array.isArray(tag) ? tag.filter(onlyUnique).join('/') : tag
+        }`
       }
 
       if (post) {
