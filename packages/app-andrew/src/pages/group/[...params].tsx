@@ -378,6 +378,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                           )}
                         />
                         <Pagination
+                          additionalStyles={styles.pagination}
                           {...state.pagination}
                           onClick={(page: number) => {
                             onClick({ page })
