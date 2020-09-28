@@ -5,14 +5,14 @@
 .wrapper {
   position: relative;
   z-index: 1;
-  padding: 10px;
-  width: 400px;
-  min-width: 400px;
+  width: 0px;
   height: 100%;
   background: $theme1;
+  transition: width 0.25s ease-in-out;
 
   &.opened {
-    height: auto;
+    width: 400px;
+    padding: 10px;
   }
 
   .navigation {
