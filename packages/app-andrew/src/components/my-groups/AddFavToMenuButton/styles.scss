@@ -3,7 +3,7 @@
 
 .btn {
   @include buttonDefault();
-  @include buttonSizeDefault();
+  @include buttonSizeSm();
   @include buttonShapeDefault();
   @include buttonColorsDefault();
   @include buttonWithIcon();

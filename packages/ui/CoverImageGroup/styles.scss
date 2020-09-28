@@ -113,20 +113,19 @@
         position: absolute;
         top: 15px;
         right: 15px;
-        display: flex;
-        flex-direction: row;
-      }
+        @include gridDefault(2);
 
-      .btn {
-        // @include buttonDefault();
-        // @include buttonSizeDefault();
-        // @include buttonShapeDefault();
-        // @include buttonWithIcon();
-        // @include buttonColorsTertiary();
+        .btn {
+          @include buttonDefault();
+          @include buttonSizeDefault();
+          @include buttonShapeDefault();
+          @include buttonWithIcon();
+          @include buttonColorsTertiary();
 
-        // &:hover {
-        //   @include buttonColorsPrimary();
-        // }
+          &:hover {
+            @include buttonColorsPrimary();
+          }
+        }
       }
     }
   }

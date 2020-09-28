@@ -14,10 +14,10 @@ import { GroupMembers } from 'components/group/GroupMembers'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 // ui
-import { Button } from '@gtms/ui/Button'
-import { SearchBar } from '@gtms/ui/SearchBar'
 import { IoMdGrid } from 'react-icons/io'
 import { GoDatabase, GoGitCompare, GoRepoForked, GoGift } from 'react-icons/go'
+import { Button } from '@gtms/ui/Button'
+import { SearchBar } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
 

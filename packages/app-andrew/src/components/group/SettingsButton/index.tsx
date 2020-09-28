@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
+import cx from 'classnames'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
 import { myGroupsQuery, userQuery } from '@gtms/state-user'
@@ -42,13 +43,13 @@ export const SettingsButton: FC<{
   }
 
   return (
-    <div className={additionalStyles}>
+    <div className={cx(styles.wrapper, additionalStyles)}>
       <Link href={`/group/${group.slug}/settings`}>
         <button className={styles.btn}>
           <i>
             <GoSettings />
           </i>
-          Group settings
+          <span>Group settings</span>
         </button>
       </Link>
     </div>

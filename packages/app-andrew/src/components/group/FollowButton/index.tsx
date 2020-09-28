@@ -62,7 +62,7 @@ export const FollowButton: FC<{
             <i>
               <IoIosStar />
             </i>{' '}
-            Unfollow
+            <span>Unfollow</span>
           </>
         )}
         {!state.isFollowing && (
@@ -70,7 +70,7 @@ export const FollowButton: FC<{
             <i>
               <IoIosStarOutline />
             </i>{' '}
-            Follow
+            <span>Follow</span>
           </>
         )}
       </button>

@@ -55,7 +55,11 @@ export const PostCommentsList: FC<{
 
   return (
     <>
-      {hasNoComments && <p>No comments, you can add the first one</p>}
+      {hasNoComments && (
+        <p className={styles.noComments}>
+          No comments, you can add the first one
+        </p>
+      )}
       {!hasNoComments && (
         <button
           className={styles.respondButton}

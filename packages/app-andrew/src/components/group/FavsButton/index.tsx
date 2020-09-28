@@ -73,7 +73,7 @@ export const FavsButton: FC<{
           <i>
             <IoIosHeartEmpty />
           </i>{' '}
-          {t('add-to-favs')}
+          <span>{t('add-to-favs')}</span>
         </>
       )}
       {!status.isLoading && status.isInFavs && (
@@ -81,7 +81,7 @@ export const FavsButton: FC<{
           <i>
             <IoIosHeart />
           </i>{' '}
-          {t('remove-from-favs')}
+          <span>{t('remove-from-favs')}</span>
         </>
       )}
     </Button>

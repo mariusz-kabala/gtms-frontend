@@ -14,6 +14,17 @@
         }
       }
     }
+
+    .joinLeaveButton,
+    .settingsButton,
+    .followButton,
+    .favsButton {
+      margin: 15px;
+
+      span {
+        display: none;
+      }
+    }
   }
 
   .btnTags {
@@ -66,6 +77,13 @@
     }
   }
 
+  .joinLeaveButton,
+  .settingsButton,
+  .followButton,
+  .favsButton {
+    margin: 10px;
+  }
+
   .groupMembers {
     width: 100%;
     padding: 10px;
@@ -82,11 +100,4 @@
       width: 100%;
     }
   }
-}
-
-.joinLeaveButton,
-.settingsButton,
-.followButton,
-.favsButton {
-  margin: 10px;
 }

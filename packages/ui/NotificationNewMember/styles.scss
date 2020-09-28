@@ -10,4 +10,8 @@
   border: 1px solid $theme1;
   border-radius: $borderRadius;
   cursor: pointer;
+
+  &:hover {
+    border-color: $theme4;
+  }
 }
