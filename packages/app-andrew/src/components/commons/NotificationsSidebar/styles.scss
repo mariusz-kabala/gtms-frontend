@@ -8,22 +8,25 @@
   width: 0px;
   min-height: 100;
   background: $theme1;
-  transition: width 0.25s ease-in-out;
+  transition: width 0.25s;
 
   &.opened {
     width: 400px;
 
     .content {
       opacity: 1;
+      left: 0;
     }
   }
 
   .content {
     position: fixed;
+    left: -3000px;
     width: 400px;
     opacity: 0;
     padding: 10px;
-    transition: opacity 0.25s ease-in-out;
+    transition: opacity 1s;
+    transition-delay: opacity 1s;
   }
 
   .navigation {

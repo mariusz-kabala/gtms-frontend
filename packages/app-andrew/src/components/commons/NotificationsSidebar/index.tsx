@@ -52,21 +52,7 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      <CSSTransition
-        classNames={{
-          appear: 'my-appear',
-          appearActive: 'my-active-appear',
-          appearDone: 'my-done-appear',
-          enter: 'my-enter',
-          enterActive: 'my-active-enter',
-          enterDone: 'my-done-enter',
-          exit: 'my-exit',
-          exitActive: 'my-active-exit',
-          exitDone: 'my-done-exit',
-        }}
-        in={state.isOpen}
-        timeout={1500}
-      >
+      <CSSTransition in={state.isOpen}>
         <div className={styles.content}>
           <div className={styles.navigation}>
             <h2 className={styles.header}>
