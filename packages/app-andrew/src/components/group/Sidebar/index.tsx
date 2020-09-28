@@ -14,6 +14,7 @@ import {
 import { GroupAvatar } from 'components/group/GroupAvatar'
 import { GroupDescription } from 'components/group/GroupDescription'
 // styles
+import { BsCaretLeftFill, BsCaretRightFill } from 'react-icons/bs'
 import styles from './styles.scss'
 
 export const GroupSidebar: FC<{}> = ({ children, isSidebarOpen }) => {
@@ -42,6 +43,11 @@ export const GroupSidebar: FC<{}> = ({ children, isSidebarOpen }) => {
       })}
       ref={groupHeaderRef}
     >
+      <div className={styles.widthHandler}>
+        <div className={styles.handler}>
+          <i>{isSidebarOpen ? <BsCaretLeftFill /> : <BsCaretRightFill />}</i>
+        </div>
+      </div>
       <div className={styles.makeItSticky}>
         <div className={styles.avatarNameDesc}>
           <div className={styles.avatarName}>
