@@ -52,7 +52,7 @@ export const NotificationsSidebar: FC<{
       })}
     >
       {state.isOpen && (
-        <>
+        <div className={styles.content}>
           <div className={styles.navigation}>
             <h2 className={styles.header}>
               Notofications {state.unreadCount && `(${state.unreadCount})`}
@@ -91,7 +91,7 @@ export const NotificationsSidebar: FC<{
               }
             })}
           </ul>
-        </>
+        </div>
       )}
     </div>
   )

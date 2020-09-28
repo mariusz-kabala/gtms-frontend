@@ -259,7 +259,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     }
   }, [])
 
-  const isSidebarOpen = false
+  const isSidebarOpen = true
 
   return (
     <div className={styles.pageWrapper}>

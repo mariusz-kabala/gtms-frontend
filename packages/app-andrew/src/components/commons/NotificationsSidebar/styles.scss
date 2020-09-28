@@ -6,13 +6,18 @@
   position: relative;
   z-index: 1;
   width: 0px;
-  height: 100%;
+  min-height: 100;
   background: $theme1;
   transition: width 0.25s ease-in-out;
 
   &.opened {
     width: 400px;
     padding: 10px;
+  }
+
+  .content {
+    position: fixed;
+    width: 380px;
   }
 
   .navigation {
