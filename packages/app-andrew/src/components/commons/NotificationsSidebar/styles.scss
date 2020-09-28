@@ -12,12 +12,18 @@
 
   &.opened {
     width: 400px;
-    padding: 10px;
+
+    .content {
+      opacity: 1;
+    }
   }
 
   .content {
     position: fixed;
-    width: 380px;
+    width: 400px;
+    opacity: 0;
+    padding: 10px;
+    transition: opacity 0.25s ease-in-out;
   }
 
   .navigation {

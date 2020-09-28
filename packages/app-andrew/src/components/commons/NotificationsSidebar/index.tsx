@@ -52,50 +52,62 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      {state.isOpen && (
-        <CSSTransition timeout={300}>
-          <div className={styles.content}>
-            <div className={styles.navigation}>
-              <h2 className={styles.header}>
-                Notofications {state.unreadCount && `(${state.unreadCount})`}
-                {/* @todo add translation here */}
-              </h2>
-              <ul className={styles.navitems}>
-                <li className={styles.navitem}>Latest</li>
-                <li className={styles.navitem}>By groups</li>
-              </ul>
-              <CloseIcon onClick={closeSidebarNotifications} />
-            </div>
-            <ul className={styles.notifications}>
-              {state.notifications.map((notification: INotificationRecord) => {
-                switch (notification.type) {
-                  case 'internal':
-                    return (
-                      <Notification
-                        key={`notification-${notification.id}`}
-                        onClick={() => deleteNotification(notification.id)}
-                        additionalStyles={styles.notification}
-                        text={(notification.data as IInternalNotification).text}
-                        left={(notification.data as IInternalNotification).left}
-                        icon={
-                          NotificationIcons[
-                            (notification.data as IInternalNotification).type
-                          ]
-                        }
-                      />
-                    )
-                  case 'api':
-                    return (
-                      <NotificationAPI
-                        {...(notification.data as INotification)}
-                      />
-                    )
-                }
-              })}
+      <CSSTransition
+        classNames={{
+          appear: 'my-appear',
+          appearActive: 'my-active-appear',
+          appearDone: 'my-done-appear',
+          enter: 'my-enter',
+          enterActive: 'my-active-enter',
+          enterDone: 'my-done-enter',
+          exit: 'my-exit',
+          exitActive: 'my-active-exit',
+          exitDone: 'my-done-exit',
+        }}
+        in={state.isOpen}
+        timeout={1500}
+      >
+        <div className={styles.content}>
+          <div className={styles.navigation}>
+            <h2 className={styles.header}>
+              Notofications {state.unreadCount && `(${state.unreadCount})`}
+              {/* @todo add translation here */}
+            </h2>
+            <ul className={styles.navitems}>
+              <li className={styles.navitem}>Latest</li>
+              <li className={styles.navitem}>By groups</li>
             </ul>
+            <CloseIcon onClick={closeSidebarNotifications} />
           </div>
-        </CSSTransition>
-      )}
+          <ul className={styles.notifications}>
+            {state.notifications.map((notification: INotificationRecord) => {
+              switch (notification.type) {
+                case 'internal':
+                  return (
+                    <Notification
+                      key={`notification-${notification.id}`}
+                      onClick={() => deleteNotification(notification.id)}
+                      additionalStyles={styles.notification}
+                      text={(notification.data as IInternalNotification).text}
+                      left={(notification.data as IInternalNotification).left}
+                      icon={
+                        NotificationIcons[
+                          (notification.data as IInternalNotification).type
+                        ]
+                      }
+                    />
+                  )
+                case 'api':
+                  return (
+                    <NotificationAPI
+                      {...(notification.data as INotification)}
+                    />
+                  )
+              }
+            })}
+          </ul>
+        </div>
+      </CSSTransition>
     </div>
   )
 }
