@@ -19,7 +19,7 @@ export const findPostsAPI = (
   const params = new URLSearchParams()
   params.set('offset', `${offset}`)
   params.set('limit', `${limit}`)
-  params.set('showGroups', `${showGroups ? 1 : 0}`)
+  params.set('showGroups', `${showGroups}`)
 
   if (Array.isArray(query.tags) && query.tags.length > 0) {
     for (const tag of query.tags) {

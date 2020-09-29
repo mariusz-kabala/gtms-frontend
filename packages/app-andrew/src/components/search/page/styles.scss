@@ -8,6 +8,43 @@
   @include pageWrapper('bgdefault');
 }
 
+.tabs {
+  margin-bottom: 20px;
+  ul {
+    border-bottom: 1px solid $theme13;
+    li {
+      position: relative;
+      bottom: -1px;
+      padding: 5px 35px;
+      display: inline-block;
+      margin: 0 5px;
+      border: 1px solid $theme13;
+      border-bottom: 1px solid $theme0;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      a {
+        @include font-size(md);
+        cursor: pointer;
+        text-transform: uppercase;
+        color: $theme9;
+
+        span {
+          @include font-size(default);
+        }
+      }
+
+      &.active {
+        background-color: $theme9;
+
+        a {
+          color: $theme0;
+          @include font-weight(semiBold);
+        }
+      }
+    }
+  }
+}
+
 .wrapper {
   width: 100%;
   padding: 20px;
@@ -60,18 +97,6 @@
       &::before {
         right: -7px;
         background: $theme0;
-      }
-    }
-  }
-
-  .noRecords {
-    width: 100%;
-
-    > div {
-      margin-bottom: 20px;
-
-      &:last-child {
-        margin-bottom: 0;
       }
     }
   }

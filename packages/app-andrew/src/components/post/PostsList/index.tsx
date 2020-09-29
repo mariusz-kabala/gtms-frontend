@@ -1,26 +1,93 @@
 import React, { FC, useCallback, useState } from 'react'
-import { IPost } from '@gtms/commons/models'
+import cx from 'classnames'
+import { IPost, IUser, IGroup } from '@gtms/commons/models'
+import { getImage } from '@gtms/commons/helpers'
 import { addErrorNotification } from '@gtms/state-notification'
+import { GroupAvatarNoImage, UserAvatarNoImage } from 'enums'
 // api
 import { createAbuseReportAPI } from '@gtms/api-abuse'
+import { fetchGroupMembers } from '@gtms/api-group'
 // components
 import { PostAdmin } from 'components/post/Admin'
 import { Favs } from 'components/post/Favs'
 // ui
 import { AbuseReportForm, VIEW } from '@gtms/ui/AbuseReportForm'
+import { UserPreview } from '@gtms/ui/UserPreview'
+import { GroupCard } from '@gtms/ui/GroupCard'
+// styles
+import styles from './styles.scss'
 
 const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
 
 export const PostsList: FC<{
   isAdmin: boolean
   posts: IPost[]
+  onUserPostsClick: (user: IUser) => unknown
   renderPost: (
     post: IPost & {
       renderMenu: (postId: string) => JSX.Element | null
       renderFavs: (favs: string[], id: string) => JSX.Element
+      onUserClick: (user: IUser) => unknown
+      onOpenGroupPreview?: (group: IGroup) => unknown
     }
   ) => JSX.Element
-}> = ({ renderPost, posts, isAdmin }) => {
+  showGroupPreview?: boolean
+}> = ({
+  renderPost,
+  posts,
+  isAdmin,
+  onUserPostsClick,
+  showGroupPreview = false,
+}) => {
+  const [userPreview, setUserPreview] = useState<IUser | undefined>()
+  const [groupPreview, setGroupCard] = useState<{
+    isOpen: boolean
+    isLoading: boolean
+    current?: IGroup
+    users: IUser[]
+  }>({
+    isOpen: false,
+    isLoading: false,
+    users: [],
+  })
+  const onOpenGroupPreview = useCallback(async (group: IGroup) => {
+    setGroupCard({
+      isOpen: true,
+      isLoading: true,
+      current: group,
+      users: [],
+    })
+
+    try {
+      const { docs } = await fetchGroupMembers(group.slug, 0, 6)
+
+      setGroupCard((state) => ({
+        ...state,
+        isLoading: false,
+        users: docs,
+      }))
+    } catch {
+      setGroupCard((state) => ({
+        ...state,
+        isLoading: false,
+      }))
+    }
+  }, [])
+  const onCloseGroupPreview = useCallback(() => {
+    setGroupCard({
+      isLoading: false,
+      isOpen: false,
+      users: [],
+      current: undefined,
+    })
+  }, [])
+  const onUserClick = useCallback((user: IUser) => {
+    setUserPreview(user)
+  }, [])
+  const onCloseUserPreview = useCallback(() => {
+    setUserPreview(undefined)
+  }, [])
+
   const [abuseReportState, setAbuseReportState] = useState<{
     postId: null | string
     isOpen: boolean
@@ -101,6 +168,8 @@ export const PostsList: FC<{
           ...post,
           renderMenu: renderPostMenu,
           renderFavs,
+          onUserClick,
+          onOpenGroupPreview,
         })
       )}
       <AbuseReportForm
@@ -110,6 +179,45 @@ export const PostsList: FC<{
         isOpen={abuseReportState.isOpen}
         onClose={onCloseReportAbuse}
       />
+      {userPreview && (
+        <div
+          className={cx(styles.userPreviewWrapper, {
+            [styles.active]: userPreview,
+          })}
+        >
+          <UserPreview
+            user={userPreview}
+            noUserAvatar={UserAvatarNoImage}
+            onUserPostsClick={onUserPostsClick}
+            onClose={onCloseUserPreview}
+          />
+        </div>
+      )}
+      {showGroupPreview && (
+        <div
+          className={cx(styles.groupPreviewWrapper, {
+            [styles.active]: groupPreview.isOpen,
+          })}
+        >
+          {groupPreview.current && (
+            <GroupCard
+              isLoading={groupPreview.isLoading}
+              onClose={onCloseGroupPreview}
+              members={groupPreview.users}
+              name={groupPreview.current.name}
+              description={groupPreview.current.description}
+              tags={groupPreview.current.tags || []}
+              slug={groupPreview.current.slug}
+              noUserAvatar={UserAvatarNoImage}
+              logo={getImage(
+                '200x200',
+                groupPreview.current.avatar,
+                GroupAvatarNoImage
+              )}
+            />
+          )}
+        </div>
+      )}
     </div>
   )
 }

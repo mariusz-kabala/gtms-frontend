@@ -10,10 +10,12 @@ import {
   IUser,
   IComment,
   IPostImage,
+  IGroup,
 } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 // ui
 import { DeletePost } from './DeletePost'
+import { GroupDetails } from './GroupDetails'
 import { Picture } from '../Picture'
 import { PostCreate } from '../PostCreate'
 import { PostResponse } from './PostResponse'
@@ -33,6 +35,7 @@ export const PostSingle: FC<{
   tags: string[]
   activeTags?: string[]
   images: IPostImage[]
+  group?: string | IGroup
   favs?: string[]
   renderFavs?: (favs: string[], id: string) => JSX.Element
   renderMenu?: (postId: string) => JSX.Element | null
@@ -46,6 +49,7 @@ export const PostSingle: FC<{
   onClick?: (id: string) => unknown
   onTagClick?: (tag: string) => unknown
   onLoginRequest?: () => unknown
+  onOpenGroupPreview?: (group: IGroup) => unknown
 }> = ({
   id,
   additionalStyles,
@@ -62,10 +66,12 @@ export const PostSingle: FC<{
   onClick,
   onTagClick,
   onUserClick,
+  onOpenGroupPreview,
   onLoginRequest,
   renderFavs,
   renderMenu,
   images,
+  group,
   favs = [],
   allowToRespond = false,
   activeTags = [],
@@ -92,6 +98,9 @@ export const PostSingle: FC<{
       data-testid="post-single"
     >
       <div className={styles.header}>
+        {group && typeof group !== 'string' && (
+          <GroupDetails onGroupClick={onOpenGroupPreview} group={group} />
+        )}
         <div className={styles.user}>
           <UserAvatar
             onClick={onUserClickCallback}

@@ -65,14 +65,12 @@ export const GroupCard: FC<{
                   data-testid="recently-registered-users"
                 >
                   {members.map((member) => (
-                    <>
-                      <li className={styles.user} key={`member-${member.id}`}>
-                        <UserAvatar
-                          image={getImage('50x50', member.avatar, noUserAvatar)}
-                          additionalStyles={styles.userAvatar}
-                        />
-                      </li>
-                    </>
+                    <li className={styles.user} key={`member-${member.id}`}>
+                      <UserAvatar
+                        image={getImage('50x50', member.avatar, noUserAvatar)}
+                        additionalStyles={styles.userAvatar}
+                      />
+                    </li>
                   ))}
                 </ul>
               )}

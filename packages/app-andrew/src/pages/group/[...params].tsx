@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { UserAvatarNoImage } from 'enums'
 import { getImage, onlyUnique } from '@gtms/commons/helpers'
 import { useInitState } from '@gtms/commons/hooks'
-import { IPost, IUser } from '@gtms/commons/models'
+import { IPost } from '@gtms/commons/models'
 // api
 import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
@@ -61,7 +61,6 @@ import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Pagination } from '@gtms/ui/Pagination'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { Spinner } from '@gtms/ui/Spinner'
-import { UserPreview } from '@gtms/ui/UserPreview'
 // styles
 import styles from './styles.scss'
 
@@ -140,7 +139,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
-  const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const [showPromoted] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
@@ -232,12 +230,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     },
     [state]
   )
-  const onUserClick = useCallback((user: IUser) => {
-    setUserPreview(user)
-  }, [])
-  const onCloseUserPreview = useCallback(() => {
-    setUserPreview(undefined)
-  }, [])
 
   const onPostClick = useCallback((id: string) => onClick({ post: id }), [
     onClick,
@@ -354,6 +346,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
                       <PostsList
                         posts={state.posts}
+                        onUserPostsClick={(user) =>
+                          onClick({ user: user.username })
+                        }
                         isAdmin={groupQuery.hasAdminRights()}
                         renderPost={(post) => (
                           <PostSingle
@@ -361,7 +356,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                             allowToRespond={post.id !== state.activePost?.id}
                             onClick={onPostClick}
                             onTagClick={onTagClick}
-                            onUserClick={onUserClick}
                             fetchTags={findTagsAPI}
                             fetchUsers={findbyUsernameAPI}
                             createComment={createNewComment}
@@ -398,20 +392,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   </>
                 )}
               </div>
-            </div>
-            <div
-              className={cx(styles.userPreviewWrapper, {
-                [styles.active]: userPreview,
-              })}
-            >
-              {userPreview && (
-                <UserPreview
-                  user={userPreview}
-                  noUserAvatar={UserAvatarNoImage}
-                  onUserPostsClick={(user) => onClick({ user: user.username })}
-                  onClose={onCloseUserPreview}
-                />
-              )}
             </div>
           </>
         )}

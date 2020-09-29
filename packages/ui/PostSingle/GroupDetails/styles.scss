@@ -1,0 +1,29 @@
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.image {
+  margin-right: 5px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  @include font-size(sm);
+  @include font-weight(bold);
+  margin-bottom: 5px;
+}
+
+.stats {
+  @include font-size(xs);
+  li {
+    span {
+      @include font-weight(bold);
+    }
+  }
+}

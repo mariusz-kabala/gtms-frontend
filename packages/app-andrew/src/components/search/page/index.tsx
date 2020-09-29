@@ -1,50 +1,87 @@
 import React, { FC, useState, useCallback, useRef, useEffect } from 'react'
 import { useTranslation } from '@gtms/commons/i18n'
-import { IPost } from '@gtms/commons/models'
+import { IPost, IUser, IGroup } from '@gtms/commons/models'
 import { generateSearchURL } from 'helpers/url'
-import { UserAvatarNoImage } from 'enums'
-// state
-import { openLoginModal } from 'state'
 // api
 import { findTagsAPI } from '@gtms/api-tags'
 import { findPostsAPI } from '@gtms/api-post'
 // components
-import { PostsList } from 'components/post/PostsList'
+import { PostResults } from 
 // ui
-import { MockData } from '@gtms/ui/MockData'
 import { Picture } from '@gtms/ui/Picture'
 import { SearchBar } from '@gtms/ui/SearchBar'
-import { PostSingle } from '@gtms/ui/PostSingle'
 // styles
 import styles from './styles.scss'
+
+enum Tabs {
+  posts,
+  groups,
+  users,
+}
 
 export const SearchPage: FC<{}> = () => {
   const { t, i18n } = useTranslation('searchPage')
   const [state, setState] = useState<{
-    tags: string[]
-    users: string[]
-    isLoading: boolean
-    isError: boolean
+    search: {
+      tags: string[]
+      users: string[]
+    }
     suggestions: {
       isLoading: boolean
       records: string[]
     }
-    data: {
+    posts: {
+      isLoading: boolean
+      isError: boolean
       docs: IPost[]
       limit: number
       offset: number
       total: number
     }
+    groups: {
+      isLoading: boolean
+      isError: boolean
+      docs: IGroup[]
+      limit: number
+      offset: number
+      total: number
+    }
+    users: {
+      isLoading: boolean
+      isError: boolean
+      docs: IUser[]
+      limit: number
+      offset: number
+      total: number
+    }
   }>({
-    tags: [],
-    users: [],
-    isLoading: false,
-    isError: false,
+    search: {
+      tags: [],
+      users: [],
+    },
     suggestions: {
       isLoading: false,
       records: [],
     },
-    data: {
+    posts: {
+      isLoading: false,
+      isError: false,
+      docs: [],
+      limit: 50,
+      offset: 0,
+      total: 0,
+    },
+    groups: {
+      isLoading: false,
+      isError: false,
+      docs: [],
+      limit: 50,
+      offset: 0,
+      total: 0,
+    },
+    users: {
+      isLoading: false,
+      isError: false,
       docs: [],
       limit: 50,
       offset: 0,
@@ -53,24 +90,40 @@ export const SearchPage: FC<{}> = () => {
   })
 
   useEffect(() => {
-    const hasTags = state.tags.length > 0
-    const hasUsers = state.users.length > 0
-    console.log('use effect', state.tags)
+    const hasTags = state.search.tags.length > 0
+    const hasUsers = state.search.users.length > 0
+
     window.history.pushState(
       null,
       'Search',
       generateSearchURL(`/${i18n.language}/search`, {
-        tag: state.tags,
-        user: state.users,
+        tag: state.search.tags,
+        user: state.search.users,
       })
     )
 
     if (!hasTags && !hasUsers) {
       setState((state) => ({
         ...state,
-        isLoading: false,
-        isError: false,
-        data: {
+        posts: {
+          isLoading: false,
+          isError: false,
+          docs: [],
+          limit: 50,
+          offset: 0,
+          total: 0,
+        },
+        groups: {
+          isLoading: false,
+          isError: false,
+          docs: [],
+          limit: 50,
+          offset: 0,
+          total: 0,
+        },
+        users: {
+          isLoading: false,
+          isError: false,
           docs: [],
           limit: 50,
           offset: 0,
@@ -82,13 +135,35 @@ export const SearchPage: FC<{}> = () => {
 
     setState((state) => ({
       ...state,
-      isLoading: true,
-      isError: false,
+      posts: {
+        isLoading: true,
+        isError: false,
+        docs: [],
+        limit: 50,
+        offset: 0,
+        total: 0,
+      },
+      groups: {
+        isLoading: true,
+        isError: false,
+        docs: [],
+        limit: 50,
+        offset: 0,
+        total: 0,
+      },
+      users: {
+        isLoading: true,
+        isError: false,
+        docs: [],
+        limit: 50,
+        offset: 0,
+        total: 0,
+      },
     }))
 
     findPostsAPI(
       {
-        tags: state.tags,
+        tags: state.search.tags,
       },
       0,
       50,
@@ -96,12 +171,14 @@ export const SearchPage: FC<{}> = () => {
     ).then((response) => {
       setState((state) => ({
         ...state,
-        isLoading: false,
-        isError: false,
-        data: response,
+        posts: {
+          isLoading: false,
+          isError: false,
+          ...response,
+        },
       }))
     })
-  }, [state.tags, state.users])
+  }, [state.search])
 
   const tagsSuggestionsAbortController = useRef<AbortController>()
   const onFindTags = useCallback((text: string) => {
@@ -132,25 +209,31 @@ export const SearchPage: FC<{}> = () => {
   const onTagAdd = useCallback((tag: string) => {
     setState((state) => ({
       ...state,
-      tags: [...state.tags, tag],
+      search: {
+        ...state.search,
+        tags: [...state.search.tags, tag],
+      },
     }))
   }, [])
 
   const onTagRemove = useCallback(
     (tag: string) => {
-      const tags = state.tags
-      const index = state.tags.indexOf(tag)
+      const tags = state.search.tags
+      const index = state.search.tags.indexOf(tag)
 
       if (index > -1) {
         tags.splice(index, 1)
 
         setState((state) => ({
           ...state,
-          tags: [...tags],
+          search: {
+            ...state.search,
+            tags: [...tags],
+          },
         }))
       }
     },
-    [state.tags]
+    [state.search.tags]
   )
 
   const onLoadSuggestionCancel = useCallback(() => {
@@ -183,46 +266,25 @@ export const SearchPage: FC<{}> = () => {
               console.log('onQueryChange', text)
             }}
             onLoadSuggestionCancel={onLoadSuggestionCancel}
-            tags={state.tags}
+            tags={state.search.tags}
           />
         </div>
-        {state.isLoading && (
-          <div className={styles.noRecords}>
-            <MockData theme="dark" />
-            <MockData
-              theme="dark"
-              onClick={() => null}
-              text="Searching, please wait..."
-            />
-            <MockData theme="dark" numberOfElements={4} />
-          </div>
-        )}
-        {!state.isLoading && !state.isError && (
-          <PostsList
-            posts={state.data.docs}
-            isAdmin={false}
-            renderPost={(post) => (
-              <PostSingle
-                key={`post-${post.id}`}
-                allowToRespond={false}
-                onClick={() => null}
-                onTagClick={() => null}
-                onUserClick={() => null}
-                fetchTags={findTagsAPI}
-                fetchUsers={() => Promise.resolve([])} //{findbyUsernameAPI}
-                createComment={() => null}
-                user={null}
-                {...post}
-                noImage={UserAvatarNoImage}
-                onLoginRequest={openLoginModal}
-                activeTags={state.tags}
-              />
-            )}
-          />
-        )}
-        {!state.isLoading && state.isError && (
-          <div>ERROR STATE, SHOW SOMETHING HERE</div>
-        )}
+        <div className={styles.tabs}>
+          <ul>
+            <li className={styles.active}>
+              <a>
+                Posts <span>({state.posts.total})</span>
+              </a>
+            </li>
+            <li>
+              <a>Groups</a>
+            </li>
+            <li>
+              <a>Users</a>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   )
