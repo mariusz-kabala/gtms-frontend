@@ -23,7 +23,7 @@ export const GroupCard: FC<{
   noUserAvatar: { [key: string]: IImage }
   isLoading: boolean
   onClose: () => unknown
-  members: IUser[]
+  members?: IUser[]
   additionalStyles?: string
 }> = ({
   additionalStyles,
@@ -59,7 +59,7 @@ export const GroupCard: FC<{
 
               {isLoading && <Spinner additionalStyles={styles.spinner} />}
 
-              {!isLoading && members.length > 0 && (
+              {!isLoading && Array.isArray(members) && members.length > 0 && (
                 <ul
                   className={styles.items}
                   data-testid="recently-registered-users"

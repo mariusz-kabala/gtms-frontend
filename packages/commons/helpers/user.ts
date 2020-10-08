@@ -1,5 +1,14 @@
-import { IUser } from '@gtms/commons/models'
+export function getDisplayName(user: {
+  name?: string
+  surname?: string
+  username: string
+}) {
+  if (
+    (!user.name || user.name === '') &&
+    (!user.surname || user.surname === '')
+  ) {
+    return user.username
+  }
 
-export function getDisplayName(user: IUser) {
   return `${user.name || ''} ${user.surname || ''}`.trim()
 }

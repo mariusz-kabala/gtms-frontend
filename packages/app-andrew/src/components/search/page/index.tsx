@@ -1,26 +1,37 @@
 import React, { FC, useState, useCallback, useRef, useEffect } from 'react'
+import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IPost, IUser, IGroup } from '@gtms/commons/models'
+import { parseFiles } from '@gtms/commons/helpers'
+import { FileStatus } from '@gtms/commons/enums'
 import { generateSearchURL } from 'helpers/url'
 // api
 import { findTagsAPI } from '@gtms/api-tags'
 import { findPostsAPI } from '@gtms/api-post'
+import { fetchTaggedGroups } from '@gtms/api-group'
+import { fetchTaggedUsers } from '@gtms/api-auth'
 // components
-import { PostResults } from 
+import { PostResults } from 'components/search/PostResults'
+import { GroupResults } from 'components/search/GroupResults'
+import { UserResults } from 'components/search/UserResults'
 // ui
 import { Picture } from '@gtms/ui/Picture'
 import { SearchBar } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
 
-enum Tabs {
-  posts,
-  groups,
-  users,
+export enum Tabs {
+  posts = 'post-results',
+  groups = 'group-results',
+  users = 'user-results',
 }
 
-export const SearchPage: FC<{}> = () => {
+export const SearchPage: FC<{
+  initialTab?: Tabs
+  tags?: string[]
+}> = ({ initialTab = Tabs.posts, tags = [] }) => {
   const { t, i18n } = useTranslation('searchPage')
+  const [tab, setTab] = useState<Tabs>(initialTab)
   const [state, setState] = useState<{
     search: {
       tags: string[]
@@ -56,7 +67,7 @@ export const SearchPage: FC<{}> = () => {
     }
   }>({
     search: {
-      tags: [],
+      tags,
       users: [],
     },
     suggestions: {
@@ -89,18 +100,10 @@ export const SearchPage: FC<{}> = () => {
     },
   })
 
+  // fetch results
   useEffect(() => {
     const hasTags = state.search.tags.length > 0
     const hasUsers = state.search.users.length > 0
-
-    window.history.pushState(
-      null,
-      'Search',
-      generateSearchURL(`/${i18n.language}/search`, {
-        tag: state.search.tags,
-        user: state.search.users,
-      })
-    )
 
     if (!hasTags && !hasUsers) {
       setState((state) => ({
@@ -161,6 +164,7 @@ export const SearchPage: FC<{}> = () => {
       },
     }))
 
+    // fetch posts
     findPostsAPI(
       {
         tags: state.search.tags,
@@ -178,7 +182,54 @@ export const SearchPage: FC<{}> = () => {
         },
       }))
     })
+
+    // fetch groups
+    fetchTaggedGroups(state.search.tags, 0, 50).then((response) => {
+      // parse files in the response
+      response.docs = response.docs.map((group) => {
+        if (
+          Array.isArray(group.avatar?.files) &&
+          group.avatar?.status === FileStatus.ready
+        ) {
+          group.avatar.files = parseFiles(group.avatar.files)
+        }
+
+        return group
+      })
+      setState((state) => ({
+        ...state,
+        groups: {
+          isLoading: false,
+          isError: false,
+          ...response,
+        },
+      }))
+    })
+
+    // fetch users
+    fetchTaggedUsers(state.search.tags, 0, 50).then((response) => {
+      setState((state) => ({
+        ...state,
+        users: {
+          isLoading: false,
+          isError: false,
+          ...response,
+        },
+      }))
+    })
   }, [state.search])
+
+  // update url
+  useEffect(() => {
+    window.history.pushState(
+      null,
+      'Search',
+      generateSearchURL(`/${i18n.language}/search/${tab}`, {
+        tag: state.search.tags,
+        user: state.search.users,
+      })
+    )
+  }, [state.search, tab])
 
   const tagsSuggestionsAbortController = useRef<AbortController>()
   const onFindTags = useCallback((text: string) => {
@@ -262,29 +313,55 @@ export const SearchPage: FC<{}> = () => {
             suggestions={state.suggestions.records}
             isLoading={state.suggestions.isLoading}
             onLoadSuggestion={onFindTags}
-            onQueryChange={(text) => {
-              console.log('onQueryChange', text)
-            }}
+            onQueryChange={() => null}
             onLoadSuggestionCancel={onLoadSuggestionCancel}
             tags={state.search.tags}
           />
         </div>
-        <div className={styles.tabs}>
-          <ul>
-            <li className={styles.active}>
-              <a>
-                Posts <span>({state.posts.total})</span>
-              </a>
-            </li>
-            <li>
-              <a>Groups</a>
-            </li>
-            <li>
-              <a>Users</a>
-            </li>
-          </ul>
-        </div>
-
+        {state.search.tags.length > 0 && (
+          <>
+            <div className={styles.tabs}>
+              <ul>
+                <li
+                  className={cx({
+                    [styles.active]: tab === Tabs.posts,
+                  })}
+                >
+                  <a onClick={() => setTab(Tabs.posts)}>
+                    Posts <span>({state.posts.total})</span>
+                  </a>
+                </li>
+                <li
+                  className={cx({
+                    [styles.active]: tab === Tabs.groups,
+                  })}
+                >
+                  <a onClick={() => setTab(Tabs.groups)}>
+                    Groups <span>({state.groups.total})</span>
+                  </a>
+                </li>
+                <li
+                  className={cx({
+                    [styles.active]: tab === Tabs.users,
+                  })}
+                >
+                  <a onClick={() => setTab(Tabs.users)}>
+                    Users <span>({state.users.total})</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            {tab === Tabs.posts && (
+              <PostResults {...state.posts} tags={state.search.tags} />
+            )}
+            {tab === Tabs.groups && (
+              <GroupResults {...state.groups} tags={state.search.tags} />
+            )}
+            {tab === Tabs.users && (
+              <UserResults {...state.users} tags={state.search.tags} />
+            )}
+          </>
+        )}
       </div>
     </div>
   )
