@@ -26,6 +26,8 @@ export enum Tabs {
   users = 'user-results',
 }
 
+const RESULTS_LIMIT = 50
+
 export const SearchPage: FC<{
   initialTab?: Tabs
   tags?: string[]
@@ -78,7 +80,7 @@ export const SearchPage: FC<{
       isLoading: false,
       isError: false,
       docs: [],
-      limit: 50,
+      limit: RESULTS_LIMIT,
       offset: 0,
       total: 0,
     },
@@ -86,7 +88,7 @@ export const SearchPage: FC<{
       isLoading: false,
       isError: false,
       docs: [],
-      limit: 50,
+      limit: RESULTS_LIMIT,
       offset: 0,
       total: 0,
     },
@@ -94,7 +96,7 @@ export const SearchPage: FC<{
       isLoading: false,
       isError: false,
       docs: [],
-      limit: 50,
+      limit: RESULTS_LIMIT,
       offset: 0,
       total: 0,
     },
@@ -231,6 +233,105 @@ export const SearchPage: FC<{
     )
   }, [state.search, tab])
 
+  const generatePaginationPostsUrl = useCallback(
+    (page: number) => {
+      const url = generateSearchURL(`/${i18n.language}/search/${Tabs.posts}`, {
+        tag: state.search.tags,
+        user: state.search.users,
+      })
+
+      const groupsPage = state.groups.offset / state.groups.limit + 1
+      const usersPage = state.users.offset / state.users.limit + 1
+
+      return `${url}?posts=${page}&groups=${groupsPage}&users=${usersPage}`
+    },
+    [
+      state.search,
+      state.users.limit,
+      state.users.offset,
+      state.groups.limit,
+      state.groups.offset,
+    ]
+  )
+
+  const changePostsPage = useCallback((page: number) => {
+    const offset = page * RESULTS_LIMIT
+
+    setState((state) => ({
+      ...state,
+      posts: {
+        ...state.posts,
+        offset,
+      },
+    }))
+  }, [])
+
+  const generatePaginationGroupsUrls = useCallback(
+    (page: number) => {
+      const url = generateSearchURL(`/${i18n.language}/search/${Tabs.groups}`, {
+        tag: state.search.tags,
+        user: state.search.users,
+      })
+
+      const postsPage = state.posts.offset / state.posts.limit + 1
+      const usersPage = state.users.offset / state.users.limit + 1
+
+      return `${url}?posts=${postsPage}&groups=${page}&users=${usersPage}`
+    },
+    [
+      state.search,
+      state.users.limit,
+      state.users.offset,
+      state.posts.limit,
+      state.posts.offset,
+    ]
+  )
+
+  const changeGroupsPage = useCallback((page: number) => {
+    const offset = page * RESULTS_LIMIT
+
+    setState((state) => ({
+      ...state,
+      groups: {
+        ...state.groups,
+        offset,
+      },
+    }))
+  }, [])
+
+  const generatePaginationUsersUrls = useCallback(
+    (page: number) => {
+      const url = generateSearchURL(`/${i18n.language}/search/${Tabs.groups}`, {
+        tag: state.search.tags,
+        user: state.search.users,
+      })
+
+      const postsPage = state.posts.offset / state.posts.limit + 1
+      const groupsPage = state.groups.offset / state.groups.limit + 1
+
+      return `${url}?posts=${postsPage}&groups=${groupsPage}&users=${page}`
+    },
+    [
+      state.search,
+      state.groups.limit,
+      state.groups.offset,
+      state.posts.limit,
+      state.posts.offset,
+    ]
+  )
+
+  const changeUsersPage = useCallback((page: number) => {
+    const offset = page * RESULTS_LIMIT
+
+    setState((state) => ({
+      ...state,
+      users: {
+        ...state.users,
+        offset,
+      },
+    }))
+  }, [])
+
   const tagsSuggestionsAbortController = useRef<AbortController>()
   const onFindTags = useCallback((text: string) => {
     setState((state) => ({
@@ -352,13 +453,28 @@ export const SearchPage: FC<{
               </ul>
             </div>
             {tab === Tabs.posts && (
-              <PostResults {...state.posts} tags={state.search.tags} />
+              <PostResults
+                {...state.posts}
+                tags={state.search.tags}
+                getCurrentUrl={generatePaginationPostsUrl}
+                onChangePage={changePostsPage}
+              />
             )}
             {tab === Tabs.groups && (
-              <GroupResults {...state.groups} tags={state.search.tags} />
+              <GroupResults
+                {...state.groups}
+                tags={state.search.tags}
+                getCurrentUrl={generatePaginationGroupsUrls}
+                onChangePage={changeGroupsPage}
+              />
             )}
             {tab === Tabs.users && (
-              <UserResults {...state.users} tags={state.search.tags} />
+              <UserResults
+                {...state.users}
+                tags={state.search.tags}
+                getCurrentUrl={generatePaginationUsersUrls}
+                onChangePage={changeUsersPage}
+              />
             )}
           </>
         )}

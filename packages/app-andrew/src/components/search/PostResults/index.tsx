@@ -10,6 +10,7 @@ import { PostsList } from 'components/post/PostsList'
 // ui
 import { MockData } from '@gtms/ui/MockData'
 import { PostSingle } from '@gtms/ui/PostSingle'
+import { Pagination } from '@gtms/ui/Pagination'
 // styles
 import styles from './styles.scss'
 
@@ -18,7 +19,22 @@ export const PostResults: FC<{
   isError: boolean
   docs: IPost[]
   tags: string[]
-}> = ({ isLoading, isError, docs, tags }) => {
+  limit: number
+  offset: number
+  total: number
+  getCurrentUrl?: (page: number) => string
+  onChangePage: (page: number) => unknown
+}> = ({
+  isLoading,
+  isError,
+  docs,
+  tags,
+  limit,
+  offset,
+  total,
+  getCurrentUrl,
+  onChangePage,
+}) => {
   return (
     <div data-testid="search-post-results">
       {isLoading && (
@@ -33,28 +49,39 @@ export const PostResults: FC<{
         </div>
       )}
       {!isLoading && !isError && (
-        <PostsList
-          posts={docs}
-          showGroupPreview={true}
-          isAdmin={false}
-          onUserPostsClick={() => null}
-          renderPost={(post) => (
-            <PostSingle
-              key={`post-${post.id}`}
-              allowToRespond={false}
-              onClick={() => null}
-              onTagClick={() => null}
-              fetchTags={findTagsAPI}
-              fetchUsers={() => Promise.resolve([])} //{findbyUsernameAPI}
-              createComment={() => null}
-              user={null}
-              {...post}
-              noImage={UserAvatarNoImage}
-              onLoginRequest={openLoginModal}
-              activeTags={tags}
+        <>
+          <PostsList
+            posts={docs}
+            showGroupPreview={true}
+            isAdmin={false}
+            onUserPostsClick={() => null}
+            renderPost={(post) => (
+              <PostSingle
+                key={`post-${post.id}`}
+                allowToRespond={false}
+                onClick={() => null}
+                onTagClick={() => null}
+                fetchTags={findTagsAPI}
+                fetchUsers={() => Promise.resolve([])} //{findbyUsernameAPI}
+                createComment={() => null}
+                user={null}
+                {...post}
+                noImage={UserAvatarNoImage}
+                onLoginRequest={openLoginModal}
+                activeTags={tags}
+              />
+            )}
+          />
+          <div className={styles.pagination}>
+            <Pagination
+              limit={limit}
+              offset={offset}
+              total={total}
+              onClick={onChangePage}
+              getCurrentUrl={getCurrentUrl}
             />
-          )}
-        />
+          </div>
+        </>
       )}
       {!isLoading && isError && <div>ERROR STATE, SHOW SOMETHING HERE</div>}
     </div>
