@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.85.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.84.0...@gtms/app-andrew@0.85.0) (2020-10-10)
+
+
+### Features
+
+* GEOT-471: searching ([#878](https://github.com/gtms-org/gtms-frontend/issues/878)) ([bc8fdc8](https://github.com/gtms-org/gtms-frontend/commit/bc8fdc8a958a7e551b50c63441dd5267a99772df))
+
+
+
+
+
 # [0.84.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.83.0...@gtms/app-andrew@0.84.0) (2020-09-23)
 
 

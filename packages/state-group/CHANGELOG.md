@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.17.0...@gtms/state-group@0.18.0) (2020-10-10)
+
+
+### Features
+
+* GEOT-471: searching ([#878](https://github.com/gtms-org/gtms-frontend/issues/878)) ([bc8fdc8](https://github.com/gtms-org/gtms-frontend/commit/bc8fdc8a958a7e551b50c63441dd5267a99772df))
+
+
+
+
+
 # [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.16.0...@gtms/state-group@0.17.0) (2020-09-07)
 
 
