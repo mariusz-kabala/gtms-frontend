@@ -61,10 +61,10 @@ export const SearchBar: FC<{
         {query === '' && !noInlineTags && (
           <>
             <div className={styles.tags}>
-              {tags.map((tag) => (
+              {tags.map((tag, index) => (
                 <button
                   className={styles.tag}
-                  key={`tag-${tag}`}
+                  key={`tag-${tag}-${index}`}
                   type="button"
                   title="click to remove"
                   onClick={() => onTagRemove(tag)}

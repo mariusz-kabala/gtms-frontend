@@ -111,7 +111,7 @@ export const updateGroup = async (data: IGroupData, slug: string) => {
 
     if (
       Array.isArray(group.avatar?.files) &&
-      group.avatar?.status === 'ready'
+      group.avatar?.status === FileStatus.ready
     ) {
       group.avatar.files = parseFiles(group.avatar.files)
     }
