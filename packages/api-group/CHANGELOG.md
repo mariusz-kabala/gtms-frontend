@@ -3,27 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.15.0...@gtms/api-group@0.16.0) (2020-09-07)
+## [0.16.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.16.0...@gtms/api-group@0.16.1) (2020-10-10)
 
+**Note:** Version bump only for package @gtms/api-group
+
+# [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.15.0...@gtms/api-group@0.16.0) (2020-09-07)
 
 ### Features
 
-* GEOT-456: support file uploading for group cover image ([#850](https://github.com/gtms-org/gtms-frontend/issues/850)) ([8c47356](https://github.com/gtms-org/gtms-frontend/commit/8c47356564e18df941155d076ae6d0580f091edb))
-
-
-
-
+- GEOT-456: support file uploading for group cover image ([#850](https://github.com/gtms-org/gtms-frontend/issues/850)) ([8c47356](https://github.com/gtms-org/gtms-frontend/commit/8c47356564e18df941155d076ae6d0580f091edb))
 
 # [0.15.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.14.0...@gtms/api-group@0.15.0) (2020-09-04)
 
-
 ### Features
 
-* GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
-
-
-
-
+- GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
 
 # [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.13.10...@gtms/api-group@0.14.0) (2020-09-02)
 

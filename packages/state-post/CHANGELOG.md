@@ -3,38 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.13.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.13.1...@gtms/state-post@0.13.2) (2020-09-13)
+## [0.13.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.13.2...@gtms/state-post@0.13.3) (2020-10-10)
 
 **Note:** Version bump only for package @gtms/state-post
 
+## [0.13.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.13.1...@gtms/state-post@0.13.2) (2020-09-13)
 
-
-
+**Note:** Version bump only for package @gtms/state-post
 
 ## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.13.0...@gtms/state-post@0.13.1) (2020-09-07)
 
 **Note:** Version bump only for package @gtms/state-post
 
-
-
-
-
 # [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.12.2...@gtms/state-post@0.13.0) (2020-09-04)
-
 
 ### Bug Fixes
 
-* GEOT-397: working pagination ([#843](https://github.com/gtms-org/gtms-frontend/issues/843)) ([6c8823c](https://github.com/gtms-org/gtms-frontend/commit/6c8823cb3d16914582244a4a132c303803f65705))
-
+- GEOT-397: working pagination ([#843](https://github.com/gtms-org/gtms-frontend/issues/843)) ([6c8823c](https://github.com/gtms-org/gtms-frontend/commit/6c8823cb3d16914582244a4a132c303803f65705))
 
 ### Features
 
-* GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
-* GEOT-453: display post images ([#841](https://github.com/gtms-org/gtms-frontend/issues/841)) ([b85c92a](https://github.com/gtms-org/gtms-frontend/commit/b85c92a0bcb84101ceb39ad8d5fd4767faf43b02))
-
-
-
-
+- GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
+- GEOT-453: display post images ([#841](https://github.com/gtms-org/gtms-frontend/issues/841)) ([b85c92a](https://github.com/gtms-org/gtms-frontend/commit/b85c92a0bcb84101ceb39ad8d5fd4767faf43b02))
 
 ## [0.12.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.12.1...@gtms/state-post@0.12.2) (2020-09-02)
 

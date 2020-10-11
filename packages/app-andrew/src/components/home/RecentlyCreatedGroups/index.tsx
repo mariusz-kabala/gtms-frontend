@@ -8,6 +8,7 @@ import { GroupAvatarNoImage, UserAvatarNoImage } from 'enums'
 import { GroupCard } from '@gtms/ui/GroupCard'
 import { GridCard } from '@gtms/ui/GridCard'
 import { CreateYourOwnGroup } from '@gtms/ui/CreateYourOwnGroup'
+// styles
 import styles from './styles.scss'
 
 export const RecentlyCreatedGroups: FC<{

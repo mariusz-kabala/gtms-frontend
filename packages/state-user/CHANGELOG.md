@@ -3,35 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.19.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.19.1...@gtms/state-user@0.19.2) (2020-09-13)
+## [0.19.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.19.2...@gtms/state-user@0.19.3) (2020-10-10)
 
+**Note:** Version bump only for package @gtms/state-user
+
+## [0.19.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.19.1...@gtms/state-user@0.19.2) (2020-09-13)
 
 ### Bug Fixes
 
-* GEOT-463: pass google auth code to BE ([#857](https://github.com/gtms-org/gtms-frontend/issues/857)) ([f7d394b](https://github.com/gtms-org/gtms-frontend/commit/f7d394b7e8f0a01c9d4528c267c47f32beecb454))
-
-
-
-
+- GEOT-463: pass google auth code to BE ([#857](https://github.com/gtms-org/gtms-frontend/issues/857)) ([f7d394b](https://github.com/gtms-org/gtms-frontend/commit/f7d394b7e8f0a01c9d4528c267c47f32beecb454))
 
 ## [0.19.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.19.0...@gtms/state-user@0.19.1) (2020-09-07)
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 # [0.19.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.18.4...@gtms/state-user@0.19.0) (2020-09-04)
-
 
 ### Features
 
-* GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
-
-
-
-
+- GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
 
 ## [0.18.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.18.3...@gtms/state-user@0.18.4) (2020-09-02)
 

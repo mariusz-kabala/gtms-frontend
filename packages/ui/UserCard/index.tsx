@@ -1,13 +1,16 @@
 import React, { FC, useEffect } from 'react'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
-import { ImageWithLightbox } from '@gtms/ui/ImageWithLightbox'
-import { Overlay } from '@gtms/ui/Overlay'
-import { Tag } from '@gtms/ui/Tag'
-import { TagGroup } from '@gtms/ui/TagGroup'
+// commons
 import { useTranslation } from '@gtms/commons/i18n'
+// ui
+import { ImageWithLightbox } from '../ImageWithLightbox'
+import { Overlay } from '../Overlay'
+import { Tag } from '../Tag'
+import { TagGroup } from '../TagGroup'
+// styles
+import styles from './styles.scss'
 
 export const UserCard: FC<{
   additionalStyles?: string
