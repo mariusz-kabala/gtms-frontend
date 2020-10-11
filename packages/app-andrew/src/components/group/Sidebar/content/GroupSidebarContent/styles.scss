@@ -4,11 +4,13 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
   &.collapsed {
     .navmock {
       .item {
-        padding: 8px 15px;
-
         span {
           display: none;
         }
@@ -51,32 +53,32 @@
   }
 
   .navmock {
-    margin-top: -5px;
+    display: flex;
+    align-items: center;
+    height: 100%;
 
     .item {
       display: flex;
       align-items: center;
-      padding: 8px 10px;
+      padding: 10px 8px;
+      color: $theme0;
+      @include font-size(xxs);
       @include font-weight(semiBold);
       text-transform: uppercase;
+      opacity: 0.9;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
 
       span {
         margin-left: 5px;
       }
 
       i {
-        color: $theme9;
         line-height: 0;
-        @include font-size(xmd);
-      }
-
-      &:hover {
-        cursor: pointer;
-        color: $theme4;
-
-        i {
-          color: $theme4;
-        }
+        @include font-size(sm);
       }
     }
   }
@@ -93,15 +95,8 @@
     padding: 10px;
   }
 
-  .searchInput {
-    display: flex;
-    display: none;
-    width: 100%;
-    margin: 15px;
-    overflow: hidden;
-
-    .search {
-      width: 100%;
-    }
+  .search {
+    margin-left: 10px;
+    margin-right: 5px;
   }
 }

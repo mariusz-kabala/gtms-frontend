@@ -14,7 +14,6 @@ import {
 import { GroupAvatar } from 'components/group/GroupAvatar'
 import { GroupDescription } from 'components/group/GroupDescription'
 // styles
-import { BsCaretLeftFill, BsCaretRightFill } from 'react-icons/bs'
 import styles from './styles.scss'
 
 export const GroupSidebar: FC<{}> = ({ children, isSidebarOpen }) => {
@@ -43,41 +42,32 @@ export const GroupSidebar: FC<{}> = ({ children, isSidebarOpen }) => {
       })}
       ref={groupHeaderRef}
     >
-      <div className={styles.widthHandler}>
-        <div className={styles.handler}>
-          <i>{isSidebarOpen ? <BsCaretLeftFill /> : <BsCaretRightFill />}</i>
-        </div>
-      </div>
-      <div className={styles.makeItSticky}>
-        <div className={styles.avatarNameDesc}>
-          <div className={styles.avatarName}>
-            <GroupAvatar
-              additionalStyles={styles.groupAvatar}
-              files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
-              filesStatus={groupQuery.getAvatarFileStatus()}
-              isEditAllowed={groupQuery.hasAdminRights()}
-            />
-            <h2
-              className={styles.header}
-              data-tip={t('click-here-to-edit')}
-              data-type="dark"
-            >
-              {state.group?.name}
-            </h2>
-          </div>
-          <GroupDescription
-            additionalStyles={styles.desc}
-            isEditAllowed={groupQuery.hasAdminRights()}
-            slug={state.group?.slug || ''}
-            text={
-              !state.group?.description
-                ? groupQuery.hasAdminRights()
-                  ? 'you did not add group description yet, click here to change it'
-                  : ''
-                : state.group?.description || ''
-            }
-          />
-        </div>
+      <GroupAvatar
+        additionalStyles={styles.groupAvatar}
+        files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
+        filesStatus={groupQuery.getAvatarFileStatus()}
+        isEditAllowed={groupQuery.hasAdminRights()}
+      />
+      <div className={styles.content}>
+        <h2
+          className={styles.header}
+          data-tip={t('click-here-to-edit')}
+          data-type="dark"
+        >
+          {state.group?.name}
+        </h2>
+        <GroupDescription
+          additionalStyles={styles.desc}
+          isEditAllowed={groupQuery.hasAdminRights()}
+          slug={state.group?.slug || ''}
+          text={
+            !state.group?.description
+              ? groupQuery.hasAdminRights()
+                ? 'you did not add group description yet, click here to change it'
+                : ''
+              : state.group?.description || ''
+          }
+        />
         {children}
       </div>
     </div>

@@ -43,7 +43,7 @@
 
     .btn {
       @include buttonDefault();
-      @include buttonSizeMd();
+      @include buttonSizeDefault();
       @include buttonShapeDefault();
       @include buttonWithIcon();
       @include buttonColorsTertiary();

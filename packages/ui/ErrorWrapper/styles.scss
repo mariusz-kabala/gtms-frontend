@@ -42,7 +42,7 @@
 
   button {
     @include buttonDefault();
-    @include buttonSizeMd();
+    @include buttonSizeDefault();
     @include buttonShapeDefault();
     @include buttonWithIcon();
     @include buttonColorsDefault();

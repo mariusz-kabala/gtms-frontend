@@ -5,106 +5,55 @@
 
 .groupSidebar {
   position: relative;
-  min-width: 150px;
-  width: 150px;
-  min-height: 100%;
-  border-top-left-radius: $borderRadius;
-  border-bottom-left-radius: $borderRadius;
-  box-shadow: 0px 15px 10px 0px rgba(0, 0, 0, 0.1);
-  background: $theme0;
-  color: $theme9;
+  display: flex;
+  width: 100%;
+  padding: 5px;
   transition: all 500ms;
 
-  .widthHandler {
-    display: none;
-    position: absolute;
-    top: 0px;
-    z-index: 1;
-    right: -25px;
-    width: 25px;
-    border-left: 3px solid $theme4;
-    height: 100%;
-    cursor: pointer;
-
-    .handler {
-      position: absolute;
-      top: 300px;
-      right: -10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30px;
-      height: 30px;
-      border-radius: $borderRadius;
-      background: $theme4;
-
-      i {
-        color: $theme0;
-      }
-    }
-  }
-
-  &:hover {
-    .widthHandler {
-      display: block;
-    }
-  }
-
   &.collapsed {
-    min-width: 50px;
-    width: 50px;
-
-    .avatarNameDesc {
-      padding: 5px;
-    }
-
     .header,
     .desc {
       display: none;
     }
   }
 
-  .makeItSticky {
-    position: sticky;
-    top: 0;
+  &:hover {
+    color: $theme4;
+
+    .groupAvatar {
+      @include effectOne('defaultRadius');
+    }
   }
 
-  .avatarNameDesc {
-    padding: 10px;
-    display: block;
+  .groupAvatar {
+    width: 40px;
 
-    &:hover {
-      cursor: pointer;
-      color: $theme4;
-
-      .groupAvatar {
-        @include effectOne('defaultRadius');
-      }
+    picture {
+      border-radius: $borderRadius;
+      overflow: hidden;
     }
+  }
 
-    .avatarName {
-      display: flex;
-      align-items: center;
+  .content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 5px;
+    border-radius: $borderRadius;
+    background: $theme4;
 
-      .groupAvatar {
-        width: 40px;
-
-        picture {
-          border-radius: $borderRadius;
-          overflow: hidden;
-        }
-      }
-
-      .header {
-        @include font-size(xdefault);
-        @include font-weight(semiBold);
-        margin-left: 8px;
-      }
+    .header {
+      min-width: 180px;
+      margin-left: 8px;
+      @include font-size(xdefault);
+      @include font-weight(semiBold);
+      color: $theme0;
     }
 
     .desc {
       margin-top: 5px;
       @include font-size(sm);
+      display: none;
     }
   }
 }

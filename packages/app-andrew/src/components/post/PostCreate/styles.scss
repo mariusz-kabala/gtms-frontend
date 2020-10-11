@@ -72,11 +72,11 @@
 
   .btnSubmit {
     @include buttonDefault();
-    @include buttonSizeDefault();
+    @include buttonSizeSm();
     @include buttonShapeDefault();
     @include buttonColorsDefault();
     @include buttonWithIcon('right');
-    margin-top: 10px;
+    margin-top: 5px;
     width: 100%;
 
     &:hover {

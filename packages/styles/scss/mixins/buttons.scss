@@ -80,12 +80,6 @@
   @include font-size(sm);
 }
 
-@mixin buttonSizeMd() {
-  padding: 8px;
-  line-height: 1;
-  @include font-size(md);
-}
-
 // SHAPES
 @mixin buttonShapeDefault() {
   border-radius: $borderRadius;
