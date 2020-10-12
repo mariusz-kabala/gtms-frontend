@@ -9,14 +9,14 @@ import { generateSearchURL } from 'helpers/url'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findPostsAPI } from '@gtms/api-post'
 import { fetchTaggedGroups } from '@gtms/api-group'
-import { fetchTaggedUsers } from '@gtms/api-auth'
+import { fetchTaggedUsers, findbyUsernameAPI } from '@gtms/api-auth'
 // components
 import { PostResults } from 'components/search/PostResults'
 import { GroupResults } from 'components/search/GroupResults'
 import { UserResults } from 'components/search/UserResults'
 // ui
 import { Picture } from '@gtms/ui/Picture'
-import { SearchBar } from '@gtms/ui/SearchBar'
+import { SearchBar, SuggestionTypes } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
 
@@ -26,55 +26,60 @@ export enum Tabs {
   users = 'user-results',
 }
 
+interface ISeachPageState {
+  search: {
+    tags: string[]
+    users: string[]
+  }
+  suggestions: {
+    isLoading: boolean
+    records: string[]
+    type: keyof typeof SuggestionTypes
+  }
+  posts: {
+    isLoading: boolean
+    isError: boolean
+    docs: IPost[]
+    limit: number
+    offset: number
+    total: number
+  }
+  groups: {
+    isLoading: boolean
+    isError: boolean
+    docs: IGroup[]
+    limit: number
+    offset: number
+    total: number
+  }
+  users: {
+    isLoading: boolean
+    isError: boolean
+    docs: IUser[]
+    limit: number
+    offset: number
+    total: number
+  }
+}
+
 const RESULTS_LIMIT = 50
 
 export const SearchPage: FC<{
   initialTab?: Tabs
   tags?: string[]
-}> = ({ initialTab = Tabs.posts, tags = [] }) => {
+  users?: string[]
+}> = ({ initialTab = Tabs.posts, tags = [], users = [] }) => {
   const { t, i18n } = useTranslation('searchPage')
   const [tab, setTab] = useState<Tabs>(initialTab)
-  const [state, setState] = useState<{
-    search: {
-      tags: string[]
-      users: string[]
-    }
-    suggestions: {
-      isLoading: boolean
-      records: string[]
-    }
-    posts: {
-      isLoading: boolean
-      isError: boolean
-      docs: IPost[]
-      limit: number
-      offset: number
-      total: number
-    }
-    groups: {
-      isLoading: boolean
-      isError: boolean
-      docs: IGroup[]
-      limit: number
-      offset: number
-      total: number
-    }
-    users: {
-      isLoading: boolean
-      isError: boolean
-      docs: IUser[]
-      limit: number
-      offset: number
-      total: number
-    }
-  }>({
+  const [state, setState] = useState<ISeachPageState>({
     search: {
       tags,
-      users: [],
+      users,
     },
     suggestions: {
       isLoading: false,
       records: [],
+      type: SuggestionTypes.tags as keyof typeof SuggestionTypes,
     },
     posts: {
       isLoading: false,
@@ -108,7 +113,7 @@ export const SearchPage: FC<{
     const hasUsers = state.search.users.length > 0
 
     if (!hasTags && !hasUsers) {
-      setState((state) => ({
+      setState((state: ISeachPageState) => ({
         ...state,
         posts: {
           isLoading: false,
@@ -138,7 +143,7 @@ export const SearchPage: FC<{
       return
     }
 
-    setState((state) => ({
+    setState((state: ISeachPageState) => ({
       ...state,
       posts: {
         isLoading: true,
@@ -175,7 +180,7 @@ export const SearchPage: FC<{
       50,
       true
     ).then((response) => {
-      setState((state) => ({
+      setState((state: ISeachPageState) => ({
         ...state,
         posts: {
           isLoading: false,
@@ -198,7 +203,7 @@ export const SearchPage: FC<{
 
         return group
       })
-      setState((state) => ({
+      setState((state: ISeachPageState) => ({
         ...state,
         groups: {
           isLoading: false,
@@ -210,7 +215,7 @@ export const SearchPage: FC<{
 
     // fetch users
     fetchTaggedUsers(state.search.tags, 0, 50).then((response) => {
-      setState((state) => ({
+      setState((state: ISeachPageState) => ({
         ...state,
         users: {
           isLoading: false,
@@ -257,7 +262,7 @@ export const SearchPage: FC<{
   const changePostsPage = useCallback((page: number) => {
     const offset = page * RESULTS_LIMIT
 
-    setState((state) => ({
+    setState((state: ISeachPageState) => ({
       ...state,
       posts: {
         ...state.posts,
@@ -290,7 +295,7 @@ export const SearchPage: FC<{
   const changeGroupsPage = useCallback((page: number) => {
     const offset = page * RESULTS_LIMIT
 
-    setState((state) => ({
+    setState((state: ISeachPageState) => ({
       ...state,
       groups: {
         ...state.groups,
@@ -323,7 +328,7 @@ export const SearchPage: FC<{
   const changeUsersPage = useCallback((page: number) => {
     const offset = page * RESULTS_LIMIT
 
-    setState((state) => ({
+    setState((state: ISeachPageState) => ({
       ...state,
       users: {
         ...state.users,
@@ -333,39 +338,75 @@ export const SearchPage: FC<{
   }, [])
 
   const tagsSuggestionsAbortController = useRef<AbortController>()
-  const onFindTags = useCallback((text: string) => {
-    setState((state) => ({
-      ...state,
-      suggestions: {
-        isLoading: true,
-        records: [],
-      },
-    }))
-
-    const controller = new AbortController()
-    const { signal } = controller
-
-    tagsSuggestionsAbortController.current = controller
-
-    findTagsAPI(text, signal).then((records: string[]) => {
-      setState((state) => ({
+  const onFindTags = useCallback(
+    (text: string, type: keyof typeof SuggestionTypes) => {
+      setState((state: ISeachPageState) => ({
         ...state,
         suggestions: {
-          isLoading: false,
-          records,
+          isLoading: true,
+          records: [],
+          type,
         },
       }))
-    })
-  }, [])
+
+      const controller = new AbortController()
+      const { signal } = controller
+
+      tagsSuggestionsAbortController.current = controller
+
+      const callback = (records: string[]) => {
+        setState((state: ISeachPageState) => ({
+          ...state,
+          suggestions: {
+            isLoading: false,
+            records,
+            type,
+          },
+        }))
+      }
+
+      switch (type) {
+        case SuggestionTypes.tags:
+          findTagsAPI(text, signal).then(callback)
+          break
+
+        case SuggestionTypes.users:
+          findbyUsernameAPI(text, signal)
+            .then((results: IUser[]) => {
+              return results.map((user: IUser) => user.username)
+            })
+            .then(callback)
+          break
+      }
+    },
+    []
+  )
 
   const onTagAdd = useCallback((tag: string) => {
-    setState((state) => ({
-      ...state,
-      search: {
-        ...state.search,
-        tags: [...state.search.tags, tag],
-      },
-    }))
+    setState((state: ISeachPageState) => {
+      switch (state.suggestions.type) {
+        case SuggestionTypes.tags:
+          return {
+            ...state,
+            search: {
+              ...state.search,
+              tags: [...state.search.tags, tag],
+            },
+          }
+
+        case SuggestionTypes.users:
+          return {
+            ...state,
+            search: {
+              ...state.search,
+              users: [...state.search.users, tag],
+            },
+          }
+
+        default:
+          return state
+      }
+    })
   }, [])
 
   const onTagRemove = useCallback(
@@ -376,7 +417,7 @@ export const SearchPage: FC<{
       if (index > -1) {
         tags.splice(index, 1)
 
-        setState((state) => ({
+        setState((state: ISeachPageState) => ({
           ...state,
           search: {
             ...state.search,
@@ -412,11 +453,13 @@ export const SearchPage: FC<{
             onTagAdd={onTagAdd}
             onTagRemove={onTagRemove}
             suggestions={state.suggestions.records}
+            suggestionsType={state.suggestions.type}
             isLoading={state.suggestions.isLoading}
             onLoadSuggestion={onFindTags}
             onQueryChange={() => null}
             onLoadSuggestionCancel={onLoadSuggestionCancel}
             tags={state.search.tags}
+            users={state.search.users}
           />
         </div>
         {state.search.tags.length > 0 && (

@@ -2,6 +2,7 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/inputs.scss';
+@import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .searchBar {
   position: relative;
@@ -48,15 +49,27 @@
     .suggestions {
       position: absolute;
       left: 0;
-      bottom: -50px;
+      top: 36px;
       width: 100%;
       padding: 10px;
       min-height: 50px;
-      background-color: $theme7;
+      background-color: $theme0;
+      @include z-index(searchBar);
+      border-left: 2px solid $theme4;
+      border-right: 2px solid $theme4;
+      border-bottom: 2px solid $theme4;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
 
       button.tag {
         &:first-child {
           margin-left: 0;
+        }
+      }
+
+      ul {
+        li {
+          margin-bottom: 5px;
         }
       }
     }
