@@ -1,6 +1,6 @@
 {
   "name": "@gtms/api-auth",
-  "version": "0.13.10",
+  "version": "0.13.11",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
