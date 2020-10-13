@@ -20,7 +20,7 @@ export const PostCreate: FC<{
   additionalStyles?: string
   onSubmit: (text: string) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
-  fetchUsers: (query: string, signal: AbortSignal) => Promise<string[]>
+  fetchUsers: (query: string, signal: AbortSignal) => Promise<IUser[]>
   fetchSuggestedTags?: (tags: string[]) => Promise<string[]>
   isLoading?: boolean
   hintMinLenght?: number
@@ -136,21 +136,39 @@ export const PostCreate: FC<{
 
       tagsSuggestionsAbortController.current = controller
 
-      const method = query.type === 'user' ? fetchUsers : fetchTags
+      switch (query.type) {
+        case 'user':
+          fetchUsers(queryToFind, signal)
+            .then((users: IUser[]) => {
+              setTagsHints({
+                isLoading: false,
+                tags: users.map((user) => user.username),
+              })
+            })
+            .catch(() => {
+              setTagsHints({
+                isLoading: false,
+                tags: [],
+              })
+            })
+          break
 
-      method(queryToFind, signal)
-        .then((tags: string[]) => {
-          setTagsHints({
-            isLoading: false,
-            tags,
-          })
-        })
-        .catch(() => {
-          setTagsHints({
-            isLoading: false,
-            tags: [],
-          })
-        })
+        case 'tag':
+          fetchTags(queryToFind, signal)
+            .then((tags: string[]) => {
+              setTagsHints({
+                isLoading: false,
+                tags,
+              })
+            })
+            .catch(() => {
+              setTagsHints({
+                isLoading: false,
+                tags: [],
+              })
+            })
+          break
+      }
     },
     [tagsSuggestionsAbortController, query]
   )
