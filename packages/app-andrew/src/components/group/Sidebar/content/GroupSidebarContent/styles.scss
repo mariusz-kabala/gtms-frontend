@@ -52,37 +52,6 @@
     }
   }
 
-  .navmock {
-    display: flex;
-    align-items: center;
-    height: 100%;
-
-    .item {
-      display: flex;
-      align-items: center;
-      padding: 10px 8px;
-      color: $theme0;
-      @include font-size(xxs);
-      @include font-weight(semiBold);
-      text-transform: uppercase;
-      opacity: 0.9;
-      cursor: pointer;
-
-      &:hover {
-        opacity: 1;
-      }
-
-      span {
-        margin-left: 5px;
-      }
-
-      i {
-        line-height: 0;
-        @include font-size(sm);
-      }
-    }
-  }
-
   .joinLeaveButton,
   .settingsButton,
   .followButton,

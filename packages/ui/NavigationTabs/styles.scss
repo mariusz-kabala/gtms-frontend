@@ -10,7 +10,7 @@
 
   h2 {
     @include font-weight(semiBold);
-    @include font-size(xmd);
+    @include font-size(md);
     text-transform: uppercase;
   }
 

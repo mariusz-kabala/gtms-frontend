@@ -16,10 +16,12 @@
   }
 
   .groupContent {
+    display: flex;
     width: 100%;
 
     .groupPostsListWrapper {
       width: 100%;
+      max-width: 450px;
 
       .navigation {
         padding: 5px;
@@ -27,7 +29,7 @@
 
       .posts {
         display: flex;
-        padding: 0 5px;
+        padding: 0 $gutter;
 
         > div {
           width: 100%;
@@ -44,7 +46,7 @@
 
         .post {
           padding: 5px;
-          margin-bottom: 5px;
+          margin-bottom: $gutter;
           box-shadow: 2px 2px 30px 0px rgba(0, 0, 0, 0.1);
 
           &:hover {
@@ -64,8 +66,9 @@
       }
 
       .noPostsFound {
-        margin: 10px;
+        margin: 0 $gutter;
         padding: 20px;
+        border-radius: $borderRadius;
         background: white;
 
         .postCreate {
@@ -89,6 +92,41 @@
         justify-content: center;
         margin: 30px 0;
       }
+    }
+
+    .rightColumn {
+      width: 100%;
+      margin-right: $gutter;
+    }
+  }
+}
+
+.navmock {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  .item {
+    display: flex;
+    align-items: center;
+    padding: 10px 8px;
+    @include font-size(xxs);
+    @include font-weight(semiBold);
+    text-transform: uppercase;
+    opacity: 0.9;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    span {
+      margin-left: 5px;
+    }
+
+    i {
+      line-height: 0;
+      @include font-size(sm);
     }
   }
 }

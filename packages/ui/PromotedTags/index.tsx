@@ -44,10 +44,7 @@ export const PromotedTags: FC<{
   }, [onNoRecordsClick])
 
   return (
-    <div
-      className={cx(styles.wrapper, additionalStyles)}
-      data-testid="promoted-tags"
-    >
+    <div className={additionalStyles} data-testid="promoted-tags">
       {isLoading && <Spinner />}
 
       <div className={cx(styles.items)}>

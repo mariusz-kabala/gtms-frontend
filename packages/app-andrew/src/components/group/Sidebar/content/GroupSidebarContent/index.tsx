@@ -15,7 +15,6 @@ import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 // ui
 import { IoMdGrid } from 'react-icons/io'
-import { GoDatabase, GoGitCompare, GoGift } from 'react-icons/go'
 import { Button } from '@gtms/ui/Button'
 import { SearchBar } from '@gtms/ui/SearchBar'
 // styles
@@ -70,29 +69,6 @@ export const GroupSidebarContent: FC<{}> = ({ isSidebarOpen }) => {
         </i>
         <span>Tags</span>
       </Button>
-      <ul className={styles.navmock}>
-        <li className={styles.item}>
-          <i>
-            <GoDatabase />
-          </i>
-          <span>Users</span>
-        </li>
-        <li className={styles.item}>
-          <i>
-            <GoGitCompare />
-          </i>
-          <span>Tags</span>
-        </li>
-        <li
-          className={styles.item}
-          onClick={() => state.group && toggleGroupSidebar(state.group.id)}
-        >
-          <i>
-            <GoGift />
-          </i>
-          <span>Posts</span>
-        </li>
-      </ul>
       {/* <GroupMembers additionalStyles={styles.groupMembers} {...state.members} /> */}
       <SearchBar
         additionalStyles={styles.search}

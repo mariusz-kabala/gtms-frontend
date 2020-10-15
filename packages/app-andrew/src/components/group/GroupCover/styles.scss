@@ -3,7 +3,7 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 
 .wrapper {
-  margin: 5px;
+  margin: $gutter;
   margin-top: 0;
 
   .cover {

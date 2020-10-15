@@ -56,6 +56,7 @@ import {
 } from '@gtms/state-comment'
 import { changePageBackground, changePageBackgroundImage } from 'state'
 // ui
+import { GoDatabase, GoGitCompare, GoGift } from 'react-icons/go'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Pagination } from '@gtms/ui/Pagination'
@@ -280,18 +281,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <GroupSidebar isSidebarOpen={isSidebarOpen}>
               <GroupSidebarContent isSidebarOpen={isSidebarOpen} />
             </GroupSidebar>
+            <GroupCover
+              group={state.group}
+              isEditAllowed={groupQuery.hasAdminRights()}
+            />
             <div className={styles.groupContent}>
-              <GroupCover
-                group={state.group}
-                isEditAllowed={groupQuery.hasAdminRights()}
-              />
               <div className={styles.groupPostsListWrapper}>
-                {showPromoted && (
-                  <PromotedTags
-                    onTagClick={(tag) => onClick({ tag: tag.tag })}
-                    ref={promotedTagsRef}
-                  />
-                )}
                 {state && state.posts && state.posts.length === 0 && (
                   <div className={styles.noPostsFound}>
                     <div>
@@ -306,7 +301,33 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   </div>
                 )}
                 {state && state.posts && state.posts.length > 0 && (
-                  <>
+                  <div className={styles.leftColumn}>
+                    <ul className={styles.navmock}>
+                      <li className={styles.item}>
+                        <i>
+                          <GoDatabase />
+                        </i>
+                        <span>Users</span>
+                      </li>
+                      <li className={styles.item}>
+                        <i>
+                          <GoGitCompare />
+                        </i>
+                        <span>Tags</span>
+                      </li>
+                      <li
+                        className={styles.item}
+                        onClick={() =>
+                          state.group && toggleGroupSidebar(state.group.id)
+                        }
+                      >
+                        <i>
+                          <GoGift />
+                        </i>
+                        <span>Posts</span>
+                      </li>
+                    </ul>
+
                     <NavigationTabs additionalStyles={styles.navigation}>
                       <h2 className={styles.header}>Posts</h2>
                       <ul>
@@ -396,7 +417,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         />
                       )}
                     </div>
-                  </>
+                  </div>
+                )}
+              </div>
+              <div className={styles.rightColumn}>
+                {!showPromoted && (
+                  <PromotedTags
+                    onTagClick={(tag) => onClick({ tag: tag.tag })}
+                    ref={promotedTagsRef}
+                  />
                 )}
               </div>
             </div>
