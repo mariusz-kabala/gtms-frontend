@@ -45,28 +45,35 @@ export const RecentlyCreatedGroups: FC<{
         })}
       >
         {groupCard.current && (
-          <GroupCard
-            isLoading={groupCard.isLoading}
-            onClose={() =>
-              setGroupCard({
-                isLoading: false,
-                isOpen: false,
-                users: [],
-                current: undefined,
-              })
-            }
-            members={groupCard.users}
-            name={groupCard.current.name}
-            description={groupCard.current.description}
-            tags={groupCard.current.tags || []}
-            slug={groupCard.current.slug}
-            noUserAvatar={UserAvatarNoImage}
-            logo={getImage(
-              '200x200',
-              groupCard.current.avatar,
-              GroupAvatarNoImage
-            )}
-          />
+          <>
+            <style global jsx>{`
+              body {
+                padding-bottom: 150px;
+              }
+            `}</style>
+            <GroupCard
+              isLoading={groupCard.isLoading}
+              onClose={() =>
+                setGroupCard({
+                  isLoading: false,
+                  isOpen: false,
+                  users: [],
+                  current: undefined,
+                })
+              }
+              members={groupCard.users}
+              name={groupCard.current.name}
+              description={groupCard.current.description}
+              tags={groupCard.current.tags || []}
+              slug={groupCard.current.slug}
+              noUserAvatar={UserAvatarNoImage}
+              logo={getImage(
+                '200x200',
+                groupCard.current.avatar,
+                GroupAvatarNoImage
+              )}
+            />
+          </>
         )}
       </div>
       {groupsToRender.map((group) => {

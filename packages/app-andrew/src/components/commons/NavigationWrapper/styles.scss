@@ -3,9 +3,10 @@
 
 .mainNavigationWrapper {
   min-width: 40px;
-  margin: 0 20px;
-  margin-right: 5px;
   @include z-index(mainNavigation);
+  margin-right: 20px;
+  background-color: #141414;
+  cursor: pointer;
 
   .centerIt {
     position: fixed;

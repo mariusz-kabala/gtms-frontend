@@ -4,19 +4,9 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  display: flex;
-  align-items: center;
   width: 100%;
 
   &.collapsed {
-    .navmock {
-      .item {
-        span {
-          display: none;
-        }
-      }
-    }
-
     .joinLeaveButton,
     .settingsButton,
     .followButton,
@@ -56,16 +46,11 @@
   .settingsButton,
   .followButton,
   .favsButton {
-    margin: 10px;
+    margin: 5px;
   }
 
   .groupMembers {
     width: 100%;
     padding: 10px;
-  }
-
-  .search {
-    margin-left: 10px;
-    margin-right: 5px;
   }
 }

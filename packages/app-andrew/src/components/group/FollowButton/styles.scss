@@ -11,10 +11,9 @@
     @include buttonWithIcon();
     @include buttonWithSpinner();
     @include font-weight(normal);
-    color: $theme9;
+    color: $theme0;
 
     i {
-      @include font-size(xmd);
       margin-right: 5px;
     }
 

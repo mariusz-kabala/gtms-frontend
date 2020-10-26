@@ -5,10 +5,9 @@
   @include buttonDefault();
   @include buttonWithIcon();
   @include buttonWithSpinner();
-  color: $theme9;
+  color: $theme0;
 
   i {
-    @include font-size(xmd);
     margin-right: 5px;
   }
 

@@ -29,9 +29,7 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
     <>
       <div
         data-testid="home-page"
-        className={cx(styles.pageWrapper, {
-          [styles.isLoggedIn]: true,
-        })}
+        className={styles.pageWrapper}
       >
         {isModalOpen && (
           <Modal onClose={() => setIsModalOpen(false)}>

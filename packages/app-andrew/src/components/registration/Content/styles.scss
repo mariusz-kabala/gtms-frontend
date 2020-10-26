@@ -6,7 +6,8 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper();
+  @include pageWrapper('loginRegister');
+  width: 100%;
 }
 
 .wrapper {
@@ -26,7 +27,7 @@
     > div {
       padding: 20px;
       border-radius: $borderRadius;
-      background: $theme0;
+      background: $black;
 
       .headerWrapper {
         display: flex;
@@ -60,7 +61,7 @@
           position: relative;
           z-index: 1;
           padding: 0 10px;
-          background: $theme0;
+          background: $black;
           color: $theme9;
         }
 
@@ -71,7 +72,7 @@
           left: 0;
           width: 100%;
           height: 1px;
-          background: $theme1;
+          background: $theme7;
         }
       }
 

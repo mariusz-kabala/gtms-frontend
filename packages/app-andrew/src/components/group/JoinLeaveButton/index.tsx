@@ -71,12 +71,16 @@ export const JoinLeaveButton: FC<{
       {(status.isLoading || isLoading) && <Spinner />}
       {status.canJoinGroup || !userQuery.isLogged() ? (
         <>
-          <IoIosHeart />
+          <i>
+            <IoIosHeart />
+          </i>
           <span>{t('join-this-group')}</span>
         </>
       ) : (
         <>
-          <IoIosHeart />
+          <i>
+            <IoIosHeart />
+          </i>
           <span>{t('leave-this-group')}</span>
         </>
       )}

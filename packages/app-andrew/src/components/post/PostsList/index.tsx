@@ -180,6 +180,12 @@ export const PostsList: FC<{
         onClose={onCloseReportAbuse}
       />
       {userPreview && (
+        <>
+        <style global jsx>{`
+          body {
+            padding-bottom: 150px;
+          }
+        `}</style>        
         <div
           className={cx(styles.userPreviewWrapper, {
             [styles.active]: userPreview,
@@ -192,6 +198,7 @@ export const PostsList: FC<{
             onClose={onCloseUserPreview}
           />
         </div>
+        </>
       )}
       {showGroupPreview && (
         <div
@@ -200,21 +207,28 @@ export const PostsList: FC<{
           })}
         >
           {groupPreview.current && (
-            <GroupCard
-              isLoading={groupPreview.isLoading}
-              onClose={onCloseGroupPreview}
-              members={groupPreview.users}
-              name={groupPreview.current.name}
-              description={groupPreview.current.description}
-              tags={groupPreview.current.tags || []}
-              slug={groupPreview.current.slug}
-              noUserAvatar={UserAvatarNoImage}
-              logo={getImage(
-                '200x200',
-                groupPreview.current.avatar,
-                GroupAvatarNoImage
-              )}
-            />
+            <>
+              <style global jsx>{`
+                body {
+                  padding-bottom: 150px;
+                }
+              `}</style>            
+              <GroupCard
+                isLoading={groupPreview.isLoading}
+                onClose={onCloseGroupPreview}
+                members={groupPreview.users}
+                name={groupPreview.current.name}
+                description={groupPreview.current.description}
+                tags={groupPreview.current.tags || []}
+                slug={groupPreview.current.slug}
+                noUserAvatar={UserAvatarNoImage}
+                logo={getImage(
+                  '200x200',
+                  groupPreview.current.avatar,
+                  GroupAvatarNoImage
+                )}
+              />
+            </>
           )}
         </div>
       )}

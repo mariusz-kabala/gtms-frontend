@@ -13,7 +13,7 @@ import { IGroup } from '@gtms/commons/models'
 //ui
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
-import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
+import { IoIosHeart } from 'react-icons/io'
 import styles from './styles.scss'
 
 export const FavsButton: FC<{
@@ -71,7 +71,7 @@ export const FavsButton: FC<{
       {((!status.isLoading && !status.isInFavs) || !userQuery.isLogged()) && (
         <>
           <i>
-            <IoIosHeartEmpty />
+            <IoIosHeart />
           </i>{' '}
           <span>{t('add-to-favs')}</span>
         </>

@@ -16,7 +16,6 @@ import { SettingsButton } from 'components/group/SettingsButton'
 // ui
 import { IoMdGrid } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
-import { SearchBar } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
 
@@ -45,7 +44,7 @@ export const GroupSidebarContent: FC<{}> = ({ isSidebarOpen }) => {
         [styles.collapsed]: !isSidebarOpen,
       })}
     >
-      {/* <FavsButton additionalStyles={styles.favsButton} group={state.group} />
+      <FavsButton additionalStyles={styles.favsButton} group={state.group} />
       <JoinLeaveButton
         additionalStyles={styles.joinLeaveButton}
         group={state.group}
@@ -57,7 +56,7 @@ export const GroupSidebarContent: FC<{}> = ({ isSidebarOpen }) => {
       <FollowButton
         additionalStyles={styles.followButton}
         group={state.group}
-      /> */}
+      />
       <Button
         additionalStyles={cx(styles.btnTags, {
           [styles.active]: false,
@@ -70,16 +69,6 @@ export const GroupSidebarContent: FC<{}> = ({ isSidebarOpen }) => {
         <span>Tags</span>
       </Button>
       {/* <GroupMembers additionalStyles={styles.groupMembers} {...state.members} /> */}
-      <SearchBar
-        additionalStyles={styles.search}
-        onTagAdd={() => null}
-        onTagRemove={() => null}
-        onLoadSuggestion={() => null}
-        onQueryChange={() => null}
-        onLoadSuggestionCancel={() => null}
-        tags={state.activeTags || []}
-        users={state.activeUsers}
-      />
     </div>
   )
 }

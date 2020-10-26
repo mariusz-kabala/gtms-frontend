@@ -10,10 +10,6 @@
 .pageWrapper {
   background: #fffbf2;
   max-width: 100%;
-
-  &.isLoggedIn {
-    margin-left: -65px;
-  }
 }
 
 .welcomeSlider {
@@ -27,9 +23,7 @@
 
   .sections {
     width: 100%;
-    padding-top: 10px;
-    padding-left: 80px;
-    padding-right: 30px;
+    padding: 10px 30px;
 
     .headerWrapper {
       position: sticky;

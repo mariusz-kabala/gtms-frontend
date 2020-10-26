@@ -7,87 +7,50 @@
 
 .wrapper {
   position: relative;
-  cursor: pointer;
+  display: flex;
+  padding: 5px;
+  margin: 10px;
   border-radius: $borderRadius;
-  background: $theme0;
+  color: $theme3;
+  cursor: pointer;
 
-  .header {
-    display: flex;
-    align-items: center;
-    @include font-weight(normal);
-
-    .user {
-      display: flex;
-      align-items: center;
-
-      // @todo create mixin with highlighted text
-      &:hover {
-        color: $theme4;
-      }
-
-      .userAvatar {
-        width: 35px;
-        height: 35px;
-        min-width: 35px;
-        min-height: 35px;
-        border: 2px solid $theme0;
-        border-radius: 50%;
-
-        &:hover {
-          border-color: $theme4;
-        }
-      }
-
-      .date {
-        @include font-weight(semiNormal);
-      }
-
-      span {
-        margin-left: 5px;
-
-        &:hover {
-          color: $theme4;
-        }
-      }
-    }
-
-    .actionButtons {
-      display: flex;
-      margin-left: auto;
-    }
-
-    .deleteBtn {
-      opacity: 0;
-      margin-left: auto;
-    }
+  .userAvatar {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+    margin-right: 5px;
+    border-radius: 50%;
   }
 
-  .desc {
-    .response {
-      margin: 10px 0;
-    }
-
-    .text {
-      margin-top: 5px;
-      @include font-size(sm);
-
-      > * {
-        white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
-      }
-    }
-
-    .tagGroup {
-      margin: 10px 0;
-
-      .activeTag {
-        background-color: $theme4;
-        color: $theme0;
-      }
-    }
+  .userName {
+    @include font-size(xs);
+    text-transform: uppercase;
+    color: $theme3;
   }
 
-  .postResponseCreate {
-    margin-top: 10px;
+  .date {
+    margin-left: 5px;
+    @include font-size(xxs);
+    @include font-weight(semiNormal);
+    color: $theme3;
+  }
+  
+  .message {
+    @include font-size(xxs);
+  }
+
+  .deleteBtn {
+    opacity: 0;
+    margin-left: auto;
+  }
+
+  .text {
+    margin-top: 5px;
+
+    > * {
+      white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
+    }
   }
 
   &:hover {
@@ -102,6 +65,7 @@
 .btns {
   display: flex;
   margin-top: 10px;
+  display: none;
 
   .respondBtn {
     @include buttonDefault();

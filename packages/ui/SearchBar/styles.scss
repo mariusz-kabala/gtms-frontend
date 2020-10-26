@@ -20,21 +20,24 @@
       position: absolute;
       top: 6px;
       left: 5px;
-      color: $theme9;
       line-height: 0;
     }
 
     input[type='text'] {
-      display: block;
       width: 100%;
       padding-left: 22px;
       border: none;
       border-radius: $borderRadius;
-      background: $theme0;
+      background: $theme9;
+
+      &::placeholder {
+        color: $theme0;
+      }
 
       &:active,
       &:focus,
       &:hover {
+        background: $theme0;
         outline: none;
 
         i {

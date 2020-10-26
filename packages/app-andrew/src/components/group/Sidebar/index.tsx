@@ -42,34 +42,34 @@ export const GroupSidebar: FC<{}> = ({ children, isSidebarOpen }) => {
       })}
       ref={groupHeaderRef}
     >
-      <GroupAvatar
-        additionalStyles={styles.groupAvatar}
-        files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
-        filesStatus={groupQuery.getAvatarFileStatus()}
-        isEditAllowed={groupQuery.hasAdminRights()}
-      />
-      <div className={styles.content}>
+      <div className={styles.avatarAndName}>
+        <GroupAvatar
+          additionalStyles={styles.groupAvatar}
+          files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
+          filesStatus={groupQuery.getAvatarFileStatus()}
+          isEditAllowed={groupQuery.hasAdminRights()}
+        />
         <h2
           className={styles.header}
           data-tip={t('click-here-to-edit')}
           data-type="dark"
         >
           {state.group?.name}
-        </h2>
-        <GroupDescription
-          additionalStyles={styles.desc}
-          isEditAllowed={groupQuery.hasAdminRights()}
-          slug={state.group?.slug || ''}
-          text={
-            !state.group?.description
-              ? groupQuery.hasAdminRights()
-                ? 'you did not add group description yet, click here to change it'
-                : ''
-              : state.group?.description || ''
-          }
-        />
-        {children}
+        </h2>        
       </div>
+      {/* <GroupDescription
+        additionalStyles={styles.desc}
+        isEditAllowed={groupQuery.hasAdminRights()}
+        slug={state.group?.slug || ''}
+        text={
+          !state.group?.description
+            ? groupQuery.hasAdminRights()
+              ? 'you did not add group description yet, click here to change it'
+              : ''
+            : state.group?.description || ''
+        }
+      /> */}
+      {children}
     </div>
   )
 }

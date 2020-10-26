@@ -1,20 +1,17 @@
 @mixin pageWrapper($bg: null) {
   position: relative;
-  width: 100%;
-  max-width: 970px;
   margin: 15px;
-  border-radius: $borderRadius;
+  border-radius: $borderRadius2;
 
   @if $bg == 'bgdefault' {
-    background: $theme0;
+    background: $black;
   }
 
   @if $bg == 'bgdefaultWithOpacity' {
-    background: rgba($theme0, 0.85);
+    background: rgba($theme0, 0.95);
   }
 
   @if $bg == 'loginRegister' {
-    max-width: initial;
     margin: initial;
   }
 }

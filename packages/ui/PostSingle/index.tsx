@@ -97,39 +97,26 @@ export const PostSingle: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="post-single"
     >
-      <div className={styles.header}>
-        {group && typeof group !== 'string' && (
-          <GroupDetails onGroupClick={onOpenGroupPreview} group={group} />
-        )}
-        <div className={styles.user}>
-          <UserAvatar
-            onClick={onUserClickCallback}
-            image={getImage('35x35', owner.avatar, noImage)}
-            additionalStyles={styles.userAvatar}
-          />
-          <>
-            <a onClick={onUserClickCallback}>
-              <span>{getDisplayName(owner)}</span>
-            </a>
-            <a onClick={onClickCallback}>
-              <span className={styles.date}>
-                {formatDistance(new Date(createdAt), new Date(), {
-                  locale: pl,
-                })}
-              </span>
-            </a>
-          </>
-        </div>
-        <div className={styles.actionButtons}>
-          {owner.id === user?.id && (
-            <DeletePost additionalStyles={styles.deleteBtn} />
-          )}
-          {renderFavs && renderFavs(favs, id)}
-          {renderMenu && renderMenu(id)}
-        </div>
-      </div>
-      <div className={styles.desc}>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+      {group && typeof group !== 'string' && (
+        <GroupDetails onGroupClick={onOpenGroupPreview} group={group} />
+      )}
+      <UserAvatar
+        onClick={onUserClickCallback}
+        image={getImage('35x35', owner.avatar, noImage)}
+        additionalStyles={styles.userAvatar}
+      />        
+      <div>
+        <a className={styles.userName} onClick={onUserClickCallback}>
+          <span>{getDisplayName(owner)}</span>
+        </a>
+        <a className={styles.date} onClick={onClickCallback}>
+          <span>
+            {formatDistance(new Date(createdAt), new Date(), {
+              locale: pl,
+            })}
+          </span>
+        </a>
+        <div className={styles.message} dangerouslySetInnerHTML={{ __html: html }} />
         {images.length > 0 && (
           <ul className={styles.images}>
             {images.map((img, index) => (
@@ -152,7 +139,7 @@ export const PostSingle: FC<{
           </ul>
         )}
         {tags.length > 0 && (
-          <TagGroup additionalStyles={styles.tagGroup}>
+          <TagGroup>
             {tags.map((tag) => (
               <Tag
                 onClick={() => onTagClick && onTagClick(tag)}
@@ -169,7 +156,6 @@ export const PostSingle: FC<{
           <>
             {firstComments.map((comment) => (
               <PostResponse
-                additionalStyles={styles.response}
                 createdAt={comment.createdAt}
                 html={comment.html}
                 key={`comment-${comment.id}`}
@@ -183,7 +169,6 @@ export const PostSingle: FC<{
         {isAnswerFormOpen && allowToRespond && (
           <div ref={commentForm}>
             <PostCreate
-              additionalStyles={styles.postResponseCreate}
               onSubmit={(text) => {
                 createComment({
                   text,
@@ -196,9 +181,9 @@ export const PostSingle: FC<{
               noImage={noImage}
             />
           </div>
-        )}
+        )}           
       </div>
-      <div className={styles.btns}>
+      {/* <div className={styles.btns}>
         {allowToRespond && (user || onLoginRequest) && (
           <button
             className={styles.respondBtn}
@@ -221,7 +206,7 @@ export const PostSingle: FC<{
         <button className={styles.readMoreBtn} onClick={onClickCallback}>
           read more...
         </button>
-      </div>
+      </div> */}
       {lightboxState.isOpen && (
         <Lightbox
           enableZoom={false}
@@ -260,6 +245,13 @@ export const PostSingle: FC<{
           }
         />
       )}
+      {/* <div className={styles.actionButtons}>
+        {owner.id === user?.id && (
+          <DeletePost additionalStyles={styles.deleteBtn} />
+        )}
+        {renderFavs && renderFavs(favs, id)}
+        {renderMenu && renderMenu(id)}
+      </div> */}
     </div>
   )
 }

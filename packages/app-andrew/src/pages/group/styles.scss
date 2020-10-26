@@ -1,132 +1,107 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
   position: relative;
-  @include pageWrapper('bgdefaultWithOpacity');
-  width: 100%;
-  border-radius: $borderRadius;
-  overflow: hidden;
-  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.25);
-
-  .wrapper {
-    min-height: 100%;
-  }
-
-  .groupContent {
-    display: flex;
-    width: 100%;
-
-    .groupPostsListWrapper {
-      width: 100%;
-      max-width: 450px;
-
-      .navigation {
-        padding: 5px;
-      }
-
-      .posts {
-        display: flex;
-        padding: 0 $gutter;
-
-        > div {
-          width: 100%;
-        }
-
-        .postCreate {
-          display: flex;
-          padding: 5px;
-          border-radius: $borderRadius;
-          background: $theme0;
-          margin: 5px 0;
-          box-shadow: 2px 2px 30px 0px rgba(0, 0, 0, 0.1);
-        }
-
-        .post {
-          padding: 5px;
-          margin-bottom: $gutter;
-          box-shadow: 2px 2px 30px 0px rgba(0, 0, 0, 0.1);
-
-          &:hover {
-            border-color: $theme4;
-
-            .header {
-              .deleteBtn {
-                opacity: 0.8;
-              }
-            }
-          }
-        }
-
-        .postDetails {
-          margin-left: 10px;
-        }
-      }
-
-      .noPostsFound {
-        margin: 0 $gutter;
-        padding: 20px;
-        border-radius: $borderRadius;
-        background: white;
-
-        .postCreate {
-          background: $theme0;
-          padding: 10px;
-          border-radius: $borderRadius;
-        }
-
-        .header {
-          @include font-weight(semiNormal);
-          @include font-size(lg);
-          margin-bottom: 20px;
-
-          span {
-            @include font-weight(semiBold);
-          }
-        }
-      }
-
-      .pagination {
-        justify-content: center;
-        margin: 30px 0;
-      }
-    }
-
-    .rightColumn {
-      width: 100%;
-      margin-right: $gutter;
-    }
-  }
-}
-
-.navmock {
+  @include pageWrapper('bgdefault');
+  max-width: 1000px;
   display: flex;
-  align-items: center;
-  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.75);
+  
+  .sidebar {
+    max-width: 200px;
+  }
 
-  .item {
-    display: flex;
-    align-items: center;
-    padding: 10px 8px;
-    @include font-size(xxs);
-    @include font-weight(semiBold);
-    text-transform: uppercase;
-    opacity: 0.9;
-    cursor: pointer;
+  .left, .right {
+    border-radius: $borderRadius2;
+    overflow: hidden;
+  }
 
-    &:hover {
-      opacity: 1;
+  .left {
+    z-index: 7;
+    width: 600px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: $black;
+
+    .content {
+      display: flex;
+      
+      .tags {
+        width: 100%;
+        padding: 8px;
+      }
+    }
+  }
+  
+  .right {
+    position: absolute;
+    left: 500px;
+    width: 500px;
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.15);
+    background: $theme1;
+    transition: 1s ease;
+    z-index: 6;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    opacity: 1;
+
+    &.isLeftSideVisible {
+      left: 50px;
     }
 
-    span {
-      margin-left: 5px;
+    &.isRightSideVisible {
+      left: 0px;
+      opacity: 0;
     }
 
-    i {
-      line-height: 0;
-      @include font-size(sm);
+    .posts {
+      display: flex;
+
+      > div {
+        width: 100%;
+      }
+
+      .postCreate {
+        display: flex;
+        margin: 15px 10px;
+        border-radius: $borderRadius;
+      }
+
+      .postDetails {
+        margin-left: 10px;
+      }
+    }
+
+    .noPostsFound {
+      margin: 0 10px;
+      padding: 20px;
+      border-radius: $borderRadius;
+      background: white;
+
+      .postCreate {
+        padding: 10px;
+        border-radius: $borderRadius;
+      }
+
+      .header {
+        @include font-weight(semiNormal);
+        @include font-size(lg);
+        margin-bottom: 20px;
+
+        span {
+          @include font-weight(semiBold);
+        }
+      }
+    }
+
+    .pagination {
+      justify-content: center;
+      margin: 30px 0;
     }
   }
 }

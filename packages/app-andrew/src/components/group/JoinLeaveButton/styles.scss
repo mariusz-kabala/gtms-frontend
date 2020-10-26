@@ -4,6 +4,7 @@
 
 .btn {
   @include buttonDefault();
+  color: $theme0;
 
   &:hover {
     @include buttonColorBlue();

@@ -19,10 +19,11 @@ import styles from './styles.scss'
 
 type Ref = HTMLDivElement
 type Props = {
+  additionalStyles?: string
   onTagClick?: (tag: IPromotedTag) => unknown
 }
 
-export const PromotedTags = forwardRef<Ref, Props>(({ onTagClick }, ref) => {
+export const PromotedTags = forwardRef<Ref, Props>(({ additionalStyles, onTagClick }, ref) => {
   const [state, setState] = useState<IPromotedTagsState>(promotedTagsState())
   const [promotedTagEditor, setPromotedTagEditor] = useState<{
     isOpen: boolean
@@ -62,7 +63,7 @@ export const PromotedTags = forwardRef<Ref, Props>(({ onTagClick }, ref) => {
   }, [])
 
   return (
-    <div ref={ref}>
+    <div className={additionalStyles} ref={ref}>
       {!state.isLoading && state.tags.length === 0 && (
         <EmptyPromotedTags onAddClick={onAddTagClick} isAdmin={state.isAdmin} />
       )}

@@ -14,7 +14,14 @@
     min-height: 200px;
     overflow: hidden;
     border-radius: $borderRadius;
+    @include imageCover();
     cursor: pointer;
+
+    &:nth-child(4n+4),
+    &:nth-child(5n+5),
+    &:nth-child(6n+6) {
+      min-height: 100px;
+    }
 
     &:before {
       content: '';
@@ -68,6 +75,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
+      z-index: 1;
 
       ul {
         margin: 0;
@@ -90,11 +98,10 @@
   border-radius: $borderRadius;
   height: 210px; // @todo create variable for standard tag box
   cursor: pointer;
-  background: $theme13;
+  background: $theme3;
 
   &:hover {
     background: $theme4;
-    color: $theme0;
   }
 
   i {
@@ -109,8 +116,7 @@
   @include buttonWithIcon();
   @include buttonWithSpinner();
   @include buttonColorsDefault();
-  margin: auto;
-  margin-top: 20px;
+  margin: 20px auto;
 
   &:hover {
     @include buttonColorsPrimary();

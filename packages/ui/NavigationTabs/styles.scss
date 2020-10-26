@@ -3,38 +3,52 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: baseline;
-  color: $theme7;
-
   h2 {
+    display: flex;
+    align-items: center;
+    @include font-size(default);
     @include font-weight(semiBold);
-    @include font-size(md);
     text-transform: uppercase;
+    padding: 5px 8px;
+    margin-bottom: 5px;
+    border-radius: $borderRadius;
+    color: $theme0;
+    cursor: pointer;
+
+    &:hover {
+      color: $theme0;
+      background: $theme4;
+    }
+
+    &:first-child {
+      background: $theme4;
+      color: $theme0;
+    }
+
+    i {
+      margin-right: 5px;
+       @include font-size(xdefault);
+      line-height: 0;
+    }
   }
 
   ul {
-    display: flex;
-    margin-left: 10px;
-
     li {
-      margin-right: 5px;
       @include font-weight(light);
       cursor: pointer;
+      margin-bottom: 10px;
       line-height: 0.7;
-      padding: 8px;
-      border-radius: $borderRadius;
-      background: $theme13;
-
-      &:hover {
-        color: $theme0;
-        background: $theme4;
-      }
+      opacity: 0.75;
+      color: $theme0;
 
       &[class*='active'] {
         background: $theme4;
         color: $theme0;
+      }
+
+      &:hover {
+        color: $theme4;
+        opacity: 1;
       }
     }
   }

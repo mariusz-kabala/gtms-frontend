@@ -7,10 +7,10 @@ $mockDataColor1: rgba($theme0, 0.2);
 $mockDataColor2: rgba($theme0, 0.4);
 $mockDataColor3: rgba($theme0, 0.55);
 
-$mockDataColor0themeDark: $black;
-$mockDataColor1themeDark: rgba($black, 0.15);
-$mockDataColor2themeDark: rgba($black, 0.2);
-$mockDataColor3themeDark: rgba($black, 0.35);
+$mockDataColor0themeDark: $theme0;
+$mockDataColor1themeDark: rgba($theme0, 0.15);
+$mockDataColor2themeDark: rgba($theme0, 0.2);
+$mockDataColor3themeDark: rgba($theme0, 0.35);
 
 $mockDataSize1: 55px;
 

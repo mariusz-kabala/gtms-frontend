@@ -57,13 +57,13 @@ a {
 }
 
 a {
-  color: $black;
+  color: $theme0;
   text-decoration: none;
 
   &:link,
   &:visited,
   &:hover,
   &:active {
-    color: $black;
+    color: $white;
   }
 }

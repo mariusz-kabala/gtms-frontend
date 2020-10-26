@@ -1,23 +1,20 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
 
 .wrapper {
-  margin: $gutter;
-  margin-top: 0;
-
   .cover {
     @include imageCover();
-    min-height: 300px;
+    min-height: 250px;
     padding: 10px;
-    border-radius: $borderRadius;
 
     .btn {
       @include buttonDefault();
-      @include buttonSizeDefault();
+      @include buttonSizeSm();
       @include buttonShapeDefault();
       @include buttonWithIcon();
       @include buttonColorsDefault();
+      margin-left: auto;
 
       &:hover {
         @include buttonColorsPrimary();
