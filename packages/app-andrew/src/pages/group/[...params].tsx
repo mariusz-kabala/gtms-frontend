@@ -143,7 +143,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [showPromoted] = useState<boolean>(false)
   const [isLeftSideVisible, setIsLeftSideVisible] = useState<boolean>(false)
-  const [isRightSideVisible, setIsRightSideVisible] = useState<boolean>(true)
+  const [isRightSideVisible, setIsRightSideVisible] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
       sort,
@@ -279,7 +279,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       {state.hasNoAccess && <GroupNoAccess />}
 
       {state.group && (
-        <>    
+        <>
           <div className={styles.left}>
             <GroupCover
               group={state.group}
@@ -288,62 +288,62 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <div className={styles.content}>
               <div className={styles.sidebar}>
                 <GroupSidebar isSidebarOpen={isSidebarOpen}>
+                  <SearchBar
+                    additionalStyles={styles.search}
+                    onTagAdd={() => null}
+                    onTagRemove={() => null}
+                    onLoadSuggestion={() => null}
+                    onQueryChange={() => null}
+                    onLoadSuggestionCancel={() => null}
+                    tags={state.activeTags || []}
+                    users={state.activeUsers}
+                  />
+                  <NavigationTabs>
+                    <h2 className={cx(styles.header, styles.active)}>
+                      <i>
+                        <GoGitCompare />
+                      </i>
+                      Tags
+                    </h2>
+                    <h2 className={styles.header}>
+                      <i>
+                        <GoSettings />
+                      </i>
+                      Users
+                    </h2>
+                    {/* <ul>
+                      <li
+                        onClick={() => onClick({ sort: Sorting.latest })}
+                        className={cx({
+                          [styles.active]:
+                            state.postsSorting === Sorting.latest,
+                        })}
+                      >
+                        latest
+                      </li>
+                      <li
+                        onClick={() => onClick({ sort: Sorting.active })}
+                        className={cx({
+                          [styles.active]:
+                            state.postsSorting === Sorting.active,
+                        })}
+                      >
+                        active
+                      </li>
+                      <li
+                        onClick={() => onClick({ sort: Sorting.popular })}
+                        className={cx({
+                          [styles.active]:
+                            state.postsSorting === Sorting.popular,
+                        })}
+                      >
+                        popular
+                      </li>
+                      <li className={cx(styles.item)}>my</li>
+                    </ul> */}
+                  </NavigationTabs>
                   <GroupSidebarContent isSidebarOpen={isSidebarOpen} />
                 </GroupSidebar>
-                <NavigationTabs>
-                  <h2 className={cx(styles.header, styles.active)}>
-                    <i>
-                      <GoGitCompare />
-                    </i>
-                    Tags
-                  </h2>
-                  <h2 className={styles.header}>
-                    <i>
-                    <GoSettings />
-                    </i>
-                    Users
-                  </h2>
-                  <ul>
-                    <li
-                      onClick={() => onClick({ sort: Sorting.latest })}
-                      className={cx({
-                        [styles.active]:
-                          state.postsSorting === Sorting.latest,
-                      })}
-                    >
-                      latest
-                    </li>
-                    <li
-                      onClick={() => onClick({ sort: Sorting.active })}
-                      className={cx({
-                        [styles.active]:
-                          state.postsSorting === Sorting.active,
-                      })}
-                    >
-                      active
-                    </li>
-                    <li
-                      onClick={() => onClick({ sort: Sorting.popular })}
-                      className={cx({
-                        [styles.active]:
-                          state.postsSorting === Sorting.popular,
-                      })}
-                    >
-                      popular
-                    </li>
-                    <li className={cx(styles.item)}>my</li>
-                  </ul>
-                </NavigationTabs>                                            
-                <SearchBar
-                  additionalStyles={styles.search}
-                  onTagAdd={() => null}
-                  onTagRemove={() => null}
-                  onLoadSuggestion={() => null}
-                  onQueryChange={() => null}
-                  onLoadSuggestionCancel={() => null}
-                  tags={state.activeTags || []}
-                  users={state.activeUsers}
-                />
               </div>
               {!showPromoted && (
                 <>
@@ -361,19 +361,29 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </>
               )}
             </div>
-            <button onClick={() => {
-              setIsRightSideVisible(!isRightSideVisible)
-              setIsLeftSideVisible(false)
-            }}>lorem ipsum</button>
-            <button onClick={() => {
-              setIsLeftSideVisible(!isLeftSideVisible)
-              setIsRightSideVisible(false)
-            }}>dolorSitAmet</button>
+            <button
+              onClick={() => {
+                setIsRightSideVisible(!isRightSideVisible)
+                setIsLeftSideVisible(false)
+              }}
+            >
+              lorem ipsum
+            </button>
+            <button
+              onClick={() => {
+                setIsLeftSideVisible(!isLeftSideVisible)
+                setIsRightSideVisible(false)
+              }}
+            >
+              dolorSitAmet
+            </button>
           </div>
-          <div className={cx(styles.right, {
-            [styles.isLeftSideVisible]: isLeftSideVisible,
-            [styles.isRightSideVisible]: isRightSideVisible,
-          })}>
+          <div
+            className={cx(styles.right, {
+              [styles.isLeftSideVisible]: isLeftSideVisible,
+              [styles.isRightSideVisible]: isRightSideVisible,
+            })}
+          >
             {state && state.posts && state.posts.length === 0 && (
               <div className={styles.noPostsFound}>
                 <div>
@@ -414,8 +424,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                           createComment={createNewComment}
                           user={state.user}
                           additionalStyles={cx(styles.post, {
-                            [styles.active]:
-                              state.activePost?.id === post.id,
+                            [styles.active]: state.activePost?.id === post.id,
                           })}
                           {...post}
                           noImage={UserAvatarNoImage}

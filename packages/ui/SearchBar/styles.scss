@@ -1,6 +1,7 @@
 @import '@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/inputs.scss';
 
 .searchBar {
@@ -15,6 +16,8 @@
     width: 100%;
     min-height: 26px;
     height: 26px;
+    margin: 5px;
+    margin-bottom: 0px;
 
     i {
       position: absolute;
@@ -28,21 +31,19 @@
       padding-left: 22px;
       border: none;
       border-radius: $borderRadius;
-      background: $theme9;
+      background: $theme7;
 
       &::placeholder {
-        color: $theme0;
+        @include font-weight(light);
+        color: $theme3;
       }
 
       &:active,
       &:focus,
       &:hover {
+        color: $black;
         background: $theme0;
         outline: none;
-
-        i {
-          color: $theme4;
-        }
       }
     }
 

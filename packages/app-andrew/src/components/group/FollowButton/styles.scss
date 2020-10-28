@@ -8,9 +8,13 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonSizeSm();
+    @include buttonShapeDefault();
     @include buttonWithIcon();
     @include buttonWithSpinner();
-    @include font-weight(normal);
+    @include font-size(sm);
+    justify-content: flex-start;
+    width: 100%;
     color: $theme0;
 
     i {
@@ -18,7 +22,7 @@
     }
 
     &:hover {
-      @include buttonColorBlue();
+      @include buttonColorsPrimary();
     }
   }
 }

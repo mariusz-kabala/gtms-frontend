@@ -11,41 +11,42 @@
   display: flex;
   border-radius: 10px;
   box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.75);
-  
+
   .sidebar {
-    max-width: 200px;
+    width: 200px;
   }
 
-  .left, .right {
+  .left,
+  .right {
     border-radius: $borderRadius2;
     overflow: hidden;
   }
 
   .left {
-    z-index: 7;
-    width: 600px;
+    z-index: 3;
+    width: 500px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     background: $black;
 
     .content {
       display: flex;
-      
+
       .tags {
         width: 100%;
         padding: 8px;
       }
     }
   }
-  
+
   .right {
     position: absolute;
     left: 500px;
-    width: 500px;
+    width: 450px;
     box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.15);
     background: $theme1;
     transition: 1s ease;
-    z-index: 6;
+    z-index: 4;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     opacity: 1;

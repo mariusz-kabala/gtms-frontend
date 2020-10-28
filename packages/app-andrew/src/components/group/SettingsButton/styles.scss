@@ -6,17 +6,21 @@
 
   .btn {
     @include buttonDefault();
+    @include buttonSizeSm();
     @include buttonShapeDefault();
     @include buttonWithIcon();
-    color: $theme9;
+    @include buttonWithSpinner();
+    @include font-size(sm);
+    justify-content: flex-start;
+    width: 100%;
+    color: $theme0;
 
     i {
-      @include font-size(xmd);
       margin-right: 5px;
     }
 
     &:hover {
-      @include buttonColorBlue();
+      @include buttonColorsPrimary();
     }
   }
 }

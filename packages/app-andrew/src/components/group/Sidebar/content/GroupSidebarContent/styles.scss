@@ -7,17 +7,6 @@
   width: 100%;
 
   &.collapsed {
-    .joinLeaveButton,
-    .settingsButton,
-    .followButton,
-    .favsButton {
-      margin: 15px;
-
-      span {
-        display: none;
-      }
-    }
-
     .groupMembers {
       display: none;
     }
