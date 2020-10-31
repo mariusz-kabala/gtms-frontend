@@ -12,16 +12,42 @@
   border-radius: 10px;
 
   .columns {
-    display: grid;
+    display: flex;
     grid-gap: 10px;
 
     .column {
-      width: 450px;
       border-radius: $borderRadius;
   
+      &.tags {
+        width: 400px;
+      }
+
+      &.right {
+        width: 600px;
+      }
+
+      .tagsbutton {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: $tempsize;
+        padding: 8px;
+        margin-bottom: 5px;
+        border-radius: $borderRadius;
+        background: $theme4;
+        @include font-size(md);
+        
+        i {
+          line-height: 0;
+          @include font-size(lg);
+          margin-right: 5px;
+        }
+      }
+
       .posts {
         display: flex;
-  
+        display: none;
+
         > div {
           width: 100%;
         }

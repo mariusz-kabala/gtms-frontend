@@ -15,7 +15,7 @@
     padding: 0 8px;
     margin-bottom: 5px;
     border-radius: $borderRadius;
-    background: $theme1;
+    background: rgba($theme1, 0.85);
     cursor: pointer;
 
     &:hover {

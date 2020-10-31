@@ -14,24 +14,25 @@
     position: relative;
     display: flex;
     width: 100%;
-    min-height: 26px;
-    height: 26px;
-    margin: 5px;
-    margin-bottom: 0px;
+    min-height: $tempsize;
+    height: $tempsize;
 
     i {
+      @include font-size(xlg);
       position: absolute;
-      top: 6px;
-      left: 5px;
+      top: 10px;
+      left: 10px;
       line-height: 0;
+      color: $theme3;
     }
 
     input[type='text'] {
       width: 100%;
-      padding-left: 22px;
+      padding-left: 50px;
       border: none;
       border-radius: $borderRadius;
-      background: $theme7;
+      background: $theme0;
+      @include font-size(lg);
 
       &::placeholder {
         @include font-weight(light);

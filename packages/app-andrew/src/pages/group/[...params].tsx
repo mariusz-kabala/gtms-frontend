@@ -56,7 +56,7 @@ import {
 } from '@gtms/state-comment'
 import { changePageBackground, changePageBackgroundImage } from 'state'
 // ui
-import { GoGitCompare, GoSettings } from 'react-icons/go'
+import { IoMdGrid } from 'react-icons/io'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Pagination } from '@gtms/ui/Pagination'
@@ -327,7 +327,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               {/* <GroupSidebarContent isSidebarOpen={isSidebarOpen} /> */}
             </GroupSidebar>
           </div>
-          <div className={styles.column}>
+          <div className={cx(styles.column, styles.tags)}>
             {/* <GroupCover
               group={state.group}
               isEditAllowed={groupQuery.hasAdminRights()}
@@ -335,12 +335,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <div className={styles.content}>
               {!showPromoted && (
                 <>
-                  {/* <div className={styles.header}>
+                  <div className={styles.tagsbutton}>
                     <i>
-                      <GoGitCompare />
+                      <IoMdGrid />
                     </i>
                     Tags
-                  </div> */}
+                  </div>
                   <PromotedTags
                     additionalStyles={styles.tags}
                     onTagClick={(tag) => onClick({ tag: tag.tag })}
@@ -350,7 +350,17 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               )}
             </div>
           </div>
-          <div className={styles.column}>
+          <div className={cx(styles.column, styles.right)}>
+            <SearchBar
+              additionalStyles={styles.search}
+              onTagAdd={() => null}
+              onTagRemove={() => null}
+              onLoadSuggestion={() => null}
+              onQueryChange={() => null}
+              onLoadSuggestionCancel={() => null}
+              tags={state.activeTags || []}
+              users={state.activeUsers}
+            />
             {state && state.posts && state.posts.length === 0 && (
               <div className={styles.noPostsFound}>
                 <div>

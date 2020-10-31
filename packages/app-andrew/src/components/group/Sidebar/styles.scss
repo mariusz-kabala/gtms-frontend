@@ -15,8 +15,8 @@
   }
 
   .groupAvatar {
-    width: 60px;
-    height: 60px;
+    width: $tempsize;
+    height: $tempsize;
 
     picture {
       border-radius: $borderRadius;
