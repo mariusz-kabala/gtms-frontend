@@ -7,67 +7,42 @@
 @import '~@gtms/styles/scss/mixins/shadows';
 
 .items {
-  @include gridDefault(3);
-
   .item {
     position: relative;
-    min-height: 200px;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 0 8px;
+    margin-bottom: 5px;
     border-radius: $borderRadius;
-    @include imageCover();
+    background: $theme1;
     cursor: pointer;
 
-    &:nth-child(4n+4),
-    &:nth-child(5n+5),
-    &:nth-child(6n+6) {
-      min-height: 100px;
+    &:hover {
+      background: $theme4;
     }
 
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      @include shadowBoxWithDescription();
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 4px solid $theme4;
-      background: rgba($theme4, 0.2);
+    .image {
+      width: 45px;
+      height: 45px;
+      min-width: 45px;
+      min-height: 45px;
+      margin-right: 10px;
       border-radius: $borderRadius;
-      opacity: 0;
-    }
-
-    &:hover,
-    &.active {
-      &:after {
-        opacity: 1;
-      }
-    }
-
-    img {
-      width: 100%;
+      @include imageCover();
     }
 
     .desc {
-      position: absolute;
-      z-index: 1;
-      bottom: 0;
-      padding: 10px;
       width: 100%;
-      color: $theme0;
-
+      
       h3 {
-        @include font-size(md);
+        @include font-size(xdefault);
         @include font-weight(semiBold);
+      }
+      
+      p {
+        @include font-size(sm);
+        opacity: 0.5;
       }
     }
 
@@ -76,6 +51,7 @@
       bottom: 0;
       right: 0;
       z-index: 1;
+      display: none;
 
       ul {
         margin: 0;
@@ -87,25 +63,106 @@
       }
     }
   }
+
+  // @todo remove it if it wont be needed
+  .item-type-box {
+    .item {
+      position: relative;
+      min-height: 200px;
+      overflow: hidden;
+      border-radius: $borderRadius;
+      @include imageCover();
+      cursor: pointer;
+  
+      &:nth-child(4n+4),
+      &:nth-child(5n+5),
+      &:nth-child(6n+6) {
+        min-height: 100px;
+      }
+  
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        @include shadowBoxWithDescription();
+      }
+  
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 4px solid $theme4;
+        background: rgba($theme4, 0.2);
+        border-radius: $borderRadius;
+        opacity: 0;
+      }
+  
+      &:hover,
+      &.active {
+        &:after {
+          opacity: 1;
+        }
+      }
+  
+      img {
+        width: 100%;
+      }
+  
+      .desc {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        padding: 10px;
+        width: 100%;
+        color: $theme0;
+  
+        h3 {
+          @include font-size(md);
+          @include font-weight(semiBold);
+        }
+      }
+  
+      .adminPanel {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+  
+        ul {
+          margin: 0;
+  
+          li {
+            display: inline-block;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
 }
 
 .addTag {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
   border: none;
   border-radius: $borderRadius;
-  height: 210px; // @todo create variable for standard tag box
   cursor: pointer;
-  background: $theme3;
+  background: $theme1;
 
   &:hover {
     background: $theme4;
   }
 
   i {
+    margin-right: 5px;
     @include font-size(xlg);
+    line-height: 0;
   }
 }
 
@@ -116,7 +173,8 @@
   @include buttonWithIcon();
   @include buttonWithSpinner();
   @include buttonColorsDefault();
-  margin: 20px auto;
+  width: 100%;
+  margin: 8px auto;
 
   &:hover {
     @include buttonColorsPrimary();

@@ -1,7 +1,6 @@
 @mixin pageWrapper($bg: null) {
   position: relative;
   margin: 15px;
-  border-radius: $borderRadius2;
 
   @if $bg == 'bgdefault' {
     background: $black;

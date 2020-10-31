@@ -15,13 +15,11 @@
   }
 
   .groupAvatar {
-    min-width: 40px;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
 
     picture {
-      border-top-left-radius: $borderRadius;
-      border-top-right-radius: $borderRadius;
+      border-radius: $borderRadius;
       overflow: hidden;
     }
   }
@@ -37,6 +35,7 @@
       @include font-size(xdefault);
       @include font-weight(semiBold);
       color: $theme0;
+      display: none;
     }
 
     .desc {

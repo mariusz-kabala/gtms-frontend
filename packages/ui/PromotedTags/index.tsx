@@ -55,21 +55,24 @@ export const PromotedTags: FC<{
               className={cx(styles.item, {
                 [styles.active]: activeTags.includes(tag.tag),
               })}
-              style={
-                tag.logo.status === FileStatus.ready
-                  ? {
-                      backgroundImage: `url(${
-                        getImage('200x200', tag.logo).jpg
-                      }`,
-                    }
-                  : {}
-              }
               key={`promoted-${tag.id}`}
             >
               {!tag.logo.status && <Picture {...noImage['200x200']} />}
               {tag.logo.status && tag.logo.status !== FileStatus.ready && (
                 <UploadedPicture jpg={tag.logo.files[0]} />
               )}
+              <div 
+                className={styles.image}
+                style={
+                  tag.logo.status === FileStatus.ready
+                    ? {
+                        backgroundImage: `url(${
+                          getImage('200x200', tag.logo).jpg
+                        }`,
+                      }
+                    : {}
+                }
+              />
               <div className={styles.desc}>
                 <h3>#{tag.tag}</h3>
                 <p>{tag.description}</p>

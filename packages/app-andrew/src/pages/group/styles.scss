@@ -6,103 +6,62 @@
 
 .pageWrapper {
   position: relative;
-  @include pageWrapper('bgdefault');
+  @include pageWrapper();
   max-width: 1000px;
   display: flex;
   border-radius: 10px;
-  box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.75);
 
-  .sidebar {
-    width: 200px;
-  }
+  .columns {
+    display: grid;
+    grid-gap: 10px;
 
-  .left,
-  .right {
-    border-radius: $borderRadius2;
-    overflow: hidden;
-  }
-
-  .left {
-    z-index: 3;
-    width: 500px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    background: $black;
-
-    .content {
-      display: flex;
-
-      .tags {
-        width: 100%;
-        padding: 8px;
-      }
-    }
-  }
-
-  .right {
-    position: absolute;
-    left: 500px;
-    width: 450px;
-    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.15);
-    background: $theme1;
-    transition: 1s ease;
-    z-index: 4;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    opacity: 1;
-
-    &.isLeftSideVisible {
-      left: 50px;
-    }
-
-    &.isRightSideVisible {
-      left: 0px;
-      opacity: 0;
-    }
-
-    .posts {
-      display: flex;
-
-      > div {
-        width: 100%;
-      }
-
-      .postCreate {
-        display: flex;
-        margin: 15px 10px;
-        border-radius: $borderRadius;
-      }
-
-      .postDetails {
-        margin-left: 10px;
-      }
-    }
-
-    .noPostsFound {
-      margin: 0 10px;
-      padding: 20px;
+    .column {
+      width: 450px;
       border-radius: $borderRadius;
-      background: white;
-
-      .postCreate {
-        padding: 10px;
-        border-radius: $borderRadius;
-      }
-
-      .header {
-        @include font-weight(semiNormal);
-        @include font-size(lg);
-        margin-bottom: 20px;
-
-        span {
-          @include font-weight(semiBold);
+  
+      .posts {
+        display: flex;
+  
+        > div {
+          width: 100%;
+        }
+  
+        .postCreate {
+          display: flex;
+          margin: 15px 10px;
+          border-radius: $borderRadius;
+        }
+  
+        .postDetails {
+          margin-left: 10px;
         }
       }
-    }
-
-    .pagination {
-      justify-content: center;
-      margin: 30px 0;
+  
+      .noPostsFound {
+        margin: 0 10px;
+        padding: 20px;
+        border-radius: $borderRadius;
+  
+        .postCreate {
+          padding: 10px;
+          border-radius: $borderRadius;
+        }
+  
+        .header {
+          @include font-weight(semiNormal);
+          @include font-size(lg);
+          margin-bottom: 20px;
+  
+          span {
+            @include font-weight(semiBold);
+          }
+        }
+      }
+  
+      .pagination {
+        justify-content: center;
+        margin: 30px 0;
+      }
     }
   }
 }

@@ -142,8 +142,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [showPromoted] = useState<boolean>(false)
-  const [isLeftSideVisible, setIsLeftSideVisible] = useState<boolean>(false)
-  const [isRightSideVisible, setIsRightSideVisible] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
       sort,
@@ -279,72 +277,62 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       {state.hasNoAccess && <GroupNoAccess />}
 
       {state.group && (
-        <>
-          <div className={styles.left}>
-            <GroupCover
+        <div className={styles.columns}>
+          <div className={styles.column}>
+            <GroupSidebar isSidebarOpen={isSidebarOpen}>   
+              <NavigationTabs>
+                {/* <h2 className={cx(styles.header, styles.active)}>
+                  <i>
+                    <GoGitCompare />
+                  </i>
+                  Tags
+                </h2>
+                <h2 className={styles.header}>
+                  <i>
+                    <GoSettings />
+                  </i>
+                  Users
+                </h2> */}
+                {/* <ul>
+                  <li
+                    onClick={() => onClick({ sort: Sorting.latest })}
+                    className={cx({
+                      [styles.active]:
+                        state.postsSorting === Sorting.latest,
+                    })}
+                  >
+                    latest
+                  </li>
+                  <li
+                    onClick={() => onClick({ sort: Sorting.active })}
+                    className={cx({
+                      [styles.active]:
+                        state.postsSorting === Sorting.active,
+                    })}
+                  >
+                    active
+                  </li>
+                  <li
+                    onClick={() => onClick({ sort: Sorting.popular })}
+                    className={cx({
+                      [styles.active]:
+                        state.postsSorting === Sorting.popular,
+                    })}
+                  >
+                    popular
+                  </li>
+                  <li className={cx(styles.item)}>my</li>
+                </ul> */}
+              </NavigationTabs>
+              {/* <GroupSidebarContent isSidebarOpen={isSidebarOpen} /> */}
+            </GroupSidebar>
+          </div>
+          <div className={styles.column}>
+            {/* <GroupCover
               group={state.group}
               isEditAllowed={groupQuery.hasAdminRights()}
-            />
+            /> */}
             <div className={styles.content}>
-              <div className={styles.sidebar}>
-                <GroupSidebar isSidebarOpen={isSidebarOpen}>
-                  <SearchBar
-                    additionalStyles={styles.search}
-                    onTagAdd={() => null}
-                    onTagRemove={() => null}
-                    onLoadSuggestion={() => null}
-                    onQueryChange={() => null}
-                    onLoadSuggestionCancel={() => null}
-                    tags={state.activeTags || []}
-                    users={state.activeUsers}
-                  />
-                  <NavigationTabs>
-                    <h2 className={cx(styles.header, styles.active)}>
-                      <i>
-                        <GoGitCompare />
-                      </i>
-                      Tags
-                    </h2>
-                    <h2 className={styles.header}>
-                      <i>
-                        <GoSettings />
-                      </i>
-                      Users
-                    </h2>
-                    {/* <ul>
-                      <li
-                        onClick={() => onClick({ sort: Sorting.latest })}
-                        className={cx({
-                          [styles.active]:
-                            state.postsSorting === Sorting.latest,
-                        })}
-                      >
-                        latest
-                      </li>
-                      <li
-                        onClick={() => onClick({ sort: Sorting.active })}
-                        className={cx({
-                          [styles.active]:
-                            state.postsSorting === Sorting.active,
-                        })}
-                      >
-                        active
-                      </li>
-                      <li
-                        onClick={() => onClick({ sort: Sorting.popular })}
-                        className={cx({
-                          [styles.active]:
-                            state.postsSorting === Sorting.popular,
-                        })}
-                      >
-                        popular
-                      </li>
-                      <li className={cx(styles.item)}>my</li>
-                    </ul> */}
-                  </NavigationTabs>
-                  <GroupSidebarContent isSidebarOpen={isSidebarOpen} />
-                </GroupSidebar>
-              </div>
               {!showPromoted && (
                 <>
                   {/* <div className={styles.header}>
@@ -361,36 +349,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 </>
               )}
             </div>
-            <button
-              onClick={() => {
-                setIsRightSideVisible(!isRightSideVisible)
-                setIsLeftSideVisible(false)
-              }}
-            >
-              lorem ipsum
-            </button>
-            <button
-              onClick={() => {
-                setIsLeftSideVisible(!isLeftSideVisible)
-                setIsRightSideVisible(false)
-              }}
-            >
-              dolorSitAmet
-            </button>
           </div>
-          <div
-            className={cx(styles.right, {
-              [styles.isLeftSideVisible]: isLeftSideVisible,
-              [styles.isRightSideVisible]: isRightSideVisible,
-            })}
-          >
+          <div className={styles.column}>
             {state && state.posts && state.posts.length === 0 && (
               <div className={styles.noPostsFound}>
                 <div>
                   <div>
                     <h3 className={styles.header}>
                       <span>Ooops</span>, wygląda na to, że nikt nie dodał
-                      jeszcze żadnego posta :( Możesz być pierwszy!
+                      jeszcze żadnego posta... Możesz być pierwszy!
                     </h3>
                     <PostCreate groupId={state.group?.id || ''} />
                   </div>
@@ -457,7 +424,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </>
             )}
           </div>
-        </>
+        </div>
       )}
     </div>
   )
