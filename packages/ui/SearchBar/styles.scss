@@ -31,7 +31,7 @@
     input[type='text'] {
       width: 100%;
       padding-left: 50px;
-      border: none;
+      border: 3px solid $blackTwo;
       border-radius: $borderRadius;
       background: $blackTwo;
       @include font-size(lg);
@@ -46,6 +46,7 @@
       &:hover {
         outline: none;
         color: $theme0;
+        border-color: $theme4;
       }
     }
 
