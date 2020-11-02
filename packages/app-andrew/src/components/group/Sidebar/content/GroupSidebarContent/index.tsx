@@ -13,9 +13,6 @@ import { FollowButton } from 'components/group/FollowButton'
 import { GroupMembers } from 'components/group/GroupMembers'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
-// ui
-import { IoMdGrid } from 'react-icons/io'
-import { Button } from '@gtms/ui/Button'
 // styles
 import styles from './styles.scss'
 
@@ -57,17 +54,6 @@ export const GroupSidebarContent: FC<{}> = ({ isSidebarOpen }) => {
         additionalStyles={styles.followButton}
         group={state.group}
       />
-      <Button
-        additionalStyles={cx(styles.btnTags, {
-          [styles.active]: false,
-        })}
-        onClick={() => alert('how will this work?')}
-      >
-        <i>
-          <IoMdGrid />
-        </i>
-        <span>Tags</span>
-      </Button>
       {/* <GroupMembers additionalStyles={styles.groupMembers} {...state.members} /> */}
     </div>
   )

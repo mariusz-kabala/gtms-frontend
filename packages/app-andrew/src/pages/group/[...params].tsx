@@ -57,6 +57,7 @@ import {
 import { changePageBackground, changePageBackgroundImage } from 'state'
 // ui
 import { IoMdGrid } from 'react-icons/io'
+import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Pagination } from '@gtms/ui/Pagination'
@@ -141,7 +142,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
-  const [showPromoted] = useState<boolean>(false)
+  const [showPromoted, setShowPromoted] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
       sort,
@@ -257,8 +258,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     }
   }, [])
 
-  const isSidebarOpen = true
-
   return (
     <div className={styles.pageWrapper}>
       <h3 className={styles.tempheader}>Burning Man Festival 2021</h3>
@@ -280,13 +279,18 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <div className={styles.wrapper}>
-          <GroupSidebar isSidebarOpen={isSidebarOpen}>   
-            <div className={styles.tagsbutton}>
+          <GroupSidebar>
+            <Button
+              onClick={() => {setShowPromoted((value) => !value)}}
+              additionalStyles={cx(styles.tagsbutton, {
+                [styles.active]: showPromoted,
+              })}
+            >
               <i>
                 <IoMdGrid />
               </i>
-              <span>Tags</span>
-            </div>          
+              Tags
+            </Button>               
             {/* <NavigationTabs>
               <h2 className={cx(styles.header, styles.active)}>
                 <i>

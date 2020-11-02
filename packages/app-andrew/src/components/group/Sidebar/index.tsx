@@ -1,5 +1,4 @@
-import React, { FC, useRef, useState, useEffect } from 'react'
-import cx from 'classnames'
+import React, { FC, useState, useEffect } from 'react'
 import { useTranslation } from '@gtms/commons/i18n'
 import { getImage } from '@gtms/commons/helpers'
 import { GroupAvatarNoImage } from 'enums'
@@ -16,9 +15,8 @@ import { GroupDescription } from 'components/group/GroupDescription'
 // styles
 import styles from './styles.scss'
 
-export const GroupSidebar: FC<{}> = ({ children, isSidebarOpen }) => {
+export const GroupSidebar: FC<{}> = ({ children }) => {
   const [state, setState] = useState<IGroupSidebarState>(groupSidebarState())
-  const groupHeaderRef = useRef<HTMLDivElement>(null)
   const { t } = useTranslation('groupPage')
 
   useEffect(() => {
@@ -37,10 +35,7 @@ export const GroupSidebar: FC<{}> = ({ children, isSidebarOpen }) => {
 
   return (
     <div
-      className={cx(styles.groupSidebar, {
-        [styles.collapsed]: !isSidebarOpen,
-      })}
-      ref={groupHeaderRef}
+      className={styles.groupSidebar}
     >
       <div className={styles.avatarAndName}>
         <GroupAvatar

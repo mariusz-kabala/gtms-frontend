@@ -12,25 +12,6 @@
     }
   }
 
-  .btnTags {
-    @include buttonDefault();
-    @include buttonWithIcon();
-    width: 100%;
-    padding: 12px 14px;
-    justify-content: flex-start;
-    display: none;
-
-    i {
-      font-size: 24px;
-      margin-right: 5px;
-    }
-
-    &.active,
-    &:hover {
-      @include buttonColorsQuaternary();
-    }
-  }
-
   .joinLeaveButton,
   .settingsButton,
   .followButton,
