@@ -22,7 +22,7 @@
     i {
       @include font-size(xlg);
       position: absolute;
-      top: 10px;
+      top: 8px;
       left: 10px;
       line-height: 0;
       color: $theme3;
@@ -30,22 +30,22 @@
     
     input[type='text'] {
       width: 100%;
-      padding-left: 40px;
+      padding-left: 50px;
       border: none;
       border-radius: $borderRadius;
       background: $blackTwo;
-      color: $theme7;
       @include font-size(lg);
 
       &::placeholder {
         @include font-weight(light);
-        color: $theme0;
+        color: $theme3;
       }
 
       &:active,
       &:focus,
       &:hover {
         outline: none;
+        color: $theme0;
       }
     }
 
