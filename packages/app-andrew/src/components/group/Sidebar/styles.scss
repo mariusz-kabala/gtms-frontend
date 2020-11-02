@@ -17,9 +17,10 @@
   .groupAvatar {
     width: $tempsize;
     height: $tempsize;
-
+    
     picture {
       border-radius: $borderRadius;
+      box-shadow: $boxShadowDefault;
       overflow: hidden;
     }
   }

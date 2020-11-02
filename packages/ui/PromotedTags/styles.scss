@@ -8,65 +8,48 @@
 
 .items {
   .item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 60px;
-    padding: 0 8px;
-    margin-bottom: 5px;
-    border-radius: $borderRadius;
-    background: rgba($theme1, 0.85);
-    cursor: pointer;
-
-    &:hover {
-      background: $theme4;
-    }
-
-    .image {
-      width: 45px;
-      height: 45px;
-      min-width: 45px;
-      min-height: 45px;
-      margin-right: 10px;
+    &.typeOne {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      padding: 0 8px;
+      margin-bottom: 5px;
       border-radius: $borderRadius;
-      @include imageCover();
-    }
-
-    .desc {
-      width: 100%;
-      
-      h3 {
-        @include font-size(xdefault);
-        @include font-weight(semiBold);
+      background: $black;
+      box-shadow: $boxShadowDefault;
+      cursor: pointer;
+  
+      &:hover {
+        background: $theme4;
       }
-      
-      p {
-        @include font-size(sm);
-        opacity: 0.5;
+  
+      .image {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        min-height: 45px;
+        margin-right: 10px;
+        border-radius: $borderRadius;
+        @include imageCover();
       }
-    }
-
-    .adminPanel {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      z-index: 1;
-      display: none;
-
-      ul {
-        margin: 0;
-
-        li {
-          display: inline-block;
-          cursor: pointer;
+  
+      .desc {
+        width: 100%;
+        
+        h3 {
+          @include font-size(xdefault);
+          @include font-weight(semiBold);
+        }
+        
+        p {
+          @include font-size(sm);
+          opacity: 0.8;
         }
       }
     }
-  }
 
-  // @todo remove it if it wont be needed
-  .item-type-box {
-    .item {
+    &.typeTwo {
       position: relative;
       min-height: 200px;
       overflow: hidden;
@@ -127,20 +110,21 @@
           @include font-weight(semiBold);
         }
       }
-  
-      .adminPanel {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: 1;
-  
-        ul {
-          margin: 0;
-  
-          li {
-            display: inline-block;
-            cursor: pointer;
-          }
+    }
+
+    .adminPanel {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      display: none;
+
+      ul {
+        margin: 0;
+
+        li {
+          display: inline-block;
+          cursor: pointer;
         }
       }
     }
@@ -148,6 +132,9 @@
 }
 
 .addTag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   padding: 10px 0;
   border: none;

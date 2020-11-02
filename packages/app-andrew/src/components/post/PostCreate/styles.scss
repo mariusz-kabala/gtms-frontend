@@ -72,7 +72,7 @@
 
   .btnSubmit {
     @include buttonDefault();
-    @include buttonSizeSm();
+    @include buttonSizeDefault();
     @include buttonShapeDefault();
     @include buttonColorsDefault();
     @include buttonWithIcon('right');

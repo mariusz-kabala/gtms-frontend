@@ -15,7 +15,9 @@
       display: flex;
       margin-right: 10px;
 
-      img {
+      .userAvatar {
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
       }
 
@@ -31,10 +33,17 @@
       display: block;
       width: 100%;
       border: none;
+      border: 1px solid $theme7;
       border-radius: $borderRadius;
       padding: 10px;
-      background: $theme9;
+      background: $theme1;
       @include placeholderFocus;
+
+      &:active,
+      &:focus,
+      &:hover {
+        border-color: $theme4;
+      }
     }
   }
 

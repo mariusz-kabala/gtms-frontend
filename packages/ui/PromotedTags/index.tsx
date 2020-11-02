@@ -52,7 +52,7 @@ export const PromotedTags: FC<{
           tags.map((tag) => (
             <div
               onClick={() => onTagClick && onTagClick(tag)}
-              className={cx(styles.item, {
+              className={cx(styles.item, styles.typeTwo, {
                 [styles.active]: activeTags.includes(tag.tag),
               })}
               key={`promoted-${tag.id}`}
