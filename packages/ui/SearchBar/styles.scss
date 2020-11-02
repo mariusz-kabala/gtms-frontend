@@ -32,9 +32,8 @@
       width: 100%;
       padding-left: 40px;
       border: none;
-      border: 3px solid $black;
       border-radius: $borderRadius;
-      background: $black;
+      background: $blackTwo;
       color: $theme7;
       @include font-size(lg);
 
@@ -46,7 +45,6 @@
       &:active,
       &:focus,
       &:hover {
-        border-color: $theme4;
         outline: none;
       }
     }

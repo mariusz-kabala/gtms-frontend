@@ -56,6 +56,15 @@ export const PromotedTags: FC<{
                 [styles.active]: activeTags.includes(tag.tag),
               })}
               key={`promoted-${tag.id}`}
+              style={
+                tag.logo.status === FileStatus.ready
+                  ? {
+                      backgroundImage: `url(${
+                        getImage('200x200', tag.logo).jpg
+                      }`,
+                    }
+                  : {}
+              }              
             >
               {!tag.logo.status && <Picture {...noImage['200x200']} />}
               {tag.logo.status && tag.logo.status !== FileStatus.ready && (

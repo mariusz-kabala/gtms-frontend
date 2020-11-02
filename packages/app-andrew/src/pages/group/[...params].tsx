@@ -261,6 +261,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   return (
     <div className={styles.pageWrapper}>
+      <h3 className={styles.tempheader}>Burning Man Festival 2021</h3>
+
       {state.isLoading && <Spinner />}
 
       {state.errorOccured && (
@@ -277,80 +279,65 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       {state.hasNoAccess && <GroupNoAccess />}
 
       {state.group && (
-        <div className={styles.columns}>
-          <div className={styles.column}>
-            <GroupSidebar isSidebarOpen={isSidebarOpen}>   
-              <NavigationTabs>
-                {/* <h2 className={cx(styles.header, styles.active)}>
-                  <i>
-                    <GoGitCompare />
-                  </i>
-                  Tags
-                </h2>
-                <h2 className={styles.header}>
-                  <i>
-                    <GoSettings />
-                  </i>
-                  Users
-                </h2> */}
-                {/* <ul>
-                  <li
-                    onClick={() => onClick({ sort: Sorting.latest })}
-                    className={cx({
-                      [styles.active]:
-                        state.postsSorting === Sorting.latest,
-                    })}
-                  >
-                    latest
-                  </li>
-                  <li
-                    onClick={() => onClick({ sort: Sorting.active })}
-                    className={cx({
-                      [styles.active]:
-                        state.postsSorting === Sorting.active,
-                    })}
-                  >
-                    active
-                  </li>
-                  <li
-                    onClick={() => onClick({ sort: Sorting.popular })}
-                    className={cx({
-                      [styles.active]:
-                        state.postsSorting === Sorting.popular,
-                    })}
-                  >
-                    popular
-                  </li>
-                  <li className={cx(styles.item)}>my</li>
-                </ul> */}
-              </NavigationTabs>
-              {/* <GroupSidebarContent isSidebarOpen={isSidebarOpen} /> */}
-            </GroupSidebar>
-          </div>
-          <div className={cx(styles.column, styles.tags)}>
+        <div className={styles.wrapper}>
+          <GroupSidebar isSidebarOpen={isSidebarOpen}>   
+            <div className={styles.tagsbutton}>
+              <i>
+                <IoMdGrid />
+              </i>
+              <span>Tags</span>
+            </div>          
+            {/* <NavigationTabs>
+              <h2 className={cx(styles.header, styles.active)}>
+                <i>
+                  <IoMdGrid />
+                </i>
+                Tags
+              </h2>
+              <h2 className={styles.header}>
+                <i>
+                  <IoMdGrid />
+                </i>
+                Users
+              </h2>
+              <ul>
+                <li
+                  onClick={() => onClick({ sort: Sorting.latest })}
+                  className={cx({
+                    [styles.active]:
+                      state.postsSorting === Sorting.latest,
+                  })}
+                >
+                  latest
+                </li>
+                <li
+                  onClick={() => onClick({ sort: Sorting.active })}
+                  className={cx({
+                    [styles.active]:
+                      state.postsSorting === Sorting.active,
+                  })}
+                >
+                  active
+                </li>
+                <li
+                  onClick={() => onClick({ sort: Sorting.popular })}
+                  className={cx({
+                    [styles.active]:
+                      state.postsSorting === Sorting.popular,
+                  })}
+                >
+                  popular
+                </li>
+                <li className={cx(styles.item)}>my</li>
+              </ul>
+            </NavigationTabs> */}
+            {/* <GroupSidebarContent isSidebarOpen={isSidebarOpen} /> */}
+          </GroupSidebar>          
+          <div className={styles.content}>
             {/* <GroupCover
               group={state.group}
               isEditAllowed={groupQuery.hasAdminRights()}
             /> */}
-            <div className={styles.content}>
-              {!showPromoted && (
-                <>
-                  <div className={styles.tagsbutton}>
-                    <i>
-                      <IoMdGrid />
-                    </i>
-                    Tags
-                  </div>
-                  <PromotedTags
-                    additionalStyles={styles.tags}
-                    onTagClick={(tag) => onClick({ tag: tag.tag })}
-                    ref={promotedTagsRef}
-                  />
-                </>
-              )}
-            </div>
-          </div>
-          <div className={cx(styles.column, styles.right)}>
             <SearchBar
               additionalStyles={styles.search}
               onTagAdd={() => null}
@@ -360,79 +347,98 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               onLoadSuggestionCancel={() => null}
               tags={state.activeTags || []}
               users={state.activeUsers}
-            />
-            {state && state.posts && state.posts.length === 0 && (
-              <div className={styles.noPostsFound}>
-                <div>
-                  <div>
-                    <h3 className={styles.header}>
-                      <span>Ooops</span>, wygląda na to, że nikt nie dodał
-                      jeszcze żadnego posta... Możesz być pierwszy!
-                    </h3>
-                    <PostCreate groupId={state.group?.id || ''} />
-                  </div>
-                </div>
+            />            
+            <div className={styles.leftRight}>
+              <div className={styles.promoted}>
+                {!showPromoted && (
+                  <PromotedTags
+                    additionalStyles={styles.tags}
+                    onTagClick={(tag) => onClick({ tag: tag.tag })}
+                    ref={promotedTagsRef}
+                  />
+                )}
               </div>
-            )}
-            {state && state.posts && state.posts.length > 0 && (
-              <>
-                <div className={styles.posts}>
-                  <div>
-                    {' '}
-                    {/* this div is needed for aligning with display flex */}
-                    <PostCreate
-                      additionalStyles={styles.postCreate}
-                      groupId={state.group?.id || ''}
-                    />
-                    <PostsList
-                      posts={state.posts}
-                      onUserPostsClick={(user) =>
-                        onClick({ user: user.username })
-                      }
-                      isAdmin={groupQuery.hasAdminRights()}
-                      renderPost={(post) => (
-                        <PostSingle
-                          key={`post-${post.id}`}
-                          allowToRespond={post.id !== state.activePost?.id}
-                          onClick={onPostClick}
-                          onTagClick={onTagClick}
-                          fetchTags={findTagsAPI}
-                          fetchUsers={findbyUsernameAPI}
-                          createComment={createNewComment}
-                          user={state.user}
-                          additionalStyles={cx(styles.post, {
-                            [styles.active]: state.activePost?.id === post.id,
-                          })}
-                          {...post}
-                          noImage={UserAvatarNoImage}
-                          onLoginRequest={openLoginModal}
-                          activeTags={state.activeTags || []}
-                        />
-                      )}
-                    />
-                    <Pagination
-                      additionalStyles={styles.pagination}
-                      {...state.pagination}
-                      onClick={(page: number) => {
-                        onClick({ page })
-                      }}
-                      getCurrentUrl={(page: number) => {
-                        return generateUrl({ page, fillEmptyValues: true })
-                      }}
-                    />
-                  </div>
-                  {state.activePost && (
-                    <PostDetails
-                      additionalStyles={stFyles.postDetails}
-                      comments={state.comments}
-                      user={state.user}
-                      activeTags={state.activeTags || []}
-                      post={state.activePost}
-                    />
-                  )}
-                </div>
-              </>
-            )}
+
+              {
+                state && state.posts && state.posts.length === 0 ||
+                state && state.posts && state.posts.length > 0 && (
+                  <div className={cx(styles.column, styles.right)}>
+                    {state && state.posts && state.posts.length === 0 && (
+                      <div className={styles.noPostsFound}>
+                        <div>
+                          <div>
+                            <h3 className={styles.header}>
+                              <span>Ooops</span>, wygląda na to, że nikt nie dodał
+                              jeszcze żadnego posta... Możesz być pierwszy!
+                            </h3>
+                            <PostCreate groupId={state.group?.id || ''} />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    {state && state.posts && state.posts.length > 0 && (
+                      <>
+                        <div className={styles.posts}>
+                          <div>
+                            {' '}
+                            {/* this div is needed for aligning with display flex */}
+                            <PostCreate
+                              additionalStyles={styles.postCreate}
+                              groupId={state.group?.id || ''}
+                            />
+                            <PostsList
+                              posts={state.posts}
+                              onUserPostsClick={(user) =>
+                                onClick({ user: user.username })
+                              }
+                              isAdmin={groupQuery.hasAdminRights()}
+                              renderPost={(post) => (
+                                <PostSingle
+                                  key={`post-${post.id}`}
+                                  allowToRespond={post.id !== state.activePost?.id}
+                                  onClick={onPostClick}
+                                  onTagClick={onTagClick}
+                                  fetchTags={findTagsAPI}
+                                  fetchUsers={findbyUsernameAPI}
+                                  createComment={createNewComment}
+                                  user={state.user}
+                                  additionalStyles={cx(styles.post, {
+                                    [styles.active]: state.activePost?.id === post.id,
+                                  })}
+                                  {...post}
+                                  noImage={UserAvatarNoImage}
+                                  onLoginRequest={openLoginModal}
+                                  activeTags={state.activeTags || []}
+                                />
+                              )}
+                            />
+                            <Pagination
+                              additionalStyles={styles.pagination}
+                              {...state.pagination}
+                              onClick={(page: number) => {
+                                onClick({ page })
+                              }}
+                              getCurrentUrl={(page: number) => {
+                                return generateUrl({ page, fillEmptyValues: true })
+                              }}
+                            />
+                          </div>
+                          {state.activePost && (
+                            <PostDetails
+                              additionalStyles={stFyles.postDetails}
+                              comments={state.comments}
+                              user={state.user}
+                              activeTags={state.activeTags || []}
+                              post={state.activePost}
+                            />
+                          )}
+                        </div>
+                      </>
+                    )}
+                  </div> 
+                )
+              }             
+            </div>
           </div>
         </div>
       )}

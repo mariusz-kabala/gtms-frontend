@@ -7,6 +7,8 @@
 @import '~@gtms/styles/scss/mixins/shadows';
 
 .items {
+  @include gridDefault(3);
+
   .item {
     &.typeOne {
       position: relative;
@@ -54,6 +56,7 @@
       min-height: 200px;
       overflow: hidden;
       border-radius: $borderRadius;
+      box-shadow: $boxShadowDefault;
       @include imageCover();
       cursor: pointer;
   
