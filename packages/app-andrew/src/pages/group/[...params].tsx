@@ -297,50 +297,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </i>
               <span>Tags</span>
             </Button>               
-            {/* <NavigationTabs>
-              <h2 className={cx(styles.header, styles.active)}>
-                <i>
-                  <IoMdGrid />
-                </i>
-                Tags
-              </h2>
-              <h2 className={styles.header}>
-                <i>
-                  <IoMdGrid />
-                </i>
-                Users
-              </h2>
-              <ul>
-                <li
-                  onClick={() => onClick({ sort: Sorting.latest })}
-                  className={cx({
-                    [styles.active]:
-                      state.postsSorting === Sorting.latest,
-                  })}
-                >
-                  latest
-                </li>
-                <li
-                  onClick={() => onClick({ sort: Sorting.active })}
-                  className={cx({
-                    [styles.active]:
-                      state.postsSorting === Sorting.active,
-                  })}
-                >
-                  active
-                </li>
-                <li
-                  onClick={() => onClick({ sort: Sorting.popular })}
-                  className={cx({
-                    [styles.active]:
-                      state.postsSorting === Sorting.popular,
-                  })}
-                >
-                  popular
-                </li>
-                <li className={cx(styles.item)}>my</li>
-              </ul>
-            </NavigationTabs> */}
             {/* <GroupSidebarContent isSidebarOpen={isSidebarOpen} /> */}
           </GroupSidebar>          
           <div className={styles.content}>
@@ -386,6 +342,50 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                           <div>
                             {' '}
                             {/* this div is needed for aligning with display flex */}
+                            <NavigationTabs>
+                              <h2 className={cx(styles.header, styles.active)}>
+                                <i>
+                                  <IoMdGrid />
+                                </i>
+                                Tags
+                              </h2>
+                              <h2 className={styles.header}>
+                                <i>
+                                  <IoMdGrid />
+                                </i>
+                                Users
+                              </h2>
+                              <ul>
+                                <li
+                                  onClick={() => onClick({ sort: Sorting.latest })}
+                                  className={cx({
+                                    [styles.active]:
+                                      state.postsSorting === Sorting.latest,
+                                  })}
+                                >
+                                  latest
+                                </li>
+                                <li
+                                  onClick={() => onClick({ sort: Sorting.active })}
+                                  className={cx({
+                                    [styles.active]:
+                                      state.postsSorting === Sorting.active,
+                                  })}
+                                >
+                                  active
+                                </li>
+                                <li
+                                  onClick={() => onClick({ sort: Sorting.popular })}
+                                  className={cx({
+                                    [styles.active]:
+                                      state.postsSorting === Sorting.popular,
+                                  })}
+                                >
+                                  popular
+                                </li>
+                                <li className={cx(styles.item)}>my</li>
+                              </ul>
+                            </NavigationTabs>                      
                             <PostCreate
                               additionalStyles={styles.postCreate}
                               groupId={state.group?.id || ''}

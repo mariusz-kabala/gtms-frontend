@@ -3,19 +3,23 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  h2 {
+  display: flex;
+  margin-bottom: 15px;
+  
+  h2, li {
     display: flex;
     align-items: center;
     @include font-size('sm');
     @include font-weight(semiBold);
     text-transform: uppercase;
     padding: 5px;
-    margin: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
     border-radius: $borderRadius;
     color: $theme0;
     cursor: pointer;
 
-    &:hover {
+    &:hover, &:first-child {
       color: $theme0;
       background: $theme4;
     }
@@ -27,23 +31,6 @@
   }
 
   ul {
-    li {
-      @include font-weight(light);
-      cursor: pointer;
-      margin-bottom: 10px;
-      line-height: 0.7;
-      opacity: 0.75;
-      color: $theme0;
-
-      &[class*='active'] {
-        background: $theme4;
-        color: $theme0;
-      }
-
-      &:hover {
-        color: $theme4;
-        opacity: 1;
-      }
-    }
+    display: flex;
   }
 }
