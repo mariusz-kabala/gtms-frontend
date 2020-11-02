@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.11](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.10...@gtms/api-auth@0.13.11) (2020-10-13)
+
+
+### Bug Fixes
+
+* GEOT-471: support username autocomplete in search input ([#881](https://github.com/gtms-org/gtms-frontend/issues/881)) ([ce936db](https://github.com/gtms-org/gtms-frontend/commit/ce936db7822e80712847553f1329a9a67f5afaa7))
+
+
+
+
+
 ## [0.13.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.9...@gtms/api-auth@0.13.10) (2020-10-10)
 
 **Note:** Version bump only for package @gtms/api-auth

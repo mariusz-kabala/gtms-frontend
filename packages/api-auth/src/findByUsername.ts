@@ -1,10 +1,11 @@
 import { fetchJSON, makeApiUrl } from '@gtms/api-common'
+import { IUser } from '@gtms/commons/models'
 
 export const findbyUsernameAPI = (
   query: string,
   signal?: AbortSignal
-): Promise<string[]> =>
-  fetchJSON<null, string[]>(makeApiUrl(`auth/username/find?query=${query}`), {
+): Promise<IUser[]> =>
+  fetchJSON<null, IUser[]>(makeApiUrl(`auth/username/find?query=${query}`), {
     addJWT: false,
     signal,
   })

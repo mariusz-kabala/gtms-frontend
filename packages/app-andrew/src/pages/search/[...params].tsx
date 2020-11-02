@@ -56,11 +56,12 @@ export const SearchPage: NextPage<{
 
 SearchPage.getInitialProps = (ctx: NextPageContext) => {
   const { params } = ctx?.query
-  const { tag, tab } = parseParams(params)
+  const { tag, tab, user } = parseParams(params)
   return Promise.resolve({
     namespacesRequired: ['searchPage'],
     initialTab: tab,
     tags: tag,
+    users: user,
   })
 }
 

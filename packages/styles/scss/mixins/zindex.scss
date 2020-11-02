@@ -11,6 +11,7 @@ $z-index: (
   headerWrapper: 2,
   closeAllMyGroupsSidebar: 2,
   postSingleDeletePost: 1,
+  searchBar: 3,
 );
 
 @function z-index($key) {

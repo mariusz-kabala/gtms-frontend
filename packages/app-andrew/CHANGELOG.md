@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.85.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.85.0...@gtms/app-andrew@0.85.1) (2020-10-13)
+
+
+### Bug Fixes
+
+* GEOT-471: support username autocomplete in search input ([#881](https://github.com/gtms-org/gtms-frontend/issues/881)) ([ce936db](https://github.com/gtms-org/gtms-frontend/commit/ce936db7822e80712847553f1329a9a67f5afaa7))
+
+
+
+
+
 # [0.85.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.84.0...@gtms/app-andrew@0.85.0) (2020-10-10)
 
 ### Features

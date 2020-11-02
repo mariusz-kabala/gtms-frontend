@@ -3,18 +3,24 @@ import styles from './styles.scss'
 import cx from 'classnames'
 import { IoIosSearch } from 'react-icons/io'
 
+export const SuggestionTypes = Object.freeze({
+  tags: '#',
+  users: '@',
+})
+
 export const SearchBar: FC<{
   additionalStyles?: string
   tags?: string[]
   users?: string[]
   query?: string
   suggestions?: string[]
+  suggestionsType?: keyof typeof SuggestionTypes
   isLoading?: boolean
   suggestionMinLength?: number
   inlineTagsLimit?: number
   onTagAdd: (tag: string) => void
   onTagRemove: (tag: string) => void
-  onLoadSuggestion: (text: string) => void
+  onLoadSuggestion: (text: string, type: keyof typeof SuggestionTypes) => void
   onLoadSuggestionCancel: () => void
   onQueryChange: (text: string) => void
 }> = (params) => {
@@ -24,6 +30,7 @@ export const SearchBar: FC<{
     users = [],
     query = '',
     suggestions = [],
+    suggestionsType = SuggestionTypes.tags,
     onTagAdd,
     isLoading,
     onQueryChange,
@@ -49,12 +56,14 @@ export const SearchBar: FC<{
 
     const values = value.split(' ')
     const last = values[values.length - 1]
+    const first = last.substr(0, 1)
     const result =
-      last.substr(0, 1) === '#' && last.length > suggestionMinLength
-
+      Object.values(SuggestionTypes).includes(first) &&
+      last.length > suggestionMinLength
     setShowSuggestions(result)
 
-    result && onLoadSuggestion(last.substr(1))
+    result &&
+      onLoadSuggestion(last.substr(1), first as keyof typeof SuggestionTypes)
   }, [value])
 
   return (
@@ -128,30 +137,34 @@ export const SearchBar: FC<{
           />
           {showSuggestions && (
             <div className={styles.suggestions}>
-              {isLoading && <div>loading...</div>}
-              {!isLoading &&
-                suggestions.map((tag) => (
-                  <button
-                    className={styles.tag}
-                    key={`suggestion-tag-${tag}`}
-                    type="button"
-                    title="click to add"
-                    onClick={() => {
-                      const values = value.split(' ')
-                      values.pop()
+              <ul>
+                {isLoading && <li>loading...</li>}
+                {!isLoading &&
+                  suggestions.map((tag) => (
+                    <li key={`suggestion-tag-${tag}`}>
+                      <button
+                        className={styles.tag}
+                        type="button"
+                        title="click to add"
+                        onClick={() => {
+                          const values = value.split(' ')
+                          values.pop()
 
-                      setValue(values.join(' ').trim())
-                      onTagAdd(tag)
-                      setShowSuggestions(false)
+                          setValue(values.join(' ').trim())
+                          onTagAdd(tag)
+                          setShowSuggestions(false)
 
-                      if (inputEl !== null) {
-                        ;(inputEl.current as any).focus()
-                      }
-                    }}
-                  >
-                    #{tag}
-                  </button>
-                ))}
+                          if (inputEl !== null) {
+                            ;(inputEl.current as any).focus()
+                          }
+                        }}
+                      >
+                        {suggestionsType === SuggestionTypes.tags ? '#' : '@'}
+                        {tag}
+                      </button>
+                    </li>
+                  ))}
+              </ul>
             </div>
           )}
         </div>

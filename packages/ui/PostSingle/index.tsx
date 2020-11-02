@@ -43,7 +43,7 @@ export const PostSingle: FC<{
   allowToRespond?: boolean
   createComment: (payload: { post: string; text: string }) => unknown
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
-  fetchUsers: (query: string, signal: AbortSignal) => Promise<string[]>
+  fetchUsers: (query: string, signal: AbortSignal) => Promise<IUser[]>
   noImage: { [key: string]: IImage }
   onUserClick?: (user: IUser) => unknown
   onClick?: (id: string) => unknown
