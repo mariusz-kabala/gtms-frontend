@@ -143,6 +143,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
+  const [temp, setTemp] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
       sort,
@@ -353,16 +354,17 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               users={state.activeUsers}
             />            
             <div className={styles.leftRight}>
-              {!showPromoted && (
-                <PromotedTags
-                  additionalStyles={styles.tags}
-                  onTagClick={(tag) => onClick({ tag: tag.tag })}
-                  ref={promotedTagsRef}
-                />
-              )}
+                {showPromoted && (
+                  <div onClick={() => setTemp(!temp)}>
+                    <PromotedTags
+                      additionalStyles={styles.tags}
+                      onTagClick={(tag) => onClick({ tag: tag.tag })}
+                      ref={promotedTagsRef}
+                    />
+                  </div>
+                )}
               {
-                state && state.posts && state.posts.length === 0 ||
-                state && state.posts && state.posts.length > 0 && (
+                temp && (
                   <div className={cx(styles.column, styles.right)}>
                     {state && state.posts && state.posts.length === 0 && (
                       <div className={styles.noPostsFound}>

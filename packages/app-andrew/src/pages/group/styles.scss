@@ -25,21 +25,15 @@
     grid-gap: 10px;
 
     .tagsbutton {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapeDefault();
+      @include buttonColorsDefault();
       width: 100%;
       height: $tempsize;
       margin-top: 10px;
-      padding: 8px;
-      border: none;
-      border-radius: $borderRadius;
       background: $blackTwo;
-      @include font-size(md);
-      box-shadow: $boxShadowDefault;
-      cursor: pointer;
 
-      &:focus,
       &:hover,
       &.active {
         background: $theme4;
@@ -69,7 +63,6 @@
           display: flex;
           border-radius: $borderRadius;
           background: $black;
-          display: none;
 
           .posts {
             display: flex;

@@ -10,12 +10,6 @@
   @include gridDefault(3);
 
   .item {
-    border: 1px solid rgba($blackTwo, 0.35);
-
-    &:hover {
-      border: none;
-    }
-
     &.typeOne {
       position: relative;
       display: flex;
