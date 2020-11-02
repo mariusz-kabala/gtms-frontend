@@ -32,6 +32,7 @@
       height: $tempsize;
       margin-top: 10px;
       padding: 8px;
+      border: none;
       border-radius: $borderRadius;
       background: $blackTwo;
       @include font-size(md);
@@ -60,11 +61,11 @@
         grid-gap: 10px;
         margin-top: 10px;
         
-        .promoted, .right {
+        .tags, .right {
           width: 500px;
         }
         
-        .promoted {
+        .tags {
           // display: none;
         }
 
@@ -72,7 +73,6 @@
           display: flex;
           border-radius: $borderRadius;
           background: $black;
-          display: none;
 
           .posts {
             display: flex;

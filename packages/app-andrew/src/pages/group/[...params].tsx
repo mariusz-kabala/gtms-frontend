@@ -289,7 +289,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               <i>
                 <IoMdGrid />
               </i>
-              Tags
+              <span>Tags</span>
             </Button>               
             {/* <NavigationTabs>
               <h2 className={cx(styles.header, styles.active)}>
@@ -353,16 +353,13 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               users={state.activeUsers}
             />            
             <div className={styles.leftRight}>
-              <div className={styles.promoted}>
-                {!showPromoted && (
-                  <PromotedTags
-                    additionalStyles={styles.tags}
-                    onTagClick={(tag) => onClick({ tag: tag.tag })}
-                    ref={promotedTagsRef}
-                  />
-                )}
-              </div>
-
+              {!showPromoted && (
+                <PromotedTags
+                  additionalStyles={styles.tags}
+                  onTagClick={(tag) => onClick({ tag: tag.tag })}
+                  ref={promotedTagsRef}
+                />
+              )}
               {
                 state && state.posts && state.posts.length === 0 ||
                 state && state.posts && state.posts.length > 0 && (
