@@ -64,15 +64,12 @@
         .tags, .right {
           width: 500px;
         }
-        
-        .tags {
-          // display: none;
-        }
 
         .right {
           display: flex;
           border-radius: $borderRadius;
           background: $black;
+          display: none;
 
           .posts {
             display: flex;
