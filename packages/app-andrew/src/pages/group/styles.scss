@@ -38,7 +38,9 @@
       box-shadow: $boxShadowDefault;
       cursor: pointer;
 
-      &:hover {
+      &:focus,
+      &:hover,
+      &.active {
         background: $theme4;
       }
 
@@ -57,18 +59,66 @@
         display: flex;
         grid-gap: 10px;
         margin-top: 10px;
-
+        
         .promoted, .right {
           width: 500px;
+        }
+        
+        .promoted {
+          // display: none;
         }
 
         .right {
           display: flex;
           border-radius: $borderRadius;
           background: $black;
+          display: none;
 
           .posts {
-            // display: none;
+            display: flex;
+            margin-top: 5px;
+            border-radius: $borderRadius;
+            background: $blackTwo;
+
+            > div {
+              width: 100%;
+            }
+
+            .postCreate {
+              display: flex;
+              margin: 10px;
+              border-radius: $borderRadius;
+            }
+
+            .postDetails {
+              margin-left: 10px;
+            }
+          }
+
+          .noPostsFound {
+            margin: 0 10px;
+            padding: 20px;
+            border-radius: $borderRadius;
+
+            .postCreate {
+              padding: 10px;
+              border-radius: $borderRadius;
+            }
+
+            .header {
+              @include font-weight(semiNormal);
+              @include font-size(lg);
+              margin-bottom: 20px;
+
+              span {
+                @include font-weight(semiBold);
+              }
+            }
+          }
+
+          .pagination {
+            justify-content: center;
+            margin: 30px 0;
           }
         }
       }
