@@ -9,40 +9,29 @@
     text-align: center;
   }
 
-  .section {
-    padding: 10px;
-    margin-bottom: 20px;
-    background: $theme0;
-    border-radius: $borderRadius;
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    @include font-size(md);
+    @include font-weight('semiBold');
+    text-transform: uppercase;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+    .btn {
+      margin-left: 10px;
+      @include buttonDefault();
+      @include buttonSizeSm();
+      @include buttonShapeDefault();
+      @include buttonWithIcon();
+      @include buttonColorsDefault();
 
-    .header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      @include font-size(md);
-      @include font-weight('semiBold');
-      text-transform: uppercase;
-
-      .btn {
-        margin-left: 10px;
-        @include buttonDefault();
-        @include buttonSizeSm();
-        @include buttonShapeDefault();
-        @include buttonWithIcon();
-        @include buttonColorsDefault();
-
-        &:hover {
-          @include buttonColorsPrimary();
-        }
+      &:hover {
+        @include buttonColorsPrimary();
       }
     }
+  }
 
-    p {
-      margin: 5px 0;
-    }
+  p {
+    margin: 5px 0;
   }
 }

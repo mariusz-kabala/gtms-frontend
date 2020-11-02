@@ -2,14 +2,6 @@
   position: relative;
   margin: 15px;
 
-  @if $bg == 'bgdefault' {
-    background: $black;
-  }
-
-  @if $bg == 'bgdefaultWithOpacity' {
-    background: rgba($theme0, 0.95);
-  }
-
   @if $bg == 'loginRegister' {
     margin: initial;
   }

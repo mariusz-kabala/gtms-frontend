@@ -5,7 +5,7 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper('bgdefault');
+  @include pageWrapper();
 }
 
 .wrapper {
@@ -19,7 +19,8 @@
   .content {
     width: 100%;
     padding: 20px;
-    background: $theme1;
+    border-radius: $borderRadius;
+    background: $blackTwo;
 
     .navigationWrapper {
       margin-bottom: 15px;
@@ -28,12 +29,6 @@
         @include header(h3, textUppercase);
         @include font-weight(semiBold);
       }
-    }
-
-    .avatarAndName {
-      padding: 10px;
-      background: $theme0;
-      border-radius: $borderRadius;
     }
 
     .deleteAccount {
