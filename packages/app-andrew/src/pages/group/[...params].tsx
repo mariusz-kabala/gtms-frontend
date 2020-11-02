@@ -142,7 +142,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
-  const [showPromoted, setShowPromoted] = useState<boolean>(false)
+  const [showPromoted, setShowPromoted] = useState<boolean>(true)
   const [temp, setTemp] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
@@ -278,6 +278,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.hasNoAccess && <GroupNoAccess />}
 
+      {/* <GroupCover
+        group={state.group}
+        isEditAllowed={groupQuery.hasAdminRights()}
+      /> */}
+
       {state.group && (
         <div className={styles.wrapper}>
           <GroupSidebar>
@@ -339,10 +344,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             {/* <GroupSidebarContent isSidebarOpen={isSidebarOpen} /> */}
           </GroupSidebar>          
           <div className={styles.content}>
-            {/* <GroupCover
-              group={state.group}
-              isEditAllowed={groupQuery.hasAdminRights()}
-            /> */}
             <SearchBar
               additionalStyles={styles.search}
               onTagAdd={() => null}
