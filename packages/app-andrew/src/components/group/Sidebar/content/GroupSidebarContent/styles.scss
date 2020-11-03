@@ -16,7 +16,9 @@
   .settingsButton,
   .followButton,
   .favsButton {
-    margin: 5px;
+    width: 100%;
+    height: $tempsize;
+    margin-top: 10px;
   }
 
   .groupMembers {

@@ -12,14 +12,6 @@
   display: flex;
   border-radius: 10px;
 
-  .tempheader {
-    position: fixed;
-    right: 40px;
-    bottom: 40px;
-    font-size: 55px;
-    z-index: 0;
-  }
-
   .wrapper {
     display: flex;
     grid-gap: 10px;
@@ -68,7 +60,6 @@
             display: flex;
             margin-top: 5px;
             border-radius: $borderRadius;
-            background: $blackTwo;
 
             > div {
               width: 100%;

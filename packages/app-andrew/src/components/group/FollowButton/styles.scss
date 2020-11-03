@@ -2,27 +2,22 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
-.wrapper {
-  display: flex;
-  text-transform: uppercase;
+.btn {
+  @include buttonDefault();
+  @include buttonSizeSm();
+  @include buttonShapeDefault();
+  @include buttonWithIcon('withoutText');
+  @include buttonWithSpinner();
+  @include buttonColorsDefault();
+  @include font-size(sm);
+  width: 100%;
+  color: $theme0;
 
-  .btn {
-    @include buttonDefault();
-    @include buttonSizeSm();
-    @include buttonShapeDefault();
-    @include buttonWithIcon();
-    @include buttonWithSpinner();
-    @include font-size(sm);
-    justify-content: flex-start;
-    width: 100%;
-    color: $theme0;
+  &:hover {
+    @include buttonColorsPrimary();
+  }
 
-    i {
-      margin-right: 5px;
-    }
-
-    &:hover {
-      @include buttonColorsPrimary();
-    }
+  span {
+    display: none;
   }
 }

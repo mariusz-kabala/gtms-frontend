@@ -261,8 +261,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   return (
     <div className={styles.pageWrapper}>
-      <h3 className={styles.tempheader}>Burning Man Festival 2021</h3>
-
       {state.isLoading && <Spinner />}
 
       {state.errorOccured && (
@@ -297,7 +295,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </i>
               <span>Tags</span>
             </Button>               
-            {/* <GroupSidebarContent isSidebarOpen={isSidebarOpen} /> */}
+            <GroupSidebarContent />
           </GroupSidebar>          
           <div className={styles.content}>
             <SearchBar

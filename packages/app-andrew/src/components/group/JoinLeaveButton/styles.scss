@@ -6,16 +6,12 @@
   @include buttonDefault();
   @include buttonSizeSm();
   @include buttonShapeDefault();
-  @include buttonWithIcon();
+  @include buttonWithIcon('withoutText');
   @include buttonWithSpinner();
+  @include buttonColorsDefault();
   @include font-size(sm);
-  justify-content: flex-start;
   width: 100%;
   color: $theme0;
-
-  i {
-    margin-right: 5px;
-  }
 
   &:hover {
     @include buttonColorsPrimary();
@@ -30,5 +26,9 @@
       width: 45px;
       left: 5px;
     }
+  }
+
+  span {
+    display: none;
   }
 }

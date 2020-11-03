@@ -40,6 +40,9 @@
       margin-left: 3px;
     }
   }
+  @if $position == 'withoutText' {
+    // i is without margin
+  }
 }
 
 @mixin buttonWithSpinner($position: 'left') {

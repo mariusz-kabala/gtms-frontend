@@ -39,41 +39,37 @@ export const FollowButton: FC<{
   }
 
   return (
-    <div
-      className={cx(styles.wrapper, additionalStyles)}
+    <button
+      className={cx(styles.btn, additionalStyles)}
       data-testid="follow-button"
+      onClick={() => {
+        if (!state.isLogged) {
+          return openLoginModal()
+        }
+
+        if (!state.isFollowing) {
+          return followGroup(group.id)
+        }
+
+        unfollowGroup(group.id)
+      }}
     >
-      <button
-        className={styles.btn}
-        onClick={() => {
-          if (!state.isLogged) {
-            return openLoginModal()
-          }
-
-          if (!state.isFollowing) {
-            return followGroup(group.id)
-          }
-
-          unfollowGroup(group.id)
-        }}
-      >
-        {state.isFollowing && (
-          <>
-            <i>
-              <IoIosHeart />
-            </i>{' '}
-            <span>Unfollow</span>
-          </>
-        )}
-        {!state.isFollowing && (
-          <>
-            <i>
-              <IoIosHeart />
-            </i>{' '}
-            <span>Follow</span>
-          </>
-        )}
-      </button>
-    </div>
+      {state.isFollowing && (
+        <>
+          <i>
+            <IoIosHeart />
+          </i>{' '}
+          <span>Unfollow</span>
+        </>
+      )}
+      {!state.isFollowing && (
+        <>
+          <i>
+            <IoIosHeart />
+          </i>{' '}
+          <span>Follow</span>
+        </>
+      )}
+    </button>
   )
 }
