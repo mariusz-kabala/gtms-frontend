@@ -317,7 +317,9 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     onTagClick={(tag) => onClick({ tag: tag.tag })}
                     ref={promotedTagsRef}
                   />
-                  <GroupMembers additionalStyles={styles.groupMembers} {...state.members} />
+                  <div className={styles.groupMembers}>
+                    <GroupMembers additionalStyles={styles.groupMembers} {...state.members} />
+                  </div>
                 </div>
               )}
               {
