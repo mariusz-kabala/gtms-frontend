@@ -12,6 +12,7 @@ import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
 import { GroupCover } from 'components/group/GroupCover'
+import { GroupMembers } from 'components/group/GroupMembers'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
 import { PostCreate } from 'components/post/PostCreate'
@@ -309,15 +310,16 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               users={state.activeUsers}
             />            
             <div className={styles.leftRight}>
-                {showPromoted && (
-                  <div onClick={() => setTemp(!temp)}>
-                    <PromotedTags
-                      additionalStyles={styles.tags}
-                      onTagClick={(tag) => onClick({ tag: tag.tag })}
-                      ref={promotedTagsRef}
-                    />
-                  </div>
-                )}
+              {showPromoted && (
+                <div onClick={() => setTemp(!temp)}>
+                  <PromotedTags
+                    additionalStyles={styles.tags}
+                    onTagClick={(tag) => onClick({ tag: tag.tag })}
+                    ref={promotedTagsRef}
+                  />
+                  <GroupMembers additionalStyles={styles.groupMembers} {...state.members} />
+                </div>
+              )}
               {
                 temp && (
                   <div className={cx(styles.column, styles.right)}>

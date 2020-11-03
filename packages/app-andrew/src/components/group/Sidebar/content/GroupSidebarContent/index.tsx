@@ -10,7 +10,6 @@ import {
 // components
 import { FavsButton } from 'components/group/FavsButton'
 import { FollowButton } from 'components/group/FollowButton'
-import { GroupMembers } from 'components/group/GroupMembers'
 import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
 import { SettingsButton } from 'components/group/SettingsButton'
 // styles
@@ -54,7 +53,6 @@ export const GroupSidebarContent: FC<{}> = ({ isSidebarOpen }) => {
         additionalStyles={styles.followButton}
         group={state.group}
       />
-      {/* <GroupMembers additionalStyles={styles.groupMembers} {...state.members} /> */}
     </div>
   )
 }
