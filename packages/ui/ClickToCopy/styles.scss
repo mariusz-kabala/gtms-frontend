@@ -9,7 +9,7 @@
     @include buttonColorsDefault();
     width: 100%;
     color: white;
-    background: $theme1;
+    background: $black;
 
     &:hover {
       @include buttonColorsPrimary();

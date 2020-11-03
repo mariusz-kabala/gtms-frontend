@@ -97,7 +97,7 @@
     &:checked {
       & + span {
         &:before {
-          background: rgba($theme1, 0.35);
+          background: rgba($black, 0.35);
         }
         &:after {
           background: $theme4;
@@ -105,9 +105,9 @@
         }
         .locker {
           transform: translate(18px, 0);
-          background: $theme1;
+          background: $black;
           &:after {
-            border-color: $theme1;
+            border-color: $black;
             transform: rotate(0deg) translate(0, 0);
           }
         }

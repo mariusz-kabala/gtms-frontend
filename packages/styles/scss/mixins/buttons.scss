@@ -90,7 +90,7 @@
 
 // COLORS
 @mixin buttonColorsDefault() {
-  background: $theme1;
+  background: $black;
   color: $theme0;
 }
 
@@ -101,12 +101,12 @@
 
 @mixin buttonColorsSecondary() {
   background: $theme7;
-  color: $theme1;
+  color: $black;
 }
 
 @mixin buttonColorsTertiary() {
-  background: $theme9;
-  color: $theme1;
+  background: $black;
+  color: $theme0;
 }
 
 @mixin buttonColorsQuaternary() {

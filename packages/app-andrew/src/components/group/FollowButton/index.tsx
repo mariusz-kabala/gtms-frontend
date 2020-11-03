@@ -11,7 +11,7 @@ import {
   followGroup,
   unfollowGroup,
 } from '@gtms/state-notification'
-import { IoIosHeart } from 'react-icons/io'
+import { AiOutlineRead, AiFillRead } from 'react-icons/ai'
 import { openLoginModal } from 'state'
 import styles from './styles.scss'
 
@@ -57,7 +57,7 @@ export const FollowButton: FC<{
       {state.isFollowing && (
         <>
           <i>
-            <IoIosHeart />
+            <AiOutlineRead />
           </i>{' '}
           <span>Unfollow</span>
         </>
@@ -65,7 +65,7 @@ export const FollowButton: FC<{
       {!state.isFollowing && (
         <>
           <i>
-            <IoIosHeart />
+            <AiFillRead />
           </i>{' '}
           <span>Follow</span>
         </>

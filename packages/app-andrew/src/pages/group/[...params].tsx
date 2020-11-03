@@ -58,6 +58,7 @@ import {
 import { changePageBackground, changePageBackgroundImage } from 'state'
 // ui
 import { IoMdGrid } from 'react-icons/io'
+import { BsFillGridFill } from 'react-icons/bs'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
@@ -292,7 +293,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               })}
             >
               <i>
-                <IoMdGrid />
+                <BsFillGridFill />
               </i>
               <span>Tags</span>
             </Button>               
@@ -317,9 +318,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     onTagClick={(tag) => onClick({ tag: tag.tag })}
                     ref={promotedTagsRef}
                   />
-                  <div className={styles.groupMembers}>
                     <GroupMembers additionalStyles={styles.groupMembers} {...state.members} />
-                  </div>
                 </div>
               )}
               {

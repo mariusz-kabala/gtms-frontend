@@ -8,7 +8,7 @@
   @include buttonWithIcon('withoutText');
   @include buttonWithSpinner();
   @include buttonColorsDefault();
-  @include font-size(sm);
+  @include font-size(xmd);
   width: 100%;
   color: $theme0;
 

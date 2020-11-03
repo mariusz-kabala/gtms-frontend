@@ -6,7 +6,7 @@
 
 .pageWrapper {
   @include pageWrapper();
-  background: $theme1;
+  background: $black;
 }
 
 .wrapper {
@@ -34,7 +34,7 @@
         margin-right: 10px;
         padding: 5px 15px;
         border-radius: $borderRadius;
-        background: $theme1;
+        background: $black;
 
         a {
           font-size: 1.1em;
