@@ -5,7 +5,8 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper();
+  @include pageWrapper('bgdefault');
+  max-width: 500px;
 }
 
 .wrapper {
@@ -20,13 +21,14 @@
     max-width: 300px;
     margin-top: 20px;
   }
-
+  
   > div {
     padding: 50px;
-
+    
     .header {
       @include font-weight(bold);
       @include font-size(xlg);
+      margin-top: 20px;
       text-transform: uppercase;
     }
 

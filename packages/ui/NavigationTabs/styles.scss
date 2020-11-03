@@ -4,20 +4,19 @@
 
 .wrapper {
   display: flex;
-  margin-bottom: 15px;
-  
-  h2, li {
+  padding: 10px;
+  cursor: pointer;
+
+  h2 {
     display: flex;
     align-items: center;
     @include font-size('sm');
     @include font-weight(semiBold);
     text-transform: uppercase;
     padding: 5px;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin-right: 5px;
     border-radius: $borderRadius;
     color: $theme0;
-    cursor: pointer;
 
     &:hover, &:first-child {
       color: $theme0;
@@ -32,5 +31,15 @@
 
   ul {
     display: flex;
+    align-items: center;
+    padding: 5px 0;
+
+    li {
+      margin-left: 10px;
+
+      &:hover {
+        color: $theme4;
+      }
+    }
   }
 }
