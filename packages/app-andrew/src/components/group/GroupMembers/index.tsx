@@ -8,6 +8,7 @@ import { UserAvatarNoImage } from 'enums'
 import { IoMdArrowForward } from 'react-icons/io'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Button } from '@gtms/ui/Button'
+import { MockUsers } from '@gtms/ui/MockData'
 import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
@@ -76,7 +77,7 @@ export const GroupMembers: FC<{
       )}
 
       {users.length === 0 && (
-        <p>No groups members, maybe you would like to be the first one?</p>
+      <MockUsers additionalStyles={styles.mock} theme="dark" numberOfElements={4} />
       )}
     </div>
   )
