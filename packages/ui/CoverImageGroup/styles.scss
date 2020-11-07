@@ -8,7 +8,7 @@
 .wrapper {
   width: 100%;
   @include imageCover();
-  background: $black;
+  background: $theme1;
 
   .header {
     @include font-weight(semiBold);

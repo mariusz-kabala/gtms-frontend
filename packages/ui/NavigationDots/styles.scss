@@ -23,7 +23,7 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
       position: relative;
       width: 100%;
       height: 100%;
-      background: $blackTwo;
+      background: $theme1;
       @include z-index(allMyGroupsSidebar);
 
       & + div {

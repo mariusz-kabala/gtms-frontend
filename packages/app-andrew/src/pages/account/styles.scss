@@ -26,8 +26,8 @@
     padding: 10px;
     margin-bottom: 15px;
     border-radius: $borderRadius;
-    background: $black;
-    color: $black;
+    background: $theme1;
+    color: $theme1;
     @include font-weight(semiBold);
 
     span {
@@ -47,7 +47,7 @@
       height: 0;
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
-      border-top: 10px solid $black;
+      border-top: 10px solid $theme1;
     }
 
     &:hover {

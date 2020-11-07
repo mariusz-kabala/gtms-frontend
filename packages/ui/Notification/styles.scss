@@ -8,7 +8,7 @@
   padding: 10px;
   @include font-size(sm);
   border-radius: $borderRadius;
-  background: $black;
+  background: $theme1;
   cursor: pointer;
 
   .notificationIcon {

@@ -33,10 +33,10 @@
       display: block;
       width: 100%;
       border: none;
-      border: 1px solid $theme7;
+      border: 2px solid $theme7;
       border-radius: $borderRadius;
       padding: 10px;
-      background: $black;
+      background: $theme1;
       @include placeholderFocus;
 
       &:active,
@@ -69,7 +69,7 @@
       padding: 5px 5px;
       cursor: pointer;
       margin-right: 5px;
-      background: $black;
+      background: $theme1;
       border-radius: $borderRadius;
       @include font-weight(semiBold);
 
