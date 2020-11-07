@@ -27,10 +27,7 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
 
   return (
     <>
-      <div
-        data-testid="home-page"
-        className={styles.pageWrapper}
-      >
+      <div data-testid="home-page" className={styles.pageWrapper}>
         {isModalOpen && (
           <Modal onClose={() => setIsModalOpen(false)}>
             <InviteFriends />

@@ -181,23 +181,23 @@ export const PostsList: FC<{
       />
       {userPreview && (
         <>
-        <style global jsx>{`
-          body {
-            padding-bottom: 150px;
-          }
-        `}</style>        
-        <div
-          className={cx(styles.userPreviewWrapper, {
-            [styles.active]: userPreview,
-          })}
-        >
-          <UserPreview
-            user={userPreview}
-            noUserAvatar={UserAvatarNoImage}
-            onUserPostsClick={onUserPostsClick}
-            onClose={onCloseUserPreview}
-          />
-        </div>
+          <style global jsx>{`
+            body {
+              padding-bottom: 150px;
+            }
+          `}</style>
+          <div
+            className={cx(styles.userPreviewWrapper, {
+              [styles.active]: userPreview,
+            })}
+          >
+            <UserPreview
+              user={userPreview}
+              noUserAvatar={UserAvatarNoImage}
+              onUserPostsClick={onUserPostsClick}
+              onClose={onCloseUserPreview}
+            />
+          </div>
         </>
       )}
       {showGroupPreview && (
@@ -212,7 +212,7 @@ export const PostsList: FC<{
                 body {
                   padding-bottom: 150px;
                 }
-              `}</style>            
+              `}</style>
               <GroupCard
                 isLoading={groupPreview.isLoading}
                 onClose={onCloseGroupPreview}

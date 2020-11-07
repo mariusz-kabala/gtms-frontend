@@ -23,91 +23,96 @@ type Props = {
   onTagClick?: (tag: IPromotedTag) => unknown
 }
 
-export const PromotedTags = forwardRef<Ref, Props>(({ additionalStyles, onTagClick }, ref) => {
-  const [state, setState] = useState<IPromotedTagsState>(promotedTagsState())
-  const [promotedTagEditor, setPromotedTagEditor] = useState<{
-    isOpen: boolean
-    id?: string
-    description?: string
-    tag?: string
-  }>({
-    isOpen: false,
-  })
-
-  const onAddTagClick = useCallback(() => {
-    setPromotedTagEditor({
-      isOpen: true,
+export const PromotedTags = forwardRef<Ref, Props>(
+  ({ additionalStyles, onTagClick }, ref) => {
+    const [state, setState] = useState<IPromotedTagsState>(promotedTagsState())
+    const [promotedTagEditor, setPromotedTagEditor] = useState<{
+      isOpen: boolean
+      id?: string
+      description?: string
+      tag?: string
+    }>({
+      isOpen: false,
     })
-  }, [])
 
-  const onEditTagClick = useCallback((tag: IPromotedTag) => {
-    setPromotedTagEditor({
-      isOpen: true,
-      description: tag.description,
-      id: tag.id,
-      tag: tag.tag,
-    })
-  }, [])
+    const onAddTagClick = useCallback(() => {
+      setPromotedTagEditor({
+        isOpen: true,
+      })
+    }, [])
 
-  const onDeleteTagClick = useCallback((tag: IPromotedTag) => {
-    // todo show confirmation first!
-    deletePromotedTag(tag.id)
-  }, [])
+    const onEditTagClick = useCallback((tag: IPromotedTag) => {
+      setPromotedTagEditor({
+        isOpen: true,
+        description: tag.description,
+        id: tag.id,
+        tag: tag.tag,
+      })
+    }, [])
 
-  useEffect(() => {
-    const sub = promotedTagsState$.subscribe((value) => setState(value))
+    const onDeleteTagClick = useCallback((tag: IPromotedTag) => {
+      // todo show confirmation first!
+      deletePromotedTag(tag.id)
+    }, [])
 
-    return () => {
-      sub && !sub.closed && sub.unsubscribe()
-    }
-  }, [])
+    useEffect(() => {
+      const sub = promotedTagsState$.subscribe((value) => setState(value))
 
-  return (
-    <div className={additionalStyles} ref={ref}>
-      {!state.isLoading && state.tags.length === 0 && (
-        <EmptyPromotedTags onAddClick={onAddTagClick} isAdmin={state.isAdmin} />
-      )}
-      {state.isLoading ||
-        (state.tags.length > 0 && (
-          <PromotedTagsUI
-            tags={state.tags}
-            activeTags={state.activeTags}
-            isLoading={state.isLoading}
-            noImage={PromotedTagNoImage}
+      return () => {
+        sub && !sub.closed && sub.unsubscribe()
+      }
+    }, [])
+
+    return (
+      <div className={additionalStyles} ref={ref}>
+        {!state.isLoading && state.tags.length === 0 && (
+          <EmptyPromotedTags
+            onAddClick={onAddTagClick}
             isAdmin={state.isAdmin}
-            onTagClick={onTagClick}
-            onNoRecordsClick={onAddTagClick}
-            onEditRecordClick={onEditTagClick}
-            onDeleteRecordClick={onDeleteTagClick}
           />
-        ))}
-      {promotedTagEditor.isOpen && (
-        <Modal
-          additionalStyles={styles.modalContent}
-          onClose={() => {
-            setPromotedTagEditor({
-              isOpen: false,
-            })
-          }}
-        >
-          <PromotedTagsForm
-            onSuccess={() => {
+        )}
+        {state.isLoading ||
+          (state.tags.length > 0 && (
+            <PromotedTagsUI
+              tags={state.tags}
+              activeTags={state.activeTags}
+              isLoading={state.isLoading}
+              noImage={PromotedTagNoImage}
+              isAdmin={state.isAdmin}
+              onTagClick={onTagClick}
+              onNoRecordsClick={onAddTagClick}
+              onEditRecordClick={onEditTagClick}
+              onDeleteRecordClick={onDeleteTagClick}
+            />
+          ))}
+        {promotedTagEditor.isOpen && (
+          <Modal
+            additionalStyles={styles.modalContent}
+            onClose={() => {
               setPromotedTagEditor({
                 isOpen: false,
               })
-
-              setTimeout(
-                () => reloadGroupPromotedTagsSilently(state.id || ''),
-                2000
-              )
             }}
-            groupId={state.id || ''}
-            id={promotedTagEditor.id}
-            description={promotedTagEditor.description}
-            tag={promotedTagEditor.tag}
-          />
-        </Modal>
-      )}
-    </div>
-  )
-})
+          >
+            <PromotedTagsForm
+              onSuccess={() => {
+                setPromotedTagEditor({
+                  isOpen: false,
+                })
+
+                setTimeout(
+                  () => reloadGroupPromotedTagsSilently(state.id || ''),
+                  2000
+                )
+              }}
+              groupId={state.id || ''}
+              id={promotedTagEditor.id}
+              description={promotedTagEditor.description}
+              tag={promotedTagEditor.tag}
+            />
+          </Modal>
+        )}
+      </div>
+    )
+  }
+)
