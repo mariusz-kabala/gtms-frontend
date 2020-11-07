@@ -1,7 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import cx from 'classnames'
 // state
-import { toggleGroupSidebar } from 'state'
 import {
   IGroupSidebarContentState,
   groupSidebarContentState,
@@ -15,7 +13,7 @@ import { SettingsButton } from 'components/group/SettingsButton'
 // styles
 import styles from './styles.scss'
 
-export const GroupSidebarContent: FC<{}> = ({ isSidebarOpen }) => {
+export const GroupSidebarContent: FC<{}> = () => {
   const [state, setState] = useState<IGroupSidebarContentState>(
     groupSidebarContentState()
   )
@@ -35,11 +33,7 @@ export const GroupSidebarContent: FC<{}> = ({ isSidebarOpen }) => {
   }
 
   return (
-    <div
-      className={cx(styles.wrapper, {
-        [styles.collapsed]: !isSidebarOpen,
-      })}
-    >
+    <div className={styles.wrapper}>
       <FavsButton additionalStyles={styles.favsButton} group={state.group} />
       <JoinLeaveButton
         additionalStyles={styles.joinLeaveButton}

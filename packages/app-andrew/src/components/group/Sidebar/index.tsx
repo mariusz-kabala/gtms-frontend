@@ -3,24 +3,19 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { getImage } from '@gtms/commons/helpers'
 import { GroupAvatarNoImage } from 'enums'
 // state
-import { groupQuery } from '@gtms/state-group'
-import {
-  IGroupSidebarState,
-  groupSidebarState,
-  groupSidebarState$,
-} from './state.query'
+import { groupQuery, IGroupState } from '@gtms/state-group'
 // components
 import { GroupAvatar } from 'components/group/GroupAvatar'
-import { GroupDescription } from 'components/group/GroupDescription'
+// import { GroupDescription } from 'components/group/GroupDescription'
 // styles
 import styles from './styles.scss'
 
 export const GroupSidebar: FC<{}> = ({ children }) => {
-  const [state, setState] = useState<IGroupSidebarState>(groupSidebarState())
+  const [state, setState] = useState<IGroupState>(groupQuery.getValue())
   const { t } = useTranslation('groupPage')
 
   useEffect(() => {
-    const sub = groupSidebarState$.subscribe((value) => {
+    const sub = groupQuery.allState$.subscribe((value) => {
       setState(value)
     })
 
@@ -34,9 +29,7 @@ export const GroupSidebar: FC<{}> = ({ children }) => {
   }
 
   return (
-    <div
-      className={styles.groupSidebar}
-    >
+    <div className={styles.groupSidebar}>
       <div className={styles.avatarAndName}>
         <GroupAvatar
           additionalStyles={styles.groupAvatar}
@@ -50,7 +43,7 @@ export const GroupSidebar: FC<{}> = ({ children }) => {
           data-type="dark"
         >
           {state.group?.name}
-        </h2>        
+        </h2>
       </div>
       {/* <GroupDescription
         additionalStyles={styles.desc}
