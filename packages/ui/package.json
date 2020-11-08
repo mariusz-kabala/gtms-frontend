@@ -12,6 +12,7 @@
     "@gtms/commons": "0.29.0",
     "@gtms/state-user": "0.19.4",
     "@gtms/styles": "0.22.1",
+    "@types/react-transition-group": "^4.4.0",
     "react-avatar-editor": "^12.0.0-beta.0",
     "react-circular-progressbar": "^2.0.3",
     "react-custom-scrollbars": "^4.2.1",
