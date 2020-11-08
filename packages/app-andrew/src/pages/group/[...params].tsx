@@ -11,7 +11,7 @@ import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
-import { GroupCover } from 'components/group/GroupCover'
+// import { GroupCover } from 'components/group/GroupCover'
 import { GroupMembers } from 'components/group/GroupMembers'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
@@ -446,7 +446,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         </div>
                         {state.activePost && (
                           <PostDetails
-                            additionalStyles={stFyles.postDetails}
+                            additionalStyles={styles.postDetails}
                             comments={state.comments}
                             user={state.user}
                             activeTags={state.activeTags || []}

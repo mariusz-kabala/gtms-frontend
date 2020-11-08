@@ -6,12 +6,6 @@
 .wrapper {
   width: 100%;
 
-  &.collapsed {
-    .groupMembers {
-      display: none;
-    }
-  }
-
   .joinLeaveButton,
   .settingsButton,
   .followButton,

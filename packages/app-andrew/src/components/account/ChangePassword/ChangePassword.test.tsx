@@ -7,7 +7,6 @@ describe('<ChangePassword />', () => {
     const { getByTestId } = render(<ChangePassword />)
 
     expect(getByTestId('user-password-change')).toBeInTheDocument()
-    expect(getByTestId('expanding-item')).toBeInTheDocument()
   })
 
   it('Should open edit mode of user name when clicked on <ChangePassword /> ', () => {
@@ -15,7 +14,6 @@ describe('<ChangePassword />', () => {
 
     fireEvent.click(getByTestId('user-password-change'))
 
-    expect(getByTestId('expanding-item')).toBeInTheDocument()
     expect(getByTestId('user-password-change-form')).toBeInTheDocument()
   })
 

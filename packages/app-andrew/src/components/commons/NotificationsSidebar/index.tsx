@@ -52,7 +52,7 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      <CSSTransition in={state.isOpen}>
+      <CSSTransition timeout={200} in={state.isOpen}>
         <div className={styles.content}>
           <div className={styles.navigation}>
             <h2 className={styles.header}>

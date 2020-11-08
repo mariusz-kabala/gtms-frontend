@@ -73,16 +73,6 @@ export class UIQuery extends Query<IUI> {
     this.isNotificationsBarOpen(values)
   )
 
-  public isGroupSidebarOpen = (
-    groupId: string,
-    values = this.getValue()
-  ): boolean => {
-    return values.groupsSidebar[groupId] || false
-  }
-
-  public isGroupSidebarOpen$ = (groupId: string): Observable<boolean> =>
-    this.select((values) => this.isGroupSidebarOpen(groupId, values))
-
   constructor(protected store: UIStore, private userQuery: UserQuery) {
     super(store)
   }

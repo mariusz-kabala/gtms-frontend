@@ -14,7 +14,7 @@ import {
 } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 // ui
-import { DeletePost } from './DeletePost'
+// import { DeletePost } from './DeletePost'
 import { GroupDetails } from './GroupDetails'
 import { Picture } from '../Picture'
 import { PostCreate } from '../PostCreate'
@@ -67,16 +67,17 @@ export const PostSingle: FC<{
   onTagClick,
   onUserClick,
   onOpenGroupPreview,
-  onLoginRequest,
-  renderFavs,
-  renderMenu,
+  // onLoginRequest,
+  // renderFavs,
+  // renderMenu,
   images,
   group,
-  favs = [],
+  // favs = [],
   allowToRespond = false,
   activeTags = [],
 }) => {
-  const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
+  // const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
+  const [isAnswerFormOpen] = useState<boolean>(false)
   const [lightboxState, setLightboxState] = useState<{
     isOpen: boolean
     current: number
