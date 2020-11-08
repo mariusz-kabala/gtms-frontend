@@ -54,7 +54,7 @@ export const UserSessions: FC<{
                 <i>
                   <IoMdTrash />
                 </i>
-                Destory session
+                Remove session
               </Button>
             </li>
           ))}

@@ -8,12 +8,12 @@
 @import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .pageWrapper {
-  background: #fffbf2;
+  background: $theme0;
   max-width: 100%;
 }
 
 .welcomeSlider {
-  background: #c3f3ff;
+  background: $theme0;
 }
 
 .wrapper {

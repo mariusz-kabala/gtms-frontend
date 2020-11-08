@@ -1,8 +1,9 @@
 @mixin pageWrapper($bg: null) {
   position: relative;
+  width: 600px;
   margin: 15px;
   border-radius: $borderRadius;
-  
+
   @if $bg == 'bgdefault' {
     background: $theme1;
   }

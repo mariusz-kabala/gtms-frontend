@@ -122,7 +122,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
           </ErrorWrapper>
         )}
         {!state.isLoading && !state.errorOccured && (
-          <div className={styles.content}>
+          <>
             <Navigation current={Tabs.profile} />
             <div>
               <div className={styles.hint}>
@@ -241,7 +241,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </div>

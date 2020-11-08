@@ -40,7 +40,9 @@ const User: FC<{
   index?: number
 }> = ({ index }) => (
   <div className={styles.user} key={index}>
-    <i><BsFillImageFill /></i>
+    <i>
+      <BsFillImageFill />
+    </i>
     <div className={styles.textLines}>
       <Line size="md" />
       <Line size="sm" />
@@ -58,9 +60,7 @@ export const MockData: FC<{
 }> = ({ additionalStyles, numberOfElements, onClick, text, theme }) => {
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles, {
-        [styles.themeDark]: theme == 'dark',
-      })}
+      className={cx(styles.wrapper, additionalStyles)}
       data-testid={'mock-data'}
     >
       {text ? (
@@ -92,14 +92,12 @@ export const MockUsers: FC<{
 }> = ({ additionalStyles, numberOfElements, onClick, text, theme }) => {
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles, {
-        [styles.themeDark]: theme == 'dark',
-      })}
-      data-testid={'mock-users'}>
-      { new Array(numberOfElements ? numberOfElements : 1)
-          .fill(null)
-          .map((_, index) => User({ index }))
-      }
+      className={cx(styles.wrapper, additionalStyles)}
+      data-testid={'mock-users'}
+    >
+      {new Array(numberOfElements ? numberOfElements : 1)
+        .fill(null)
+        .map((_, index) => User({ index }))}
     </div>
   )
 }

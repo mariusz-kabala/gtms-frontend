@@ -26,9 +26,9 @@
       top: 8px;
       left: 10px;
       line-height: 0;
-      color: $theme3;
+      color: $theme0;
     }
-    
+
     input[type='text'] {
       width: 100%;
       padding-left: 50px;
@@ -39,7 +39,7 @@
 
       &::placeholder {
         @include font-weight(light);
-        color: $theme3;
+        color: $theme0;
       }
 
       &:active,

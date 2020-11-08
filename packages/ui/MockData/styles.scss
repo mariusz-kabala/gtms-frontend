@@ -7,11 +7,6 @@ $mockDataColor1: rgba($theme0, 0.2);
 $mockDataColor2: rgba($theme0, 0.4);
 $mockDataColor3: rgba($theme0, 0.55);
 
-$mockDataColor0themeDark: $theme0;
-$mockDataColor1themeDark: rgba($theme0, 0.15);
-$mockDataColor2themeDark: rgba($theme0, 0.2);
-$mockDataColor3themeDark: rgba($theme0, 0.35);
-
 $mockDataSize1: 55px;
 
 .wrapper {
@@ -103,13 +98,13 @@ $mockDataSize1: 55px;
 
     .bar1 {
       left: -100%;
-      background-color: $theme4;
-      animation: bar1 4s infinite linear;
+      background-color: $theme0;
+      animation: bar1 3s infinite linear;
     }
 
     .bar2 {
-      background-color: $theme4;
-      animation: bar2 2s infinite linear;
+      background-color: $theme0;
+      animation: bar2 3s infinite linear;
     }
   }
 
@@ -127,6 +122,7 @@ $mockDataSize1: 55px;
 
   .avatarAndText {
     display: flex;
+    margin: 10px 0;
     opacity: 0.65;
 
     .line {
@@ -153,10 +149,6 @@ $mockDataSize1: 55px;
       justify-content: space-between;
       width: 100%;
       margin-left: 10px;
-    }
-
-    > div {
-      margin: 10px 0;
     }
   }
 
@@ -194,8 +186,8 @@ $mockDataSize1: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $mockDataColor2;
     padding: 30px 20px;
+    color: $mockDataColor2;
     border-radius: $borderRadius;
     text-align: center;
     @include font-size(xmd);
@@ -206,7 +198,8 @@ $mockDataSize1: 55px;
       border: 3px solid $mockDataColor2;
 
       &:hover {
-        border-color: $mockDataColor0;
+        border-color: $mockDataColor2;
+        color: $mockDataColor3;
       }
     }
 
@@ -215,41 +208,6 @@ $mockDataSize1: 55px;
       line-height: 0;
       margin-right: 20px;
       @include font-size(xxxlg);
-    }
-  }
-
-  &.themeDark {
-    color: $mockDataColor3themeDark;
-
-    .square , .user{
-      background: $mockDataColor1themeDark;
-    }
-
-    .line {
-      background: $mockDataColor3themeDark;
-
-      &.sm {
-        background: $mockDataColor1themeDark;
-      }
-
-      &.md {
-        background: $mockDataColor3themeDark;
-      }
-
-      &.lg {
-        background: $mockDataColor2themeDark;
-      }
-    }
-
-    .text {
-      &.clickable {
-        border-color: $mockDataColor2themeDark;
-
-        &:hover {
-          border-color: $mockDataColor3themeDark;
-          color: $mockDataColor3themeDark;
-        }
-      }
     }
   }
 }
