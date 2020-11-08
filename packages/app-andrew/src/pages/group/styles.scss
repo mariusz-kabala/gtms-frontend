@@ -41,13 +41,14 @@
       }
     }
 
-    .content {      
+    .content {
       .leftRight {
         display: flex;
         grid-gap: 10px;
         margin-top: 10px;
-        
-        .tags, .right {
+
+        .tags,
+        .right {
           width: 500px;
         }
 
@@ -59,7 +60,6 @@
         }
 
         .right {
-          display: flex;
           border-radius: $borderRadius;
           background: $theme1;
 

@@ -21,11 +21,11 @@
       background: $theme1;
       box-shadow: $boxShadowDefault;
       cursor: pointer;
-  
+
       &:hover {
         background: $theme4;
       }
-  
+
       .image {
         width: 45px;
         height: 45px;
@@ -35,15 +35,15 @@
         border-radius: $borderRadius;
         @include imageCover();
       }
-  
+
       .desc {
         width: 100%;
-        
+
         h3 {
           @include font-size(xdefault);
           @include font-weight(semiBold);
         }
-        
+
         p {
           @include font-size(sm);
           opacity: 0.8;
@@ -59,13 +59,13 @@
       box-shadow: $boxShadowDefault;
       @include imageCover();
       cursor: pointer;
-  
-      &:nth-child(4n+4),
-      &:nth-child(5n+5),
-      &:nth-child(6n+6) {
+
+      &:nth-child(4n + 4),
+      &:nth-child(5n + 5),
+      &:nth-child(6n + 6) {
         min-height: 100px;
       }
-  
+
       &:before {
         content: '';
         position: absolute;
@@ -75,7 +75,7 @@
         height: 100%;
         @include shadowBoxWithDescription();
       }
-  
+
       &:after {
         content: '';
         position: absolute;
@@ -88,18 +88,18 @@
         border-radius: $borderRadius;
         opacity: 0;
       }
-  
+
       &:hover,
       &.active {
         &:after {
           opacity: 1;
         }
       }
-  
+
       img {
         width: 100%;
       }
-  
+
       .desc {
         position: absolute;
         z-index: 1;
@@ -107,7 +107,7 @@
         padding: 10px;
         width: 100%;
         color: $theme0;
-  
+
         h3 {
           @include font-size(md);
           @include font-weight(semiBold);
@@ -117,8 +117,8 @@
 
     .adminPanel {
       position: absolute;
-      bottom: 0;
-      right: 0;
+      top: 10px;
+      right: 5px;
       z-index: 1;
       display: none;
 
@@ -127,8 +127,27 @@
 
         li {
           display: inline-block;
+          padding: 5px;
+          background: $theme1;
+          border-radius: $borderRadius;
+          overflow: hidden;
+          margin-right: 5px;
           cursor: pointer;
+
+          &:hover {
+            background: $theme4;
+          }
+
+          i {
+            display: flex;
+          }
         }
+      }
+    }
+
+    &:hover {
+      .adminPanel {
+        display: block;
       }
     }
   }
