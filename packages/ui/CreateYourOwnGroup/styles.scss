@@ -9,7 +9,6 @@
   background: $theme4;
   color: $theme0;
   cursor: pointer;
-  border: 10px solid $theme4;
 
   > a {
     display: flex;
@@ -28,10 +27,8 @@
       color: $theme0;
     }
 
-    .picture {
-      display: flex;
-      justify-content: center;
-      max-height: 100px;
+    i {
+      @include font-size(xlg);
     }
 
     .header,
@@ -50,6 +47,6 @@
   }
 
   &:hover {
-    border-color: $theme4 * 0.7;
+    background: $theme4 * 0.8;
   }
 }

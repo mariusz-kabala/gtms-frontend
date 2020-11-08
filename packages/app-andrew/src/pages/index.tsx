@@ -9,7 +9,6 @@ import { getRecentGroups, groupsListQuery } from '@gtms/state-group'
 import { Button } from '@gtms/ui/Button'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
-import { Picture } from '@gtms/ui/Picture'
 import { RecentlyCreatedGroups } from 'components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
 import { SearchBar } from '@gtms/ui/SearchBar'
@@ -27,18 +26,12 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
 
   return (
     <>
-      <div
-        data-testid="home-page"
-        className={styles.pageWrapper}
-      >
+      <div data-testid="home-page" className={styles.pageWrapper}>
         {isModalOpen && (
           <Modal onClose={() => setIsModalOpen(false)}>
             <InviteFriends />
           </Modal>
         )}
-        <div className={styles.welcomeSlider}>
-          <Picture jpg={'/images/white-theme/spotted-bg-highschool.png'} />
-        </div>
         <div className={styles.wrapper}>
           <div className={styles.sections}>
             <div className={styles.headerWrapper}>

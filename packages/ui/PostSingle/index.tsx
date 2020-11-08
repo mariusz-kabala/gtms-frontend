@@ -104,7 +104,7 @@ export const PostSingle: FC<{
         onClick={onUserClickCallback}
         image={getImage('35x35', owner.avatar, noImage)}
         additionalStyles={styles.userAvatar}
-      />        
+      />
       <div>
         <a className={styles.userName} onClick={onUserClickCallback}>
           <span>{getDisplayName(owner)}</span>
@@ -116,7 +116,10 @@ export const PostSingle: FC<{
             })}
           </span>
         </a>
-        <div className={styles.message} dangerouslySetInnerHTML={{ __html: html }} />
+        <div
+          className={styles.message}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
         {images.length > 0 && (
           <ul className={styles.images}>
             {images.map((img, index) => (
@@ -181,7 +184,7 @@ export const PostSingle: FC<{
               noImage={noImage}
             />
           </div>
-        )}           
+        )}
       </div>
       {/* <div className={styles.btns}>
         {allowToRespond && (user || onLoginRequest) && (

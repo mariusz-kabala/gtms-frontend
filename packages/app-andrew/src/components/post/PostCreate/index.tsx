@@ -128,8 +128,9 @@ export const PostCreate: FC<{
   }, [])
   return (
     <div
-      onClick={() => showSendButton ? null : setShowSendButton(true)}
-      className={cx(styles.wrapper, additionalStyles)}>
+      onClick={() => (showSendButton ? null : setShowSendButton(true))}
+      className={cx(styles.wrapper, additionalStyles)}
+    >
       <PostCreateUI
         fetchTags={findTagsAPI}
         fetchUsers={findbyUsernameAPI}
@@ -189,16 +190,15 @@ export const PostCreate: FC<{
           ))}
         </div>
       )}
-      
-      {
-        showSendButton &&
+
+      {showSendButton && (
         <Button additionalStyles={styles.btnSubmit} type="submit">
           send
           <i>
             <IoMdSend />
           </i>
         </Button>
-      }
+      )}
     </div>
   )
 }

@@ -34,9 +34,7 @@ export const GroupSidebar: FC<{}> = ({ children }) => {
   }
 
   return (
-    <div
-      className={styles.groupSidebar}
-    >
+    <div className={styles.groupSidebar}>
       <div className={styles.avatarAndName}>
         <GroupAvatar
           additionalStyles={styles.groupAvatar}
@@ -50,7 +48,7 @@ export const GroupSidebar: FC<{}> = ({ children }) => {
           data-type="dark"
         >
           {state.group?.name}
-        </h2>        
+        </h2>
       </div>
       {/* <GroupDescription
         additionalStyles={styles.desc}

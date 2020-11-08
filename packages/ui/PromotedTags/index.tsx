@@ -64,13 +64,13 @@ export const PromotedTags: FC<{
                       }`,
                     }
                   : {}
-              }              
+              }
             >
               {!tag.logo.status && <Picture {...noImage['200x200']} />}
               {tag.logo.status && tag.logo.status !== FileStatus.ready && (
                 <UploadedPicture jpg={tag.logo.files[0]} />
               )}
-              <div 
+              <div
                 className={styles.image}
                 style={
                   tag.logo.status === FileStatus.ready
