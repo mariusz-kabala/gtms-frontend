@@ -33,13 +33,9 @@ export const GroupResults: FC<{
     <div data-testid="search-group-results">
       {isLoading && (
         <div className={styles.noRecords}>
-          <MockData theme="dark" />
-          <MockData
-            theme="dark"
-            onClick={() => null}
-            text="Searching, please wait..."
-          />
-          <MockData theme="dark" numberOfElements={4} />
+          <MockData />
+          <MockData onClick={() => null} text="Searching, please wait..." />
+          <MockData numberOfElements={4} />
         </div>
       )}
       {!isLoading && !isError && docs.length > 0 && (

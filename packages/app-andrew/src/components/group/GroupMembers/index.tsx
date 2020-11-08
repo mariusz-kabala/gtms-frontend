@@ -77,11 +77,7 @@ export const GroupMembers: FC<{
       )}
 
       {users.length === 0 && (
-        <MockUsers
-          additionalStyles={styles.mock}
-          theme="dark"
-          numberOfElements={4}
-        />
+        <MockUsers additionalStyles={styles.mock} numberOfElements={4} />
       )}
     </div>
   )

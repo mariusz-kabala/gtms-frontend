@@ -56,8 +56,7 @@ export const MockData: FC<{
   text?: string
   onClick?: () => unknown
   numberOfElements?: number
-  theme?: string
-}> = ({ additionalStyles, numberOfElements, onClick, text, theme }) => {
+}> = ({ additionalStyles, numberOfElements, onClick, text }) => {
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -87,7 +86,6 @@ export const MockData: FC<{
 export const MockUsers: FC<{
   additionalStyles?: string
   numberOfElements?: number
-  theme?: string
 }> = ({ additionalStyles, numberOfElements }) => {
   return (
     <div
