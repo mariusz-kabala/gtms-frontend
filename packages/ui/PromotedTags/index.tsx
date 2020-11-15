@@ -94,14 +94,18 @@ export const PromotedTags: FC<{
                         onEditRecordClick && onEditRecordClick(tag)
                       }
                     >
-                      <IoIosSettings />
+                      <i>
+                        <IoIosSettings />
+                      </i>
                     </li>
                     <li
                       onClick={() =>
                         onDeleteRecordClick && onDeleteRecordClick(tag)
                       }
                     >
-                      <IoMdTrash />
+                      <i>
+                        <IoMdTrash />
+                      </i>
                     </li>
                   </ul>
                 </div>

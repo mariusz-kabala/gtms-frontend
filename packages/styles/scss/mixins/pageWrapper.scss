@@ -1,10 +1,11 @@
 @mixin pageWrapper($bg: null) {
   position: relative;
+  width: 600px;
   margin: 15px;
   border-radius: $borderRadius;
-  
+
   @if $bg == 'bgdefault' {
-    background: $black;
+    background: $theme1;
   }
 
   @if $bg == 'loginRegister' {

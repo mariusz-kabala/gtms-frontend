@@ -65,10 +65,6 @@
     margin: 5px 0;
   }
 
-  &:hover {
-    color: $theme4;
-  }
-
   .mock {
     @include gridDefault(3);
   }

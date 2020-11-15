@@ -27,7 +27,7 @@ body {
   @include font-size(default);
   @include font-weight(semiNormal);
   line-height: normal;
-  background-color: $black;
+  background-color: $theme1;
 }
 
 body > div:first-of-type {
@@ -64,6 +64,6 @@ a {
   &:visited,
   &:hover,
   &:active {
-    color: $white;
+    color: $theme0;
   }
 }

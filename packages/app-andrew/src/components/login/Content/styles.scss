@@ -27,7 +27,7 @@
     > div {
       padding: 20px;
       border-radius: $borderRadius;
-      background: $black;
+      background: $theme1;
 
       .headerWrapper {
         display: flex;
@@ -61,7 +61,7 @@
           position: relative;
           z-index: 1;
           padding: 0 10px;
-          background: $black;
+          background: $theme1;
           color: $theme9;
         }
 
@@ -72,7 +72,7 @@
           left: 0;
           width: 100%;
           height: 1px;
-          background: $theme7;
+          background: $theme9;
         }
       }
 

@@ -8,18 +8,13 @@
 @import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .pageWrapper {
-  background: #fffbf2;
-  max-width: 100%;
-}
-
-.welcomeSlider {
-  background: #c3f3ff;
+  width: 100%;
+  background: $theme1;
 }
 
 .wrapper {
   display: flex;
   width: 100%;
-  margin-top: -45px;
 
   .sections {
     width: 100%;
@@ -31,7 +26,7 @@
       display: flex;
       align-items: center;
       padding: 10px 15px;
-      background: $theme4;
+      background: $theme9;
       color: $theme0;
       border-radius: $borderRadius;
       @include z-index(headerWrapper);
@@ -50,9 +45,6 @@
       }
 
       .btn {
-        position: absolute;
-        right: 0;
-        top: -45px;
         @include buttonDefault();
         @include buttonSizeDefault();
         @include buttonShapeDefault();

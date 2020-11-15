@@ -56,13 +56,10 @@ export const MockData: FC<{
   text?: string
   onClick?: () => unknown
   numberOfElements?: number
-  theme?: string
-}> = ({ additionalStyles, numberOfElements, onClick, text, theme }) => {
+}> = ({ additionalStyles, numberOfElements, onClick, text }) => {
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles, {
-        [styles.themeDark]: theme == 'dark',
-      })}
+      className={cx(styles.wrapper, additionalStyles)}
       data-testid={'mock-data'}
     >
       {text ? (
@@ -89,13 +86,10 @@ export const MockData: FC<{
 export const MockUsers: FC<{
   additionalStyles?: string
   numberOfElements?: number
-  theme?: string
-}> = ({ additionalStyles, numberOfElements, theme }) => {
+}> = ({ additionalStyles, numberOfElements }) => {
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles, {
-        [styles.themeDark]: theme == 'dark',
-      })}
+      className={cx(styles.wrapper, additionalStyles)}
       data-testid={'mock-users'}
     >
       {new Array(numberOfElements ? numberOfElements : 1)

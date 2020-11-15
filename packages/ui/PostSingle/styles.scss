@@ -10,7 +10,6 @@
   display: flex;
   margin: 10px;
   border-radius: $borderRadius;
-  color: $theme3;
   cursor: pointer;
 
   .userAvatar {
@@ -25,16 +24,14 @@
   .userName {
     @include font-size(xs);
     text-transform: uppercase;
-    color: $theme3;
   }
 
   .date {
     margin-left: 5px;
     @include font-size(xxs);
     @include font-weight(semiNormal);
-    color: $theme3;
   }
-  
+
   .message {
     @include font-size(xxs);
   }

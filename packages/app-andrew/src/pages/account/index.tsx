@@ -122,7 +122,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
           </ErrorWrapper>
         )}
         {!state.isLoading && !state.errorOccured && (
-          <div className={styles.content}>
+          <>
             <Navigation current={Tabs.profile} />
             <div>
               <div className={styles.hint}>
@@ -231,17 +231,13 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
               <div className={styles.userLastPosts}>
                 <span>My last posts:</span>
                 <div className={styles.noRecords}>
-                  <MockData theme="dark" />
-                  <MockData
-                    theme="dark"
-                    onClick={() => null}
-                    text="No posts, create some"
-                  />
-                  <MockData theme="dark" numberOfElements={4} />
+                  <MockData />
+                  <MockData onClick={() => null} text="No posts, create some" />
+                  <MockData numberOfElements={4} />
                 </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </div>
