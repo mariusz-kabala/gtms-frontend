@@ -27,6 +27,24 @@ export const EmptyPromotedTags: FC<{
           </div>
         </div>
       )}
+      <div className={styles.tags}>
+        {isAdmin &&
+          new Array(24)
+            .fill(null)
+            .map((_, index) => (
+              <div className={styles.emptyBox} key={`empty-box-${index}`} />
+            ))}
+        <div className={styles.btnWrapper}>
+          {isAdmin && (
+            <Button onClick={onAddClick} additionalStyles={styles.addButton}>
+              <i>
+                <IoIosAddCircle />
+              </i>
+              Add a promoted tag
+            </Button>
+          )}
+        </div>
+      </div>
     </div>
   )
 }
