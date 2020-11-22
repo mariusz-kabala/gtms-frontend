@@ -13,7 +13,10 @@ import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
 // components
-import { Tabs, GroupSettingsSidebar } from 'components/group/Sidebar/content'
+import {
+  Tabs,
+  GroupSettingsSidebar,
+} from 'components/group/GroupSettingsSidebar'
 import { AdminsSettings } from 'components/group-settings/Admins'
 import { BasicSettings } from 'components/group-settings/Basic'
 import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
