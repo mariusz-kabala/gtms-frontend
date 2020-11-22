@@ -1,2 +1,2 @@
 export * from './GroupSidebarContent'
-export * from './GroupSettingsSidebarContent'
+export * from './GroupSettingsSidebar'

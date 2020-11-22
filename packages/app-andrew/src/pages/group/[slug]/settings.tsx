@@ -13,10 +13,7 @@ import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
 // components
-import {
-  Tabs,
-  GroupSettingsSidebarContent,
-} from 'components/group/Sidebar/content'
+import { Tabs, GroupSettingsSidebar } from 'components/group/Sidebar/content'
 import { AdminsSettings } from 'components/group-settings/Admins'
 import { BasicSettings } from 'components/group-settings/Basic'
 import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
@@ -94,7 +91,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             <h2>Can not fetch group details, try again later</h2>
           </ErrorWrapper>
         )}
-        <GroupSettingsSidebarContent tab={tab} setTab={setTab} />
+        <GroupSettingsSidebar tab={tab} setTab={setTab} />
         {!group.isLoading && !group.errorOccured && (
           <div className={styles.content}>
             <div className={styles.navigationWrapper}>
