@@ -21,30 +21,6 @@
       margin-top: 10px;
     }
 
-    .tagsbutton {
-      @include buttonDefault();
-      @include buttonSizeDefault();
-      @include buttonShapeDefault();
-      @include buttonColorsDefault();
-      width: 100%;
-      min-width: 50px;
-      height: 50px;
-
-      &:hover,
-      &.active {
-        background: $theme4;
-      }
-
-      span {
-        display: none;
-      }
-
-      i {
-        line-height: 0;
-        @include font-size(lg);
-      }
-    }
-
     .header {
       display: flex;
       grid-gap: 5px;

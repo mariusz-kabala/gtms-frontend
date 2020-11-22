@@ -1,4 +1,5 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
@@ -32,6 +33,30 @@
       margin-top: 5px;
       @include font-size(sm);
       display: none;
+    }
+  }
+
+  .tagsbutton {
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapeDefault();
+    @include buttonColorsDefault();
+    width: 100%;
+    min-width: 50px;
+    height: 50px;
+
+    &:hover,
+    &.active {
+      background: $theme4;
+    }
+
+    span {
+      display: none;
+    }
+
+    i {
+      line-height: 0;
+      @include font-size(lg);
     }
   }
 }
