@@ -26,7 +26,6 @@ import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
-import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
@@ -106,18 +105,10 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
               <>
                 {group.group && <GroupBackgroundSettings group={group.group} />}
                 {group.group && <BasicSettings group={group.group} />}
-                <div className={styles.deleteAccount}>
-                  <div>
-                    <div className={styles.btn}>
-                      <h2>Oh no! Do not</h2>
-                      <GroupDeleteGroup onConfirm={() => null} />
-                    </div>
-                    <Picture
-                      additionalStyles={styles.ohnoimage}
-                      jpg={'/images/white-theme/ohno.png'}
-                    />
-                  </div>
-                </div>
+                <GroupDeleteGroup
+                  additionalStyles={styles.btnDelete}
+                  onConfirm={() => null}
+                />
               </>
             )}
 

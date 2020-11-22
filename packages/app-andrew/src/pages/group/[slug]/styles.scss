@@ -30,34 +30,9 @@
       }
     }
 
-    .deleteAccount {
-      position: relative;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 20px;
+    .btnDelete {
+      margin-top: 15px;
       width: 100%;
-      border-radius: $borderRadius;
-      background: $theme0;
-
-      > div {
-        max-width: 500px;
-        padding: 35px;
-
-        .btn {
-          position: absolute;
-          top: 110px;
-          left: 90px;
-
-          h2 {
-            @include font-size(lg);
-            @include font-weight(semiBold);
-          }
-        }
-
-        .ohnoimage {
-          width: 100%;
-        }
-      }
     }
   }
 }

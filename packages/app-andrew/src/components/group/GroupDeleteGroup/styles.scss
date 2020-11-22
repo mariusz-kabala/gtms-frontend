@@ -16,11 +16,27 @@
   }
 }
 
-.modalContent {
-  @include modalContent();
+.modal {
+  @include modalContent('bgnone');
+
+  .ohnoimage {
+    padding: 20px;
+    padding-bottom: 0;
+    border-radius: $borderRadius;
+    background: $theme1;
+
+    img {
+      max-width: 300px;
+    }
+  }
 
   .buttons {
     @include gridTwoButtons();
+    width: 100%;
     margin-top: 20px;
+
+    .btn {
+      width: 100%;
+    }
   }
 }
