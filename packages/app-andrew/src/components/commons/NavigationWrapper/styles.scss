@@ -4,7 +4,7 @@
 .mainNavigationWrapper {
   min-width: 40px;
   @include z-index(mainNavigation);
-  background-color: $theme1;
+  background-color: $theme2;
   cursor: pointer;
 
   .centerIt {

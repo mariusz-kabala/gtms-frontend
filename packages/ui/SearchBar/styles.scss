@@ -26,27 +26,27 @@
       top: 8px;
       left: 10px;
       line-height: 0;
-      color: $theme0;
+      color: $theme1;
     }
 
     input[type='text'] {
       width: 100%;
       padding-left: 50px;
-      border: 3px solid $theme1;
+      border: 0;
       border-radius: $borderRadius;
-      background: $theme1;
+      background: $theme0;
       @include font-size(lg);
 
       &::placeholder {
         @include font-weight(light);
-        color: $theme0;
+        color: $theme1;
       }
 
       &:active,
       &:focus,
       &:hover {
         outline: none;
-        color: $theme0;
+        color: $theme1;
         border-color: $theme4;
       }
     }

@@ -13,7 +13,6 @@ import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
 // components
-import { GroupSidebar } from 'components/group/Sidebar'
 import {
   Tabs,
   GroupSettingsSidebarContent,
@@ -96,9 +95,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             <h2>Can not fetch group details, try again later</h2>
           </ErrorWrapper>
         )}
-        <GroupSidebar>
-          <GroupSettingsSidebarContent tab={tab} setTab={setTab} />
-        </GroupSidebar>
+        <GroupSettingsSidebarContent tab={tab} setTab={setTab} />
         {!group.isLoading && !group.errorOccured && (
           <div className={styles.content}>
             <div className={styles.navigationWrapper}>

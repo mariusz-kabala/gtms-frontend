@@ -5,7 +5,7 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper();
+  @include pageWrapper('bgdefault');
 }
 
 .wrapper {
@@ -18,9 +18,8 @@
 
   .content {
     width: 100%;
-    padding: 20px;
+    padding: 15px;
     border-radius: $borderRadius;
-    background: $theme1;
 
     .navigationWrapper {
       margin-bottom: 15px;
