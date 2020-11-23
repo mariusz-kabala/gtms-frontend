@@ -1,0 +1,48 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+
+.groupSidebar {
+  position: relative;
+  transition: all 500ms;
+
+  &.collapsed {
+    .header,
+    .desc {
+      display: none;
+    }
+  }
+
+  .groupAvatar {
+    width: 50px;
+    height: 50px;
+
+    picture {
+      border-radius: $borderRadius;
+      box-shadow: $boxShadowDefault;
+      overflow: hidden;
+    }
+  }
+
+  .avatarAndName {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .header {
+      width: 100%;
+      margin-left: 8px;
+      @include font-size(xdefault);
+      @include font-weight(semiBold);
+      color: $theme0;
+      display: none;
+    }
+
+    .desc {
+      margin-top: 5px;
+      @include font-size(sm);
+      display: none;
+    }
+  }
+}
