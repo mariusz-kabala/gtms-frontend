@@ -15,7 +15,7 @@ import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
 export const GroupSidebar: FC<{
-  setShowPromoted: unknown
+  setShowPromoted: any
   showPromoted: boolean
 }> = ({ setShowPromoted, showPromoted }) => {
   const [state, setState] = useState<IGroupState>(groupQuery.getValue())
