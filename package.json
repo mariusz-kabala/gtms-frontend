@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@datorama/akita": "^4.19.2",
+    "@datorama/akita": "^5.2.6",
     "@zeit/next-sass": "^1.0.1",
     "atob": "^2.1.2",
     "classnames": "^2.2.6",
