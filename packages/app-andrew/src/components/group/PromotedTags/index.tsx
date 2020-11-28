@@ -65,11 +65,8 @@ export const PromotedTags = forwardRef<Ref, Props>(
 
     return (
       <div className={additionalStyles} ref={ref}>
-        {!state.isLoading && state.tags.length === 0 && (
-          <EmptyPromotedTags
-            onAddClick={onAddTagClick}
-            isAdmin={state.isAdmin}
-          />
+        {state.isAdmin && !state.isLoading && state.tags.length === 0 && (
+          <EmptyPromotedTags onAddClick={onAddTagClick} />
         )}
         {state.isLoading ||
           (state.tags.length > 0 && (
