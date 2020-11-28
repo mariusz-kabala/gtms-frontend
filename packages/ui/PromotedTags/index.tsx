@@ -94,41 +94,15 @@ export const PromotedTags: FC<{
         {tags.length > 0 &&
           tags.map((tag) => (
             <div
-              // onClick={() => onTagClick && onTagClick(tag)}
-              className={cx(styles.item, styles.typeTwo, {
+              className={cx(styles.item, {
                 [styles.active]: activeTags.includes(tag.tag),
               })}
               key={`promoted-${tag.id}`}
-              style={
-                tag.logo.status === FileStatus.ready
-                  ? {
-                      backgroundImage: `url(${
-                        getImage('200x200', tag.logo).jpg
-                      }`,
-                    }
-                  : {}
-              }
             >
               {!tag.logo.status && <Picture {...noImage['200x200']} />}
               {tag.logo.status && tag.logo.status !== FileStatus.ready && (
                 <UploadedPicture jpg={tag.logo.files[0]} />
               )}
-              <div
-                className={styles.image}
-                style={
-                  tag.logo.status === FileStatus.ready
-                    ? {
-                        backgroundImage: `url(${
-                          getImage('200x200', tag.logo).jpg
-                        }`,
-                      }
-                    : {}
-                }
-              />
-              <div className={styles.desc}>
-                <h3>#{tag.tag}</h3>
-                <p>{tag.description}</p>
-              </div>
               {isAdmin && (
                 <div className={styles.adminPanel}>
                   <ul>
@@ -149,6 +123,16 @@ export const PromotedTags: FC<{
                   </ul>
                 </div>
               )}
+              <div
+                className={styles.content}
+                // style={tag.logo.status === FileStatus.ready ? { backgroundImage: `url(${getImage('200x200', tag.logo).jpg}`} : {}}
+                onClick={() => onTagClick && onTagClick(tag)}
+              >
+                <div className={styles.desc}>
+                  <h3>#{tag.tag}</h3>
+                  <p>{tag.description}</p>
+                </div>
+              </div>
             </div>
           ))}
 
