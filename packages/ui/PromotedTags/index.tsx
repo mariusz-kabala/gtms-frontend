@@ -19,7 +19,7 @@ import { Spinner } from '../Spinner'
 import { UploadedPicture } from '../UploadedPicture'
 // style
 import styles from './styles.scss'
-import { getImage } from '@gtms/commons'
+// import { getImage } from '@gtms/commons'
 
 export const PromotedTags: FC<{
   additionalStyles?: string
