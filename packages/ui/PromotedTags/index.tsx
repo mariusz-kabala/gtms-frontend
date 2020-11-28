@@ -145,7 +145,7 @@ export const PromotedTags: FC<{
           </button>
         )}
       </div>
-      <Button additionalStyles={styles.btn}>
+      <Button additionalStyles={styles.btnShowMore}>
         <Spinner size="sm" />
         Show more...
       </Button>
