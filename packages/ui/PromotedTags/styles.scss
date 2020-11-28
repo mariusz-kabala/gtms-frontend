@@ -4,6 +4,7 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/modal.scss';
 @import '~@gtms/styles/scss/mixins/shadows';
 
 .items {
@@ -187,5 +188,29 @@
 
   &:hover {
     @include buttonColorsPrimary();
+  }
+}
+
+.deleteTagModal {
+  @include modalContent();
+
+  .header {
+    @include font-weight(semiBold);
+    @include font-size(lg);
+  }
+
+  .desc {
+    margin-top: 5px;
+    @include font-size(xdefault);
+  }
+
+  .buttons {
+    @include gridTwoButtons();
+    margin-top: 20px;
+
+    .yes,
+    .no {
+      @include buttonWithIcon();
+    }
   }
 }
