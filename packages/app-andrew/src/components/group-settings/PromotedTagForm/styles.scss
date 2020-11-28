@@ -5,7 +5,13 @@
 @import '~@gtms/styles/scss/mixins/inputs.scss';
 
 .wrapper {
+  display: flex;
+  gap: 20px;
   min-width: 600px;
+
+  > div {
+    width: 50%;
+  }
 
   .header {
     display: none;
@@ -37,14 +43,9 @@
     }
   }
 
-  .stepTwo {
-    .uploadArea {
+  .uploadArea {
+    > div {
       width: 100%;
-      margin: 10px 0;
-
-      > div {
-        width: 100%;
-      }
     }
   }
 }
