@@ -14,7 +14,9 @@
 
   .wrapper {
     width: 100%;
+    max-width: 700px;
     border-radius: $borderRadius;
+    background: $theme1;
 
     .tags {
       width: 100%;
@@ -25,13 +27,60 @@
       display: flex;
       grid-gap: 5px;
       padding: 5px;
-      max-width: 50%;
       border-radius: $borderRadius;
       background-color: $theme1;
     }
 
     .content {
-      display: none;
+      display: flex;
+
+      .column {
+        min-width: 200px;
+        min-height: 100%;
+
+        &:hover {
+          .items {
+            border-color: $theme4;
+          }
+        }
+
+        .items {
+          height: 100%;
+          border-right: 1px solid $theme9;
+
+          .item {
+            display: flex;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid $theme1;
+            border-radius: $borderRadius2;
+            cursor: pointer;
+
+            &:hover {
+              border-color: $theme4;
+            }
+
+            img {
+              max-width: 40px;
+              border-radius: $borderRadius;
+            }
+
+            .desc {
+              margin-left: 5px;
+
+              span {
+                @include font-size(xxs);
+                opacity: 0.8;
+              }
+
+              h4 {
+                @include font-weight(semiBold);
+              }
+            }
+          }
+        }
+      }
+
       .groupMembers {
         margin-top: 10px;
         padding: 10px;
