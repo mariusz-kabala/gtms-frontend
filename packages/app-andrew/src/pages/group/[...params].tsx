@@ -65,7 +65,6 @@ import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
-import { lightFormat } from 'date-fns/fp'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
