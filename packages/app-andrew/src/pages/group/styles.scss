@@ -25,8 +25,9 @@
 
     .header {
       display: flex;
-      grid-gap: 5px;
-      padding: 5px;
+      grid-gap: 8px;
+      padding: 8px;
+      border-bottom: 1px solid $theme9;
       border-radius: $borderRadius;
       background-color: $theme1;
     }

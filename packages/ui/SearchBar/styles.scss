@@ -17,28 +17,28 @@
     position: relative;
     display: flex;
     width: 100%;
-    min-height: 50px;
-    height: 50px;
+    min-height: 40px;
+    height: 40px;
 
     i {
       @include font-size(xlg);
       position: absolute;
-      top: 8px;
-      left: 10px;
+      top: 6px;
+      left: 6px;
       line-height: 0;
       color: $theme1;
     }
 
     input[type='text'] {
       width: 100%;
-      padding-left: 50px;
+      padding-left: 40px;
       border: 0;
       border-radius: $borderRadius;
       background: $theme0;
-      @include font-size(lg);
+      @include font-size(xdefault);
+      @include font-weight(light);
 
       &::placeholder {
-        @include font-weight(light);
         color: $theme1;
       }
 

@@ -296,7 +296,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               showPromoted={showPromoted}
             />
             <SearchBar
-              additionalStyles={styles.search}
               onTagAdd={() => null}
               onTagRemove={() => null}
               onLoadSuggestion={() => null}
