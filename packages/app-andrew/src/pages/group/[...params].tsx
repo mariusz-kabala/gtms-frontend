@@ -65,6 +65,8 @@ import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
+// mock data
+import { mockTags } from './mock'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
@@ -314,12 +316,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           <div className={styles.content}>
             <div className={styles.column}>
               <ul className={styles.items}>
-                {new Array(10).fill(null).map((_, index) => (
+                {mockTags.map((value, index) => (
                   <li className={styles.item} key={index}>
-                    <img src="https://images.pexels.com/photos/1535907/pexels-photo-1535907.jpeg" />
+                    <img src={`/images/avatars/${value.image}`} />
                     <div className={styles.desc}>
-                      <h4>tag name</h4>
-                      <span>Incididunt excepteur deserunt qui labore.</span>
+                      <h4>{value.name}</h4>
+                      <span>{value.desc}</span>
                     </div>
                   </li>
                 ))}
@@ -400,21 +402,21 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       isAdmin={groupQuery.hasAdminRights()}
                       renderPost={(post) => (
                         <PostSingle
-                          key={`post-${post.id}`}
-                          allowToRespond={post.id !== state.activePost?.id}
-                          onClick={onPostClick}
-                          onTagClick={onTagClick}
-                          fetchTags={findTagsAPI}
-                          fetchUsers={findbyUsernameAPI}
-                          createComment={createNewComment}
-                          user={state.user}
+                          activeTags={state.activeTags || []}
                           additionalStyles={cx(styles.post, {
                             [styles.active]: state.activePost?.id === post.id,
                           })}
-                          {...post}
+                          allowToRespond={post.id !== state.activePost?.id}
+                          createComment={createNewComment}
+                          fetchTags={findTagsAPI}
+                          fetchUsers={findbyUsernameAPI}
+                          key={`post-${post.id}`}
                           noImage={UserAvatarNoImage}
+                          onClick={onPostClick}
                           onLoginRequest={openLoginModal}
-                          activeTags={state.activeTags || []}
+                          onTagClick={onTagClick}
+                          user={state.user}
+                          {...post}
                         />
                       )}
                     />
@@ -434,11 +436,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   </div>
                   {state.activePost && (
                     <PostDetails
+                      activeTags={state.activeTags || []}
                       additionalStyles={styles.postDetails}
                       comments={state.comments}
-                      user={state.user}
-                      activeTags={state.activeTags || []}
                       post={state.activePost}
+                      user={state.user}
                     />
                   )}
                 </div>
