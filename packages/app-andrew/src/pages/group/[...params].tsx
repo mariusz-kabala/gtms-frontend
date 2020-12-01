@@ -289,7 +289,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               {...state.members}
             />
           )}
-          <div className={styles.header}>
+          <div className={styles.mainHeader}>
             {/* @todo showPromoted should be handled other way */}
             <GroupSidebar
               setShowPromoted={setShowPromoted}
@@ -315,6 +315,18 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           {!showPromoted && (
             <div className={styles.content}>
               <div className={styles.column}>
+                <div className={styles.nav}>
+                  <h2>
+                    <i>
+                      <IoMdGrid />
+                    </i>
+                    Tags
+                  </h2>
+                  <ul>
+                    <li>favorites</li>
+                    <li>last viewed</li>
+                  </ul>
+                </div>
                 <ul className={styles.items}>
                   {mockTags.map((value, index) => (
                     <li className={styles.item} key={index}>
