@@ -144,6 +144,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
   const [showPromoted, setShowPromoted] = useState<boolean>(false)
+  const [showUsers, setShowUsers] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
       sort,
@@ -283,17 +284,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <div className={styles.wrapper}>
-          {1 < 0 && (
-            <GroupMembers
-              additionalStyles={styles.groupMembers}
-              {...state.members}
-            />
-          )}
           <div className={styles.mainHeader}>
-            {/* @todo showPromoted should be handled other way */}
             <GroupSidebar
               setShowPromoted={setShowPromoted}
               showPromoted={showPromoted}
+              setShowUsers={setShowUsers}
+              showUsers={showUsers}
             />
             <SearchBar
               onTagAdd={() => null}
@@ -310,6 +306,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               additionalStyles={styles.tags}
               onTagClick={(tag) => onClick({ tag: tag.tag })}
               ref={promotedTagsRef}
+            />
+          )}
+          {showUsers && (
+            <GroupMembers
+              additionalStyles={styles.groupMembers}
+              {...state.members}
             />
           )}
           {!showPromoted && (

@@ -17,7 +17,9 @@ import styles from './styles.scss'
 export const GroupSidebar: FC<{
   setShowPromoted: any
   showPromoted: boolean
-}> = ({ setShowPromoted, showPromoted }) => {
+  setShowUsers: any
+  showUsers: boolean
+}> = ({ setShowPromoted, showPromoted, showUsers, setShowUsers }) => {
   const [state, setState] = useState<IGroupState>(groupQuery.getValue())
   const { t } = useTranslation('groupPage')
 
@@ -74,6 +76,17 @@ export const GroupSidebar: FC<{
           <BsFillGridFill />
         </i>
         <span>Tags</span>
+      </Button>
+      <Button
+        onClick={() => setShowUsers(!showUsers)}
+        additionalStyles={cx(styles.tagsbutton, {
+          [styles.active]: showUsers,
+        })}
+      >
+        <i>
+          <BsFillGridFill />
+        </i>
+        <span>Users</span>
       </Button>
       <GroupSidebarContent />
     </div>
