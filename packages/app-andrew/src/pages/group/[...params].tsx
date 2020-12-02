@@ -65,6 +65,8 @@ import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
+// mock data
+import { mockTags } from './mock'
 
 type GroupPageProps = {
   namespacesRequired: readonly string[]
@@ -141,7 +143,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
-  const [showPromoted, setShowPromoted] = useState<boolean>(true)
+  const [showPromoted, setShowPromoted] = useState<boolean>(false)
+  const [showUsers, setShowUsers] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
       sort,
@@ -274,6 +277,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.hasNoAccess && <GroupNoAccess />}
 
+      <div className={styles.welcomeText}>
+        <div>
+          <h2>Welome to Black Rock City</h2>
+          <p>
+            {`Once a year, tens of thousands of people gather in Nevada's Black Rock Desert to create Black Rock City, a temporary metropolis dedicated to community, art, self-expression, and self-reliance. In this crucible of creativity, all are welcome.`}
+          </p>
+        </div>
+      </div>
+
       {/* <GroupCover
         group={state.group}
         isEditAllowed={groupQuery.hasAdminRights()}
@@ -281,20 +293,14 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <div className={styles.wrapper}>
-          {1 < 0 && (
-            <GroupMembers
-              additionalStyles={styles.groupMembers}
-              {...state.members}
-            />
-          )}
-          <div className={styles.header}>
-            {/* @todo showPromoted should be handled other way */}
+          <div className={styles.mainHeader}>
             <GroupSidebar
               setShowPromoted={setShowPromoted}
               showPromoted={showPromoted}
+              setShowUsers={setShowUsers}
+              showUsers={showUsers}
             />
             <SearchBar
-              additionalStyles={styles.search}
               onTagAdd={() => null}
               onTagRemove={() => null}
               onLoadSuggestion={() => null}
@@ -311,8 +317,39 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               ref={promotedTagsRef}
             />
           )}
-          <div className={styles.content}>
-            <div className={cx(styles.column, styles.right)}>
+          {showUsers && (
+            <GroupMembers
+              additionalStyles={styles.groupMembers}
+              {...state.members}
+            />
+          )}
+          {!showPromoted && (
+            <div className={styles.content}>
+              <div className={styles.column}>
+                <div className={styles.nav}>
+                  <h2>
+                    <i>
+                      <IoMdGrid />
+                    </i>
+                    Tags
+                  </h2>
+                  <ul>
+                    <li>favorites</li>
+                    <li>last viewed</li>
+                  </ul>
+                </div>
+                <ul className={styles.items}>
+                  {mockTags.map((value, index) => (
+                    <li className={styles.item} key={index}>
+                      <img src={`/images/avatars/${value.image}`} />
+                      <div className={styles.desc}>
+                        <h4>{value.name}</h4>
+                        <span>{value.desc}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               {state && state.posts && state.posts.length === 0 && (
                 <div className={styles.noPostsFound}>
                   <div>
@@ -323,6 +360,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       </h3>
                       <PostCreate groupId={state.group?.id || ''} />
                     </div>
+                    {state.activePost && (
+                      <PostDetails
+                        additionalStyles={styles.postDetails}
+                        comments={state.comments}
+                        user={state.user}
+                        activeTags={state.activeTags || []}
+                        post={state.activePost}
+                      />
+                    )}
                   </div>
                 </div>
               )}
@@ -388,21 +434,21 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                         isAdmin={groupQuery.hasAdminRights()}
                         renderPost={(post) => (
                           <PostSingle
-                            key={`post-${post.id}`}
-                            allowToRespond={post.id !== state.activePost?.id}
-                            onClick={onPostClick}
-                            onTagClick={onTagClick}
-                            fetchTags={findTagsAPI}
-                            fetchUsers={findbyUsernameAPI}
-                            createComment={createNewComment}
-                            user={state.user}
+                            activeTags={state.activeTags || []}
                             additionalStyles={cx(styles.post, {
                               [styles.active]: state.activePost?.id === post.id,
                             })}
-                            {...post}
+                            allowToRespond={post.id !== state.activePost?.id}
+                            createComment={createNewComment}
+                            fetchTags={findTagsAPI}
+                            fetchUsers={findbyUsernameAPI}
+                            key={`post-${post.id}`}
                             noImage={UserAvatarNoImage}
+                            onClick={onPostClick}
                             onLoginRequest={openLoginModal}
-                            activeTags={state.activeTags || []}
+                            onTagClick={onTagClick}
+                            user={state.user}
+                            {...post}
                           />
                         )}
                       />
@@ -422,18 +468,18 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     </div>
                     {state.activePost && (
                       <PostDetails
+                        activeTags={state.activeTags || []}
                         additionalStyles={styles.postDetails}
                         comments={state.comments}
-                        user={state.user}
-                        activeTags={state.activeTags || []}
                         post={state.activePost}
+                        user={state.user}
                       />
                     )}
                   </div>
                 </>
               )}
             </div>
-          </div>
+          )}
         </div>
       )}
     </div>
