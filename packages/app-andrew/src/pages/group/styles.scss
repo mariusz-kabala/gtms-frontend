@@ -39,12 +39,14 @@
       .column {
         min-width: 200px;
         min-height: 100%;
+        border-right: 1px solid $theme9;
 
         .nav {
           display: flex;
           align-items: center;
           gap: 10px;
           padding: 8px;
+          @include font-weight(semiBold);
 
           h2 {
             display: flex;
@@ -59,12 +61,17 @@
           ul {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
             margin-top: 4px;
 
             li {
               text-transform: uppercase;
               @include font-size(xs);
+              cursor: pointer;
+
+              &:hover {
+                color: $theme4;
+              }
             }
           }
         }
@@ -76,9 +83,6 @@
         }
 
         .items {
-          height: 100%;
-          border-right: 1px solid $theme9;
-
           .item {
             display: flex;
             margin: 5px;
