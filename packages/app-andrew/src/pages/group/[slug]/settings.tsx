@@ -13,14 +13,14 @@ import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
 // components
-import {
-  Tabs,
-  GroupSettingsSidebar,
-} from 'components/group/GroupSettingsSidebar'
 import { AdminsSettings } from 'components/group-settings/Admins'
 import { BasicSettings } from 'components/group-settings/Basic'
-import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
 import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
+import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
+import {
+  GroupSettingsSidebar,
+  Tabs,
+} from 'components/group/GroupSettingsSidebar'
 import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
@@ -94,43 +94,47 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             <h2>Can not fetch group details, try again later</h2>
           </ErrorWrapper>
         )}
-        <GroupSettingsSidebar tab={tab} setTab={setTab} />
         {!group.isLoading && !group.errorOccured && (
-          <div className={styles.content}>
-            <div className={styles.navigationWrapper}>
-              <h2 className={styles.header}>{t('header')}</h2>
-            </div>
+          <>
+            <GroupSettingsSidebar tab={tab} setTab={setTab} />
+            <div className={styles.content}>
+              <div className={styles.navigationWrapper}>
+                <h2 className={styles.header}>{t('header')}</h2>
+              </div>
 
-            {tab === Tabs.general && (
-              <>
-                {group.group && <GroupBackgroundSettings group={group.group} />}
-                {group.group && <BasicSettings group={group.group} />}
-                <GroupDeleteGroup
-                  additionalStyles={styles.btnDelete}
-                  onConfirm={() => null}
+              {tab === Tabs.general && (
+                <>
+                  {group.group && (
+                    <GroupBackgroundSettings group={group.group} />
+                  )}
+                  {group.group && <BasicSettings group={group.group} />}
+                  <GroupDeleteGroup
+                    additionalStyles={styles.btnDelete}
+                    onConfirm={() => null}
+                  />
+                </>
+              )}
+
+              {tab === Tabs.tags && (
+                <TagsSettings
+                  id={group.group?.id || ''}
+                  tags={group.group?.tags || []}
                 />
-              </>
-            )}
+              )}
 
-            {tab === Tabs.tags && (
-              <TagsSettings
-                id={group.group?.id || ''}
-                tags={group.group?.tags || []}
-              />
-            )}
+              {tab === Tabs.invitations && (
+                <InvitationsSettings group={group.group as IGroup} />
+              )}
 
-            {tab === Tabs.invitations && (
-              <InvitationsSettings group={group.group as IGroup} />
-            )}
+              {tab === Tabs.admins && (
+                <AdminsSettings group={group.group as IGroup} />
+              )}
 
-            {tab === Tabs.admins && (
-              <AdminsSettings group={group.group as IGroup} />
-            )}
-
-            {tab === Tabs.members && (
-              <MembersSettings group={group.group as IGroup} />
-            )}
-          </div>
+              {tab === Tabs.members && (
+                <MembersSettings group={group.group as IGroup} />
+              )}
+            </div>
+          </>
         )}
       </div>
     </div>

@@ -14,8 +14,8 @@ import {
 // ui
 import { GoSettings } from 'react-icons/go'
 import { Button } from '@gtms/ui/Button'
-import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
 import styles from './styles.scss'
 
 export const NotificationsSettings: FC<{

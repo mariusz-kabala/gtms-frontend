@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px dotted $theme9;
+    border: 1px dotted $theme0;
     border-radius: $borderRadius;
     padding: 20px;
     width: 100%;
@@ -20,14 +20,17 @@
     text-align: center;
     @include font-weight(semiBold);
 
+    > i,
+    .text {
+      color: $theme0;
+    }
+
     > i {
       @include font-size(xxlg);
-      color: $theme9;
     }
 
     .text {
       @include font-size(xdefault);
-      color: $theme9;
     }
 
     &:active,
