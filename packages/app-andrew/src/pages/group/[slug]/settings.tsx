@@ -13,7 +13,6 @@ import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
 // components
-import { GroupSidebar } from 'components/group/Sidebar'
 import {
   Tabs,
   GroupSettingsSidebarContent,
@@ -27,7 +26,6 @@ import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
-import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
@@ -96,9 +94,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             <h2>Can not fetch group details, try again later</h2>
           </ErrorWrapper>
         )}
-        <GroupSidebar>
-          <GroupSettingsSidebarContent tab={tab} setTab={setTab} />
-        </GroupSidebar>
+        <GroupSettingsSidebarContent tab={tab} setTab={setTab} />
         {!group.isLoading && !group.errorOccured && (
           <div className={styles.content}>
             <div className={styles.navigationWrapper}>
@@ -109,18 +105,10 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
               <>
                 {group.group && <GroupBackgroundSettings group={group.group} />}
                 {group.group && <BasicSettings group={group.group} />}
-                <div className={styles.deleteAccount}>
-                  <div>
-                    <div className={styles.btn}>
-                      <h2>Oh no! Do not</h2>
-                      <GroupDeleteGroup onConfirm={() => null} />
-                    </div>
-                    <Picture
-                      additionalStyles={styles.ohnoimage}
-                      jpg={'/images/white-theme/ohno.png'}
-                    />
-                  </div>
-                </div>
+                <GroupDeleteGroup
+                  additionalStyles={styles.btnDelete}
+                  onConfirm={() => null}
+                />
               </>
             )}
 

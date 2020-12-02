@@ -117,3 +117,7 @@
 @mixin buttonColorBlue() {
   color: $theme4;
 }
+
+@mixin buttonColorRed() {
+  background: $theme6;
+}

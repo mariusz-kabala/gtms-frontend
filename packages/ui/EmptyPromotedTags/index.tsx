@@ -29,7 +29,7 @@ export const EmptyPromotedTags: FC<{
       )}
       <div className={styles.tags}>
         {isAdmin &&
-          new Array(8)
+          new Array(24)
             .fill(null)
             .map((_, index) => (
               <div className={styles.emptyBox} key={`empty-box-${index}`} />

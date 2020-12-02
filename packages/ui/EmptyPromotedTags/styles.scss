@@ -40,7 +40,7 @@
 
   .tags {
     position: relative;
-    @include gridDefault(3);
+    @include gridDefault(6);
 
     .emptyBox {
       width: 100%;
@@ -50,14 +50,13 @@
     }
 
     .btnWrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
+      height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: $borderRadius;
+      background: $theme9;
 
       .addButton {
         @include buttonDefault();

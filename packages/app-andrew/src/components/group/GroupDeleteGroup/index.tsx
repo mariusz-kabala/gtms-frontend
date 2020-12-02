@@ -4,6 +4,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 // ui
 import { Button } from '@gtms/ui/Button'
 import { Modal } from '@gtms/ui/Modal'
+import { Picture } from '@gtms/ui/Picture'
 import styles from './styles.scss'
 
 export const GroupDeleteGroup: FC<{
@@ -17,29 +18,31 @@ export const GroupDeleteGroup: FC<{
     <div data-testid="delete-group">
       {isModalOpen && (
         <Modal
-          additionalStyles={styles.modalContent}
+          additionalStyles={styles.modal}
           onClose={() => setIsModalOpen(false)}
         >
-          <div>
-            <h2>{t('header')}</h2>
-            <div className={styles.buttons}>
-              <Button
-                testid="delete-group-cancel"
-                onClick={() => setIsModalOpen(false)}
-              >
-                {t('noBtn')}
-              </Button>
-              <Button
-                additionalStyles={styles.yes}
-                testid="delete-group-confirm"
-                onClick={() => {
-                  onConfirm()
-                  setIsModalOpen(false)
-                }}
-              >
-                {t('yesBtn')}
-              </Button>
-            </div>
+          <Picture
+            additionalStyles={styles.ohnoimage}
+            jpg={'/images/white-theme/ohno.png'}
+          />
+          <div className={styles.buttons}>
+            <Button
+              additionalStyles={styles.btn}
+              testid="delete-group-cancel"
+              onClick={() => setIsModalOpen(false)}
+            >
+              {t('noBtn')}
+            </Button>
+            <Button
+              additionalStyles={styles.btn}
+              testid="delete-group-confirm"
+              onClick={() => {
+                onConfirm()
+                setIsModalOpen(false)
+              }}
+            >
+              {t('yesBtn')}
+            </Button>
           </div>
         </Modal>
       )}
