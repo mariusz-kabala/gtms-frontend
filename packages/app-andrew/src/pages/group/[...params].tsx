@@ -474,7 +474,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </div>
             )}
           </div>
-          {state.activePost && (
+          {!showPromoted && state.activePost && (
             <PostDetails
               activeTags={state.activeTags || []}
               additionalStyles={styles.postDetails}

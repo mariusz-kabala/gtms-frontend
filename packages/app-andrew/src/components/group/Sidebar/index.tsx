@@ -10,6 +10,7 @@ import { GroupAvatar } from 'components/group/GroupAvatar'
 import { GroupSidebarContent } from './GroupSidebarContent'
 // import { GroupDescription } from 'components/group/GroupDescription'
 // ui
+import { FaUsers } from 'react-icons/fa'
 import { BsFillGridFill } from 'react-icons/bs'
 import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
@@ -84,7 +85,7 @@ export const GroupSidebar: FC<{
         })}
       >
         <i>
-          <BsFillGridFill />
+          <FaUsers />
         </i>
         <span>Users</span>
       </Button>
