@@ -7,7 +7,6 @@
 
 .wrapper {
   position: relative;
-  display: flex;
   margin: 10px;
   border-radius: $borderRadius;
   cursor: pointer;
@@ -61,7 +60,6 @@
 .btns {
   display: flex;
   margin-top: 10px;
-  display: none;
 
   .respondBtn {
     @include buttonDefault();
