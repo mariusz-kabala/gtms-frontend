@@ -277,6 +277,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.hasNoAccess && <GroupNoAccess />}
 
+      <div className={styles.welcomeText}>
+        <div>
+          <h2>Welome to Black Rock City</h2>
+          <p>
+            {`Once a year, tens of thousands of people gather in Nevada's Black Rock Desert to create Black Rock City, a temporary metropolis dedicated to community, art, self-expression, and self-reliance. In this crucible of creativity, all are welcome.`}
+          </p>
+        </div>
+      </div>
+
       {/* <GroupCover
         group={state.group}
         isEditAllowed={groupQuery.hasAdminRights()}
