@@ -30,15 +30,6 @@
       background-color: $theme1;
     }
 
-    .header {
-      display: flex;
-      grid-gap: 5px;
-      padding: 5px;
-      max-width: 50%;
-      border-radius: $borderRadius;
-      background-color: $theme1;
-    }
-
     .content {
       display: none;
       .groupMembers {
