@@ -351,6 +351,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                       </h3>
                       <PostCreate groupId={state.group?.id || ''} />
                     </div>
+                    {state.activePost && (
+                      <PostDetails
+                        additionalStyles={styles.postDetails}
+                        comments={state.comments}
+                        user={state.user}
+                        activeTags={state.activeTags || []}
+                        post={state.activePost}
+                      />
+                    )}
                   </div>
                 </div>
               )}
