@@ -2,15 +2,22 @@ import React, { FC, useState, useEffect } from 'react'
 import { useTranslation } from '@gtms/commons/i18n'
 import { getImage } from '@gtms/commons/helpers'
 import { GroupAvatarNoImage } from 'enums'
+import cx from 'classnames'
 // state
 import { groupQuery, IGroupState } from '@gtms/state-group'
 // components
 import { GroupAvatar } from 'components/group/GroupAvatar'
+import { GroupSidebarContent } from './GroupSidebarContent'
 // import { GroupDescription } from 'components/group/GroupDescription'
-// styles
+// ui
+import { BsFillGridFill } from 'react-icons/bs'
+import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
-export const GroupSidebar: FC<{}> = ({ children }) => {
+export const GroupSidebar: FC<{
+  setShowPromoted: any
+  showPromoted: boolean
+}> = ({ setShowPromoted, showPromoted }) => {
   const [state, setState] = useState<IGroupState>(groupQuery.getValue())
   const { t } = useTranslation('groupPage')
 
@@ -57,7 +64,18 @@ export const GroupSidebar: FC<{}> = ({ children }) => {
             : state.group?.description || ''
         }
       /> */}
-      {children}
+      <Button
+        onClick={() => setShowPromoted(!showPromoted)}
+        additionalStyles={cx(styles.tagsbutton, {
+          [styles.active]: showPromoted,
+        })}
+      >
+        <i>
+          <BsFillGridFill />
+        </i>
+        <span>Tags</span>
+      </Button>
+      <GroupSidebarContent />
     </div>
   )
 }

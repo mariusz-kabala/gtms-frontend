@@ -19,7 +19,6 @@ import { PostCreate } from 'components/post/PostCreate'
 import { PostDetails } from 'components/post/PostDetails'
 import { PromotedTags } from 'components/group/PromotedTags'
 import { GroupSidebar } from 'components/group/Sidebar'
-import { GroupSidebarContent } from 'components/group/Sidebar/content'
 import { PostsList } from 'components/post/PostsList'
 // state
 import {
@@ -58,8 +57,6 @@ import {
 import { changePageBackground, changePageBackgroundImage } from 'state'
 // ui
 import { IoMdGrid } from 'react-icons/io'
-import { BsFillGridFill } from 'react-icons/bs'
-import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Pagination } from '@gtms/ui/Pagination'
@@ -291,22 +288,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             />
           )}
           <div className={styles.header}>
-            <GroupSidebar>
-              <Button
-                onClick={() => {
-                  setShowPromoted((value) => !value)
-                }}
-                additionalStyles={cx(styles.tagsbutton, {
-                  [styles.active]: showPromoted,
-                })}
-              >
-                <i>
-                  <BsFillGridFill />
-                </i>
-                <span>Tags</span>
-              </Button>
-              <GroupSidebarContent />
-            </GroupSidebar>
+            {/* @todo showPromoted should be handled other way */}
+            <GroupSidebar
+              setShowPromoted={setShowPromoted}
+              showPromoted={showPromoted}
+            />
             <SearchBar
               additionalStyles={styles.search}
               onTagAdd={() => null}

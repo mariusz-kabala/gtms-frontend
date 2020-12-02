@@ -17,7 +17,7 @@ export enum Tabs {
   members = 'members',
 }
 
-export const GroupSettingsSidebarContent: FC<{
+export const GroupSettingsSidebar: FC<{
   tab: Tabs
   setTab: (tab: Tabs) => void
 }> = ({ tab, setTab }) => {
