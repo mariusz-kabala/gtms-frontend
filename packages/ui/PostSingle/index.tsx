@@ -162,7 +162,8 @@ export const PostSingle: FC<{
             ))}
           </TagGroup>
         )}
-        {/* {Array.isArray(firstComments) && firstComments.length > 0 && (
+        {Array.isArray(firstComments) &&
+          firstComments.length > 0 &&
           firstComments.map((comment) => (
             <PostResponse
               createdAt={comment.createdAt}
@@ -172,8 +173,7 @@ export const PostSingle: FC<{
               owner={comment.owner as IUser}
               user={user}
             />
-          ))
-        )} */}
+          ))}
         {isAnswerFormOpen && allowToRespond && (
           <div ref={commentForm}>
             <PostCreate
