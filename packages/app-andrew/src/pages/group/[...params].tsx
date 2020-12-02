@@ -11,7 +11,7 @@ import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
-// import { GroupCover } from 'components/group/GroupCover'
+import { GroupCover } from 'components/group/GroupCover'
 import { GroupMembers } from 'components/group/GroupMembers'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
@@ -286,199 +286,202 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
         </div>
       </div>
 
-      {/* <GroupCover
-        group={state.group}
-        isEditAllowed={groupQuery.hasAdminRights()}
-      /> */}
-
       {state.group && (
         <div className={styles.wrapper}>
-          <div className={styles.mainHeader}>
-            <GroupSidebar
-              setShowPromoted={setShowPromoted}
-              showPromoted={showPromoted}
-              setShowUsers={setShowUsers}
-              showUsers={showUsers}
+          <div>
+            <GroupCover
+              additionalStyles={styles.groupCover}
+              group={state.group}
+              isEditAllowed={groupQuery.hasAdminRights()}
             />
-            <SearchBar
-              onTagAdd={() => null}
-              onTagRemove={() => null}
-              onLoadSuggestion={() => null}
-              onQueryChange={() => null}
-              onLoadSuggestionCancel={() => null}
-              tags={state.activeTags || []}
-              users={state.activeUsers}
-            />
-          </div>
-          {showPromoted && (
-            <PromotedTags
-              additionalStyles={styles.tags}
-              onTagClick={(tag) => onClick({ tag: tag.tag })}
-              ref={promotedTagsRef}
-            />
-          )}
-          {showUsers && (
-            <GroupMembers
-              additionalStyles={styles.groupMembers}
-              {...state.members}
-            />
-          )}
-          {!showPromoted && (
-            <div className={styles.content}>
-              <div className={styles.column}>
-                <div className={styles.nav}>
-                  <h2>
-                    <i>
-                      <IoMdGrid />
-                    </i>
-                    Tags
-                  </h2>
-                  <ul>
-                    <li>favorites</li>
-                    <li>last viewed</li>
+            <div className={styles.mainHeader}>
+              <GroupSidebar
+                setShowPromoted={setShowPromoted}
+                showPromoted={showPromoted}
+                setShowUsers={setShowUsers}
+                showUsers={showUsers}
+              />
+              <SearchBar
+                onTagAdd={() => null}
+                onTagRemove={() => null}
+                onLoadSuggestion={() => null}
+                onQueryChange={() => null}
+                onLoadSuggestionCancel={() => null}
+                tags={state.activeTags || []}
+                users={state.activeUsers}
+              />
+            </div>
+            {showPromoted && (
+              <PromotedTags
+                additionalStyles={styles.tags}
+                onTagClick={(tag) => onClick({ tag: tag.tag })}
+                ref={promotedTagsRef}
+              />
+            )}
+            {showUsers && (
+              <GroupMembers
+                additionalStyles={styles.groupMembers}
+                {...state.members}
+              />
+            )}
+            {!showPromoted && (
+              <div className={styles.content}>
+                <div className={styles.column}>
+                  <div className={styles.nav}>
+                    <h2>
+                      <i>
+                        <IoMdGrid />
+                      </i>
+                      Tags
+                    </h2>
+                    <ul>
+                      <li>favorites</li>
+                      <li>last viewed</li>
+                    </ul>
+                  </div>
+                  <ul className={styles.items}>
+                    {mockTags.map((value, index) => (
+                      <li className={styles.item} key={index}>
+                        <img src={`/images/avatars/${value.image}`} />
+                        <div className={styles.desc}>
+                          <h4>{value.name}</h4>
+                          <span>{value.desc}</span>
+                        </div>
+                      </li>
+                    ))}
                   </ul>
                 </div>
-                <ul className={styles.items}>
-                  {mockTags.map((value, index) => (
-                    <li className={styles.item} key={index}>
-                      <img src={`/images/avatars/${value.image}`} />
-                      <div className={styles.desc}>
-                        <h4>{value.name}</h4>
-                        <span>{value.desc}</span>
+                {state && state.posts && state.posts.length === 0 && (
+                  <div className={styles.noPostsFound}>
+                    <div>
+                      <div>
+                        <h3 className={styles.header}>
+                          <span>Ooops</span>, wygląda na to, że nikt nie dodał
+                          jeszcze żadnego posta... Możesz być pierwszy!
+                        </h3>
+                        <PostCreate groupId={state.group?.id || ''} />
                       </div>
-                    </li>
-                  ))}
-                </ul>
+                      {state.activePost && (
+                        <PostDetails
+                          additionalStyles={styles.postDetails}
+                          comments={state.comments}
+                          user={state.user}
+                          activeTags={state.activeTags || []}
+                          post={state.activePost}
+                        />
+                      )}
+                    </div>
+                  </div>
+                )}
+                {state && state.posts && state.posts.length > 0 && (
+                  <>
+                    <div className={styles.posts}>
+                      <div>
+                        {' '}
+                        {/* this div is needed for aligning with display flex */}
+                        <NavigationTabs>
+                          <h2 className={cx(styles.header, styles.active)}>
+                            <i>
+                              <IoMdGrid />
+                            </i>
+                            Posts
+                          </h2>
+                          <h2 className={styles.header}>
+                            <i>
+                              <IoMdGrid />
+                            </i>
+                            Users
+                          </h2>
+                          <ul>
+                            <li
+                              onClick={() => onClick({ sort: Sorting.latest })}
+                              className={cx({
+                                [styles.active]:
+                                  state.postsSorting === Sorting.latest,
+                              })}
+                            >
+                              latest
+                            </li>
+                            <li
+                              onClick={() => onClick({ sort: Sorting.active })}
+                              className={cx({
+                                [styles.active]:
+                                  state.postsSorting === Sorting.active,
+                              })}
+                            >
+                              active
+                            </li>
+                            <li
+                              onClick={() => onClick({ sort: Sorting.popular })}
+                              className={cx({
+                                [styles.active]:
+                                  state.postsSorting === Sorting.popular,
+                              })}
+                            >
+                              popular
+                            </li>
+                            <li className={cx(styles.item)}>my</li>
+                          </ul>
+                        </NavigationTabs>
+                        <PostCreate
+                          additionalStyles={styles.postCreate}
+                          groupId={state.group?.id || ''}
+                        />
+                        <PostsList
+                          posts={state.posts}
+                          onUserPostsClick={(user) =>
+                            onClick({ user: user.username })
+                          }
+                          isAdmin={groupQuery.hasAdminRights()}
+                          renderPost={(post) => (
+                            <PostSingle
+                              activeTags={state.activeTags || []}
+                              additionalStyles={cx(styles.post, {
+                                [styles.active]:
+                                  state.activePost?.id === post.id,
+                              })}
+                              allowToRespond={post.id !== state.activePost?.id}
+                              createComment={createNewComment}
+                              fetchTags={findTagsAPI}
+                              fetchUsers={findbyUsernameAPI}
+                              key={`post-${post.id}`}
+                              noImage={UserAvatarNoImage}
+                              onClick={onPostClick}
+                              onLoginRequest={openLoginModal}
+                              onTagClick={onTagClick}
+                              user={state.user}
+                              {...post}
+                            />
+                          )}
+                        />
+                        <Pagination
+                          additionalStyles={styles.pagination}
+                          {...state.pagination}
+                          onClick={(page: number) => {
+                            onClick({ page })
+                          }}
+                          getCurrentUrl={(page: number) => {
+                            return generateUrl({
+                              page,
+                              fillEmptyValues: true,
+                            })
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
-              {state && state.posts && state.posts.length === 0 && (
-                <div className={styles.noPostsFound}>
-                  <div>
-                    <div>
-                      <h3 className={styles.header}>
-                        <span>Ooops</span>, wygląda na to, że nikt nie dodał
-                        jeszcze żadnego posta... Możesz być pierwszy!
-                      </h3>
-                      <PostCreate groupId={state.group?.id || ''} />
-                    </div>
-                    {state.activePost && (
-                      <PostDetails
-                        additionalStyles={styles.postDetails}
-                        comments={state.comments}
-                        user={state.user}
-                        activeTags={state.activeTags || []}
-                        post={state.activePost}
-                      />
-                    )}
-                  </div>
-                </div>
-              )}
-              {state && state.posts && state.posts.length > 0 && (
-                <>
-                  <div className={styles.posts}>
-                    <div>
-                      {' '}
-                      {/* this div is needed for aligning with display flex */}
-                      <NavigationTabs>
-                        <h2 className={cx(styles.header, styles.active)}>
-                          <i>
-                            <IoMdGrid />
-                          </i>
-                          Posts
-                        </h2>
-                        <h2 className={styles.header}>
-                          <i>
-                            <IoMdGrid />
-                          </i>
-                          Users
-                        </h2>
-                        <ul>
-                          <li
-                            onClick={() => onClick({ sort: Sorting.latest })}
-                            className={cx({
-                              [styles.active]:
-                                state.postsSorting === Sorting.latest,
-                            })}
-                          >
-                            latest
-                          </li>
-                          <li
-                            onClick={() => onClick({ sort: Sorting.active })}
-                            className={cx({
-                              [styles.active]:
-                                state.postsSorting === Sorting.active,
-                            })}
-                          >
-                            active
-                          </li>
-                          <li
-                            onClick={() => onClick({ sort: Sorting.popular })}
-                            className={cx({
-                              [styles.active]:
-                                state.postsSorting === Sorting.popular,
-                            })}
-                          >
-                            popular
-                          </li>
-                          <li className={cx(styles.item)}>my</li>
-                        </ul>
-                      </NavigationTabs>
-                      <PostCreate
-                        additionalStyles={styles.postCreate}
-                        groupId={state.group?.id || ''}
-                      />
-                      <PostsList
-                        posts={state.posts}
-                        onUserPostsClick={(user) =>
-                          onClick({ user: user.username })
-                        }
-                        isAdmin={groupQuery.hasAdminRights()}
-                        renderPost={(post) => (
-                          <PostSingle
-                            activeTags={state.activeTags || []}
-                            additionalStyles={cx(styles.post, {
-                              [styles.active]: state.activePost?.id === post.id,
-                            })}
-                            allowToRespond={post.id !== state.activePost?.id}
-                            createComment={createNewComment}
-                            fetchTags={findTagsAPI}
-                            fetchUsers={findbyUsernameAPI}
-                            key={`post-${post.id}`}
-                            noImage={UserAvatarNoImage}
-                            onClick={onPostClick}
-                            onLoginRequest={openLoginModal}
-                            onTagClick={onTagClick}
-                            user={state.user}
-                            {...post}
-                          />
-                        )}
-                      />
-                      <Pagination
-                        additionalStyles={styles.pagination}
-                        {...state.pagination}
-                        onClick={(page: number) => {
-                          onClick({ page })
-                        }}
-                        getCurrentUrl={(page: number) => {
-                          return generateUrl({
-                            page,
-                            fillEmptyValues: true,
-                          })
-                        }}
-                      />
-                    </div>
-                    {state.activePost && (
-                      <PostDetails
-                        activeTags={state.activeTags || []}
-                        additionalStyles={styles.postDetails}
-                        comments={state.comments}
-                        post={state.activePost}
-                        user={state.user}
-                      />
-                    )}
-                  </div>
-                </>
-              )}
-            </div>
+            )}
+          </div>
+          {state.activePost && (
+            <PostDetails
+              activeTags={state.activeTags || []}
+              additionalStyles={styles.postDetails}
+              comments={state.comments}
+              post={state.activePost}
+              user={state.user}
+            />
           )}
         </div>
       )}
