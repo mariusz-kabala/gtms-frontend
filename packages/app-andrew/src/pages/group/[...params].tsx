@@ -360,7 +360,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       </div>
 
       {state.group && (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} data-testid="group-page">
           <div>
             <GroupCover
               additionalStyles={styles.groupCover}

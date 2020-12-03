@@ -16,11 +16,8 @@ import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
 export const GroupSidebar: FC<{
-  setShowPromoted: any
-  showPromoted: boolean
-  setShowUsers: any
-  showUsers: boolean
-}> = ({ setShowPromoted, showPromoted, showUsers, setShowUsers }) => {
+  groupId: string
+}> = ({ groupId }) => {
   const [state, setState] = useState<IGroupState>(groupQuery.getValue())
   const { t } = useTranslation('groupPage')
 
@@ -70,7 +67,7 @@ export const GroupSidebar: FC<{
       <Button
         onClick={() => setShowPromoted(!showPromoted)}
         additionalStyles={cx(styles.tagsbutton, {
-          [styles.active]: showPromoted,
+          [styles.active]: state.showPromoted,
         })}
       >
         <i>

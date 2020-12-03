@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators'
 import { groupQuery, groupMembersQuery } from '@gtms/state-group'
 import { postsQuery } from '@gtms/state-post'
 import { IGroup, IUser } from '@gtms/commons/models'
+import { uiQuery } from 'state'
 
 export interface IGroupSidebarContentState {
   group: IGroup | null
@@ -13,9 +14,13 @@ export interface IGroupSidebarContentState {
     errorOccured: boolean
     users: IUser[]
   }
+  showPromoted: boolean
+  showUsers: boolean
 }
 
-export const groupSidebarContentState = (): IGroupSidebarContentState => {
+export const groupSidebarContentState = (
+  groupId: string
+): IGroupSidebarContentState => {
   const groupMembersState = groupMembersQuery.getValue()
   const postsState = postsQuery.getValue()
 
@@ -28,11 +33,16 @@ export const groupSidebarContentState = (): IGroupSidebarContentState => {
       errorOccured: groupMembersState.error || false,
       users: groupMembersQuery.getAll(),
     },
+    ...uiQuery.groupState(groupId),
   }
 }
 
-export const groupSidebarContentState$: Observable<IGroupSidebarContentState> = combineLatest(
-  groupQuery.allState$,
-  postsQuery.selectAll(),
-  groupMembersQuery.selectAll()
-).pipe(map(() => groupSidebarContentState()))
+export const groupSidebarContentState$ = (
+  groupId: string
+): Observable<IGroupSidebarContentState> =>
+  combineLatest(
+    groupQuery.allState$,
+    postsQuery.selectAll(),
+    groupMembersQuery.selectAll(),
+    uiQuery.groupState$(groupId)
+  ).pipe(map(() => groupSidebarContentState(groupId)))

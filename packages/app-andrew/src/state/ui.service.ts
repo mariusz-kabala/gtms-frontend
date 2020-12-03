@@ -1,4 +1,5 @@
 import { uiStore } from './ui.store'
+import { uiQuery } from './ui.query'
 
 export const openLoginModal = () =>
   uiStore.update({
@@ -38,4 +39,62 @@ export const changePageBackground = (background: string) =>
 
 export const changePageBackgroundImage = (backgroundImage: string) => {
   uiStore.update({ backgroundImage })
+}
+
+export const showPromotedTagsInGroup = (groupId: string) => {
+  const groupState = uiQuery.groupState(groupId)
+  const groups = uiQuery.getValue().groups
+
+  groupState.showPromoted = true
+  groupState.showUsers = false
+
+  uiStore.update({
+    groups: {
+      ...groups,
+      [groupId]: groupState,
+    },
+  })
+}
+
+export const hidePromotedTagsInGroup = (groupId: string) => {
+  const groupState = uiQuery.groupState(groupId)
+  const groups = uiQuery.getValue().groups
+
+  groupState.showPromoted = false
+
+  uiStore.update({
+    groups: {
+      ...groups,
+      [groupId]: groupState,
+    },
+  })
+}
+
+export const showGroupUsers = (groupId: string) => {
+  const groupState = uiQuery.groupState(groupId)
+  const groups = uiQuery.getValue().groups
+
+  groupState.showPromoted = false
+  groupState.showUsers = true
+
+  uiStore.update({
+    groups: {
+      ...groups,
+      [groupId]: groupState,
+    },
+  })
+}
+
+export const hideGroupUsers = (groupId: string) => {
+  const groupState = uiQuery.groupState(groupId)
+  const groups = uiQuery.getValue().groups
+
+  groupState.showUsers = false
+
+  uiStore.update({
+    groups: {
+      ...groups,
+      [groupId]: groupState,
+    },
+  })
 }

@@ -9,6 +9,7 @@ export class UIStore extends Store<IUI> {
       isLoginModalOpen: false,
       isNotificationsBarOpen: false,
       background: BACKGROUNDS_GALLERY[0].name,
+      groups: {},
     })
   }
 }
