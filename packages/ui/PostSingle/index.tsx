@@ -100,22 +100,29 @@ export const PostSingle: FC<{
       {group && typeof group !== 'string' && (
         <GroupDetails onGroupClick={onOpenGroupPreview} group={group} />
       )}
-      <UserAvatar
-        onClick={onUserClickCallback}
-        image={getImage('35x35', owner.avatar, noImage)}
-        additionalStyles={styles.userAvatar}
-      />
-      <div>
+      <div className={styles.bbb}>
+        <UserAvatar
+          additionalStyles={styles.userAvatar}
+          image={getImage('35x35', owner.avatar, noImage)}
+          onClick={onUserClickCallback}
+        />
         <a className={styles.userName} onClick={onUserClickCallback}>
           <span>{getDisplayName(owner)}</span>
         </a>
-        <a className={styles.date} onClick={onClickCallback}>
-          <span>
-            {formatDistance(new Date(createdAt), new Date(), {
-              locale: pl,
-            })}
-          </span>
-        </a>
+        <span className={styles.date} onClick={onClickCallback}>
+          {formatDistance(new Date(createdAt), new Date(), {
+            locale: pl,
+          })}
+        </span>
+        <div className={styles.actionButtons}>
+          {owner.id === user?.id && (
+            <DeletePost additionalStyles={styles.deleteBtn} />
+          )}
+          {renderFavs && renderFavs(favs, id)}
+          {renderMenu && renderMenu(id)}
+        </div>
+      </div>
+      <div className={styles.content}>
         <div
           className={styles.message}
           dangerouslySetInnerHTML={{ __html: html }}
@@ -155,33 +162,31 @@ export const PostSingle: FC<{
             ))}
           </TagGroup>
         )}
-        {Array.isArray(firstComments) && firstComments.length > 0 && (
-          <>
-            {firstComments.map((comment) => (
-              <PostResponse
-                createdAt={comment.createdAt}
-                html={comment.html}
-                key={`comment-${comment.id}`}
-                noImage={noImage}
-                owner={comment.owner as IUser}
-                user={user}
-              />
-            ))}
-          </>
-        )}
+        {Array.isArray(firstComments) &&
+          firstComments.length > 0 &&
+          firstComments.map((comment) => (
+            <PostResponse
+              createdAt={comment.createdAt}
+              html={comment.html}
+              key={`comment-${comment.id}`}
+              noImage={noImage}
+              owner={comment.owner as IUser}
+              user={user}
+            />
+          ))}
         {isAnswerFormOpen && allowToRespond && (
           <div ref={commentForm}>
             <PostCreate
+              fetchTags={fetchTags}
+              fetchUsers={fetchUsers}
+              noImage={noImage}
+              user={user}
               onSubmit={(text) => {
                 createComment({
                   text,
                   post: id,
                 })
               }}
-              fetchTags={fetchTags}
-              fetchUsers={fetchUsers}
-              user={user}
-              noImage={noImage}
             />
           </div>
         )}
@@ -248,13 +253,6 @@ export const PostSingle: FC<{
           }
         />
       )}
-      <div className={styles.actionButtons}>
-        {owner.id === user?.id && (
-          <DeletePost additionalStyles={styles.deleteBtn} />
-        )}
-        {renderFavs && renderFavs(favs, id)}
-        {renderMenu && renderMenu(id)}
-      </div>
     </div>
   )
 }

@@ -11,45 +11,69 @@
   border-radius: $borderRadius;
   cursor: pointer;
 
-  .userAvatar {
-    width: 35px;
-    height: 35px;
-    min-width: 35px;
-    min-height: 35px;
-    margin-right: 5px;
-    border-radius: 50%;
+  .bbb {
+    position: relative;
+    display: flex;
+
+    .userAvatar {
+      width: 35px;
+      height: 35px;
+      min-width: 35px;
+      min-height: 35px;
+      margin-right: 5px;
+      border-radius: 50%;
+    }
+
+    .actionButtons {
+      // @todo this needs to be done better position absolute is quite lame
+      position: absolute;
+      top: -15px;
+      right: 0;
+      display: flex;
+    }
+
+    .userName {
+      display: inline-block;
+      margin-top: 5px;
+      @include font-size(xs);
+      text-transform: uppercase;
+    }
+
+    .date,
+    .deleteBtn {
+      margin-top: 4px;
+      margin-left: 5px;
+      @include font-size(xxs);
+      @include font-weight(semiNormal);
+    }
+
+    .deleteBtn {
+      opacity: 0;
+      margin-left: auto;
+    }
   }
 
-  .userName {
-    @include font-size(xs);
-    text-transform: uppercase;
-  }
+  .content {
+    margin-top: -15px;
 
-  .date {
-    margin-left: 5px;
-    @include font-size(xxs);
-    @include font-weight(semiNormal);
-  }
+    .message {
+      @include font-size(xxs);
+      margin-top: 2px;
+      text-indent: 40px;
+      line-height: 1.25;
+    }
 
-  .message {
-    @include font-size(xxs);
-  }
+    .text {
+      margin-top: 5px;
 
-  .deleteBtn {
-    opacity: 0;
-    margin-left: auto;
-  }
-
-  .text {
-    margin-top: 5px;
-
-    > * {
-      white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
+      > * {
+        white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
+      }
     }
   }
 
   &:hover {
-    .header {
+    .bbb {
       .deleteBtn {
         opacity: 1;
       }

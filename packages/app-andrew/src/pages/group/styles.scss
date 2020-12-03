@@ -12,6 +12,10 @@
   display: flex;
   border-radius: 10px;
 
+  .groupCover {
+    max-width: 700px;
+  }
+
   .welcomeText {
     position: fixed;
     top: 0;
@@ -47,7 +51,7 @@
 
   .wrapper {
     width: 100%;
-    border-radius: $borderRadius;
+    display: flex;
 
     .tags {
       width: 100%;
@@ -60,7 +64,6 @@
       max-width: 700px;
       padding: 8px;
       border-bottom: 1px solid $theme9;
-      border-radius: $borderRadius;
       background-color: $theme1;
     }
 
@@ -227,6 +230,9 @@
       .pagination {
         justify-content: center;
         margin: 30px 0;
+      }
+
+      .postDetails {
       }
     }
   }

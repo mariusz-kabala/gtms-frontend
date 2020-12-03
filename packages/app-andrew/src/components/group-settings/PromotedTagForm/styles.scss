@@ -5,29 +5,22 @@
 @import '~@gtms/styles/scss/mixins/inputs.scss';
 
 .wrapper {
-  display: flex;
-  gap: 20px;
+  padding: 20px;
   min-width: 600px;
-
-  > div {
-    width: 50%;
-  }
 
   .header {
     display: none;
     @include font-weight('semiBold');
     @include font-size(md);
     opacity: 0.5;
+
     .promoted {
       margin-bottom: 15px;
     }
   }
 
-  .input {
-    @include inputDefault;
-    @include inputFocus;
-    @include placeholderFocus;
-    border-radius: $borderRadius;
+  .textarea {
+    margin-top: 10px;
   }
 
   .btn {
@@ -44,6 +37,8 @@
   }
 
   .uploadArea {
+    margin-bottom: 10px;
+
     > div {
       width: 100%;
     }

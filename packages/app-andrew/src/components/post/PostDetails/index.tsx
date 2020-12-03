@@ -13,12 +13,12 @@ export const PostDetails: FC<{
   additionalStyles?: string
   activeTags?: string[]
   comments?: {
-    isLoading: boolean
-    errorOccured: boolean
-    total: number
-    offset: number
-    limit: number
     comments: IComment[]
+    errorOccured: boolean
+    isLoading: boolean
+    limit: number
+    offset: number
+    total: number
   }
   post: IPost
   user: IAccountDetails | null

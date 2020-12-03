@@ -46,16 +46,19 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
     .item {
       width: 40px;
       height: 40px;
+      margin-bottom: 5px;
       overflow: hidden;
+      border-radius: $borderRadius;
       cursor: pointer;
       transition: 200ms all;
 
       &.showAllGroups {
         position: relative;
+        @include z-index(closeAllMyGroupsSidebar);
         display: flex;
         justify-content: center;
         align-items: center;
-        @include z-index(closeAllMyGroupsSidebar);
+        background: $theme9;
         color: $theme0;
 
         i {
@@ -68,7 +71,6 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
         &:focus,
         &.active {
           color: $theme0;
-          overflow: initial;
           background: $theme4;
           color: $theme0;
           opacity: 0.75;
