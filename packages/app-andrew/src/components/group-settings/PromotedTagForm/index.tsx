@@ -126,69 +126,69 @@ export const PromotedTagsForm: FC<{
         {savingStatus.validationError && (
           <Error text={t(savingStatus.validationError)} />
         )}
-        <button
-          disabled={savingStatus.isSaving}
-          onClick={() => {
-            const dsc = dscRef.current?.value
-            let errors = false
+      </div>
+      <button
+        className={styles.btn}
+        disabled={savingStatus.isSaving}
+        onClick={() => {
+          const dsc = dscRef.current?.value
+          let errors = false
 
-            if (!dsc) {
+          if (!dsc) {
+            setSavingStatus({
+              isSaving: false,
+              validationError: 'form.validation.description.isRequired',
+            })
+            errors = true
+          }
+
+          if (!stateTag.value) {
+            setStateTag((value) => ({
+              ...value,
+              isError: true,
+            }))
+            errors = true
+          }
+
+          if (errors) {
+            return
+          }
+
+          setSavingStatus({
+            isSaving: true,
+            validationError: '',
+          })
+
+          if (promotedTagId) {
+            updatePromotedTag(promotedTagId, {
+              description: dsc as string,
+            }).then(() => {
               setSavingStatus({
                 isSaving: false,
-                validationError: 'form.validation.description.isRequired',
+                validationError: '',
               })
-              errors = true
-            }
-
-            if (!stateTag.value) {
-              setStateTag((value) => ({
-                ...value,
-                isError: true,
-              }))
-              errors = true
-            }
-
-            if (errors) {
-              return
-            }
-
-            setSavingStatus({
-              isSaving: true,
-              validationError: '',
             })
-
-            if (promotedTagId) {
-              updatePromotedTag(promotedTagId, {
-                description: dsc as string,
-              }).then(() => {
-                setSavingStatus({
-                  isSaving: false,
-                  validationError: '',
-                })
+          } else {
+            createPromotedTag({
+              tag: stateTag.value,
+              group: groupId,
+              description: dsc as string,
+            }).then((result) => {
+              if (result) {
+                setPromotedTagId(result.id)
+              }
+              setSavingStatus({
+                isSaving: false,
+                validationError: '',
               })
-            } else {
-              createPromotedTag({
-                tag: stateTag.value,
-                group: groupId,
-                description: dsc as string,
-              }).then((result) => {
-                if (result) {
-                  setPromotedTagId(result.id)
-                }
-                setSavingStatus({
-                  isSaving: false,
-                  validationError: '',
-                })
-              })
-            }
-          }}
-          className={styles.btn}
-        >
-          {/* @todo add translation */}
-          Save
-        </button>
-        {savingStatus.isSaving && <Spinner />}
-      </div>
+            })
+          }
+        }}
+      >
+        {/* @todo add translation */}
+        Save
+      </button>
+      {savingStatus.isSaving && <Spinner />}
     </div>
   )
 }
