@@ -1,48 +1,33 @@
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { groupQuery, groupMembersQuery } from '@gtms/state-group'
-import { postsQuery } from '@gtms/state-post'
-import { IGroup, IUser } from '@gtms/commons/models'
+import { groupQuery, IGroupState } from '@gtms/state-group'
 import { uiQuery } from 'state'
+import { FileStatus } from '@gtms/commons'
 
-export interface IGroupSidebarContentState {
-  group: IGroup | null
-  activeTags?: string[]
-  activeUsers?: string[]
-  members: {
-    isLoading: boolean
-    errorOccured: boolean
-    users: IUser[]
-  }
+export interface IGroupSidebarContentState extends IGroupState {
+  hasAdminRights: boolean
+  avatarFileStatus: FileStatus
   showPromoted: boolean
   showUsers: boolean
 }
 
-export const groupSidebarContentState = (
-  groupId: string
-): IGroupSidebarContentState => {
-  const groupMembersState = groupMembersQuery.getValue()
-  const postsState = postsQuery.getValue()
+export const groupSidebarContentState = (): IGroupSidebarContentState => {
+  const group = groupQuery.getValue()
 
   return {
-    ...groupQuery.getValue(),
-    activeTags: postsState.tags || [],
-    activeUsers: postsState.users || [],
-    members: {
-      isLoading: groupMembersState.loading || false,
-      errorOccured: groupMembersState.error || false,
-      users: groupMembersQuery.getAll(),
-    },
-    ...uiQuery.groupState(groupId),
+    ...group,
+    ...(group.group?.id
+      ? uiQuery.groupState(group.group.id)
+      : {
+          showPromoted: false,
+          showUsers: false,
+        }),
+    hasAdminRights: groupQuery.hasAdminRights(),
+    avatarFileStatus: groupQuery.getAvatarFileStatus(),
   }
 }
 
-export const groupSidebarContentState$ = (
-  groupId: string
-): Observable<IGroupSidebarContentState> =>
-  combineLatest(
-    groupQuery.allState$,
-    postsQuery.selectAll(),
-    groupMembersQuery.selectAll(),
-    uiQuery.groupState$(groupId)
-  ).pipe(map(() => groupSidebarContentState(groupId)))
+export const groupSidebarContentState$: Observable<IGroupSidebarContentState> = combineLatest(
+  groupQuery.allState$,
+  uiQuery.select()
+).pipe(map(() => groupSidebarContentState()))

@@ -75,6 +75,81 @@ type GroupPageProps = {
   comments?: IPostCommentsState
 }
 
+const mockTags = [
+  {
+    id: 1,
+    name: '#polandrock',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-1.png',
+  },
+  {
+    id: 2,
+    name: '#wacken',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-2.png',
+  },
+  {
+    id: 3,
+    name: '#tinthepark',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-3.png',
+  },
+  {
+    id: 4,
+    name: '#openair',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-4.png',
+  },
+  {
+    id: 5,
+    name: '#szieget',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-5.png',
+  },
+  {
+    id: 6,
+    name: '#rockampark',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-6.png',
+  },
+  {
+    id: 7,
+    name: '#RoskildeFestival',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-7.png',
+  },
+  {
+    id: 8,
+    name: '#burningManFestival',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-8.png',
+  },
+  {
+    id: 9,
+    name: '#szieget',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-9.png',
+  },
+  {
+    id: 10,
+    name: '#rockampark',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-10.png',
+  },
+  {
+    id: 11,
+    name: '#RoskildeFestival',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-11.png',
+  },
+  {
+    id: 12,
+    name: '#burningManFestival',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-3.png',
+  },
+]
+
 const getInitData = ({
   group,
   posts,
@@ -141,8 +216,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
-  const [showPromoted, setShowPromoted] = useState<boolean>(false)
-  const [showUsers, setShowUsers] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
       sort,
@@ -258,81 +331,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     }
   }, [])
 
-  const mockTags = [
-    {
-      id: 1,
-      name: '#polandrock',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-1.png',
-    },
-    {
-      id: 2,
-      name: '#wacken',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-2.png',
-    },
-    {
-      id: 3,
-      name: '#tinthepark',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-3.png',
-    },
-    {
-      id: 4,
-      name: '#openair',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-4.png',
-    },
-    {
-      id: 5,
-      name: '#szieget',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-5.png',
-    },
-    {
-      id: 6,
-      name: '#rockampark',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-6.png',
-    },
-    {
-      id: 7,
-      name: '#RoskildeFestival',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-7.png',
-    },
-    {
-      id: 8,
-      name: '#burningManFestival',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-8.png',
-    },
-    {
-      id: 9,
-      name: '#szieget',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-9.png',
-    },
-    {
-      id: 10,
-      name: '#rockampark',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-10.png',
-    },
-    {
-      id: 11,
-      name: '#RoskildeFestival',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-11.png',
-    },
-    {
-      id: 12,
-      name: '#burningManFestival',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-3.png',
-    },
-  ]
-
   return (
     <div className={styles.pageWrapper}>
       {state.isLoading && <Spinner />}
@@ -368,12 +366,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               isEditAllowed={groupQuery.hasAdminRights()}
             />
             <div className={styles.mainHeader}>
-              <GroupSidebar
-                setShowPromoted={setShowPromoted}
-                showPromoted={showPromoted}
-                setShowUsers={setShowUsers}
-                showUsers={showUsers}
-              />
+              <GroupSidebar />
               <SearchBar
                 onTagAdd={() => null}
                 onTagRemove={() => null}
@@ -384,20 +377,20 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 users={state.activeUsers}
               />
             </div>
-            {showPromoted && (
+            {state.showPromoted && (
               <PromotedTags
                 additionalStyles={styles.tags}
                 onTagClick={(tag) => onClick({ tag: tag.tag })}
                 ref={promotedTagsRef}
               />
             )}
-            {showUsers && (
+            {state.showUsers && (
               <GroupMembers
                 additionalStyles={styles.groupMembers}
                 {...state.members}
               />
             )}
-            {!showPromoted && (
+            {!state.showPromoted && (
               <div className={styles.content}>
                 <div className={styles.column}>
                   <div className={styles.nav}>
@@ -547,7 +540,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </div>
             )}
           </div>
-          {!showPromoted && state.activePost && (
+          {!state.showPromoted && state.activePost && (
             <PostDetails
               activeTags={state.activeTags || []}
               additionalStyles={styles.postDetails}

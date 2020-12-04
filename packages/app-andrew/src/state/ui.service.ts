@@ -70,6 +70,24 @@ export const hidePromotedTagsInGroup = (groupId: string) => {
   })
 }
 
+export const togglePromotedTagsInGroup = (groupId: string) => {
+  const groupState = uiQuery.groupState(groupId)
+  const groups = uiQuery.getValue().groups
+
+  groupState.showPromoted = !groupState.showPromoted
+
+  if (groupState.showPromoted) {
+    groupState.showUsers = false
+  }
+
+  uiStore.update({
+    groups: {
+      ...groups,
+      [groupId]: groupState,
+    },
+  })
+}
+
 export const showGroupUsers = (groupId: string) => {
   const groupState = uiQuery.groupState(groupId)
   const groups = uiQuery.getValue().groups
@@ -90,6 +108,24 @@ export const hideGroupUsers = (groupId: string) => {
   const groups = uiQuery.getValue().groups
 
   groupState.showUsers = false
+
+  uiStore.update({
+    groups: {
+      ...groups,
+      [groupId]: groupState,
+    },
+  })
+}
+
+export const toggleGroupUsers = (groupId: string) => {
+  const groupState = uiQuery.groupState(groupId)
+  const groups = uiQuery.getValue().groups
+
+  groupState.showUsers = !groupState.showUsers
+
+  if (groupState.showUsers) {
+    groupState.showPromoted = false
+  }
 
   uiStore.update({
     groups: {
