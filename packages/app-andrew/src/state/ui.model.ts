@@ -1,9 +1,14 @@
+export interface IGroupUI {
+  showPromoted: boolean
+  showUsers: boolean
+}
+
 export interface IUI {
   isLoginModalOpen: boolean
   isNotificationsBarOpen: boolean
   background: string
   backgroundImage?: string
-  groupsSidebar: {
-    [groupsId: string]: boolean
+  groups: {
+    [groupId: string]: IGroupUI
   }
 }

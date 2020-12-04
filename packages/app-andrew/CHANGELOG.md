@@ -16,25 +16,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.85.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.84.0...@gtms/app-andrew@0.85.0) (2020-10-10)
 
-
 ### Features
 
-* GEOT-471: searching ([#878](https://github.com/gtms-org/gtms-frontend/issues/878)) ([bc8fdc8](https://github.com/gtms-org/gtms-frontend/commit/bc8fdc8a958a7e551b50c63441dd5267a99772df))
-
-
-
-
+- GEOT-471: searching ([#878](https://github.com/gtms-org/gtms-frontend/issues/878)) ([bc8fdc8](https://github.com/gtms-org/gtms-frontend/commit/bc8fdc8a958a7e551b50c63441dd5267a99772df))
 
 # [0.84.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.83.0...@gtms/app-andrew@0.84.0) (2020-09-23)
 
-
 ### Features
 
-* GEOT-462: cleanup css for few sections ([#870](https://github.com/gtms-org/gtms-frontend/issues/870)) ([9219cde](https://github.com/gtms-org/gtms-frontend/commit/9219cde208aa4c5c57223003617d43e0e64bdc59))
-
-
-
-
+- GEOT-462: cleanup css for few sections ([#870](https://github.com/gtms-org/gtms-frontend/issues/870)) ([9219cde](https://github.com/gtms-org/gtms-frontend/commit/9219cde208aa4c5c57223003617d43e0e64bdc59))
 
 # [0.83.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.82.0...@gtms/app-andrew@0.83.0) (2020-09-21)
 

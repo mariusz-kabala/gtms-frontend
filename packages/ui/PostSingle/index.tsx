@@ -97,29 +97,23 @@ export const PostSingle: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="post-single"
     >
-      <div className={styles.header}>
-        {group && typeof group !== 'string' && (
-          <GroupDetails onGroupClick={onOpenGroupPreview} group={group} />
-        )}
-        <div className={styles.user}>
-          <UserAvatar
-            onClick={onUserClickCallback}
-            image={getImage('35x35', owner.avatar, noImage)}
-            additionalStyles={styles.userAvatar}
-          />
-          <>
-            <a onClick={onUserClickCallback}>
-              <span>{getDisplayName(owner)}</span>
-            </a>
-            <a onClick={onClickCallback}>
-              <span className={styles.date}>
-                {formatDistance(new Date(createdAt), new Date(), {
-                  locale: pl,
-                })}
-              </span>
-            </a>
-          </>
-        </div>
+      {group && typeof group !== 'string' && (
+        <GroupDetails onGroupClick={onOpenGroupPreview} group={group} />
+      )}
+      <div className={styles.bbb}>
+        <UserAvatar
+          additionalStyles={styles.userAvatar}
+          image={getImage('35x35', owner.avatar, noImage)}
+          onClick={onUserClickCallback}
+        />
+        <a className={styles.userName} onClick={onUserClickCallback}>
+          <span>{getDisplayName(owner)}</span>
+        </a>
+        <span className={styles.date} onClick={onClickCallback}>
+          {formatDistance(new Date(createdAt), new Date(), {
+            locale: pl,
+          })}
+        </span>
         <div className={styles.actionButtons}>
           {owner.id === user?.id && (
             <DeletePost additionalStyles={styles.deleteBtn} />
@@ -128,8 +122,11 @@ export const PostSingle: FC<{
           {renderMenu && renderMenu(id)}
         </div>
       </div>
-      <div className={styles.desc}>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div className={styles.content}>
+        <div
+          className={styles.message}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
         {images.length > 0 && (
           <ul className={styles.images}>
             {images.map((img, index) => (
@@ -152,7 +149,7 @@ export const PostSingle: FC<{
           </ul>
         )}
         {tags.length > 0 && (
-          <TagGroup additionalStyles={styles.tagGroup}>
+          <TagGroup>
             {tags.map((tag) => (
               <Tag
                 onClick={() => onTagClick && onTagClick(tag)}
@@ -165,35 +162,31 @@ export const PostSingle: FC<{
             ))}
           </TagGroup>
         )}
-        {Array.isArray(firstComments) && firstComments.length > 0 && (
-          <>
-            {firstComments.map((comment) => (
-              <PostResponse
-                additionalStyles={styles.response}
-                createdAt={comment.createdAt}
-                html={comment.html}
-                key={`comment-${comment.id}`}
-                noImage={noImage}
-                owner={comment.owner as IUser}
-                user={user}
-              />
-            ))}
-          </>
-        )}
+        {Array.isArray(firstComments) &&
+          firstComments.length > 0 &&
+          firstComments.map((comment) => (
+            <PostResponse
+              createdAt={comment.createdAt}
+              html={comment.html}
+              key={`comment-${comment.id}`}
+              noImage={noImage}
+              owner={comment.owner as IUser}
+              user={user}
+            />
+          ))}
         {isAnswerFormOpen && allowToRespond && (
           <div ref={commentForm}>
             <PostCreate
-              additionalStyles={styles.postResponseCreate}
+              fetchTags={fetchTags}
+              fetchUsers={fetchUsers}
+              noImage={noImage}
+              user={user}
               onSubmit={(text) => {
                 createComment({
                   text,
                   post: id,
                 })
               }}
-              fetchTags={fetchTags}
-              fetchUsers={fetchUsers}
-              user={user}
-              noImage={noImage}
             />
           </div>
         )}

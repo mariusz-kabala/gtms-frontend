@@ -5,36 +5,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.17.0...@gtms/state-group@0.18.0) (2020-10-10)
 
-
 ### Features
 
-* GEOT-471: searching ([#878](https://github.com/gtms-org/gtms-frontend/issues/878)) ([bc8fdc8](https://github.com/gtms-org/gtms-frontend/commit/bc8fdc8a958a7e551b50c63441dd5267a99772df))
-
-
-
-
+- GEOT-471: searching ([#878](https://github.com/gtms-org/gtms-frontend/issues/878)) ([bc8fdc8](https://github.com/gtms-org/gtms-frontend/commit/bc8fdc8a958a7e551b50c63441dd5267a99772df))
 
 # [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.16.0...@gtms/state-group@0.17.0) (2020-09-07)
 
-
 ### Features
 
-* GEOT-456: support file uploading for group cover image ([#850](https://github.com/gtms-org/gtms-frontend/issues/850)) ([8c47356](https://github.com/gtms-org/gtms-frontend/commit/8c47356564e18df941155d076ae6d0580f091edb))
-
-
-
-
+- GEOT-456: support file uploading for group cover image ([#850](https://github.com/gtms-org/gtms-frontend/issues/850)) ([8c47356](https://github.com/gtms-org/gtms-frontend/commit/8c47356564e18df941155d076ae6d0580f091edb))
 
 # [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.12...@gtms/state-group@0.16.0) (2020-09-04)
 
-
 ### Features
 
-* GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
-
-
-
-
+- GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
 
 ## [0.15.12](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.15.11...@gtms/state-group@0.15.12) (2020-09-02)
 

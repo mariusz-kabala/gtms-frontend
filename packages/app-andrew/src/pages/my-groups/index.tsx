@@ -285,7 +285,16 @@ export const MyGroupsPage: NextPage<MyGroupsPageProps> = () => {
               })}
               groups={state.admin}
               renderGroupMenu={(group) => <GroupMenu group={group} />}
-              noRecords={<p className={styles.noRecords}>No records</p>}
+              noRecords={
+                <div>
+                  <p>No records</p>
+                  <p>
+                    <Link href="/search">
+                      <a>Find a group and join!</a>
+                    </Link>
+                  </p>
+                </div>
+              }
             />
 
             <GroupsList

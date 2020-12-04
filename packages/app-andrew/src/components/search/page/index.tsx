@@ -448,20 +448,16 @@ export const SearchPage: FC<{
             <span>{t('searchHeader2')}</span>
           </h2>
         </div>
-        <div className={styles.searchBarWrapper}>
-          <SearchBar
-            onTagAdd={onTagAdd}
-            onTagRemove={onTagRemove}
-            suggestions={state.suggestions.records}
-            suggestionsType={state.suggestions.type}
-            isLoading={state.suggestions.isLoading}
-            onLoadSuggestion={onFindTags}
-            onQueryChange={() => null}
-            onLoadSuggestionCancel={onLoadSuggestionCancel}
-            tags={state.search.tags}
-            users={state.search.users}
-          />
-        </div>
+        <SearchBar
+          onTagAdd={onTagAdd}
+          onTagRemove={onTagRemove}
+          suggestions={state.suggestions.records}
+          isLoading={state.suggestions.isLoading}
+          onLoadSuggestion={onFindTags}
+          onQueryChange={() => null}
+          onLoadSuggestionCancel={onLoadSuggestionCancel}
+          tags={state.search.tags}
+        />
         {state.search.tags.length > 0 && (
           <>
             <div className={styles.tabs}>

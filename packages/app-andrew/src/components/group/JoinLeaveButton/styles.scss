@@ -4,9 +4,17 @@
 
 .btn {
   @include buttonDefault();
+  @include buttonSizeSm();
+  @include buttonShapeDefault();
+  @include buttonWithIcon('withoutText');
+  @include buttonWithSpinner();
+  @include buttonColorsDefault();
+  @include font-size(sm);
+  width: 100%;
+  color: $theme0;
 
   &:hover {
-    @include buttonColorBlue();
+    @include buttonColorsPrimary();
   }
 
   &.isLoading {
@@ -18,5 +26,9 @@
       width: 45px;
       left: 5px;
     }
+  }
+
+  span {
+    display: none;
   }
 }

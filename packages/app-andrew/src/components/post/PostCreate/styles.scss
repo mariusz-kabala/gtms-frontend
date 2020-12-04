@@ -56,7 +56,7 @@
         }
 
         i {
-          color: $theme8;
+          color: $theme1;
         }
       }
 
@@ -76,7 +76,7 @@
     @include buttonShapeDefault();
     @include buttonColorsDefault();
     @include buttonWithIcon('right');
-    margin-top: 10px;
+    margin-top: 5px;
     width: 100%;
 
     &:hover {

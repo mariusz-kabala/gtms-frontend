@@ -5,20 +5,20 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper('bgdefault');
+  @include pageWrapper();
 }
 
 .tabs {
   margin-bottom: 20px;
   ul {
-    border-bottom: 1px solid $theme13;
+    border-bottom: 1px solid $theme9;
     li {
       position: relative;
       bottom: -1px;
       padding: 5px 35px;
       display: inline-block;
       margin: 0 5px;
-      border: 1px solid $theme13;
+      border: 1px solid $theme9;
       border-bottom: 1px solid $theme0;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
@@ -67,7 +67,6 @@
     display: flex;
     margin: 20px 0;
     padding: 10px;
-    border: 1px solid $theme1;
     border-radius: $borderRadius;
 
     .btnTags {

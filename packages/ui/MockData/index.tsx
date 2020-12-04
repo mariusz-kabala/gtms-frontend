@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
 import { FaRegLightbulb } from 'react-icons/fa'
+import { BsFillImageFill } from 'react-icons/bs'
 import styles from './styles.scss'
 
 const Line: FC<{
@@ -35,22 +36,35 @@ const AvatarAndText: FC<{
   </div>
 )
 
+const User: FC<{
+  index?: number
+}> = ({ index }) => (
+  <div className={styles.user} key={index}>
+    <i>
+      <BsFillImageFill />
+    </i>
+    <div className={styles.textLines}>
+      <Line size="md" />
+      <Line size="sm" />
+      <Line size="sm" />
+    </div>
+  </div>
+)
+
 export const MockData: FC<{
   additionalStyles?: string
   text?: string
   onClick?: () => unknown
   numberOfElements?: number
-  theme?: string
-}> = ({ additionalStyles, numberOfElements, onClick, text, theme }) => {
+}> = ({ additionalStyles, numberOfElements, onClick, text }) => {
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles, {
-        [styles.themeDark]: theme == 'dark',
-      })}
+      className={cx(styles.wrapper, additionalStyles)}
       data-testid={'mock-data'}
     >
       {text ? (
         <div
+          onClick={onClick}
           className={cx(styles.text, {
             [styles.clickable]: onClick,
           })}
@@ -65,6 +79,22 @@ export const MockData: FC<{
           .fill(null)
           .map((_, index) => AvatarAndText({ index }))
       )}
+    </div>
+  )
+}
+
+export const MockUsers: FC<{
+  additionalStyles?: string
+  numberOfElements?: number
+}> = ({ additionalStyles, numberOfElements }) => {
+  return (
+    <div
+      className={cx(styles.wrapper, additionalStyles)}
+      data-testid={'mock-users'}
+    >
+      {new Array(numberOfElements ? numberOfElements : 1)
+        .fill(null)
+        .map((_, index) => User({ index }))}
     </div>
   )
 }

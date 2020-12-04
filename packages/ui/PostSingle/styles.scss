@@ -7,53 +7,44 @@
 
 .wrapper {
   position: relative;
-  cursor: pointer;
+  margin: 10px;
   border-radius: $borderRadius;
-  background: $theme0;
+  cursor: pointer;
 
-  .header {
+  .bbb {
+    position: relative;
     display: flex;
-    align-items: center;
-    @include font-weight(normal);
 
-    .user {
-      display: flex;
-      align-items: center;
-
-      // @todo create mixin with highlighted text
-      &:hover {
-        color: $theme4;
-      }
-
-      .userAvatar {
-        width: 35px;
-        height: 35px;
-        min-width: 35px;
-        min-height: 35px;
-        border: 2px solid $theme0;
-        border-radius: 50%;
-
-        &:hover {
-          border-color: $theme4;
-        }
-      }
-
-      .date {
-        @include font-weight(semiNormal);
-      }
-
-      span {
-        margin-left: 5px;
-
-        &:hover {
-          color: $theme4;
-        }
-      }
+    .userAvatar {
+      width: 35px;
+      height: 35px;
+      min-width: 35px;
+      min-height: 35px;
+      margin-right: 5px;
+      border-radius: 50%;
     }
 
     .actionButtons {
+      // @todo this needs to be done better position absolute is quite lame
+      position: absolute;
+      top: -15px;
+      right: 0;
       display: flex;
-      margin-left: auto;
+    }
+
+    .userName {
+      display: inline-block;
+      margin-top: 5px;
+      @include font-size(xs);
+      text-transform: uppercase;
+    }
+
+    .date,
+    .deleteBtn {
+      margin-top: 4px;
+      margin-left: 5px;
+      @include font-size(xxs);
+      @include font-weight(semiNormal);
     }
 
     .deleteBtn {
@@ -62,36 +53,27 @@
     }
   }
 
-  .desc {
-    .response {
-      margin: 10px 0;
+  .content {
+    margin-top: -15px;
+
+    .message {
+      @include font-size(xxs);
+      margin-top: 2px;
+      text-indent: 40px;
+      line-height: 1.25;
     }
 
     .text {
       margin-top: 5px;
-      @include font-size(sm);
 
       > * {
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
       }
     }
-
-    .tagGroup {
-      margin: 10px 0;
-
-      .activeTag {
-        background-color: $theme4;
-        color: $theme0;
-      }
-    }
-  }
-
-  .postResponseCreate {
-    margin-top: 10px;
   }
 
   &:hover {
-    .header {
+    .bbb {
       .deleteBtn {
         opacity: 1;
       }
@@ -138,7 +120,10 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    @include effectOne();
     border-radius: $borderRadius;
+
+    &:hover {
+      @include effectOne();
+    }
   }
 }

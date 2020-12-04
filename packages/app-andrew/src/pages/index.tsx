@@ -9,7 +9,6 @@ import { getRecentGroups, groupsListQuery } from '@gtms/state-group'
 import { Button } from '@gtms/ui/Button'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
-import { Picture } from '@gtms/ui/Picture'
 import { RecentlyCreatedGroups } from 'components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
 import { SearchBar } from '@gtms/ui/SearchBar'
@@ -27,28 +26,19 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
 
   return (
     <>
-      <div
-        data-testid="home-page"
-        className={cx(styles.pageWrapper, {
-          [styles.isLoggedIn]: true,
-        })}
-      >
+      <div data-testid="home-page" className={styles.pageWrapper}>
         {isModalOpen && (
           <Modal onClose={() => setIsModalOpen(false)}>
             <InviteFriends />
           </Modal>
         )}
-        <div className={styles.welcomeSlider}>
-          <Picture jpg={'/images/white-theme/spotted-bg-highschool.png'} />
-        </div>
         <div className={styles.wrapper}>
           <div className={styles.sections}>
             <div className={styles.headerWrapper}>
-              <h1 className={styles.header}>spotted.pl</h1>
-              <p className={styles.desc}>
-                Aliquip officia voluptate voluptate nulla lorem ipsum dolor
-                officia in incididunt labore.
-              </p>
+              <img
+                className={styles.logo}
+                src="/images/temp-images/logo-burning-man.png"
+              />
               <SearchBar
                 onTagAdd={() => null}
                 onTagRemove={() => null}
@@ -61,10 +51,14 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
                 onClick={() => setIsModalOpen(true)}
                 type="submit"
               >
-                {t('btn')}
+                {t('btn_part_1')}
+                {t('btn_part_2')}
               </Button>
             </div>
             <div className={cx(styles.section, styles.recentlyCreatedGroups)}>
+              <div className={styles.slider}>
+                <h2>Slider</h2>
+              </div>
               <RecentlyCreatedGroups
                 createYourOwnGroup={true}
                 groups={groups}

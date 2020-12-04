@@ -79,8 +79,8 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <NotificationsActive />
         <LoginWindow />
+        <NotificationsActive />
         <NotificationsSidebar />
         <NavigationWrapper />
         <Component {...pageProps} />

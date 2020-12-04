@@ -4,37 +4,41 @@
 
 .wrapper {
   display: flex;
-  align-items: center;
-  justify-content: baseline;
-  margin-bottom: 10px;
-  color: $theme7;
+  margin: 10px;
+  cursor: pointer;
 
   h2 {
+    display: flex;
+    align-items: center;
+    @include font-size('sm');
     @include font-weight(semiBold);
-    @include font-size(xmd);
     text-transform: uppercase;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: $borderRadius;
+    color: $theme0;
+
+    &:hover, &:first-child {
+      color: $theme0;
+      background: $theme4;
+    }
+
+    i {
+      margin-right: 5px;
+      line-height: 0;
+    }
   }
 
   ul {
     display: flex;
-    margin-left: 15px;
+    align-items: center;
+    padding: 5px 0;
 
     li {
-      margin-right: 5px;
-      @include font-weight(light);
-      cursor: pointer;
-      line-height: 0.7;
-      padding: 10px;
-      border-radius: $borderRadius;
+      margin-left: 10px;
 
       &:hover {
-        color: $theme0;
-        background: $theme4;
-      }
-
-      &[class*='active'] {
-        background: $theme4;
-        color: $theme0;
+        color: $theme4;
       }
     }
   }

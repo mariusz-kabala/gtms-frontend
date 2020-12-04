@@ -70,10 +70,11 @@ const COVERS = [
   },
 ]
 
-export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
-  group,
-  isEditAllowed,
-}) => {
+export const GroupCover: FC<{
+  group: IGroup
+  isEditAllowed: boolean
+  additionalStyles?: string
+}> = ({ additionalStyles, group, isEditAllowed }) => {
   const [editorState, setEditorState] = useState<{
     show: boolean
     isStepTwo: boolean
@@ -184,7 +185,10 @@ export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
     ![GroupCoverType.unknown, GroupCoverType.noCover].includes(group.coverType)
   ) {
     return (
-      <div data-testid="group-cover-view" className={styles.wrapper}>
+      <div
+        data-testid="group-cover-view"
+        className={cx(styles.wrapper, additionalStyles)}
+      >
         <div
           className={cx(styles.cover, {
             [styles.cover1]: group.coverType === GroupCoverType.cover1,
@@ -245,15 +249,15 @@ export const GroupCover: FC<{ group: IGroup; isEditAllowed: boolean }> = ({
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div className={cx(styles.wrapper, additionalStyles)}>
       <CoverImageGroup
-        onClose={onClose}
         activeCover={activeCover}
-        setActiveCover={onSetActiveCover}
+        cover={group.coverType}
+        onClose={onClose}
         onSave={onSave}
         options={COVERS}
+        setActiveCover={onSetActiveCover}
         stepTwo={editorState.isStepTwo}
-        cover={group.coverType}
         upload={{
           ...fileUploadState,
           onDrop: onImageDrop,

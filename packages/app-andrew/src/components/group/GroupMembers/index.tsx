@@ -1,16 +1,20 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import cx from 'classnames'
 import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
 import { UserAvatarNoImage } from 'enums'
+// state
+import { getGroupMembers } from '@gtms/state-group'
 // ui
 import { IoMdArrowForward } from 'react-icons/io'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Button } from '@gtms/ui/Button'
+import { MockUsers } from '@gtms/ui/MockData'
 import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
+// styles
 import styles from './styles.scss'
 
 export const GroupMembers: FC<{
@@ -18,8 +22,15 @@ export const GroupMembers: FC<{
   errorOccured: boolean
   isLoading: boolean
   users: IUser[]
-}> = ({ additionalStyles, errorOccured, isLoading, users }) => {
+  slug?: string
+}> = ({ additionalStyles, errorOccured, isLoading, users, slug }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (!errorOccured && !isLoading && users.length === 0 && slug) {
+      getGroupMembers(slug, 0, 8)
+    }
+  }, [])
 
   return (
     <div
@@ -75,8 +86,8 @@ export const GroupMembers: FC<{
         </>
       )}
 
-      {users.length === 0 && (
-        <p>No groups members, maybe you would like to be the first one?</p>
+      {users.length === 0 && !isLoading && !errorOccured && (
+        <MockUsers additionalStyles={styles.mock} numberOfElements={4} />
       )}
     </div>
   )

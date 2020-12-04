@@ -19,7 +19,7 @@
   }
 
   .iconClose {
-    background: $theme14;
+    background: $theme1;
     padding: 10px;
     @include font-size(lg);
   }
@@ -43,7 +43,7 @@
 
     .btn {
       @include buttonDefault();
-      @include buttonSizeMd();
+      @include buttonSizeDefault();
       @include buttonShapeDefault();
       @include buttonWithIcon();
       @include buttonColorsTertiary();
@@ -64,7 +64,7 @@
     width: 100%;
     height: 100%;
     padding: 15px;
-    background: rgba($black, 0.85);
+    background: $theme1;
     transition: top 0.3s ease-in-out;
     cursor: pointer;
     box-shadow: 0px -10px 66px -19px rgba(0, 0, 0, 0.45);
@@ -78,7 +78,7 @@
       // @todo create mixin for that
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-      grid-gap: 15px;
+      grid-gap: 10px;
 
       .item {
         height: 200px;

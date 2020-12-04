@@ -4,7 +4,12 @@ import { IPromotedTag, FileStatus } from '@gtms/commons'
 import { PromotedTagNoImage } from 'enums/noImage'
 import { useTranslation } from '@gtms/commons/i18n'
 // ui
-import { IoMdTrash, IoIosSettings } from 'react-icons/io'
+import {
+  IoIosCloseCircle,
+  IoIosCheckbox,
+  IoMdTrash,
+  IoIosSettings,
+} from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { Modal } from '@gtms/ui/Modal'
 import { Picture } from '@gtms/ui/Picture'
@@ -64,29 +69,37 @@ export const PromotedTags: FC<{
                 <div className={styles.actionButtons}>
                   {isDeleteTagConfirmationModalOpen && (
                     <Modal
-                      additionalStyles={styles.modalContent}
+                      additionalStyles={styles.deleteTagModal}
                       onClose={() => setIsDeleteTagConfirmationModalOpen(false)}
                     >
-                      <div>
-                        <h2>{t('areYouSure')}</h2>
-                        <div className={styles.buttons}>
-                          <Button
-                            additionalStyles={styles.no}
-                            onClick={() => {
-                              setIsDeleteTagConfirmationModalOpen(false)
-                            }}
-                          >
-                            {t('noBtn')}
-                          </Button>
-                          <Button
-                            onClick={() => {
-                              onDelete(p.id)
-                              setIsDeleteTagConfirmationModalOpen(false)
-                            }}
-                          >
-                            {t('yesBtn')}
-                          </Button>
-                        </div>
+                      <h2 className={styles.header}>{t('areYouSure')}</h2>
+                      <p className={styles.desc}>
+                        Eteu in occaecat occaecat consectetur et laboris
+                        aliquip.
+                      </p>
+                      <div className={styles.buttons}>
+                        <Button
+                          additionalStyles={styles.no}
+                          onClick={() => {
+                            setIsDeleteTagConfirmationModalOpen(false)
+                          }}
+                        >
+                          <i>
+                            <IoIosCloseCircle />
+                          </i>
+                          {t('noBtn')}
+                        </Button>
+                        <Button
+                          onClick={() => {
+                            onDelete(p.id)
+                            setIsDeleteTagConfirmationModalOpen(false)
+                          }}
+                        >
+                          <i>
+                            <IoIosCheckbox />
+                          </i>
+                          {t('yesBtn')}
+                        </Button>
                       </div>
                     </Modal>
                   )}

@@ -6,8 +6,8 @@
 
 .wrapper {
   border-radius: $borderRadius;
-  background: #bdd3eb;
-  color: #584147;
+  background: $theme0;
+  color: $theme1;
   @include imageCover();
 
   .content {
@@ -36,7 +36,7 @@
 
     .btn {
       @include buttonDefault();
-      @include buttonSizeMd();
+      @include buttonSizeDefault();
       @include buttonShapeDefault();
       @include buttonColorsDefault();
       margin: auto;

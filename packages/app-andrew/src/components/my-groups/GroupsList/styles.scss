@@ -12,17 +12,11 @@
     .item {
       padding: 10px;
       border-radius: $borderRadius;
-      border: 2px solid $theme0;
       margin-bottom: 15px;
-      background: $theme0;
       cursor: pointer;
 
       &:last-child {
         margin-bottom: 0;
-      }
-
-      &:hover {
-        border: 2px solid $theme4;
       }
 
       .partOne {

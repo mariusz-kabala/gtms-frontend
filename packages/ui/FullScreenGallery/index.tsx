@@ -9,24 +9,24 @@ import styles from './styles.scss'
 
 export const FullScreenGallery: FC<{
   additionalStyles?: string
-  isActive: boolean
   currentBg: string
+  file: ArrayBuffer | string | null
   gallery: {
     name: string
     className: string
   }[]
-  file: ArrayBuffer | string | null
+  isActive: boolean
   onBgChange: (name: string) => unknown
   onClose: () => unknown
 }> = ({
   additionalStyles,
-  isActive,
-  onClose,
-  gallery,
-  onBgChange,
-  currentBg,
   children,
+  currentBg,
   file,
+  gallery,
+  isActive,
+  onBgChange,
+  onClose,
 }) => {
   useKey(() => onClose(), {
     detectKeys: [27],
@@ -102,6 +102,9 @@ export const FullScreenGallery: FC<{
         className={cx(styles.imagesWrapper, {
           [styles.active]: isImageWrapperActive,
         })}
+        onMouseEnter={() => {
+          setIsImageWrapperActive(true)
+        }}
       >
         <Scrollbars style={{ width: '100%', height: '80%' }}>
           <ul className={styles.images}>

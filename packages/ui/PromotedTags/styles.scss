@@ -4,17 +4,28 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/modal.scss';
 @import '~@gtms/styles/scss/mixins/shadows';
 
-.wrapper {
-  .items {
-    @include gridDefault(4);
+.items {
+  @include gridDefault(6);
 
-    .item {
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: $borderRadius;
+  .item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    overflow: hidden;
+    border-radius: $borderRadius;
+    box-shadow: $boxShadowDefault;
+    cursor: pointer;
+
+    .content {
+      // @todo remove when images will be fixed
+      @include imageCover();
+      background-image: url('https://images.pexels.com/photos/17668/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+      width: 100%;
+      height: 100%;
 
       &:before {
         content: '';
@@ -46,10 +57,6 @@
         }
       }
 
-      img {
-        width: 100%;
-      }
-
       .desc {
         position: absolute;
         z-index: 1;
@@ -63,20 +70,41 @@
           @include font-weight(semiBold);
         }
       }
+    }
 
-      .adminPanel {
-        position: absolute;
-        bottom: 0;
-        right: 0;
+    .adminPanel {
+      position: absolute;
+      top: 10px;
+      right: 5px;
+      z-index: 1;
+      display: none;
 
-        ul {
-          margin: 0;
+      ul {
+        margin: 0;
 
-          li {
-            display: inline-block;
-            cursor: pointer;
+        li {
+          display: inline-block;
+          padding: 5px;
+          background: $theme1;
+          border-radius: $borderRadius;
+          overflow: hidden;
+          margin-right: 5px;
+          cursor: pointer;
+
+          &:hover {
+            background: $theme4;
+          }
+
+          i {
+            display: flex;
           }
         }
+      }
+    }
+
+    &:hover {
+      .adminPanel {
+        display: block;
       }
     }
   }
@@ -84,36 +112,61 @@
 
 .addTag {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  padding: 10px 0;
   border: none;
   border-radius: $borderRadius;
-  height: 210px; // @todo create variable for standard tag box
   cursor: pointer;
-  background: $theme13;
+  background: $theme1;
 
   &:hover {
     background: $theme4;
-    color: $theme0;
   }
 
   i {
+    margin-right: 5px;
     @include font-size(xlg);
+    line-height: 0;
   }
 }
 
-.btn {
+.btnShowMore {
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapeDefault();
   @include buttonWithIcon();
   @include buttonWithSpinner();
   @include buttonColorsDefault();
-  margin: auto;
-  margin-top: 20px;
+  width: 100%;
+  margin: 8px auto;
 
   &:hover {
     @include buttonColorsPrimary();
+  }
+}
+
+.deleteTagModal {
+  @include modalContent();
+
+  .header {
+    @include font-weight(semiBold);
+    @include font-size(lg);
+  }
+
+  .desc {
+    margin-top: 5px;
+    @include font-size(xdefault);
+  }
+
+  .buttons {
+    @include gridTwoButtons();
+    margin-top: 20px;
+
+    .yes,
+    .no {
+      @include buttonWithIcon();
+    }
   }
 }

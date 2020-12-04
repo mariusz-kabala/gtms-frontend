@@ -5,129 +5,73 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.29.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.28.0...@gtms/commons@0.29.0) (2020-10-10)
 
-
 ### Features
 
-* GEOT-471: searching ([#878](https://github.com/gtms-org/gtms-frontend/issues/878)) ([bc8fdc8](https://github.com/gtms-org/gtms-frontend/commit/bc8fdc8a958a7e551b50c63441dd5267a99772df))
-
-
-
-
+- GEOT-471: searching ([#878](https://github.com/gtms-org/gtms-frontend/issues/878)) ([bc8fdc8](https://github.com/gtms-org/gtms-frontend/commit/bc8fdc8a958a7e551b50c63441dd5267a99772df))
 
 # [0.28.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.5...@gtms/commons@0.28.0) (2020-09-04)
 
-
 ### Features
 
-* GEOT-453: display post images ([#841](https://github.com/gtms-org/gtms-frontend/issues/841)) ([b85c92a](https://github.com/gtms-org/gtms-frontend/commit/b85c92a0bcb84101ceb39ad8d5fd4767faf43b02))
-
-
-
-
+- GEOT-453: display post images ([#841](https://github.com/gtms-org/gtms-frontend/issues/841)) ([b85c92a](https://github.com/gtms-org/gtms-frontend/commit/b85c92a0bcb84101ceb39ad8d5fd4767faf43b02))
 
 ## [0.27.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.4...@gtms/commons@0.27.5) (2020-08-17)
 
-
 ### Bug Fixes
 
-* GEOT-423: working version of group cover photo chooser ([#824](https://github.com/gtms-org/gtms-frontend/issues/824)) ([d9ffdc2](https://github.com/gtms-org/gtms-frontend/commit/d9ffdc2a78c3bd6949a956356ed189421bf04224))
-
-
-
-
+- GEOT-423: working version of group cover photo chooser ([#824](https://github.com/gtms-org/gtms-frontend/issues/824)) ([d9ffdc2](https://github.com/gtms-org/gtms-frontend/commit/d9ffdc2a78c3bd6949a956356ed189421bf04224))
 
 ## [0.27.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.3...@gtms/commons@0.27.4) (2020-08-16)
 
-
 ### Bug Fixes
 
-* GEOT-422: use html generated on BE for post and comment cont ([#822](https://github.com/gtms-org/gtms-frontend/issues/822)) ([8a9bdd7](https://github.com/gtms-org/gtms-frontend/commit/8a9bdd72dd8cf49fa5358cf1a7d7018e994ecef3))
-
-
-
-
+- GEOT-422: use html generated on BE for post and comment cont ([#822](https://github.com/gtms-org/gtms-frontend/issues/822)) ([8a9bdd7](https://github.com/gtms-org/gtms-frontend/commit/8a9bdd72dd8cf49fa5358cf1a7d7018e994ecef3))
 
 ## [0.27.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.2...@gtms/commons@0.27.3) (2020-07-30)
 
-
 ### Bug Fixes
 
-* GEOT-382: apply custom bg on group page ([#787](https://github.com/gtms-org/gtms-frontend/issues/787)) ([2423998](https://github.com/gtms-org/gtms-frontend/commit/242399893325e3f69bf93d3b028850a03212df55))
-
-
-
-
+- GEOT-382: apply custom bg on group page ([#787](https://github.com/gtms-org/gtms-frontend/issues/787)) ([2423998](https://github.com/gtms-org/gtms-frontend/commit/242399893325e3f69bf93d3b028850a03212df55))
 
 ## [0.27.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.1...@gtms/commons@0.27.2) (2020-07-24)
 
-
 ### Bug Fixes
 
-* GEOT-374: show more info on my groups page, allow user to se ([#765](https://github.com/gtms-org/gtms-frontend/issues/765)) ([93309d2](https://github.com/gtms-org/gtms-frontend/commit/93309d21f245df19c4274ecfd898adcfff9dc01e))
-
-
-
-
+- GEOT-374: show more info on my groups page, allow user to se ([#765](https://github.com/gtms-org/gtms-frontend/issues/765)) ([93309d2](https://github.com/gtms-org/gtms-frontend/commit/93309d21f245df19c4274ecfd898adcfff9dc01e))
 
 ## [0.27.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.27.0...@gtms/commons@0.27.1) (2020-07-22)
 
-
 ### Bug Fixes
 
-* GEOT-354: fill account page with real data ([#754](https://github.com/gtms-org/gtms-frontend/issues/754)) ([97398b0](https://github.com/gtms-org/gtms-frontend/commit/97398b03ac077319aad27d36fbccd656c1dc8bff))
-
-
-
-
+- GEOT-354: fill account page with real data ([#754](https://github.com/gtms-org/gtms-frontend/issues/754)) ([97398b0](https://github.com/gtms-org/gtms-frontend/commit/97398b03ac077319aad27d36fbccd656c1dc8bff))
 
 # [0.27.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.26.0...@gtms/commons@0.27.0) (2020-07-20)
 
-
 ### Features
 
-* GEOT-348 add account security page ([#749](https://github.com/gtms-org/gtms-frontend/issues/749)) ([c9dbc11](https://github.com/gtms-org/gtms-frontend/commit/c9dbc115e59eb2ffc0362d45cf6f2e0d4d28fdaf))
-
-
-
-
+- GEOT-348 add account security page ([#749](https://github.com/gtms-org/gtms-frontend/issues/749)) ([c9dbc11](https://github.com/gtms-org/gtms-frontend/commit/c9dbc115e59eb2ffc0362d45cf6f2e0d4d28fdaf))
 
 # [0.26.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.25.0...@gtms/commons@0.26.0) (2020-07-19)
 
-
 ### Features
 
-* GEOT-343: autocomplete users ([#746](https://github.com/gtms-org/gtms-frontend/issues/746)) ([37a52ef](https://github.com/gtms-org/gtms-frontend/commit/37a52efc57223907ccbd0f0a946cf9a7f501f195))
-
-
-
-
+- GEOT-343: autocomplete users ([#746](https://github.com/gtms-org/gtms-frontend/issues/746)) ([37a52ef](https://github.com/gtms-org/gtms-frontend/commit/37a52efc57223907ccbd0f0a946cf9a7f501f195))
 
 # [0.25.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.24.0...@gtms/commons@0.25.0) (2020-07-15)
 
-
 ### Features
 
-* GEOT-336 favs posts ([#738](https://github.com/gtms-org/gtms-frontend/issues/738)) ([9baf034](https://github.com/gtms-org/gtms-frontend/commit/9baf0347567ebc8c6646f7f3343277743b28a933))
-
-
-
-
+- GEOT-336 favs posts ([#738](https://github.com/gtms-org/gtms-frontend/issues/738)) ([9baf034](https://github.com/gtms-org/gtms-frontend/commit/9baf0347567ebc8c6646f7f3343277743b28a933))
 
 # [0.24.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.23.0...@gtms/commons@0.24.0) (2020-07-09)
 
-
 ### Bug Fixes
 
-* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
-
+- GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
 
 ### Features
 
-* GEOT-325: add a comment ui ([#713](https://github.com/gtms-org/gtms-frontend/issues/713)) ([430b07f](https://github.com/gtms-org/gtms-frontend/commit/430b07fea933de571c510444dea3fbc07e224b1a))
-
-
-
-
+- GEOT-325: add a comment ui ([#713](https://github.com/gtms-org/gtms-frontend/issues/713)) ([430b07f](https://github.com/gtms-org/gtms-frontend/commit/430b07fea933de571c510444dea3fbc07e224b1a))
 
 # [0.23.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.22.0...@gtms/commons@0.23.0) (2020-07-07)
 

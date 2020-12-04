@@ -20,7 +20,7 @@ export const AddFavToMenuButton: FC<{
       }}
     >
       <i>{isChecked ? <IoMdCheckmark /> : <IoMdClose />}</i>
-      {isChecked ? 'checked' : 'unchecked'}
+      {isChecked ? 'add to sidebar menu' : 'remove from sidebar menu'}
     </Button>
   )
 }

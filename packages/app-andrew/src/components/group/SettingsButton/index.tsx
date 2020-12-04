@@ -1,12 +1,19 @@
 import React, { FC, useState, useEffect } from 'react'
+import cx from 'classnames'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
 import { myGroupsQuery, userQuery } from '@gtms/state-user'
+import { useRouter } from 'next/router'
 // ui
 import { GoSettings } from 'react-icons/go'
 import styles from './styles.scss'
 
-export const SettingsButton: FC<{ group: IGroup }> = ({ group }) => {
+export const SettingsButton: FC<{
+  additionalStyles?: string
+  group: IGroup
+}> = ({ additionalStyles, group }) => {
+  const router = useRouter()
+  const isActive = router.pathname === '/group/[slug]/settings'
   const [status, setStatus] = useState<{
     isGroupAdmin: boolean
     isGroupOwner: boolean
@@ -18,6 +25,7 @@ export const SettingsButton: FC<{ group: IGroup }> = ({ group }) => {
     ...myGroupsQuery.status(),
     ...myGroupsQuery.groupStatus(group.id),
   })
+
   useEffect(() => {
     if (!userQuery.isLogged()) {
       return
@@ -39,13 +47,26 @@ export const SettingsButton: FC<{ group: IGroup }> = ({ group }) => {
   }
 
   return (
-    <Link href={`/group/${group.slug}/settings`}>
-      <button className={styles.btn}>
-        <i>
-          <GoSettings />
-        </i>
-        Group settings
-      </button>
-    </Link>
+    <div
+      className={cx(styles.wrapper, additionalStyles)}
+      data-testid="settings-button"
+    >
+      <Link
+        href={
+          isActive ? `/group/${group.slug}` : `/group/${group.slug}/settings`
+        }
+      >
+        <button
+          className={cx(styles.btn, {
+            [styles.active]: isActive,
+          })}
+        >
+          <i>
+            <GoSettings />
+          </i>
+          <span>Group settings</span>
+        </button>
+      </Link>
+    </div>
   )
 }

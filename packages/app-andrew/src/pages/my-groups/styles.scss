@@ -74,17 +74,8 @@
     display: flex !important;
   }
 
-  .noRecords {
-    margin: auto;
-    margin-top: 40px;
-
-    @include font-weight(semiBold);
-    @include font-size(lg);
-  }
-
   .groupMenu {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    margin-top: 5px;
   }
 }

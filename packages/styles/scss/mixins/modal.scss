@@ -1,7 +1,11 @@
-@mixin modalContent() {
-  > div {
+@mixin modalContent($bg: null) {
+  [class*='content'] {
     min-width: 300px;
     min-height: 150px;
     padding: 15px;
+
+    @if $bg == 'bgnone' {
+      background: none;
+    }
   }
 }

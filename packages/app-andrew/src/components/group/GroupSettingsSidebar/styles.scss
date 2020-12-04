@@ -1,20 +1,23 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .navigation {
-  padding: 10px 15px;
+  width: 200px;
+  margin-right: 10px;
 
   .item {
+    margin: 10px;
     border-radius: $borderRadius;
-    background: $theme1;
-    margin-bottom: 10px;
 
     a {
       display: flex;
-      align-items: center;
       padding: 5px;
 
+      span {
+        margin-left: 5px;
+      }
+
       i {
-        margin-right: 5px;
         line-height: 0;
       }
     }

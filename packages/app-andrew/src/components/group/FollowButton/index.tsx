@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import styles from './styles.scss'
+import cx from 'classnames'
 import { IGroup } from '@gtms/commons/models'
 import {
   followButtonState,
@@ -11,10 +11,14 @@ import {
   followGroup,
   unfollowGroup,
 } from '@gtms/state-notification'
-import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
+import { AiOutlineRead, AiFillRead } from 'react-icons/ai'
 import { openLoginModal } from 'state'
+import styles from './styles.scss'
 
-export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
+export const FollowButton: FC<{
+  additionalStyles?: string
+  group: IGroup
+}> = ({ additionalStyles, group }) => {
   const [state, setState] = useState<IFollowButtonState>(
     followButtonState(group.id)
   )
@@ -35,24 +39,37 @@ export const FollowButton: FC<{ group: IGroup }> = ({ group }) => {
   }
 
   return (
-    <div className={styles.wrapper} data-testid="follow-button">
-      <label>
-        <SwitchWrapper
-          onChange={(value) => {
-            if (!state.isLogged) {
-              return openLoginModal()
-            }
+    <button
+      className={cx(styles.btn, additionalStyles)}
+      data-testid="follow-button"
+      onClick={() => {
+        if (!state.isLogged) {
+          return openLoginModal()
+        }
 
-            if (value) {
-              return followGroup(group.id)
-            }
+        if (!state.isFollowing) {
+          return followGroup(group.id)
+        }
 
-            unfollowGroup(group.id)
-          }}
-          checked={false}
-        />
-        <span>Follow</span>
-      </label>
-    </div>
+        unfollowGroup(group.id)
+      }}
+    >
+      {state.isFollowing && (
+        <>
+          <i>
+            <AiOutlineRead />
+          </i>{' '}
+          <span>Unfollow</span>
+        </>
+      )}
+      {!state.isFollowing && (
+        <>
+          <i>
+            <AiFillRead />
+          </i>{' '}
+          <span>Follow</span>
+        </>
+      )}
+    </button>
   )
 }

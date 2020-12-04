@@ -18,148 +18,79 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/api-auth
 
-
-
-
-
 ## [0.13.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.8...@gtms/api-auth@0.13.9) (2020-09-13)
-
 
 ### Bug Fixes
 
-* GEOT-463: pass google auth code to BE ([#857](https://github.com/gtms-org/gtms-frontend/issues/857)) ([f7d394b](https://github.com/gtms-org/gtms-frontend/commit/f7d394b7e8f0a01c9d4528c267c47f32beecb454))
-
-
-
-
+- GEOT-463: pass google auth code to BE ([#857](https://github.com/gtms-org/gtms-frontend/issues/857)) ([f7d394b](https://github.com/gtms-org/gtms-frontend/commit/f7d394b7e8f0a01c9d4528c267c47f32beecb454))
 
 ## [0.13.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.7...@gtms/api-auth@0.13.8) (2020-09-04)
 
 **Note:** Version bump only for package @gtms/api-auth
 
-
-
-
-
 ## [0.13.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.6...@gtms/api-auth@0.13.7) (2020-08-17)
 
 **Note:** Version bump only for package @gtms/api-auth
-
-
-
-
 
 ## [0.13.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.5...@gtms/api-auth@0.13.6) (2020-08-16)
 
 **Note:** Version bump only for package @gtms/api-auth
 
-
-
-
-
 ## [0.13.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.4...@gtms/api-auth@0.13.5) (2020-07-30)
 
 **Note:** Version bump only for package @gtms/api-auth
 
-
-
-
-
 ## [0.13.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.3...@gtms/api-auth@0.13.4) (2020-07-28)
-
 
 ### Bug Fixes
 
-* GEOT-374 my groups page ([#777](https://github.com/gtms-org/gtms-frontend/issues/777)) ([03307f0](https://github.com/gtms-org/gtms-frontend/commit/03307f0de4c4555f2b84be827e2f18b367033499))
-
-
-
-
+- GEOT-374 my groups page ([#777](https://github.com/gtms-org/gtms-frontend/issues/777)) ([03307f0](https://github.com/gtms-org/gtms-frontend/commit/03307f0de4c4555f2b84be827e2f18b367033499))
 
 ## [0.13.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.2...@gtms/api-auth@0.13.3) (2020-07-24)
 
-
 ### Bug Fixes
 
-* GEOT-374: show more info on my groups page, allow user to se ([#765](https://github.com/gtms-org/gtms-frontend/issues/765)) ([93309d2](https://github.com/gtms-org/gtms-frontend/commit/93309d21f245df19c4274ecfd898adcfff9dc01e))
-
-
-
-
+- GEOT-374: show more info on my groups page, allow user to se ([#765](https://github.com/gtms-org/gtms-frontend/issues/765)) ([93309d2](https://github.com/gtms-org/gtms-frontend/commit/93309d21f245df19c4274ecfd898adcfff9dc01e))
 
 ## [0.13.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.1...@gtms/api-auth@0.13.2) (2020-07-22)
 
-
 ### Bug Fixes
 
-* GEOT-354: fill account page with real data ([#754](https://github.com/gtms-org/gtms-frontend/issues/754)) ([97398b0](https://github.com/gtms-org/gtms-frontend/commit/97398b03ac077319aad27d36fbccd656c1dc8bff))
-
-
-
-
+- GEOT-354: fill account page with real data ([#754](https://github.com/gtms-org/gtms-frontend/issues/754)) ([97398b0](https://github.com/gtms-org/gtms-frontend/commit/97398b03ac077319aad27d36fbccd656c1dc8bff))
 
 ## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.0...@gtms/api-auth@0.13.1) (2020-07-21)
 
-
 ### Bug Fixes
 
-* GEOT-352: fixes for fav button on group page ([#751](https://github.com/gtms-org/gtms-frontend/issues/751)) ([31d82bd](https://github.com/gtms-org/gtms-frontend/commit/31d82bd06f3b2fa7ece7f4bc9300462bd19374f5))
-
-
-
-
+- GEOT-352: fixes for fav button on group page ([#751](https://github.com/gtms-org/gtms-frontend/issues/751)) ([31d82bd](https://github.com/gtms-org/gtms-frontend/commit/31d82bd06f3b2fa7ece7f4bc9300462bd19374f5))
 
 # [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.12.0...@gtms/api-auth@0.13.0) (2020-07-20)
 
-
 ### Features
 
-* GEOT-348 add account security page ([#749](https://github.com/gtms-org/gtms-frontend/issues/749)) ([c9dbc11](https://github.com/gtms-org/gtms-frontend/commit/c9dbc115e59eb2ffc0362d45cf6f2e0d4d28fdaf))
-
-
-
-
+- GEOT-348 add account security page ([#749](https://github.com/gtms-org/gtms-frontend/issues/749)) ([c9dbc11](https://github.com/gtms-org/gtms-frontend/commit/c9dbc115e59eb2ffc0362d45cf6f2e0d4d28fdaf))
 
 # [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.11.4...@gtms/api-auth@0.12.0) (2020-07-19)
 
-
 ### Features
 
-* GEOT-343: autocomplete users ([#746](https://github.com/gtms-org/gtms-frontend/issues/746)) ([37a52ef](https://github.com/gtms-org/gtms-frontend/commit/37a52efc57223907ccbd0f0a946cf9a7f501f195))
-
-
-
-
+- GEOT-343: autocomplete users ([#746](https://github.com/gtms-org/gtms-frontend/issues/746)) ([37a52ef](https://github.com/gtms-org/gtms-frontend/commit/37a52efc57223907ccbd0f0a946cf9a7f501f195))
 
 ## [0.11.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.11.3...@gtms/api-auth@0.11.4) (2020-07-19)
 
-
 ### Bug Fixes
 
-* GEOT-342: allow to type username during registration ([#745](https://github.com/gtms-org/gtms-frontend/issues/745)) ([9dfcffe](https://github.com/gtms-org/gtms-frontend/commit/9dfcffed75449a73712a5b470b06803f464927f3))
-
-
-
-
+- GEOT-342: allow to type username during registration ([#745](https://github.com/gtms-org/gtms-frontend/issues/745)) ([9dfcffe](https://github.com/gtms-org/gtms-frontend/commit/9dfcffed75449a73712a5b470b06803f464927f3))
 
 ## [0.11.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.11.2...@gtms/api-auth@0.11.3) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/api-auth
 
-
-
-
-
 ## [0.11.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.11.1...@gtms/api-auth@0.11.2) (2020-07-09)
-
 
 ### Bug Fixes
 
-* GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
-
-
-
-
+- GEOT-318: restructure html css group page fix notifications sidebar ([#706](https://github.com/gtms-org/gtms-frontend/issues/706)) ([bd2abd1](https://github.com/gtms-org/gtms-frontend/commit/bd2abd118f8bd53c24c13c53b88f3d7584f459e0))
 
 ## [0.11.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.11.0...@gtms/api-auth@0.11.1) (2020-07-07)
 

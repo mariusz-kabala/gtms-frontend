@@ -61,7 +61,7 @@
 
     a.actionButton {
       display: block;
-      background-color: $theme3;
+      background-color: $theme9;
       padding: 5px;
       cursor: pointer;
       line-height: 20px;
@@ -96,11 +96,11 @@
   .suggestions {
     position: absolute;
     left: 0;
-    bottom: -48px;
+    bottom: -50px;
     width: 100%;
     padding: 10px;
     min-height: 50px;
-    background-color: $theme7;
+    background-color: $theme1;
 
     button.tag {
       &:first-child {

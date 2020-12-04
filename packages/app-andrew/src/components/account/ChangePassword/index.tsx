@@ -1,6 +1,9 @@
 import React, { FC, useState } from 'react'
-import { ExpandingItem } from '@gtms/ui/ExpandingItem'
+import { MdLockOutline } from 'react-icons/md'
 import { ChangePasswordForm } from './Form'
+import { Button } from '@gtms/ui/Button'
+import { Modal } from '@gtms/ui/Modal'
+import styles from './styles.scss'
 
 export const ChangePassword: FC<{
   additionalStyles?: string
@@ -13,16 +16,23 @@ export const ChangePassword: FC<{
       data-testid="user-password-change"
       onClick={() => (!isEditModeActive ? setIsEditModeActive(true) : null)}
     >
-      <ExpandingItem
-        isActive={isEditModeActive}
-        closeOnClickOutsie={false}
-        label="Change password"
-        onClose={() => {
-          setIsEditModeActive(false)
-        }}
+      {isEditModeActive && (
+        <Modal
+          additionalStyles={styles.modal}
+          onClose={() => setIsEditModeActive(false)}
+        >
+          <ChangePasswordForm onSuccess={() => setIsEditModeActive(false)} />
+        </Modal>
+      )}
+      <Button
+        additionalStyles={styles.btn}
+        onClick={() => setIsEditModeActive(true)}
       >
-        <ChangePasswordForm onSuccess={() => setIsEditModeActive(false)} />
-      </ExpandingItem>
+        <i>
+          <MdLockOutline />
+        </i>{' '}
+        Change password
+      </Button>
     </div>
   )
 }

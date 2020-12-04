@@ -11,7 +11,7 @@
 
   .image {
     img {
-      max-width: 700px;
+      max-width: 600px;
     }
   }
 
@@ -19,7 +19,7 @@
     @include buttonDefault();
     @include buttonSizeDefault();
     @include buttonShapeDefault();
-    @include buttonSizeMd();
+    @include buttonSizeDefault();
     @include buttonWithIcon();
     @include buttonColorsDefault();
 

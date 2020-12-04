@@ -1,14 +1,19 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
-@import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .btn {
   @include buttonDefault();
-  @include buttonWithIcon();
+  @include buttonSizeSm();
+  @include buttonShapeDefault();
+  @include buttonWithIcon('withoutText');
   @include buttonWithSpinner();
+  @include buttonColorsDefault();
+  @include font-size(xmd);
+  width: 100%;
+  color: $theme0;
 
   &:hover {
-    @include buttonColorBlue();
+    @include buttonColorsPrimary();
   }
 
   &.isLoading {
@@ -20,5 +25,9 @@
       width: 45px;
       left: 5px;
     }
+  }
+
+  span {
+    display: none;
   }
 }

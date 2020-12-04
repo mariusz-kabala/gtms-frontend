@@ -127,39 +127,30 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags, posts }) => {
           onTagAdd={onTagAdd}
           onTagRemove={onTagRemove}
         />
-        <section className={styles.section}>
-          <h3 className={styles.header}>Groups</h3>
-          <GroupsList
-            records={state.groups.docs}
-            isLoading={state.groups.isLoading}
-          />
-        </section>
 
-        <section className={styles.section}>
-          <h3 className={styles.header}>Users</h3>
-          <UsersList
-            records={state.users.docs}
-            isLoading={state.users.isLoading}
-          />
-        </section>
+        <h3 className={styles.header}>Groups</h3>
+        <GroupsList
+          records={state.groups.docs}
+          isLoading={state.groups.isLoading}
+        />
 
-        <section className={styles.section}>
-          <h3 className={styles.header}>Posts</h3>
-          {state.posts && (
-            <PostsList
-              user={null}
-              records={state.posts.docs}
-              isLoading={state.posts.isLoading}
-            />
-          )}
-          {!state.posts && (
-            <MockData
-              additionalStyles={styles.noRecords}
-              theme="dark"
-              numberOfElements={4}
-            />
-          )}
-        </section>
+        <h3 className={styles.header}>Users</h3>
+        <UsersList
+          records={state.users.docs}
+          isLoading={state.users.isLoading}
+        />
+
+        <h3 className={styles.header}>Posts</h3>
+        {state.posts && (
+          <PostsList
+            user={null}
+            records={state.posts.docs}
+            isLoading={state.posts.isLoading}
+          />
+        )}
+        {!state.posts && (
+          <MockData additionalStyles={styles.noRecords} numberOfElements={4} />
+        )}
       </div>
     </div>
   )

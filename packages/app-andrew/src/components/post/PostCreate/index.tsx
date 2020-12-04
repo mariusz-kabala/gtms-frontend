@@ -25,6 +25,7 @@ export const PostCreate: FC<{
   groupId: string
 }> = ({ additionalStyles, groupId }) => {
   const [state, setState] = useState<IPostCreateState>(postCreateState())
+  const [showSendButton, setShowSendButton] = useState<boolean>(false)
   const [fileUploadState, setfileUploadState] = useState<{
     isVisible: boolean
     isLoading: boolean
@@ -126,7 +127,10 @@ export const PostCreate: FC<{
     }
   }, [])
   return (
-    <div className={cx(styles.wrapper, additionalStyles)}>
+    <div
+      onClick={() => (showSendButton ? null : setShowSendButton(true))}
+      className={cx(styles.wrapper, additionalStyles)}
+    >
       <PostCreateUI
         fetchTags={findTagsAPI}
         fetchUsers={findbyUsernameAPI}
@@ -187,12 +191,14 @@ export const PostCreate: FC<{
         </div>
       )}
 
-      <Button additionalStyles={styles.btnSubmit} type="submit">
-        send
-        <i>
-          <IoMdSend />
-        </i>
-      </Button>
+      {showSendButton && (
+        <Button additionalStyles={styles.btnSubmit} type="submit">
+          send
+          <i>
+            <IoMdSend />
+          </i>
+        </Button>
+      )}
     </div>
   )
 }

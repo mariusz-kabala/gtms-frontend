@@ -124,114 +124,117 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
         {!state.isLoading && !state.errorOccured && (
           <>
             <Navigation current={Tabs.profile} />
-            <div className={styles.hint}>
-              That is how other people can see your profile
-              <span>You can edit your profile here, show and hide things</span>
-            </div>
-            <div className={styles.userHeader}>
-              <ImageEditor
-                isVisible={isAvatarEditorVisible}
-                onSave={(file: File) => {
-                  updateAccountAvatar(file)
-                  setIsAvatarEditorVisible(false)
-                }}
-                onClose={() => setIsAvatarEditorVisible(false)}
-              />
-              <div className={styles.avatarWrapper}>
-                <a onClick={() => setIsAvatarEditorVisible(true)}>
-                  {[FileStatus.uploaded, FileStatus.processing].includes(
-                    state.avatar.status
-                  ) && <Spinner />}
-                  <Picture
-                    additionalStyles={styles.avatar}
-                    {...(userQuery.hasAvatar('200x200')
-                      ? userQuery.getAvatar('200x200')
-                      : UserAvatarNoImage['200x200'])}
-                  />
-                </a>
+            <div>
+              <div className={styles.hint}>
+                That is how other people can see your profile
+                <span>
+                  You can edit your profile here, show and hide things
+                </span>
               </div>
-              <div className={styles.userNameSurnameLogin}>
-                <UserName name={state.name} surname={state.surname} />
-                <UserEmail email={state.email} />
-                <span className={styles.login}>@{state.username}</span>
-              </div>
-              <div className={styles.desc}>
-                <span className={styles.aboutMeLabel}>About me:</span>
-                <UserDescription description={state.description} />
-              </div>
-            </div>
-            <ul className={styles.links}>
-              <li className={styles.item}>
-                <Button additionalStyles={styles.btn}>
-                  <i>
-                    <IoIosAddCircle />
-                  </i>
-                  Like
-                </Button>
-              </li>
-              <li className={styles.item}>
-                <Button additionalStyles={styles.btn}>
-                  <i>
-                    <IoMdTrash />
-                  </i>
-                  Fav
-                </Button>
-              </li>
-              <li className={styles.item}>
-                <Button additionalStyles={styles.btn}>
-                  <i>
-                    <IoIosSettings />
-                  </i>
-                  Send msg
-                </Button>
-              </li>
-            </ul>
-            <div className={styles.userTags}>
-              <span>My TAGS:</span>
-              <TagsBar
-                tags={tags}
-                isSaving={isSaving}
-                isLoading={tagsHints.isLoading}
-                suggestions={tagsHints.tags}
-                onLoadSuggestion={onLoadTagsHints}
-                onLoadSuggestionCancel={() => null}
-                onTagAdd={onTagAdd}
-                onTagRemove={onTagRemove}
-                onSave={onTagsSave}
-              />
-            </div>
-            <ul className={styles.userStats}>
-              <li className={styles.item}>
-                <span>{state.postsCounter}</span>
-                Posts
-              </li>
-              <li className={styles.item}>
-                <span>{state.memberedGroupsCounter}</span>
-                Group(s) member
-              </li>
-              <li className={styles.item}>
-                <span>{state.ownedGroupsCounter}</span>
-                Group(s) owner
-              </li>
-              <li className={styles.item}>
-                <span>{state.favsGroupsCounter}</span>
-                Fav group(s)
-              </li>
-            </ul>
-            <div className={styles.userGroups}>
-              <span>I am member of groups:</span>
-              <UserGroups groups={state.groups} noImage={GroupAvatarNoImage} />
-            </div>
-            <div className={styles.userLastPosts}>
-              <span>My last posts:</span>
-              <div className={styles.noRecords}>
-                <MockData theme="dark" />
-                <MockData
-                  theme="dark"
-                  onClick={() => null}
-                  text="No posts, create some"
+              <div className={styles.userHeader}>
+                <ImageEditor
+                  isVisible={isAvatarEditorVisible}
+                  onSave={(file: File) => {
+                    updateAccountAvatar(file)
+                    setIsAvatarEditorVisible(false)
+                  }}
+                  onClose={() => setIsAvatarEditorVisible(false)}
                 />
-                <MockData theme="dark" numberOfElements={4} />
+                <div className={styles.avatarWrapper}>
+                  <a onClick={() => setIsAvatarEditorVisible(true)}>
+                    {[FileStatus.uploaded, FileStatus.processing].includes(
+                      state.avatar.status
+                    ) && <Spinner />}
+                    <Picture
+                      additionalStyles={styles.avatar}
+                      {...(userQuery.hasAvatar('200x200')
+                        ? userQuery.getAvatar('200x200')
+                        : UserAvatarNoImage['200x200'])}
+                    />
+                  </a>
+                </div>
+                <div className={styles.userNameSurnameLogin}>
+                  <UserName name={state.name} surname={state.surname} />
+                  <UserEmail email={state.email} />
+                  <span className={styles.login}>@{state.username}</span>
+                </div>
+                <div className={styles.desc}>
+                  <span className={styles.aboutMeLabel}>About me:</span>
+                  <UserDescription description={state.description} />
+                </div>
+              </div>
+              <ul className={styles.links}>
+                <li className={styles.item}>
+                  <Button additionalStyles={styles.btn}>
+                    <i>
+                      <IoIosAddCircle />
+                    </i>
+                    Like
+                  </Button>
+                </li>
+                <li className={styles.item}>
+                  <Button additionalStyles={styles.btn}>
+                    <i>
+                      <IoMdTrash />
+                    </i>
+                    Fav
+                  </Button>
+                </li>
+                <li className={styles.item}>
+                  <Button additionalStyles={styles.btn}>
+                    <i>
+                      <IoIosSettings />
+                    </i>
+                    Send msg
+                  </Button>
+                </li>
+              </ul>
+              <div className={styles.userTags}>
+                <span>My TAGS:</span>
+                <TagsBar
+                  tags={tags}
+                  isSaving={isSaving}
+                  isLoading={tagsHints.isLoading}
+                  suggestions={tagsHints.tags}
+                  onLoadSuggestion={onLoadTagsHints}
+                  onLoadSuggestionCancel={() => null}
+                  onTagAdd={onTagAdd}
+                  onTagRemove={onTagRemove}
+                  onSave={onTagsSave}
+                />
+              </div>
+              <ul className={styles.userStats}>
+                <li className={styles.item}>
+                  <span>{state.postsCounter}</span>
+                  Posts
+                </li>
+                <li className={styles.item}>
+                  <span>{state.memberedGroupsCounter}</span>
+                  Group(s) member
+                </li>
+                <li className={styles.item}>
+                  <span>{state.ownedGroupsCounter}</span>
+                  Group(s) owner
+                </li>
+                <li className={styles.item}>
+                  <span>{state.favsGroupsCounter}</span>
+                  Fav group(s)
+                </li>
+              </ul>
+              <div className={styles.userGroups}>
+                <span>I am member of groups:</span>
+                <UserGroups
+                  groups={state.groups}
+                  noImage={GroupAvatarNoImage}
+                />
+              </div>
+              <div className={styles.userLastPosts}>
+                <span>My last posts:</span>
+                <div className={styles.noRecords}>
+                  <MockData />
+                  <MockData onClick={() => null} text="No posts, create some" />
+                  <MockData numberOfElements={4} />
+                </div>
               </div>
             </div>
           </>

@@ -5,13 +5,28 @@
 .wrapper {
   position: relative;
   z-index: 1;
-  padding: 10px;
-  width: 400px;
-  height: 100%;
+  width: 0px;
+  min-height: 100;
   background: $theme1;
+  transition: width 0.25s;
 
   &.opened {
-    height: auto;
+    min-width: 400px;
+
+    .content {
+      opacity: 1;
+      left: 0;
+    }
+  }
+
+  .content {
+    position: fixed;
+    left: -3000px;
+    min-width: 400px;
+    opacity: 0;
+    padding: 10px;
+    transition: opacity 1s;
+    transition-delay: opacity 1s;
   }
 
   .navigation {
@@ -42,7 +57,7 @@
         margin-right: 5px;
         border-radius: $borderRadius;
         background: $theme1;
-        color: $theme7;
+        color: $theme9;
 
         &:hover {
           background: $theme4;

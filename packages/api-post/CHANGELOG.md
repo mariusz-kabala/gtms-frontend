@@ -5,25 +5,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.13.0...@gtms/api-post@0.14.0) (2020-10-10)
 
-
 ### Features
 
-* GEOT-471: searching ([#878](https://github.com/gtms-org/gtms-frontend/issues/878)) ([bc8fdc8](https://github.com/gtms-org/gtms-frontend/commit/bc8fdc8a958a7e551b50c63441dd5267a99772df))
-
-
-
-
+- GEOT-471: searching ([#878](https://github.com/gtms-org/gtms-frontend/issues/878)) ([bc8fdc8](https://github.com/gtms-org/gtms-frontend/commit/bc8fdc8a958a7e551b50c63441dd5267a99772df))
 
 # [0.13.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.12.0...@gtms/api-post@0.13.0) (2020-09-04)
 
-
 ### Features
 
-* GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
-
-
-
-
+- GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
 
 # [0.12.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.11.1...@gtms/api-post@0.12.0) (2020-09-02)
 

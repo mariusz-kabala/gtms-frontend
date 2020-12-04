@@ -28,7 +28,7 @@
     min-height: 50px;
 
     &.showCover {
-      min-height: 300px;
+      min-height: 250px;
     }
   }
 
@@ -50,10 +50,9 @@
 
         .btn {
           @include buttonDefault();
-          @include buttonSizeDefault();
+          @include buttonSizeSm();
           @include buttonShapeDefault();
           @include buttonColorsTertiary();
-          @include buttonSizeMd();
           @include buttonWithIcon();
 
           &:hover {
@@ -111,22 +110,22 @@
 
       .buttons {
         position: absolute;
-        top: 15px;
-        right: 15px;
+        top: 10px;
+        right: 0px;
         display: flex;
-        flex-direction: row;
-      }
 
-      .btn {
-        // @include buttonDefault();
-        // @include buttonSizeDefault();
-        // @include buttonShapeDefault();
-        // @include buttonWithIcon();
-        // @include buttonColorsTertiary();
+        .btn {
+          @include buttonDefault();
+          @include buttonSizeSm();
+          @include buttonShapeDefault();
+          @include buttonWithIcon();
+          @include buttonColorsTertiary();
+          margin-right: 10px;
 
-        // &:hover {
-        //   @include buttonColorsPrimary();
-        // }
+          &:hover {
+            @include buttonColorsPrimary();
+          }
+        }
       }
     }
   }

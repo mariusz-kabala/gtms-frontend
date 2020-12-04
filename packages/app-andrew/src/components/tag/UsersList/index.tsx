@@ -20,11 +20,7 @@ export const UsersList: FC<{ records: IUser[]; isLoading: boolean }> = ({
           <div key={`user-${user.id}`}>{getDisplayName(user)}</div>
         ))}
       {!isLoading && records.length === 0 && (
-        <MockData
-          additionalStyles={styles.noRecords}
-          theme="dark"
-          numberOfElements={4}
-        />
+        <MockData additionalStyles={styles.noRecords} numberOfElements={4} />
       )}
     </div>
   )

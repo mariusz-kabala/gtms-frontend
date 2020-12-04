@@ -1,18 +1,23 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
-@import '~@gtms/styles/scss/mixins/fontSize.scss';
 
-.wrapper {
-  display: flex;
-  @include font-weight(normal);
-  text-transform: uppercase;
+.btn {
+  @include buttonDefault();
+  @include buttonSizeSm();
+  @include buttonShapeDefault();
+  @include buttonWithIcon('withoutText');
+  @include buttonWithSpinner();
+  @include buttonColorsDefault();
+  @include font-size(md);
+  width: 100%;
+  color: $theme0;
 
-  label {
-    display: flex;
-    align-items: center;
+  &:hover {
+    @include buttonColorsPrimary();
+  }
 
-    span {
-      margin-left: 5px;
-    }
+  span {
+    display: none;
   }
 }

@@ -1,0 +1,23 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+
+.wrapper {
+  display: flex;
+  grid-gap: 8px;
+
+  .joinLeaveButton,
+  .settingsButton,
+  .followButton,
+  .favsButton {
+    width: 100%;
+    min-width: 40px;
+    height: 40px;
+  }
+
+  .groupMembers {
+    width: 100%;
+    padding: 10px;
+  }
+}

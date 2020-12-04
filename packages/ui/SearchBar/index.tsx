@@ -9,6 +9,7 @@ export const SuggestionTypes = Object.freeze({
 })
 
 export const SearchBar: FC<{
+  additionalStyles?: string
   tags?: string[]
   users?: string[]
   query?: string
@@ -24,6 +25,7 @@ export const SearchBar: FC<{
   onQueryChange: (text: string) => void
 }> = (params) => {
   const {
+    additionalStyles,
     tags = [],
     users = [],
     query = '',
@@ -66,7 +68,10 @@ export const SearchBar: FC<{
 
   return (
     <>
-      <div data-testid="searchBar" className={cx(styles.searchBar)}>
+      <div
+        data-testid="searchBar"
+        className={cx(styles.searchBar, additionalStyles)}
+      >
         {query === '' && !noInlineTags && (
           <>
             <div className={styles.tags}>

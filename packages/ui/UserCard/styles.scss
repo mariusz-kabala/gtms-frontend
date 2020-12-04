@@ -5,7 +5,6 @@
 .wrapper {
   position: fixed;
   z-index: 11;
-
   top: 0;
   left: 0;
   bottom: 0;
@@ -15,7 +14,7 @@
   width: 700px;
   height: 500px;
   background: $theme4;
-  background: #252230;
+  background: $theme1;
 
   .content {
     display: flex;

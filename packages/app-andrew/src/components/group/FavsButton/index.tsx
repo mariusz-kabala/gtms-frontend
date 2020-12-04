@@ -13,10 +13,13 @@ import { IGroup } from '@gtms/commons/models'
 //ui
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
-import { IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
+import { IoMdStar, IoMdStarOutline } from 'react-icons/io'
 import styles from './styles.scss'
 
-export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
+export const FavsButton: FC<{
+  additionalStyles?: string
+  group: IGroup
+}> = ({ additionalStyles, group }) => {
   const { t } = useTranslation('groupPage')
   const [status, setStatus] = useState<IFavRecordStatus>(
     favGroupsQuery.getRecordStatus(group.id)
@@ -44,7 +47,7 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
 
   return (
     <Button
-      additionalStyles={cx(styles.btn, {
+      additionalStyles={cx(styles.btn, additionalStyles, {
         [styles.isLoading]: status.isLoading && userQuery.isLogged(),
       })}
       onClick={() => {
@@ -68,17 +71,17 @@ export const FavsButton: FC<{ group: IGroup }> = ({ group }) => {
       {((!status.isLoading && !status.isInFavs) || !userQuery.isLogged()) && (
         <>
           <i>
-            <IoIosHeartEmpty />
+            <IoMdStarOutline />
           </i>{' '}
-          {t('add-to-favs')}
+          <span>{t('add-to-favs')}</span>
         </>
       )}
       {!status.isLoading && status.isInFavs && (
         <>
           <i>
-            <IoIosHeart />
+            <IoMdStar />
           </i>{' '}
-          {t('remove-from-favs')}
+          <span>{t('remove-from-favs')}</span>
         </>
       )}
     </Button>

@@ -1,23 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 $theme0: #ffffff;
-$theme1: #e4e4e4;
-$theme3: #ceddff;
+$theme1: #27292d;
+$theme2: #000;
 $theme4: #1f5ef3;
-$theme5: #fded38;
-$theme6: #cd0000;
-$theme7: #373737;
-$theme8: #020202;
-$theme9: #797979;
-$theme11: #2e2e2e; //@todo change it to $theme5 and current $theme5 to $theme6 etc.
-$theme12: #760a5d; //@todo change it to $theme5 and current $theme5 to $theme6 etc.
-$theme13: #c6c6c6;
-$theme14: red;
-
-$white: #fff;
-$black: #000;
+$theme6: #c50a1e;
+$theme9: #383b40;
 
 $borderRadius: 5px;
 
 $defaultFontFamily: 'Roboto Condensed', sans-serif;
-$defaultTextColor: $theme7;
+$defaultTextColor: $theme0;
+
+$boxShadowDefault: 0px 0px 7px 0px rgba(0, 0, 0, 0.35);

@@ -17,7 +17,7 @@ export enum Tabs {
   members = 'members',
 }
 
-export const GroupSettingsSidebarContent: FC<{
+export const GroupSettingsSidebar: FC<{
   tab: Tabs
   setTab: (tab: Tabs) => void
 }> = ({ tab, setTab }) => {
@@ -32,7 +32,7 @@ export const GroupSettingsSidebarContent: FC<{
           <i>
             <GoSettings />
           </i>
-          General Settings
+          <span>General Settings</span>
         </a>
       </li>
       <li
@@ -44,7 +44,7 @@ export const GroupSettingsSidebarContent: FC<{
           <i>
             <AiOutlineTags />
           </i>
-          Tags
+          <span>Tags</span>
         </a>
       </li>
       <li
@@ -56,7 +56,7 @@ export const GroupSettingsSidebarContent: FC<{
           <i>
             <FaEnvelopeOpenText />
           </i>
-          Invitations
+          <span>Invitations</span>
         </a>
       </li>
       <li
@@ -68,7 +68,7 @@ export const GroupSettingsSidebarContent: FC<{
           <i>
             <RiUserStarLine />
           </i>
-          Admins
+          <span>Admins</span>
         </a>
       </li>
       <li
@@ -80,7 +80,7 @@ export const GroupSettingsSidebarContent: FC<{
           <i>
             <FiUsers />
           </i>
-          Members
+          <span>Members</span>
         </a>
       </li>
     </ul>

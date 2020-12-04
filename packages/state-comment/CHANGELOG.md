@@ -15,36 +15,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/state-comment
 
-
-
-
-
 ## [0.4.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.4.1...@gtms/state-comment@0.4.2) (2020-09-13)
 
 **Note:** Version bump only for package @gtms/state-comment
-
-
-
-
 
 ## [0.4.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.4.0...@gtms/state-comment@0.4.1) (2020-09-07)
 
 **Note:** Version bump only for package @gtms/state-comment
 
-
-
-
-
 # [0.4.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.3.2...@gtms/state-comment@0.4.0) (2020-09-04)
-
 
 ### Features
 
-* GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
-
-
-
-
+- GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
 
 ## [0.3.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.3.1...@gtms/state-comment@0.3.2) (2020-09-02)
 

@@ -7,23 +7,10 @@ $mockDataColor1: rgba($theme0, 0.2);
 $mockDataColor2: rgba($theme0, 0.4);
 $mockDataColor3: rgba($theme0, 0.55);
 
-$mockDataColor0themeDark: $black;
-$mockDataColor1themeDark: rgba($black, 0.15);
-$mockDataColor2themeDark: rgba($black, 0.2);
-$mockDataColor3themeDark: rgba($black, 0.35);
-
 $mockDataSize1: 55px;
 
 .wrapper {
   width: 100%;
-
-  > div {
-    margin-bottom: 30px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 
   .square {
     min-width: $mockDataSize1;
@@ -111,13 +98,13 @@ $mockDataSize1: 55px;
 
     .bar1 {
       left: -100%;
-      background-color: $theme4;
-      animation: bar1 4s infinite linear;
+      background-color: $theme0;
+      animation: bar1 3s infinite linear;
     }
 
     .bar2 {
-      background-color: $theme4;
-      animation: bar2 2s infinite linear;
+      background-color: $theme0;
+      animation: bar2 3s infinite linear;
     }
   }
 
@@ -135,6 +122,7 @@ $mockDataSize1: 55px;
 
   .avatarAndText {
     display: flex;
+    margin: 10px 0;
     opacity: 0.65;
 
     .line {
@@ -164,12 +152,42 @@ $mockDataSize1: 55px;
     }
   }
 
+  .user {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    padding: 15px;
+    opacity: 0.65;
+    border-radius: $borderRadius;
+    background: $mockDataColor1;
+
+    i {
+      display: flex;
+      justify-content: center;
+      margin-bottom: auto;
+      font-size: 100px;
+      line-height: 0;
+    }
+
+    .line {
+      margin: 10px 0;
+
+      &.sm {
+        width: 65%;
+      }
+
+      &.md {
+        width: 100%;
+      }
+    }
+  }
+
   .text {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $mockDataColor2;
     padding: 30px 20px;
+    color: $mockDataColor2;
     border-radius: $borderRadius;
     text-align: center;
     @include font-size(xmd);
@@ -180,7 +198,8 @@ $mockDataSize1: 55px;
       border: 3px solid $mockDataColor2;
 
       &:hover {
-        border-color: $mockDataColor0;
+        border-color: $mockDataColor2;
+        color: $mockDataColor3;
       }
     }
 
@@ -189,41 +208,6 @@ $mockDataSize1: 55px;
       line-height: 0;
       margin-right: 20px;
       @include font-size(xxxlg);
-    }
-  }
-
-  &.themeDark {
-    color: $mockDataColor3themeDark;
-
-    .square {
-      background: $mockDataColor1themeDark;
-    }
-
-    .line {
-      background: $mockDataColor3themeDark;
-
-      &.sm {
-        background: $mockDataColor1themeDark;
-      }
-
-      &.md {
-        background: $mockDataColor3themeDark;
-      }
-
-      &.lg {
-        background: $mockDataColor2themeDark;
-      }
-    }
-
-    .text {
-      &.clickable {
-        border-color: $mockDataColor2themeDark;
-
-        &:hover {
-          border-color: $mockDataColor3themeDark;
-          color: $mockDataColor3themeDark;
-        }
-      }
     }
   }
 }

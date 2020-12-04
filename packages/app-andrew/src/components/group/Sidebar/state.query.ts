@@ -1,26 +1,33 @@
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { groupQuery } from '@gtms/state-group'
-import { IGroup } from '@gtms/commons/models'
+import { groupQuery, IGroupState } from '@gtms/state-group'
 import { uiQuery } from 'state'
+import { FileStatus } from '@gtms/commons'
 
-export interface IGroupSidebarState {
-  isOpen: boolean
-  group: IGroup | null
+export interface IGroupSidebarContentState extends IGroupState {
+  hasAdminRights: boolean
+  avatarFileStatus: FileStatus
+  showPromoted: boolean
+  showUsers: boolean
 }
 
-export const groupSidebarState = (): IGroupSidebarState => {
-  const groupState = groupQuery.getValue()
+export const groupSidebarContentState = (): IGroupSidebarContentState => {
+  const group = groupQuery.getValue()
 
   return {
-    ...groupState,
-    isOpen: groupState.group?.id
-      ? uiQuery.isGroupSidebarOpen(groupState.group.id)
-      : false,
+    ...group,
+    ...(group.group?.id
+      ? uiQuery.groupState(group.group.id)
+      : {
+          showPromoted: false,
+          showUsers: false,
+        }),
+    hasAdminRights: groupQuery.hasAdminRights(),
+    avatarFileStatus: groupQuery.getAvatarFileStatus(),
   }
 }
 
-export const groupSidebarState$: Observable<IGroupSidebarState> = combineLatest(
+export const groupSidebarContentState$: Observable<IGroupSidebarContentState> = combineLatest(
   groupQuery.allState$,
   uiQuery.select()
-).pipe(map(() => groupSidebarState()))
+).pipe(map(() => groupSidebarContentState()))

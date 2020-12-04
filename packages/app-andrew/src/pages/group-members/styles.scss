@@ -16,7 +16,7 @@
     // @todo create mixin for that
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    grid-gap: 15px;
+    grid-gap: 10px;
 
     .btn {
       @include buttonDefault();

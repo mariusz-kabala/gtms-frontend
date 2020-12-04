@@ -40,6 +40,9 @@
       margin-left: 3px;
     }
   }
+  @if $position == 'withoutText' {
+    // i is without margin
+  }
 }
 
 @mixin buttonWithSpinner($position: 'left') {
@@ -80,12 +83,6 @@
   @include font-size(sm);
 }
 
-@mixin buttonSizeMd() {
-  padding: 8px;
-  line-height: 1;
-  @include font-size(md);
-}
-
 // SHAPES
 @mixin buttonShapeDefault() {
   border-radius: $borderRadius;
@@ -93,8 +90,8 @@
 
 // COLORS
 @mixin buttonColorsDefault() {
-  background: $theme1;
-  color: $theme7;
+  background: $theme9;
+  color: $theme0;
 }
 
 @mixin buttonColorsPrimary() {
@@ -103,20 +100,24 @@
 }
 
 @mixin buttonColorsSecondary() {
-  background: $theme7;
-  color: $theme1;
-}
-
-@mixin buttonColorsTertiary() {
   background: $theme9;
   color: $theme1;
 }
 
+@mixin buttonColorsTertiary() {
+  background: $theme1;
+  color: $theme0;
+}
+
 @mixin buttonColorsQuaternary() {
   background: $theme0;
-  color: $theme4;
+  color: $theme9;
 }
 
 @mixin buttonColorBlue() {
   color: $theme4;
+}
+
+@mixin buttonColorRed() {
+  background: $theme6;
 }

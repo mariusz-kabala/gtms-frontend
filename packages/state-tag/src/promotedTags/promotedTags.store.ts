@@ -5,10 +5,15 @@ export type IPromotedTagsState = EntityState<IPromotedTag, string>
 
 export class PromotedTagsStore extends EntityStore<IPromotedTagsState> {
   constructor() {
-    super(undefined, {
-      name: 'promotedTags',
-      resettable: true,
-    })
+    super(
+      {
+        loading: false,
+      },
+      {
+        name: 'promotedTags',
+        resettable: true,
+      }
+    )
   }
 }
 

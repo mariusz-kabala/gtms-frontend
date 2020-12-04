@@ -34,11 +34,7 @@ export const PostsList: FC<{
           />
         ))}
       {!isLoading && records.length === 0 && (
-        <MockData
-          additionalStyles={styles.noRecords}
-          theme="dark"
-          numberOfElements={4}
-        />
+        <MockData additionalStyles={styles.noRecords} numberOfElements={4} />
       )}
     </div>
   )

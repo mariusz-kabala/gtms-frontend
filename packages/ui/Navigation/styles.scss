@@ -1,4 +1,5 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 
@@ -9,18 +10,10 @@
 
   .avatar {
     position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
     margin-bottom: 5px;
-    @include effectOne(circle);
 
     &:hover {
-      background: $theme0;
-
-      &:after {
-        content: '';
-      }
+      @include effectOne('circle');
     }
   }
 
@@ -30,23 +23,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 10px;
+      border-radius: $borderRadius;
+      margin-bottom: 5px;
+      background: $theme9;
 
       a {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        min-width: 40px;
-        width: 40px;
-        min-height: 40px;
-        height: 40px;
-        padding: 10px 5px;
+        padding: 10px 11px;
         text-decoration: none;
         color: $theme0;
-        border: 2px solid $theme4;
-        border-radius: 50%;
-        background: $theme4;
 
         i {
           line-height: 0;
@@ -60,11 +48,11 @@
       &:hover,
       &:focus,
       &.active {
-        overflow: initial;
         border-color: $theme4;
+        background: $theme4;
+
         a {
-          background: $theme0;
-          color: $theme4;
+          color: $theme0;
         }
       }
     }

@@ -12,22 +12,30 @@ import { changePageBackground } from 'state'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
-// components
-import { GroupSidebar } from 'components/group/Sidebar'
+// state
 import {
+  IGroupSettingsPageState,
+  groupSettingsPageState,
+  groupSettingsPageState$,
+} from 'queries/groupSettingsPage.query'
+// components
+import { GroupHeader } from 'components/group/GroupHeader'
+import { PromotedTags } from 'components/group/PromotedTags'
+import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
+import {
+  GroupSettingsSidebar,
   Tabs,
-  GroupSettingsSidebarContent,
-} from 'components/group/Sidebar/content'
+} from 'components/group/GroupSettingsSidebar'
+import { GroupMembers } from 'components/group/GroupMembers'
 import { AdminsSettings } from 'components/group-settings/Admins'
 import { BasicSettings } from 'components/group-settings/Basic'
-import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
 import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
+
 import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
-import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
@@ -56,6 +64,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
   const { t } = useTranslation('groupSettingsPage')
   const [group, setGroup] = useState<IGroupState>(groupQuery.getValue())
   const [tab, setTab] = useState<Tabs>(Tabs.general)
+  const [state, setState] = useState<IGroupSettingsPageState>(
+    groupSettingsPageState()
+  )
 
   useEffect(() => {
     setTab(getInitialTab())
@@ -73,8 +84,13 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
       setGroup(value)
     })
 
+    const sub = groupSettingsPageState$.subscribe((value) => {
+      setState(value)
+    })
+
     return () => {
       groupSub && !groupSub.closed && groupSub.unsubscribe()
+      sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
 
@@ -88,6 +104,20 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.wrapper} data-testid="group-settings-page">
+        <GroupHeader />
+        {state.showPromoted && (
+          <PromotedTags
+            additionalStyles={styles.tags}
+            onTagClick={() => null}
+          />
+        )}
+        {state.showUsers && (
+          <GroupMembers
+            additionalStyles={styles.groupMembers}
+            slug={state.groupSlug}
+            {...state.members}
+          />
+        )}
         {group.isLoading && !group.errorOccured && (
           <Spinner additionalStyles={styles.spinner} />
         )}
@@ -96,54 +126,46 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             <h2>Can not fetch group details, try again later</h2>
           </ErrorWrapper>
         )}
-        <GroupSidebar>
-          <GroupSettingsSidebarContent tab={tab} setTab={setTab} />
-        </GroupSidebar>
         {!group.isLoading && !group.errorOccured && (
           <div className={styles.content}>
-            <div className={styles.navigationWrapper}>
-              <h2 className={styles.header}>{t('header')}</h2>
-            </div>
+            <GroupSettingsSidebar tab={tab} setTab={setTab} />
+            <div className={styles.rightColumn}>
+              <div className={styles.navigationWrapper}>
+                <h2 className={styles.header}>{t('header')}</h2>
+              </div>
 
-            {tab === Tabs.general && (
-              <>
-                {group.group && <GroupBackgroundSettings group={group.group} />}
-                <div className={styles.avatarAndName}>
+              {tab === Tabs.general && (
+                <>
+                  {group.group && (
+                    <GroupBackgroundSettings group={group.group} />
+                  )}
                   {group.group && <BasicSettings group={group.group} />}
-                </div>
-                <div className={styles.deleteAccount}>
-                  <div>
-                    <div className={styles.btn}>
-                      <h2>Oh no! Do not</h2>
-                      <GroupDeleteGroup onConfirm={() => null} />
-                    </div>
-                    <Picture
-                      additionalStyles={styles.ohnoimage}
-                      jpg={'/images/white-theme/ohno.png'}
-                    />
-                  </div>
-                </div>
-              </>
-            )}
+                  <GroupDeleteGroup
+                    additionalStyles={styles.btnDelete}
+                    onConfirm={() => null}
+                  />
+                </>
+              )}
 
-            {tab === Tabs.tags && (
-              <TagsSettings
-                id={group.group?.id || ''}
-                tags={group.group?.tags || []}
-              />
-            )}
+              {tab === Tabs.tags && (
+                <TagsSettings
+                  id={group.group?.id || ''}
+                  tags={group.group?.tags || []}
+                />
+              )}
 
-            {tab === Tabs.invitations && (
-              <InvitationsSettings group={group.group as IGroup} />
-            )}
+              {tab === Tabs.invitations && (
+                <InvitationsSettings group={group.group as IGroup} />
+              )}
 
-            {tab === Tabs.admins && (
-              <AdminsSettings group={group.group as IGroup} />
-            )}
+              {tab === Tabs.admins && (
+                <AdminsSettings group={group.group as IGroup} />
+              )}
 
-            {tab === Tabs.members && (
-              <MembersSettings group={group.group as IGroup} />
-            )}
+              {tab === Tabs.members && (
+                <MembersSettings group={group.group as IGroup} />
+              )}
+            </div>
           </div>
         )}
       </div>

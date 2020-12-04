@@ -1,6 +1,8 @@
 @import '@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/inputs.scss';
 @import '~@gtms/styles/scss/mixins/zindex.scss';
 
@@ -9,41 +11,44 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  box-shadow: $boxShadowDefault;
 
   .inputWrapper {
     position: relative;
     display: flex;
     width: 100%;
-    min-height: 38px;
+    min-height: 40px;
+    height: 40px;
 
     i {
+      @include font-size(xlg);
       position: absolute;
-      top: 12px;
-      left: 8px;
-      color: $theme9;
+      top: 4px;
+      left: 6px;
       line-height: 0;
+      color: $theme1;
     }
 
     input[type='text'] {
-      display: block;
       width: 100%;
-      padding-left: 22px;
-      border: 2px solid $theme1;
+      padding-left: 40px;
+      border: 0;
       border-radius: $borderRadius;
       background: $theme0;
+      @include font-size(xdefault);
+      @include font-weight(light);
+
+      &::placeholder {
+        color: $theme1;
+      }
 
       &:active,
       &:focus,
       &:hover {
         outline: none;
-
-        i {
-          color: $theme4;
-        }
+        color: $theme1;
+        border-color: $theme4;
       }
-
-      @include inputFocus;
-      @include placeholderFocus;
     }
 
     .suggestions {
