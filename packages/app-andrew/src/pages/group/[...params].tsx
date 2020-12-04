@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
@@ -27,20 +27,8 @@ import {
   groupPageState$,
 } from 'queries/groupPage.query'
 import { openLoginModal } from 'state'
-import {
-  groupQuery,
-  IGroupState,
-  getGroup,
-  initGroup,
-  getGroupMembers,
-} from '@gtms/state-group'
+import { groupQuery, IGroupState, getGroup, initGroup } from '@gtms/state-group'
 import { checkGroupsFavStatus } from '@gtms/state-user'
-import {
-  promotedTagsQuery,
-  loadGroupPromotedTags,
-  IPromotedTagsState,
-  initPromoted,
-} from '@gtms/state-tag'
 import {
   createNewComment,
   getGroupPosts,
@@ -69,7 +57,6 @@ type GroupPageProps = {
   namespacesRequired: readonly string[]
   group?: IGroupState
   posts?: IPostsState
-  promoted?: IPromotedTagsState
   post?: IPost
   comments?: IPostCommentsState
 }
@@ -152,7 +139,6 @@ const mockTags = [
 const getInitData = ({
   group,
   posts,
-  promoted,
   post,
   comments,
 }: GroupPageProps) => () => {
@@ -168,7 +154,6 @@ const getInitData = ({
     }
   }
   posts && initPostsStore(posts, post)
-  promoted && initPromoted(promoted)
   comments && initPostCommentsStore(comments)
 }
 
@@ -311,13 +296,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   ])
   const onTagClick = useCallback((tag: string) => onClick({ tag }), [onClick])
 
-  const promotedTagsRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
-    if (state.group) {
-      getGroupMembers(state.group.slug, 0, 8)
-    }
-
     const sub = groupPageState$.subscribe((value) => {
       if (value.group && value.user?.id) {
         checkGroupsFavStatus([value.group.id])
@@ -369,12 +348,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               <PromotedTags
                 additionalStyles={styles.tags}
                 onTagClick={(tag) => onClick({ tag: tag.tag })}
-                ref={promotedTagsRef}
               />
             )}
             {state.showUsers && (
               <GroupMembers
                 additionalStyles={styles.groupMembers}
+                slug={state.group.slug}
                 {...state.members}
               />
             )}
@@ -582,7 +561,6 @@ GroupPage.getInitialProps = async (
       users: user,
       sort: sort[0] || Sorting.latest,
     }).catch(() => null),
-    loadGroupPromotedTags(id).catch(() => null),
   ]).then(([post]) => {
     const group = groupQuery.getValue()
 
@@ -590,7 +568,6 @@ GroupPage.getInitialProps = async (
       namespacesRequired: ['groupPage', 'postCreate'],
       group,
       posts: postsQuery.getValue(),
-      promoted: promotedTagsQuery.getValue(),
       comments: post ? postCommentsQuery.getValue() : undefined,
       post,
     }

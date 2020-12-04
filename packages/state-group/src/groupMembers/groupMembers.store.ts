@@ -8,10 +8,15 @@ export interface GroupMembersState extends EntityState<IUser, number> {
 
 export class GroupMembersStore extends EntityStore<GroupMembersState> {
   constructor() {
-    super(undefined, {
-      name: 'groupMembers',
-      resettable: true,
-    })
+    super(
+      {
+        loading: false,
+      },
+      {
+        name: 'groupMembers',
+        resettable: true,
+      }
+    )
   }
 }
 
