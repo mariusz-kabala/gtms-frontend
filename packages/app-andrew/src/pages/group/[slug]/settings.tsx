@@ -12,15 +12,25 @@ import { changePageBackground } from 'state'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
+// state
+import {
+  IGroupSettingsPageState,
+  groupSettingsPageState,
+  groupSettingsPageState$,
+} from 'queries/groupSettingsPage.query'
 // components
-import { AdminsSettings } from 'components/group-settings/Admins'
-import { BasicSettings } from 'components/group-settings/Basic'
-import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
+import { GroupHeader } from 'components/group/GroupHeader'
+import { PromotedTags } from 'components/group/PromotedTags'
 import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
 import {
   GroupSettingsSidebar,
   Tabs,
 } from 'components/group/GroupSettingsSidebar'
+import { GroupMembers } from 'components/group/GroupMembers'
+import { AdminsSettings } from 'components/group-settings/Admins'
+import { BasicSettings } from 'components/group-settings/Basic'
+import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
+
 import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
@@ -54,6 +64,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
   const { t } = useTranslation('groupSettingsPage')
   const [group, setGroup] = useState<IGroupState>(groupQuery.getValue())
   const [tab, setTab] = useState<Tabs>(Tabs.general)
+  const [state, setState] = useState<IGroupSettingsPageState>(
+    groupSettingsPageState()
+  )
 
   useEffect(() => {
     setTab(getInitialTab())
@@ -71,8 +84,13 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
       setGroup(value)
     })
 
+    const sub = groupSettingsPageState$.subscribe((value) => {
+      setState(value)
+    })
+
     return () => {
       groupSub && !groupSub.closed && groupSub.unsubscribe()
+      sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
 
@@ -86,6 +104,20 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.wrapper} data-testid="group-settings-page">
+        <GroupHeader />
+        {state.showPromoted && (
+          <PromotedTags
+            additionalStyles={styles.tags}
+            onTagClick={() => null}
+          />
+        )}
+        {state.showUsers && (
+          <GroupMembers
+            additionalStyles={styles.groupMembers}
+            slug={state.groupSlug}
+            {...state.members}
+          />
+        )}
         {group.isLoading && !group.errorOccured && (
           <Spinner additionalStyles={styles.spinner} />
         )}
@@ -95,9 +127,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
           </ErrorWrapper>
         )}
         {!group.isLoading && !group.errorOccured && (
-          <>
+          <div className={styles.content}>
             <GroupSettingsSidebar tab={tab} setTab={setTab} />
-            <div className={styles.content}>
+            <div className={styles.rightColumn}>
               <div className={styles.navigationWrapper}>
                 <h2 className={styles.header}>{t('header')}</h2>
               </div>
@@ -134,7 +166,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                 <MembersSettings group={group.group as IGroup} />
               )}
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

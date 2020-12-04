@@ -4,7 +4,12 @@ import { getImage } from '@gtms/commons/helpers'
 import { GroupAvatarNoImage } from 'enums'
 import cx from 'classnames'
 // state
-import { groupQuery, IGroupState } from '@gtms/state-group'
+import {
+  IGroupSidebarContentState,
+  groupSidebarContentState,
+  groupSidebarContentState$,
+} from './state.query'
+import { toggleGroupUsers, togglePromotedTagsInGroup } from 'state'
 // components
 import { GroupAvatar } from 'components/group/GroupAvatar'
 import { GroupSidebarContent } from './GroupSidebarContent'
@@ -15,17 +20,14 @@ import { BsFillGridFill } from 'react-icons/bs'
 import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
-export const GroupSidebar: FC<{
-  setShowPromoted: any
-  showPromoted: boolean
-  setShowUsers: any
-  showUsers: boolean
-}> = ({ setShowPromoted, showPromoted, showUsers, setShowUsers }) => {
-  const [state, setState] = useState<IGroupState>(groupQuery.getValue())
+export const GroupSidebar: FC<{}> = () => {
+  const [state, setState] = useState<IGroupSidebarContentState>(
+    groupSidebarContentState()
+  )
   const { t } = useTranslation('groupPage')
 
   useEffect(() => {
-    const sub = groupQuery.allState$.subscribe((value) => {
+    const sub = groupSidebarContentState$.subscribe((value) => {
       setState(value)
     })
 
@@ -44,8 +46,8 @@ export const GroupSidebar: FC<{
         <GroupAvatar
           additionalStyles={styles.groupAvatar}
           files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
-          filesStatus={groupQuery.getAvatarFileStatus()}
-          isEditAllowed={groupQuery.hasAdminRights()}
+          filesStatus={state.avatarFileStatus}
+          isEditAllowed={state.hasAdminRights}
         />
         <h2
           className={styles.header}
@@ -68,9 +70,11 @@ export const GroupSidebar: FC<{
         }
       /> */}
       <Button
-        onClick={() => setShowPromoted(!showPromoted)}
+        onClick={() =>
+          state.group?.id && togglePromotedTagsInGroup(state.group.id)
+        }
         additionalStyles={cx(styles.tagsbutton, {
-          [styles.active]: showPromoted,
+          [styles.active]: state.showPromoted,
         })}
       >
         <i>
@@ -79,9 +83,9 @@ export const GroupSidebar: FC<{
         <span>Tags</span>
       </Button>
       <Button
-        onClick={() => setShowUsers(!showUsers)}
+        onClick={() => state.group?.id && toggleGroupUsers(state.group.id)}
         additionalStyles={cx(styles.tagsbutton, {
-          [styles.active]: showUsers,
+          [styles.active]: state.showUsers,
         })}
       >
         <i>

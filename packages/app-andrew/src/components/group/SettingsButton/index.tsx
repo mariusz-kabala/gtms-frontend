@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
 import { myGroupsQuery, userQuery } from '@gtms/state-user'
+import { useRouter } from 'next/router'
 // ui
 import { GoSettings } from 'react-icons/go'
 import styles from './styles.scss'
@@ -11,6 +12,8 @@ export const SettingsButton: FC<{
   additionalStyles?: string
   group: IGroup
 }> = ({ additionalStyles, group }) => {
+  const router = useRouter()
+  const isActive = router.pathname === '/group/[slug]/settings'
   const [status, setStatus] = useState<{
     isGroupAdmin: boolean
     isGroupOwner: boolean
@@ -22,6 +25,7 @@ export const SettingsButton: FC<{
     ...myGroupsQuery.status(),
     ...myGroupsQuery.groupStatus(group.id),
   })
+
   useEffect(() => {
     if (!userQuery.isLogged()) {
       return
@@ -43,9 +47,20 @@ export const SettingsButton: FC<{
   }
 
   return (
-    <div className={cx(styles.wrapper, additionalStyles)}>
-      <Link href={`/group/${group.slug}/settings`}>
-        <button className={styles.btn}>
+    <div
+      className={cx(styles.wrapper, additionalStyles)}
+      data-testid="settings-button"
+    >
+      <Link
+        href={
+          isActive ? `/group/${group.slug}` : `/group/${group.slug}/settings`
+        }
+      >
+        <button
+          className={cx(styles.btn, {
+            [styles.active]: isActive,
+          })}
+        >
           <i>
             <GoSettings />
           </i>

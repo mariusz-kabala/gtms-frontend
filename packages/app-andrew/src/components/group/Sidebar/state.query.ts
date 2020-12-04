@@ -1,38 +1,33 @@
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { groupQuery, groupMembersQuery } from '@gtms/state-group'
-import { postsQuery } from '@gtms/state-post'
-import { IGroup, IUser } from '@gtms/commons/models'
+import { groupQuery, IGroupState } from '@gtms/state-group'
+import { uiQuery } from 'state'
+import { FileStatus } from '@gtms/commons'
 
-export interface IGroupSidebarContentState {
-  group: IGroup | null
-  activeTags?: string[]
-  activeUsers?: string[]
-  members: {
-    isLoading: boolean
-    errorOccured: boolean
-    users: IUser[]
-  }
+export interface IGroupSidebarContentState extends IGroupState {
+  hasAdminRights: boolean
+  avatarFileStatus: FileStatus
+  showPromoted: boolean
+  showUsers: boolean
 }
 
 export const groupSidebarContentState = (): IGroupSidebarContentState => {
-  const groupMembersState = groupMembersQuery.getValue()
-  const postsState = postsQuery.getValue()
+  const group = groupQuery.getValue()
 
   return {
-    ...groupQuery.getValue(),
-    activeTags: postsState.tags || [],
-    activeUsers: postsState.users || [],
-    members: {
-      isLoading: groupMembersState.loading || false,
-      errorOccured: groupMembersState.error || false,
-      users: groupMembersQuery.getAll(),
-    },
+    ...group,
+    ...(group.group?.id
+      ? uiQuery.groupState(group.group.id)
+      : {
+          showPromoted: false,
+          showUsers: false,
+        }),
+    hasAdminRights: groupQuery.hasAdminRights(),
+    avatarFileStatus: groupQuery.getAvatarFileStatus(),
   }
 }
 
 export const groupSidebarContentState$: Observable<IGroupSidebarContentState> = combineLatest(
   groupQuery.allState$,
-  postsQuery.selectAll(),
-  groupMembersQuery.selectAll()
+  uiQuery.select()
 ).pipe(map(() => groupSidebarContentState()))

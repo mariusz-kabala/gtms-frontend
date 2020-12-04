@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
@@ -18,7 +18,7 @@ import { GroupNotFound } from 'components/group/GroupNotFound'
 import { PostCreate } from 'components/post/PostCreate'
 import { PostDetails } from 'components/post/PostDetails'
 import { PromotedTags } from 'components/group/PromotedTags'
-import { GroupSidebar } from 'components/group/Sidebar'
+import { GroupHeader } from 'components/group/GroupHeader'
 import { PostsList } from 'components/post/PostsList'
 // state
 import {
@@ -27,20 +27,8 @@ import {
   groupPageState$,
 } from 'queries/groupPage.query'
 import { openLoginModal } from 'state'
-import {
-  groupQuery,
-  IGroupState,
-  getGroup,
-  initGroup,
-  getGroupMembers,
-} from '@gtms/state-group'
+import { groupQuery, IGroupState, getGroup, initGroup } from '@gtms/state-group'
 import { checkGroupsFavStatus } from '@gtms/state-user'
-import {
-  promotedTagsQuery,
-  loadGroupPromotedTags,
-  IPromotedTagsState,
-  initPromoted,
-} from '@gtms/state-tag'
 import {
   createNewComment,
   getGroupPosts,
@@ -61,7 +49,6 @@ import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Pagination } from '@gtms/ui/Pagination'
 import { PostSingle } from '@gtms/ui/PostSingle'
-import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
@@ -70,15 +57,88 @@ type GroupPageProps = {
   namespacesRequired: readonly string[]
   group?: IGroupState
   posts?: IPostsState
-  promoted?: IPromotedTagsState
   post?: IPost
   comments?: IPostCommentsState
 }
 
+const mockTags = [
+  {
+    id: 1,
+    name: '#polandrock',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-1.png',
+  },
+  {
+    id: 2,
+    name: '#wacken',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-2.png',
+  },
+  {
+    id: 3,
+    name: '#tinthepark',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-3.png',
+  },
+  {
+    id: 4,
+    name: '#openair',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-4.png',
+  },
+  {
+    id: 5,
+    name: '#szieget',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-5.png',
+  },
+  {
+    id: 6,
+    name: '#rockampark',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-6.png',
+  },
+  {
+    id: 7,
+    name: '#RoskildeFestival',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-7.png',
+  },
+  {
+    id: 8,
+    name: '#burningManFestival',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-8.png',
+  },
+  {
+    id: 9,
+    name: '#szieget',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-9.png',
+  },
+  {
+    id: 10,
+    name: '#rockampark',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-10.png',
+  },
+  {
+    id: 11,
+    name: '#RoskildeFestival',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-11.png',
+  },
+  {
+    id: 12,
+    name: '#burningManFestival',
+    desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
+    image: 'avatar-3.png',
+  },
+]
+
 const getInitData = ({
   group,
   posts,
-  promoted,
   post,
   comments,
 }: GroupPageProps) => () => {
@@ -94,7 +154,6 @@ const getInitData = ({
     }
   }
   posts && initPostsStore(posts, post)
-  promoted && initPromoted(promoted)
   comments && initPostCommentsStore(comments)
 }
 
@@ -141,8 +200,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
-  const [showPromoted, setShowPromoted] = useState<boolean>(false)
-  const [showUsers, setShowUsers] = useState<boolean>(false)
   const generateUrl = useCallback(
     ({
       sort,
@@ -239,13 +296,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   ])
   const onTagClick = useCallback((tag: string) => onClick({ tag }), [onClick])
 
-  const promotedTagsRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
-    if (state.group) {
-      getGroupMembers(state.group.slug, 0, 8)
-    }
-
     const sub = groupPageState$.subscribe((value) => {
       if (value.group && value.user?.id) {
         checkGroupsFavStatus([value.group.id])
@@ -257,81 +308,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
-
-  const mockTags = [
-    {
-      id: 1,
-      name: '#polandrock',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-1.png',
-    },
-    {
-      id: 2,
-      name: '#wacken',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-2.png',
-    },
-    {
-      id: 3,
-      name: '#tinthepark',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-3.png',
-    },
-    {
-      id: 4,
-      name: '#openair',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-4.png',
-    },
-    {
-      id: 5,
-      name: '#szieget',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-5.png',
-    },
-    {
-      id: 6,
-      name: '#rockampark',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-6.png',
-    },
-    {
-      id: 7,
-      name: '#RoskildeFestival',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-7.png',
-    },
-    {
-      id: 8,
-      name: '#burningManFestival',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-8.png',
-    },
-    {
-      id: 9,
-      name: '#szieget',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-9.png',
-    },
-    {
-      id: 10,
-      name: '#rockampark',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-10.png',
-    },
-    {
-      id: 11,
-      name: '#RoskildeFestival',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-11.png',
-    },
-    {
-      id: 12,
-      name: '#burningManFestival',
-      desc: 'Velit fugiat quis laboris ut nostrud adipisiadipisicing.',
-      image: 'avatar-3.png',
-    },
-  ]
 
   return (
     <div className={styles.pageWrapper}>
@@ -360,44 +336,28 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       </div>
 
       {state.group && (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} data-testid="group-page">
           <div>
             <GroupCover
               additionalStyles={styles.groupCover}
               group={state.group}
               isEditAllowed={groupQuery.hasAdminRights()}
             />
-            <div className={styles.mainHeader}>
-              <GroupSidebar
-                setShowPromoted={setShowPromoted}
-                showPromoted={showPromoted}
-                setShowUsers={setShowUsers}
-                showUsers={showUsers}
-              />
-              <SearchBar
-                onTagAdd={() => null}
-                onTagRemove={() => null}
-                onLoadSuggestion={() => null}
-                onQueryChange={() => null}
-                onLoadSuggestionCancel={() => null}
-                tags={state.activeTags || []}
-                users={state.activeUsers}
-              />
-            </div>
-            {showPromoted && (
+            <GroupHeader />
+            {state.showPromoted && (
               <PromotedTags
                 additionalStyles={styles.tags}
                 onTagClick={(tag) => onClick({ tag: tag.tag })}
-                ref={promotedTagsRef}
               />
             )}
-            {showUsers && (
+            {state.showUsers && (
               <GroupMembers
                 additionalStyles={styles.groupMembers}
+                slug={state.group.slug}
                 {...state.members}
               />
             )}
-            {!showPromoted && (
+            {!state.showPromoted && (
               <div className={styles.content}>
                 <div className={styles.column}>
                   <div className={styles.nav}>
@@ -547,7 +507,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               </div>
             )}
           </div>
-          {!showPromoted && state.activePost && (
+          {!state.showPromoted && state.activePost && (
             <PostDetails
               activeTags={state.activeTags || []}
               additionalStyles={styles.postDetails}
@@ -601,7 +561,6 @@ GroupPage.getInitialProps = async (
       users: user,
       sort: sort[0] || Sorting.latest,
     }).catch(() => null),
-    loadGroupPromotedTags(id).catch(() => null),
   ]).then(([post]) => {
     const group = groupQuery.getValue()
 
@@ -609,7 +568,6 @@ GroupPage.getInitialProps = async (
       namespacesRequired: ['groupPage', 'postCreate'],
       group,
       posts: postsQuery.getValue(),
-      promoted: promotedTagsQuery.getValue(),
       comments: post ? postCommentsQuery.getValue() : undefined,
       post,
     }
