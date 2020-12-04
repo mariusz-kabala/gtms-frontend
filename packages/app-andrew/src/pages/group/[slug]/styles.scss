@@ -5,34 +5,36 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper('bgdefault');
+  @include pageWrapper();
+  width: 100%;
+  position: relative;
+  margin: 40px;
+  display: flex;
+  border-radius: 10px;
 }
 
 .wrapper {
   display: flex;
+  flex-direction: column;
   height: 100%;
 
   .spinner {
     margin: auto;
   }
+}
 
-  .content {
-    width: 100%;
-    padding: 15px;
-    border-radius: $borderRadius;
+.content {
+  display: flex;
+  max-width: 700px;
+  min-height: 800px;
+  background: $theme1;
+}
 
-    .navigationWrapper {
-      margin-bottom: 15px;
+.rightColumn {
+  padding: 5px;
+}
 
-      .header {
-        @include header(h3, textUppercase);
-        @include font-weight(semiBold);
-      }
-    }
-
-    .btnDelete {
-      margin-top: 15px;
-      width: 100%;
-    }
-  }
+.btnDelete {
+  margin-top: 15px;
+  width: 100%;
 }

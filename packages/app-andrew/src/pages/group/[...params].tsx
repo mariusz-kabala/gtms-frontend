@@ -18,7 +18,7 @@ import { GroupNotFound } from 'components/group/GroupNotFound'
 import { PostCreate } from 'components/post/PostCreate'
 import { PostDetails } from 'components/post/PostDetails'
 import { PromotedTags } from 'components/group/PromotedTags'
-import { GroupSidebar } from 'components/group/Sidebar'
+import { GroupHeader } from 'components/group/GroupHeader'
 import { PostsList } from 'components/post/PostsList'
 // state
 import {
@@ -61,7 +61,6 @@ import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { NavigationTabs } from '@gtms/ui/NavigationTabs'
 import { Pagination } from '@gtms/ui/Pagination'
 import { PostSingle } from '@gtms/ui/PostSingle'
-import { SearchBar } from '@gtms/ui/SearchBar'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
@@ -365,18 +364,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               group={state.group}
               isEditAllowed={groupQuery.hasAdminRights()}
             />
-            <div className={styles.mainHeader}>
-              <GroupSidebar />
-              <SearchBar
-                onTagAdd={() => null}
-                onTagRemove={() => null}
-                onLoadSuggestion={() => null}
-                onQueryChange={() => null}
-                onLoadSuggestionCancel={() => null}
-                tags={state.activeTags || []}
-                users={state.activeUsers}
-              />
-            </div>
+            <GroupHeader />
             {state.showPromoted && (
               <PromotedTags
                 additionalStyles={styles.tags}

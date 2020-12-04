@@ -13,6 +13,7 @@ import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
 // components
+import { GroupHeader } from 'components/group/GroupHeader'
 import { AdminsSettings } from 'components/group-settings/Admins'
 import { BasicSettings } from 'components/group-settings/Basic'
 import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
@@ -86,6 +87,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.wrapper} data-testid="group-settings-page">
+        <GroupHeader />
         {group.isLoading && !group.errorOccured && (
           <Spinner additionalStyles={styles.spinner} />
         )}
@@ -95,9 +97,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
           </ErrorWrapper>
         )}
         {!group.isLoading && !group.errorOccured && (
-          <>
+          <div className={styles.content}>
             <GroupSettingsSidebar tab={tab} setTab={setTab} />
-            <div className={styles.content}>
+            <div className={styles.rightColumn}>
               <div className={styles.navigationWrapper}>
                 <h2 className={styles.header}>{t('header')}</h2>
               </div>
@@ -134,7 +136,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                 <MembersSettings group={group.group as IGroup} />
               )}
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
