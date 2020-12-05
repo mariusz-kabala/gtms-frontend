@@ -10,7 +10,7 @@ import { Tag } from '../Tag'
 import { Button } from '../Button'
 import { Spinner } from '../Spinner'
 import { UserAvatar } from '../UserAvatar'
-import { IoIosArrowDropright } from 'react-icons/io'
+import { IoIosArrowDropright, IoIosArrowDown } from 'react-icons/io'
 // styles
 import styles from './styles.scss'
 
@@ -22,6 +22,7 @@ export const GroupCard: FC<{
   members?: IUser[]
   name: string
   noUserAvatar: { [key: string]: IImage }
+  onClose: () => unknown
   slug: string
   tags: string[]
 }> = ({
@@ -31,6 +32,7 @@ export const GroupCard: FC<{
   logo,
   members,
   name,
+  onClose,
   noUserAvatar,
   slug,
   tags,
@@ -95,6 +97,12 @@ export const GroupCard: FC<{
               </Button>
             </Link>
           </div>
+          <Button onClick={onClose} additionalStyles={styles.btn}>
+            <i>
+              <IoIosArrowDown />
+            </i>
+            close it
+          </Button>
         </>
       )}
     </div>
