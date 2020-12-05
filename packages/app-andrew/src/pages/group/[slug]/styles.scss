@@ -33,9 +33,12 @@
       flex-direction: column;
       padding: 5px;
 
-      .btnDelete {
+      .btnDeleteWrapper {
         margin-top: auto;
-        width: 100%;
+        .btnDelete {
+          margin-bottom: 10px;
+          width: 100%;
+        }
       }
     }
   }

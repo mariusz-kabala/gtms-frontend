@@ -136,10 +136,12 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
                     <GroupBackgroundSettings group={group.group} />
                   )}
                   {group.group && <BasicSettings group={group.group} />}
-                  <GroupDeleteGroup
-                    additionalStyles={styles.btnDelete}
-                    onConfirm={() => null}
-                  />
+                  <div className={styles.btnDeleteWrapper}>
+                    <GroupDeleteGroup
+                      additionalStyles={styles.btnDelete}
+                      onConfirm={() => null}
+                    />
+                  </div>
                 </>
               )}
 
