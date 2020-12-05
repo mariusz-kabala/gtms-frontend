@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
-import { useTranslation } from '@gtms/commons/i18n'
 import {
   groupQuery,
   IGroupState,
@@ -61,7 +60,6 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
 }) => {
   useInitState(markAsLoading)
 
-  const { t } = useTranslation('groupSettingsPage')
   const [group, setGroup] = useState<IGroupState>(groupQuery.getValue())
   const [tab, setTab] = useState<Tabs>(Tabs.general)
   const [state, setState] = useState<IGroupSettingsPageState>(
