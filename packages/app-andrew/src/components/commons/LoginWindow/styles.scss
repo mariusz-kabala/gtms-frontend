@@ -5,9 +5,6 @@
 
 .modalContent {
   @include modalContent();
-  > div {
-    min-width: auto; // to overwrite include modal()
-  }
 
   button[type='submit'] {
     margin-bottom: 20px;

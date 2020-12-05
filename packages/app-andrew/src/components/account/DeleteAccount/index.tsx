@@ -54,7 +54,6 @@ export const DeleteAccount: FC<{
           </div>
         </Modal>
       )}
-
       <Button
         additionalStyles={cx(styles.btnDeleteAccount, additionalStyles)}
         onClick={() => {

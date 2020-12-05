@@ -14,14 +14,15 @@
   width: 100%;
   height: 100%;
 
-  .content {
+  > div {
     @include z-index(modal);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    max-width: 50%;
     border-radius: $borderRadius;
     box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.05);
-    background: $theme1;
+    background: $theme2;
   }
 }

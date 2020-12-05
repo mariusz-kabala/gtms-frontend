@@ -10,32 +10,30 @@ import { Tag } from '../Tag'
 import { Button } from '../Button'
 import { Spinner } from '../Spinner'
 import { UserAvatar } from '../UserAvatar'
-import { IoIosArrowDropright, IoIosArrowDown } from 'react-icons/io'
+import { IoIosArrowDropright } from 'react-icons/io'
 // styles
 import styles from './styles.scss'
 
 export const GroupCard: FC<{
-  name: string
+  additionalStyles?: string
   description?: string
+  isLoading: boolean
+  logo: IImage
+  members?: IUser[]
+  name: string
+  noUserAvatar: { [key: string]: IImage }
   slug: string
   tags: string[]
-  logo: IImage
-  noUserAvatar: { [key: string]: IImage }
-  isLoading: boolean
-  onClose: () => unknown
-  members?: IUser[]
-  additionalStyles?: string
 }> = ({
   additionalStyles,
-  name,
   description,
-  tags,
-  logo,
-  slug,
   isLoading,
-  onClose,
+  logo,
   members,
+  name,
   noUserAvatar,
+  slug,
+  tags,
 }) => {
   const { t } = useTranslation('groupCardComponent')
 
@@ -44,21 +42,32 @@ export const GroupCard: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="group-card"
     >
-      <>
-        <div className={styles.content}>
-          <div className={styles.partOne}>
-            <Picture additionalStyles={styles.avatar} {...logo} />
-            <div className={styles.nameDesc}>
-              <div className={styles.desc}>
-                <h2 className={styles.header}>{name}</h2>
-                {description && <p className={styles.desc}>{description}</p>}
+      {isLoading && <Spinner additionalStyles={styles.spinner} />}
+      {!isLoading && (
+        <>
+          <Picture additionalStyles={styles.avatar} {...logo} />
+          <div className={styles.groupCover} />
+          <div className={styles.content}>
+            <div className={styles.leftColumn}>
+              <h2 className={styles.header}>{name}</h2>
+              {description && <p className={styles.desc}>{description}</p>}
+              <h3 className={styles.headerSection}>{t('groupTags')}:</h3>
+              <div className={styles.tags}>
+                {Array.isArray(tags) && tags.length > 0 ? (
+                  tags.map((tag) => (
+                    <Tag
+                      additionalStyles={styles.tag}
+                      key={`tag-${tag}`}
+                      label={tag}
+                    />
+                  ))
+                ) : (
+                  <p>{t('tags-not-added-yet')}</p>
+                )}
               </div>
             </div>
             <div className={cx(styles.users)}>
-              <h3 className={styles.header}>{t('groupsMembers')}</h3>
-
-              {isLoading && <Spinner additionalStyles={styles.spinner} />}
-
+              <h3 className={styles.headerSection}>{t('groupsMembers')}</h3>
               {!isLoading && Array.isArray(members) && members.length > 0 && (
                 <ul
                   className={styles.items}
@@ -76,32 +85,18 @@ export const GroupCard: FC<{
               )}
             </div>
           </div>
-          <div className={styles.partTwo}>
-            <div className={styles.tags}>
-              <h3 className={styles.header}>{t('groupTags')}:</h3>
-              {Array.isArray(tags) && tags.length > 0 ? (
-                tags.map((tag) => <Tag key={`tag-${tag}`} label={tag} />)
-              ) : (
-                <p>{t('tags-not-added-yet')}</p>
-              )}
-            </div>
+          <div className={styles.btnWrapper}>
+            <Link href={`/group/${slug}`}>
+              <Button additionalStyles={styles.btn}>
+                <i>
+                  <IoIosArrowDropright />
+                </i>
+                Open this group
+              </Button>
+            </Link>
           </div>
-        </div>
-        <Link href={`/group/${slug}`}>
-          <Button additionalStyles={styles.btn}>
-            <i>
-              <IoIosArrowDropright />
-            </i>
-            Open this group
-          </Button>
-        </Link>
-        <Button onClick={onClose} additionalStyles={styles.btn}>
-          <i>
-            <IoIosArrowDown />
-          </i>
-          close it
-        </Button>
-      </>
+        </>
+      )}
     </div>
   )
 }
