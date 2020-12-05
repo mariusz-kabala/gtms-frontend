@@ -14,7 +14,6 @@ import {
 import { addErrorNotification } from '@gtms/state-notification'
 // ui
 import { LoginHistory } from '@gtms/ui/LoginHistory'
-import { Picture } from '@gtms/ui/Picture'
 import { UserSessions } from '@gtms/ui/UserSessions'
 import styles from './styles.scss'
 
@@ -104,14 +103,7 @@ export const AccountSecurityPage: NextPage<IAccountSecurityPageProps> = () => {
         <UserSessions {...userSession} onDeleteClick={onDeleteSessionClick} />
         <LoginHistory {...loginHistory} />
         <div className={styles.deleteAccount}>
-          <div className={styles.btn}>
-            <h2 className={styles.header}>Oh no! Do not</h2>
-            <DeleteAccount onConfirm={() => null} />
-          </div>
-          <Picture
-            additionalStyles={styles.ohnoimage}
-            jpg={'/images/white-theme/ohno.png'}
-          />
+          <DeleteAccount onConfirm={() => null} />
         </div>
       </div>
     </div>

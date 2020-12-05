@@ -21,20 +21,22 @@
   .spinner {
     margin: auto;
   }
-}
 
-.content {
-  display: flex;
-  max-width: 700px;
-  min-height: 800px;
-  background: $theme1;
-}
+  .columns {
+    display: flex;
+    max-width: 700px;
+    min-height: 800px;
+    background: $theme1;
 
-.rightColumn {
-  padding: 5px;
-}
+    .content {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
 
-.btnDelete {
-  margin-top: 15px;
-  width: 100%;
+      .btnDelete {
+        margin-top: auto;
+        width: 100%;
+      }
+    }
+  }
 }

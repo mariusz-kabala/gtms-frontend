@@ -15,7 +15,6 @@ import { PostResults } from 'components/search/PostResults'
 import { GroupResults } from 'components/search/GroupResults'
 import { UserResults } from 'components/search/UserResults'
 // ui
-import { Picture } from '@gtms/ui/Picture'
 import { SearchBar, SuggestionTypes } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
@@ -438,16 +437,10 @@ export const SearchPage: FC<{
     <div className={styles.pageWrapper} data-testid="search-page">
       <div className={styles.wrapper}>
         {/* @todo add text header instead of text on the image below */}
-        <div className={styles.coverImage}>
-          <Picture
-            additionalStyles={styles.coverImage}
-            jpg={'/images/white-theme/search-cover-image.png'}
-          />
-          <h2 className={styles.header}>
-            {t('searchHeader1')}
-            <span>{t('searchHeader2')}</span>
-          </h2>
-        </div>
+        <h2 className={styles.header}>
+          {t('searchHeader1')}
+          <span>{t('searchHeader2')}</span>
+        </h2>
         <SearchBar
           onTagAdd={onTagAdd}
           onTagRemove={onTagRemove}

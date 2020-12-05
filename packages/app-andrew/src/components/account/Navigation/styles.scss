@@ -8,14 +8,9 @@
   margin-bottom: 20px;
   cursor: pointer;
 
-  .header {
-    @include font-size(xmd);
-    @include font-weight(semiBold);
-    text-transform: uppercase;
-  }
-
   .items {
     display: flex;
+    gap: 8px;
     align-items: center;
     @include font-size(xdefault);
 
@@ -23,7 +18,6 @@
       a {
         display: flex;
         align-items: center;
-        margin-left: 10px;
         padding: 5px 15px;
         border-radius: $borderRadius;
         background: $theme9;

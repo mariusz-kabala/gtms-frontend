@@ -10,31 +10,36 @@
   @include buttonSizeDefault();
   @include buttonShapeDefault();
   @include buttonColorsDefault();
+  @include buttonWithIcon();
+  width: 100%;
+  margin-top: 20px;
 
   &:hover {
     @include buttonColorsPrimary();
   }
 }
 
-.modalContent {
-  @include modalContent();
+.modal {
+  @include modalContent('bgnone');
 
-  .header {
-    @include font-weight(semiBold);
-    @include font-size(lg);
-  }
+  .ohnoimage {
+    padding: 20px;
+    padding-bottom: 0;
+    border-radius: $borderRadius;
+    background: $theme1;
 
-  .desc {
-    margin-top: 5px;
-    @include font-size(xdefault);
+    img {
+      max-width: 300px;
+    }
   }
 
   .buttons {
     @include gridTwoButtons();
+    width: 100%;
     margin-top: 20px;
 
-    .yes,
-    .no {
+    .btn {
+      width: 100%;
       @include buttonWithIcon();
     }
   }

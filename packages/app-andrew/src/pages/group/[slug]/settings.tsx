@@ -127,13 +127,9 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
           </ErrorWrapper>
         )}
         {!group.isLoading && !group.errorOccured && (
-          <div className={styles.content}>
+          <div className={styles.columns}>
             <GroupSettingsSidebar tab={tab} setTab={setTab} />
-            <div className={styles.rightColumn}>
-              <div className={styles.navigationWrapper}>
-                <h2 className={styles.header}>{t('header')}</h2>
-              </div>
-
+            <div className={styles.content}>
               {tab === Tabs.general && (
                 <>
                   {group.group && (
