@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.7.1...@gtms/api-tags@0.8.0) (2020-12-05)
+
+
+### Features
+
+* GEOT-693: recently viewed and fav tags ([#921](https://github.com/gtms-org/gtms-frontend/issues/921)) ([b505c6b](https://github.com/gtms-org/gtms-frontend/commit/b505c6b7ef7d59f6031f198b923811dc8c45a762))
+
+
+
+
+
 ## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.7.0...@gtms/api-tags@0.7.1) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/api-tags
