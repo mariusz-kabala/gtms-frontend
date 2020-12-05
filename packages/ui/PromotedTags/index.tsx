@@ -1,7 +1,6 @@
 import React, { FC, useCallback, useState } from 'react'
 import cx from 'classnames'
 // commons
-import { FileStatus } from '@gtms/commons/enums'
 import { IPromotedTag } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 // ui
@@ -14,12 +13,10 @@ import {
 } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { Modal } from '@gtms/ui/Modal'
-import { Picture } from '../Picture'
 import { Spinner } from '../Spinner'
-import { UploadedPicture } from '../UploadedPicture'
+import { Image } from '../Image'
 // style
 import styles from './styles.scss'
-// import { getImage } from '@gtms/commons'
 
 export const PromotedTags: FC<{
   additionalStyles?: string
@@ -99,10 +96,11 @@ export const PromotedTags: FC<{
               })}
               key={`promoted-${tag.id}`}
             >
-              {!tag.logo.status && <Picture {...noImage['200x200']} />}
-              {tag.logo.status && tag.logo.status !== FileStatus.ready && (
-                <UploadedPicture jpg={tag.logo.files[0]} />
-              )}
+              <Image
+                size={'200x200'}
+                {...(tag.logo as any)}
+                noImage={noImage}
+              />
               {isAdmin && (
                 <div className={styles.adminPanel}>
                   <ul>
@@ -125,7 +123,6 @@ export const PromotedTags: FC<{
               )}
               <div
                 className={styles.content}
-                // style={tag.logo.status === FileStatus.ready ? { backgroundImage: `url(${getImage('200x200', tag.logo).jpg}`} : {}}
                 onClick={() => onTagClick && onTagClick(tag)}
               >
                 <div className={styles.desc}>
