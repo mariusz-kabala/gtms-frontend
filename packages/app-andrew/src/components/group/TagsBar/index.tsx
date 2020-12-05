@@ -1,13 +1,15 @@
 import React, { FC, useState, useEffect } from 'react'
 import cx from 'classnames'
-// commons
-import { IImage } from '@gtms/commons/types/image'
-import { getImage } from '@gtms/commons'
-import { loadRecentlyViewedTags } from '@gtms/state-tag'
+import { PromotedTagNoImage } from 'enums'
+import { truncateString } from '@gtms/commons/helpers'
 // state
+import { loadRecentlyViewedTags } from '@gtms/state-tag'
 import { ITagsBarState, tagsBarState, tagsBarState$ } from './state.query'
+import { loadGroupPromotedTags } from '@gtms/state-tag'
 // ui
 import { IoMdGrid } from 'react-icons/io'
+import { Image } from '@gtms/ui/Image'
+import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
 
@@ -32,15 +34,26 @@ export const TagsBar: FC<{}> = () => {
   useEffect(() => {
     if (
       currentTab === Tabs.recentlyViewed &&
+      !state.recentlyViewed.isLoading &&
       !state.recentlyViewed.isLoaded &&
       state.groupId
     ) {
       loadRecentlyViewedTags(state.groupId)
     }
+
+    if (
+      currentTab === Tabs.promoted &&
+      !state.promoted.isLoading &&
+      !state.promoted.errorOccured &&
+      state.promoted.tags.length === 0 &&
+      state.groupId
+    ) {
+      loadGroupPromotedTags(state.groupId)
+    }
   }, [currentTab, state.recentlyViewed, state.groupId])
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <div className={styles.nav}>
         <ul>
           <li
@@ -49,7 +62,6 @@ export const TagsBar: FC<{}> = () => {
             })}
             onClick={() => setCurrentTab(Tabs.promoted)}
           >
-            {/* h2 was here */}
             <i>
               <IoMdGrid />
             </i>
@@ -87,10 +99,14 @@ export const TagsBar: FC<{}> = () => {
           <ul className={styles.items}>
             {state.promoted.tags.map((tag) => (
               <li className={styles.item} key={`promotedTag-${tag.id}`}>
-                {/* <img src={`/images/avatars/${value.image}`} /> */}
+                <Image
+                  size={'35x35'}
+                  {...(tag.logo as any)}
+                  noImage={PromotedTagNoImage}
+                />
                 <div className={styles.desc}>
-                  <h4>{tag.tag}</h4>
-                  <span>{tag.description}</span>
+                  <h4>#{tag.tag}</h4>
+                  <span>{truncateString(tag.description, 28)}</span>
                 </div>
               </li>
             ))}
@@ -114,13 +130,26 @@ export const TagsBar: FC<{}> = () => {
 
       {((currentTab === Tabs.promoted && state.promoted.isLoading) ||
         (currentTab === Tabs.recentlyViewed &&
-          state.recentlyViewed.isLoading)) && <div>Loader here</div>}
+          state.recentlyViewed.isLoading)) && (
+        <div className={styles.loader}>
+          <Spinner />
+        </div>
+      )}
 
       {((currentTab === Tabs.promoted && state.promoted.errorOccured) ||
         (currentTab === Tabs.recentlyViewed &&
           state.recentlyViewed.errorOccured)) && (
         <p>error occured, try later</p>
       )}
-    </>
+
+      {((currentTab === Tabs.promoted &&
+        state.promoted.isLoading === false &&
+        state.promoted.tags.length === 0) ||
+        (currentTab === Tabs.recentlyViewed &&
+          state.recentlyViewed.isLoaded === true &&
+          state.recentlyViewed.tags.length === 0)) && (
+        <p className={styles.noRecords}>No records</p>
+      )}
+    </div>
   )
 }

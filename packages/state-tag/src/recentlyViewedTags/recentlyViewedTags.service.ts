@@ -28,6 +28,10 @@ function loadRecentlyViewedTagsForAnonymousUser(groupId: string) {
     recentlyViewed = []
   }
 
+  if (!Array.isArray(recentlyViewed)) {
+    recentlyViewed = []
+  }
+
   recentlyViewedTagsStore.update({
     [groupId]: {
       isLoading: false,
@@ -47,6 +51,7 @@ function loadRecentlyViewedTagsForLoggedUser(groupId: string) {
       tags: [],
     },
   })
+
   fetchRecentlyViewedTags(groupId)
     .then((tags: string[]) => {
       recentlyViewedTagsStore.update({

@@ -20,6 +20,7 @@ import { PostDetails } from 'components/post/PostDetails'
 import { PromotedTags } from 'components/group/PromotedTags'
 import { GroupHeader } from 'components/group/GroupHeader'
 import { PostsList } from 'components/post/PostsList'
+import { TagsBar } from 'components/group/TagsBar'
 // state
 import {
   IGroupPageState,
@@ -286,7 +287,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             {!state.showPromoted && (
               <div className={styles.content}>
                 <div className={styles.column}>
-                  {/* // TagsBar component here */}
+                  <TagsBar />
                 </div>
                 {state && state.posts && state.posts.length === 0 && (
                   <div className={styles.noPostsFound}>
