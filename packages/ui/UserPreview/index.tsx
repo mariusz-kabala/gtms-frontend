@@ -30,7 +30,7 @@ export const UserPreview: FC<{
       />
       <div className={styles.cover} />
       <div className={styles.content}>
-        <h2 className={styles.header}>{name}</h2>
+        <h2 className={styles.header}>{getDisplayName(user)}</h2>
         {user.description && <p className={styles.desc}>{user.description}</p>}
         {user.tags.length > 0 && (
           <>
