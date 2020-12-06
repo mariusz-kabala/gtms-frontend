@@ -1,5 +1,5 @@
 @mixin modalContent($bg: null) {
-  [class*='content'] {
+  > div {
     min-width: 300px;
     min-height: 150px;
     padding: 15px;
