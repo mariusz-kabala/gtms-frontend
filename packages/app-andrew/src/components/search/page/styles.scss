@@ -63,7 +63,7 @@
     gap: 5px;
     cursor: pointer;
     text-transform: uppercase;
-    margin: 10px 0;
+    margin: 20px 0;
 
     li {
       padding: 5px 10px;
@@ -71,7 +71,16 @@
       background: $theme9;
 
       a {
+        display: flex;
+        align-items: center;
+
+        i {
+          line-height: 0;
+          margin-right: 5px;
+        }
+
         span {
+          margin-left: 4px;
           @include font-size(default);
         }
       }

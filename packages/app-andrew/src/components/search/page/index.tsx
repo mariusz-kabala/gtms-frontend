@@ -15,6 +15,8 @@ import { GroupResults } from 'components/search/GroupResults'
 import { PostResults } from 'components/search/PostResults'
 import { UserResults } from 'components/search/UserResults'
 // ui
+import { IoIosKeypad, IoIosListBox } from 'react-icons/io'
+import { FaUsers } from 'react-icons/fa'
 import { SearchBar, SuggestionTypes } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
@@ -459,7 +461,10 @@ export const SearchPage: FC<{
                 })}
               >
                 <a onClick={() => setTab(Tabs.posts)}>
-                  Posts <span>({state.posts.total})</span>
+                  <i>
+                    <IoIosListBox />
+                  </i>
+                  Posts<span>({state.posts.total})</span>
                 </a>
               </li>
               <li
@@ -468,7 +473,10 @@ export const SearchPage: FC<{
                 })}
               >
                 <a onClick={() => setTab(Tabs.groups)}>
-                  Groups <span>({state.groups.total})</span>
+                  <i>
+                    <IoIosKeypad />
+                  </i>
+                  Groups<span>({state.groups.total})</span>
                 </a>
               </li>
               <li
@@ -477,7 +485,10 @@ export const SearchPage: FC<{
                 })}
               >
                 <a onClick={() => setTab(Tabs.users)}>
-                  Users <span>({state.users.total})</span>
+                  <i>
+                    <FaUsers />
+                  </i>
+                  Users<span>({state.users.total})</span>
                 </a>
               </li>
             </ul>

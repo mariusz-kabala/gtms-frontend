@@ -10,25 +10,25 @@ import { UserSingle } from '@gtms/ui/UserSingle'
 import styles from './styles.scss'
 
 export const UserResults: FC<{
-  isLoading: boolean
-  isError: boolean
   docs: IUser[]
-  tags: string[]
+  getCurrentUrl?: (page: number) => string
+  isError: boolean
+  isLoading: boolean
   limit: number
   offset: number
-  total: number
-  getCurrentUrl?: (page: number) => string
   onChangePage: (page: number) => unknown
+  tags: string[]
+  total: number
 }> = ({
-  isLoading,
-  isError,
   docs,
-  tags,
+  getCurrentUrl,
+  isError,
+  isLoading,
   limit,
   offset,
-  total,
-  getCurrentUrl,
   onChangePage,
+  tags,
+  total,
 }) => {
   return (
     <div data-testid="search-group-results">
@@ -43,19 +43,19 @@ export const UserResults: FC<{
         <>
           {docs.map((user) => (
             <UserSingle
-              noUserAvatar={UserAvatarNoImage}
-              key={`user-${user.id}`}
-              {...user}
               activeTags={tags}
+              key={`user-${user.id}`}
+              noUserAvatar={UserAvatarNoImage}
+              {...user}
             />
           ))}
           <div className={styles.pagination}>
             <Pagination
+              getCurrentUrl={getCurrentUrl}
               limit={limit}
               offset={offset}
-              total={total}
               onClick={onChangePage}
-              getCurrentUrl={getCurrentUrl}
+              total={total}
             />
           </div>
         </>

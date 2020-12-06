@@ -16,42 +16,45 @@ export const UserSingle: FC<
     activeTags?: string[]
   }
 > = ({
-  avatar,
-  noUserAvatar,
-  username,
-  surname,
-  description,
-  tags,
   activeTags = [],
+  avatar,
+  description,
+  noUserAvatar,
+  surname,
+  tags,
+  username,
 }) => {
   const { t } = useTranslation('userSingleComponent')
+
   return (
-    <div data-testid="user-single" className={styles.avatar}>
-      <Link href={`/user/${username}`}>
-        <a>
-          <Picture
-            additionalStyles={styles.avatar}
-            {...getImage('50x50', avatar, noUserAvatar)}
-          />
-        </a>
-      </Link>
-      <div>
-        <h2>{getDisplayName({ name, username, surname })}</h2>
-        {description && <p>{description}</p>}
-        <div className={styles.tags}>
-          {Array.isArray(tags) && tags.length > 0 ? (
-            tags.map((tag) => (
-              <Tag
-                additionalStyles={cx({
-                  [styles.activeTag]: activeTags.includes(tag),
-                })}
-                key={`tag-${tag}`}
-                label={tag}
-              />
-            ))
-          ) : (
-            <p>{t('tags-not-added-yet')}</p>
-          )}
+    <div data-testid="user-single" className={styles.wrapper}>
+      <div className={styles.avatarAndName}>
+        <Link href={`/user/${username}`}>
+          <a>
+            <Picture
+              additionalStyles={styles.avatar}
+              {...getImage('50x50', avatar, noUserAvatar)}
+            />
+          </a>
+        </Link>
+        <div>
+          <h2>{getDisplayName({ name, username, surname })}</h2>
+          {description && <p>{description}</p>}
+          <div className={styles.tags}>
+            {Array.isArray(tags) && tags.length > 0 ? (
+              tags.map((tag) => (
+                <Tag
+                  additionalStyles={cx(styles.tag, {
+                    [styles.activeTag]: activeTags.includes(tag),
+                  })}
+                  key={`tag-${tag}`}
+                  label={tag}
+                />
+              ))
+            ) : (
+              <p>{t('tags-not-added-yet')}</p>
+            )}
+          </div>
         </div>
       </div>
     </div>
