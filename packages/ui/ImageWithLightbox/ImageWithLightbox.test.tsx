@@ -30,10 +30,10 @@ describe('<ImageWithLightbox />', () => {
     )
 
     fireEvent.click(getByTestId('image-with-lightbox'))
-    expect(getByTestId('overlay')).toBeInTheDocument()
+    expect(getByTestId('modal')).toBeInTheDocument()
 
-    fireEvent.click(getByTestId('overlay'))
-    expect(queryByTestId('overlay')).toBeNull()
+    fireEvent.click(getByTestId('modal'))
+    expect(queryByTestId('modal')).toBeNull()
   })
 
   it('Should trigger fallback when clicking on image and onClick func is not provided', () => {

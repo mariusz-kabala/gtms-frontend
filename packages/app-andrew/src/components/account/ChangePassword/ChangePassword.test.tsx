@@ -49,11 +49,11 @@ describe('<ChangePassword />', () => {
     fireEvent.click(getByTestId('user-password-change'))
 
     expect(getByTestId('user-password-change-form')).toBeInTheDocument()
-    expect(getByTestId('overlay')).toBeInTheDocument()
+    expect(getByTestId('modal')).toBeInTheDocument()
 
-    fireEvent.click(getByTestId('overlay'))
+    fireEvent.click(getByTestId('modal'))
 
     expect(queryByTestId('user-password-change-form')).toBeNull()
-    expect(queryByTestId('overlay')).toBeNull()
+    expect(queryByTestId('modal')).toBeNull()
   })
 })
