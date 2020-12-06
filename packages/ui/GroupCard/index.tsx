@@ -10,7 +10,7 @@ import { Tag } from '../Tag'
 import { Button } from '../Button'
 import { Spinner } from '../Spinner'
 import { UserAvatar } from '../UserAvatar'
-import { IoIosArrowDropright, IoIosArrowDown } from 'react-icons/io'
+import { IoIosArrowDropright } from 'react-icons/io'
 // styles
 import styles from './styles.scss'
 
@@ -39,72 +39,65 @@ export const GroupCard: FC<{
 }) => {
   const { t } = useTranslation('groupCardComponent')
 
+  if (isLoading) {
+    return <Spinner additionalStyles={styles.spinner} />
+  }
+
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="group-card"
     >
-      {isLoading && <Spinner additionalStyles={styles.spinner} />}
-      {!isLoading && (
-        <>
-          <Picture additionalStyles={styles.avatar} {...logo} />
-          <div className={styles.groupCover} />
-          <div className={styles.content}>
-            <div className={styles.leftColumn}>
-              <h2 className={styles.header}>{name}</h2>
-              {description && <p className={styles.desc}>{description}</p>}
-              <h3 className={styles.headerSection}>{t('groupTags')}:</h3>
-              <div className={styles.tags}>
-                {Array.isArray(tags) && tags.length > 0 ? (
-                  tags.map((tag) => (
-                    <Tag
-                      additionalStyles={styles.tag}
-                      key={`tag-${tag}`}
-                      label={tag}
-                    />
-                  ))
-                ) : (
-                  <p>{t('tags-not-added-yet')}</p>
-                )}
-              </div>
-            </div>
-            <div className={cx(styles.users)}>
-              <h3 className={styles.headerSection}>{t('groupsMembers')}</h3>
-              {!isLoading && Array.isArray(members) && members.length > 0 && (
-                <ul
-                  className={styles.items}
-                  data-testid="recently-registered-users"
-                >
-                  {members.map((member) => (
-                    <li className={styles.user} key={`member-${member.id}`}>
-                      <UserAvatar
-                        image={getImage('50x50', member.avatar, noUserAvatar)}
-                        additionalStyles={styles.userAvatar}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+      <Picture additionalStyles={styles.avatar} {...logo} />
+      <div className={styles.groupCover} />
+      <div className={styles.content}>
+        <div className={styles.leftColumn}>
+          <h2 className={styles.header}>{name}</h2>
+          {description && <p className={styles.desc}>{description}</p>}
+          <h3 className={styles.headerSection}>{t('groupTags')}:</h3>
+          <div className={styles.tags}>
+            {Array.isArray(tags) && tags.length > 0 ? (
+              tags.map((tag) => (
+                <Tag
+                  additionalStyles={styles.tag}
+                  key={`tag-${tag}`}
+                  label={tag}
+                />
+              ))
+            ) : (
+              <p>{t('tags-not-added-yet')}</p>
+            )}
           </div>
-          <div className={styles.btnWrapper}>
-            <Link href={`/group/${slug}`}>
-              <Button additionalStyles={styles.btn}>
-                <i>
-                  <IoIosArrowDropright />
-                </i>
-                Open this group
-              </Button>
-            </Link>
-          </div>
-          <Button onClick={onClose} additionalStyles={styles.btn}>
+        </div>
+        <div className={cx(styles.users)}>
+          <h3 className={styles.headerSection}>{t('groupsMembers')}</h3>
+          {!isLoading && Array.isArray(members) && members.length > 0 && (
+            <ul
+              className={styles.items}
+              data-testid="recently-registered-users"
+            >
+              {members.map((member) => (
+                <li className={styles.user} key={`member-${member.id}`}>
+                  <UserAvatar
+                    image={getImage('50x50', member.avatar, noUserAvatar)}
+                    additionalStyles={styles.userAvatar}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+      <div className={styles.btnWrapper}>
+        <Link href={`/group/${slug}`}>
+          <Button additionalStyles={styles.btn}>
             <i>
-              <IoIosArrowDown />
+              <IoIosArrowDropright />
             </i>
-            close it
+            Open this group
           </Button>
-        </>
-      )}
+        </Link>
+      </div>
     </div>
   )
 }

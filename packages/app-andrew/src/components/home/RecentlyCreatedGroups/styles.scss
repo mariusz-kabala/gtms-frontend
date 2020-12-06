@@ -65,9 +65,6 @@
   }
 }
 
-.modal {
-  .content {
-    display: none;
-    max-width: 50%;
-  }
+.modal > div {
+  background: none; // clear default modal bg
 }
