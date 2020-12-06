@@ -32,7 +32,7 @@ describe('<ImageWithLightbox />', () => {
     fireEvent.click(getByTestId('image-with-lightbox'))
     expect(getByTestId('modal')).toBeInTheDocument()
 
-    fireEvent.click(getByTestId('modal'))
+    fireEvent.click(getByTestId('overlay'))
     expect(queryByTestId('modal')).toBeNull()
   })
 

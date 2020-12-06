@@ -51,7 +51,7 @@ describe('<ChangePassword />', () => {
     expect(getByTestId('user-password-change-form')).toBeInTheDocument()
     expect(getByTestId('modal')).toBeInTheDocument()
 
-    fireEvent.click(getByTestId('modal'))
+    fireEvent.click(getByTestId('overlay'))
 
     expect(queryByTestId('user-password-change-form')).toBeNull()
     expect(queryByTestId('modal')).toBeNull()

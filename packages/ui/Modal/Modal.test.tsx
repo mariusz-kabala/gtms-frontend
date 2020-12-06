@@ -35,7 +35,7 @@ describe('<Modal />', () => {
       { container: document.body }
     )
 
-    fireEvent.click(getByTestId('modal'))
+    fireEvent.click(getByTestId('overlay'))
 
     expect(onClose).toBeCalledTimes(1)
   })

@@ -60,7 +60,7 @@ describe('<GroupDescription />', () => {
     expect(getByTestId('group-description-form')).toBeInTheDocument()
     expect(getByTestId('modal')).toBeInTheDocument()
 
-    fireEvent.click(getByTestId('modal'))
+    fireEvent.click(getByTestId('overlay'))
 
     expect(queryByTestId('group-description-form')).toBeNull()
     expect(queryByTestId('modal')).toBeNull()

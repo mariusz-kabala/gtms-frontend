@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react'
 import { UserNameChangeForm } from './Form'
 // ui
 import { Modal } from '@gtms/ui/Modal'
-import styles from './styles.scss'
 
 export const UserName: FC<{
   name?: string

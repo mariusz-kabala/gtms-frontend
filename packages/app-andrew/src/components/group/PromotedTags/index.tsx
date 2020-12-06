@@ -18,8 +18,6 @@ import { PromotedTagsForm } from 'components/group-settings/PromotedTagForm'
 import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
 import { Modal } from '@gtms/ui/Modal'
 import { PromotedTags as PromotedTagsUI } from '@gtms/ui/PromotedTags'
-// styles
-import styles from './styles.scss'
 
 export const PromotedTags: FC<{
   additionalStyles?: string

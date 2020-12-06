@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react'
 // ui
 import { Modal } from '@gtms/ui/Modal'
 import { GroupDescriptionForm } from './Form'
-import styles from './styles.scss'
 
 export const GroupDescription: FC<{
   additionalStyles?: string
@@ -24,10 +23,7 @@ export const GroupDescription: FC<{
     >
       <p>{text}</p>
       {isEditModeActive && (
-        <Modal
-          additionalStyles={styles.modalContent}
-          onClose={() => setIsEditModeActive(false)}
-        >
+        <Modal onClose={() => setIsEditModeActive(false)}>
           <GroupDescriptionForm
             text={text}
             slug={slug}

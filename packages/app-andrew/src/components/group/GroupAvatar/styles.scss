@@ -1,5 +1,4 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .wrapper {
   position: relative;
@@ -22,8 +21,4 @@
     left: 0;
     margin: auto;
   }
-}
-
-.modal {
-  @include modalContent();
 }
