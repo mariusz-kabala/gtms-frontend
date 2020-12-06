@@ -10,7 +10,7 @@ import { Tag } from '../Tag'
 import { Button } from '../Button'
 import { Spinner } from '../Spinner'
 import { UserAvatar } from '../UserAvatar'
-import { IoIosArrowDropright } from 'react-icons/io'
+import { IoIosArrowDown, IoIosArrowDropright } from 'react-icons/io'
 // styles
 import styles from './styles.scss'
 
@@ -98,6 +98,12 @@ export const GroupCard: FC<{
           </Button>
         </Link>
       </div>
+      <Button onClick={onClose} additionalStyles={styles.btn}>
+        <i>
+          <IoIosArrowDown />
+        </i>
+        close it
+      </Button>
     </div>
   )
 }
