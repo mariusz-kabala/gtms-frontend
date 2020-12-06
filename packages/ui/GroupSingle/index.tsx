@@ -12,23 +12,23 @@ import { UserAvatar } from '../UserAvatar'
 import styles from './styles.scss'
 
 export const GroupSingle: FC<{
-  name: string
-  description?: string
-  slug: string
-  tags?: string[]
   activeTags?: string[]
   avatar?: IGroupAvatar
-  noUserAvatar: { [key: string]: IImage }
+  description?: string
   members?: IUser[]
+  name: string
+  noUserAvatar: { [key: string]: IImage }
+  slug: string
+  tags?: string[]
 }> = ({
-  name,
+  activeTags = [],
+  avatar,
   description,
+  members,
+  name,
+  noUserAvatar,
   slug,
   tags = [],
-  avatar,
-  members,
-  noUserAvatar,
-  activeTags = [],
 }) => {
   const { t } = useTranslation('groupSingleComponent')
 
@@ -54,7 +54,6 @@ export const GroupSingle: FC<{
           </div>
           <div className={cx(styles.users)}>
             <h3 className={styles.header}>{t('groupsMembers')}</h3>
-
             {Array.isArray(members) && members.length > 0 && (
               <ul
                 className={styles.items}

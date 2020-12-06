@@ -53,18 +53,19 @@ export const PostResults: FC<{
             posts={docs}
             renderPost={(post) => (
               <PostSingle
-                key={`post-${post.id}`}
+                {...post}
+                additionalStyles={styles.postSingle}
+                activeTags={tags}
                 allowToRespond={false}
-                onClick={() => null}
-                onTagClick={() => null}
+                createComment={() => null}
                 fetchTags={findTagsAPI}
                 fetchUsers={() => Promise.resolve([])} //{findbyUsernameAPI}
-                createComment={() => null}
-                user={null}
-                {...post}
+                key={`post-${post.id}`}
                 noImage={UserAvatarNoImage}
+                onClick={() => null}
                 onLoginRequest={openLoginModal}
-                activeTags={tags}
+                onTagClick={() => null}
+                user={null}
               />
             )}
             showGroupPreview={true}
