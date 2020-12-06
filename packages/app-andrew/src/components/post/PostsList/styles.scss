@@ -1,8 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/zindex.scss';
 
-.groupPreviewWrapper,
-.userPreviewWrapper {
+.groupPreviewWrapper {
   position: fixed;
   left: 0;
   bottom: -150px;
@@ -16,4 +15,7 @@
   &.active {
     bottom: 0;
   }
+}
+
+.modal {
 }

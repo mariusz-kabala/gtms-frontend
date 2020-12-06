@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
@@ -36,7 +37,7 @@
     }
   }
 
-  .groupCover {
+  .cover {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -51,7 +52,7 @@
   .content {
     display: flex;
     gap: 10px;
-    padding: 20px;
+    padding: 10px 0;
 
     > .leftColumn {
       width: 100%;
@@ -97,6 +98,10 @@
           flex-direction: column;
           max-width: 80px;
 
+          &:hover {
+            @include effectOne('circle');
+          }
+
           img {
             border-radius: 50%;
           }
@@ -114,7 +119,7 @@
   }
 
   .btnWrapper {
-    padding: 20px;
+    padding: 10px 0;
     padding-top: 0px;
 
     .btn {

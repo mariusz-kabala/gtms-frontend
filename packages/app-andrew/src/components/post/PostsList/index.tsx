@@ -12,8 +12,9 @@ import { PostAdmin } from 'components/post/Admin'
 import { Favs } from 'components/post/Favs'
 // ui
 import { AbuseReportForm, VIEW } from '@gtms/ui/AbuseReportForm'
-import { UserPreview } from '@gtms/ui/UserPreview'
 import { GroupCard } from '@gtms/ui/GroupCard'
+import { Modal } from '@gtms/ui/Modal'
+import { UserPreview } from '@gtms/ui/UserPreview'
 // styles
 import styles from './styles.scss'
 
@@ -180,25 +181,14 @@ export const PostsList: FC<{
         onClose={onCloseReportAbuse}
       />
       {userPreview && (
-        <>
-          <style global jsx>{`
-            body {
-              padding-bottom: 150px;
-            }
-          `}</style>
-          <div
-            className={cx(styles.userPreviewWrapper, {
-              [styles.active]: userPreview,
-            })}
-          >
-            <UserPreview
-              user={userPreview}
-              noUserAvatar={UserAvatarNoImage}
-              onUserPostsClick={onUserPostsClick}
-              onClose={onCloseUserPreview}
-            />
-          </div>
-        </>
+        <Modal additionalStyles={styles.modal} onClose={onCloseUserPreview}>
+          <UserPreview
+            user={userPreview}
+            noUserAvatar={UserAvatarNoImage}
+            onUserPostsClick={onUserPostsClick}
+            onClose={onCloseUserPreview}
+          />
+        </Modal>
       )}
       {showGroupPreview && (
         <div

@@ -49,21 +49,23 @@ export const GroupCard: FC<{
       data-testid="group-card"
     >
       <Picture additionalStyles={styles.avatar} {...logo} />
-      <div className={styles.groupCover} />
+      <div className={styles.cover} />
       <div className={styles.content}>
         <div className={styles.leftColumn}>
           <h2 className={styles.header}>{name}</h2>
           {description && <p className={styles.desc}>{description}</p>}
-          <h3 className={styles.headerSection}>{t('groupTags')}:</h3>
           <div className={styles.tags}>
             {Array.isArray(tags) && tags.length > 0 ? (
-              tags.map((tag) => (
-                <Tag
-                  additionalStyles={styles.tag}
-                  key={`tag-${tag}`}
-                  label={tag}
-                />
-              ))
+              <>
+                <h3 className={styles.headerSection}>{t('groupTags')}:</h3>
+                {tags.map((tag) => (
+                  <Tag
+                    additionalStyles={styles.tag}
+                    key={`tag-${tag}`}
+                    label={tag}
+                  />
+                ))}
+              </>
             ) : (
               <p>{t('tags-not-added-yet')}</p>
             )}
