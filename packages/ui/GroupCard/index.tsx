@@ -10,7 +10,7 @@ import { Tag } from '../Tag'
 import { Button } from '../Button'
 import { Spinner } from '../Spinner'
 import { UserAvatar } from '../UserAvatar'
-import { IoIosArrowDown, IoIosArrowDropright } from 'react-icons/io'
+import { IoIosArrowDropright } from 'react-icons/io'
 // styles
 import styles from './styles.scss'
 
@@ -22,7 +22,6 @@ export const GroupCard: FC<{
   members?: IUser[]
   name: string
   noUserAvatar: { [key: string]: IImage }
-  onClose?: () => unknown
   slug: string
   tags: string[]
 }> = ({
@@ -32,14 +31,13 @@ export const GroupCard: FC<{
   logo,
   members,
   name,
-  onClose,
   noUserAvatar,
   slug,
   tags,
 }) => {
   const { t } = useTranslation('groupCardComponent')
 
-  if (isLoading) {
+  if (true) {
     return <Spinner additionalStyles={styles.spinner} />
   }
 
@@ -100,12 +98,6 @@ export const GroupCard: FC<{
           </Button>
         </Link>
       </div>
-      <Button onClick={onClose} additionalStyles={styles.btn}>
-        <i>
-          <IoIosArrowDown />
-        </i>
-        close it
-      </Button>
     </div>
   )
 }

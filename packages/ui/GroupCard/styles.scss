@@ -5,6 +5,15 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
+.spinner {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 .wrapper {
   position: relative;
   width: 100%;
@@ -12,10 +21,6 @@
   min-width: 700px;
   background: $theme2;
   box-shadow: $boxShadowDefault;
-
-  .spinner {
-    margin: 20px;
-  }
 
   .headerSection {
     @include font-size(sm);
@@ -45,14 +50,13 @@
     background-image: url('/images/temp-images/logo-wioska-8.png');
     @include imageCover();
     overflow: hidden;
-    border-top-left-radius: $borderRadius;
-    border-top-right-radius: $borderRadius;
+    border-radius: $borderRadius;
   }
 
   .content {
     display: flex;
     gap: 10px;
-    padding: 10px 0;
+    padding: 15px 0;
 
     > .leftColumn {
       width: 100%;
@@ -85,7 +89,7 @@
     .users {
       width: 35%;
       border-left: 1px solid $theme1;
-      padding-left: 20px;
+      padding-left: 10px;
 
       .items {
         display: grid;
