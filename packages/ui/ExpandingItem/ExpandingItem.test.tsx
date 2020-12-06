@@ -45,7 +45,7 @@ describe('<ExpandingItem />', () => {
     expect(getByTestId('expanding-item-label')).toBeInTheDocument()
   })
 
-  it('Should trigger onClick callback when clicking on overlay', () => {
+  it('Should trigger onClick callback when clicking on modal wrapper (overlay)', () => {
     const onClose = jest.fn()
 
     const { getByTestId } = render(
@@ -54,7 +54,7 @@ describe('<ExpandingItem />', () => {
       </ExpandingItem>
     )
 
-    fireEvent.click(getByTestId('overlay'))
+    fireEvent.click(getByTestId('modal'))
 
     expect(onClose).toBeCalledTimes(1)
   })
