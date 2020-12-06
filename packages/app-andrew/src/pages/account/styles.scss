@@ -5,7 +5,7 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper('bgdefault');
+  @include pageWrapper();
 }
 
 .wrapper {
@@ -148,7 +148,7 @@
       span {
         display: block;
         @include font-size(xdefault);
-        @include font-weight(bold);
+        @include font-weight(semiBold);
       }
 
       &:hover {

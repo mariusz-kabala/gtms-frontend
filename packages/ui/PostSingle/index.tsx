@@ -7,10 +7,10 @@ import Lightbox from 'react-image-lightbox'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import {
   IAccountDetails,
-  IUser,
   IComment,
-  IPostImage,
   IGroup,
+  IPostImage,
+  IUser,
 } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 // ui
@@ -26,55 +26,55 @@ import { UserAvatar } from '../UserAvatar'
 import styles from './styles.scss'
 
 export const PostSingle: FC<{
-  id: string
-  html: string
-  createdAt: string
-  additionalStyles?: string
-  firstComments: IComment[]
-  owner: IUser
-  tags: string[]
   activeTags?: string[]
-  images: IPostImage[]
-  group?: string | IGroup
-  favs?: string[]
-  renderFavs?: (favs: string[], id: string) => JSX.Element
-  renderMenu?: (postId: string) => JSX.Element | null
-  user: IAccountDetails | null
+  additionalStyles?: string
   allowToRespond?: boolean
   createComment: (payload: { post: string; text: string }) => unknown
+  createdAt: string
+  favs?: string[]
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   fetchUsers: (query: string, signal: AbortSignal) => Promise<IUser[]>
+  firstComments: IComment[]
+  group?: string | IGroup
+  html: string
+  id: string
+  images: IPostImage[]
   noImage: { [key: string]: IImage }
-  onUserClick?: (user: IUser) => unknown
   onClick?: (id: string) => unknown
-  onTagClick?: (tag: string) => unknown
   onLoginRequest?: () => unknown
   onOpenGroupPreview?: (group: IGroup) => unknown
+  onTagClick?: (tag: string) => unknown
+  onUserClick?: (user: IUser) => unknown
+  owner: IUser
+  renderFavs?: (favs: string[], id: string) => JSX.Element
+  renderMenu?: (postId: string) => JSX.Element | null
+  tags: string[]
+  user: IAccountDetails | null
 }> = ({
-  id,
+  activeTags = [],
   additionalStyles,
-  html,
+  allowToRespond = false,
+  createComment,
   createdAt,
-  owner,
-  noImage,
-  tags,
+  favs = [],
   fetchTags,
   fetchUsers,
-  createComment,
   firstComments,
-  user,
+  group,
+  html,
+  id,
+  images,
+  noImage,
   onClick,
+  onLoginRequest,
+  onOpenGroupPreview,
   onTagClick,
   onUserClick,
-  onOpenGroupPreview,
-  onLoginRequest,
+  owner,
   renderFavs,
   renderMenu,
-  images,
-  group,
-  favs = [],
-  allowToRespond = false,
-  activeTags = [],
+  tags,
+  user,
 }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const [lightboxState, setLightboxState] = useState<{
@@ -98,9 +98,13 @@ export const PostSingle: FC<{
       data-testid="post-single"
     >
       {group && typeof group !== 'string' && (
-        <GroupDetails onGroupClick={onOpenGroupPreview} group={group} />
+        <GroupDetails
+          additionalStyles={styles.groupDetails}
+          group={group}
+          onGroupClick={onOpenGroupPreview}
+        />
       )}
-      <div className={styles.bbb}>
+      <div className={styles.postHeader}>
         <UserAvatar
           additionalStyles={styles.userAvatar}
           image={getImage('35x35', owner.avatar, noImage)}
@@ -127,6 +131,10 @@ export const PostSingle: FC<{
           className={styles.message}
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <div>
+          Sit velit ullamco incididunt quis dolore ex ipsum id dolor excepteur
+          laboris.
+        </div>
         {images.length > 0 && (
           <ul className={styles.images}>
             {images.map((img, index) => (
@@ -152,12 +160,12 @@ export const PostSingle: FC<{
           <TagGroup>
             {tags.map((tag) => (
               <Tag
-                onClick={() => onTagClick && onTagClick(tag)}
-                label={tag}
                 additionalStyles={cx({
                   [styles.activeTag]: activeTags.includes(tag),
                 })}
                 key={`post-tag-${tag}`}
+                label={tag}
+                onClick={() => onTagClick && onTagClick(tag)}
               />
             ))}
           </TagGroup>
@@ -180,13 +188,13 @@ export const PostSingle: FC<{
               fetchTags={fetchTags}
               fetchUsers={fetchUsers}
               noImage={noImage}
-              user={user}
               onSubmit={(text) => {
                 createComment({
                   text,
                   post: id,
                 })
               }}
+              user={user}
             />
           </div>
         )}
@@ -225,14 +233,6 @@ export const PostSingle: FC<{
               images[(lightboxState.current + 1) % images.length]
             ).jpg
           }
-          prevSrc={
-            getImage(
-              '1300x1300',
-              images[
-                (lightboxState.current + images.length - 1) % images.length
-              ]
-            ).jpg
-          }
           onCloseRequest={() =>
             setLightboxState({
               isOpen: false,
@@ -250,6 +250,14 @@ export const PostSingle: FC<{
               isOpen: true,
               current: (state.current + 1) % images.length,
             }))
+          }
+          prevSrc={
+            getImage(
+              '1300x1300',
+              images[
+                (lightboxState.current + images.length - 1) % images.length
+              ]
+            ).jpg
           }
         />
       )}

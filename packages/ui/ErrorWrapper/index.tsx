@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react'
 import cx from 'classnames'
-import styles from './styles.scss'
 import { Picture } from '@gtms/ui/Picture'
+import styles from './styles.scss'
 
 export const ErrorWrapper: FC<{
   additionalStyles?: string

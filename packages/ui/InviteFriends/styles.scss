@@ -21,7 +21,7 @@
 
     .header {
       @include font-size(xlg);
-      @include font-weight(bold);
+      @include font-weight(semiBold);
       text-transform: uppercase;
     }
 

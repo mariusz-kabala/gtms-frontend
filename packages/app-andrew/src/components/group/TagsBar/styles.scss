@@ -34,7 +34,7 @@
   .active {
     display: flex;
     align-items: center;
-    @include font-weight(bold);
+    @include font-weight(semiBold);
 
     i {
       line-height: 0;

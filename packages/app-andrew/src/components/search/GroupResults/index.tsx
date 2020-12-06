@@ -2,8 +2,9 @@ import React, { FC } from 'react'
 import { IGroup } from '@gtms/commons/models'
 import { UserAvatarNoImage } from 'enums'
 // ui
-import { MockData } from '@gtms/ui/MockData'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { GroupSingle } from '@gtms/ui/GroupSingle'
+import { MockData } from '@gtms/ui/MockData'
 import { Pagination } from '@gtms/ui/Pagination'
 // styles
 import styles from './styles.scss'
@@ -60,7 +61,19 @@ export const GroupResults: FC<{
         </>
       )}
       {!isLoading && !isError && docs.length == 0 && <p>No records</p>}
-      {!isLoading && isError && <div>ERROR STATE, SHOW SOMETHING HERE</div>}
+      {!isLoading && isError && (
+        <ErrorWrapper>
+          <h2 data-testid="notifications-settings">
+            {/* @todo add proper error msg with translation */}
+            Error Lorem ipsum dolor
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+            minima quasi eaque molestiae cupiditate ab deserunt magnam veritatis
+            rem
+          </p>
+        </ErrorWrapper>
+      )}
     </div>
   )
 }

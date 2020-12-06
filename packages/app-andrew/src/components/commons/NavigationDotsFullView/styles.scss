@@ -58,7 +58,7 @@
 
       &.current {
         a {
-          @include font-weight(bold);
+          @include font-weight(semiBold);
           color: $theme0;
         }
       }
