@@ -22,17 +22,12 @@ export const UserName: FC<{
     >
       <span>{getName()}</span>
       {isEditModeActive && (
-        <Modal
-          additionalStyles={styles.modal}
-          onClose={() => {
-            setIsEditModeActive(false)
-          }}
-        >
+        <Modal onClose={() => setIsEditModeActive(false)}>
           <UserNameChangeForm
             name={name}
-            surname={surname}
-            onSaveSuccess={() => setIsEditModeActive(false)}
             onSaveFail={() => setIsEditModeActive(false)}
+            onSaveSuccess={() => setIsEditModeActive(false)}
+            surname={surname}
           />
         </Modal>
       )}
