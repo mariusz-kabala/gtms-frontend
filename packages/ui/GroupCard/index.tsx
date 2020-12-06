@@ -37,7 +37,7 @@ export const GroupCard: FC<{
 }) => {
   const { t } = useTranslation('groupCardComponent')
 
-  if (true) {
+  if (isLoading) {
     return <Spinner additionalStyles={styles.spinner} />
   }
 
@@ -71,21 +71,24 @@ export const GroupCard: FC<{
         </div>
         <div className={cx(styles.users)}>
           <h3 className={styles.headerSection}>{t('groupsMembers')}</h3>
-          {!isLoading && Array.isArray(members) && members.length > 0 && (
-            <ul
-              className={styles.items}
-              data-testid="recently-registered-users"
-            >
-              {members.map((member) => (
-                <li className={styles.user} key={`member-${member.id}`}>
-                  <UserAvatar
-                    image={getImage('50x50', member.avatar, noUserAvatar)}
-                    additionalStyles={styles.userAvatar}
-                  />
-                </li>
-              ))}
-            </ul>
-          )}
+          {!isLoading &&
+            Array.isArray(members) &&
+            members &&
+            members.length > 0 && (
+              <ul
+                className={styles.items}
+                data-testid="recently-registered-users"
+              >
+                {members.map((member) => (
+                  <li className={styles.user} key={`member-${member.id}`}>
+                    <UserAvatar
+                      image={getImage('50x50', member.avatar, noUserAvatar)}
+                      additionalStyles={styles.userAvatar}
+                    />
+                  </li>
+                ))}
+              </ul>
+            )}
         </div>
       </div>
       <div className={styles.btnWrapper}>

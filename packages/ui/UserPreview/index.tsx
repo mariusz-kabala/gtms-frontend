@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import cx from 'classnames'
 import { IUser } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 import { getImage, getDisplayName } from '@gtms/commons/helpers'
