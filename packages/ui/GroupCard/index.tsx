@@ -22,7 +22,7 @@ export const GroupCard: FC<{
   members?: IUser[]
   name: string
   noUserAvatar: { [key: string]: IImage }
-  onClose: () => unknown
+  onClose?: () => unknown
   slug: string
   tags: string[]
 }> = ({
