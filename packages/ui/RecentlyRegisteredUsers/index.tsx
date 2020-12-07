@@ -73,7 +73,11 @@ export const RecentlyRegisteredUsers: FC<{
 
         {/* @todo remove mocked more users  */}
         {users.map((user) => (
-          <li className={styles.user} key={`recent-user-${user.id}`}>
+          <li
+            className={styles.user}
+            key={`recent-user-${user.id}`}
+            onClick={() => setUserPreview(user)}
+          >
             <UserAvatar
               additionalStyles={styles.userAvatar}
               image={
@@ -91,7 +95,11 @@ export const RecentlyRegisteredUsers: FC<{
 
         {/* @todo remove mocked more users  */}
         {users.map((user) => (
-          <li className={styles.user} key={`recent-user-${user.id}`}>
+          <li
+            className={styles.user}
+            key={`recent-user-${user.id}`}
+            onClick={() => setUserPreview(user)}
+          >
             <UserAvatar
               additionalStyles={styles.userAvatar}
               image={
@@ -109,7 +117,11 @@ export const RecentlyRegisteredUsers: FC<{
 
         {/* @todo remove mocked more users  */}
         {users.map((user) => (
-          <li className={styles.user} key={`recent-user-${user.id}`}>
+          <li
+            className={styles.user}
+            key={`recent-user-${user.id}`}
+            onClick={() => setUserPreview(user)}
+          >
             <UserAvatar
               additionalStyles={styles.userAvatar}
               image={
