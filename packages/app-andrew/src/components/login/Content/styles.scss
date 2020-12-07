@@ -6,7 +6,8 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper('loginRegister');
+  @include pageWrapper();
+  margin: initial; // clear pageWrapper() margin
   width: 100%;
 }
 
@@ -37,7 +38,7 @@
           // @todo make mixin of that
           font-size: 2em;
           text-transform: uppercase;
-          @include font-weight(bold);
+          @include font-weight(semiBold);
         }
 
         .avatar {

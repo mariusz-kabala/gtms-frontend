@@ -44,8 +44,7 @@ describe('<UserName />', () => {
     expect(queryByTestId('overlay')).toBeNull()
   })
 
-  // @todo this should be fixed?
-  it.skip('Should close edit mode when user cancel editing by clicking on Overlay', () => {
+  it('Should close edit mode when user cancel editing by clicking on Overlay', () => {
     const { getByTestId, queryByTestId } = render(<UserName />)
 
     fireEvent.click(getByTestId('user-name'))

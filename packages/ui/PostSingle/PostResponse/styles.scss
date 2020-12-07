@@ -21,11 +21,6 @@
       display: flex;
       align-items: center;
 
-      // @todo create mixin with highlighted text
-      &:hover {
-        color: $theme4;
-      }
-
       .userAvatar {
         width: 35px;
         height: 35px;

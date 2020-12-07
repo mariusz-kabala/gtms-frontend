@@ -7,7 +7,6 @@
 
   header {
     display: flex;
-    flex-direction: row;
     align-items: baseline;
 
     .header {
@@ -16,7 +15,7 @@
 
     a {
       @include font-size(xxlg);
-      @include font-weight(bold);
+      @include font-weight(semiBold);
       margin-left: 10px;
       cursor: pointer;
     }

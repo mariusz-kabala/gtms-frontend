@@ -131,9 +131,7 @@ export const TagsBar: FC<{}> = () => {
       {((currentTab === Tabs.promoted && state.promoted.isLoading) ||
         (currentTab === Tabs.recentlyViewed &&
           state.recentlyViewed.isLoading)) && (
-        <div className={styles.loader}>
-          <Spinner />
-        </div>
+        <Spinner additionalStyles={styles.spinner} size="sm" />
       )}
 
       {((currentTab === Tabs.promoted && state.promoted.errorOccured) ||

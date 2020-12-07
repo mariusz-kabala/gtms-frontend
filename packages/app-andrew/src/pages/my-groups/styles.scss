@@ -42,7 +42,7 @@
 
         &:hover,
         &.current {
-          @include font-weight(bold);
+          @include font-weight(semiBold);
           background: $theme4;
 
           a {
@@ -63,7 +63,7 @@
     @include buttonDefault();
     @include buttonSizeDefault();
     @include buttonShapeDefault();
-    @include buttonColorsSecondary();
+    @include buttonColorsDefault();
 
     &:hover {
       @include buttonColorsPrimary();

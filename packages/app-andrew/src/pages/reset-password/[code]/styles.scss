@@ -15,14 +15,13 @@
   height: 100vh;
 
   > div {
-    width: 60%;
     text-align: center;
 
     .header {
       // @todo make mixin of that
       font-size: 3em;
       text-transform: uppercase;
-      @include font-weight(bold);
+      @include font-weight(semiBold);
     }
   }
 }

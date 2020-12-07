@@ -10,7 +10,7 @@
   .header {
     font-size: 3em;
     text-transform: uppercase;
-    @include font-weight(bold);
+    @include font-weight(semiBold);
     margin-bottom: 10px;
   }
 }

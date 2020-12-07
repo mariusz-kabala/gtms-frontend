@@ -5,47 +5,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.88.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.87.0...@gtms/app-andrew@0.88.0) (2020-12-07)
 
-
 ### Features
 
-* GEOT-692: better styles for main page ([#922](https://github.com/gtms-org/gtms-frontend/issues/922)) ([dd72022](https://github.com/gtms-org/gtms-frontend/commit/dd72022d89852df40ee018b5293ecc2fc35191b6))
-
-
-
-
+- GEOT-692: better styles for main page ([#922](https://github.com/gtms-org/gtms-frontend/issues/922)) ([dd72022](https://github.com/gtms-org/gtms-frontend/commit/dd72022d89852df40ee018b5293ecc2fc35191b6))
 
 # [0.87.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.86.0...@gtms/app-andrew@0.87.0) (2020-12-05)
 
-
 ### Features
 
-* GEOT-693: recently viewed and fav tags ([#921](https://github.com/gtms-org/gtms-frontend/issues/921)) ([b505c6b](https://github.com/gtms-org/gtms-frontend/commit/b505c6b7ef7d59f6031f198b923811dc8c45a762))
-
-
-
-
+- GEOT-693: recently viewed and fav tags ([#921](https://github.com/gtms-org/gtms-frontend/issues/921)) ([b505c6b](https://github.com/gtms-org/gtms-frontend/commit/b505c6b7ef7d59f6031f198b923811dc8c45a762))
 
 # [0.86.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.85.1...@gtms/app-andrew@0.86.0) (2020-12-04)
 
-
 ### Features
 
-* GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
-
-
-
-
+- GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
 
 ## [0.85.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.85.0...@gtms/app-andrew@0.85.1) (2020-10-13)
 
-
 ### Bug Fixes
 
-* GEOT-471: support username autocomplete in search input ([#881](https://github.com/gtms-org/gtms-frontend/issues/881)) ([ce936db](https://github.com/gtms-org/gtms-frontend/commit/ce936db7822e80712847553f1329a9a67f5afaa7))
-
-
-
-
+- GEOT-471: support username autocomplete in search input ([#881](https://github.com/gtms-org/gtms-frontend/issues/881)) ([ce936db](https://github.com/gtms-org/gtms-frontend/commit/ce936db7822e80712847553f1329a9a67f5afaa7))
 
 # [0.85.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.84.0...@gtms/app-andrew@0.85.0) (2020-10-10)
 

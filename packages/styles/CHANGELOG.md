@@ -5,92 +5,52 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.24.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.23.0...@gtms/styles@0.24.0) (2020-12-07)
 
-
 ### Features
 
-* GEOT-692: better styles for main page ([#922](https://github.com/gtms-org/gtms-frontend/issues/922)) ([dd72022](https://github.com/gtms-org/gtms-frontend/commit/dd72022d89852df40ee018b5293ecc2fc35191b6))
-
-
-
-
+- GEOT-692: better styles for main page ([#922](https://github.com/gtms-org/gtms-frontend/issues/922)) ([dd72022](https://github.com/gtms-org/gtms-frontend/commit/dd72022d89852df40ee018b5293ecc2fc35191b6))
 
 # [0.23.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.22.1...@gtms/styles@0.23.0) (2020-12-04)
 
-
 ### Features
 
-* GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
-
-
-
-
+- GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
 
 ## [0.22.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.22.0...@gtms/styles@0.22.1) (2020-10-13)
 
-
 ### Bug Fixes
 
-* GEOT-471: support username autocomplete in search input ([#881](https://github.com/gtms-org/gtms-frontend/issues/881)) ([ce936db](https://github.com/gtms-org/gtms-frontend/commit/ce936db7822e80712847553f1329a9a67f5afaa7))
-
-
-
-
+- GEOT-471: support username autocomplete in search input ([#881](https://github.com/gtms-org/gtms-frontend/issues/881)) ([ce936db](https://github.com/gtms-org/gtms-frontend/commit/ce936db7822e80712847553f1329a9a67f5afaa7))
 
 # [0.22.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.21.0...@gtms/styles@0.22.0) (2020-09-23)
 
-
 ### Features
 
-* GEOT-462: cleanup css for few sections ([#870](https://github.com/gtms-org/gtms-frontend/issues/870)) ([9219cde](https://github.com/gtms-org/gtms-frontend/commit/9219cde208aa4c5c57223003617d43e0e64bdc59))
-
-
-
-
+- GEOT-462: cleanup css for few sections ([#870](https://github.com/gtms-org/gtms-frontend/issues/870)) ([9219cde](https://github.com/gtms-org/gtms-frontend/commit/9219cde208aa4c5c57223003617d43e0e64bdc59))
 
 # [0.21.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.20.0...@gtms/styles@0.21.0) (2020-09-07)
 
-
 ### Features
 
-* GEOT-449: render modals in portal ([#848](https://github.com/gtms-org/gtms-frontend/issues/848)) ([e396d25](https://github.com/gtms-org/gtms-frontend/commit/e396d25f8d7289d7b655aaeb9b3d8f79a35ea0fb))
-
-
-
-
+- GEOT-449: render modals in portal ([#848](https://github.com/gtms-org/gtms-frontend/issues/848)) ([e396d25](https://github.com/gtms-org/gtms-frontend/commit/e396d25f8d7289d7b655aaeb9b3d8f79a35ea0fb))
 
 # [0.20.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.19.0...@gtms/styles@0.20.0) (2020-09-02)
 
-
 ### Features
 
-* GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
-
-
-
-
+- GEOT-433: different small css adjustments ([#832](https://github.com/gtms-org/gtms-frontend/issues/832)) ([e876794](https://github.com/gtms-org/gtms-frontend/commit/e876794958720b7ad0fb25e132d20464bb041eba))
 
 # [0.19.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.18.0...@gtms/styles@0.19.0) (2020-08-26)
 
-
 ### Features
 
-* GEOT-429: general changes part2 ([#828](https://github.com/gtms-org/gtms-frontend/issues/828)) ([4841cb0](https://github.com/gtms-org/gtms-frontend/commit/4841cb00ffe9cc1f9cc4f4c3ec7915b420af072a))
-
-
-
-
+- GEOT-429: general changes part2 ([#828](https://github.com/gtms-org/gtms-frontend/issues/828)) ([4841cb0](https://github.com/gtms-org/gtms-frontend/commit/4841cb00ffe9cc1f9cc4f4c3ec7915b420af072a))
 
 # [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.17.0...@gtms/styles@0.18.0) (2020-08-15)
 
-
 ### Features
 
-* GEOT-411: add cover ([#812](https://github.com/gtms-org/gtms-frontend/issues/812)) ([6238c2e](https://github.com/gtms-org/gtms-frontend/commit/6238c2e8ff735b24dc46fc4497cfde6c91de272b))
-* GEOT-423: choose group cover photo ([#821](https://github.com/gtms-org/gtms-frontend/issues/821)) ([9330c1c](https://github.com/gtms-org/gtms-frontend/commit/9330c1c79af9516ed908bc931fc3eaf42dda898e))
-
-
-
-
+- GEOT-411: add cover ([#812](https://github.com/gtms-org/gtms-frontend/issues/812)) ([6238c2e](https://github.com/gtms-org/gtms-frontend/commit/6238c2e8ff735b24dc46fc4497cfde6c91de272b))
+- GEOT-423: choose group cover photo ([#821](https://github.com/gtms-org/gtms-frontend/issues/821)) ([9330c1c](https://github.com/gtms-org/gtms-frontend/commit/9330c1c79af9516ed908bc931fc3eaf42dda898e))
 
 # [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.16.0...@gtms/styles@0.17.0) (2020-08-13)
 
