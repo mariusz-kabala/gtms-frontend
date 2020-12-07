@@ -13,10 +13,10 @@ import { IoIosArrowDropright, IoIosStarOutline } from 'react-icons/io'
 import styles from './styles.scss'
 
 export const UserPreview: FC<{
-  user: IUser
   noUserAvatar: { [key: string]: IImage }
   onUserPostsClick: (user: IUser) => unknown
-}> = ({ user, noUserAvatar, onUserPostsClick }) => {
+  user: IUser
+}> = ({ noUserAvatar, onUserPostsClick, user }) => {
   return (
     <div className={styles.wrapper} data-testid="user-preview">
       <UserAvatar
