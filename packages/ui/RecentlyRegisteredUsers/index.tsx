@@ -16,8 +16,6 @@ export const RecentlyRegisteredUsers: FC<{
   users: IUser[]
 }> = ({ additionalStyles, users }) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
-
-  // @todo to remove when fixed import in line 6
   const mock1 = {
     '35x35': {
       jpg: '//via.placeholder.com/35x35',
@@ -42,7 +40,6 @@ export const RecentlyRegisteredUsers: FC<{
         <Modal onClose={() => setUserPreview(undefined)}>
           <UserPreview
             user={userPreview}
-            // @help import doesnt work
             // noUserAvatar={UserAvatarNoImage}
             noUserAvatar={mock1}
             onUserPostsClick={() => null}
