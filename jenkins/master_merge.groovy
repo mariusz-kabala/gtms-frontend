@@ -3,7 +3,7 @@ def branch = '';
 pipeline {
     agent { 
         docker { 
-            image 'docker-registry.kabala.tech/node12-with-git:latest' 
+            image 'docker-registry.kabala.tech/node12-with-git:latest'
         }
     }
     environment {
