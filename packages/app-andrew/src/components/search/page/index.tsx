@@ -11,11 +11,12 @@ import { findPostsAPI } from '@gtms/api-post'
 import { fetchTaggedGroups } from '@gtms/api-group'
 import { fetchTaggedUsers, findbyUsernameAPI } from '@gtms/api-auth'
 // components
-import { PostResults } from 'components/search/PostResults'
 import { GroupResults } from 'components/search/GroupResults'
+import { PostResults } from 'components/search/PostResults'
 import { UserResults } from 'components/search/UserResults'
 // ui
-import { Picture } from '@gtms/ui/Picture'
+import { FaUsers } from 'react-icons/fa'
+import { IoIosListBox, IoIosKeypad } from 'react-icons/io'
 import { SearchBar, SuggestionTypes } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
@@ -251,11 +252,11 @@ export const SearchPage: FC<{
       return `${url}?posts=${page}&groups=${groupsPage}&users=${usersPage}`
     },
     [
+      state.groups.limit,
+      state.groups.offset,
       state.search,
       state.users.limit,
       state.users.offset,
-      state.groups.limit,
-      state.groups.offset,
     ]
   )
 
@@ -284,11 +285,11 @@ export const SearchPage: FC<{
       return `${url}?posts=${postsPage}&groups=${page}&users=${usersPage}`
     },
     [
+      state.posts.limit,
+      state.posts.offset,
       state.search,
       state.users.limit,
       state.users.offset,
-      state.posts.limit,
-      state.posts.offset,
     ]
   )
 
@@ -317,11 +318,11 @@ export const SearchPage: FC<{
       return `${url}?posts=${postsPage}&groups=${groupsPage}&users=${page}`
     },
     [
-      state.search,
       state.groups.limit,
       state.groups.offset,
       state.posts.limit,
       state.posts.offset,
+      state.search,
     ]
   )
 
@@ -438,81 +439,82 @@ export const SearchPage: FC<{
     <div className={styles.pageWrapper} data-testid="search-page">
       <div className={styles.wrapper}>
         {/* @todo add text header instead of text on the image below */}
-        <div className={styles.coverImage}>
-          <Picture
-            additionalStyles={styles.coverImage}
-            jpg={'/images/white-theme/search-cover-image.png'}
-          />
-          <h2 className={styles.header}>
-            {t('searchHeader1')}
-            <span>{t('searchHeader2')}</span>
-          </h2>
-        </div>
+        <h2 className={styles.header}>
+          {t('searchHeader1')}
+          <span>{t('searchHeader2')}</span>
+        </h2>
         <SearchBar
+          isLoading={state.suggestions.isLoading}
+          onLoadSuggestion={onFindTags}
+          onLoadSuggestionCancel={onLoadSuggestionCancel}
+          onQueryChange={() => null}
           onTagAdd={onTagAdd}
           onTagRemove={onTagRemove}
           suggestions={state.suggestions.records}
-          isLoading={state.suggestions.isLoading}
-          onLoadSuggestion={onFindTags}
-          onQueryChange={() => null}
-          onLoadSuggestionCancel={onLoadSuggestionCancel}
           tags={state.search.tags}
         />
         {state.search.tags.length > 0 && (
           <>
-            <div className={styles.tabs}>
-              <ul>
-                <li
-                  className={cx({
-                    [styles.active]: tab === Tabs.posts,
-                  })}
-                >
-                  <a onClick={() => setTab(Tabs.posts)}>
-                    Posts <span>({state.posts.total})</span>
-                  </a>
-                </li>
-                <li
-                  className={cx({
-                    [styles.active]: tab === Tabs.groups,
-                  })}
-                >
-                  <a onClick={() => setTab(Tabs.groups)}>
-                    Groups <span>({state.groups.total})</span>
-                  </a>
-                </li>
-                <li
-                  className={cx({
-                    [styles.active]: tab === Tabs.users,
-                  })}
-                >
-                  <a onClick={() => setTab(Tabs.users)}>
-                    Users <span>({state.users.total})</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <ul className={styles.tabs}>
+              <li
+                className={cx({
+                  [styles.active]: tab === Tabs.posts,
+                })}
+              >
+                <a onClick={() => setTab(Tabs.posts)}>
+                  <i>
+                    <IoIosListBox />
+                  </i>
+                  Posts<span>({state.posts.total})</span>
+                </a>
+              </li>
+              <li
+                className={cx({
+                  [styles.active]: tab === Tabs.groups,
+                })}
+              >
+                <a onClick={() => setTab(Tabs.groups)}>
+                  <i>
+                    <IoIosKeypad />
+                  </i>
+                  Groups<span>({state.groups.total})</span>
+                </a>
+              </li>
+              <li
+                className={cx({
+                  [styles.active]: tab === Tabs.users,
+                })}
+              >
+                <a onClick={() => setTab(Tabs.users)}>
+                  <i>
+                    <FaUsers />
+                  </i>
+                  Users<span>({state.users.total})</span>
+                </a>
+              </li>
+            </ul>
             {tab === Tabs.posts && (
               <PostResults
                 {...state.posts}
-                tags={state.search.tags}
                 getCurrentUrl={generatePaginationPostsUrl}
                 onChangePage={changePostsPage}
+                tags={state.search.tags}
               />
             )}
             {tab === Tabs.groups && (
               <GroupResults
                 {...state.groups}
-                tags={state.search.tags}
                 getCurrentUrl={generatePaginationGroupsUrls}
                 onChangePage={changeGroupsPage}
+                tags={state.search.tags}
               />
             )}
             {tab === Tabs.users && (
               <UserResults
                 {...state.users}
-                tags={state.search.tags}
                 getCurrentUrl={generatePaginationUsersUrls}
                 onChangePage={changeUsersPage}
+                tags={state.search.tags}
               />
             )}
           </>

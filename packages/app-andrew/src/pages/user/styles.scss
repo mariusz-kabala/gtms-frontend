@@ -2,7 +2,7 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper('bgdefault');
+  @include pageWrapper();
 
   .wrapper {
     padding: 15px;

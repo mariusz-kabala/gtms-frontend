@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
-import { useTranslation } from '@gtms/commons/i18n'
 import {
   groupQuery,
   IGroupState,
@@ -61,7 +60,6 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
 }) => {
   useInitState(markAsLoading)
 
-  const { t } = useTranslation('groupSettingsPage')
   const [group, setGroup] = useState<IGroupState>(groupQuery.getValue())
   const [tab, setTab] = useState<Tabs>(Tabs.general)
   const [state, setState] = useState<IGroupSettingsPageState>(
@@ -127,23 +125,21 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
           </ErrorWrapper>
         )}
         {!group.isLoading && !group.errorOccured && (
-          <div className={styles.content}>
+          <div className={styles.columns}>
             <GroupSettingsSidebar tab={tab} setTab={setTab} />
-            <div className={styles.rightColumn}>
-              <div className={styles.navigationWrapper}>
-                <h2 className={styles.header}>{t('header')}</h2>
-              </div>
-
+            <div className={styles.content}>
               {tab === Tabs.general && (
                 <>
                   {group.group && (
                     <GroupBackgroundSettings group={group.group} />
                   )}
                   {group.group && <BasicSettings group={group.group} />}
-                  <GroupDeleteGroup
-                    additionalStyles={styles.btnDelete}
-                    onConfirm={() => null}
-                  />
+                  <div className={styles.btnDeleteWrapper}>
+                    <GroupDeleteGroup
+                      additionalStyles={styles.btnDelete}
+                      onConfirm={() => null}
+                    />
+                  </div>
                 </>
               )}
 

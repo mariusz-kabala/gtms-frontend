@@ -1,24 +1,29 @@
 import React, { FC } from 'react'
-import { Picture } from '../Picture'
-import styles from './styles.scss'
-import cn from 'classnames'
+import cx from 'classnames'
+// ui
 import { IoMdRefreshCircle } from 'react-icons/io'
+import { Picture } from '../Picture'
+import { Spinner } from '../Spinner'
+// styles
+import styles from './styles.scss'
 
 export const UploadedPicture: FC<{
-  jpg?: string
-  webp?: string
-  onReload?: () => unknown
   additionalStyles?: string
-}> = ({ jpg, webp, additionalStyles, onReload }) => (
-  <div className={cn(styles.container, additionalStyles)}>
-    <p>
-      <span>Processing</span>
+  jpg?: string
+  onReload?: () => unknown
+  webp?: string
+}> = ({ additionalStyles, jpg, onReload, webp }) => (
+  <div className={cx(styles.wrapper, additionalStyles)}>
+    <div className={styles.spinnerAndReload}>
+      <Spinner size="sm" />
       {onReload && (
-        <i onClick={onReload} title="Click to reload">
-          <IoMdRefreshCircle />
-        </i>
+        <a onClick={onReload} title="Click to reload">
+          <i>
+            <IoMdRefreshCircle />
+          </i>
+        </a>
       )}
-    </p>
+    </div>
     <Picture jpg={jpg} webp={webp} />
   </div>
 )

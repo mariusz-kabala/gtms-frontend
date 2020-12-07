@@ -14,14 +14,8 @@ export enum Tabs {
 }
 
 export const Navigation: FC<{ current: Tabs }> = ({ current }) => {
-  const titleMapper = Object.freeze({
-    [Tabs.profile]: 'My profile',
-    [Tabs.security]: 'Security',
-    [Tabs.notifications]: 'Notifications',
-  })
   return (
     <div className={styles.navigation}>
-      <h2 className={styles.header}>{titleMapper[current]}</h2>
       <ul className={styles.items}>
         <li
           className={cx(styles.item, {
@@ -33,7 +27,7 @@ export const Navigation: FC<{ current: Tabs }> = ({ current }) => {
               <i>
                 <FaIdCard />
               </i>
-              My profile card
+              User card
             </a>
           </Link>
         </li>

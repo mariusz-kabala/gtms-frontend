@@ -8,6 +8,7 @@ import { userQuery } from '@gtms/state-user'
 import { Picture } from '@gtms/ui/Picture'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
+// styles
 import styles from './styles.scss'
 
 export const Profile: FC<{

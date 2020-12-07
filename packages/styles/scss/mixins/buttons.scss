@@ -100,24 +100,14 @@
 }
 
 @mixin buttonColorsSecondary() {
-  background: $theme9;
-  color: $theme1;
-}
-
-@mixin buttonColorsTertiary() {
-  background: $theme1;
-  color: $theme0;
-}
-
-@mixin buttonColorsQuaternary() {
   background: $theme0;
-  color: $theme9;
-}
-
-@mixin buttonColorBlue() {
-  color: $theme4;
+  color: $theme1;
 }
 
 @mixin buttonColorRed() {
   background: $theme6;
+}
+
+@mixin buttonColorBlueText() {
+  color: $theme4;
 }

@@ -67,3 +67,8 @@ a {
     color: $theme0;
   }
 }
+
+p {
+  // fix unnatural width of strings without space
+  word-wrap: break-word;
+}

@@ -5,6 +5,7 @@ import { getUserDetails, initialize } from '@gtms/state-user'
 import { Profile } from 'components/user/Profile'
 import { Groups } from 'components/user/Groups'
 import { FollowButton } from 'components/user/FollowButton'
+// styles
 import styles from './styles.scss'
 
 type UserPageProps = {

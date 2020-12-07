@@ -7,6 +7,7 @@ import { GroupAvatarNoImage, UserAvatarNoImage } from 'enums'
 // ui
 import { GroupCard } from '@gtms/ui/GroupCard'
 import { GridCard } from '@gtms/ui/GridCard'
+import { Modal } from '@gtms/ui/Modal'
 import { CreateYourOwnGroup } from '@gtms/ui/CreateYourOwnGroup'
 // styles
 import styles from './styles.scss'
@@ -17,13 +18,13 @@ export const RecentlyCreatedGroups: FC<{
   createYourOwnGroup?: boolean
 }> = ({ additionalStyles, groups, createYourOwnGroup = false }) => {
   const [groupCard, setGroupCard] = useState<{
-    isOpen: boolean
-    isLoading: boolean
     current?: IGroup
+    isLoading: boolean
+    isOpen: boolean
     users: IUser[]
   }>({
-    isOpen: false,
     isLoading: false,
+    isOpen: false,
     users: [],
   })
 
@@ -39,74 +40,73 @@ export const RecentlyCreatedGroups: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="recently-created-groups"
     >
-      <div
-        className={cx(styles.groupPreviewWrapper, {
-          [styles.active]: groupCard.isOpen,
-        })}
-      >
-        {groupCard.current && (
-          <>
-            <style global jsx>{`
-              body {
-                padding-bottom: 150px;
-              }
-            `}</style>
-            <GroupCard
-              isLoading={groupCard.isLoading}
-              onClose={() =>
-                setGroupCard({
-                  isLoading: false,
-                  isOpen: false,
-                  users: [],
-                  current: undefined,
-                })
-              }
-              members={groupCard.users}
-              name={groupCard.current.name}
-              description={groupCard.current.description}
-              tags={groupCard.current.tags || []}
-              slug={groupCard.current.slug}
-              noUserAvatar={UserAvatarNoImage}
-              logo={getImage(
-                '200x200',
-                groupCard.current.avatar,
-                GroupAvatarNoImage
-              )}
-            />
-          </>
-        )}
-      </div>
-      {groupsToRender.map((group) => {
-        if (group === null) {
-          return <CreateYourOwnGroup />
-        }
-
-        return (
-          <GridCard
-            onClick={async () => {
-              setGroupCard({
-                isLoading: true,
-                isOpen: true,
-                users: [],
-                current: group,
-              })
-
-              const { docs } = await fetchGroupMembers(group.slug, 0, 6)
-
-              setGroupCard({
-                isLoading: false,
-                isOpen: true,
-                users: docs,
-                current: group,
-              })
-            }}
-            key={`recent-group-${group.id}`}
-            name={group.name}
-            desc={group.description}
-            image={getImage('200x200', group.avatar, GroupAvatarNoImage)}
+      {groupCard.current && groupCard.isOpen && (
+        <Modal
+          onClose={() =>
+            setGroupCard({
+              isLoading: false,
+              isOpen: false,
+              users: [],
+              current: undefined,
+            })
+          }
+        >
+          <GroupCard
+            description={groupCard.current.description}
+            isLoading={groupCard.isLoading}
+            logo={getImage(
+              '200x200',
+              groupCard.current.avatar,
+              GroupAvatarNoImage
+            )}
+            members={groupCard.users}
+            name={groupCard.current.name}
+            noUserAvatar={UserAvatarNoImage}
+            slug={groupCard.current.slug}
+            tags={groupCard.current.tags || []}
           />
-        )
-      })}
+        </Modal>
+      )}
+      {groupsToRender && groupsToRender.length > 0 && (
+        <ul className={styles.items}>
+          {groupsToRender.map((group) => {
+            if (group === null) {
+              return (
+                <li key="createYourOwnGroupButton">
+                  <CreateYourOwnGroup />
+                </li>
+              )
+            }
+
+            return (
+              <li key={`recent-group-${group.id}`}>
+                <GridCard
+                  onClick={async () => {
+                    setGroupCard({
+                      isLoading: true,
+                      isOpen: true,
+                      users: [],
+                      current: group,
+                    })
+
+                    const { docs } = await fetchGroupMembers(group.slug, 0, 6)
+
+                    setGroupCard({
+                      isLoading: false,
+                      isOpen: true,
+                      users: docs,
+                      current: group,
+                    })
+                  }}
+                  name={group.name}
+                  desc={group.description}
+                  image={getImage('200x200', group.avatar, GroupAvatarNoImage)}
+                />
+              </li>
+            )
+          })}
+        </ul>
+      )}
     </div>
   )
 }

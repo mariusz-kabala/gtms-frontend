@@ -1,4 +1,4 @@
-@import '@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 
 .wrapper {
@@ -15,7 +15,7 @@
     &:hover,
     &:focus,
     &:active {
-      @include buttonColorBlue();
+      @include buttonColorBlueText();
     }
   }
 

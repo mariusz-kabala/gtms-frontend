@@ -1,4 +1,4 @@
-@import '@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
@@ -9,7 +9,6 @@
 .searchBar {
   position: relative;
   display: flex;
-  flex-direction: row;
   width: 100%;
   box-shadow: $boxShadowDefault;
 

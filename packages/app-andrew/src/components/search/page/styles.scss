@@ -8,72 +8,31 @@
   @include pageWrapper();
 }
 
-.tabs {
-  margin-bottom: 20px;
-  ul {
-    border-bottom: 1px solid $theme9;
-    li {
-      position: relative;
-      bottom: -1px;
-      padding: 5px 35px;
-      display: inline-block;
-      margin: 0 5px;
-      border: 1px solid $theme9;
-      border-bottom: 1px solid $theme0;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      a {
-        @include font-size(md);
-        cursor: pointer;
-        text-transform: uppercase;
-        color: $theme9;
-
-        span {
-          @include font-size(default);
-        }
-      }
-
-      &.active {
-        background-color: $theme9;
-
-        a {
-          color: $theme0;
-          @include font-weight(semiBold);
-        }
-      }
-    }
-  }
-}
-
 .wrapper {
   width: 100%;
   padding: 20px;
 
-  .coverImage {
-    max-width: 500px;
+  .header {
+    @include font-size(lg);
+    margin-bottom: 10px;
+    color: $theme0;
 
-    .header {
-      @include font-size(xlg);
-      color: $theme9;
-      text-align: center;
-
-      span {
-        @include font-weight(semiBold);
-      }
+    span {
+      @include font-weight(semiBold);
     }
   }
 
   .searchBarWrapper {
     display: flex;
-    margin: 20px 0;
     padding: 10px;
+    margin: 20px 0;
     border-radius: $borderRadius;
 
     .btnTags {
       @include buttonDefault();
       @include buttonSizeDefault();
       @include buttonShapeDefault();
-      @include buttonColorsSecondary();
+      @include buttonColorsDefault();
       position: relative;
       margin-right: 15px;
 
@@ -96,6 +55,43 @@
       &::before {
         right: -7px;
         background: $theme0;
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin: 20px 0;
+
+    li {
+      padding: 5px 10px;
+      border-radius: $borderRadius;
+      background: $theme9;
+
+      a {
+        display: flex;
+        align-items: center;
+
+        i {
+          line-height: 0;
+          margin-right: 5px;
+        }
+
+        span {
+          margin-left: 5px;
+          @include font-size(default);
+        }
+      }
+
+      &.active {
+        background: $theme4;
+
+        a {
+          color: $theme0;
+        }
       }
     }
   }

@@ -1,4 +1,4 @@
-@import '@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 
@@ -11,10 +11,9 @@
   overflow: hidden;
 
   .inputWrapper {
-    display: flex;
     position: relative;
+    display: flex;
     justify-content: space-between;
-    flex-direction: row;
 
     input[type='text'] {
       flex: 1;
