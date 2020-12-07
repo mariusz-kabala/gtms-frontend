@@ -12,7 +12,6 @@ export const CookiePolicy: FC = () => {
   const isCookieAccepted = getItem('isCookieAccepted')
   const [isActive, setIsActive] = useState(false)
   const [isHiddenCompletely, setIsHiddenCompletely] = useState(false)
-  const onCloseAndAccept = () => setItem('isCookieAccepted', 'true')
 
   useKey(() => setIsActive(false), {
     detectKeys: [27],
@@ -60,12 +59,11 @@ export const CookiePolicy: FC = () => {
             </p>
           </div>
           <Button
+            data-testid="action-button"
             additionalStyles={styles.btn}
             onClick={() => {
               setIsHiddenCompletely(true)
-              setTimeout(() => {
-                onCloseAndAccept()
-              }, 1000)
+              setItem('isCookieAccepted', 'true')
             }}
           >
             Accept
