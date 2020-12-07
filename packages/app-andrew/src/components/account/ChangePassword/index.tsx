@@ -17,10 +17,7 @@ export const ChangePassword: FC<{
       onClick={() => (!isEditModeActive ? setIsEditModeActive(true) : null)}
     >
       {isEditModeActive && (
-        <Modal
-          additionalStyles={styles.modal}
-          onClose={() => setIsEditModeActive(false)}
-        >
+        <Modal onClose={() => setIsEditModeActive(false)}>
           <ChangePasswordForm onSuccess={() => setIsEditModeActive(false)} />
         </Modal>
       )}

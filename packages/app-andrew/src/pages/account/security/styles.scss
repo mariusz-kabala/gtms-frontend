@@ -15,22 +15,5 @@
   }
 
   .deleteAccount {
-    position: relative;
-    margin-top: 50px;
-
-    .btn {
-      position: absolute;
-      top: 110px;
-      left: 90px;
-
-      .header {
-        @include font-size(lg);
-        @include font-weight(semiBold);
-      }
-    }
-
-    .ohnoimage {
-      width: 100%;
-    }
   }
 }

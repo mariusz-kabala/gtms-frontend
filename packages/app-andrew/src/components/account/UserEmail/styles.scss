@@ -1,10 +1,5 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .wrapper {
   width: 100%;
-}
-
-.modal {
-  @include modalContent();
 }

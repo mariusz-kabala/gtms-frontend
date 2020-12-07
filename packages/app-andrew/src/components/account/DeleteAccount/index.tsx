@@ -3,7 +3,9 @@ import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 // ui
 import { IoIosCloseCircle, IoIosCheckbox } from 'react-icons/io'
+import { AiOutlineDelete } from 'react-icons/ai'
 import { Button } from '@gtms/ui/Button'
+import { Picture } from '@gtms/ui/Picture'
 import { Modal } from '@gtms/ui/Modal'
 import styles from './styles.scss'
 
@@ -18,16 +20,16 @@ export const DeleteAccount: FC<{
     <div data-testid="delete-account">
       {isModalOpen && (
         <Modal
-          additionalStyles={styles.modalContent}
+          additionalStyles={styles.modal}
           onClose={() => setIsModalOpen(false)}
         >
-          <h2 className={styles.header}>{t('header')}</h2>
-          <p className={styles.desc}>
-            Eteu in occaecat occaecat consectetur et laboris aliquip.
-          </p>
+          <Picture
+            additionalStyles={styles.ohnoimage}
+            jpg={'/images/white-theme/ohno.png'}
+          />
           <div className={styles.buttons}>
             <Button
-              additionalStyles={styles.no}
+              additionalStyles={styles.btn}
               testid="delete-account-cancel"
               onClick={() => setIsModalOpen(false)}
             >
@@ -37,8 +39,8 @@ export const DeleteAccount: FC<{
               {t('noBtn')}
             </Button>
             <Button
+              additionalStyles={styles.btn}
               testid="delete-account-confirm"
-              additionalStyles={styles.yes}
               onClick={() => {
                 onConfirm()
                 setIsModalOpen(false)
@@ -52,7 +54,6 @@ export const DeleteAccount: FC<{
           </div>
         </Modal>
       )}
-
       <Button
         additionalStyles={cx(styles.btnDeleteAccount, additionalStyles)}
         onClick={() => {
@@ -60,6 +61,9 @@ export const DeleteAccount: FC<{
         }}
         testid="delete-account-button"
       >
+        <i>
+          <AiOutlineDelete />
+        </i>
         {t('deleteAccountBtn')}
       </Button>
     </div>

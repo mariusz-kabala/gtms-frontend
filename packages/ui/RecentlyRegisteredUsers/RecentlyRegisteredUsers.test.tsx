@@ -10,6 +10,6 @@ describe('<RecentlyRegisteredUsers />', () => {
     )
 
     expect(getByTestId('recently-registered-users')).toBeInTheDocument()
-    expect(container.querySelector(`.${styles.wrapper}`)).toBeInTheDocument()
+    expect(container.querySelector(`.${styles.users}`)).toBeInTheDocument()
   })
 })

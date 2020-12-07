@@ -9,11 +9,14 @@ export const UserAvatar: FC<{
   alt?: string
   image: IImage
   onClick?: () => unknown
-}> = ({ additionalStyles, alt, image, onClick }) => (
+  size?: string
+}> = ({ additionalStyles, alt, image, onClick, size }) => (
   <div
+    className={cx(styles.wrapper, additionalStyles, {
+      [styles.md]: size === 'md',
+    })}
     data-testid="user-avatar"
     onClick={onClick}
-    className={cx(styles.wrapper, additionalStyles)}
   >
     <Picture alt={alt} {...image} />
   </div>
