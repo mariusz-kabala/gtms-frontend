@@ -8,11 +8,7 @@ import { Button } from '../Button'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
-import {
-  IoIosArrowDropright,
-  IoIosArrowDown,
-  IoIosStarOutline,
-} from 'react-icons/io'
+import { IoIosArrowDropright, IoIosStarOutline } from 'react-icons/io'
 // styles
 import styles from './styles.scss'
 
@@ -20,8 +16,7 @@ export const UserPreview: FC<{
   user: IUser
   noUserAvatar: { [key: string]: IImage }
   onUserPostsClick: (user: IUser) => unknown
-  onClose: () => unknown
-}> = ({ user, noUserAvatar, onClose, onUserPostsClick }) => {
+}> = ({ user, noUserAvatar, onUserPostsClick }) => {
   return (
     <div className={styles.wrapper} data-testid="user-preview">
       <UserAvatar
@@ -68,13 +63,6 @@ export const UserPreview: FC<{
             <IoIosStarOutline />
           </i>
           Add to favs
-        </Button>
-
-        <Button onClick={onClose} additionalStyles={styles.btn}>
-          <i>
-            <IoIosArrowDown />
-          </i>
-          close it
         </Button>
       </div>
     </div>
