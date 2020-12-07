@@ -7,7 +7,7 @@ const [state, setState] = React.useState('')
   <div style={{ cursor: 'pointer' }} onClick={() => setState(true)}>open GroupCard</div>
   {
     state &&
-    <GroupCard image="https://placekitten.com/408/287" onClose={() => setState(false)} />
+    <GroupCard image="https://placekitten.com/408/287" />
   }
 </>
 ```

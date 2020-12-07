@@ -33,6 +33,10 @@
       min-height: 35px;
       margin-right: 5px;
       border-radius: 50%;
+
+      &:hover {
+        @include effectOne('circle');
+      }
     }
 
     .actionButtons {
@@ -81,6 +85,25 @@
         white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
       }
     }
+
+    .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      grid-gap: 10px;
+      margin: 15px 0;
+
+      .item a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: $borderRadius;
+
+        &:hover {
+          @include effectOne();
+        }
+      }
+    }
   }
 
   &:hover {
@@ -116,25 +139,6 @@
 
     &:hover {
       @include buttonColorsPrimary();
-    }
-  }
-}
-
-.images {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  grid-gap: 10px;
-  margin: 15px 0;
-
-  .item a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: $borderRadius;
-
-    &:hover {
-      @include effectOne();
     }
   }
 }

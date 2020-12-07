@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.25.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.24.0...@gtms/styles@0.25.0) (2020-12-07)
 
-
 ### Features
 
-* GEOT-694: style search page ([#923](https://github.com/gtms-org/gtms-frontend/issues/923)) ([989d520](https://github.com/gtms-org/gtms-frontend/commit/989d52025025d2666ca17edb7f16a15a9452cd3b))
-
-
-
-
+- GEOT-694: style search page ([#923](https://github.com/gtms-org/gtms-frontend/issues/923)) ([989d520](https://github.com/gtms-org/gtms-frontend/commit/989d52025025d2666ca17edb7f16a15a9452cd3b))
 
 # [0.24.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.23.0...@gtms/styles@0.24.0) (2020-12-07)
 

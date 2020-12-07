@@ -13,8 +13,9 @@
   padding: 20px;
 
   .header {
-    @include font-size(md);
-    margin-bottom: 15px;
+    @include font-size(lg);
+    margin-bottom: 10px;
+    color: $theme0;
 
     span {
       @include font-weight(semiBold);

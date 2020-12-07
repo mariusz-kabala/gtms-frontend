@@ -42,7 +42,6 @@ export const RecentlyCreatedGroups: FC<{
     >
       {groupCard.current && groupCard.isOpen && (
         <Modal
-          additionalStyles={styles.modal}
           onClose={() =>
             setGroupCard({
               isLoading: false,

@@ -1,5 +1,4 @@
 import React, { FC, useCallback, useState } from 'react'
-import cx from 'classnames'
 import { IPost, IUser, IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { addErrorNotification } from '@gtms/state-notification'
@@ -12,10 +11,9 @@ import { PostAdmin } from 'components/post/Admin'
 import { Favs } from 'components/post/Favs'
 // ui
 import { AbuseReportForm, VIEW } from '@gtms/ui/AbuseReportForm'
-import { UserPreview } from '@gtms/ui/UserPreview'
 import { GroupCard } from '@gtms/ui/GroupCard'
-// styles
-import styles from './styles.scss'
+import { Modal } from '@gtms/ui/Modal'
+import { UserPreview } from '@gtms/ui/UserPreview'
 
 const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
 
@@ -180,57 +178,32 @@ export const PostsList: FC<{
         onClose={onCloseReportAbuse}
       />
       {userPreview && (
-        <>
-          <style global jsx>{`
-            body {
-              padding-bottom: 150px;
-            }
-          `}</style>
-          <div
-            className={cx(styles.userPreviewWrapper, {
-              [styles.active]: userPreview,
-            })}
-          >
-            <UserPreview
-              user={userPreview}
-              noUserAvatar={UserAvatarNoImage}
-              onUserPostsClick={onUserPostsClick}
-              onClose={onCloseUserPreview}
-            />
-          </div>
-        </>
+        <Modal onClose={onCloseUserPreview}>
+          <UserPreview
+            user={userPreview}
+            noUserAvatar={UserAvatarNoImage}
+            onUserPostsClick={onUserPostsClick}
+            onClose={onCloseUserPreview}
+          />
+        </Modal>
       )}
-      {showGroupPreview && (
-        <div
-          className={cx(styles.groupPreviewWrapper, {
-            [styles.active]: groupPreview.isOpen,
-          })}
-        >
-          {groupPreview.current && (
-            <>
-              <style global jsx>{`
-                body {
-                  padding-bottom: 150px;
-                }
-              `}</style>
-              <GroupCard
-                isLoading={groupPreview.isLoading}
-                onClose={onCloseGroupPreview}
-                members={groupPreview.users}
-                name={groupPreview.current.name}
-                description={groupPreview.current.description}
-                tags={groupPreview.current.tags || []}
-                slug={groupPreview.current.slug}
-                noUserAvatar={UserAvatarNoImage}
-                logo={getImage(
-                  '200x200',
-                  groupPreview.current.avatar,
-                  GroupAvatarNoImage
-                )}
-              />
-            </>
-          )}
-        </div>
+      {showGroupPreview && groupPreview.current && (
+        <Modal onClose={onCloseGroupPreview}>
+          <GroupCard
+            description={groupPreview.current.description}
+            isLoading={groupPreview.isLoading}
+            logo={getImage(
+              '200x200',
+              groupPreview.current.avatar,
+              GroupAvatarNoImage
+            )}
+            members={groupPreview.users}
+            name={groupPreview.current.name}
+            noUserAvatar={UserAvatarNoImage}
+            slug={groupPreview.current.slug}
+            tags={groupPreview.current.tags || []}
+          />
+        </Modal>
       )}
     </div>
   )

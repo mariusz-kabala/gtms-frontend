@@ -15,8 +15,8 @@ import { GroupResults } from 'components/search/GroupResults'
 import { PostResults } from 'components/search/PostResults'
 import { UserResults } from 'components/search/UserResults'
 // ui
-import { IoIosKeypad, IoIosListBox } from 'react-icons/io'
 import { FaUsers } from 'react-icons/fa'
+import { IoIosListBox, IoIosKeypad } from 'react-icons/io'
 import { SearchBar, SuggestionTypes } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
@@ -438,6 +438,7 @@ export const SearchPage: FC<{
   return (
     <div className={styles.pageWrapper} data-testid="search-page">
       <div className={styles.wrapper}>
+        {/* @todo add text header instead of text on the image below */}
         <h2 className={styles.header}>
           {t('searchHeader1')}
           <span>{t('searchHeader2')}</span>
