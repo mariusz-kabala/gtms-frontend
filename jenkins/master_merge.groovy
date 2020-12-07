@@ -62,6 +62,7 @@ pipeline {
                 always {
                     configFileProvider([configFile(fileId: 'scaleway-s3-config', targetLocation: 'aws-config')]) {
                         sh "echo $HOME"
+                        sh "pwd"
                         sh "ls -la ~/"
                         sh "mkdir -p ~/.aws"
                         sh "mv aws-config ~/.aws/config"
