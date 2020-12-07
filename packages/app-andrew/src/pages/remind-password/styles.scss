@@ -13,16 +13,14 @@
   justify-content: center;
   height: 100vh;
   width: 100%;
+  padding: 0 20px;
 
   > div {
-    width: 60%;
-    padding: 0 40px;
-
     .header {
       // @todo make mixin of that
       font-size: 3em;
       text-transform: uppercase;
-      @include font-weight(bold);
+      @include font-weight(semiBold);
     }
 
     .form {

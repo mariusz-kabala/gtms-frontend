@@ -3,7 +3,7 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .wrapper {
-  @include pageWrapper('bgdefault');
+  @include pageWrapper();
   display: flex;
   flex-direction: column;
   justify-content: center;

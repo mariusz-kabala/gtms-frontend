@@ -12,7 +12,7 @@
   &:hover,
   &:focus,
   &:active {
-    @include buttonColorBlue();
+    @include buttonColorBlueText();
   }
 
   > div > div {

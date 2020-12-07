@@ -1,4 +1,5 @@
 import React, { FC, useCallback } from 'react'
+import cx from 'classnames'
 import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
@@ -8,9 +9,10 @@ import { Picture } from '../../Picture'
 import styles from './styles.scss'
 
 export const GroupDetails: FC<{
-  onGroupClick?: (group: IGroup) => unknown
+  additionalStyles?: string
   group: IGroup
-}> = ({ onGroupClick, group }) => {
+  onGroupClick?: (group: IGroup) => unknown
+}> = ({ additionalStyles, group, onGroupClick }) => {
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
       if (!onGroupClick) {
@@ -26,7 +28,10 @@ export const GroupDetails: FC<{
   )
 
   return (
-    <div data-testid="group-details" className={styles.wrapper}>
+    <div
+      data-testid="group-details"
+      className={cx(styles.wrapper, additionalStyles)}
+    >
       <div className={styles.image}>
         <Link href={`/group/${group.slug}`}>
           <a onClick={onClick}>
@@ -35,23 +40,19 @@ export const GroupDetails: FC<{
         </Link>
       </div>
       <div className={styles.details}>
-        <div className={styles.name}>
-          <Link href={`/group/${group.slug}`}>
-            <a onClick={onClick}>
-              <span>{group.name}</span>
-            </a>
-          </Link>
-          <div className={styles.stats}>
-            <ul>
-              <li>
-                Posts: <span>{group.postsCounter}</span>
-              </li>
-              <li>
-                Members: <span>{group.membersCounter}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <Link href={`/group/${group.slug}`}>
+          <a onClick={onClick}>
+            <span>{group.name}</span>
+          </a>
+        </Link>
+        <ul className={styles.stats}>
+          <li>
+            Posts: <span>{group.postsCounter}</span>
+          </li>
+          <li>
+            Members: <span>{group.membersCounter}</span>
+          </li>
+        </ul>
       </div>
     </div>
   )
