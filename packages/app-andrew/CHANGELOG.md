@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.90.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.0...@gtms/app-andrew@0.90.1) (2020-12-07)
+
+
+### Bug Fixes
+
+* GEOT-696: remove group members page ([#924](https://github.com/gtms-org/gtms-frontend/issues/924)) ([f503a8f](https://github.com/gtms-org/gtms-frontend/commit/f503a8f50a7552d81d0ed3c4b8735f8953f9a7e3))
+
+
+
+
+
 # [0.90.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.89.0...@gtms/app-andrew@0.90.0) (2020-12-07)
 
 
