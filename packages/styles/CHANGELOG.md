@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.23.0...@gtms/styles@0.24.0) (2020-12-07)
+
+
+### Features
+
+* GEOT-692: better styles for main page ([#922](https://github.com/gtms-org/gtms-frontend/issues/922)) ([dd72022](https://github.com/gtms-org/gtms-frontend/commit/dd72022d89852df40ee018b5293ecc2fc35191b6))
+
+
+
+
+
 # [0.23.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.22.1...@gtms/styles@0.23.0) (2020-12-04)
 
 
