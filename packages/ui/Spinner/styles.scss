@@ -73,18 +73,6 @@
     }
   }
 
-  &.withoutIcon {
-    background: none;
-
-    > div {
-      border-width: 5px;
-    }
-
-    i {
-      display: none;
-    }
-  }
-
   &.centered {
     margin: auto;
   }

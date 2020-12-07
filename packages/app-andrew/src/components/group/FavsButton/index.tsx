@@ -64,8 +64,8 @@ export const FavsButton: FC<{
     >
       {status.isLoading && userQuery.isLogged() && (
         <>
-          <Spinner size="xsm" type="withoutIcon" />
-          {t('favs')}
+          <Spinner size="xsm" />
+          <span>{t('favs')}</span>
         </>
       )}
       {((!status.isLoading && !status.isInFavs) || !userQuery.isLogged()) && (

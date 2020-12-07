@@ -8,8 +8,14 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin: auto;
+  margin: 10px auto;
   border-radius: $borderRadius;
+  border: 4px solid $theme9;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $theme4;
+  }
 
   .content {
     display: flex;

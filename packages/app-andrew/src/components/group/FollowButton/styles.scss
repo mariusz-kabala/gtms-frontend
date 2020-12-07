@@ -7,7 +7,7 @@
   @include buttonSizeSm();
   @include buttonShapeDefault();
   @include buttonWithIcon('withoutText');
-  @include buttonWithSpinner();
+  @include buttonWithSpinnerAndLabel();
   @include buttonColorsDefault();
   @include font-size(md);
   width: 100%;

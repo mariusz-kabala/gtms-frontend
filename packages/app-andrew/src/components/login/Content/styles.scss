@@ -92,7 +92,7 @@
           @include buttonSizeDefault();
           @include buttonShapeDefault();
           @include buttonWithIcon();
-          @include buttonWithSpinner();
+          @include buttonWithSpinnerAndLabel();
           @include buttonColorsDefault();
 
           &:hover {

@@ -19,23 +19,26 @@
   background: none;
 
   .ohnoimage {
-    padding: 20px;
+    width: 100%;
     padding-bottom: 0;
-    border-radius: $borderRadius;
-    background: $theme1;
 
     img {
-      max-width: 300px;
+      max-width: 400px;
+      padding: 20px;
+      padding-bottom: 0px;
+      border-radius: $borderRadius;
+      background: $theme1;
     }
   }
 
   .buttons {
+    margin-top: 20px;
     @include gridTwoButtons();
     width: 100%;
-    margin-top: 20px;
 
     .btn {
       width: 100%;
+      @include buttonWithIcon();
     }
   }
 }
