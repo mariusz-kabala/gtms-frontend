@@ -1,14 +1,8 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
-@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .modalContent {
-  @include modalContent();
-  > div {
-    min-width: auto; // to overwrite include modal()
-  }
-
   button[type='submit'] {
     margin-bottom: 20px;
   }

@@ -4,6 +4,17 @@
   cursor: pointer;
   height: 40px;
   width: 40px;
+  // for display flex
+  min-height: 40px;
+  min-width: 40px;
+
+  &.md {
+    height: 55px;
+    width: 55px;
+    // for display flex
+    min-height: 55px;
+    min-width: 55px;
+  }
 
   img {
     width: 100%;

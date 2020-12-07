@@ -15,10 +15,7 @@ export const ImageWithLightbox: FC<{
   return (
     <div className={styles.wrapper}>
       {isModalOpen && (
-        <Modal
-          additionalStyles={styles.modal}
-          onClose={() => setIsModalOpen(false)}
-        >
+        <Modal onClose={() => setIsModalOpen(false)}>
           <Picture {...src} />
         </Modal>
       )}

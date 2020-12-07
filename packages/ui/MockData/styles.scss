@@ -39,7 +39,7 @@ $mockDataSize1: 55px;
     }
 
     &.lg {
-      height: 15px;
+      height: 10px;
       background: $mockDataColor2;
     }
 
@@ -148,6 +148,7 @@ $mockDataSize1: 55px;
       flex-direction: column;
       justify-content: space-between;
       width: 100%;
+      margin: 4px 0;
       margin-left: 10px;
     }
   }

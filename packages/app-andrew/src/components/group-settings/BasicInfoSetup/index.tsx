@@ -149,10 +149,7 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
         </p>
       </div>
       {formState.isOpen && (
-        <Modal
-          additionalStyles={styles.formModalContent}
-          onClose={onFormModalClose}
-        >
+        <Modal onClose={onFormModalClose}>
           <form
             onSubmit={handleSubmit(onSubmit)}
             method="post"
@@ -186,10 +183,7 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
         </Modal>
       )}
       {fileUploadState.isOpen && (
-        <Modal
-          additionalStyles={styles.fileUploadModalContent}
-          onClose={onUploadFileModalClose}
-        >
+        <Modal onClose={onUploadFileModalClose}>
           <UploadFile
             additionalStyles={styles.uploadFile}
             isError={fileUploadState.isError}

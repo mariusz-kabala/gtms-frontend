@@ -1,4 +1,4 @@
-@import '@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
@@ -6,7 +6,7 @@
 
 .wrapper {
   border-radius: $borderRadius;
-  background: $theme0;
+  background: $componentInviteFriends;
   color: $theme1;
   @include imageCover();
 

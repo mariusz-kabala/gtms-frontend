@@ -17,12 +17,7 @@ export const UserEmail: FC<{
     >
       <span>{email}</span>
       {isEditModeActive && (
-        <Modal
-          additionalStyles={styles.modal}
-          onClose={() => {
-            setIsEditModeActive(false)
-          }}
-        >
+        <Modal onClose={() => setIsEditModeActive(false)}>
           <EmailChangeForm
             email={email}
             onSaveSuccess={() => {

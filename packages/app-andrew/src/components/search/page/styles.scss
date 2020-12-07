@@ -49,17 +49,13 @@
   width: 100%;
   padding: 20px;
 
-  .coverImage {
-    max-width: 500px;
+  .header {
+    @include font-size(lg);
+    margin-bottom: 10px;
+    color: $theme0;
 
-    .header {
-      @include font-size(xlg);
-      color: $theme9;
-      text-align: center;
-
-      span {
-        @include font-weight(semiBold);
-      }
+    span {
+      @include font-weight(semiBold);
     }
   }
 

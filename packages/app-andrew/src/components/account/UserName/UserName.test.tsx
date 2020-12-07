@@ -51,11 +51,11 @@ describe('<UserName />', () => {
     fireEvent.click(getByTestId('user-name'))
 
     expect(getByTestId('user-name-change-form')).toBeInTheDocument()
-    expect(getByTestId('overlay')).toBeInTheDocument()
+    expect(getByTestId('modal')).toBeInTheDocument()
 
     fireEvent.click(getByTestId('overlay'))
 
     expect(queryByTestId('user-name-change-form')).toBeNull()
-    expect(queryByTestId('overlay')).toBeNull()
+    expect(queryByTestId('modal')).toBeNull()
   })
 })
