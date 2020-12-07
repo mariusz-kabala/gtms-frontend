@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.70.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.69.0...@gtms/ui@0.70.0) (2020-12-07)
+
+
+### Features
+
+* GEOT-697: better user card ([#925](https://github.com/gtms-org/gtms-frontend/issues/925)) ([a44677a](https://github.com/gtms-org/gtms-frontend/commit/a44677ad268229755596388de18a6fc3a372fe9d))
+
+
+
+
+
 # [0.69.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.68.0...@gtms/ui@0.69.0) (2020-12-07)
 
 ### Features
