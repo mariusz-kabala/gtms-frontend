@@ -5,6 +5,10 @@
 @import '~@gtms/styles/scss/mixins/grid.scss';
 
 .wrapper {
+  .spinner {
+    margin: 40px auto;
+  }
+
   .adminsList {
     @include gridDefault(7);
 
@@ -26,6 +30,7 @@
         @include font-size(md);
         @include font-weight(semiBold);
         margin-top: 5px;
+        display: none; //@todo show it in hover tooltip
       }
     }
 
@@ -36,10 +41,10 @@
       align-items: center;
       justify-content: center;
       border: none;
-      min-width: 100px;
-      min-height: 100px;
+      min-width: 100%;
+      min-height: 100%;
       border-radius: 50%;
-      background: $theme1;
+      background: $theme9;
       cursor: pointer;
 
       &:active,
@@ -52,7 +57,7 @@
         position: relative;
         @include font-size(lg);
         line-height: 0;
-        color: $theme9;
+        color: $theme0;
       }
 
       span {

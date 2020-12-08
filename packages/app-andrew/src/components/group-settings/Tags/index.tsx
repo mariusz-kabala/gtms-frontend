@@ -19,10 +19,10 @@ import styles from './styles.scss'
 export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
   const [tags, setTags] = useState<string[]>(props.tags)
   const [promotedTagEditor, setPromotedTagEditor] = useState<{
+    description?: string
+    id?: string
     isOpen: boolean
     tag: string
-    id?: string
-    description?: string
   }>({
     isOpen: false,
     tag: '',
@@ -77,7 +77,7 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
 
   return (
     <div data-testid="group-settings-tags" className={styles.wrapper}>
-      <div className={styles.section}>
+      <div>
         <h3 className={styles.header}>
           {/* @todo add translation here */}
           Tags{' '}
@@ -133,39 +133,38 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
         {isInEditMode && (
           <TagsBar
             editMode={true}
-            tags={tags}
-            isSaving={false}
             isLoading={tagsHints.isLoading}
-            suggestions={tagsHints.tags}
+            isSaving={false}
             onLoadSuggestion={onLoadTagsHints}
             onLoadSuggestionCancel={() => null}
-            onTagAdd={onTagAdd}
-            onTagRemove={onTagRemove}
             onSave={() => {
               setIsInEditMode(false)
               return Promise.resolve()
             }}
+            onTagAdd={onTagAdd}
+            onTagRemove={onTagRemove}
+            suggestions={tagsHints.tags}
+            tags={tags}
           />
         )}
       </div>
-
-      <div className={styles.section}>
+      <div>
         <h3 className={styles.header}>
           {/* @todo add translation */}
           Promoted tags
         </h3>
         <PromotedTags
+          id={props.id}
+          onDelete={(id) => deletePromotedTag(id)}
           onEdit={(id) => {
             const promotedTag = promotedTagsQuery.getEntity(id)
             setPromotedTagEditor({
-              id: promotedTag.id,
               description: promotedTag.description,
-              tag: promotedTag.tag,
+              id: promotedTag.id,
               isOpen: true,
+              tag: promotedTag.tag,
             })
           }}
-          onDelete={(id) => deletePromotedTag(id)}
-          id={props.id}
         />
       </div>
       {promotedTagEditor.isOpen && (
@@ -185,9 +184,9 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
               })
               loadGroupPromotedTags(props.id)
             }}
+            description={promotedTagEditor.description}
             groupId={props.id}
             id={promotedTagEditor.id}
-            description={promotedTagEditor.description}
             tag={promotedTagEditor.tag}
           />
         </Modal>

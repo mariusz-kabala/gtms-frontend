@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.70.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.70.1...@gtms/ui@0.70.2) (2020-12-08)
+
+
+### Bug Fixes
+
+* GEOT-700: better styles for settings page ([#928](https://github.com/gtms-org/gtms-frontend/issues/928)) ([13d2b47](https://github.com/gtms-org/gtms-frontend/commit/13d2b4704d5c4fc3a88fb6484a4e675333b01b80))
+
+
+
+
+
 ## [0.70.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.70.0...@gtms/ui@0.70.1) (2020-12-07)
 
 

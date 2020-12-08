@@ -7,7 +7,7 @@
   width: 60px;
   border-radius: 50%;
   height: 60px;
-
+  // core animation
   > div {
     animation-play-state: paused;
     border: 5px solid rgba($theme0, 0.9);
@@ -44,7 +44,7 @@
       animation: loadicons 3s 2s infinite ease-in-out;
     }
   }
-
+  // sizes
   &.sm {
     width: 30px;
     height: 30px;
@@ -72,24 +72,13 @@
       display: none;
     }
   }
-
-  &.withoutIcon {
-    background: none;
-
-    > div {
-      border-width: 5px;
-    }
-
-    i {
-      display: none;
-    }
-  }
-
+  // params
   &.centered {
     margin: auto;
   }
 }
 
+// core animation
 @keyframes loadicons {
   0% {
     transform: scale(0) translate3d(0, 0, 0);

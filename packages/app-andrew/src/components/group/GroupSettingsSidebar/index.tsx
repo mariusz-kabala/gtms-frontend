@@ -18,11 +18,12 @@ export enum Tabs {
 }
 
 export const GroupSettingsSidebar: FC<{
+  additionalStyles?: string
   tab: Tabs
   setTab: (tab: Tabs) => void
-}> = ({ tab, setTab }) => {
+}> = ({ additionalStyles, setTab, tab }) => {
   return (
-    <ul className={styles.navigation}>
+    <ul className={cx(styles.navigation, additionalStyles)}>
       <li
         className={cx(styles.item, {
           [styles.current]: tab === Tabs.general,

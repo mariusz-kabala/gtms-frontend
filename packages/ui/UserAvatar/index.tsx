@@ -14,6 +14,7 @@ export const UserAvatar: FC<{
   <div
     className={cx(styles.wrapper, additionalStyles, {
       [styles.md]: size === 'md',
+      [styles.percent100]: size === '100percent',
     })}
     data-testid="user-avatar"
     onClick={onClick}

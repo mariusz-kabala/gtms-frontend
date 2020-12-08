@@ -68,20 +68,24 @@ export const JoinLeaveButton: FC<{
         method(group).finally(() => setIsLoading(false))
       }}
     >
-      {(status.isLoading || isLoading) && <Spinner />}
-      {status.canJoinGroup || !userQuery.isLogged() ? (
+      {(status.isLoading || isLoading) && <Spinner size="xsm" />}
+      {!status.isLoading && !isLoading && (
         <>
-          <i>
-            <IoIosHeart />
-          </i>
-          <span>{t('join-this-group')}</span>
-        </>
-      ) : (
-        <>
-          <i>
-            <IoIosHeart />
-          </i>
-          <span>{t('leave-this-group')}</span>
+          {status.canJoinGroup || !userQuery.isLogged() ? (
+            <>
+              <i>
+                <IoIosHeart />
+              </i>
+              <span>{t('join-this-group')}</span>
+            </>
+          ) : (
+            <>
+              <i>
+                <IoIosHeart />
+              </i>
+              <span>{t('leave-this-group')}</span>
+            </>
+          )}
         </>
       )}
     </Button>
