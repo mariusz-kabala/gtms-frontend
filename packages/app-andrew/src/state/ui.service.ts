@@ -1,5 +1,6 @@
 import { uiStore } from './ui.store'
 import { uiQuery } from './ui.query'
+import { BACKGROUNDS_GALLERY } from 'enums'
 
 export const openLoginModal = () =>
   uiStore.update({
@@ -40,6 +41,12 @@ export const changePageBackground = (background: string) =>
 export const changePageBackgroundImage = (backgroundImage: string) => {
   uiStore.update({ backgroundImage })
 }
+
+export const clearPageBackground = () =>
+  uiStore.update({
+    background: BACKGROUNDS_GALLERY[0].className,
+    backgroundImage: undefined,
+  })
 
 export const showPromotedTagsInGroup = (groupId: string) => {
   const groupState = uiQuery.groupState(groupId)

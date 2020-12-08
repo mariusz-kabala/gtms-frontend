@@ -2,6 +2,10 @@ import styles from './styles.scss'
 
 export const BACKGROUNDS_GALLERY = [
   {
+    name: null,
+    className: styles.noBg,
+  },
+  {
     name: 'background1',
     className: styles.bg1,
   },
