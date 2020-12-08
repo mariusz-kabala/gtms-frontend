@@ -92,19 +92,4 @@
       }
     }
   }
-
-  .btn {
-    @include buttonDefault();
-    @include buttonSizeDefault();
-    @include buttonShapeDefault();
-    @include buttonColorsDefault();
-    @include buttonWithIcon('right');
-    width: 100%;
-    margin-top: 10px;
-    display: none;
-
-    &:hover {
-      @include buttonColorsPrimary();
-    }
-  }
 }
