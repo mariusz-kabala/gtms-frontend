@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.90.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.4...@gtms/app-andrew@0.90.5) (2020-12-08)
+
+
+### Bug Fixes
+
+* GEOT-689: clear bg ([#930](https://github.com/gtms-org/gtms-frontend/issues/930)) ([6d5df03](https://github.com/gtms-org/gtms-frontend/commit/6d5df03fc33fd12e388053b7768b57a1325d600b))
+
+
+
+
+
 ## [0.90.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.3...@gtms/app-andrew@0.90.4) (2020-12-08)
 
 
