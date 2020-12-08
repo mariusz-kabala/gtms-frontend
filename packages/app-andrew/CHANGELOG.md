@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.90.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.6...@gtms/app-andrew@0.90.7) (2020-12-08)
+
+
+### Bug Fixes
+
+* GEOT-672: post creation fixes ([#932](https://github.com/gtms-org/gtms-frontend/issues/932)) ([fd99efc](https://github.com/gtms-org/gtms-frontend/commit/fd99efc7ab49f26c116ae77fe573d8ac8955cc76))
+
+
+
+
+
 ## [0.90.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.5...@gtms/app-andrew@0.90.6) (2020-12-08)
 
 
