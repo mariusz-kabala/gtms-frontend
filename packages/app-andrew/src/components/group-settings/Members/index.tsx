@@ -50,7 +50,10 @@ export const MembersSettings: FC<{ group: IGroup }> = ({ group }) => {
         <ul className={styles.membersList}>
           {state.records.map((user) => (
             <li className={styles.item} key={`group-admin-${user.id}`}>
-              <UserAvatar image={getImage('200x200', user.avatar)} />
+              <UserAvatar
+                image={getImage('200x200', user.avatar)}
+                size="100percent"
+              />
               <span className={styles.name}>{getDisplayName(user)}</span>
             </li>
           ))}

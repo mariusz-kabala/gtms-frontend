@@ -10,9 +10,9 @@
 
     .item {
       display: inline-block;
+      text-align: center;
       width: 100px;
       height: 100px;
-      text-align: center;
 
       // avatar
       > div {
@@ -26,6 +26,7 @@
         @include font-size(md);
         @include font-weight(semiBold);
         margin-top: 5px;
+        display: none; // @todo add tooltip instead of text
       }
     }
   }

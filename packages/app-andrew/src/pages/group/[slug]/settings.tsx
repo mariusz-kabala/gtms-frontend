@@ -25,11 +25,11 @@ import {
   GroupSettingsSidebar,
   Tabs,
 } from 'components/group/GroupSettingsSidebar'
-import { GroupMembers } from 'components/group/GroupMembers'
 import { AdminsSettings } from 'components/group-settings/Admins'
 import { BasicSettings } from 'components/group-settings/Basic'
 import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
-
+import { GroupMembers } from 'components/group/GroupMembers'
+// sections
 import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
@@ -94,77 +94,75 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
 
   if (group.notFound) {
     return (
-      // @todo add translation
-      <p>Group not found</p>
+      <ErrorWrapper>
+        <h2>Group not found</h2>
+      </ErrorWrapper>
     )
   }
 
   return (
-    <div className={styles.pageWrapper}>
-      <div className={styles.wrapper} data-testid="group-settings-page">
-        <GroupHeader />
-        {state.showPromoted && (
-          <PromotedTags
-            additionalStyles={styles.tags}
-            onTagClick={() => null}
+    <div className={styles.pageWrapper} data-testid="group-settings-page">
+      <GroupHeader />
+      {state.showPromoted && (
+        <PromotedTags additionalStyles={styles.tags} onTagClick={() => null} />
+      )}
+      {state.showUsers && (
+        <GroupMembers
+          additionalStyles={styles.groupMembers}
+          slug={state.groupSlug}
+          {...state.members}
+        />
+      )}
+      {group.isLoading && !group.errorOccured && (
+        <Spinner additionalStyles={styles.spinner} />
+      )}
+      {!group.isLoading && group.errorOccured && (
+        <ErrorWrapper>
+          <h2>Can not fetch group details, try again later</h2>
+        </ErrorWrapper>
+      )}
+      {!group.isLoading && !group.errorOccured && (
+        <div className={styles.columns}>
+          <GroupSettingsSidebar
+            additionalStyles={styles.sidebar}
+            tab={tab}
+            setTab={setTab}
           />
-        )}
-        {state.showUsers && (
-          <GroupMembers
-            additionalStyles={styles.groupMembers}
-            slug={state.groupSlug}
-            {...state.members}
-          />
-        )}
-        {group.isLoading && !group.errorOccured && (
-          <Spinner additionalStyles={styles.spinner} />
-        )}
-        {!group.isLoading && group.errorOccured && (
-          <ErrorWrapper>
-            <h2>Can not fetch group details, try again later</h2>
-          </ErrorWrapper>
-        )}
-        {!group.isLoading && !group.errorOccured && (
-          <div className={styles.columns}>
-            <GroupSettingsSidebar tab={tab} setTab={setTab} />
-            <div className={styles.content}>
-              {tab === Tabs.general && (
-                <>
-                  {group.group && (
-                    <GroupBackgroundSettings group={group.group} />
-                  )}
-                  {group.group && <BasicSettings group={group.group} />}
-                  <div className={styles.btnDeleteWrapper}>
-                    <GroupDeleteGroup
-                      additionalStyles={styles.btnDelete}
-                      onConfirm={() => null}
-                    />
-                  </div>
-                </>
-              )}
+          <div className={styles.content}>
+            {tab === Tabs.general && (
+              <>
+                {group.group && <GroupBackgroundSettings group={group.group} />}
+                {group.group && <BasicSettings group={group.group} />}
+                <div className={styles.btnDeleteWrapper}>
+                  <GroupDeleteGroup
+                    additionalStyles={styles.btnDelete}
+                    onConfirm={() => null}
+                  />
+                </div>
+              </>
+            )}
 
-              {tab === Tabs.tags && (
-                <TagsSettings
-                  id={group.group?.id || ''}
-                  tags={group.group?.tags || []}
-                />
-              )}
+            {tab === Tabs.tags && (
+              <TagsSettings
+                id={group.group?.id || ''}
+                tags={group.group?.tags || []}
+              />
+            )}
 
-              {tab === Tabs.invitations && (
-                <InvitationsSettings group={group.group as IGroup} />
-              )}
+            {tab === Tabs.invitations && (
+              <InvitationsSettings group={group.group as IGroup} />
+            )}
 
-              {tab === Tabs.admins && (
-                <AdminsSettings group={group.group as IGroup} />
-              )}
+            {tab === Tabs.admins && (
+              <AdminsSettings group={group.group as IGroup} />
+            )}
 
-              {tab === Tabs.members && (
-                <MembersSettings group={group.group as IGroup} />
-              )}
-            </div>
+            {tab === Tabs.members && (
+              <MembersSettings group={group.group as IGroup} />
+            )}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   )
 }

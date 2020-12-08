@@ -19,7 +19,6 @@ export const Spinner: FC<{
       [styles.centered]: centered,
       [styles.sm]: size === 'sm',
       [styles.xsm]: size === 'xsm',
-      [styles.withoutIcon]: type === 'withoutIcon',
     })}
     data-testid={'spinner'}
   >
