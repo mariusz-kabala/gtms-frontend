@@ -5,8 +5,6 @@
   @include buttonDefault();
   @include buttonSizeSm();
   @include buttonShapeDefault();
-  @include buttonWithIcon('withoutText');
-  @include buttonWithSpinner();
   @include buttonColorsDefault();
   @include font-size(xmd);
   width: 100%;

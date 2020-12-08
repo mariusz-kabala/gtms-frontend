@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import cx from 'classnames'
 import { useTranslation } from '@gtms/commons/i18n'
 // ui
+import { IoIosCloseCircle, IoIosCheckbox } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { Modal } from '@gtms/ui/Modal'
 import { Picture } from '@gtms/ui/Picture'
@@ -31,6 +32,9 @@ export const GroupDeleteGroup: FC<{
               testid="delete-group-cancel"
               onClick={() => setIsModalOpen(false)}
             >
+              <i>
+                <IoIosCloseCircle />
+              </i>
               {t('noBtn')}
             </Button>
             <Button
@@ -41,6 +45,9 @@ export const GroupDeleteGroup: FC<{
                 setIsModalOpen(false)
               }}
             >
+              <i>
+                <IoIosCheckbox />
+              </i>
               {t('yesBtn')}
             </Button>
           </div>
