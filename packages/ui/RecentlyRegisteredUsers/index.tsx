@@ -1,9 +1,8 @@
 import React, { FC, useState } from 'react'
 import cx from 'classnames'
 import { IUser } from '@gtms/commons/models'
-import { FileStatus } from '@gtms/commons/enums'
-import { getDisplayName } from '@gtms/commons/helpers'
-// import { UserAvatarNoImage } from 'enums'
+import { getDisplayName, getImage } from '@gtms/commons/helpers'
+import { IImage } from '@gtms/commons/types/image'
 // ui
 import { Modal } from '@gtms/ui/Modal'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
@@ -14,25 +13,9 @@ import styles from './styles.scss'
 export const RecentlyRegisteredUsers: FC<{
   additionalStyles?: string
   users: IUser[]
-}> = ({ additionalStyles, users }) => {
+  noImage: { [key: string]: IImage }
+}> = ({ additionalStyles, users, noImage }) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
-  const mock1 = {
-    '35x35': {
-      jpg: '//via.placeholder.com/35x35',
-    },
-    '50x50': {
-      jpg: '//via.placeholder.com/50x50',
-    },
-    '200x200': {
-      jpg: '//via.placeholder.com/200x200',
-    },
-    '800x800': {
-      jpg: '//via.placeholder.com/200x200',
-    },
-    '1300x1300': {
-      jpg: '//via.placeholder.com/200x200',
-    },
-  }
 
   return (
     <>
@@ -40,8 +23,7 @@ export const RecentlyRegisteredUsers: FC<{
         <Modal onClose={() => setUserPreview(undefined)}>
           <UserPreview
             user={userPreview}
-            // noUserAvatar={UserAvatarNoImage}
-            noUserAvatar={mock1}
+            noUserAvatar={noImage}
             onUserPostsClick={() => null}
           />
         </Modal>
@@ -58,13 +40,7 @@ export const RecentlyRegisteredUsers: FC<{
           >
             <UserAvatar
               additionalStyles={styles.userAvatar}
-              image={
-                user.avatar &&
-                user.avatar.status === FileStatus.ready &&
-                user.avatar.files['200x200']
-                  ? user.avatar?.files['200x200']
-                  : { jpg: '//via.placeholder.com/200x200' }
-              }
+              image={getImage('200x200', user.avatar, noImage)}
               size="md"
             />
             {(user.name || user.surname) && <span>{getDisplayName(user)}</span>}
@@ -80,13 +56,7 @@ export const RecentlyRegisteredUsers: FC<{
           >
             <UserAvatar
               additionalStyles={styles.userAvatar}
-              image={
-                user.avatar &&
-                user.avatar.status === FileStatus.ready &&
-                user.avatar.files['200x200']
-                  ? user.avatar?.files['200x200']
-                  : { jpg: '//via.placeholder.com/200x200' }
-              }
+              image={getImage('200x200', user.avatar, noImage)}
               size="md"
             />
             {(user.name || user.surname) && <span>{getDisplayName(user)}</span>}
@@ -102,13 +72,7 @@ export const RecentlyRegisteredUsers: FC<{
           >
             <UserAvatar
               additionalStyles={styles.userAvatar}
-              image={
-                user.avatar &&
-                user.avatar.status === FileStatus.ready &&
-                user.avatar.files['200x200']
-                  ? user.avatar?.files['200x200']
-                  : { jpg: '//via.placeholder.com/200x200' }
-              }
+              image={getImage('200x200', user.avatar, noImage)}
               size="md"
             />
             {(user.name || user.surname) && <span>{getDisplayName(user)}</span>}
@@ -124,13 +88,7 @@ export const RecentlyRegisteredUsers: FC<{
           >
             <UserAvatar
               additionalStyles={styles.userAvatar}
-              image={
-                user.avatar &&
-                user.avatar.status === FileStatus.ready &&
-                user.avatar.files['200x200']
-                  ? user.avatar?.files['200x200']
-                  : { jpg: '//via.placeholder.com/200x200' }
-              }
+              image={getImage('200x200', user.avatar, noImage)}
               size="md"
             />
             {(user.name || user.surname) && <span>{getDisplayName(user)}</span>}

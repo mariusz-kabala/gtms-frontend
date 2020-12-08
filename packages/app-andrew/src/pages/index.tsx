@@ -5,6 +5,7 @@ import { IUser, IGroup } from '@gtms/commons/models'
 import { getRecentUsers, usersListQuery } from '@gtms/state-user'
 import { getRecentGroups, groupsListQuery } from '@gtms/state-group'
 // ui
+import { UserAvatarNoImage } from 'enums'
 import { Button } from '@gtms/ui/Button'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
@@ -52,6 +53,7 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
         </Button>
       </div>
       <RecentlyRegisteredUsers
+        noImage={UserAvatarNoImage}
         additionalStyles={styles.recentlyRegisteredUsers}
         users={users}
       />
