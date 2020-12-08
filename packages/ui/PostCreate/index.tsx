@@ -9,7 +9,6 @@ import { IImage } from '@gtms/commons/types/image'
 import { Link } from '@gtms/commons/i18n'
 import { IAccountDetails, IUser } from '@gtms/commons/models'
 // ui
-import { Button } from '../Button'
 import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
 import { Tag } from '../Tag'
@@ -18,7 +17,8 @@ import styles from './styles.scss'
 
 export const PostCreate: FC<{
   additionalStyles?: string
-  onSubmit: (text: string) => unknown
+  value?: string
+  setValue: any // needs to be fixed later!
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   fetchUsers: (query: string, signal: AbortSignal) => Promise<IUser[]>
   fetchSuggestedTags?: (tags: string[]) => Promise<string[]>
@@ -30,7 +30,6 @@ export const PostCreate: FC<{
   onFocus?: () => unknown
 }> = ({
   additionalStyles,
-  onSubmit,
   user,
   noImage,
   fetchTags,
@@ -38,11 +37,12 @@ export const PostCreate: FC<{
   fetchSuggestedTags,
   onLoginRequest,
   onFocus,
+  setValue,
+  value = '',
   isLoading = false,
   hintMinLenght = 3,
 }) => {
   const { t } = useTranslation('postCreate')
-  const [value, setValue] = useState<string>('')
   const [query, setQuery] = useState<{ type: 'tag' | 'user'; value: string }>({
     value: '',
     type: 'tag',
@@ -97,7 +97,7 @@ export const PostCreate: FC<{
   }, [value])
 
   const addSuggestedTag = useCallback((tag: string) => {
-    setValue((value) => `${value} #${tag}`)
+    setValue((value: string) => `${value} #${tag}`)
     setSuggestedTags((state) => {
       const suggested = state.tags
       const index = suggested.indexOf(tag)
@@ -115,7 +115,7 @@ export const PostCreate: FC<{
 
   const addAllSuggestedTags = useCallback(() => {
     setValue(
-      (value) =>
+      (value: string) =>
         `${value} ${suggestedTags.tags.map((tag) => `#${tag}`).join(' ')}`
     )
     setSuggestedTags({
@@ -350,25 +350,6 @@ export const PostCreate: FC<{
           </div>
         )}
       </div>
-
-      <Button
-        additionalStyles={styles.btn}
-        disabled={false}
-        onClick={() => {
-          if (!user) {
-            if (onLoginRequest) {
-              onLoginRequest()
-            }
-
-            return
-          }
-          onSubmit(value)
-          setValue('')
-        }}
-        type="submit"
-      >
-        button to be removed
-      </Button>
     </div>
   )
 }
