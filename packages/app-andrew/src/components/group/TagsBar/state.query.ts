@@ -11,6 +11,7 @@ import { groupQuery } from '@gtms/state-group'
 export interface ITagsBarState {
   groupId?: string
   promoted: {
+    isLoaded: boolean
     isLoading: boolean
     errorOccured: boolean
     tags: IPromotedTag[]
@@ -25,6 +26,7 @@ export const tagsBarState = (): ITagsBarState => {
   return {
     groupId,
     promoted: {
+      isLoaded: promotedTagsState.isLoaded || false,
       isLoading: promotedTagsState.loading || false,
       errorOccured: promotedTagsState.error,
       tags: promotedTagsQuery.getAll(),

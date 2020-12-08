@@ -45,7 +45,7 @@ export const TagsBar: FC<{}> = () => {
       currentTab === Tabs.promoted &&
       !state.promoted.isLoading &&
       !state.promoted.errorOccured &&
-      state.promoted.tags.length === 0 &&
+      !state.promoted.isLoaded &&
       state.groupId
     ) {
       loadGroupPromotedTags(state.groupId)

@@ -55,6 +55,9 @@ export const loadGroupPromotedTags = async (id: string) => {
         })
       )
       promotedTagsStore.setLoading(false)
+      promotedTagsStore.update({
+        isLoaded: true,
+      })
     })
   } catch {
     applyTransaction(() => {
