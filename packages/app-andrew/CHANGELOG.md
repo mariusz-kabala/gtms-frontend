@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.90.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.3...@gtms/app-andrew@0.90.4) (2020-12-08)
+
+
+### Bug Fixes
+
+* GEOT-701: drop additional promoted tag component ([#929](https://github.com/gtms-org/gtms-frontend/issues/929)) ([e6eb61e](https://github.com/gtms-org/gtms-frontend/commit/e6eb61e480bfb8c34317e7dd24a5a113de560a04))
+
+
+
+
+
 ## [0.90.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.2...@gtms/app-andrew@0.90.3) (2020-12-08)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@gtms/app-andrew",
-  "version": "0.90.3",
+  "version": "0.90.4",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
