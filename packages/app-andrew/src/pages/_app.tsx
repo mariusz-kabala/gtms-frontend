@@ -27,7 +27,7 @@ interface GTMSAppProps {
 
 interface GTMSAppState {
   background: {
-    name: string
+    name: string | null
     className: string
   }
   backgroundImage?: string
