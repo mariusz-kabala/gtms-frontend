@@ -64,7 +64,7 @@ export const AdminsSettings: FC<{ group: IGroup }> = ({ group }) => {
                 size="100percent"
                 image={getImage('200x200', user.avatar)}
               />
-              {/* <span className={styles.name}>{getDisplayName(user)}</span> */}
+              <span className={styles.name}>{getDisplayName(user)}</span>
             </li>
           ))}
           <li className={styles.item} key="add-new-admin">

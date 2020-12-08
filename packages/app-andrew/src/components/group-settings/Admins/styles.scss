@@ -30,6 +30,7 @@
         @include font-size(md);
         @include font-weight(semiBold);
         margin-top: 5px;
+        display: none; //@todo show it in hover tooltip
       }
     }
 

@@ -8,7 +8,6 @@ import { RiUserStarLine } from 'react-icons/ri'
 import { GoSettings } from 'react-icons/go'
 // styles
 import styles from './styles.scss'
-import { cs } from 'date-fns/locale'
 
 export enum Tabs {
   general = 'general',
