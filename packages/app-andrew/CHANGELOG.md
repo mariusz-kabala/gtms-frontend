@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.90.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.5...@gtms/app-andrew@0.90.6) (2020-12-08)
+
+
+### Bug Fixes
+
+* GEOT-690: fix infinity promoted tags loading when opening gr ([#931](https://github.com/gtms-org/gtms-frontend/issues/931)) ([4773f51](https://github.com/gtms-org/gtms-frontend/commit/4773f51835b2ac7b945d54ddddb86090dfea8ac5))
+
+
+
+
+
 ## [0.90.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.4...@gtms/app-andrew@0.90.5) (2020-12-08)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.0...@gtms/state-tag@0.10.1) (2020-12-08)
+
+
+### Bug Fixes
+
+* GEOT-690: fix infinity promoted tags loading when opening gr ([#931](https://github.com/gtms-org/gtms-frontend/issues/931)) ([4773f51](https://github.com/gtms-org/gtms-frontend/commit/4773f51835b2ac7b945d54ddddb86090dfea8ac5))
+
+
+
+
+
 # [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.9.0...@gtms/state-tag@0.10.0) (2020-12-05)
 
 
