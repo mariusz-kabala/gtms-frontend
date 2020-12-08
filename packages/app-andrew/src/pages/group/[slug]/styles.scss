@@ -25,6 +25,10 @@
     min-height: 800px;
     background: $theme1;
 
+    .sidebar {
+      min-width: 140px;
+    }
+
     .content {
       display: flex;
       flex-direction: column;

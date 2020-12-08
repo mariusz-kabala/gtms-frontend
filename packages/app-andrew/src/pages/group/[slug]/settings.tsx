@@ -29,7 +29,7 @@ import { AdminsSettings } from 'components/group-settings/Admins'
 import { BasicSettings } from 'components/group-settings/Basic'
 import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
 import { GroupMembers } from 'components/group/GroupMembers'
-
+// sections
 import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { MembersSettings } from 'components/group-settings/Members'
 import { TagsSettings } from 'components/group-settings/Tags'
@@ -123,7 +123,11 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
       )}
       {!group.isLoading && !group.errorOccured && (
         <div className={styles.columns}>
-          <GroupSettingsSidebar tab={tab} setTab={setTab} />
+          <GroupSettingsSidebar
+            additionalStyles={styles.sidebar}
+            tab={tab}
+            setTab={setTab}
+          />
           <div className={styles.content}>
             {tab === Tabs.general && (
               <>
