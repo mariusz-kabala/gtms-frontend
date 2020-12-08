@@ -43,7 +43,11 @@ import {
   IPostCommentsState,
   initPostCommentsStore,
 } from '@gtms/state-comment'
-import { changePageBackground, changePageBackgroundImage } from 'state'
+import {
+  changePageBackground,
+  changePageBackgroundImage,
+  clearPageBackground,
+} from 'state'
 // ui
 import { IoMdGrid } from 'react-icons/io'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
@@ -232,6 +236,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     })
 
     return () => {
+      clearPageBackground()
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])

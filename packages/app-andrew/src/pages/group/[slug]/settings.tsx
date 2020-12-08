@@ -7,7 +7,7 @@ import {
   markAsLoading,
 } from '@gtms/state-group'
 import { hasAuthSessionCookies } from '@gtms/state-user'
-import { changePageBackground } from 'state'
+import { changePageBackground, clearPageBackground } from 'state'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
@@ -87,6 +87,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
     })
 
     return () => {
+      clearPageBackground()
       groupSub && !groupSub.closed && groupSub.unsubscribe()
       sub && !sub.closed && sub.unsubscribe()
     }
