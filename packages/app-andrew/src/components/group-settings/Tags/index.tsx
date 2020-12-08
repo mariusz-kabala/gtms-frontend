@@ -1,17 +1,13 @@
 import React, { FC, useState, useCallback } from 'react'
 import { TagsBar } from '@gtms/ui/TagsBar'
 import { findTagsAPI } from '@gtms/api-tags'
-import {
-  loadGroupPromotedTags,
-  promotedTagsQuery,
-  deletePromotedTag,
-} from '@gtms/state-tag'
+import { loadGroupPromotedTags, promotedTagsQuery } from '@gtms/state-tag'
 import { IPromotedTag } from '@gtms/commons/models'
 // ui
 import { AiOutlineForm } from 'react-icons/ai'
 import { Modal } from '@gtms/ui/Modal'
 import { PromotedTagsForm } from '../PromotedTagForm'
-import { PromotedTags } from './PromotedTags'
+import { PromotedTags } from 'components/group/PromotedTags'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { Tag } from '@gtms/ui/Tag'
 import styles from './styles.scss'
@@ -153,19 +149,7 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
           {/* @todo add translation */}
           Promoted tags
         </h3>
-        <PromotedTags
-          id={props.id}
-          onDelete={(id) => deletePromotedTag(id)}
-          onEdit={(id) => {
-            const promotedTag = promotedTagsQuery.getEntity(id)
-            setPromotedTagEditor({
-              description: promotedTag.description,
-              id: promotedTag.id,
-              isOpen: true,
-              tag: promotedTag.tag,
-            })
-          }}
-        />
+        <PromotedTags onTagClick={() => null} />
       </div>
       {promotedTagEditor.isOpen && (
         <Modal
