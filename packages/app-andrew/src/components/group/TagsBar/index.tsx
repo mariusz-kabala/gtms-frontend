@@ -1,11 +1,17 @@
 import React, { FC, useState, useEffect } from 'react'
 import cx from 'classnames'
+import { useTranslation, Link } from '@gtms/commons/i18n'
 import { PromotedTagNoImage } from 'enums'
 import { truncateString } from '@gtms/commons/helpers'
+import { generateSearchURL } from 'helpers'
 // state
-import { loadRecentlyViewedTags } from '@gtms/state-tag'
 import { ITagsBarState, tagsBarState, tagsBarState$ } from './state.query'
-import { loadGroupPromotedTags } from '@gtms/state-tag'
+import {
+  loadGroupPromotedTags,
+  loadRecentlyViewedTags,
+  saveRecentlyViewedTag,
+} from '@gtms/state-tag'
+import { getGroupPosts } from '@gtms/state-post'
 // ui
 import { IoMdGrid } from 'react-icons/io'
 import { Image } from '@gtms/ui/Image'
@@ -22,6 +28,7 @@ enum Tabs {
 export const TagsBar: FC<{}> = () => {
   const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.promoted)
   const [state, setState] = useState<ITagsBarState>(tagsBarState())
+  const { i18n } = useTranslation('groupPage')
 
   useEffect(() => {
     const sub = tagsBarState$.subscribe((value) => setState(value))
@@ -97,19 +104,49 @@ export const TagsBar: FC<{}> = () => {
         !state.promoted.errorOccured &&
         state.promoted.tags.length > 0 && (
           <ul className={styles.items}>
-            {state.promoted.tags.map((tag) => (
-              <li className={styles.item} key={`promotedTag-${tag.id}`}>
-                <Image
-                  size={'35x35'}
-                  {...(tag.logo as any)}
-                  noImage={PromotedTagNoImage}
-                />
-                <div className={styles.desc}>
-                  <h4>#{tag.tag}</h4>
-                  <span>{truncateString(tag.description, 28)}</span>
-                </div>
-              </li>
-            ))}
+            {state.promoted.tags.map((tag) => {
+              const url = generateSearchURL(`/group/${state.groupSlug}`, {
+                tag: [tag.tag],
+              })
+              return (
+                <li className={styles.item} key={`promotedTag-${tag.id}`}>
+                  <Link href={url}>
+                    <a
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+
+                        if (!state.groupId) {
+                          return
+                        }
+
+                        window.history.pushState(
+                          null,
+                          '',
+                          `/${i18n.language}${url}`
+                        )
+
+                        getGroupPosts({
+                          group: state.groupId,
+                          tags: [tag.tag],
+                        })
+                        saveRecentlyViewedTag(state.groupId, tag.tag)
+                      }}
+                    >
+                      <Image
+                        size={'35x35'}
+                        {...(tag.logo as any)}
+                        noImage={PromotedTagNoImage}
+                      />
+                      <p className={styles.desc}>
+                        <h4>#{tag.tag}</h4>
+                        <span>{truncateString(tag.description, 28)}</span>
+                      </p>
+                    </a>
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         )}
 
@@ -120,9 +157,11 @@ export const TagsBar: FC<{}> = () => {
           <ul className={styles.items}>
             {state.recentlyViewed.tags.map((tag) => (
               <li className={styles.item} key={`recently-viewed-${tag}`}>
-                <div className={styles.desc}>
-                  <h4>{tag}</h4>
-                </div>
+                <a>
+                  <p className={styles.desc}>
+                    <h4>#{tag}</h4>
+                  </p>
+                </a>
               </li>
             ))}
           </ul>

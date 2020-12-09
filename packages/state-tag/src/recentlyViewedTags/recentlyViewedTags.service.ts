@@ -86,6 +86,10 @@ function saveForAnonymousUser(groupId: string, tag: string) {
     recentlyViewed = []
   }
 
+  if (!Array.isArray(recentlyViewed)) {
+    recentlyViewed = []
+  }
+
   if (
     recentlyViewed.length > 0 &&
     recentlyViewed[recentlyViewed.length - 1] === tag

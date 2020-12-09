@@ -10,6 +10,7 @@ import { groupQuery } from '@gtms/state-group'
 
 export interface ITagsBarState {
   groupId?: string
+  groupSlug?: string
   promoted: {
     isLoaded: boolean
     isLoading: boolean
@@ -25,6 +26,7 @@ export const tagsBarState = (): ITagsBarState => {
 
   return {
     groupId,
+    groupSlug: groupQuery.getSlug(),
     promoted: {
       isLoaded: promotedTagsState.isLoaded || false,
       isLoading: promotedTagsState.loading || false,
