@@ -78,15 +78,15 @@ export const PromotedTags: FC<{
       {state.isLoading ||
         (state.tags.length > 0 && (
           <PromotedTagsUI
-            tags={state.tags}
             activeTags={state.activeTags}
+            isAdmin={state.isAdmin}
             isLoading={state.isLoading}
             noImage={PromotedTagNoImage}
-            isAdmin={state.isAdmin}
-            onTagClick={onTagClick}
-            onNoRecordsClick={onAddTagClick}
-            onEditRecordClick={onEditTagClick}
             onDeleteRecordClick={onDeleteTagClick}
+            onEditRecordClick={onEditTagClick}
+            onNoRecordsClick={onAddTagClick}
+            onTagClick={onTagClick}
+            tags={state.tags}
           />
         ))}
       {promotedTagEditor.isOpen && (
@@ -98,6 +98,9 @@ export const PromotedTags: FC<{
           }}
         >
           <PromotedTagsForm
+            description={promotedTagEditor.description}
+            groupId={state.id || ''}
+            id={promotedTagEditor.id}
             onSuccess={() => {
               setPromotedTagEditor({
                 isOpen: false,
@@ -108,9 +111,6 @@ export const PromotedTags: FC<{
                 2000
               )
             }}
-            groupId={state.id || ''}
-            id={promotedTagEditor.id}
-            description={promotedTagEditor.description}
             tag={promotedTagEditor.tag}
           />
         </Modal>

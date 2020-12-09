@@ -5,6 +5,7 @@
 
 .navigation {
   display: flex;
+  align-items: center;
   flex-direction: row-reverse;
   gap: 5px;
   @include font-size(md);

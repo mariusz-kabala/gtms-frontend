@@ -7,4 +7,15 @@
   max-width: 700px;
   border-radius: $borderRadius2;
   background: $theme1;
+
+  .search {
+    // @todo remove it when search will be finished
+    [class*='inputWrapper'] {
+      height: 40px;
+
+      i {
+        top: 10px;
+      }
+    }
+  }
 }

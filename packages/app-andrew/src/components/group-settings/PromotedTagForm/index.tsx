@@ -12,12 +12,12 @@ import { UploadFile } from '@gtms/ui/UploadFile'
 import styles from './styles.scss'
 
 export const PromotedTagsForm: FC<{
-  tag?: string
-  id?: string
-  groupId: string
   description?: string
+  groupId: string
+  id?: string
   onSuccess: () => unknown
-}> = ({ onSuccess, tag, groupId, description, id }) => {
+  tag?: string
+}> = ({ description, groupId, id, onSuccess, tag }) => {
   const { t } = useTranslation('PromotedTagsForm')
   const [promotedTagId, setPromotedTagId] = useState<string | undefined>(id)
   const [savingStatus, setSavingStatus] = useState<{
@@ -56,6 +56,7 @@ export const PromotedTagsForm: FC<{
 
       uploadPromotedTagLogo(promotedTagId as string, acceptedFiles[0])
         .then(() => {
+          debugger
           setUploadStatus({
             isUploading: false,
             isError: false,
