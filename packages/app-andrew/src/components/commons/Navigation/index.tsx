@@ -8,9 +8,8 @@ import {
 import { toggleSidebarNotifications } from 'state'
 import { logoutUser } from '@gtms/state-user'
 // ui
-import { IoIosAddCircle, IoIosNotifications } from 'react-icons/io'
+import { IoIosAddCircle, IoIosNotifications, IoIosSearch } from 'react-icons/io'
 import { Navigation as NavigationUI } from '@gtms/ui/Navigation'
-// import { IoIosSearch } from 'react-icons/io'
 
 const MENU_ITEMS = [
   {
@@ -19,13 +18,12 @@ const MENU_ITEMS = [
     icon: <IoIosNotifications />,
     onClick: toggleSidebarNotifications,
   },
-  // @todo remove it eventually
-  // {
-  //   id: 'search',
-  //   label: 'Search',
-  //   icon: <IoIosSearch />,
-  //   url: '/search',
-  // },
+  {
+    id: 'search',
+    label: 'Search',
+    icon: <IoIosSearch />,
+    url: '/search',
+  },
   {
     id: 'group-create',
     label: 'Create your group',
