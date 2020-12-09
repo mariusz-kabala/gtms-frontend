@@ -77,6 +77,7 @@ export const LoginForm: FC<{
       )}
       <Button
         type="submit"
+        testid="login-button"
         additionalStyles={styles.btnSubmit}
         disabled={isMakingRequest}
       >
