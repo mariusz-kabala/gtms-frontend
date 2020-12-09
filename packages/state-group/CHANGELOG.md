@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.19.1...@gtms/state-group@0.19.2) (2020-12-09)
+
+
+### Bug Fixes
+
+* GEOT-703: Better tags bar component; saving and loading rece ([#933](https://github.com/gtms-org/gtms-frontend/issues/933)) ([5633bd1](https://github.com/gtms-org/gtms-frontend/commit/5633bd12f2b64738613067c2337de918ad191fa4))
+
+
+
+
+
 ## [0.19.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.19.0...@gtms/state-group@0.19.1) (2020-12-05)
 
 **Note:** Version bump only for package @gtms/state-group

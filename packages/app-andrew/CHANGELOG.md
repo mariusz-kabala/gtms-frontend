@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.90.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.7...@gtms/app-andrew@0.90.8) (2020-12-09)
+
+
+### Bug Fixes
+
+* GEOT-703: Better tags bar component; saving and loading rece ([#933](https://github.com/gtms-org/gtms-frontend/issues/933)) ([5633bd1](https://github.com/gtms-org/gtms-frontend/commit/5633bd12f2b64738613067c2337de918ad191fa4))
+
+
+
+
+
 ## [0.90.7](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.6...@gtms/app-andrew@0.90.7) (2020-12-08)
 
 
