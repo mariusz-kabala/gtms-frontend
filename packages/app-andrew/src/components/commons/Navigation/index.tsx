@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { Navigation as NavigationUI } from '@gtms/ui/Navigation'
 import {
   INavigationProps,
   baseUIQuery,
@@ -8,7 +7,10 @@ import {
 } from 'queries'
 import { toggleSidebarNotifications } from 'state'
 import { logoutUser } from '@gtms/state-user'
-import { IoIosAddCircle, IoIosNotifications, IoIosSearch } from 'react-icons/io'
+// ui
+import { IoIosAddCircle, IoIosNotifications } from 'react-icons/io'
+import { Navigation as NavigationUI } from '@gtms/ui/Navigation'
+// import { IoIosSearch } from 'react-icons/io'
 
 const MENU_ITEMS = [
   {
@@ -17,12 +19,13 @@ const MENU_ITEMS = [
     icon: <IoIosNotifications />,
     onClick: toggleSidebarNotifications,
   },
-  {
-    id: 'search',
-    label: 'Search',
-    icon: <IoIosSearch />,
-    url: '/search',
-  },
+  // @todo remove it eventually
+  // {
+  //   id: 'search',
+  //   label: 'Search',
+  //   icon: <IoIosSearch />,
+  //   url: '/search',
+  // },
   {
     id: 'group-create',
     label: 'Create your group',
@@ -57,10 +60,10 @@ export const Navigation: FC<{}> = () => {
 
   return (
     <NavigationUI
-      menu={MENU_ITEMS}
-      onLogout={logoutUser}
       active={active}
       avatar={state.userAvatar}
+      menu={MENU_ITEMS}
+      onLogout={logoutUser}
     />
   )
 }

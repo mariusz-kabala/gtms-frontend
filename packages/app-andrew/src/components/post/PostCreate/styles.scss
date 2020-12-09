@@ -70,17 +70,26 @@
     }
   }
 
-  .btnSubmit {
-    @include buttonDefault();
-    @include buttonSizeDefault();
-    @include buttonShapeDefault();
-    @include buttonColorsDefault();
-    @include buttonWithIcon('right');
-    margin-top: 5px;
-    width: 100%;
+  .buttons {
+    display: flex;
+    gap: 10px;
 
-    &:hover {
-      @include buttonColorsPrimary();
+    .btnSubmit {
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapeDefault();
+      @include buttonColorsDefault();
+      @include buttonWithIcon();
+      margin-top: 5px;
+      width: 100%;
+
+      &.btnImages {
+        max-width: 150px;
+      }
+
+      &:hover {
+        @include buttonColorsPrimary();
+      }
     }
   }
 }

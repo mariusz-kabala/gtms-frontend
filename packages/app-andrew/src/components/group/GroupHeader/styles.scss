@@ -3,8 +3,8 @@
 .mainHeader {
   display: flex;
   grid-gap: 8px;
-  max-width: 700px;
   padding: 8px;
-  border-bottom: 1px solid $theme9;
-  background-color: $theme1;
+  max-width: 700px;
+  border-radius: $borderRadius2;
+  background: $theme1;
 }

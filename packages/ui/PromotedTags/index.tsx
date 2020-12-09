@@ -19,29 +19,29 @@ import { Image } from '../Image'
 import styles from './styles.scss'
 
 export const PromotedTags: FC<{
+  activeTags?: string[]
   additionalStyles?: string
-  isLoading: boolean
   isAdmin?: boolean
-  tags: IPromotedTag[]
+  isLoading: boolean
   noImage: {
     '200x200': IImage
   }
-  activeTags?: string[]
-  onNoRecordsClick?: () => unknown
-  onEditRecordClick?: (promotedTag: IPromotedTag) => unknown
   onDeleteRecordClick?: (promotedTag: IPromotedTag) => unknown
+  onEditRecordClick?: (promotedTag: IPromotedTag) => unknown
+  onNoRecordsClick?: () => unknown
   onTagClick?: (promotedTag: IPromotedTag) => unknown
+  tags: IPromotedTag[]
 }> = ({
-  additionalStyles,
-  isLoading,
-  tags,
-  noImage,
-  onNoRecordsClick,
-  onEditRecordClick,
-  onDeleteRecordClick,
-  onTagClick,
-  isAdmin = false,
   activeTags = [],
+  additionalStyles,
+  isAdmin = false,
+  isLoading,
+  noImage,
+  onDeleteRecordClick,
+  onEditRecordClick,
+  onNoRecordsClick,
+  onTagClick,
+  tags,
 }) => {
   const [TagToDelete, setTagToDelete] = useState<IPromotedTag | null>(null)
   const onClick = useCallback(() => {
@@ -96,11 +96,6 @@ export const PromotedTags: FC<{
               })}
               key={`promoted-${tag.id}`}
             >
-              <Image
-                size={'200x200'}
-                {...(tag.logo as any)}
-                noImage={noImage}
-              />
               {isAdmin && (
                 <div className={styles.adminPanel}>
                   <ul>
@@ -129,6 +124,11 @@ export const PromotedTags: FC<{
                   <h3>#{tag.tag}</h3>
                   <p>{tag.description}</p>
                 </div>
+                <Image
+                  {...(tag.logo as any)}
+                  size={'200x200'}
+                  noImage={noImage}
+                />
               </div>
             </div>
           ))}

@@ -7,9 +7,6 @@
 $navigationDotAllMyGroupsSidebarWidth: 45%;
 
 .wrapper {
-  position: relative;
-  display: flex;
-
   .fullView {
     position: fixed;
     top: 0;
@@ -43,14 +40,35 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
   }
 
   .navigationDot {
+    display: flex;
+    gap: 5px;
+
+    .myGroups {
+      > div {
+        // because of sortable component
+        display: flex;
+        gap: 5px;
+      }
+    }
+
     .item {
       width: 40px;
       height: 40px;
-      margin-bottom: 5px;
       overflow: hidden;
       border-radius: $borderRadius;
       cursor: pointer;
       transition: 200ms all;
+
+      > div {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        @include imageCover();
+
+        &:hover {
+          @include effectOne();
+        }
+      }
 
       &.showAllGroups {
         position: relative;
@@ -78,16 +96,6 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
           &:hover {
             opacity: 1;
           }
-        }
-      }
-
-      > div {
-        width: 100%;
-        height: 100%;
-        @include imageCover();
-
-        &:hover {
-          @include effectOne();
         }
       }
     }

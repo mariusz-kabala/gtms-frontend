@@ -81,6 +81,10 @@ export const RecentlyCreatedGroups: FC<{
             return (
               <li key={`recent-group-${group.id}`}>
                 <GridCard
+                  additionalStyles={styles.gridCard}
+                  desc={group.description}
+                  image={getImage('200x200', group.avatar, GroupAvatarNoImage)}
+                  name={group.name}
                   onClick={async () => {
                     setGroupCard({
                       isLoading: true,
@@ -98,9 +102,6 @@ export const RecentlyCreatedGroups: FC<{
                       current: group,
                     })
                   }}
-                  name={group.name}
-                  desc={group.description}
-                  image={getImage('200x200', group.avatar, GroupAvatarNoImage)}
                 />
               </li>
             )
