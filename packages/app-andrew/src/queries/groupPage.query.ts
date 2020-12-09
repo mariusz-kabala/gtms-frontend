@@ -20,7 +20,11 @@ export interface IGroupPageState {
   notFound: boolean
   errorOccured: boolean
   group: IGroup | null
-  posts: IPost[]
+  posts: {
+    isLoading: boolean
+    posts: IPost[]
+    errorOccured: boolean
+  }
   postsSorting: Sorting
   activeTags?: string[]
   activeUsers?: string[]
@@ -57,7 +61,11 @@ export const groupPageState = (): IGroupPageState => {
 
   return {
     ...group,
-    posts: postsQuery.getAll(),
+    posts: {
+      posts: postsQuery.getAll(),
+      isLoading: postsState.loading || false,
+      errorOccured: postsState.error || false,
+    },
     postsSorting: postsState.sort,
     activeTags: postsState.tags || [],
     activeUsers: postsState.users || [],
