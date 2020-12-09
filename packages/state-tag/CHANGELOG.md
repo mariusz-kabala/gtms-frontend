@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.2...@gtms/state-tag@0.10.3) (2020-12-09)
+
+
+### Bug Fixes
+
+* GEOT-703: recently viewed tags fixes ([#934](https://github.com/gtms-org/gtms-frontend/issues/934)) ([baae927](https://github.com/gtms-org/gtms-frontend/commit/baae927e3688c2fa83afa26fc3fc86d5fe464efa))
+
+
+
+
+
 ## [0.10.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.1...@gtms/state-tag@0.10.2) (2020-12-09)
 
 

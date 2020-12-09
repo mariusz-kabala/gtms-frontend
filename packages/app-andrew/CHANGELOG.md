@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.90.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.8...@gtms/app-andrew@0.90.9) (2020-12-09)
+
+
+### Bug Fixes
+
+* GEOT-703: recently viewed tags fixes ([#934](https://github.com/gtms-org/gtms-frontend/issues/934)) ([baae927](https://github.com/gtms-org/gtms-frontend/commit/baae927e3688c2fa83afa26fc3fc86d5fe464efa))
+
+
+
+
+
 ## [0.90.8](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.7...@gtms/app-andrew@0.90.8) (2020-12-09)
 
 
