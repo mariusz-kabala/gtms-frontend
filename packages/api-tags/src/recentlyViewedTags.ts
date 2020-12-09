@@ -1,7 +1,7 @@
 import { fetchJSON, makeApiUrl } from '@gtms/api-common'
 
 export interface IRecentlyViewedTagPayload {
-  groupId: string
+  group: string
   tag: string
 }
 

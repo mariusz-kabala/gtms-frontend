@@ -112,17 +112,19 @@ function shouldUpdateRecentlyViewedTags(groupId: string, tag: string) {
   )
 }
 
-function saveForLoggedUser(groupId: string, tag: string) {
+function saveForLoggedUser(group: string, tag: string) {
   saveRecentlyViewedTags({
-    groupId,
+    group,
     tag,
   })
 }
 
 export function saveRecentlyViewedTag(groupId: string, tag: string) {
-  if (shouldUpdateRecentlyViewedTags(groupId, tag)) {
-    updateStoreWithNewRecentlyViewedTag(groupId, tag)
+  if (!shouldUpdateRecentlyViewedTags(groupId, tag)) {
+    return
   }
+
+  updateStoreWithNewRecentlyViewedTag(groupId, tag)
 
   userQuery.isLogged()
     ? saveForLoggedUser(groupId, tag)

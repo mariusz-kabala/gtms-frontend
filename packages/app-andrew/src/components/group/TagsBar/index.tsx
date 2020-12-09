@@ -43,6 +43,7 @@ export const TagsBar: FC<{}> = () => {
       currentTab === Tabs.recentlyViewed &&
       !state.recentlyViewed.isLoading &&
       !state.recentlyViewed.isLoaded &&
+      !state.recentlyViewed.errorOccured &&
       state.groupId
     ) {
       loadRecentlyViewedTags(state.groupId)
