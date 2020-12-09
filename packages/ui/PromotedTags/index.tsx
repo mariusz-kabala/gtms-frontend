@@ -126,8 +126,8 @@ export const PromotedTags: FC<{
                 </div>
                 <Image
                   {...(tag.logo as any)}
-                  size={'200x200'}
                   noImage={noImage}
+                  size={'200x200'}
                 />
               </div>
             </div>

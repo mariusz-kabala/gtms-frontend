@@ -56,7 +56,6 @@ export const PromotedTagsForm: FC<{
 
       uploadPromotedTagLogo(promotedTagId as string, acceptedFiles[0])
         .then(() => {
-          debugger
           setUploadStatus({
             isUploading: false,
             isError: false,
