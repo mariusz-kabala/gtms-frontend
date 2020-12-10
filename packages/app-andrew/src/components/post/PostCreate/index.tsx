@@ -133,14 +133,14 @@ export const PostCreate: FC<{
       className={cx(styles.wrapper, additionalStyles)}
     >
       <PostCreateUI
+        fetchSuggestedTags={fetchSuggestedTagsAPI}
         fetchTags={findTagsAPI}
         fetchUsers={findbyUsernameAPI}
-        fetchSuggestedTags={fetchSuggestedTagsAPI}
-        user={state.user}
-        value={value}
-        setValue={setValue}
         noImage={UserAvatarNoImage}
         onLoginRequest={openLoginModal}
+        setValue={setValue}
+        user={state.user}
+        value={value}
       />
 
       {fileUploadState.isVisible && fileUploadState.files.length < 5 && (

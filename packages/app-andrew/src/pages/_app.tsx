@@ -111,7 +111,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
           style={
             backgroundImage
               ? {
-                  background: `url(${backgroundImage}) no-repeat`,
+                  backgroundImage: `url(${backgroundImage})`,
                 }
               : undefined
           }

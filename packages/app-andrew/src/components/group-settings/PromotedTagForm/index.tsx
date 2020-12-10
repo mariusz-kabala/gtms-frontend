@@ -60,8 +60,6 @@ export const PromotedTagsForm: FC<{
             isUploading: false,
             isError: false,
           })
-
-          onSuccess()
         })
         .catch(() => {
           setUploadStatus({
@@ -183,6 +181,8 @@ export const PromotedTagsForm: FC<{
               })
             })
           }
+
+          onSuccess()
         }}
       >
         {/* @todo add translation */}

@@ -161,6 +161,9 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
           }}
         >
           <PromotedTagsForm
+            description={promotedTagEditor.description}
+            groupId={props.id}
+            id={promotedTagEditor.id}
             onSuccess={() => {
               setPromotedTagEditor({
                 tag: '',
@@ -168,9 +171,6 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
               })
               loadGroupPromotedTags(props.id)
             }}
-            description={promotedTagEditor.description}
-            groupId={props.id}
-            id={promotedTagEditor.id}
             tag={promotedTagEditor.tag}
           />
         </Modal>

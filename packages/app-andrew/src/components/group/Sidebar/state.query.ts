@@ -5,8 +5,8 @@ import { uiQuery } from 'state'
 import { FileStatus } from '@gtms/commons'
 
 export interface IGroupSidebarContentState extends IGroupState {
-  hasAdminRights: boolean
   avatarFileStatus: FileStatus
+  hasAdminRights: boolean
   showPromoted: boolean
   showUsers: boolean
 }

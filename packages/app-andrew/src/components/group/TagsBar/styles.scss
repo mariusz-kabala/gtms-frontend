@@ -32,7 +32,6 @@
     .active {
       display: flex;
       align-items: center;
-      @include font-weight(semiBold);
 
       i {
         line-height: 0;
@@ -68,17 +67,6 @@
         border-radius: $borderRadius;
         cursor: pointer;
 
-        &:hover {
-          border-color: $theme4;
-
-          .desc {
-            opacity: 1;
-
-            span {
-              opacity: 1;
-            }
-          }
-        }
         img {
           min-width: 40px;
           max-width: 40px;
@@ -95,12 +83,22 @@
           span {
             display: block;
             @include font-size(xxs);
+            @include font-weight(semiNormal);
             line-height: 1.1;
+            word-break: break-all;
             opacity: 0.7;
           }
+        }
 
-          h4 {
-            @include font-weight(semiBold);
+        &:hover {
+          border-color: $theme4;
+
+          .desc {
+            opacity: 1;
+
+            span {
+              opacity: 1;
+            }
           }
         }
       }

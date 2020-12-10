@@ -102,13 +102,13 @@ export const PostCommentsList: FC<{
       ))}
       <div ref={commentForm} onClick={() => setShowSendButton(true)}>
         <PostCreate
-          value={value}
-          setValue={setValue}
           fetchTags={findTagsAPI}
           fetchUsers={findbyUsernameAPI}
-          user={user}
           noImage={UserAvatarNoImage}
           onLoginRequest={openLoginModal}
+          setValue={setValue}
+          user={user}
+          value={value}
         />
         {showSendButton && (
           <Button
