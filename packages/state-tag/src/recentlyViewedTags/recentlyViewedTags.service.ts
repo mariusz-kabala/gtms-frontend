@@ -1,5 +1,6 @@
 import { userQuery } from '@gtms/state-user'
 import { getItem, setItem } from '@gtms/commons/helpers'
+import { IRecentlyViewedTag } from '@gtms/commons/models'
 import { fetchRecentlyViewedTags, saveRecentlyViewedTags } from '@gtms/api-tags'
 import { recentlyViewedTagsQuery } from './recentlyViewedTags.query'
 import { recentlyViewedTagsStore } from './recentlyViewedTags.store'
@@ -9,7 +10,10 @@ const getLSKey = (groupId: string) => `recently-viewed-${groupId}`
 function updateStoreWithNewRecentlyViewedTag(groupId: string, tag: string) {
   const groupRecentTags = recentlyViewedTagsQuery.getForGroup(groupId)
 
-  groupRecentTags.tags.push(tag)
+  groupRecentTags.tags.push({
+    tag: tag,
+    createdAt: new Date().toISOString(),
+  })
 
   recentlyViewedTagsStore.update({
     [groupId]: groupRecentTags,
@@ -20,7 +24,7 @@ function loadRecentlyViewedTagsForAnonymousUser(groupId: string) {
   const lsKey = getLSKey(groupId)
   const lsValue = getItem(lsKey)
 
-  let recentlyViewed: string[] = []
+  let recentlyViewed: IRecentlyViewedTag[] = []
 
   try {
     recentlyViewed = lsValue && JSON.parse(lsValue)
@@ -53,7 +57,7 @@ function loadRecentlyViewedTagsForLoggedUser(groupId: string) {
   })
 
   fetchRecentlyViewedTags(groupId)
-    .then((tags: string[]) => {
+    .then((tags: IRecentlyViewedTag[]) => {
       recentlyViewedTagsStore.update({
         [groupId]: {
           isLoading: false,
@@ -108,7 +112,7 @@ function shouldUpdateRecentlyViewedTags(groupId: string, tag: string) {
   return !(
     groupRecentTags.isLoaded === true &&
     groupRecentTags.tags.length > 0 &&
-    groupRecentTags.tags[groupRecentTags.tags.length - 1] === tag
+    groupRecentTags.tags[groupRecentTags.tags.length - 1].tag === tag
   )
 }
 

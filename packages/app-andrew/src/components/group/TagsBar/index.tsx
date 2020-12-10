@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
+import { formatDistance } from 'date-fns'
 import cx from 'classnames'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { PromotedTagNoImage } from 'enums'
@@ -156,11 +157,18 @@ export const TagsBar: FC<{}> = () => {
         !state.recentlyViewed.errorOccured &&
         state.recentlyViewed.tags.length > 0 && (
           <ul className={styles.items}>
-            {state.recentlyViewed.tags.map((tag) => (
-              <li className={styles.item} key={`recently-viewed-${tag}`}>
+            {state.recentlyViewed.tags.map((tag, index) => (
+              <li
+                className={styles.item}
+                key={`recently-viewed-${tag.tag}-${index}`}
+              >
                 <a>
                   <p className={styles.desc}>
-                    <h4>#{tag}</h4>
+                    <h4>#{tag.tag}</h4>
+                    <span>
+                      visited{' '}
+                      {formatDistance(new Date(tag.createdAt), new Date())}
+                    </span>
                   </p>
                 </a>
               </li>
