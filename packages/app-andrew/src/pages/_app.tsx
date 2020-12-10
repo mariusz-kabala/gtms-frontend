@@ -31,6 +31,7 @@ interface GTMSAppState {
     className: string
   }
   backgroundImage?: string
+  backgroundLoaded: boolean
 }
 
 class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
@@ -41,17 +42,34 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
 
     this.state = {
       ...uiQuery.pageBackgrounds(),
+      backgroundLoaded: false,
     }
   }
+
+  onBgLoad = () =>
+    this.setState({
+      backgroundLoaded: true,
+    })
 
   componentDidMount() {
     const { auth } = this.props
 
-    this.subscription = uiQuery.pageBackground$.subscribe((value) =>
+    this.subscription = uiQuery.pageBackground$.subscribe((value) => {
       this.setState({
         background: value,
       })
-    )
+
+      if (value.full) {
+        const img = new Image()
+        img.src = value.full
+
+        if (img.complete) {
+          this.onBgLoad()
+        } else {
+          img.onload = this.onBgLoad
+        }
+      }
+    })
 
     if (auth?.accessToken && auth.refreshToken) {
       init(
@@ -89,6 +107,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
             styles.bg,
             !backgroundImage ? background.className : undefined
           )}
+          data-loaded={this.state.backgroundLoaded ? 'true' : 'false'}
           style={
             backgroundImage
               ? {
