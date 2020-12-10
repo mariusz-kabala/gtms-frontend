@@ -1,11 +1,4 @@
 @import '~@gtms/styles/scss/variables.scss';
-@import '~@gtms/styles/scss/mixins/buttons.scss';
-@import '~@gtms/styles/scss/mixins/fontWeight.scss';
-@import '~@gtms/styles/scss/mixins/fontSize.scss';
-@import '~@gtms/styles/scss/mixins/header.scss';
-@import '~@gtms/styles/scss/mixins/imageCover.scss';
-@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
-@import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .pageWrapper {
   display: flex;
@@ -13,43 +6,10 @@
   gap: 20px;
   width: 100%;
   min-height: 100%;
-  background: $theme9;
-
-  .headerWrapper {
-    position: sticky;
-    top: 0px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    @include z-index(headerWrapper);
-    background: $theme2;
-
-    .logo {
-      max-width: 120px;
-      margin-right: 30px;
-    }
-
-    .btn {
-      @include buttonDefault();
-      @include buttonSizeDefault();
-      @include buttonShapeDefault();
-      @include buttonColorRed();
-      margin-left: 10px;
-
-      span {
-        margin-left: 5px;
-        @include font-weight(bold);
-      }
-
-      &:hover {
-        @include buttonColorsDefault();
-      }
-    }
-  }
 
   .recentlyRegisteredUsers {
-    margin: 0 15px;
+    margin: 15px;
+    margin-bottom: 0;
   }
 
   .recentlyCreatedGroups {

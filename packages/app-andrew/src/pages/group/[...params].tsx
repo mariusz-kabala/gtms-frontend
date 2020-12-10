@@ -12,14 +12,14 @@ import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
 import { GroupCover } from 'components/group/GroupCover'
+import { GroupHeader } from 'components/group/GroupHeader'
 import { GroupMembers } from 'components/group/GroupMembers'
 import { GroupNoAccess } from 'components/group/GroupNoAccess'
 import { GroupNotFound } from 'components/group/GroupNotFound'
 import { PostCreate } from 'components/post/PostCreate'
 import { PostDetails } from 'components/post/PostDetails'
-import { PromotedTags } from 'components/group/PromotedTags'
-import { GroupHeader } from 'components/group/GroupHeader'
 import { PostsList } from 'components/post/PostsList'
+import { PromotedTags } from 'components/group/PromotedTags'
 import { TagsBar } from 'components/group/TagsBar'
 // state
 import {
@@ -272,7 +272,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <div className={styles.wrapper} data-testid="group-page">
-          <div>
+          <>
             <GroupCover
               additionalStyles={styles.groupCover}
               group={state.group}
@@ -439,7 +439,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   )}
               </div>
             )}
-          </div>
+          </>
           {!state.showPromoted && state.activePost && (
             <PostDetails
               activeTags={state.activeTags || []}

@@ -136,9 +136,9 @@ export const TagsBar: FC<{}> = () => {
                       }}
                     >
                       <Image
-                        size={'35x35'}
                         {...(tag.logo as any)}
                         noImage={PromotedTagNoImage}
+                        size={'35x35'}
                       />
                       <p className={styles.desc}>
                         <h4>#{tag.tag}</h4>

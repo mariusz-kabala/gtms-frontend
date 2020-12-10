@@ -4,6 +4,10 @@
 .wrapper {
   height: 100%;
 
+  .gridCard {
+    min-height: 200px;
+  }
+
   .items {
     display: grid;
     grid-template-columns: repeat(7, 1fr);

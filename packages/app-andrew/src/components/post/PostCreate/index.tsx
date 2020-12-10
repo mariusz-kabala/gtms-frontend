@@ -179,9 +179,9 @@ export const PostCreate: FC<{
       )}
 
       {showSendButton && (
-        <div>
+        <div className={styles.buttons}>
           <Button
-            additionalStyles={styles.btnSubmit}
+            additionalStyles={cx(styles.btnSubmit, styles.btnImages)}
             type="submit"
             onClick={() =>
               setfileUploadState((state) => ({
@@ -216,10 +216,10 @@ export const PostCreate: FC<{
               setValue('')
             }}
           >
-            send
             <i>
               <IoMdSend />
             </i>
+            send
           </Button>
         </div>
       )}

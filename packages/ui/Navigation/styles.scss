@@ -4,13 +4,15 @@
 @import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 
 .navigation {
+  display: flex;
   align-items: center;
+  flex-direction: row-reverse;
+  gap: 5px;
   @include font-size(md);
   cursor: pointer;
 
   .avatar {
     position: relative;
-    margin-bottom: 5px;
 
     &:hover {
       @include effectOne('circle');
@@ -18,14 +20,15 @@
   }
 
   .items {
+    display: flex;
+    gap: 5px;
+
     .item {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: $borderRadius;
-      margin-bottom: 5px;
-      background: $theme1;
 
       a {
         position: relative;
