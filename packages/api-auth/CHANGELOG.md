@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.14.0...@gtms/api-auth@0.14.1) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/api-auth
+
+
+
+
+
 # [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.11...@gtms/api-auth@0.14.0) (2020-12-05)
 
 

@@ -1,14 +1,14 @@
 {
   "name": "@gtms/state-tag",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-tags": "0.8.1",
-    "@gtms/commons": "0.30.0",
-    "@gtms/state-user": "0.20.0"
+    "@gtms/api-tags": "0.8.2",
+    "@gtms/commons": "0.30.1",
+    "@gtms/state-user": "0.20.1"
   },
   "scripts": {
     "build": "exit 0",
