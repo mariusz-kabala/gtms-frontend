@@ -45,17 +45,32 @@ export const GroupSidebar: FC<{}> = () => {
   return (
     <div className={styles.groupSidebar}>
       <div className={styles.avatarAndName}>
-        <Link href={`/group/${state.group.slug}`}>
-          <GroupAvatar
-            additionalStyles={styles.groupAvatar}
-            files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
-            filesStatus={state.avatarFileStatus}
-            isEditAllowed={
-              state.hasAdminRights &&
-              state.avatarFileStatus === FileStatus.notExists
-            }
-          />
-        </Link>
+        {state.hasAdminRights &&
+          state.avatarFileStatus === FileStatus.notExists && (
+            <GroupAvatar
+              additionalStyles={styles.groupAvatar}
+              files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
+              filesStatus={state.avatarFileStatus}
+              isEditAllowed={true}
+            />
+          )}
+        {!state.hasAdminRights ||
+          (state.avatarFileStatus !== FileStatus.notExists && (
+            <Link href={`/group/${state.group.slug}`}>
+              <a>
+                <GroupAvatar
+                  additionalStyles={styles.groupAvatar}
+                  files={getImage(
+                    '50x50',
+                    state.group.avatar,
+                    GroupAvatarNoImage
+                  )}
+                  filesStatus={state.avatarFileStatus}
+                  isEditAllowed={false}
+                />
+              </a>
+            </Link>
+          ))}
         <h2
           className={styles.header}
           data-tip={t('click-here-to-edit')}
