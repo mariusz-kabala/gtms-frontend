@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.71.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.71.0...@gtms/ui@0.71.1) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/ui
+
+
+
+
+
+# [0.71.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.70.3...@gtms/ui@0.71.0) (2020-12-10)
+
+
+### Features
+
+* GEOT-706: lazy loading images in bg settings widget ([#938](https://github.com/gtms-org/gtms-frontend/issues/938)) ([b52ab58](https://github.com/gtms-org/gtms-frontend/commit/b52ab5870b7acb8d5d0f5b180a155ec0dd6c741e))
+
+
+
+
+
 ## [0.70.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.70.2...@gtms/ui@0.70.3) (2020-12-08)
 
 

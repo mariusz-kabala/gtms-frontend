@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.8.1...@gtms/api-tags@0.8.2) (2020-12-10)
+
+
+### Bug Fixes
+
+* GEOT-703: show date in recently visited tags ([#936](https://github.com/gtms-org/gtms-frontend/issues/936)) ([c0edda1](https://github.com/gtms-org/gtms-frontend/commit/c0edda1b3ca26dc6e960e1b48381771d0888c4eb))
+
+
+
+
+
 ## [0.8.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.8.0...@gtms/api-tags@0.8.1) (2020-12-09)
 
 

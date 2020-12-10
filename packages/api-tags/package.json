@@ -1,6 +1,6 @@
 {
   "name": "@gtms/api-tags",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",

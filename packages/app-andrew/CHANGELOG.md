@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.91.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.91.1...@gtms/app-andrew@0.91.2) (2020-12-10)
+
+
+### Bug Fixes
+
+* GEOT-703: show date in recently visited tags ([#936](https://github.com/gtms-org/gtms-frontend/issues/936)) ([c0edda1](https://github.com/gtms-org/gtms-frontend/commit/c0edda1b3ca26dc6e960e1b48381771d0888c4eb))
+
+
+
+
+
+## [0.91.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.91.0...@gtms/app-andrew@0.91.1) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/app-andrew
+
+
+
+
+
 # [0.91.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.10...@gtms/app-andrew@0.91.0) (2020-12-10)
 
 
