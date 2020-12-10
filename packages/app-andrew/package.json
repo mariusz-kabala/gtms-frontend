@@ -1,6 +1,6 @@
 {
   "name": "@gtms/app-andrew",
-  "version": "0.91.2",
+  "version": "0.92.0",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
@@ -15,19 +15,19 @@
     "check:ts": "tsc --noEmit -p ./tsconfig.json"
   },
   "dependencies": {
-    "@gtms/api-abuse": "0.3.1",
-    "@gtms/api-auth": "0.14.1",
-    "@gtms/api-file": "0.3.1",
-    "@gtms/api-group": "0.17.1",
+    "@gtms/api-abuse": "0.3.2",
+    "@gtms/api-auth": "0.14.2",
+    "@gtms/api-file": "0.3.2",
+    "@gtms/api-group": "0.17.2",
     "@gtms/api-tags": "0.8.2",
-    "@gtms/commons": "0.30.1",
-    "@gtms/state-comment": "0.5.1",
-    "@gtms/state-group": "0.19.3",
+    "@gtms/commons": "0.31.0",
+    "@gtms/state-comment": "0.5.2",
+    "@gtms/state-group": "0.19.4",
     "@gtms/state-notification": "0.10.2",
-    "@gtms/state-post": "0.14.1",
-    "@gtms/state-tag": "0.10.4",
-    "@gtms/state-user": "0.20.1",
-    "@gtms/styles": "0.26.1",
-    "@gtms/ui": "0.71.1"
+    "@gtms/state-post": "0.14.2",
+    "@gtms/state-tag": "0.10.5",
+    "@gtms/state-user": "0.20.2",
+    "@gtms/styles": "0.27.0",
+    "@gtms/ui": "0.72.0"
   }
 }

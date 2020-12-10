@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.92.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.91.2...@gtms/app-andrew@0.92.0) (2020-12-10)
+
+
+### Features
+
+* GEOT-704: experimental header changes ([#935](https://github.com/gtms-org/gtms-frontend/issues/935)) ([a242987](https://github.com/gtms-org/gtms-frontend/commit/a2429875ee1d3e0cf303f33aa9bd770e5f2d9b86))
+
+
+
+
+
 ## [0.91.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.91.1...@gtms/app-andrew@0.91.2) (2020-12-10)
 
 
