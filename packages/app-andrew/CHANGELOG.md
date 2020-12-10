@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.91.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.10...@gtms/app-andrew@0.91.0) (2020-12-10)
+
+
+### Features
+
+* GEOT-706: bg lazy loader ([#937](https://github.com/gtms-org/gtms-frontend/issues/937)) ([40159a4](https://github.com/gtms-org/gtms-frontend/commit/40159a4b37f54108fdd21cbc6d57182bbd175fca))
+
+
+
+
+
+## [0.90.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.9...@gtms/app-andrew@0.90.10) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/app-andrew
+
+
+
+
+
 ## [0.90.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.90.8...@gtms/app-andrew@0.90.9) (2020-12-09)
 
 
