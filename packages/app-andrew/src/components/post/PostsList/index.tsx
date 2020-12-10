@@ -170,13 +170,16 @@ export const PostsList: FC<{
           onOpenGroupPreview,
         })
       )}
-      <AbuseReportForm
-        onSubmit={onAbuseReportSubmit}
-        view={abuseReportState.view}
-        isMakingRequest={abuseReportState.isMakingRequest}
-        isOpen={abuseReportState.isOpen}
-        onClose={onCloseReportAbuse}
-      />
+
+      {abuseReportState.isOpen && (
+        <Modal onClose={onCloseReportAbuse}>
+          <AbuseReportForm
+            onSubmit={onAbuseReportSubmit}
+            view={abuseReportState.view}
+            isMakingRequest={abuseReportState.isMakingRequest}
+          />
+        </Modal>
+      )}
       {userPreview && (
         <Modal onClose={onCloseUserPreview}>
           <UserPreview
