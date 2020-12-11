@@ -1,7 +1,11 @@
 import React, { FC, useState, useRef, useCallback } from 'react'
 import { useTranslation } from '@gtms/commons/i18n'
 import { createPromotedTag, updatePromotedTag } from '@gtms/state-tag'
-import { uploadPromotedTagLogo, uploadTmpPromotedTagLogo } from '@gtms/api-tags'
+import {
+  uploadPromotedTagLogo,
+  uploadTmpPromotedTagLogo,
+  ICreatePromotedTagPayload,
+} from '@gtms/api-tags'
 import { deleteTmpFileAPI } from '@gtms/api-file'
 // ui
 import { Error } from '@gtms/ui/Forms/Error'
@@ -34,6 +38,7 @@ export const PromotedTagsForm: FC<{
   const [promotedTagId, setPromotedTagId] = useState<string | undefined>(id)
   const [filePreview, setFilePreview] = useState<{
     file: string | null
+    url?: string
     id?: string
   }>({ file: null })
   const [savingStatus, setSavingStatus] = useState<{
@@ -93,7 +98,7 @@ export const PromotedTagsForm: FC<{
             })
 
             readFile(acceptedFiles[0]).then((file) => {
-              file && setFilePreview({ file, id: res.id })
+              file && setFilePreview({ ...res, file })
             })
           })
           .catch(() => {
@@ -227,12 +232,20 @@ export const PromotedTagsForm: FC<{
               })
             })
           } else {
-            createPromotedTag({
+            const payload: ICreatePromotedTagPayload = {
               tag: stateTag.value,
-              file: filePreview.id,
               group: groupId,
               description: dsc as string,
-            }).then((result) => {
+            }
+
+            if (filePreview.id && filePreview.url) {
+              payload.file = {
+                id: filePreview.id,
+                url: filePreview.url,
+              }
+            }
+
+            createPromotedTag(payload).then((result) => {
               if (result) {
                 setPromotedTagId(result.id)
               }
