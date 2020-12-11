@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.93.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.92.0...@gtms/app-andrew@0.93.0) (2020-12-11)
+
+
+### Features
+
+* GEOT-709 general-css-changes ([#940](https://github.com/gtms-org/gtms-frontend/issues/940)) ([6f8d145](https://github.com/gtms-org/gtms-frontend/commit/6f8d1451ef3f7c6145278dfcbf0ced3efc58796f))
+
+
+
+
+
 # [0.92.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.91.2...@gtms/app-andrew@0.92.0) (2020-12-10)
 
 
