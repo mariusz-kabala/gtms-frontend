@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.74.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.73.0...@gtms/ui@0.74.0) (2020-12-11)
+
+
+### Features
+
+* GEOT-707: allow to upload images when promoted tag is not ye ([#941](https://github.com/gtms-org/gtms-frontend/issues/941)) ([97d6748](https://github.com/gtms-org/gtms-frontend/commit/97d6748f45ce99bbd1dc626bd830e6beb108ddb6))
+
+
+
+
+
 # [0.73.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.72.0...@gtms/ui@0.73.0) (2020-12-11)
 
 
