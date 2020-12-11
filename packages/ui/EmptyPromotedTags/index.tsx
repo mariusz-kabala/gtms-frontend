@@ -9,17 +9,12 @@ export const EmptyPromotedTags: FC<{
 }> = ({ onAddClick }) => {
   return (
     <div className={styles.wrapper} data-testid="empty-promoted-tags">
-      {new Array(24).fill(null).map((_, index) => (
-        <div className={styles.emptyBox} key={`empty-box-${index}`} />
-      ))}
-      <div className={styles.btnWrapper}>
-        <Button onClick={onAddClick} additionalStyles={styles.addButton}>
-          <i>
-            <IoIosAddCircle />
-          </i>
-          Add a promoted tag
-        </Button>
-      </div>
+      <Button onClick={onAddClick} additionalStyles={styles.addButton}>
+        <i>
+          <IoIosAddCircle />
+        </i>
+        Add a promoted tag
+      </Button>
     </div>
   )
 }

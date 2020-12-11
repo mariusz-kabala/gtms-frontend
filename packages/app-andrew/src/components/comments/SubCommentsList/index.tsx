@@ -59,7 +59,6 @@ export const SubCommentsList: FC<{
       {isAnswerFormOpen && (
         <div ref={commentForm} onClick={() => setShowSendButton(true)}>
           <PostCreate
-            additionalStyles={styles.postResponseCreate}
             value={value}
             setValue={setValue}
             fetchTags={findTagsAPI}

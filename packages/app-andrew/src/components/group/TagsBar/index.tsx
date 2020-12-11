@@ -26,7 +26,9 @@ enum Tabs {
   recentlyViewed,
 }
 
-export const TagsBar: FC<{}> = () => {
+export const TagsBar: FC<{
+  additionalStyles?: string
+}> = ({ additionalStyles }) => {
   const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.promoted)
   const [state, setState] = useState<ITagsBarState>(tagsBarState())
   const { i18n } = useTranslation('groupPage')
@@ -61,45 +63,52 @@ export const TagsBar: FC<{}> = () => {
     }
   }, [currentTab, state.recentlyViewed, state.groupId])
 
+  // @todo this can be done better
+  // http://geotags.atlassian.net/browse/GEOT-708
+  if (
+    state.promoted.tags.length <= 0 &&
+    state.recentlyViewed.tags.length <= 0
+  ) {
+    return null
+  }
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.nav}>
-        <ul>
-          <li
-            className={cx({
-              [styles.active]: currentTab === Tabs.promoted,
-            })}
-            onClick={() => setCurrentTab(Tabs.promoted)}
-          >
-            <i>
-              <IoMdGrid />
-            </i>
-            Tags
-          </li>
-          <li
-            onClick={() => setCurrentTab(Tabs.favorites)}
-            className={cx({
-              [styles.active]: currentTab === Tabs.favorites,
-            })}
-          >
-            <i>
-              <IoMdGrid />
-            </i>
-            Favorites
-          </li>
-          <li
-            className={cx({
-              [styles.active]: currentTab === Tabs.recentlyViewed,
-            })}
-            onClick={() => setCurrentTab(Tabs.recentlyViewed)}
-          >
-            <i>
-              <IoMdGrid />
-            </i>
-            last viewed
-          </li>
-        </ul>
-      </div>
+    <div className={cx(styles.wrapper, additionalStyles)}>
+      <ul className={styles.nav}>
+        <li
+          className={cx({
+            [styles.active]: currentTab === Tabs.promoted,
+          })}
+          onClick={() => setCurrentTab(Tabs.promoted)}
+        >
+          <i>
+            <IoMdGrid />
+          </i>
+          Tags
+        </li>
+        <li
+          onClick={() => setCurrentTab(Tabs.favorites)}
+          className={cx({
+            [styles.active]: currentTab === Tabs.favorites,
+          })}
+        >
+          <i>
+            <IoMdGrid />
+          </i>
+          Favorites
+        </li>
+        <li
+          className={cx({
+            [styles.active]: currentTab === Tabs.recentlyViewed,
+          })}
+          onClick={() => setCurrentTab(Tabs.recentlyViewed)}
+        >
+          <i>
+            <IoMdGrid />
+          </i>
+          last viewed
+        </li>
+      </ul>
 
       {currentTab === Tabs.promoted &&
         !state.promoted.isLoading &&

@@ -3,7 +3,11 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
-
+.tagsColumn {
+  min-width: 200px;
+  min-height: 100%;
+  border-right: 1px solid $theme9;
+}
 .pageWrapper {
   @include pageWrapper();
   background: none; // reset bg from mixin pageWrapper()
@@ -79,12 +83,6 @@
         background: $theme1;
       }
 
-      .column {
-        min-width: 200px;
-        min-height: 100%;
-        border-right: 1px solid $theme9;
-      }
-
       .groupMembers {
         margin-top: 10px;
         padding: 10px;
@@ -92,7 +90,6 @@
       }
 
       .posts {
-        display: flex;
         width: 100%;
         border-radius: $borderRadius;
 
@@ -107,11 +104,6 @@
           border-radius: $borderRadius;
           background: $theme9;
           padding: 7px;
-          border: 3px solid $theme9;
-
-          &:hover {
-            border-color: $theme4;
-          }
         }
 
         .post {
@@ -135,6 +127,7 @@
       }
 
       .noPostsFound {
+        width: 100%;
         padding: 20px;
         border-radius: $borderRadius;
 
@@ -156,10 +149,11 @@
 
       .pagination {
         justify-content: center;
-        margin: 30px 0;
+        margin: 20px 0;
       }
 
-      .postDetails {
+      .wrc {
+        background: red;
       }
     }
   }

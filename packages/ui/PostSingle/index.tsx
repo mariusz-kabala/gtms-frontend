@@ -193,8 +193,8 @@ export const PostSingle: FC<{
               fetchUsers={fetchUsers}
               noImage={noImage}
               setValue={setValue}
-              value={value}
               user={user}
+              value={value}
             />
             {showSendButton && (
               <Button
