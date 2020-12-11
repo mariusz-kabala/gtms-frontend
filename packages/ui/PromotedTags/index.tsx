@@ -134,7 +134,11 @@ export const PromotedTags: FC<{
           ))}
 
         {tags.length > 0 && isAdmin && (
-          <button className={styles.addTag} onClick={onClick}>
+          <button
+            className={styles.addTag}
+            onClick={onClick}
+            data-testid="add-more-tags-button"
+          >
             <i>
               <IoIosAddCircle />
             </i>
@@ -142,7 +146,10 @@ export const PromotedTags: FC<{
           </button>
         )}
       </div>
-      <Button additionalStyles={styles.btnShowMore}>
+      <Button
+        additionalStyles={styles.btnShowMore}
+        data-testid="show-more-tags-button"
+      >
         <Spinner size="sm" />
         Show more...
       </Button>

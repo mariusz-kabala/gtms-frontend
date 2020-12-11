@@ -70,6 +70,7 @@ export const loadGroupPromotedTags = async (id: string) => {
 export const createPromotedTag = async (data: {
   tag: string
   group: string
+  file?: string
   description: string
 }) => {
   try {

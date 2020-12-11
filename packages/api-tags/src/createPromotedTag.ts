@@ -3,6 +3,7 @@ import { fetchJSON, makeApiUrl } from '@gtms/api-common'
 export interface ICreatePromotedTagPayload {
   tag: string
   group: string
+  file?: string
   description: string
 }
 
