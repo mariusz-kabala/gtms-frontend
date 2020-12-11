@@ -16,96 +16,53 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.6...@gtms/state-tag@0.11.0) (2020-12-11)
 
-
 ### Features
 
-* GEOT-707: allow to upload images when promoted tag is not ye ([#941](https://github.com/gtms-org/gtms-frontend/issues/941)) ([97d6748](https://github.com/gtms-org/gtms-frontend/commit/97d6748f45ce99bbd1dc626bd830e6beb108ddb6))
-
-
-
-
+- GEOT-707: allow to upload images when promoted tag is not ye ([#941](https://github.com/gtms-org/gtms-frontend/issues/941)) ([97d6748](https://github.com/gtms-org/gtms-frontend/commit/97d6748f45ce99bbd1dc626bd830e6beb108ddb6))
 
 ## [0.10.6](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.5...@gtms/state-tag@0.10.6) (2020-12-11)
 
 **Note:** Version bump only for package @gtms/state-tag
 
-
-
-
-
 ## [0.10.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.4...@gtms/state-tag@0.10.5) (2020-12-10)
 
 **Note:** Version bump only for package @gtms/state-tag
 
-
-
-
-
 ## [0.10.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.3...@gtms/state-tag@0.10.4) (2020-12-10)
-
 
 ### Bug Fixes
 
-* GEOT-703: show date in recently visited tags ([#936](https://github.com/gtms-org/gtms-frontend/issues/936)) ([c0edda1](https://github.com/gtms-org/gtms-frontend/commit/c0edda1b3ca26dc6e960e1b48381771d0888c4eb))
-
-
-
-
+- GEOT-703: show date in recently visited tags ([#936](https://github.com/gtms-org/gtms-frontend/issues/936)) ([c0edda1](https://github.com/gtms-org/gtms-frontend/commit/c0edda1b3ca26dc6e960e1b48381771d0888c4eb))
 
 ## [0.10.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.2...@gtms/state-tag@0.10.3) (2020-12-09)
 
-
 ### Bug Fixes
 
-* GEOT-703: recently viewed tags fixes ([#934](https://github.com/gtms-org/gtms-frontend/issues/934)) ([baae927](https://github.com/gtms-org/gtms-frontend/commit/baae927e3688c2fa83afa26fc3fc86d5fe464efa))
-
-
-
-
+- GEOT-703: recently viewed tags fixes ([#934](https://github.com/gtms-org/gtms-frontend/issues/934)) ([baae927](https://github.com/gtms-org/gtms-frontend/commit/baae927e3688c2fa83afa26fc3fc86d5fe464efa))
 
 ## [0.10.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.1...@gtms/state-tag@0.10.2) (2020-12-09)
 
-
 ### Bug Fixes
 
-* GEOT-703: Better tags bar component; saving and loading rece ([#933](https://github.com/gtms-org/gtms-frontend/issues/933)) ([5633bd1](https://github.com/gtms-org/gtms-frontend/commit/5633bd12f2b64738613067c2337de918ad191fa4))
-
-
-
-
+- GEOT-703: Better tags bar component; saving and loading rece ([#933](https://github.com/gtms-org/gtms-frontend/issues/933)) ([5633bd1](https://github.com/gtms-org/gtms-frontend/commit/5633bd12f2b64738613067c2337de918ad191fa4))
 
 ## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.0...@gtms/state-tag@0.10.1) (2020-12-08)
 
-
 ### Bug Fixes
 
-* GEOT-690: fix infinity promoted tags loading when opening gr ([#931](https://github.com/gtms-org/gtms-frontend/issues/931)) ([4773f51](https://github.com/gtms-org/gtms-frontend/commit/4773f51835b2ac7b945d54ddddb86090dfea8ac5))
-
-
-
-
+- GEOT-690: fix infinity promoted tags loading when opening gr ([#931](https://github.com/gtms-org/gtms-frontend/issues/931)) ([4773f51](https://github.com/gtms-org/gtms-frontend/commit/4773f51835b2ac7b945d54ddddb86090dfea8ac5))
 
 # [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.9.0...@gtms/state-tag@0.10.0) (2020-12-05)
 
-
 ### Features
 
-* GEOT-693: recently viewed and fav tags ([#921](https://github.com/gtms-org/gtms-frontend/issues/921)) ([b505c6b](https://github.com/gtms-org/gtms-frontend/commit/b505c6b7ef7d59f6031f198b923811dc8c45a762))
-
-
-
-
+- GEOT-693: recently viewed and fav tags ([#921](https://github.com/gtms-org/gtms-frontend/issues/921)) ([b505c6b](https://github.com/gtms-org/gtms-frontend/commit/b505c6b7ef7d59f6031f198b923811dc8c45a762))
 
 # [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.8.9...@gtms/state-tag@0.9.0) (2020-12-04)
 
-
 ### Features
 
-* GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
-
-
-
-
+- GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
 
 ## [0.8.9](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.8.8...@gtms/state-tag@0.8.9) (2020-10-10)
 

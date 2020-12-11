@@ -7,44 +7,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 ## [0.20.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.20.1...@gtms/state-user@0.20.2) (2020-12-10)
 
 **Note:** Version bump only for package @gtms/state-user
-
-
-
-
 
 ## [0.20.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.20.0...@gtms/state-user@0.20.1) (2020-12-10)
 
 **Note:** Version bump only for package @gtms/state-user
 
-
-
-
-
 # [0.20.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.19.4...@gtms/state-user@0.20.0) (2020-12-05)
-
 
 ### Features
 
-* GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
-
-
-
-
+- GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
 
 ## [0.19.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.19.3...@gtms/state-user@0.19.4) (2020-10-13)
 
 **Note:** Version bump only for package @gtms/state-user
-
-
-
-
 
 ## [0.19.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-user@0.19.2...@gtms/state-user@0.19.3) (2020-10-10)
 

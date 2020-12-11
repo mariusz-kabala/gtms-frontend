@@ -7,47 +7,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/api-auth
 
-
-
-
-
 ## [0.14.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.14.1...@gtms/api-auth@0.14.2) (2020-12-10)
 
 **Note:** Version bump only for package @gtms/api-auth
-
-
-
-
 
 ## [0.14.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.14.0...@gtms/api-auth@0.14.1) (2020-12-10)
 
 **Note:** Version bump only for package @gtms/api-auth
 
-
-
-
-
 # [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.11...@gtms/api-auth@0.14.0) (2020-12-05)
-
 
 ### Features
 
-* GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
-
-
-
-
+- GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
 
 ## [0.13.11](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.10...@gtms/api-auth@0.13.11) (2020-10-13)
 
-
 ### Bug Fixes
 
-* GEOT-471: support username autocomplete in search input ([#881](https://github.com/gtms-org/gtms-frontend/issues/881)) ([ce936db](https://github.com/gtms-org/gtms-frontend/commit/ce936db7822e80712847553f1329a9a67f5afaa7))
-
-
-
-
+- GEOT-471: support username autocomplete in search input ([#881](https://github.com/gtms-org/gtms-frontend/issues/881)) ([ce936db](https://github.com/gtms-org/gtms-frontend/commit/ce936db7822e80712847553f1329a9a67f5afaa7))
 
 ## [0.13.10](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-auth@0.13.9...@gtms/api-auth@0.13.10) (2020-10-10)
 

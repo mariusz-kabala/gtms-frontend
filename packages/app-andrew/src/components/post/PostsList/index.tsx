@@ -183,10 +183,9 @@ export const PostsList: FC<{
       {userPreview && (
         <Modal onClose={onCloseUserPreview}>
           <UserPreview
-            user={userPreview}
             noUserAvatar={UserAvatarNoImage}
             onUserPostsClick={onUserPostsClick}
-            onClose={onCloseUserPreview}
+            user={userPreview}
           />
         </Modal>
       )}
