@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.9.0...@gtms/api-tags@0.9.1) (2020-12-11)
+
+
+### Bug Fixes
+
+* GEOT-707: pass full img info to create tag payload ([#942](https://github.com/gtms-org/gtms-frontend/issues/942)) ([2b611fe](https://github.com/gtms-org/gtms-frontend/commit/2b611fec6782b7164ae900d488007476a99e7e44))
+
+
+
+
+
 # [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.8.2...@gtms/api-tags@0.9.0) (2020-12-11)
 
 ### Features

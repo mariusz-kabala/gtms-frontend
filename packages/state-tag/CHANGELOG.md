@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.11.0...@gtms/state-tag@0.11.1) (2020-12-11)
+
+
+### Bug Fixes
+
+* GEOT-707: pass full img info to create tag payload ([#942](https://github.com/gtms-org/gtms-frontend/issues/942)) ([2b611fe](https://github.com/gtms-org/gtms-frontend/commit/2b611fec6782b7164ae900d488007476a99e7e44))
+
+
+
+
+
 # [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.10.6...@gtms/state-tag@0.11.0) (2020-12-11)
 
 ### Features
