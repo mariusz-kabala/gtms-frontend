@@ -1,7 +1,8 @@
 import React, { FC, useState, useRef, useCallback } from 'react'
 import { useTranslation } from '@gtms/commons/i18n'
 import { createPromotedTag, updatePromotedTag } from '@gtms/state-tag'
-import { uploadPromotedTagLogo } from '@gtms/api-tags'
+import { uploadPromotedTagLogo, uploadTmpPromotedTagLogo } from '@gtms/api-tags'
+import { deleteTmpFileAPI } from '@gtms/api-file'
 // ui
 import { Error } from '@gtms/ui/Forms/Error'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
@@ -10,6 +11,17 @@ import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { UploadFile } from '@gtms/ui/UploadFile'
 import styles from './styles.scss'
+
+const readFile = (file: File): Promise<string | undefined> =>
+  new Promise((resolve) => {
+    const reader = new FileReader()
+
+    reader.onload = (e) => {
+      resolve(e.target?.result as string)
+    }
+
+    reader.readAsDataURL(file)
+  })
 
 export const PromotedTagsForm: FC<{
   description?: string
@@ -20,6 +32,10 @@ export const PromotedTagsForm: FC<{
 }> = ({ description, groupId, id, onSuccess, tag }) => {
   const { t } = useTranslation('PromotedTagsForm')
   const [promotedTagId, setPromotedTagId] = useState<string | undefined>(id)
+  const [filePreview, setFilePreview] = useState<{
+    file: string | null
+    id?: string
+  }>({ file: null })
   const [savingStatus, setSavingStatus] = useState<{
     isSaving: boolean
     validationError: string
@@ -44,42 +60,86 @@ export const PromotedTagsForm: FC<{
   })
 
   const onDrop = useCallback(
-    (acceptedFiles) => {
-      if (promotedTagId === null) {
-        return
-      }
-
+    (acceptedFiles: File[]) => {
       setUploadStatus({
         isUploading: true,
         isError: false,
       })
 
-      uploadPromotedTagLogo(promotedTagId as string, acceptedFiles[0])
-        .then(() => {
-          setUploadStatus({
-            isUploading: false,
-            isError: false,
+      if (promotedTagId) {
+        uploadPromotedTagLogo(promotedTagId as string, acceptedFiles[0])
+          .then(() => {
+            setUploadStatus({
+              isUploading: false,
+              isError: false,
+            })
+
+            readFile(acceptedFiles[0]).then((file) => {
+              file && setFilePreview({ file })
+            })
           })
-        })
-        .catch(() => {
-          setUploadStatus({
-            isUploading: false,
-            isError: true,
+          .catch(() => {
+            setUploadStatus({
+              isUploading: false,
+              isError: true,
+            })
           })
-        })
+      } else {
+        uploadTmpPromotedTagLogo(acceptedFiles[0])
+          .then((res) => {
+            setUploadStatus({
+              isUploading: false,
+              isError: false,
+            })
+
+            readFile(acceptedFiles[0]).then((file) => {
+              file && setFilePreview({ file, id: res.id })
+            })
+          })
+          .catch(() => {
+            setUploadStatus({
+              isUploading: false,
+              isError: true,
+            })
+          })
+      }
     },
     [promotedTagId, onSuccess]
   )
 
   return (
-    <div className={styles.wrapper}>
-      <UploadFile
-        additionalStyles={styles.uploadArea}
-        accept="image/*"
-        isLoading={uploadStatus.isUploading}
-        isError={uploadStatus.isError}
-        onDrop={onDrop}
-      />
+    <div className={styles.wrapper} data-testid="promoted-tags-form">
+      {filePreview.file === null && (
+        <UploadFile
+          additionalStyles={styles.uploadArea}
+          accept="image/*"
+          isLoading={uploadStatus.isUploading}
+          isError={uploadStatus.isError}
+          onDrop={onDrop}
+        />
+      )}
+      {filePreview.file !== null && (
+        <div data-testid="promoted-tag-image-preview-box">
+          <img
+            src={filePreview.file}
+            alt="preview"
+            data-testid="promoted-tag-image-preview"
+          />
+          <p className={styles.uploadAnother}>
+            <a
+              onClick={() => {
+                if (filePreview.id) {
+                  deleteTmpFileAPI(filePreview.id)
+                }
+                setFilePreview({ file: null })
+              }}
+              data-testid="promoted-tag-image-preview-cancel"
+            >
+              upload another one
+            </a>
+          </p>
+        </div>
+      )}
       <div>
         {/* @question - can we remove that? */}
         {promotedTagId && stateTag.value && (
@@ -169,6 +229,7 @@ export const PromotedTagsForm: FC<{
           } else {
             createPromotedTag({
               tag: stateTag.value,
+              file: filePreview.id,
               group: groupId,
               description: dsc as string,
             }).then((result) => {
