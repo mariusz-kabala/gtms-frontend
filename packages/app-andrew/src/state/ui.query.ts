@@ -22,7 +22,7 @@ export class UIQuery extends Query<IUI> {
 
   public pageBackground = (
     value = this.getValue()
-  ): { name: string | null; className: string } => {
+  ): { name: string | null; className: string; full?: string } => {
     const bgName = value.background
     let bg = BACKGROUNDS_GALLERY.find((b) => b.name === bgName)
 
@@ -36,6 +36,7 @@ export class UIQuery extends Query<IUI> {
   public pageBackground$: Observable<{
     name: string | null
     className: string
+    full?: string
   }> = this.select((value) => {
     return this.pageBackground(value)
   })

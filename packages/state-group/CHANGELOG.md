@@ -3,24 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.19.4...@gtms/state-group@0.19.5) (2020-12-11)
+
+**Note:** Version bump only for package @gtms/state-group
+
+## [0.19.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.19.3...@gtms/state-group@0.19.4) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/state-group
+
+## [0.19.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.19.2...@gtms/state-group@0.19.3) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/state-group
+
+## [0.19.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.19.1...@gtms/state-group@0.19.2) (2020-12-09)
+
+### Bug Fixes
+
+- GEOT-703: Better tags bar component; saving and loading rece ([#933](https://github.com/gtms-org/gtms-frontend/issues/933)) ([5633bd1](https://github.com/gtms-org/gtms-frontend/commit/5633bd12f2b64738613067c2337de918ad191fa4))
+
 ## [0.19.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.19.0...@gtms/state-group@0.19.1) (2020-12-05)
 
 **Note:** Version bump only for package @gtms/state-group
 
-
-
-
-
 # [0.19.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.18.0...@gtms/state-group@0.19.0) (2020-12-04)
-
 
 ### Features
 
-* GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
-
-
-
-
+- GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
 
 # [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.17.0...@gtms/state-group@0.18.0) (2020-10-10)
 

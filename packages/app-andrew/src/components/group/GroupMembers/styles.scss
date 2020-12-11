@@ -5,6 +5,10 @@
 @import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
 
+.modal {
+  padding: 0;
+}
+
 .wrapper {
   .header {
     @include font-size(xsm);

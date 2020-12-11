@@ -3,38 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.70.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.70.1...@gtms/ui@0.70.2) (2020-12-08)
-
-
-### Bug Fixes
-
-* GEOT-700: better styles for settings page ([#928](https://github.com/gtms-org/gtms-frontend/issues/928)) ([13d2b47](https://github.com/gtms-org/gtms-frontend/commit/13d2b4704d5c4fc3a88fb6484a4e675333b01b80))
-
-
-
-
-
-## [0.70.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.70.0...@gtms/ui@0.70.1) (2020-12-07)
-
-
-### Bug Fixes
-
-* GEOT-696: remove group members page ([#924](https://github.com/gtms-org/gtms-frontend/issues/924)) ([f503a8f](https://github.com/gtms-org/gtms-frontend/commit/f503a8f50a7552d81d0ed3c4b8735f8953f9a7e3))
-
-
-
-
-
-# [0.70.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.69.0...@gtms/ui@0.70.0) (2020-12-07)
-
+# [0.74.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.73.0...@gtms/ui@0.74.0) (2020-12-11)
 
 ### Features
 
-* GEOT-697: better user card ([#925](https://github.com/gtms-org/gtms-frontend/issues/925)) ([a44677a](https://github.com/gtms-org/gtms-frontend/commit/a44677ad268229755596388de18a6fc3a372fe9d))
+- GEOT-707: allow to upload images when promoted tag is not ye ([#941](https://github.com/gtms-org/gtms-frontend/issues/941)) ([97d6748](https://github.com/gtms-org/gtms-frontend/commit/97d6748f45ce99bbd1dc626bd830e6beb108ddb6))
 
+# [0.73.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.72.0...@gtms/ui@0.73.0) (2020-12-11)
 
+### Features
 
+- GEOT-709 general-css-changes ([#940](https://github.com/gtms-org/gtms-frontend/issues/940)) ([6f8d145](https://github.com/gtms-org/gtms-frontend/commit/6f8d1451ef3f7c6145278dfcbf0ced3efc58796f))
 
+# [0.72.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.71.1...@gtms/ui@0.72.0) (2020-12-10)
+
+### Features
+
+- GEOT-704: experimental header changes ([#935](https://github.com/gtms-org/gtms-frontend/issues/935)) ([a242987](https://github.com/gtms-org/gtms-frontend/commit/a2429875ee1d3e0cf303f33aa9bd770e5f2d9b86))
+
+## [0.71.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.71.0...@gtms/ui@0.71.1) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/ui
+
+# [0.71.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.70.3...@gtms/ui@0.71.0) (2020-12-10)
+
+### Features
+
+- GEOT-706: lazy loading images in bg settings widget ([#938](https://github.com/gtms-org/gtms-frontend/issues/938)) ([b52ab58](https://github.com/gtms-org/gtms-frontend/commit/b52ab5870b7acb8d5d0f5b180a155ec0dd6c741e))
+
+## [0.70.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.70.2...@gtms/ui@0.70.3) (2020-12-08)
+
+### Bug Fixes
+
+- GEOT-672: post creation fixes ([#932](https://github.com/gtms-org/gtms-frontend/issues/932)) ([fd99efc](https://github.com/gtms-org/gtms-frontend/commit/fd99efc7ab49f26c116ae77fe573d8ac8955cc76))
+
+## [0.70.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.70.1...@gtms/ui@0.70.2) (2020-12-08)
+
+### Bug Fixes
+
+- GEOT-700: better styles for settings page ([#928](https://github.com/gtms-org/gtms-frontend/issues/928)) ([13d2b47](https://github.com/gtms-org/gtms-frontend/commit/13d2b4704d5c4fc3a88fb6484a4e675333b01b80))
+
+## [0.70.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.70.0...@gtms/ui@0.70.1) (2020-12-07)
+
+### Bug Fixes
+
+- GEOT-696: remove group members page ([#924](https://github.com/gtms-org/gtms-frontend/issues/924)) ([f503a8f](https://github.com/gtms-org/gtms-frontend/commit/f503a8f50a7552d81d0ed3c4b8735f8953f9a7e3))
+
+# [0.70.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.69.0...@gtms/ui@0.70.0) (2020-12-07)
+
+### Features
+
+- GEOT-697: better user card ([#925](https://github.com/gtms-org/gtms-frontend/issues/925)) ([a44677a](https://github.com/gtms-org/gtms-frontend/commit/a44677ad268229755596388de18a6fc3a372fe9d))
 
 # [0.69.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.68.0...@gtms/ui@0.69.0) (2020-12-07)
 

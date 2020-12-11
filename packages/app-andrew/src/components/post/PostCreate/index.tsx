@@ -25,6 +25,7 @@ export const PostCreate: FC<{
   groupId: string
 }> = ({ additionalStyles, groupId }) => {
   const [state, setState] = useState<IPostCreateState>(postCreateState())
+  const [value, setValue] = useState<string>('')
   const [showSendButton, setShowSendButton] = useState<boolean>(false)
   const [fileUploadState, setfileUploadState] = useState<{
     isVisible: boolean
@@ -128,32 +129,18 @@ export const PostCreate: FC<{
   }, [])
   return (
     <div
-      onClick={() => (showSendButton ? null : setShowSendButton(true))}
+      onClick={() => setShowSendButton(true)}
       className={cx(styles.wrapper, additionalStyles)}
     >
       <PostCreateUI
+        fetchSuggestedTags={fetchSuggestedTagsAPI}
         fetchTags={findTagsAPI}
         fetchUsers={findbyUsernameAPI}
-        fetchSuggestedTags={fetchSuggestedTagsAPI}
-        onFocus={() =>
-          setfileUploadState((state) => ({
-            ...state,
-            isVisible: true,
-          }))
-        }
-        user={state.user}
         noImage={UserAvatarNoImage}
-        onSubmit={(text: string) => {
-          createNewPost({
-            group: groupId,
-            text,
-            files: fileUploadState.files.map((file) => ({
-              id: file.id,
-              url: file.url,
-            })),
-          })
-        }}
         onLoginRequest={openLoginModal}
+        setValue={setValue}
+        user={state.user}
+        value={value}
       />
 
       {fileUploadState.isVisible && fileUploadState.files.length < 5 && (
@@ -192,12 +179,49 @@ export const PostCreate: FC<{
       )}
 
       {showSendButton && (
-        <Button additionalStyles={styles.btnSubmit} type="submit">
-          send
-          <i>
-            <IoMdSend />
-          </i>
-        </Button>
+        <div className={styles.buttons}>
+          <Button
+            additionalStyles={cx(styles.btnSubmit, styles.btnImages)}
+            type="submit"
+            onClick={() =>
+              setfileUploadState((state) => ({
+                ...state,
+                isVisible: !state.isVisible,
+              }))
+            }
+          >
+            <i>
+              <IoMdSend />
+            </i>
+            add images
+          </Button>
+          <Button
+            additionalStyles={styles.btnSubmit}
+            type="submit"
+            disabled={value === ''}
+            onClick={() => {
+              if (!state.user) {
+                openLoginModal()
+                return
+              }
+
+              createNewPost({
+                group: groupId,
+                text: value,
+                files: fileUploadState.files.map((file) => ({
+                  id: file.id,
+                  url: file.url,
+                })),
+              })
+              setValue('')
+            }}
+          >
+            <i>
+              <IoMdSend />
+            </i>
+            send
+          </Button>
+        </div>
       )}
     </div>
   )

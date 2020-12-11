@@ -7,6 +7,9 @@ import { UserAvatarNoImage } from 'enums'
 // ui
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
+import { Button } from '@gtms/ui/Button'
+import { IoMdSend } from 'react-icons/io'
+// styles
 import styles from './styles.scss'
 
 export const SubCommentsList: FC<{
@@ -17,6 +20,8 @@ export const SubCommentsList: FC<{
 }> = ({ subComments, user, parentComment, postId }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const commentForm = useRef<HTMLDivElement>(null)
+  const [value, setValue] = useState<string>('')
+  const [showSendButton, setShowSendButton] = useState<boolean>(false)
 
   return (
     <div className={styles.wrapper}>
@@ -52,21 +57,34 @@ export const SubCommentsList: FC<{
       )}
 
       {isAnswerFormOpen && (
-        <div ref={commentForm}>
+        <div ref={commentForm} onClick={() => setShowSendButton(true)}>
           <PostCreate
-            additionalStyles={styles.postResponseCreate}
-            onSubmit={(text) => {
-              createNewComment({
-                post: postId,
-                text,
-                parent: parentComment,
-              })
-            }}
+            value={value}
+            setValue={setValue}
             fetchTags={findTagsAPI}
             fetchUsers={findbyUsernameAPI}
             user={user}
             noImage={UserAvatarNoImage}
           />
+          {showSendButton && (
+            <Button
+              disabled={value === ''}
+              onClick={() => {
+                createNewComment({
+                  post: postId,
+                  text: value,
+                  parent: parentComment,
+                })
+
+                setValue('')
+              }}
+            >
+              send
+              <i>
+                <IoMdSend />
+              </i>
+            </Button>
+          )}
         </div>
       )}
     </div>

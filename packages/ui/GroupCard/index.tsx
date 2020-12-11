@@ -5,12 +5,12 @@ import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
 // ui
-import { Picture } from '../Picture'
-import { Tag } from '../Tag'
-import { Button } from '../Button'
-import { Spinner } from '../Spinner'
-import { UserAvatar } from '../UserAvatar'
 import { IoIosArrowDropright } from 'react-icons/io'
+import { Button } from '../Button'
+import { Picture } from '../Picture'
+import { Spinner } from '../Spinner'
+import { Tag } from '../Tag'
+import { UserAvatar } from '../UserAvatar'
 // styles
 import styles from './styles.scss'
 

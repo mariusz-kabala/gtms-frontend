@@ -1,10 +1,11 @@
 import React, { FC, useState, useEffect, useCallback } from 'react'
-import { NavigationDots as NavigationDotsUI } from '@gtms/ui/NavigationDots'
 import { NavigationDotsFullView } from '../NavigationDotsFullView'
 import { INavigationDotsProps, baseUIQuery } from 'queries'
 import { loadMyGroups, updateFavGroupsOrder } from '@gtms/state-user'
 import { GroupAvatarNoImage } from 'enums'
 import { IGroup } from '@gtms/commons/models'
+// ui
+import { NavigationDots as NavigationDotsUI } from '@gtms/ui/NavigationDots'
 
 export const NavigationDots: FC = () => {
   const [state, setState] = useState<INavigationDotsProps>(

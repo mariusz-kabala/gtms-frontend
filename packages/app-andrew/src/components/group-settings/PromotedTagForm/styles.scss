@@ -36,11 +36,29 @@
     }
   }
 
+  input[type='text'] {
+    padding: 5px;
+    color: $theme0;
+    width: 100%;
+    background: $theme9;
+    border-radius: 5px;
+    border: 1px solid $theme1;
+  }
+
   .uploadArea {
     margin-bottom: 10px;
 
     > div {
       width: 100%;
+    }
+  }
+
+  .uploadAnother {
+    margin: 5px;
+    text-align: center;
+
+    a {
+      cursor: pointer;
     }
   }
 }

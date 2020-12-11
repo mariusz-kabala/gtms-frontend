@@ -3,36 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.7.1...@gtms/api-tags@0.8.0) (2020-12-05)
-
+# [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.8.2...@gtms/api-tags@0.9.0) (2020-12-11)
 
 ### Features
 
-* GEOT-693: recently viewed and fav tags ([#921](https://github.com/gtms-org/gtms-frontend/issues/921)) ([b505c6b](https://github.com/gtms-org/gtms-frontend/commit/b505c6b7ef7d59f6031f198b923811dc8c45a762))
+- GEOT-707: allow to upload images when promoted tag is not ye ([#941](https://github.com/gtms-org/gtms-frontend/issues/941)) ([97d6748](https://github.com/gtms-org/gtms-frontend/commit/97d6748f45ce99bbd1dc626bd830e6beb108ddb6))
 
+## [0.8.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.8.1...@gtms/api-tags@0.8.2) (2020-12-10)
 
+### Bug Fixes
 
+- GEOT-703: show date in recently visited tags ([#936](https://github.com/gtms-org/gtms-frontend/issues/936)) ([c0edda1](https://github.com/gtms-org/gtms-frontend/commit/c0edda1b3ca26dc6e960e1b48381771d0888c4eb))
 
+## [0.8.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.8.0...@gtms/api-tags@0.8.1) (2020-12-09)
+
+### Bug Fixes
+
+- GEOT-703: recently viewed tags fixes ([#934](https://github.com/gtms-org/gtms-frontend/issues/934)) ([baae927](https://github.com/gtms-org/gtms-frontend/commit/baae927e3688c2fa83afa26fc3fc86d5fe464efa))
+
+# [0.8.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.7.1...@gtms/api-tags@0.8.0) (2020-12-05)
+
+### Features
+
+- GEOT-693: recently viewed and fav tags ([#921](https://github.com/gtms-org/gtms-frontend/issues/921)) ([b505c6b](https://github.com/gtms-org/gtms-frontend/commit/b505c6b7ef7d59f6031f198b923811dc8c45a762))
 
 ## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.7.0...@gtms/api-tags@0.7.1) (2020-07-15)
 
 **Note:** Version bump only for package @gtms/api-tags
 
-
-
-
-
 # [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.6.0...@gtms/api-tags@0.7.0) (2020-07-10)
-
 
 ### Features
 
-* GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
-* GEOT-329: add suggested tags UI ([#726](https://github.com/gtms-org/gtms-frontend/issues/726)) ([0b38f99](https://github.com/gtms-org/gtms-frontend/commit/0b38f99939b72df38b7b4cb17e3f234b47f42137))
-
-
-
-
+- GEOT-297: autocomplete post tags ([#665](https://github.com/gtms-org/gtms-frontend/issues/665)) ([a449c1e](https://github.com/gtms-org/gtms-frontend/commit/a449c1e8d4275105b091074801e3b3c3b743935f))
+- GEOT-329: add suggested tags UI ([#726](https://github.com/gtms-org/gtms-frontend/issues/726)) ([0b38f99](https://github.com/gtms-org/gtms-frontend/commit/0b38f99939b72df38b7b4cb17e3f234b47f42137))
 
 # [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.5.1...@gtms/api-tags@0.6.0) (2020-06-23)
 

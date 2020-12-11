@@ -22,6 +22,8 @@ import { PostResponse } from './PostResponse'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
+import { Button } from '../Button'
+import { IoMdSend } from 'react-icons/io'
 // styles
 import styles from './styles.scss'
 
@@ -91,6 +93,8 @@ export const PostSingle: FC<{
   const onUserClickCallback = useCallback(() => {
     onUserClick && onUserClick(owner)
   }, [onUserClick, owner])
+  const [value, setValue] = useState<string>('')
+  const [showSendButton, setShowSendButton] = useState<boolean>(false)
 
   return (
     <div
@@ -183,19 +187,33 @@ export const PostSingle: FC<{
             />
           ))}
         {isAnswerFormOpen && allowToRespond && (
-          <div ref={commentForm}>
+          <div ref={commentForm} onClick={() => setShowSendButton(true)}>
             <PostCreate
               fetchTags={fetchTags}
               fetchUsers={fetchUsers}
               noImage={noImage}
-              onSubmit={(text) => {
-                createComment({
-                  text,
-                  post: id,
-                })
-              }}
+              setValue={setValue}
               user={user}
+              value={value}
             />
+            {showSendButton && (
+              <Button
+                disabled={value === ''}
+                onClick={() => {
+                  createComment({
+                    post: id,
+                    text: value,
+                  })
+
+                  setValue('')
+                }}
+              >
+                send
+                <i>
+                  <IoMdSend />
+                </i>
+              </Button>
+            )}
           </div>
         )}
       </div>

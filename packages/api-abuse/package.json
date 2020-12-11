@@ -1,13 +1,13 @@
 {
   "name": "@gtms/api-abuse",
-  "version": "0.3.0",
+  "version": "0.3.3",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
     "@gtms/api-common": "*",
-    "@gtms/commons": "0.30.0"
+    "@gtms/commons": "0.32.0"
   },
   "scripts": {
     "build": "exit 0",

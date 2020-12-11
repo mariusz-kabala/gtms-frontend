@@ -1,6 +1,8 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useTranslation } from '@gtms/commons/i18n'
 import { getImage } from '@gtms/commons/helpers'
+import { FileStatus } from '@gtms/commons'
+import { Link } from '@gtms/commons/i18n'
 import { GroupAvatarNoImage } from 'enums'
 import cx from 'classnames'
 // state
@@ -43,12 +45,32 @@ export const GroupSidebar: FC<{}> = () => {
   return (
     <div className={styles.groupSidebar}>
       <div className={styles.avatarAndName}>
-        <GroupAvatar
-          additionalStyles={styles.groupAvatar}
-          files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
-          filesStatus={state.avatarFileStatus}
-          isEditAllowed={state.hasAdminRights}
-        />
+        {state.hasAdminRights &&
+          state.avatarFileStatus === FileStatus.notExists && (
+            <GroupAvatar
+              additionalStyles={styles.groupAvatar}
+              files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
+              filesStatus={state.avatarFileStatus}
+              isEditAllowed={true}
+            />
+          )}
+        {!state.hasAdminRights ||
+          (state.avatarFileStatus !== FileStatus.notExists && (
+            <Link href={`/group/${state.group.slug}`}>
+              <a>
+                <GroupAvatar
+                  additionalStyles={styles.groupAvatar}
+                  files={getImage(
+                    '50x50',
+                    state.group.avatar,
+                    GroupAvatarNoImage
+                  )}
+                  filesStatus={state.avatarFileStatus}
+                  isEditAllowed={false}
+                />
+              </a>
+            </Link>
+          ))}
         <h2
           className={styles.header}
           data-tip={t('click-here-to-edit')}

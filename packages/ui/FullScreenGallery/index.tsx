@@ -14,6 +14,7 @@ export const FullScreenGallery: FC<{
   gallery: {
     name: string
     className: string
+    full?: string
   }[]
   isActive: boolean
   onBgChange: (name: string) => unknown
@@ -39,6 +40,31 @@ export const FullScreenGallery: FC<{
   const [activeBg, setActiveBg] = useState<number>(
     gallery.findIndex((g) => g.name === currentBg)
   )
+
+  const [loadedImages, setLoadedImages] = useState<number[]>([])
+
+  useEffect(() => {
+    if (!isActive) {
+      return
+    }
+
+    gallery.forEach((img, index) => {
+      const onReady = () => setLoadedImages((images) => [...images, index])
+
+      if (!img.full) {
+        onReady()
+        return
+      }
+
+      const image = new Image()
+      image.src = img.full
+      if (image.complete) {
+        onReady()
+      } else {
+        image.onload = onReady
+      }
+    })
+  }, [isActive, gallery])
 
   useEffect(() => {
     if (file) {
@@ -66,6 +92,7 @@ export const FullScreenGallery: FC<{
           styles.canvas,
           activeBg > -1 ? gallery[activeBg].className : undefined
         )}
+        data-loaded={'true'}
         onClick={() => setIsImageWrapperActive(false)}
         style={
           file
@@ -111,6 +138,7 @@ export const FullScreenGallery: FC<{
             {children}
             {gallery.map((bg, index) => (
               <li
+                data-loaded={loadedImages.includes(index) ? 'true' : 'false'}
                 key={`bg-${index}`}
                 onClick={() => {
                   setIsImageWrapperActive(false)

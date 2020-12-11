@@ -46,7 +46,7 @@
 }
 
 @mixin buttonWithSpinnerAndLabel($position: null) {
-  @if $position == 'left' {
+  @if $position == null {
     div {
       margin-right: 5px;
     }

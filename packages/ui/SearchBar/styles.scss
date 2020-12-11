@@ -16,13 +16,13 @@
     position: relative;
     display: flex;
     width: 100%;
-    min-height: 40px;
-    height: 40px;
+    min-height: 34px;
+    height: 34px;
 
     i {
-      @include font-size(xlg);
+      @include font-size(lg);
       position: absolute;
-      top: 4px;
+      top: 6px;
       left: 6px;
       line-height: 0;
       color: $theme1;
@@ -30,7 +30,7 @@
 
     input[type='text'] {
       width: 100%;
-      padding-left: 40px;
+      padding-left: 30px;
       border: 0;
       border-radius: $borderRadius;
       background: $theme0;

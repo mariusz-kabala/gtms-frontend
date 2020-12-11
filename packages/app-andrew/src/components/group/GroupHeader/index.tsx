@@ -34,6 +34,7 @@ export const GroupHeader: FC<{}> = () => {
     <div className={styles.mainHeader} data-testid="group-header">
       <GroupSidebar />
       <SearchBar
+        additionalStyles={styles.search}
         onTagAdd={() => null}
         onTagRemove={() => null}
         onLoadSuggestion={() => null}

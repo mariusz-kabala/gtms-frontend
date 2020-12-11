@@ -1,34 +1,41 @@
+@import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
-
-.btnSubmit {
-  @include buttonDefault();
-  @include buttonShapeDefault();
-  @include buttonSizeDefault();
-  @include buttonWithSpinnerAndLabel();
-  @include buttonColorsDefault();
-  width: 100%;
-
-  &:hover {
-    @include buttonColorsPrimary();
-  }
-}
-
-.item {
-  margin-bottom: 15px;
-
-  label {
-    padding-bottom: 5px;
-    display: block;
-  }
-}
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  padding: 25px;
   min-width: 450px;
-}
 
-.close {
-  text-align: center;
-  margin-top: 15px;
-  cursor: pointer;
+  .close {
+    text-align: center;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+
+  .header {
+    @include font-size(lg);
+    @include font-weight(semiBold);
+  }
+
+  .btnSubmit {
+    @include buttonDefault();
+    @include buttonShapeDefault();
+    @include buttonSizeDefault();
+    @include buttonWithSpinnerAndLabel();
+    @include buttonColorsDefault();
+    width: 100%;
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+  }
+
+  .item {
+    margin-bottom: 15px;
+
+    label {
+      padding-bottom: 5px;
+      display: block;
+    }
+  }
 }

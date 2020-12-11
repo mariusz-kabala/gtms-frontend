@@ -8,7 +8,6 @@
 .pageWrapper {
   @include pageWrapper();
   margin: initial; // clear pageWrapper() margin
-  width: 100%;
 }
 
 .wrapper {

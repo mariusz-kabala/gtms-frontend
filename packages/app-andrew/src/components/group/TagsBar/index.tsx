@@ -1,11 +1,18 @@
 import React, { FC, useState, useEffect } from 'react'
+import { formatDistance } from 'date-fns'
 import cx from 'classnames'
+import { useTranslation, Link } from '@gtms/commons/i18n'
 import { PromotedTagNoImage } from 'enums'
 import { truncateString } from '@gtms/commons/helpers'
+import { generateSearchURL } from 'helpers'
 // state
-import { loadRecentlyViewedTags } from '@gtms/state-tag'
 import { ITagsBarState, tagsBarState, tagsBarState$ } from './state.query'
-import { loadGroupPromotedTags } from '@gtms/state-tag'
+import {
+  loadGroupPromotedTags,
+  loadRecentlyViewedTags,
+  saveRecentlyViewedTag,
+} from '@gtms/state-tag'
+import { getGroupPosts } from '@gtms/state-post'
 // ui
 import { IoMdGrid } from 'react-icons/io'
 import { Image } from '@gtms/ui/Image'
@@ -19,9 +26,12 @@ enum Tabs {
   recentlyViewed,
 }
 
-export const TagsBar: FC<{}> = () => {
+export const TagsBar: FC<{
+  additionalStyles?: string
+}> = ({ additionalStyles }) => {
   const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.promoted)
   const [state, setState] = useState<ITagsBarState>(tagsBarState())
+  const { i18n } = useTranslation('groupPage')
 
   useEffect(() => {
     const sub = tagsBarState$.subscribe((value) => setState(value))
@@ -36,6 +46,7 @@ export const TagsBar: FC<{}> = () => {
       currentTab === Tabs.recentlyViewed &&
       !state.recentlyViewed.isLoading &&
       !state.recentlyViewed.isLoaded &&
+      !state.recentlyViewed.errorOccured &&
       state.groupId
     ) {
       loadRecentlyViewedTags(state.groupId)
@@ -45,71 +56,108 @@ export const TagsBar: FC<{}> = () => {
       currentTab === Tabs.promoted &&
       !state.promoted.isLoading &&
       !state.promoted.errorOccured &&
-      state.promoted.tags.length === 0 &&
+      !state.promoted.isLoaded &&
       state.groupId
     ) {
       loadGroupPromotedTags(state.groupId)
     }
   }, [currentTab, state.recentlyViewed, state.groupId])
 
+  // @todo this can be done better
+  // http://geotags.atlassian.net/browse/GEOT-708
+  if (
+    state.promoted.tags.length <= 0 &&
+    state.recentlyViewed.tags.length <= 0
+  ) {
+    return null
+  }
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.nav}>
-        <ul>
-          <li
-            className={cx({
-              [styles.active]: currentTab === Tabs.promoted,
-            })}
-            onClick={() => setCurrentTab(Tabs.promoted)}
-          >
-            <i>
-              <IoMdGrid />
-            </i>
-            Tags
-          </li>
-          <li
-            onClick={() => setCurrentTab(Tabs.favorites)}
-            className={cx({
-              [styles.active]: currentTab === Tabs.favorites,
-            })}
-          >
-            <i>
-              <IoMdGrid />
-            </i>
-            Favorites
-          </li>
-          <li
-            className={cx({
-              [styles.active]: currentTab === Tabs.recentlyViewed,
-            })}
-            onClick={() => setCurrentTab(Tabs.recentlyViewed)}
-          >
-            <i>
-              <IoMdGrid />
-            </i>
-            last viewed
-          </li>
-        </ul>
-      </div>
+    <div className={cx(styles.wrapper, additionalStyles)}>
+      <ul className={styles.nav}>
+        <li
+          className={cx({
+            [styles.active]: currentTab === Tabs.promoted,
+          })}
+          onClick={() => setCurrentTab(Tabs.promoted)}
+        >
+          <i>
+            <IoMdGrid />
+          </i>
+          Tags
+        </li>
+        <li
+          onClick={() => setCurrentTab(Tabs.favorites)}
+          className={cx({
+            [styles.active]: currentTab === Tabs.favorites,
+          })}
+        >
+          <i>
+            <IoMdGrid />
+          </i>
+          Favorites
+        </li>
+        <li
+          className={cx({
+            [styles.active]: currentTab === Tabs.recentlyViewed,
+          })}
+          onClick={() => setCurrentTab(Tabs.recentlyViewed)}
+        >
+          <i>
+            <IoMdGrid />
+          </i>
+          last viewed
+        </li>
+      </ul>
 
       {currentTab === Tabs.promoted &&
         !state.promoted.isLoading &&
         !state.promoted.errorOccured &&
         state.promoted.tags.length > 0 && (
           <ul className={styles.items}>
-            {state.promoted.tags.map((tag) => (
-              <li className={styles.item} key={`promotedTag-${tag.id}`}>
-                <Image
-                  size={'35x35'}
-                  {...(tag.logo as any)}
-                  noImage={PromotedTagNoImage}
-                />
-                <div className={styles.desc}>
-                  <h4>#{tag.tag}</h4>
-                  <span>{truncateString(tag.description, 28)}</span>
-                </div>
-              </li>
-            ))}
+            {state.promoted.tags.map((tag) => {
+              const url = generateSearchURL(`/group/${state.groupSlug}`, {
+                tag: [tag.tag],
+              })
+              return (
+                <li className={styles.item} key={`promotedTag-${tag.id}`}>
+                  <Link href={url}>
+                    <a
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+
+                        if (!state.groupId) {
+                          return
+                        }
+
+                        window.history.pushState(
+                          null,
+                          '',
+                          `/${i18n.language}${url}`
+                        )
+
+                        getGroupPosts({
+                          group: state.groupId,
+                          tags: [tag.tag],
+                        })
+                        saveRecentlyViewedTag(state.groupId, tag.tag)
+                      }}
+                    >
+                      <Image
+                        {...(tag.logo as any)}
+                        noImage={PromotedTagNoImage}
+                        size={'35x35'}
+                      />
+                      <p className={styles.desc}>
+                        <h4>#{tag.tag}</h4>
+                        <span>{truncateString(tag.description, 28)}</span>
+                      </p>
+                    </a>
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         )}
 
@@ -118,11 +166,20 @@ export const TagsBar: FC<{}> = () => {
         !state.recentlyViewed.errorOccured &&
         state.recentlyViewed.tags.length > 0 && (
           <ul className={styles.items}>
-            {state.recentlyViewed.tags.map((tag) => (
-              <li className={styles.item} key={`recently-viewed-${tag}`}>
-                <div className={styles.desc}>
-                  <h4>{tag}</h4>
-                </div>
+            {state.recentlyViewed.tags.map((tag, index) => (
+              <li
+                className={styles.item}
+                key={`recently-viewed-${tag.tag}-${index}`}
+              >
+                <a>
+                  <p className={styles.desc}>
+                    <h4>#{tag.tag}</h4>
+                    <span>
+                      visited{' '}
+                      {formatDistance(new Date(tag.createdAt), new Date())}
+                    </span>
+                  </p>
+                </a>
               </li>
             ))}
           </ul>

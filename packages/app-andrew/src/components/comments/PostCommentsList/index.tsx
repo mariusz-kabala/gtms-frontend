@@ -14,7 +14,10 @@ import {
   postCommentsListState$,
 } from './state.query'
 import { createNewComment } from '@gtms/state-comment'
+// ui
+import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
+import { IoMdSend } from 'react-icons/io'
 
 export const PostCommentsList: FC<{
   isLoading: boolean
@@ -27,6 +30,8 @@ export const PostCommentsList: FC<{
   user: IAccountDetails | null
 }> = ({ isLoading, errorOccured, comments, user, postId }) => {
   const commentForm = useRef<HTMLDivElement>(null)
+  const [value, setValue] = useState<string>('')
+  const [showSendButton, setShowSendButton] = useState<boolean>(false)
   const hasNoComments = !Array.isArray(comments) || comments.length === 0
   const [state, setState] = useState<IPostCommentsListState>(
     postCommentsListState()
@@ -95,20 +100,34 @@ export const PostCommentsList: FC<{
           />
         </div>
       ))}
-      <div ref={commentForm}>
+      <div ref={commentForm} onClick={() => setShowSendButton(true)}>
         <PostCreate
-          onSubmit={(text) => {
-            createNewComment({
-              post: postId,
-              text,
-            })
-          }}
           fetchTags={findTagsAPI}
           fetchUsers={findbyUsernameAPI}
-          user={user}
           noImage={UserAvatarNoImage}
           onLoginRequest={openLoginModal}
+          setValue={setValue}
+          user={user}
+          value={value}
         />
+        {showSendButton && (
+          <Button
+            disabled={value === ''}
+            onClick={() => {
+              createNewComment({
+                post: postId,
+                text: value,
+              })
+
+              setValue('')
+            }}
+          >
+            send
+            <i>
+              <IoMdSend />
+            </i>
+          </Button>
+        )}
       </div>
     </>
   )

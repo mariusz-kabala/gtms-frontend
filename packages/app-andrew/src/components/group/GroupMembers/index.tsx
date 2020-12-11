@@ -38,7 +38,10 @@ export const GroupMembers: FC<{
       className={cx(styles.wrapper, additionalStyles)}
     >
       {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
+        <Modal
+          additionalStyles={styles.modal}
+          onClose={() => setIsModalOpen(false)}
+        >
           <InviteFriends />
         </Modal>
       )}

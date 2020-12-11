@@ -3,27 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.26.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.26.0...@gtms/styles@0.26.1) (2020-12-08)
-
-
-### Bug Fixes
-
-* GEOT-700: better styles for settings page ([#928](https://github.com/gtms-org/gtms-frontend/issues/928)) ([13d2b47](https://github.com/gtms-org/gtms-frontend/commit/13d2b4704d5c4fc3a88fb6484a4e675333b01b80))
-
-
-
-
-
-# [0.26.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.25.0...@gtms/styles@0.26.0) (2020-12-07)
-
+# [0.27.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.26.1...@gtms/styles@0.27.0) (2020-12-10)
 
 ### Features
 
-* GEOT-697: better user card ([#925](https://github.com/gtms-org/gtms-frontend/issues/925)) ([a44677a](https://github.com/gtms-org/gtms-frontend/commit/a44677ad268229755596388de18a6fc3a372fe9d))
+- GEOT-704: experimental header changes ([#935](https://github.com/gtms-org/gtms-frontend/issues/935)) ([a242987](https://github.com/gtms-org/gtms-frontend/commit/a2429875ee1d3e0cf303f33aa9bd770e5f2d9b86))
 
+## [0.26.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.26.0...@gtms/styles@0.26.1) (2020-12-08)
 
+### Bug Fixes
 
+- GEOT-700: better styles for settings page ([#928](https://github.com/gtms-org/gtms-frontend/issues/928)) ([13d2b47](https://github.com/gtms-org/gtms-frontend/commit/13d2b4704d5c4fc3a88fb6484a4e675333b01b80))
 
+# [0.26.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.25.0...@gtms/styles@0.26.0) (2020-12-07)
+
+### Features
+
+- GEOT-697: better user card ([#925](https://github.com/gtms-org/gtms-frontend/issues/925)) ([a44677a](https://github.com/gtms-org/gtms-frontend/commit/a44677ad268229755596388de18a6fc3a372fe9d))
 
 # [0.25.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.24.0...@gtms/styles@0.25.0) (2020-12-07)
 
