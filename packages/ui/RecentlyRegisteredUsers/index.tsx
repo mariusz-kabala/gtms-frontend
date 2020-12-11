@@ -46,54 +46,6 @@ export const RecentlyRegisteredUsers: FC<{
             {(user.name || user.surname) && <span>{getDisplayName(user)}</span>}
           </li>
         ))}
-
-        {/* @todo remove mocked more users  */}
-        {users.map((user) => (
-          <li
-            className={styles.user}
-            key={`recent-user-${user.id}`}
-            onClick={() => setUserPreview(user)}
-          >
-            <UserAvatar
-              additionalStyles={styles.userAvatar}
-              image={getImage('200x200', user.avatar, noImage)}
-              size="md"
-            />
-            {(user.name || user.surname) && <span>{getDisplayName(user)}</span>}
-          </li>
-        ))}
-
-        {/* @todo remove mocked more users  */}
-        {users.map((user) => (
-          <li
-            className={styles.user}
-            key={`recent-user-${user.id}`}
-            onClick={() => setUserPreview(user)}
-          >
-            <UserAvatar
-              additionalStyles={styles.userAvatar}
-              image={getImage('200x200', user.avatar, noImage)}
-              size="md"
-            />
-            {(user.name || user.surname) && <span>{getDisplayName(user)}</span>}
-          </li>
-        ))}
-
-        {/* @todo remove mocked more users  */}
-        {users.map((user) => (
-          <li
-            className={styles.user}
-            key={`recent-user-${user.id}`}
-            onClick={() => setUserPreview(user)}
-          >
-            <UserAvatar
-              additionalStyles={styles.userAvatar}
-              image={getImage('200x200', user.avatar, noImage)}
-              size="md"
-            />
-            {(user.name || user.surname) && <span>{getDisplayName(user)}</span>}
-          </li>
-        ))}
       </ul>
     </>
   )
