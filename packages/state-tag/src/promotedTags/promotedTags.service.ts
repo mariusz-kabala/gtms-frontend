@@ -3,6 +3,7 @@ import {
   deletePromotedTagAPI,
   createPromotedTagAPI,
   updatePromotedTagAPI,
+  ICreatePromotedTagPayload,
 } from '@gtms/api-tags'
 import { promotedTagsStore, IPromotedTagsState } from './promotedTags.store'
 import { promotedTagsQuery } from './promotedTags.query'
@@ -67,12 +68,7 @@ export const loadGroupPromotedTags = async (id: string) => {
   }
 }
 
-export const createPromotedTag = async (data: {
-  tag: string
-  group: string
-  file?: string
-  description: string
-}) => {
+export const createPromotedTag = async (data: ICreatePromotedTagPayload) => {
   try {
     const result = await createPromotedTagAPI(data)
 
