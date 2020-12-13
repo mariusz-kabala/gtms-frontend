@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.19.5...@gtms/state-group@0.20.0) (2020-12-13)
+
+
+### Bug Fixes
+
+* GEOT-377: redirect to new url when changing group name ([#944](https://github.com/gtms-org/gtms-frontend/issues/944)) ([b8e6992](https://github.com/gtms-org/gtms-frontend/commit/b8e69923798ff22bcf0e6c03cc43b32070785f4e))
+
+
+### Features
+
+* GEOT-699: user card on main page ([#927](https://github.com/gtms-org/gtms-frontend/issues/927)) ([0b4d2ba](https://github.com/gtms-org/gtms-frontend/commit/0b4d2ba9f89ac8a9ddddd7841bd7da2eec257edc))
+
+
+
+
+
 ## [0.19.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.19.4...@gtms/state-group@0.19.5) (2020-12-11)
 
 **Note:** Version bump only for package @gtms/state-group

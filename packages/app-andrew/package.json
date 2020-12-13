@@ -1,6 +1,6 @@
 {
   "name": "@gtms/app-andrew",
-  "version": "0.95.0",
+  "version": "0.95.1",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
@@ -22,7 +22,7 @@
     "@gtms/api-tags": "0.9.1",
     "@gtms/commons": "0.32.0",
     "@gtms/state-comment": "0.5.3",
-    "@gtms/state-group": "0.19.5",
+    "@gtms/state-group": "0.20.0",
     "@gtms/state-notification": "0.10.2",
     "@gtms/state-post": "0.14.3",
     "@gtms/state-tag": "0.11.1",
