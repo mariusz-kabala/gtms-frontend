@@ -2,12 +2,13 @@ import React, { FC, useState, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { updateGroup, updateGroupAvatar } from '@gtms/state-group'
 import { GroupAvatarNoImage } from 'enums'
-import { IoIosSettings } from 'react-icons/io'
+import { useRouter } from 'next/router'
 // commons
 import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { useTranslation } from '@gtms/commons/i18n'
 // ui
+import { IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { Error } from '@gtms/ui/Forms/Error'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
@@ -43,6 +44,7 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
     isSaving: false,
   })
   const { register, handleSubmit, errors, setError } = useForm<IFormData>()
+  const router = useRouter()
 
   const onFormModalClose = useCallback(
     () => setFormState({ isOpen: false, isSaving: false }),
@@ -96,7 +98,11 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
     })
 
     try {
-      await updateGroup(data, group.slug)
+      const result = await updateGroup(data, group.slug)
+
+      if (result && result.slug !== group.slug) {
+        router.push(`/group/${result.slug}/settings`)
+      }
     } finally {
       setFormState({
         isOpen: false,
