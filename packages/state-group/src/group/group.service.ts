@@ -103,7 +103,10 @@ export const getGroup = async (slug: string) => {
   }
 }
 
-export const updateGroup = async (data: IGroupData, slug: string) => {
+export const updateGroup = async (
+  data: IGroupData,
+  slug: string
+): Promise<IGroupDetailsResponse | undefined> => {
   try {
     const group = (await updateGroupAPI(data, slug)) as IGroupDetailsResponse
 
@@ -119,6 +122,8 @@ export const updateGroup = async (data: IGroupData, slug: string) => {
     groupStore.update({
       group: (group as unknown) as IGroup,
     })
+
+    return group
   } catch {
     addErrorNotification('Error occured, try again later')
   }
