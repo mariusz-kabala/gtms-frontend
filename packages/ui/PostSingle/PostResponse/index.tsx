@@ -1,47 +1,38 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
+import styles from './styles.scss'
 import cx from 'classnames'
+import { DeletePost } from '../DeletePost'
+import { UserAvatar } from '../../UserAvatar'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
-import { UserAvatarNoImage } from 'enums'
+import { Link } from '@gtms/commons/i18n'
 import { IImage } from '@gtms/commons/types/image'
 import { IAccountDetails, IUser } from '@gtms/commons/models'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
-// ui
-import { DeletePost } from '../DeletePost'
-import { Modal } from '@gtms/ui/Modal'
-import { UserAvatar } from '@gtms/ui/UserAvatar'
-import { UserPreview } from '@gtms/ui/UserPreview'
-import styles from './styles.scss'
 
 export const PostResponse: FC<{
-  additionalStyles?: string
-  createdAt: string
   html: string
-  noImage: { [key: string]: IImage }
+  createdAt: string
+  additionalStyles?: string
   owner: IUser
+  noImage: { [key: string]: IImage }
   user: IAccountDetails | null
-}> = ({ additionalStyles, createdAt, html, noImage, owner, user }) => {
-  const [userPreview, setUserPreview] = useState(false)
-
+}> = ({ additionalStyles, html, createdAt, owner, noImage, user }) => {
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="post-single"
     >
-      {userPreview && (
-        <Modal onClose={() => setUserPreview(false)}>
-          <UserPreview user={owner} noUserAvatar={UserAvatarNoImage} />
-        </Modal>
-      )}
       <div className={styles.header}>
-        <div className={styles.user}>
-          <UserAvatar
-            additionalStyles={styles.userAvatar}
-            image={getImage('35x35', owner.avatar, noImage)}
-            onClick={() => setUserPreview(true)}
-          />
-          <span>{getDisplayName(owner)}</span>
-        </div>
+        <Link href={`/user/${owner.id}`}>
+          <div className={styles.user}>
+            <UserAvatar
+              image={getImage('35x35', owner.avatar, noImage)}
+              additionalStyles={styles.userAvatar}
+            />
+            <span>{getDisplayName(owner)}</span>
+          </div>
+        </Link>
         {createdAt && (
           <span>
             {formatDistance(new Date(createdAt), new Date(), { locale: pl })}
