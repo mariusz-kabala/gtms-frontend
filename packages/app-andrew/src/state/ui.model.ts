@@ -7,7 +7,10 @@ export interface IUI {
   isLoginModalOpen: boolean
   isNotificationsBarOpen: boolean
   background: string
-  backgroundImage?: string
+  backgroundImage?: {
+    full: string
+    mini: string
+  }
   groups: {
     [groupId: string]: IGroupUI
   }

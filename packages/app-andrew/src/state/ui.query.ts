@@ -43,15 +43,15 @@ export class UIQuery extends Query<IUI> {
 
   public pageBackgroundImage = (
     value = this.getValue()
-  ): string | undefined => {
+  ): { mini: string; full: string } | undefined => {
     return value.backgroundImage
   }
 
-  public pageBackgroundImage$: Observable<string | undefined> = this.select(
-    (value) => {
-      return this.pageBackgroundImage(value)
-    }
-  )
+  public pageBackgroundImage$: Observable<
+    { mini: string; full: string } | undefined
+  > = this.select((value) => {
+    return this.pageBackgroundImage(value)
+  })
 
   public pageBackgrounds = (value = this.getValue()) => ({
     background: this.pageBackground(value),
@@ -62,8 +62,9 @@ export class UIQuery extends Query<IUI> {
     background: {
       name: string | null
       className: string
+      full?: string
     }
-    backgroundImage: string | undefined
+    backgroundImage: { mini: string; full: string } | undefined
   }> = this.select((value) => this.pageBackgrounds(value))
 
   public isNotificationsBarOpen = (values = this.getValue()) => {

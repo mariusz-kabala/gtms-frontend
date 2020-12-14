@@ -38,8 +38,16 @@ export const changePageBackground = (background: string) =>
     backgroundImage: undefined,
   })
 
-export const changePageBackgroundImage = (backgroundImage: string) => {
-  uiStore.update({ backgroundImage })
+export const changePageBackgroundImage = (
+  fullImage: string,
+  miniImage: string
+) => {
+  uiStore.update({
+    backgroundImage: {
+      full: fullImage,
+      mini: miniImage,
+    },
+  })
 }
 
 export const clearPageBackground = () =>
