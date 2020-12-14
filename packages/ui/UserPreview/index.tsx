@@ -48,15 +48,17 @@ export const UserPreview: FC<{
           </Button>
         </Link>
 
-        <Button
-          additionalStyles={styles.btn}
-          onClick={() => onUserPostsClick(user)}
-        >
-          <i>
-            <IoIosArrowDropright />
-          </i>
-          Show posts
-        </Button>
+        {onUserPostsClick && (
+          <Button
+            additionalStyles={styles.btn}
+            onClick={() => onUserPostsClick(user)}
+          >
+            <i>
+              <IoIosArrowDropright />
+            </i>
+            Show posts
+          </Button>
+        )}
 
         <Button additionalStyles={styles.btn}>
           <i>

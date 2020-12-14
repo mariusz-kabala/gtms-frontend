@@ -5,7 +5,6 @@ import cx from 'classnames'
 import { Button } from '@gtms/ui/Button'
 // styles
 import styles from './styles.scss'
-
 // icons
 // ai
 import { AiFillRead } from 'react-icons/ai'
@@ -33,6 +32,8 @@ import { FaRegLightbulb } from 'react-icons/fa'
 import { FaRegUser } from 'react-icons/fa'
 import { FaUsers } from 'react-icons/fa'
 import { FaUserShield } from 'react-icons/fa'
+//fc
+import { FcRemoveImage } from 'react-icons/fc'
 //fi
 import { FiKey } from 'react-icons/fi'
 import { FiUsers } from 'react-icons/fi'

@@ -5,6 +5,7 @@ $columns: (
   5: 1fr 1fr 1fr 1fr 1fr,
   6: 1fr 1fr 1fr 1fr 1fr 1fr,
   7: 1fr 1fr 1fr 1fr 1fr 1fr 1fr,
+  10: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr,
 );
 
 @function getColumnSize($key) {

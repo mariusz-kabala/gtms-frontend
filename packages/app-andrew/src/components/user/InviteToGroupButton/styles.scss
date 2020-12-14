@@ -1,4 +1,5 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
@@ -7,7 +8,8 @@
 @import '~@gtms/styles/scss/mixins/shadows.scss';
 
 .wrapperModal {
-  padding: 20px;
+  width: 700px;
+  min-height: 300px;
 
   .navigation {
     display: flex;
@@ -31,14 +33,65 @@
     }
   }
 
-  .groupList {
-    @include gridDefault(4);
+  .content {
+    .noGroupsFound {
+      @include font-size(lg);
+      @include font-weight(semiBold);
+      margin: auto;
+    }
 
-    .item {
+    .groupList {
+      @include gridDefault(4);
+
+      .item {
+        position: relative;
+        overflow: hidden;
+        border-radius: $borderRadius;
+        cursor: pointer;
+
+        &:hover {
+          @include effectOne('defaultRadius');
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          @include shadowBoxWithDescription();
+        }
+
+        .header {
+          position: absolute;
+          z-index: 1;
+          bottom: 0;
+          margin: 10px;
+          width: 100%;
+          color: $theme0;
+          @include font-size(md);
+          @include font-weight(semiBold);
+        }
+
+        .image {
+          img {
+            @include imageCover();
+            width: 100%;
+            @include shadowBoxWithDescription();
+          }
+        }
+      }
+    }
+
+    .groupAvatar {
       position: relative;
       overflow: hidden;
       border-radius: $borderRadius;
       cursor: pointer;
+      max-width: 150px;
+      margin: auto;
+      margin-bottom: 15px;
 
       &:hover {
         @include effectOne('defaultRadius');
@@ -72,6 +125,16 @@
           @include shadowBoxWithDescription();
         }
       }
+    }
+
+    .btn {
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapeDefault();
+      @include buttonColorsDefault();
+      @include buttonWithIcon();
+      width: 100%;
+      margin-top: 10px;
     }
   }
 }

@@ -14,6 +14,8 @@ import {
 } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 // ui
+import { IoMdSend } from 'react-icons/io'
+import { Button } from '../Button'
 import { DeletePost } from './DeletePost'
 import { GroupDetails } from './GroupDetails'
 import { Picture } from '../Picture'
@@ -22,8 +24,6 @@ import { PostResponse } from './PostResponse'
 import { Tag } from '../Tag'
 import { TagGroup } from '../TagGroup'
 import { UserAvatar } from '../UserAvatar'
-import { Button } from '../Button'
-import { IoMdSend } from 'react-icons/io'
 // styles
 import styles from './styles.scss'
 
@@ -114,14 +114,14 @@ export const PostSingle: FC<{
           image={getImage('35x35', owner.avatar, noImage)}
           onClick={onUserClickCallback}
         />
-        <a className={styles.userName} onClick={onUserClickCallback}>
-          <span>{getDisplayName(owner)}</span>
+        <a className={styles.userNameAndDate}>
+          <span onClick={onUserClickCallback}>{getDisplayName(owner)}</span>
+          <span className={styles.date} onClick={onClickCallback}>
+            {formatDistance(new Date(createdAt), new Date(), {
+              locale: pl,
+            })}
+          </span>
         </a>
-        <span className={styles.date} onClick={onClickCallback}>
-          {formatDistance(new Date(createdAt), new Date(), {
-            locale: pl,
-          })}
-        </span>
         <div className={styles.actionButtons}>
           {owner.id === user?.id && (
             <DeletePost additionalStyles={styles.deleteBtn} />
@@ -198,6 +198,7 @@ export const PostSingle: FC<{
             />
             {showSendButton && (
               <Button
+                additionalStyles={styles.btn}
                 disabled={value === ''}
                 onClick={() => {
                   createComment({

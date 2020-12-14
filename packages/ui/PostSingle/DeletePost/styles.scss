@@ -7,7 +7,7 @@
 
 .buttonDelete {
   @include buttonDefault();
-  @include buttonSizeDefault();
+  @include buttonSizeSm();
   @include buttonShapeDefault();
   @include buttonWithoutPadding();
   @include buttonWithIcon();

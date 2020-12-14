@@ -25,6 +25,7 @@
   .postHeader {
     position: relative;
     display: flex;
+    align-items: center;
 
     .userAvatar {
       width: 35px;
@@ -40,29 +41,29 @@
     }
 
     .actionButtons {
-      // @todo this needs to be done better position absolute is quite lame
-      position: absolute;
-      top: -15px;
-      right: 0;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 15px; // align it properly in post container
     }
 
-    .userName {
-      display: inline-block;
-      margin-top: 5px;
+    .userNameAndDate {
+      display: flex;
       @include font-size(xs);
       text-transform: uppercase;
+      margin-bottom: 15px; // align it properly in post container
+
+      .date {
+        margin-left: 5px;
+        @include font-size(xxs);
+        @include font-weight(semiNormal);
+      }
     }
 
-    .date,
     .deleteBtn {
-      margin-top: 4px;
-      margin-left: 5px;
       @include font-size(xxs);
       @include font-weight(semiNormal);
-    }
-
-    .deleteBtn {
       opacity: 0;
       margin-left: auto;
     }
@@ -102,6 +103,20 @@
         &:hover {
           @include effectOne();
         }
+      }
+    }
+
+    .btn {
+      @include buttonDefault();
+      @include buttonSizeSm();
+      @include buttonShapeDefault();
+      @include buttonColorsDefault();
+      @include buttonWithIcon(right);
+      width: 100%;
+      margin-top: 15px;
+
+      &:hover {
+        @include buttonColorsPrimary();
       }
     }
   }
