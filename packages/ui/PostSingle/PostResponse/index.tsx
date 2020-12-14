@@ -40,6 +40,7 @@ export const PostResponse: FC<{
       {userPreview && (
         <Modal onClose={() => setUserPreview(false)}>
           <UserPreview
+            // eslint-disable-next-line
             user={mockeduser}
             noUserAvatar={UserAvatarNoImage}
             onClose={() => setUserPreview(false)}
@@ -47,7 +48,6 @@ export const PostResponse: FC<{
         </Modal>
       )}
       <div className={styles.header}>
-        {/* <Link href={`/user/${owner.id}`}> */}
         <div className={styles.user}>
           <UserAvatar
             additionalStyles={styles.userAvatar}
@@ -56,7 +56,6 @@ export const PostResponse: FC<{
           />
           <span>{getDisplayName(owner)}</span>
         </div>
-        {/* </Link> */}
         {createdAt && (
           <span>
             {formatDistance(new Date(createdAt), new Date(), { locale: pl })}
