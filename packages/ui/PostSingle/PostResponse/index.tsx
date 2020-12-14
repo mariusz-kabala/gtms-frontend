@@ -40,7 +40,7 @@ export const PostResponse: FC<{
       {userPreview && (
         <Modal onClose={() => setUserPreview(false)}>
           <UserPreview
-            // eslint-disable-next-line
+            /* tslint:disable-next-line */
             user={mockeduser}
             noUserAvatar={UserAvatarNoImage}
             onClose={() => setUserPreview(false)}
