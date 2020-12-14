@@ -1,5 +1,3 @@
-// @ts-nocheck
-// @todo remove it
 import React, { FC, useState } from 'react'
 import cx from 'classnames'
 import { formatDistance } from 'date-fns'
@@ -24,30 +22,13 @@ export const PostResponse: FC<{
   user: IAccountDetails | null
 }> = ({ additionalStyles, createdAt, html, noImage, owner, user }) => {
   const [userPreview, setUserPreview] = useState(false)
-  // @todo this needs to be replaced with real data
-  const mockeduser = {
-    ...user,
-    ...{ tags: [] },
-    ...{
-      description:
-        'In consectetur duis officia nisi consequat ea nulla aliqua.',
-    },
-  }
 
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="post-single"
     >
-      {userPreview && (
-        <Modal onClose={() => setUserPreview(false)}>
-          <UserPreview
-            user={mockeduser}
-            noUserAvatar={UserAvatarNoImage}
-            onClose={() => setUserPreview(false)}
-          />
-        </Modal>
-      )}
+      {userPreview && <Modal onClose={() => setUserPreview(false)}></Modal>}
       <div className={styles.header}>
         <div className={styles.user}>
           <UserAvatar
