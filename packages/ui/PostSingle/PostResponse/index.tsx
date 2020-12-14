@@ -1,3 +1,5 @@
+// @ts-nocheck
+// @todo remove it
 import React, { FC, useState } from 'react'
 import cx from 'classnames'
 import { formatDistance } from 'date-fns'
@@ -40,7 +42,6 @@ export const PostResponse: FC<{
       {userPreview && (
         <Modal onClose={() => setUserPreview(false)}>
           <UserPreview
-            /* tslint:disable-next-line */
             user={mockeduser}
             noUserAvatar={UserAvatarNoImage}
             onClose={() => setUserPreview(false)}
