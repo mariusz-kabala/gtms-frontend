@@ -7,8 +7,12 @@ import {
   markAsLoading,
 } from '@gtms/state-group'
 import { hasAuthSessionCookies } from '@gtms/state-user'
-import { changePageBackground, clearPageBackground } from 'state'
-import { redirect } from '@gtms/commons/helpers/redirect'
+import {
+  changePageBackground,
+  clearPageBackground,
+  changePageBackgroundImage,
+} from 'state'
+import { redirect, getImage } from '@gtms/commons/helpers'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
 // state
@@ -76,7 +80,14 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
       }
 
       if (value.group?.bgType) {
-        changePageBackground(value.group?.bgType)
+        if (value.group?.bgType === 'file') {
+          changePageBackgroundImage(
+            getImage('origin', value.group.bg).jpg,
+            getImage('mini', value.group.bg).jpg
+          )
+        } else {
+          changePageBackground(value.group?.bgType)
+        }
       }
 
       setGroup(value)

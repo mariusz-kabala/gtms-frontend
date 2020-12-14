@@ -78,9 +78,12 @@ const getInitData = ({
 
     if (group.group?.bgType) {
       if (group.group?.bgType === 'file') {
-        changePageBackgroundImage(getImage('origin', group.group.bg).jpg)
+        changePageBackgroundImage(
+          getImage('origin', group.group.bg).jpg,
+          getImage('mini', group.group.bg).jpg
+        )
       } else {
-        changePageBackground(group.group?.bgType)
+        changePageBackground(group.group.bgType)
       }
     }
   }

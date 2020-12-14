@@ -30,7 +30,7 @@ interface GTMSAppState {
     name: string | null
     className: string
   }
-  backgroundImage?: string
+  backgroundImage?: { mini: string; full: string }
   backgroundLoaded: boolean
 }
 
@@ -54,14 +54,20 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
   componentDidMount() {
     const { auth } = this.props
 
-    this.subscription = uiQuery.pageBackground$.subscribe((value) => {
-      this.setState({
-        background: value,
-      })
+    this.subscription = uiQuery.pageBackgrounds$.subscribe((value) => {
+      this.setState(value)
 
-      if (value.full) {
+      let full: string | undefined = undefined
+
+      if (value.backgroundImage) {
+        full = value.backgroundImage.full
+      } else if (value.background.full) {
+        full = value.background.full
+      }
+
+      if (full) {
         const img = new Image()
-        img.src = value.full
+        img.src = full
 
         if (img.complete) {
           this.onBgLoad()
@@ -90,8 +96,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
 
   render() {
     const { Component, pageProps } = this.props
-    const { background, backgroundImage } = this.state
-
+    const { background, backgroundImage, backgroundLoaded } = this.state
     return (
       <div className={styles.appWrapper}>
         <Head>
@@ -107,11 +112,15 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
             styles.bg,
             !backgroundImage ? background.className : undefined
           )}
-          data-loaded={this.state.backgroundLoaded ? 'true' : 'false'}
+          data-loaded={backgroundLoaded ? 'true' : 'false'}
           style={
             backgroundImage
               ? {
-                  backgroundImage: `url(${backgroundImage})`,
+                  backgroundImage: `url(${
+                    backgroundLoaded
+                      ? backgroundImage.full
+                      : backgroundImage.mini
+                  })`,
                 }
               : undefined
           }

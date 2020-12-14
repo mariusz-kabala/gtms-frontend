@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.95.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.95.0...@gtms/app-andrew@0.95.1) (2020-12-13)
+
+
+### Bug Fixes
+
+* GEOT-377: redirect to new url when changing group name ([#944](https://github.com/gtms-org/gtms-frontend/issues/944)) ([b8e6992](https://github.com/gtms-org/gtms-frontend/commit/b8e69923798ff22bcf0e6c03cc43b32070785f4e))
+
+
+
+
+
 # [0.95.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.94.1...@gtms/app-andrew@0.95.0) (2020-12-11)
 
 
