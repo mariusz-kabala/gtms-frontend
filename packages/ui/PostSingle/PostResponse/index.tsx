@@ -28,7 +28,11 @@ export const PostResponse: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="post-single"
     >
-      {userPreview && <Modal onClose={() => setUserPreview(false)}>aaaa</Modal>}
+      {userPreview && (
+        <Modal onClose={() => setUserPreview(false)}>
+          <UserPreview user={owner} noUserAvatar={UserAvatarNoImage} />
+        </Modal>
+      )}
       <div className={styles.header}>
         <div className={styles.user}>
           <UserAvatar

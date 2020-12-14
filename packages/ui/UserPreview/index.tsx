@@ -14,7 +14,7 @@ import styles from './styles.scss'
 
 export const UserPreview: FC<{
   noUserAvatar: { [key: string]: IImage }
-  onUserPostsClick: (user: IUser) => unknown
+  onUserPostsClick?: (user: IUser) => unknown
   user: IUser
 }> = ({ noUserAvatar, onUserPostsClick, user }) => {
   return (
