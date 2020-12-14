@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.96.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.95.1...@gtms/app-andrew@0.96.0) (2020-12-14)
+
+
+### Features
+
+* GEOT-707: lazy loading for custom bg images ([#946](https://github.com/gtms-org/gtms-frontend/issues/946)) ([91142fc](https://github.com/gtms-org/gtms-frontend/commit/91142fc2d76a1b3f6b5f0e4189678c7b67bcb9d2))
+
+
+
+
+
 ## [0.95.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.95.0...@gtms/app-andrew@0.95.1) (2020-12-13)
 
 
