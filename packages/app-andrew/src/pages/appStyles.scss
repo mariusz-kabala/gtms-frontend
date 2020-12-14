@@ -13,5 +13,9 @@
     height: 100%;
     width: 100%;
     @include imageCover();
+
+    &[data-loaded='false'] {
+      filter: blur(2vw);
+    }
   }
 }
