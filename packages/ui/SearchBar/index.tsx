@@ -77,7 +77,7 @@ export const SearchBar: FC<{
             <div className={styles.tags}>
               {tags.map((tag, index) => (
                 <button
-                  className={styles.tag}
+                  className={styles.tagBtn}
                   key={`tag-${tag}-${index}`}
                   type="button"
                   title="click to remove"
@@ -91,6 +91,7 @@ export const SearchBar: FC<{
               <div className={styles.tags}>
                 {users.map((user: string) => (
                   <button
+                    className={styles.tagBtn}
                     key={`user-${user}`}
                     type="button"
                     title="click to remove"
