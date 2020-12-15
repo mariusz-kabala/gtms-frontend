@@ -11,7 +11,7 @@ import { pl } from 'date-fns/locale'
 import { getImage, getDisplayName } from '@gtms/commons/helpers'
 import { UserAvatarNoImage } from 'enums'
 // ui
-import { IoIosCloseCircle, IoIosCheckbox, IoMdTrash } from 'react-icons/io'
+import { IoIosCloseCircle, IoIosCheckbox } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Modal } from '@gtms/ui/Modal'
