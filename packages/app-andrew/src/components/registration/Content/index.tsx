@@ -9,7 +9,6 @@ import { SocialButtons } from '../../login/SocialButtons'
 // ui
 import { IoMdLogIn } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
-import { Picture } from '@gtms/ui/Picture'
 // styles
 import styles from './styles.scss'
 
@@ -76,7 +75,7 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
       {children}
       <div
         className={styles.pageBg}
-        style={{ backgroundImage: `url('/images/temp-images/login_bg.png')` }}
+        style={{ backgroundImage: `url('/images/temp-images/login-bg-2.png')` }}
       />
     </div>
   )
