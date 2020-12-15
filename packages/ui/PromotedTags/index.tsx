@@ -47,7 +47,6 @@ export const PromotedTags: FC<{
   const onClick = useCallback(() => {
     onNoRecordsClick && onNoRecordsClick()
   }, [onNoRecordsClick])
-
   return (
     <div className={additionalStyles} data-testid="promoted-tags">
       {isLoading && <Spinner />}

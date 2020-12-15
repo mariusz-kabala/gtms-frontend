@@ -11,7 +11,7 @@
     @include buttonDefault();
     @include buttonSizeDefault();
     @include buttonShapeDefault();
-    @include buttonWithIcon();
+    @include buttonWithIcon('left');
     @include buttonColorsDefault();
     height: 200px;
     margin-bottom: 10px; // to avoid cut left edge of parent with big border radius

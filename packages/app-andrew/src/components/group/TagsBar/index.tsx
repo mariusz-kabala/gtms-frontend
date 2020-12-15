@@ -92,9 +92,6 @@ export const TagsBar: FC<{
             [styles.active]: currentTab === Tabs.favorites,
           })}
         >
-          <i>
-            <IoMdGrid />
-          </i>
           Favorites
         </li>
         <li
@@ -103,9 +100,6 @@ export const TagsBar: FC<{
           })}
           onClick={() => setCurrentTab(Tabs.recentlyViewed)}
         >
-          <i>
-            <IoMdGrid />
-          </i>
           last viewed
         </li>
       </ul>
@@ -149,10 +143,10 @@ export const TagsBar: FC<{
                         noImage={PromotedTagNoImage}
                         size={'35x35'}
                       />
-                      <p className={styles.desc}>
+                      <div className={styles.desc}>
                         <h4>#{tag.tag}</h4>
                         <span>{truncateString(tag.description, 28)}</span>
-                      </p>
+                      </div>
                     </a>
                   </Link>
                 </li>
@@ -172,13 +166,13 @@ export const TagsBar: FC<{
                 key={`recently-viewed-${tag.tag}-${index}`}
               >
                 <a>
-                  <p className={styles.desc}>
+                  <div className={styles.desc}>
                     <h4>#{tag.tag}</h4>
                     <span>
                       visited{' '}
                       {formatDistance(new Date(tag.createdAt), new Date())}
                     </span>
-                  </p>
+                  </div>
                 </a>
               </li>
             ))}

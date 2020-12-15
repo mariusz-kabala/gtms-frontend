@@ -5,8 +5,8 @@ import styles from './styles.scss'
 
 export const ErrorWrapper: FC<{
   additionalStyles?: string
-  children: ReactNode
   buttons?: ReactNode
+  children: ReactNode
 }> = ({ additionalStyles, buttons, children }) => {
   return (
     <div

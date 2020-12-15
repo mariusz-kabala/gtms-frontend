@@ -9,8 +9,8 @@
 .searchBar {
   position: relative;
   display: flex;
+  gap: 10px;
   width: 100%;
-  box-shadow: $boxShadowDefault;
 
   .inputWrapper {
     position: relative;
@@ -33,6 +33,7 @@
       padding-left: 30px;
       border: 0;
       border-radius: $borderRadius;
+      box-shadow: $boxShadowDefault;
       background: $theme0;
       @include font-size(xdefault);
       @include font-weight(light);
@@ -82,12 +83,13 @@
 
 .tags {
   display: flex;
+  gap: 10px;
 
   &.independent {
     margin-top: 5px;
   }
 
-  .tag {
+  .tagBtn {
     @include buttonDefault();
     @include buttonSizeDefault();
     @include buttonShapeDefault();

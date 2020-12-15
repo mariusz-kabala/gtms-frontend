@@ -1,41 +1,56 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 
-.wrapper {
+.postDropdown {
   position: relative;
+  z-index: 1;
 
-  .btn {
+  .btnDropdown {
     @include buttonDefault();
-    @include buttonSizeDefault();
+    @include buttonSizeSm();
     @include buttonShapeDefault();
-    @include buttonWithoutPadding();
-    @include buttonWithoutBackground();
-    margin-left: 10px;
+    @include buttonWithIcon();
 
     &:hover,
     &:focus,
     &:active {
-      @include buttonColorBlueText();
+      @include buttonColorsPrimary();
     }
   }
 
   .items {
     position: absolute;
-    top: 0;
-    right: 5px;
+    top: 40px;
+    right: 0px;
     min-width: 140px;
+    padding: 5px;
     border: 1px solid $theme9;
     border-radius: $borderRadius;
+    background-color: $theme1;
+    cursor: pointer;
 
     .item {
-      padding: 2.5px;
-      background-color: $theme0;
+      padding: 5px;
+      border-radius: $borderRadius;
+      margin-top: 5px;
 
-      &:hover {
-        background-color: $theme4;
+      &:first-child {
+        margin-top: 0;
+      }
 
-        a {
-          color: $theme0;
+      .btn {
+        @include buttonDefault();
+        @include buttonSizeDefault();
+        @include buttonSizeSm();
+        @include buttonShapeDefault();
+        @include buttonWithIcon('left');
+        width: 100%;
+        justify-content: flex-start;
+
+        &:hover,
+        &:focus,
+        &:active {
+          @include buttonColorsPrimary();
         }
       }
     }

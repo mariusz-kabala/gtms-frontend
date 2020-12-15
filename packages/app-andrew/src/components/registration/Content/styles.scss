@@ -88,7 +88,7 @@
           @include buttonDefault();
           @include buttonSizeDefault();
           @include buttonShapeDefault();
-          @include buttonWithIcon();
+          @include buttonWithIcon('left');
           @include buttonColorsDefault();
           &:hover {
             @include buttonColorsPrimary();

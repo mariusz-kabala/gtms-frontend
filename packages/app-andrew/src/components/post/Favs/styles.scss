@@ -3,10 +3,10 @@
 
 .btn {
   @include buttonDefault();
-  @include buttonSizeDefault();
+  @include buttonSizeSm();
   @include buttonShapeDefault();
   @include buttonWithoutPadding();
-  @include buttonWithIcon();
+  @include buttonWithIcon('left');
   @include buttonWithoutBackground();
 
   &:hover,
@@ -15,6 +15,7 @@
     @include buttonColorBlueText();
   }
 
+  // for aligning icon
   > div > div {
     display: flex;
     align-items: center;

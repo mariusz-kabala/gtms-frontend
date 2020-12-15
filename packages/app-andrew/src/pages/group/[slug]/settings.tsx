@@ -116,7 +116,10 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
     <div className={styles.pageWrapper} data-testid="group-settings-page">
       <GroupHeader />
       {state.showPromoted && (
-        <PromotedTags additionalStyles={styles.tags} onTagClick={() => null} />
+        <PromotedTags
+          additionalStyles={styles.promotedTags}
+          onTagClick={() => null}
+        />
       )}
       {state.showUsers && (
         <GroupMembers

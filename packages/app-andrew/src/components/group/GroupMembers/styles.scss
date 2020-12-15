@@ -10,22 +10,22 @@
 }
 
 .wrapper {
-  .header {
-    @include font-size(xsm);
-    @include font-weight(semiBold);
-    margin-bottom: 10px;
-    text-transform: uppercase;
-  }
-
   .items {
-    // @todo create mixin for that
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-    grid-gap: 10px;
+    @include gridDefault(10);
 
     .item {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+
       .avatar {
-        &:hover {
+        box-shadow: $boxShadowDefault;
+      }
+
+      &:hover {
+        .avatar {
           @include effectOne('circle');
         }
       }

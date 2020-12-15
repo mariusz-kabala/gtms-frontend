@@ -5,7 +5,6 @@ import cx from 'classnames'
 import { Button } from '@gtms/ui/Button'
 // styles
 import styles from './styles.scss'
-
 // icons
 // ai
 import { AiFillRead } from 'react-icons/ai'

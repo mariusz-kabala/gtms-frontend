@@ -6,7 +6,6 @@
   @include buttonDefault();
   @include buttonSizeSm();
   @include buttonShapeDefault();
-  @include buttonWithIcon('withoutText');
   @include buttonWithSpinnerAndLabel();
   @include buttonColorsDefault();
   @include font-size(md);

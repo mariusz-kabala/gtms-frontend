@@ -41,7 +41,9 @@ const GroupsList: FC<{
   )
 }
 
-const NoGroupsMatchingCritera: FC = () => <p>No groups machting criteria</p>
+const NoGroupsMatchingCritera: FC = () => (
+  <h3 className={styles.noGroupsFound}>No groups machting criteria</h3>
+)
 
 enum Tabs {
   groupsMember,
@@ -125,50 +127,52 @@ export const InviteToGroupButton: FC<{
               <h2>Can not fetch list of groups now, try later please</h2>
             </ErrorWrapper>
           )}
-          {externalState.isLoaded && internalState.step === Steps.start && (
-            <div>
-              <ul className={styles.navigation}>
-                <li className={styles.item}>
-                  <a
-                    onClick={() =>
-                      setInternalState({
-                        ...getInitialInternalState(),
-                        isModalOpen: true,
-                        currentTab: Tabs.groupsMember,
-                      })
-                    }
-                  >
-                    my groups
-                  </a>
-                </li>
-                <li className={styles.item}>
-                  <a
-                    onClick={() =>
-                      setInternalState({
-                        ...getInitialInternalState(),
-                        isModalOpen: true,
-                        currentTab: Tabs.groupsAdmin,
-                      })
-                    }
-                  >
-                    as admin
-                  </a>
-                </li>
-                <li className={styles.item}>
-                  <a
-                    onClick={() =>
-                      setInternalState({
-                        ...getInitialInternalState(),
-                        isModalOpen: true,
-                        currentTab: Tabs.groupsOwner,
-                      })
-                    }
-                  >
-                    as owner
-                  </a>
-                </li>
-              </ul>
-              <div className={styles.content}>
+          {externalState.isLoaded && (
+            <ul className={styles.navigation}>
+              <li className={styles.item}>
+                <a
+                  onClick={() =>
+                    setInternalState({
+                      ...getInitialInternalState(),
+                      isModalOpen: true,
+                      currentTab: Tabs.groupsMember,
+                    })
+                  }
+                >
+                  my groups
+                </a>
+              </li>
+              <li className={styles.item}>
+                <a
+                  onClick={() =>
+                    setInternalState({
+                      ...getInitialInternalState(),
+                      isModalOpen: true,
+                      currentTab: Tabs.groupsAdmin,
+                    })
+                  }
+                >
+                  as admin
+                </a>
+              </li>
+              <li className={styles.item}>
+                <a
+                  onClick={() =>
+                    setInternalState({
+                      ...getInitialInternalState(),
+                      isModalOpen: true,
+                      currentTab: Tabs.groupsOwner,
+                    })
+                  }
+                >
+                  as owner
+                </a>
+              </li>
+            </ul>
+          )}
+          <div className={styles.content}>
+            {externalState.isLoaded && internalState.step === Steps.start && (
+              <>
                 {internalState.currentTab === Tabs.groupsMember &&
                   externalState.member.length > 0 && (
                     <GroupsList
@@ -204,42 +208,45 @@ export const InviteToGroupButton: FC<{
                   externalState.owner.length === 0 && (
                     <NoGroupsMatchingCritera />
                   )}
-              </div>
-            </div>
-          )}
-
-          {externalState.isLoaded === true &&
-            internalState.step === Steps.invitation && (
-              <div>
-                <header>
-                  <Picture
-                    {...getImage(
-                      '200x200',
-                      internalState.selectedGroup?.avatar,
-                      GroupAvatarNoImage
-                    )}
-                  />
-                  <h3>{internalState.selectedGroup?.name}</h3>
-                </header>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <ExpandingTextarea
-                    placeholder={
-                      'Optionally you can write a custom invitation here'
-                    }
-                    name="description"
-                    defaultValue={''}
-                    reference={register({ required: false })}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={false}
-                    additionalStyles={styles.btn}
-                  >
-                    Send invitation
-                  </Button>
-                </form>
-              </div>
+              </>
             )}
+
+            {externalState.isLoaded === true &&
+              internalState.step === Steps.invitation && (
+                <>
+                  <div className={styles.groupAvatar}>
+                    <Picture
+                      additionalStyles={styles.image}
+                      {...getImage(
+                        '200x200',
+                        internalState.selectedGroup?.avatar,
+                        GroupAvatarNoImage
+                      )}
+                    />
+                    <h3 className={styles.header}>
+                      {internalState.selectedGroup?.name}
+                    </h3>
+                  </div>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <ExpandingTextarea
+                      placeholder={
+                        'Optionally you can write a custom invitation here'
+                      }
+                      name="description"
+                      defaultValue={''}
+                      reference={register({ required: false })}
+                    />
+                    <Button
+                      additionalStyles={styles.btn}
+                      type="submit"
+                      disabled={false}
+                    >
+                      Send invitation
+                    </Button>
+                  </form>
+                </>
+              )}
+          </div>
         </Modal>
       )}
       <button

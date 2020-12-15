@@ -6,7 +6,7 @@
   @include buttonSizeSm();
   @include buttonShapeDefault();
   @include buttonColorsDefault();
-  @include buttonWithIcon();
+  @include buttonWithIcon('left');
 
   &:hover {
     @include buttonColorsPrimary();

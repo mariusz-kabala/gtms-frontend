@@ -17,6 +17,7 @@ import { PostCreate as PostCreateUI } from '@gtms/ui/PostCreate'
 import { Button } from '@gtms/ui/Button'
 import { UploadFile } from '@gtms/ui/UploadFile'
 import { IoIosCloseCircle, IoMdSend } from 'react-icons/io'
+import { BsFillImageFill } from 'react-icons/bs'
 // styles
 import styles from './styles.scss'
 
@@ -181,7 +182,7 @@ export const PostCreate: FC<{
       {showSendButton && (
         <div className={styles.buttons}>
           <Button
-            additionalStyles={cx(styles.btnSubmit, styles.btnImages)}
+            additionalStyles={cx(styles.btn, styles.btnImages)}
             type="submit"
             onClick={() =>
               setfileUploadState((state) => ({
@@ -191,12 +192,12 @@ export const PostCreate: FC<{
             }
           >
             <i>
-              <IoMdSend />
+              <BsFillImageFill />
             </i>
             add images
           </Button>
           <Button
-            additionalStyles={styles.btnSubmit}
+            additionalStyles={styles.btn}
             type="submit"
             disabled={value === ''}
             onClick={() => {

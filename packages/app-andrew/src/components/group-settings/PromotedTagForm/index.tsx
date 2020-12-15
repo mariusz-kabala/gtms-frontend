@@ -8,6 +8,8 @@ import {
 } from '@gtms/api-tags'
 import { deleteTmpFileAPI } from '@gtms/api-file'
 // ui
+import { BsFillImageFill } from 'react-icons/bs'
+import { Button } from '@gtms/ui/Button'
 import { Error } from '@gtms/ui/Forms/Error'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { Spinner } from '@gtms/ui'
@@ -124,72 +126,70 @@ export const PromotedTagsForm: FC<{
         />
       )}
       {filePreview.file !== null && (
-        <div data-testid="promoted-tag-image-preview-box">
-          <img
-            src={filePreview.file}
-            alt="preview"
-            data-testid="promoted-tag-image-preview"
-          />
-          <p className={styles.uploadAnother}>
-            <a
-              onClick={() => {
-                if (filePreview.id) {
-                  deleteTmpFileAPI(filePreview.id)
-                }
-                setFilePreview({ file: null })
-              }}
-              data-testid="promoted-tag-image-preview-cancel"
-            >
-              upload another one
-            </a>
-          </p>
+        <div
+          className={styles.imagePreview}
+          data-testid="promoted-tag-image-preview-box"
+          style={{ backgroundImage: `url(${filePreview.file})` }}
+        >
+          <Button
+            additionalStyles={styles.btnChangeImage}
+            onClick={() => {
+              if (filePreview.id) {
+                deleteTmpFileAPI(filePreview.id)
+              }
+              setFilePreview({ file: null })
+            }}
+            testid="promoted-tag-image-preview-cancel"
+          >
+            <i>
+              <BsFillImageFill />
+            </i>
+            change image
+          </Button>
         </div>
       )}
-      <div>
-        {/* @question - can we remove that? */}
-        {promotedTagId && stateTag.value && (
-          <div className={styles.promoted}>
-            <TagGroup>
-              <Tag label={stateTag.value} />
-            </TagGroup>
-          </div>
-        )}
+      {/* @question - can we remove that? */}
+      {promotedTagId && stateTag.value && (
+        <div className={styles.promoted}>
+          <TagGroup>
+            <Tag label={stateTag.value} />
+          </TagGroup>
+        </div>
+      )}
 
-        {!tag && !promotedTagId && (
-          <div>
-            <input
-              className={styles.input}
-              type="text"
-              name="tag"
-              value={stateTag.value}
-              onChange={(e) => {
-                let value = e.target.value.trim()
+      {!tag && !promotedTagId && (
+        <div>
+          <input
+            className={styles.input}
+            name="tag"
+            type="text"
+            value={stateTag.value}
+            onChange={(e) => {
+              let value = e.target.value.trim()
 
-                if (value.length > 1 && value.charAt(0) === '#') {
-                  value = value.substr(1)
-                }
+              if (value.length > 1 && value.charAt(0) === '#') {
+                value = value.substr(1)
+              }
 
-                setStateTag({
-                  isError: false,
-                  value,
-                })
-              }}
-              placeholder="Here goes tag name"
-            />
-            {stateTag.isError && <Error text={'Tag can not be empty'} />}
-          </div>
-        )}
-        <ExpandingTextarea
-          additionalStyles={styles.textarea}
-          placeholder="Put a short tag description here"
-          name="description"
-          defaultValue={description}
-          reference={dscRef as any}
-        />
-        {savingStatus.validationError && (
-          <Error text={t(savingStatus.validationError)} />
-        )}
-      </div>
+              setStateTag({
+                isError: false,
+                value,
+              })
+            }}
+            placeholder="Here goes tag name"
+          />
+          {stateTag.isError && <Error text={'Tag can not be empty'} />}
+        </div>
+      )}
+      <ExpandingTextarea
+        defaultValue={description}
+        name="description"
+        placeholder="Put a short tag description here"
+        reference={dscRef as any}
+      />
+      {savingStatus.validationError && (
+        <Error text={t(savingStatus.validationError)} />
+      )}
       <button
         className={styles.btn}
         disabled={savingStatus.isSaving}

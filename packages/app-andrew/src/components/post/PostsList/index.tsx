@@ -19,8 +19,8 @@ const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
 
 export const PostsList: FC<{
   isAdmin: boolean
-  posts: IPost[]
   onUserPostsClick: (user: IUser) => unknown
+  posts: IPost[]
   renderPost: (
     post: IPost & {
       renderMenu: (postId: string) => JSX.Element | null
@@ -31,10 +31,10 @@ export const PostsList: FC<{
   ) => JSX.Element
   showGroupPreview?: boolean
 }> = ({
-  renderPost,
-  posts,
   isAdmin,
   onUserPostsClick,
+  posts,
+  renderPost,
   showGroupPreview = false,
 }) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()

@@ -41,7 +41,7 @@
     @include buttonSizeDefault();
     @include buttonShapeDefault();
     @include buttonColorsDefault();
-    @include buttonWithIcon();
+    @include buttonWithIcon('left');
     margin-top: 5px;
     margin-left: auto;
 

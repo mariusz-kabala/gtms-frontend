@@ -4,7 +4,7 @@ import { useTranslation } from '@gtms/commons/i18n'
 import useKey from 'use-key-hook'
 // ui
 import { Button } from '../../Button'
-import { Modal } from '@gtms/ui/Modal'
+import { Modal } from '../../Modal'
 import { IoIosCloseCircle, IoIosCheckbox, IoMdTrash } from 'react-icons/io'
 import styles from './styles.scss'
 

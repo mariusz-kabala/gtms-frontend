@@ -54,23 +54,24 @@ export const GroupSidebar: FC<{}> = () => {
               isEditAllowed={true}
             />
           )}
-        {!state.hasAdminRights ||
-          (state.avatarFileStatus !== FileStatus.notExists && (
-            <Link href={`/group/${state.group.slug}`}>
-              <a>
-                <GroupAvatar
-                  additionalStyles={styles.groupAvatar}
-                  files={getImage(
-                    '50x50',
-                    state.group.avatar,
-                    GroupAvatarNoImage
-                  )}
-                  filesStatus={state.avatarFileStatus}
-                  isEditAllowed={false}
-                />
-              </a>
-            </Link>
-          ))}
+        {((state.hasAdminRights &&
+          state.avatarFileStatus !== FileStatus.notExists) ||
+          !state.hasAdminRights) && (
+          <Link href={`/group/${state.group.slug}`}>
+            <a>
+              <GroupAvatar
+                additionalStyles={styles.groupAvatar}
+                files={getImage(
+                  '50x50',
+                  state.group.avatar,
+                  GroupAvatarNoImage
+                )}
+                filesStatus={state.avatarFileStatus}
+                isEditAllowed={false}
+              />
+            </a>
+          </Link>
+        )}
         <h2
           className={styles.header}
           data-tip={t('click-here-to-edit')}
