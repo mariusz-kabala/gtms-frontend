@@ -15,9 +15,10 @@ import {
 } from './state.query'
 import { createNewComment } from '@gtms/state-comment'
 // ui
-import { Button } from '@gtms/ui/Button'
-import { Spinner } from '@gtms/ui/Spinner'
 import { IoMdSend } from 'react-icons/io'
+import { Button } from '@gtms/ui/Button'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { Spinner } from '@gtms/ui/Spinner'
 
 export const PostCommentsList: FC<{
   isLoading: boolean
@@ -51,10 +52,12 @@ export const PostCommentsList: FC<{
 
   if (errorOccured) {
     return (
-      <p>
-        We can not show comments to the post right now, please refresh or try
-        later
-      </p>
+      <ErrorWrapper>
+        <h2 data-testid="notifications-settings">
+          We can not show comments to the post right now, please refresh or try
+          later
+        </h2>
+      </ErrorWrapper>
     )
   }
 

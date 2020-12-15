@@ -297,7 +297,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           {!state.showPromoted && !state.showUsers && (
             <div className={styles.content}>
               <TagsBar additionalStyles={styles.tagsColumn} />
-              <div>
+              <div className={styles.columns}>
                 {!state.posts.isLoading &&
                   !state.posts.errorOccured &&
                   state.posts.posts.length === 0 && (
