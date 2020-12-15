@@ -41,8 +41,7 @@ export const GroupSidebar: FC<{}> = () => {
   if (!state.group) {
     return null
   }
-  // console.log(!state.hasAdminRights)
-  // console.log(state.avatarFileStatus !== FileStatus.notExists)
+
   return (
     <div className={styles.groupSidebar}>
       <div className={styles.avatarAndName}>
