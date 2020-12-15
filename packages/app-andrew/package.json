@@ -1,6 +1,6 @@
 {
   "name": "@gtms/app-andrew",
-  "version": "0.96.0",
+  "version": "0.97.0",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
@@ -19,15 +19,15 @@
     "@gtms/api-auth": "0.14.3",
     "@gtms/api-file": "0.3.3",
     "@gtms/api-group": "0.17.3",
-    "@gtms/api-tags": "0.9.1",
+    "@gtms/api-tags": "0.10.0",
     "@gtms/commons": "0.32.0",
     "@gtms/state-comment": "0.5.3",
     "@gtms/state-group": "0.20.0",
     "@gtms/state-notification": "0.10.2",
     "@gtms/state-post": "0.14.3",
-    "@gtms/state-tag": "0.11.1",
+    "@gtms/state-tag": "0.12.0",
     "@gtms/state-user": "0.20.3",
-    "@gtms/styles": "0.27.0",
-    "@gtms/ui": "0.75.0"
+    "@gtms/styles": "0.28.0",
+    "@gtms/ui": "0.76.0"
   }
 }

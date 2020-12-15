@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.97.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.96.0...@gtms/app-andrew@0.97.0) (2020-12-15)
+
+
+### Features
+
+* GEOT-711: styles for different small elements ([#947](https://github.com/gtms-org/gtms-frontend/issues/947)) ([5fb2446](https://github.com/gtms-org/gtms-frontend/commit/5fb2446c5a13aec6a4637954aefe8f97b883de45))
+
+
+
+
+
 # [0.96.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.95.1...@gtms/app-andrew@0.96.0) (2020-12-14)
 
 

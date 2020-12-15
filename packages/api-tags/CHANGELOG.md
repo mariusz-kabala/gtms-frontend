@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.9.1...@gtms/api-tags@0.10.0) (2020-12-15)
+
+
+### Features
+
+* GEOT-699: user card on main page ([#927](https://github.com/gtms-org/gtms-frontend/issues/927)) ([0b4d2ba](https://github.com/gtms-org/gtms-frontend/commit/0b4d2ba9f89ac8a9ddddd7841bd7da2eec257edc))
+* GEOT-711: styles for different small elements ([#947](https://github.com/gtms-org/gtms-frontend/issues/947)) ([5fb2446](https://github.com/gtms-org/gtms-frontend/commit/5fb2446c5a13aec6a4637954aefe8f97b883de45))
+
+
+
+
+
 ## [0.9.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-tags@0.9.0...@gtms/api-tags@0.9.1) (2020-12-11)
 
 

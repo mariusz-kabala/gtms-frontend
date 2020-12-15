@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.76.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.75.0...@gtms/ui@0.76.0) (2020-12-15)
+
+
+### Features
+
+* GEOT-711: styles for different small elements ([#947](https://github.com/gtms-org/gtms-frontend/issues/947)) ([5fb2446](https://github.com/gtms-org/gtms-frontend/commit/5fb2446c5a13aec6a4637954aefe8f97b883de45))
+
+
+
+
+
 # [0.75.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.74.0...@gtms/ui@0.75.0) (2020-12-11)
 
 
