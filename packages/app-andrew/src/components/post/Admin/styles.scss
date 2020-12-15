@@ -10,7 +10,6 @@
     @include buttonSizeSm();
     @include buttonShapeDefault();
     @include buttonWithIcon();
-    margin-left: 10px;
 
     &:hover,
     &:focus,
@@ -44,7 +43,7 @@
         @include buttonSizeDefault();
         @include buttonSizeSm();
         @include buttonShapeDefault();
-        @include buttonWithIcon();
+        @include buttonWithIcon('left');
         width: 100%;
         justify-content: flex-start;
 

@@ -5,7 +5,7 @@
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapeDefault();
-  @include buttonWithIcon();
+  @include buttonWithIcon('left');
   @include buttonWithSpinnerAndLabel();
   @include buttonColorsDefault();
 

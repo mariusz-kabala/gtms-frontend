@@ -92,9 +92,6 @@ export const TagsBar: FC<{
             [styles.active]: currentTab === Tabs.favorites,
           })}
         >
-          <i>
-            <IoMdGrid />
-          </i>
           Favorites
         </li>
         <li
@@ -103,9 +100,6 @@ export const TagsBar: FC<{
           })}
           onClick={() => setCurrentTab(Tabs.recentlyViewed)}
         >
-          <i>
-            <IoMdGrid />
-          </i>
           last viewed
         </li>
       </ul>

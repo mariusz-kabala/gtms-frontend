@@ -53,7 +53,7 @@
           @include buttonSizeSm();
           @include buttonShapeDefault();
           @include buttonColorsSecondary();
-          @include buttonWithIcon();
+          @include buttonWithIcon('left');
 
           &:hover {
             @include buttonColorsPrimary();
@@ -118,7 +118,7 @@
           @include buttonDefault();
           @include buttonSizeSm();
           @include buttonShapeDefault();
-          @include buttonWithIcon();
+          @include buttonWithIcon('left');
           @include buttonColorsSecondary();
           margin-right: 10px;
 

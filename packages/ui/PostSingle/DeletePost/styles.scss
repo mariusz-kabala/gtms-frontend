@@ -10,9 +10,8 @@
   @include buttonSizeSm();
   @include buttonShapeDefault();
   @include buttonWithoutPadding();
-  @include buttonWithIcon();
+  @include buttonWithIcon('left');
   @include buttonWithoutBackground();
-  margin-right: 10px;
 
   &:hover,
   &:focus,
@@ -38,7 +37,7 @@
     margin-top: 20px;
 
     .btn {
-      @include buttonWithIcon();
+      @include buttonWithIcon('left');
 
       &:hover {
         @include buttonColorsPrimary();

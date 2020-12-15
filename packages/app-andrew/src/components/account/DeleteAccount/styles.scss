@@ -9,7 +9,7 @@
   @include buttonSizeDefault();
   @include buttonShapeDefault();
   @include buttonColorsDefault();
-  @include buttonWithIcon();
+  @include buttonWithIcon('left');
   width: 100%;
   margin-top: 20px;
 
@@ -41,7 +41,7 @@
 
     .btn {
       width: 100%;
-      @include buttonWithIcon();
+      @include buttonWithIcon('left');
     }
   }
 }

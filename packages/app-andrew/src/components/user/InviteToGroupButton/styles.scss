@@ -132,7 +132,7 @@
       @include buttonSizeDefault();
       @include buttonShapeDefault();
       @include buttonColorsDefault();
-      @include buttonWithIcon();
+      @include buttonWithIcon('left');
       width: 100%;
       margin-top: 10px;
     }

@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin: 10px auto;
+  margin: auto;
   border-radius: $borderRadius;
   border: 4px solid $theme9;
   cursor: pointer;
@@ -46,7 +46,7 @@
     @include buttonDefault();
     @include buttonSizeDefault();
     @include buttonShapeDefault();
-    @include buttonWithIcon();
+    @include buttonWithIcon('left');
     @include buttonColorsDefault();
     margin-top: 20px;
 

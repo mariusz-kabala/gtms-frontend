@@ -46,7 +46,7 @@
     @include buttonSizeDefault();
     @include buttonShapeDefault();
     @include buttonColorsDefault();
-    @include buttonWithIcon();
+    @include buttonWithIcon('left');
     margin-bottom: 10px;
 
     &:hover {
