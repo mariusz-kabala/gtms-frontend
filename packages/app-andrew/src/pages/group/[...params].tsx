@@ -298,27 +298,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             <div className={styles.content}>
               <TagsBar additionalStyles={styles.tagsColumn} />
               <div>
-                <div className={styles.tagHeader}>
-                  <div>
-                    <span
-                      className={styles.image}
-                      style={{
-                        backgroundImage: `url('/images/temp-images/login_bg.png')`,
-                      }}
-                    />
-                    <div className={styles.desc}>
-                      <h3 className={styles.tag}>#Portugal</h3>
-                      <ul className={styles.stats}>
-                        <li>
-                          <span>33</span> posts
-                        </li>
-                        <li>
-                          <span>12</span> users watch this
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
                 {!state.posts.isLoading &&
                   !state.posts.errorOccured &&
                   state.posts.posts.length === 0 && (

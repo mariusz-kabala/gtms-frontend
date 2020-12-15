@@ -33,20 +33,11 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
 
   return (
     <div className={styles.pageWrapper} data-testid="registration-page">
-      <div
-        className={styles.wrapper}
-        style={{
-          backgroundImage: `url('/images/temp-images/login_bg.png')`,
-        }}
-      >
+      <div className={styles.wrapper}>
         <div className={styles.content}>
           <div>
             {error && <div data-testid="login-page-error">{t(error)}</div>}
             <div className={styles.headerWrapper}>
-              <Picture
-                additionalStyles={styles.avatar}
-                jpg={'/images/avatars/avatar-10.png'}
-              />
               <div>
                 <h2 className={styles.header}>Sign up</h2>
                 <p>
@@ -83,6 +74,10 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
         </div>
       </div>
       {children}
+      <div
+        className={styles.pageBg}
+        style={{ backgroundImage: `url('/images/temp-images/login_bg.png')` }}
+      />
     </div>
   )
 }

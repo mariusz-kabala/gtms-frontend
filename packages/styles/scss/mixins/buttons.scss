@@ -43,6 +43,10 @@
 }
 
 @mixin buttonWithSpinnerAndLabel($position: null) {
+  i {
+    line-height: 0;
+  }
+
   @if $position == null {
     div {
       margin-right: 5px;

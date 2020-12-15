@@ -92,46 +92,6 @@
         border-right: 1px solid $theme9;
       }
 
-      .tagHeader {
-        > div {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          padding: 10px;
-
-          .image {
-            width: 50px;
-            height: 50px;
-            @include imageCover();
-            border-radius: $borderRadius;
-          }
-
-          .tag {
-            @include font-size(md);
-            @include font-weight(semiBold);
-            margin-bottom: 2px;
-          }
-
-          ul {
-            @include font-size(xxs);
-            text-transform: uppercase;
-
-            span {
-              @include font-weight(semiBold);
-            }
-          }
-        }
-
-        &:after {
-          content: '';
-          display: block;
-          width: 100%;
-          height: 1px;
-          margin: 0 10px;
-          background: $theme9;
-        }
-      }
-
       .posts {
         width: 100%;
         border-radius: $borderRadius;
