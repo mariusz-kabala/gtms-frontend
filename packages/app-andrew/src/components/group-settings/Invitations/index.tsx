@@ -11,8 +11,10 @@ import { pl } from 'date-fns/locale'
 import { getImage, getDisplayName } from '@gtms/commons/helpers'
 import { UserAvatarNoImage } from 'enums'
 // ui
+import { IoIosCloseCircle, IoIosCheckbox, IoMdTrash } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 // styles
@@ -24,6 +26,7 @@ export const InvitationsSettings: FC<{ group: IGroup }> = ({ group }) => {
   const [state, setState] = useState<IGroupInvitations>(
     groupInvitationsQuery.getGroupInvitations()
   )
+  const [isShowModal, setIsShowModal] = useState<boolean>(false)
 
   useEffect(() => {
     getGroupInvitations(group.slug, 0, RECORDS_PER_PAGE)
@@ -88,8 +91,42 @@ export const InvitationsSettings: FC<{ group: IGroup }> = ({ group }) => {
               <div>
                 <p>{invitation.description || 'No message'}</p>
               </div>
-              <Button onClick={() => deleteGroupInvitation(invitation.id)}>
-                {/* add here a confirmation popup */}
+              {isShowModal && (
+                <Modal
+                  additionalStyles={styles.modalContent}
+                  onClose={() => setIsShowModal(false)}
+                >
+                  <div>
+                    <h2 className={styles.header}>header</h2>
+                    <p className={styles.desc}>
+                      Eteu in occaecat occaecat consectetur et laboris aliquip.
+                    </p>
+                    <div className={styles.buttons}>
+                      <Button
+                        additionalStyles={styles.btn}
+                        onClick={() => setIsShowModal(false)}
+                        testid="post-single-delete-post-canel"
+                      >
+                        <i>
+                          <IoIosCloseCircle />
+                        </i>
+                        noBtn
+                      </Button>
+                      <Button
+                        additionalStyles={styles.btn}
+                        onClick={() => deleteGroupInvitation(invitation.id)}
+                        testid="delete-account-confirm"
+                      >
+                        <i>
+                          <IoIosCheckbox />
+                        </i>
+                        yesBtn
+                      </Button>
+                    </div>
+                  </div>
+                </Modal>
+              )}
+              <Button onClick={() => setIsShowModal(true)}>
                 remove invitation
               </Button>
             </div>
