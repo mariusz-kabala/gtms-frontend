@@ -16,6 +16,10 @@
   display: flex;
   border-radius: 10px;
 
+  .widthMax {
+    max-width: 1100px;
+  }
+
   .groupCover {
     max-width: 700px;
   }
@@ -74,6 +78,10 @@
       display: flex;
       max-width: 700px;
       background: $theme1;
+
+      &.widthMax {
+        max-width: 1100px;
+      }
 
       &:after {
         content: '';

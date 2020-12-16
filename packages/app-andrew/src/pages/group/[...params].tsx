@@ -280,7 +280,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             group={state.group}
             isEditAllowed={groupQuery.hasAdminRights()}
           />
-          <GroupHeader />
+          <GroupHeader
+            additionalStyles={cx({
+              [styles.widthMax]: !state.showPromoted && state.activePost,
+            })}
+          />
           {state.showPromoted && (
             <PromotedTags
               additionalStyles={styles.promotedTags}
@@ -295,7 +299,11 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             />
           )}
           {!state.showPromoted && !state.showUsers && (
-            <div className={styles.content}>
+            <div
+              className={cx(styles.content, {
+                [styles.widthMax]: !state.showPromoted && state.activePost,
+              })}
+            >
               <TagsBar additionalStyles={styles.tagsColumn} />
               <div>
                 <div className={styles.tagHeader}>
