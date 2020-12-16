@@ -3,7 +3,7 @@
 .mainHeader {
   display: flex;
   padding: 8px;
-  max-width: 700px;
+  max-width: $tempWidth;
   border-radius: $borderRadius2;
   background: $theme1;
 

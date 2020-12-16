@@ -42,6 +42,7 @@ export const SubCommentsList: FC<{
 
       {!isAnswerFormOpen && (
         <button
+          className={styles.btnRespond}
           onClick={(e) => {
             e.preventDefault()
 

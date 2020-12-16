@@ -1,12 +1,13 @@
 import React, { FC, useState } from 'react'
 import GoogleLogin, { GoogleLoginResponseOffline } from 'react-google-login'
-import styles from './styles.scss'
 import cx from 'classnames'
 import { fbLoginUser, googleLoginUser } from '@gtms/state-user'
 import { useFacebookLogin } from '@gtms/commons/hooks/fbLogin'
-import { Spinner } from '@gtms/ui/Spinner'
 import getConfig from 'next/config'
+// ui
 import { FaFacebookF } from 'react-icons/fa'
+import { Spinner } from '@gtms/ui/Spinner'
+import styles from './styles.scss'
 
 export const SocialButtons: FC<{
   additionalStyles?: string
@@ -36,16 +37,18 @@ export const SocialButtons: FC<{
     },
   })
 
-  return (
+  return isProcessing || isLoading ? (
+    <Spinner additionalStyles={styles.spinner} />
+  ) : (
     <div
-      data-testid="social-buttons"
       className={cx(styles.wrapper, additionalStyles)}
+      data-testid="social-buttons"
     >
       {!isProcessing && !isLoading && (
         <>
           <button
-            data-testid="social-buttons-facebook-button"
             className={`${styles.button} ${styles.facebook}`}
+            data-testid="social-buttons-facebook-button"
             onClick={() => !isLoading && onClick()}
           >
             <FaFacebookF /> Facebook
@@ -78,9 +81,6 @@ export const SocialButtons: FC<{
             />
           </div>
         </>
-      )}
-      {(isProcessing || isLoading) && (
-        <Spinner additionalStyles={styles.spinner} />
       )}
     </div>
   )

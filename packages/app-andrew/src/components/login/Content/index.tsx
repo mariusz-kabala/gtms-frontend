@@ -8,7 +8,6 @@ import { SocialButtons } from '../SocialButtons'
 import { AiOutlineForm } from 'react-icons/ai'
 import { MdSettingsBackupRestore } from 'react-icons/md'
 import { Button } from '@gtms/ui/Button'
-import { Picture } from '@gtms/ui/Picture'
 // styles
 import styles from './styles.scss'
 
@@ -40,20 +39,11 @@ export const LoginContent: FC<{ registrationLink?: string }> = ({
 
   return (
     <div className={styles.pageWrapper} data-testid="login-page">
-      <div
-        className={styles.wrapper}
-        style={{
-          backgroundImage: `url('/images/temp-images/login_bg.png')`,
-        }}
-      >
+      <div className={styles.wrapper}>
         <div className={styles.content}>
           <div>
             {error && <div data-testid="login-page-error">{t(error)}</div>}
             <div className={styles.headerWrapper}>
-              <Picture
-                additionalStyles={styles.avatar}
-                jpg={'/images/avatars/avatar-10.png'}
-              />
               <div>
                 <h2 className={styles.header}>Sign in</h2>
                 <p>
@@ -95,6 +85,7 @@ export const LoginContent: FC<{ registrationLink?: string }> = ({
         </div>
       </div>
       {children}
+      <div className={styles.pageBg} />
     </div>
   )
 }

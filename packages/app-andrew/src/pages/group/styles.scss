@@ -17,7 +17,7 @@
   border-radius: 10px;
 
   .groupCover {
-    max-width: 700px;
+    max-width: $tempWidth;
   }
 
   .welcomeText {
@@ -35,7 +35,7 @@
     display: none;
 
     > div {
-      max-width: 700px;
+      max-width: $tempWidth;
       @include font-size(xxxlg);
 
       h2,
@@ -72,7 +72,7 @@
     .content {
       position: relative;
       display: flex;
-      max-width: 700px;
+      max-width: $tempWidth;
       background: $theme1;
 
       &:after {
@@ -92,43 +92,15 @@
         border-right: 1px solid $theme9;
       }
 
-      .tagHeader {
-        > div {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          padding: 10px;
+      .columns {
+        display: flex;
 
-          .image {
-            width: 50px;
-            height: 50px;
-            @include imageCover();
-            border-radius: $borderRadius;
-          }
-
-          .tag {
-            @include font-size(md);
-            @include font-weight(semiBold);
-            margin-bottom: 2px;
-          }
-
-          ul {
-            @include font-size(xxs);
-            text-transform: uppercase;
-
-            span {
-              @include font-weight(semiBold);
-            }
-          }
-        }
-
-        &:after {
-          content: '';
-          display: block;
-          width: 100%;
-          height: 1px;
-          margin: 0 10px;
-          background: $theme9;
+        .postDetails {
+          padding: 5px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          margin-right: 10px;
+          border-radius: $borderRadius;
         }
       }
 
@@ -194,10 +166,6 @@
       .pagination {
         justify-content: center;
         margin: 20px 0;
-      }
-
-      .wrc {
-        background: red;
       }
     }
   }
