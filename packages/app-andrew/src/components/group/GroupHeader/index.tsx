@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
+import cx from 'classnames'
 // state
 import { postsQuery } from '@gtms/state-post'
 // ui
@@ -17,7 +18,9 @@ const getState = (value = postsQuery.getValue()) => ({
   activeUsers: value.users || [],
 })
 
-export const GroupHeader: FC<{}> = () => {
+export const GroupHeader: FC<{ additionalStyles?: string }> = ({
+  additionalStyles,
+}) => {
   const [state, setState] = useState<IGroupHeaderState>(getState)
 
   useEffect(() => {
@@ -31,7 +34,10 @@ export const GroupHeader: FC<{}> = () => {
   }, [])
 
   return (
-    <div className={styles.mainHeader} data-testid="group-header">
+    <div
+      className={cx(styles.groupHeader, additionalStyles)}
+      data-testid="group-header"
+    >
       <GroupSidebar />
       <SearchBar
         additionalStyles={styles.search}
