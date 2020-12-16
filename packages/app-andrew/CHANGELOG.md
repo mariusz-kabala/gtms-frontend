@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.97.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.97.1...@gtms/app-andrew@0.97.2) (2020-12-16)
+
+
+### Bug Fixes
+
+* GEOT-716: GEOT-716: fix width group when post details visibl ([#950](https://github.com/gtms-org/gtms-frontend/issues/950)) ([8920d50](https://github.com/gtms-org/gtms-frontend/commit/8920d50c0355a7d03d96b8744e510ccde2d28b52))
+
+
+
+
+
 ## [0.97.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.97.0...@gtms/app-andrew@0.97.1) (2020-12-16)
 
 
