@@ -73,10 +73,7 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
         </div>
       </div>
       {children}
-      <div
-        className={styles.pageBg}
-        style={{ backgroundImage: `url('/images/temp-images/login-bg-2.png')` }}
-      />
+      <div className={styles.pageBg} />
     </div>
   )
 }

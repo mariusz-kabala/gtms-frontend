@@ -53,7 +53,7 @@ export const PostCommentsList: FC<{
   if (errorOccured) {
     return (
       <ErrorWrapper>
-        <h2 data-testid="notifications-settings">
+        <h2>
           We can not show comments to the post right now, please refresh or try
           later
         </h2>
