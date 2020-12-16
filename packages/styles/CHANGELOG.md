@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.28.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.0...@gtms/styles@0.28.1) (2020-12-16)
+
+
+### Bug Fixes
+
+* GEOT-713: spinner inside buttons and other small changes ([#949](https://github.com/gtms-org/gtms-frontend/issues/949)) ([0f96d21](https://github.com/gtms-org/gtms-frontend/commit/0f96d212b28001a88488c10358f81a4aa92ae0f9))
+
+
+
+
+
 # [0.28.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.27.0...@gtms/styles@0.28.0) (2020-12-15)
 
 
