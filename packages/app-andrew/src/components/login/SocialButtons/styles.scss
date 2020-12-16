@@ -2,6 +2,10 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
 
+.spinner {
+  margin: auto;
+}
+
 .wrapper {
   @include gridDefault(2);
   width: 100%;
@@ -62,10 +66,5 @@
         }
       }
     }
-  }
-
-  .spinner {
-    display: flex;
-    justify-content: center;
   }
 }

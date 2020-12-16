@@ -6,8 +6,9 @@
   @include buttonDefault();
   @include buttonSizeSm();
   @include buttonShapeDefault();
+  @include buttonWithSpinnerAndLabel();
   @include buttonColorsDefault();
-  @include font-size(sm);
+  @include font-size(md);
   width: 100%;
   color: $theme0;
 
