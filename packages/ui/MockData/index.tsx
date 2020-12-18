@@ -82,19 +82,3 @@ export const MockData: FC<{
     </div>
   )
 }
-
-export const MockUsers: FC<{
-  additionalStyles?: string
-  numberOfElements?: number
-}> = ({ additionalStyles, numberOfElements }) => {
-  return (
-    <div
-      className={cx(styles.wrapper, additionalStyles)}
-      data-testid={'mock-users'}
-    >
-      {new Array(numberOfElements ? numberOfElements : 1)
-        .fill(null)
-        .map((_, index) => User({ index }))}
-    </div>
-  )
-}

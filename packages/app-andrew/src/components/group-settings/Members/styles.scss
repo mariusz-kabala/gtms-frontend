@@ -14,8 +14,9 @@
       width: 100px;
       height: 100px;
 
-      // avatar
-      > div {
+      a {
+        display: block;
+
         &:hover {
           @include effectOne('circle');
         }
@@ -27,6 +28,49 @@
         @include font-weight(semiBold);
         margin-top: 5px;
         display: none; // @todo add tooltip instead of text
+      }
+    }
+
+    // @todo create a mixin of that
+    .btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      min-width: 100%;
+      min-height: 100%;
+      border-radius: 50%;
+      background: $theme9;
+      cursor: pointer;
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+      }
+
+      i {
+        position: relative;
+        @include font-size(lg);
+        line-height: 0;
+        color: $theme0;
+      }
+
+      span {
+        position: absolute;
+        bottom: -27px; // because of line height of text
+        color: $defaultTextColor;
+        @include font-size(md);
+      }
+
+      &:hover {
+        background: $theme4;
+
+        i {
+          color: $theme0;
+        }
       }
     }
   }

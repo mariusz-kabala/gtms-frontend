@@ -9,7 +9,7 @@ import { getGroupMembers } from '@gtms/state-group'
 // ui
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Button } from '@gtms/ui/Button'
-import { MockUsers } from '@gtms/ui/MockData'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
@@ -47,7 +47,11 @@ export const GroupMembers: FC<{
 
       {isLoading && <Spinner size="sm" />}
 
-      {errorOccured && <p>Sorry we can not show you groups members now</p>}
+      {errorOccured && (
+        <ErrorWrapper>
+          <h2>Sorry we can not show you groups members now</h2>
+        </ErrorWrapper>
+      )}
 
       {users.length > 0 && (
         <ul className={styles.items}>
@@ -78,9 +82,7 @@ export const GroupMembers: FC<{
         </ul>
       )}
 
-      {users.length === 0 && !isLoading && !errorOccured && (
-        <MockUsers additionalStyles={styles.mock} numberOfElements={4} />
-      )}
+      {users.length === 0 && !isLoading && !errorOccured && <Spinner />}
     </div>
   )
 }
