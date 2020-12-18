@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
 import { FaRegLightbulb } from 'react-icons/fa'
-import { BsFillImageFill } from 'react-icons/bs'
 import styles from './styles.scss'
 
 const Line: FC<{
