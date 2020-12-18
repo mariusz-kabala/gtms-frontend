@@ -208,7 +208,18 @@ export const PostSingle: FC<{
             ))}
           </TagGroup>
         )}
-
+        {Array.isArray(firstComments) &&
+          firstComments.length > 0 &&
+          firstComments.map((comment) => (
+            <PostResponse
+              createdAt={comment.createdAt}
+              html={comment.html}
+              key={`comment-${comment.id}`}
+              noImage={noImage}
+              owner={comment.owner as IUser}
+              user={user}
+            />
+          ))}
         {isAnswerFormOpen && allowToRespond && (
           <div ref={commentForm} onClick={() => setShowSendButton(true)}>
             <PostCreate

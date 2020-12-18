@@ -36,21 +36,6 @@ const AvatarAndText: FC<{
   </div>
 )
 
-const User: FC<{
-  index?: number
-}> = ({ index }) => (
-  <div className={styles.user} key={index}>
-    <i>
-      <BsFillImageFill />
-    </i>
-    <div className={styles.textLines}>
-      <Line size="md" />
-      <Line size="sm" />
-      <Line size="sm" />
-    </div>
-  </div>
-)
-
 export const MockData: FC<{
   additionalStyles?: string
   text?: string
