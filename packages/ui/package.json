@@ -1,6 +1,6 @@
 {
   "name": "@gtms/ui",
-  "version": "0.76.1",
+  "version": "0.76.2",
   "source": "./index.ts",
   "module": "./index.ts",
   "main": "./index.ts",
@@ -11,7 +11,7 @@
   "dependencies": {
     "@gtms/commons": "0.32.0",
     "@gtms/state-user": "0.20.3",
-    "@gtms/styles": "0.28.1",
+    "@gtms/styles": "0.28.2",
     "@types/react-transition-group": "^4.4.0",
     "react-avatar-editor": "^12.0.0-beta.0",
     "react-circular-progressbar": "^2.0.3",
