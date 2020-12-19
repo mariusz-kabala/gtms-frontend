@@ -98,15 +98,26 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
           isError={fileUploadState.isError}
         />
       </FullScreenGallery>
-      <Button
-        onClick={() => setIsFullScreenGalleryOpen(true)}
-        additionalStyles={styles.btn}
+      <div
+        className={styles.btnWrapperWithBg}
+        style={{
+          backgroundImage: `url('/images/temp-images/logo-wioska-4.png')`,
+        }}
       >
-        <i>
-          <GoSettings />
-        </i>
-        Change group page background
-      </Button>
+        <div>
+          {' '}
+          {/* this div prevents streetching button by display flex */}
+          <Button
+            onClick={() => setIsFullScreenGalleryOpen(true)}
+            additionalStyles={styles.btn}
+          >
+            <i>
+              <GoSettings />
+            </i>
+            Change group page background
+          </Button>
+        </div>
+      </div>
     </div>
   )
 }

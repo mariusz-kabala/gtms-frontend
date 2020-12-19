@@ -6,6 +6,7 @@ import {
 } from '@gtms/state-group'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { IGroup } from '@gtms/commons/models'
+import { Link } from '@gtms/commons/i18n'
 // ui
 import { GoPlus } from 'react-icons/go'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
@@ -60,11 +61,15 @@ export const AdminsSettings: FC<{ group: IGroup }> = ({ group }) => {
         <ul className={styles.adminsList}>
           {state.records.map((user) => (
             <li className={styles.item} key={`group-admin-${user.id}`}>
-              <UserAvatar
-                size="100percent"
-                image={getImage('200x200', user.avatar)}
-              />
-              <span className={styles.name}>{getDisplayName(user)}</span>
+              <Link href={`/user/${user.id}`}>
+                <a>
+                  <UserAvatar
+                    size="100percent"
+                    image={getImage('200x200', user.avatar)}
+                  />
+                  <span className={styles.name}>{getDisplayName(user)}</span>
+                </a>
+              </Link>
             </li>
           ))}
           <li className={styles.item} key="add-new-admin">

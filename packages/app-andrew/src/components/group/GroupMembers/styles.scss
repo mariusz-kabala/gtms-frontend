@@ -68,8 +68,4 @@
   p {
     margin: 5px 0;
   }
-
-  .mock {
-    @include gridDefault(3);
-  }
 }

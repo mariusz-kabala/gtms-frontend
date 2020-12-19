@@ -101,6 +101,44 @@ export const PostSingle: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="post-single"
     >
+      {lightboxState.isOpen && (
+        <Lightbox
+          enableZoom={false}
+          mainSrc={getImage('1300x1300', images[lightboxState.current]).jpg}
+          nextSrc={
+            getImage(
+              '1300x1300',
+              images[(lightboxState.current + 1) % images.length]
+            ).jpg
+          }
+          onCloseRequest={() =>
+            setLightboxState({
+              isOpen: false,
+              current: 0,
+            })
+          }
+          onMovePrevRequest={() =>
+            setLightboxState((state) => ({
+              isOpen: true,
+              current: (state.current + images.length - 1) % images.length,
+            }))
+          }
+          onMoveNextRequest={() =>
+            setLightboxState((state) => ({
+              isOpen: true,
+              current: (state.current + 1) % images.length,
+            }))
+          }
+          prevSrc={
+            getImage(
+              '1300x1300',
+              images[
+                (lightboxState.current + images.length - 1) % images.length
+              ]
+            ).jpg
+          }
+        />
+      )}
       {group && typeof group !== 'string' && (
         <GroupDetails
           additionalStyles={styles.groupDetails}
@@ -135,10 +173,6 @@ export const PostSingle: FC<{
           className={styles.message}
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        <div>
-          Sit velit ullamco incididunt quis dolore ex ipsum id dolor excepteur
-          laboris.
-        </div>
         {images.length > 0 && (
           <ul className={styles.images}>
             {images.map((img, index) => (
@@ -161,7 +195,7 @@ export const PostSingle: FC<{
           </ul>
         )}
         {tags.length > 0 && (
-          <TagGroup>
+          <TagGroup additionalStyles={styles.tagGroup}>
             {tags.map((tag) => (
               <Tag
                 additionalStyles={cx({
@@ -242,44 +276,6 @@ export const PostSingle: FC<{
           read more...
         </button>
       </div>
-      {lightboxState.isOpen && (
-        <Lightbox
-          enableZoom={false}
-          mainSrc={getImage('1300x1300', images[lightboxState.current]).jpg}
-          nextSrc={
-            getImage(
-              '1300x1300',
-              images[(lightboxState.current + 1) % images.length]
-            ).jpg
-          }
-          onCloseRequest={() =>
-            setLightboxState({
-              isOpen: false,
-              current: 0,
-            })
-          }
-          onMovePrevRequest={() =>
-            setLightboxState((state) => ({
-              isOpen: true,
-              current: (state.current + images.length - 1) % images.length,
-            }))
-          }
-          onMoveNextRequest={() =>
-            setLightboxState((state) => ({
-              isOpen: true,
-              current: (state.current + 1) % images.length,
-            }))
-          }
-          prevSrc={
-            getImage(
-              '1300x1300',
-              images[
-                (lightboxState.current + images.length - 1) % images.length
-              ]
-            ).jpg
-          }
-        />
-      )}
     </div>
   )
 }

@@ -17,6 +17,10 @@
     border-color: $theme4;
   }
 
+  &.withBg {
+    background: $theme9;
+  }
+
   .content {
     display: flex;
     align-items: center;

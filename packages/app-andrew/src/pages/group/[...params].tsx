@@ -252,7 +252,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
       {state.isLoading && <Spinner />}
 
       {state.errorOccured && (
-        <ErrorWrapper>
+        <ErrorWrapper withBg>
           <h2>ERROR OCCURED</h2>
           <p>
             Create a proper component that can be used here when 500 from BE
