@@ -8,7 +8,7 @@ import { notificationsQuery } from './notifications.query'
 import { fetchRecentNotifications } from '@gtms/api-notifications'
 import { parseFiles } from '@gtms/commons/helpers'
 import { FileStatus, NotificationType } from '@gtms/commons/enums'
-import { INotification } from '@gtms/commons/models'
+import { INotification, IGroup } from '@gtms/commons/models'
 
 let timer: any
 
@@ -143,6 +143,23 @@ const parseNotificationsResponse = (
           )
         }
         break
+
+      case NotificationType.newGroupMember:
+        if (
+          (notification.relatedRecord as IGroup).avatar?.status ===
+          FileStatus.ready
+        ) {
+          ;(notification.relatedRecord as any).avatar.files = parseFiles(
+            (notification.relatedRecord as any).avatar?.files || []
+          )
+        }
+
+        if ((notification.payload as any).avatar?.status === FileStatus.ready) {
+          ;(notification.payload as any).avatar.files = parseFiles(
+            (notification.payload as any).avatar.files || []
+          )
+        }
+        break
     }
 
     return {
@@ -168,6 +185,7 @@ export const loadRecentNotifications = async (
 
   notificationsStore.update({
     loading: false,
+    isLoaded: true,
     limit,
     offset,
   })
