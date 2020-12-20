@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.76.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.76.2...@gtms/ui@0.76.3) (2020-12-20)
+
+
+### Bug Fixes
+
+* GEOT-723: post autocomplete fix ([#953](https://github.com/gtms-org/gtms-frontend/issues/953)) ([e225e0b](https://github.com/gtms-org/gtms-frontend/commit/e225e0b539e3b0f000799f0e1afb2e669b9e0135))
+
+
+
+
+
 ## [0.76.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.76.1...@gtms/ui@0.76.2) (2020-12-19)
 
 
