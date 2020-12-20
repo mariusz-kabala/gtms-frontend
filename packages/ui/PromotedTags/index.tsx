@@ -11,10 +11,11 @@ import {
   IoMdTrash,
   IoIosSettings,
 } from 'react-icons/io'
-import { Button } from '@gtms/ui/Button'
-import { Modal } from '@gtms/ui/Modal'
+import { Button } from '../Button'
+import { Modal } from '../Modal'
 import { Spinner } from '../Spinner'
 import { Image } from '../Image'
+import { Fav } from '../Fav'
 // style
 import styles from './styles.scss'
 
@@ -31,6 +32,7 @@ export const PromotedTags: FC<{
   onNoRecordsClick?: () => unknown
   onTagClick?: (promotedTag: IPromotedTag) => unknown
   tags: IPromotedTag[]
+  onFavClick: (tagId: string, checked: boolean) => unknown
 }> = ({
   activeTags = [],
   additionalStyles,
@@ -41,6 +43,7 @@ export const PromotedTags: FC<{
   onEditRecordClick,
   onNoRecordsClick,
   onTagClick,
+  onFavClick,
   tags,
 }) => {
   const [TagToDelete, setTagToDelete] = useState<IPromotedTag | null>(null)
@@ -95,6 +98,12 @@ export const PromotedTags: FC<{
               })}
               key={`promoted-${tag.id}`}
             >
+              <Fav
+                isChecked={false}
+                onClick={(checked) => {
+                  onFavClick(tag.id, checked)
+                }}
+              />
               {isAdmin && (
                 <div className={styles.adminPanel}>
                   <ul>
