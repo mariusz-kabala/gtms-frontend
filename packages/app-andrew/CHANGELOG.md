@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.97.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.97.4...@gtms/app-andrew@0.97.5) (2020-12-20)
+
+
+### Bug Fixes
+
+* GEOT-435: show notifications again ([#954](https://github.com/gtms-org/gtms-frontend/issues/954)) ([cb32eb8](https://github.com/gtms-org/gtms-frontend/commit/cb32eb817be4c3b5bc45ce43d2e403e90a173c9c))
+
+
+
+
+
 ## [0.97.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.97.3...@gtms/app-andrew@0.97.4) (2020-12-20)
 
 **Note:** Version bump only for package @gtms/app-andrew

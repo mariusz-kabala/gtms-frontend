@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.76.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.76.3...@gtms/ui@0.76.4) (2020-12-20)
+
+
+### Bug Fixes
+
+* GEOT-435: show notifications again ([#954](https://github.com/gtms-org/gtms-frontend/issues/954)) ([cb32eb8](https://github.com/gtms-org/gtms-frontend/commit/cb32eb817be4c3b5bc45ce43d2e403e90a173c9c))
+
+
+
+
+
 ## [0.76.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.76.2...@gtms/ui@0.76.3) (2020-12-20)
 
 

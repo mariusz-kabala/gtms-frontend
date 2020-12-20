@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.10.2...@gtms/state-notification@0.11.0) (2020-12-20)
+
+
+### Bug Fixes
+
+* GEOT-435: show notifications again ([#954](https://github.com/gtms-org/gtms-frontend/issues/954)) ([cb32eb8](https://github.com/gtms-org/gtms-frontend/commit/cb32eb817be4c3b5bc45ce43d2e403e90a173c9c))
+
+
+### Features
+
+* GEOT-382: background image choose mock ([#781](https://github.com/gtms-org/gtms-frontend/issues/781)) ([3be8efd](https://github.com/gtms-org/gtms-frontend/commit/3be8efd840468e22413e35ddaa6f851b2c767043))
+
+
+
+
+
 ## [0.10.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-notification@0.10.1...@gtms/state-notification@0.10.2) (2020-07-27)
 
 ### Bug Fixes
