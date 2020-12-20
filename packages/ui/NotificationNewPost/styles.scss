@@ -11,6 +11,7 @@
   border: 1px solid $theme1;
   border-radius: $borderRadius;
   cursor: pointer;
+  color: $theme2;
 
   &:hover {
     border-color: $theme4;
@@ -81,6 +82,7 @@
       .text {
         @include font-size(sm);
         @include font-weight(semiNormal);
+        color: $theme2;
       }
     }
   }

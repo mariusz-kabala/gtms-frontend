@@ -26,7 +26,6 @@ export const NotificationsSidebar: FC<{
   )
 
   useEffect(() => {
-    state.isLogged && loadRecentNotifications()
     const sub = baseUIQuery.notificationsSidebar$.subscribe((values) =>
       setState(values)
     )
@@ -35,6 +34,12 @@ export const NotificationsSidebar: FC<{
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
+
+  useEffect(() => {
+    if (state.isLogged && !state.isLoaded) {
+      loadRecentNotifications()
+    }
+  }, [state.isLoaded, state.isLogged])
 
   useKey(
     () => {
