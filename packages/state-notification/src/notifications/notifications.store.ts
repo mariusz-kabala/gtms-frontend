@@ -5,13 +5,19 @@ export interface NotificationsState
   extends EntityState<INotificationRecord, number | string> {
   offset: number
   total: number
+  isLoaded: boolean
 }
 
 export class NotificationsStore extends EntityStore<NotificationsState> {
   constructor() {
-    super(undefined, {
-      name: 'notifications',
-    })
+    super(
+      {
+        isLoaded: false,
+      },
+      {
+        name: 'notifications',
+      }
+    )
   }
 }
 

@@ -32,7 +32,7 @@
       height: 35px;
       min-width: 35px;
       min-height: 35px;
-      margin-right: 5px;
+      margin-right: 10px;
       border-radius: 50%;
 
       &:hover {
@@ -45,7 +45,6 @@
       gap: 10px;
       align-items: center;
       justify-content: center;
-      width: 100%;
       margin-bottom: 15px; // align it properly in post container
     }
 
@@ -74,28 +73,24 @@
   }
 
   .content {
-    margin-top: -15px;
-
-    .message {
-      @include font-size(xxs);
-      margin-top: 2px;
-      text-indent: 40px;
-      line-height: 1.25;
+    .tagGroup {
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
-    .text {
-      margin-top: 5px;
-
-      > * {
-        white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
-      }
+    .message {
+      @include font-size(sm);
+      margin-top: -15px;
+      text-indent: 45px;
+      line-height: 1.25;
+      white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
     }
 
     .images {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       grid-gap: 10px;
-      margin: 15px 0;
+      margin-top: 15px;
 
       .item a {
         display: block;

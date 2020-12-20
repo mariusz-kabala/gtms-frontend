@@ -18,8 +18,9 @@
       width: 100px;
       height: 100px;
 
-      // avatar
-      > div {
+      a {
+        display: block;
+
         &:hover {
           @include effectOne('circle');
         }

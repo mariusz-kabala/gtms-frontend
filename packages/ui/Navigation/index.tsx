@@ -36,6 +36,7 @@ export const Navigation: FC<{
                 [styles.active]: active.includes(value.id),
               })}
               key={index}
+              data-testid={`navigation-item-${value.id}`}
             >
               {value?.onClick && (
                 <a

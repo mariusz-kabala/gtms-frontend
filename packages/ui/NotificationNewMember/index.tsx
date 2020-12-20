@@ -1,23 +1,41 @@
 import React, { FC } from 'react'
-import { IGroup } from '@gtms/commons/models'
-// import { getImage } from '@gtms/commons/helpers'
+import { IGroup, IUser } from '@gtms/commons/models'
+import { getImage, getDisplayName } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
 // ui
+import { Picture } from '../Picture'
+// styles
 import styles from './styles.scss'
-// import { Picture } from '../Picture'
 
 export const NotificationNewMember: FC<{
   group: IGroup
-}> = () => {
+  member: IUser
+}> = ({ group, member }) => {
   return (
     <li className={styles.wrapper} data-testid={'notification-new-member'}>
-      <Link href="user/5ebd780058fe5306646b804f">
+      <Link href={`/group/${group.slug}`}>
         <a className={styles.group}>
-          {/* here I need group name, group avatar, member's info , name avatar, user id */}
-          {/* <Picture additionalStyles={styles.groupAvatar} {...getImage('200x200', group.avatar)} /> */}
-          {/* <h2 className={styles.header}>New member in {group.name}</h2> */}
+          <Picture
+            additionalStyles={styles.groupAvatar}
+            {...getImage('50x50', group.avatar)}
+          />
+          <h2 className={styles.header}>New member in {group.name}</h2>
         </a>
       </Link>
+      <p>
+        <Link href={`/member/${member.id}`}>
+          <a>
+            <Picture
+              additionalStyles={styles.groupAvatar}
+              {...getImage('50x50', member.avatar)}
+            />
+          </a>
+        </Link>
+        <Link href={`/member/${member.id}`}>
+          <a>{getDisplayName(member)}</a>
+        </Link>{' '}
+        just joined to the group!
+      </p>
     </li>
   )
 }

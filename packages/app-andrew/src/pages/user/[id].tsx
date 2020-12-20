@@ -36,6 +36,7 @@ const UserPage: NextPage<UserPageProps> = ({ initialState }) => {
           groupsOwner={state.groupsOwner}
         />
       </div>
+      <div className={styles.pageBg} />
     </div>
   )
 }

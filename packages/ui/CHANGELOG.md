@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.76.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.76.3...@gtms/ui@0.76.4) (2020-12-20)
+
+
+### Bug Fixes
+
+* GEOT-435: show notifications again ([#954](https://github.com/gtms-org/gtms-frontend/issues/954)) ([cb32eb8](https://github.com/gtms-org/gtms-frontend/commit/cb32eb817be4c3b5bc45ce43d2e403e90a173c9c))
+
+
+
+
+
+## [0.76.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.76.2...@gtms/ui@0.76.3) (2020-12-20)
+
+
+### Bug Fixes
+
+* GEOT-723: post autocomplete fix ([#953](https://github.com/gtms-org/gtms-frontend/issues/953)) ([e225e0b](https://github.com/gtms-org/gtms-frontend/commit/e225e0b539e3b0f000799f0e1afb2e669b9e0135))
+
+
+
+
+
+## [0.76.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.76.1...@gtms/ui@0.76.2) (2020-12-19)
+
+
+### Bug Fixes
+
+* GEOT-717: check css errors in group ([#951](https://github.com/gtms-org/gtms-frontend/issues/951)) ([87739a3](https://github.com/gtms-org/gtms-frontend/commit/87739a35d2a1843bb200e7e46e83bc26042ac8ca))
+
+
+
+
+
 ## [0.76.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.76.0...@gtms/ui@0.76.1) (2020-12-16)
 
 

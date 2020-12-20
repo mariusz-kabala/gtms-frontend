@@ -142,7 +142,7 @@ export const PostCreate: FC<{
             .then((users: IUser[]) => {
               setTagsHints({
                 isLoading: false,
-                tags: users.map((user) => user.username),
+                tags: users,
               })
             })
             .catch(() => {
