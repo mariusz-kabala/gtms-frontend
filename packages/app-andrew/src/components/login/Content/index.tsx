@@ -38,54 +38,59 @@ export const LoginContent: FC<{ registrationLink?: string }> = ({
   }, [])
 
   return (
-    <div className={styles.pageWrapper} data-testid="login-page">
-      <div className={styles.wrapper}>
-        <div className={styles.content}>
-          <div>
-            {error && <div data-testid="login-page-error">{t(error)}</div>}
-            <div className={styles.headerWrapper}>
-              <div>
-                <h2 className={styles.header}>Sign in</h2>
-                <p>
-                  Sunt sint deserunt occaecat reprehenderit est fugiat ex sunt
-                  quis nulla deserunt sit culpa.
-                </p>
+    <>
+      <div className={styles.pageWrapper} data-testid="login-page">
+        <div className={styles.wrapper}>
+          <div className={styles.content}>
+            <div>
+              {error && <div data-testid="login-page-error">{t(error)}</div>}
+              <div className={styles.headerWrapper}>
+                <div>
+                  <h2 className={styles.header}>Sign in</h2>
+                  <p>
+                    Sunt sint deserunt occaecat reprehenderit est fugiat ex sunt
+                    quis nulla deserunt sit culpa.
+                  </p>
+                </div>
               </div>
-            </div>
-            <SocialButtons
-              additionalStyles={styles.socialButtons}
-              onFailure={() => setError('socialMediaLoginFailed')}
-            />
-            <div className={styles.or}>
-              <span>or</span>
-            </div>
-            <LoginForm additionalStyles={styles.form} />
-            <div className={styles.actionButtons}>
-              <Link href="/remind-password">
-                <Button additionalStyles={styles.btn} testid="remind-pass-link">
-                  <i>
-                    <MdSettingsBackupRestore />
-                  </i>
-                  {t('goToRemindPassword')}
-                </Button>
-              </Link>
-              <Link href={registrationLink}>
-                <Button
-                  additionalStyles={styles.btn}
-                  testid="registration-pass-link"
-                >
-                  <i>
-                    <AiOutlineForm />
-                  </i>
-                  {t('goToRegistration')}
-                </Button>
-              </Link>
+              <SocialButtons
+                additionalStyles={styles.socialButtons}
+                onFailure={() => setError('socialMediaLoginFailed')}
+              />
+              <div className={styles.or}>
+                <span>or</span>
+              </div>
+              <LoginForm additionalStyles={styles.form} />
+              <div className={styles.actionButtons}>
+                <Link href="/remind-password">
+                  <Button
+                    additionalStyles={styles.btn}
+                    testid="remind-pass-link"
+                  >
+                    <i>
+                      <MdSettingsBackupRestore />
+                    </i>
+                    {t('goToRemindPassword')}
+                  </Button>
+                </Link>
+                <Link href={registrationLink}>
+                  <Button
+                    additionalStyles={styles.btn}
+                    testid="registration-pass-link"
+                  >
+                    <i>
+                      <AiOutlineForm />
+                    </i>
+                    {t('goToRegistration')}
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
+        {children}
       </div>
-      {children}
       <div className={styles.pageBg} />
-    </div>
+    </>
   )
 }

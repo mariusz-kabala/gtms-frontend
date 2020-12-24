@@ -29,14 +29,7 @@ export const PostsList: FC<{
       onOpenGroupPreview?: (group: IGroup) => unknown
     }
   ) => JSX.Element
-  showGroupPreview?: boolean
-}> = ({
-  isAdmin,
-  onUserPostsClick,
-  posts,
-  renderPost,
-  showGroupPreview = false,
-}) => {
+}> = ({ isAdmin, onUserPostsClick, posts, renderPost }) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const [groupPreview, setGroupCard] = useState<{
     isOpen: boolean
@@ -189,7 +182,7 @@ export const PostsList: FC<{
           />
         </Modal>
       )}
-      {showGroupPreview && groupPreview.current && (
+      {groupPreview.current && (
         <Modal onClose={onCloseGroupPreview}>
           <GroupCard
             description={groupPreview.current.description}

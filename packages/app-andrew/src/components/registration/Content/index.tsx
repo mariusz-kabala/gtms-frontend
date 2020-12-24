@@ -31,49 +31,51 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
   }, [])
 
   return (
-    <div className={styles.pageWrapper} data-testid="registration-page">
-      <div className={styles.wrapper}>
-        <div className={styles.content}>
-          <div>
-            {error && <div data-testid="login-page-error">{t(error)}</div>}
-            <div className={styles.headerWrapper}>
-              <div>
-                <h2 className={styles.header}>Sign up</h2>
-                <p>
-                  Sunt sint deserunt occaecat reprehenderit est fugiat ex sunt
-                  quis nulla deserunt sit culpa.
-                </p>
+    <>
+      <div className={styles.pageWrapper} data-testid="registration-page">
+        <div className={styles.wrapper}>
+          <div className={styles.content}>
+            <div>
+              {error && <div data-testid="login-page-error">{t(error)}</div>}
+              <div className={styles.headerWrapper}>
+                <div>
+                  <h2 className={styles.header}>Sign up</h2>
+                  <p>
+                    Sunt sint deserunt occaecat reprehenderit est fugiat ex sunt
+                    quis nulla deserunt sit culpa.
+                  </p>
+                </div>
               </div>
-            </div>
-            <SocialButtons
-              additionalStyles={styles.socialButtons}
-              onFailure={() => setError('socialMediaRegistrationFailed')}
-            />
-            <div className={styles.or}>
-              <span>or</span>
-            </div>
-            {error && (
-              <div data-testid="registration-page-error">{t(error)}</div>
-            )}
-            <RegistrationForm
-              additionalStyles={styles.form}
-              onError={() => setError('registrationFailed')}
-            />
-            <div className={styles.actionButtons}>
-              <Link href={loginLink}>
-                <Button additionalStyles={styles.btn}>
-                  <i>
-                    <IoMdLogIn />
-                  </i>
-                  {t('goToLogin')}
-                </Button>
-              </Link>
+              <SocialButtons
+                additionalStyles={styles.socialButtons}
+                onFailure={() => setError('socialMediaRegistrationFailed')}
+              />
+              <div className={styles.or}>
+                <span>or</span>
+              </div>
+              {error && (
+                <div data-testid="registration-page-error">{t(error)}</div>
+              )}
+              <RegistrationForm
+                additionalStyles={styles.form}
+                onError={() => setError('registrationFailed')}
+              />
+              <div className={styles.actionButtons}>
+                <Link href={loginLink}>
+                  <Button additionalStyles={styles.btn}>
+                    <i>
+                      <IoMdLogIn />
+                    </i>
+                    {t('goToLogin')}
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
+        {children}
       </div>
-      {children}
       <div className={styles.pageBg} />
-    </div>
+    </>
   )
 }

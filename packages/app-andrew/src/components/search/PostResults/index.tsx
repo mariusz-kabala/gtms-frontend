@@ -68,7 +68,6 @@ export const PostResults: FC<{
                 user={null}
               />
             )}
-            showGroupPreview={true}
           />
           <div className={styles.pagination}>
             <Pagination
