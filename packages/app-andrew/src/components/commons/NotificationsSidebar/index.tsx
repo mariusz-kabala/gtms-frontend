@@ -15,7 +15,6 @@ import { INotification } from '@gtms/commons/models'
 import useKey from 'use-key-hook'
 import { IoIosNotifications } from 'react-icons/io'
 import { Scrollbars } from 'react-custom-scrollbars'
-import { CSSTransition } from 'react-transition-group'
 import { Notification } from '@gtms/ui/Notification'
 import { Button } from '@gtms/ui/Button'
 import { CloseIcon } from '@gtms/ui/ExpandingRow/CloseIcon'
@@ -55,11 +54,6 @@ export const NotificationsSidebar: FC<{
     }
   )
 
-  const closeWithTimeout = () =>
-    setTimeout(function () {
-      closeSidebarNotifications()
-    }, 113000)
-
   return (
     <div
       data-testid={'notifications-sidebar'}
@@ -67,60 +61,59 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      {/* onMouseLeave={closeWithTimeout}>  */}
       <div className={styles.content}>
-        {/* <Scrollbars style={{ width: '100%', height: '100%' }}> */}
-        <div className={styles.navigation}>
-          <h2 className={styles.header}>
-            <i>
-              <IoIosNotifications />
-            </i>
-            Notofications {state.unreadCount && `(${state.unreadCount})`}
-            {/* @todo add translation here */}
-          </h2>
-          <ul className={styles.navitems}>
-            <li className={styles.navitem}>Latest</li>
-            <li className={styles.navitem}>By groups</li>
+        <Scrollbars style={{ width: '100%', height: '100%' }}>
+          <div className={styles.navigation}>
+            <h2 className={styles.header}>
+              <i>
+                <IoIosNotifications />
+              </i>
+              Notofications {state.unreadCount && `(${state.unreadCount})`}
+              {/* @todo add translation here */}
+            </h2>
+            <ul className={styles.navitems}>
+              <li className={styles.navitem}>Latest</li>
+              <li className={styles.navitem}>By groups</li>
+            </ul>
+            <CloseIcon onClick={closeSidebarNotifications} />
+          </div>
+          <ul className={styles.notifications}>
+            {state.notifications.map((notification: INotificationRecord) => {
+              switch (notification.type) {
+                case 'internal':
+                  return (
+                    <Notification
+                      additionalStyles={styles.notification}
+                      icon={
+                        NotificationIcons[
+                          (notification.data as IInternalNotification).type
+                        ]
+                      }
+                      key={`notification-${notification.id}`}
+                      left={(notification.data as IInternalNotification).left}
+                      onClick={() => deleteNotification(notification.id)}
+                      text={(notification.data as IInternalNotification).text}
+                    />
+                  )
+                case 'api':
+                  return (
+                    <NotificationAPI
+                      {...(notification.data as INotification)}
+                      additionalStyles={styles.notification}
+                      key={`notification-${notification.id}`}
+                    />
+                  )
+              }
+            })}
           </ul>
-          <CloseIcon onClick={closeSidebarNotifications} />
-        </div>
-        <ul className={styles.notifications}>
-          {state.notifications.map((notification: INotificationRecord) => {
-            switch (notification.type) {
-              case 'internal':
-                return (
-                  <Notification
-                    additionalStyles={styles.notification}
-                    icon={
-                      NotificationIcons[
-                        (notification.data as IInternalNotification).type
-                      ]
-                    }
-                    key={`notification-${notification.id}`}
-                    left={(notification.data as IInternalNotification).left}
-                    onClick={() => deleteNotification(notification.id)}
-                    text={(notification.data as IInternalNotification).text}
-                  />
-                )
-              case 'api':
-                return (
-                  <NotificationAPI
-                    {...(notification.data as INotification)}
-                    additionalStyles={styles.notification}
-                    key={`notification-${notification.id}`}
-                  />
-                )
-            }
-          })}
-        </ul>
-        <Button
-          additionalStyles={styles.btnShowMore}
-          data-testid="show-more-tags-button"
-        >
-          <Spinner size="sm" />
-          show more...
-        </Button>
-        {/* </Scrollbars> */}
+          <Button
+            additionalStyles={styles.btnShowMore}
+            data-testid="show-more-tags-button"
+          >
+            <Spinner size="sm" />
+            show more...
+          </Button>
+        </Scrollbars>
       </div>
       <Overlay
         additionalStyles={styles.overlay}
