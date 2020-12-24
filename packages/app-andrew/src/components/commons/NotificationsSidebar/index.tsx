@@ -99,7 +99,6 @@ export const NotificationsSidebar: FC<{
                   return (
                     <NotificationAPI
                       {...(notification.data as INotification)}
-                      additionalStyles={styles.notification}
                       key={`notification-${notification.id}`}
                     />
                   )
