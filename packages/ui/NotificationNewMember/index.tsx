@@ -13,29 +13,25 @@ export const NotificationNewMember: FC<{
 }> = ({ group, member }) => {
   return (
     <li className={styles.wrapper} data-testid={'notification-new-member'}>
+      <Link href={`/member/${member.id}`}>
+        <a>
+          <Picture
+            additionalStyles={styles.avatar}
+            {...getImage('50x50', member.avatar)}
+          />
+          <h3>{getDisplayName(member)}</h3>
+          <span>Joined to:</span>
+        </a>
+      </Link>
       <Link href={`/group/${group.slug}`}>
         <a className={styles.group}>
           <Picture
-            additionalStyles={styles.groupAvatar}
+            additionalStyles={styles.avatar}
             {...getImage('50x50', group.avatar)}
           />
-          <h2 className={styles.header}>New member in {group.name}</h2>
+          <h3>{group.name}</h3>
         </a>
       </Link>
-      <p>
-        <Link href={`/member/${member.id}`}>
-          <a>
-            <Picture
-              additionalStyles={styles.groupAvatar}
-              {...getImage('50x50', member.avatar)}
-            />
-          </a>
-        </Link>
-        <Link href={`/member/${member.id}`}>
-          <a>{getDisplayName(member)}</a>
-        </Link>{' '}
-        just joined to the group!
-      </p>
     </li>
   )
 }
