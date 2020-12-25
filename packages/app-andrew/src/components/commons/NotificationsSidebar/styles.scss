@@ -19,13 +19,13 @@
   .iconArrow {
     position: absolute;
     top: 50%;
-    left: -30px;
+    left: -25px;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 0;
-    width: 30px;
-    height: 40px;
+    width: 25px;
+    height: 45px;
     border-top-left-radius: $borderRadius;
     border-bottom-left-radius: $borderRadius;
     @include font-weight(bold);

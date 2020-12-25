@@ -56,7 +56,7 @@ export const NotificationsSidebar: FC<{
   )
 
   const closeSidebar = () => {
-    setIsPartiallyVisible(false)
+    // setIsPartiallyVisible(false)
     closeSidebarNotifications()
   }
 
@@ -77,12 +77,12 @@ export const NotificationsSidebar: FC<{
       </i>
       <div
         className={styles.content}
-        onMouseEnter={() => {
-          if (state.isOpen) {
-            setIsPartiallyVisible(false)
-          }
-        }}
-        onMouseLeave={() => setIsPartiallyVisible(true)}
+        // onMouseEnter={() => {
+        //   if (state.isOpen) {
+        //     setIsPartiallyVisible(false)
+        //   }
+        // }}
+        // onMouseLeave={() => setIsPartiallyVisible(true)}
       >
         <Scrollbars style={{ width: '100%', height: '100%' }}>
           <div className={styles.navigation}>
