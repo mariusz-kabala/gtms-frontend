@@ -11,8 +11,8 @@ import {
   IoMdTrash,
   IoIosSettings,
 } from 'react-icons/io'
-import { Button } from '@gtms/ui/Button'
-import { Modal } from '@gtms/ui/Modal'
+import { Button } from '../Button'
+import { Modal } from '../Modal'
 import { Spinner } from '../Spinner'
 import { Image } from '../Image'
 // style
@@ -150,7 +150,7 @@ export const PromotedTags: FC<{
         data-testid="show-more-tags-button"
       >
         <Spinner size="sm" />
-        Show more...
+        show more...
       </Button>
     </div>
   )

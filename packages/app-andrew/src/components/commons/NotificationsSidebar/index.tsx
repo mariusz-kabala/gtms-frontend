@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
 import cx from 'classnames'
-import useKey from 'use-key-hook'
 import { INotificationsSidebarProps, baseUIQuery } from 'queries'
 import { NotificationIcons } from 'enums'
 import {
@@ -13,9 +12,14 @@ import { NotificationAPI } from '../NotificationAPI'
 import { closeSidebarNotifications } from 'state'
 import { INotification } from '@gtms/commons/models'
 // ui
-import { CSSTransition } from 'react-transition-group'
+import useKey from 'use-key-hook'
+import { IoIosNotifications } from 'react-icons/io'
+import { Scrollbars } from 'react-custom-scrollbars'
 import { Notification } from '@gtms/ui/Notification'
+import { Button } from '@gtms/ui/Button'
 import { CloseIcon } from '@gtms/ui/ExpandingRow/CloseIcon'
+import { Overlay } from '@gtms/ui/Overlay'
+import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
 export const NotificationsSidebar: FC<{
@@ -57,10 +61,13 @@ export const NotificationsSidebar: FC<{
         [styles.opened]: state.isOpen,
       })}
     >
-      <CSSTransition timeout={200} in={state.isOpen}>
-        <div className={styles.content}>
+      <div className={styles.content}>
+        <Scrollbars style={{ width: '100%', height: '100%' }}>
           <div className={styles.navigation}>
             <h2 className={styles.header}>
+              <i>
+                <IoIosNotifications />
+              </i>
               Notofications {state.unreadCount && `(${state.unreadCount})`}
               {/* @todo add translation here */}
             </h2>
@@ -76,29 +83,42 @@ export const NotificationsSidebar: FC<{
                 case 'internal':
                   return (
                     <Notification
-                      key={`notification-${notification.id}`}
-                      onClick={() => deleteNotification(notification.id)}
                       additionalStyles={styles.notification}
-                      text={(notification.data as IInternalNotification).text}
-                      left={(notification.data as IInternalNotification).left}
                       icon={
                         NotificationIcons[
                           (notification.data as IInternalNotification).type
                         ]
                       }
+                      key={`notification-${notification.id}`}
+                      left={(notification.data as IInternalNotification).left}
+                      onClick={() => deleteNotification(notification.id)}
+                      text={(notification.data as IInternalNotification).text}
                     />
                   )
                 case 'api':
                   return (
                     <NotificationAPI
                       {...(notification.data as INotification)}
+                      key={`notification-${notification.id}`}
                     />
                   )
               }
             })}
           </ul>
-        </div>
-      </CSSTransition>
+          <Button
+            additionalStyles={styles.btnShowMore}
+            data-testid="show-more-tags-button"
+          >
+            <Spinner size="sm" />
+            show more...
+          </Button>
+        </Scrollbars>
+      </div>
+      <Overlay
+        additionalStyles={styles.overlay}
+        onClick={() => closeSidebarNotifications()}
+        opacity={0.4}
+      />
     </div>
   )
 }
