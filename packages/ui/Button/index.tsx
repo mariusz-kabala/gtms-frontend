@@ -3,9 +3,9 @@ import React, { FC, ReactNode, forwardRef, Ref } from 'react'
 export const Button: FC<{
   additionalStyles?: string
   children: ReactNode
-  testid?: string
   disabled?: boolean
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => unknown
+  testid?: string
   type?: 'button' | 'submit' | 'reset'
 }> = forwardRef(
   (

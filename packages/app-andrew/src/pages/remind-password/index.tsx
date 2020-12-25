@@ -14,17 +14,19 @@ export const RemindPasswordPage: NextPage<{}> = () => {
     <>
       <div className={styles.pageWrapper} data-testid="remind-password-page">
         <div className={styles.wrapper}>
-          <div>
+          <div className={styles.centerIt}>
             <h2 className={styles.header}>Remind password</h2>
-            <p>
-              Wyślemy Ci link do zresetowania hasła na Twój adres mailowy. Podaj
-              go w polu ponizej.
-            </p>
             {!showConfirmation && (
-              <RemindPasswordForm
-                additionalStyles={styles.form}
-                onSuccess={() => setShowConfirmation(true)}
-              />
+              <>
+                <p>
+                  Wyślemy Ci link do zresetowania hasła na Twój adres mailowy.
+                  Podaj go w polu ponizej.
+                </p>
+                <RemindPasswordForm
+                  additionalStyles={styles.form}
+                  onSuccess={() => setShowConfirmation(true)}
+                />
+              </>
             )}
             {showConfirmation && (
               <p data-testid="remind-password-success-confirmation">

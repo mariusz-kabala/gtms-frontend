@@ -7,20 +7,57 @@
 .wrapper {
   position: fixed;
   top: 0px;
-  right: -500px;
+  right: -550px; // 550 because of .iconArrow
   @include z-index(sidebar);
   width: 500px;
   height: 100%;
   padding: 10px;
+  padding-right: 20px; // for fixing bug with jumping sidebar when cursor is -1px right of the screen
   background: $theme1;
   transition: right 200ms ease-in;
 
+  .iconArrow {
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    width: 30px;
+    height: 40px;
+    border-top-left-radius: $borderRadius;
+    border-bottom-left-radius: $borderRadius;
+    @include font-weight(bold);
+    @include font-size(lg);
+    background: $theme1;
+    cursor: pointer;
+
+    &:hover {
+      color: $theme4;
+    }
+
+    svg {
+      transition: 0.25s linear;
+    }
+
+    &.rotate180 {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
   &.opened {
-    right: 0;
+    right: -10px;
 
     .overlay {
       display: initial;
     }
+  }
+
+  &.partiallyVisible {
+    right: -400px;
   }
 
   .content {

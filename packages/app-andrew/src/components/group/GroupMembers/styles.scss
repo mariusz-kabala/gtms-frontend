@@ -35,7 +35,6 @@
           @include buttonDefault();
           @include buttonSizeDefault();
           @include buttonShapeDefault();
-          @include buttonWithoutPadding();
           @include buttonColorsSecondary();
           min-height: auto; // for resetting button mixin
           width: 100%;
@@ -56,7 +55,6 @@
     @include buttonShapeDefault();
     @include buttonWithIcon(right);
     @include buttonWithoutBackground();
-    @include buttonWithoutPadding();
     margin-left: auto;
     margin-top: 20px;
 

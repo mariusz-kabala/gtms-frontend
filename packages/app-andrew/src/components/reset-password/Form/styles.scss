@@ -1,0 +1,15 @@
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+
+.btn {
+  @include buttonDefault();
+  @include buttonSizeDefault();
+  @include buttonShapeDefault();
+  @include buttonWithIcon('left');
+  @include buttonWithSpinnerAndLabel();
+  @include buttonColorsDefault();
+  width: 100%;
+
+  &:hover {
+    @include buttonColorsPrimary();
+  }
+}
