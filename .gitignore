@@ -70,3 +70,6 @@ dist/
 # local copies of tsconfig
 packages/app-andrew/tsconfig.json
 packages/app-main/tsconfig.json
+
+# report file 
+report*.json

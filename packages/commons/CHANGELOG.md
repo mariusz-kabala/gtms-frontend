@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.33.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.32.0...@gtms/commons@0.33.0) (2020-12-25)
+
+
+### Bug Fixes
+
+* GEOT-735: restyle notifications ([#955](https://github.com/gtms-org/gtms-frontend/issues/955)) ([aad9229](https://github.com/gtms-org/gtms-frontend/commit/aad9229350a51890ed9a1cea662172cfa27098d8))
+
+
+### Features
+
+* GEOT-699: user card on main page ([#927](https://github.com/gtms-org/gtms-frontend/issues/927)) ([0b4d2ba](https://github.com/gtms-org/gtms-frontend/commit/0b4d2ba9f89ac8a9ddddd7841bd7da2eec257edc))
+
+
+
+
+
 # [0.32.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.31.0...@gtms/commons@0.32.0) (2020-12-11)
 
 ### Features

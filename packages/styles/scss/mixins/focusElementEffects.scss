@@ -11,15 +11,15 @@
     border: 2px solid $theme4;
   }
 
-  @if $radius == 'circle' {
-    &:after {
-      border-radius: 50%;
-    }
-  }
-
   @if $radius == 'defaultRadius' {
     &:after {
       border-radius: 5px;
+    }
+  }
+
+  @if $radius == 'circle' {
+    &:after {
+      border-radius: 50%;
     }
   }
 }
