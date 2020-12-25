@@ -4,6 +4,7 @@ import { RemindPasswordForm } from '../../components/remind-password/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
+// ui
 import styles from './styles.scss'
 
 export const RemindPasswordPage: NextPage<{}> = () => {

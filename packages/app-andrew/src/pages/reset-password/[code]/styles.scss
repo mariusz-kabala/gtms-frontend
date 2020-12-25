@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
@@ -26,8 +27,17 @@
     border-radius: $borderRadius;
 
     .header {
+      display: flex;
+      align-items: center;
       @include header(h2, uppercase);
       @include font-weight(semiBold);
+      margin-bottom: 10px;
+
+      i {
+        line-height: 0;
+        @include font-size(lg);
+        margin-right: 3px;
+      }
     }
 
     .spinner {

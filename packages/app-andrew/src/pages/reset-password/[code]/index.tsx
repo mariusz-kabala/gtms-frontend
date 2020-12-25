@@ -6,6 +6,7 @@ import { useTranslation, Link } from '@gtms/commons/i18n'
 import { checkCodeReq } from '@gtms/api-auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { hasAuthSessionCookies } from '@gtms/state-user'
+import { IoMdCheckmark } from 'react-icons/io'
 // ui
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -24,9 +25,9 @@ export const ResetPasswordPage: NextPage<{}> = () => {
         setIsLoading(false)
       })
       .catch(() => {
-        router.push({
-          pathname: '/login',
-        })
+        // router.push({
+        //   pathname: '/login',
+        // })
       })
   }, [code])
 
@@ -35,20 +36,28 @@ export const ResetPasswordPage: NextPage<{}> = () => {
       <div className={styles.pageWrapper} data-testid="remind-password-page">
         <div className={styles.wrapper}>
           <div className={styles.centerIt}>
-            <h3 className={styles.header}>
-              {/* @todo GEOT-109 - put proper translations everywhere */}
-              {t('Podaj nowe haslo do swojego konta')}
-            </h3>
             {isLoading && <Spinner additionalStyles={styles.spinner} />}
             {!isLoading && !isPasswordChanged && (
-              <ResetPasswordForm
-                code={code}
-                onSuccess={() => setIsPasswordChanged(true)}
-              />
+              <>
+                <h3 className={styles.header}>
+                  {/* @todo GEOT-109 - put proper translations everywhere */}
+                  {t('Podaj nowe haslo do swojego konta')}
+                </h3>
+                <ResetPasswordForm
+                  code={code}
+                  onSuccess={() => setIsPasswordChanged(true)}
+                />
+              </>
             )}
             {!isLoading && isPasswordChanged && (
               <>
-                <h3 data-testid="reset-password-changed-confirmation">
+                <h3
+                  className={styles.header}
+                  data-testid="reset-password-changed-confirmation"
+                >
+                  <i>
+                    <IoMdCheckmark />
+                  </i>
                   {t('passwordHasBeenChanged')}
                 </h3>
                 <Link href="/login">

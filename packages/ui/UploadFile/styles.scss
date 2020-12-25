@@ -10,7 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px dotted $theme9;
+    border: 1px dotted $theme0;
     border-radius: $borderRadius;
     padding: 20px;
     width: 100%;
@@ -21,7 +21,7 @@
 
     > i,
     .text {
-      color: $theme9;
+      color: $theme0;
     }
 
     > i {
