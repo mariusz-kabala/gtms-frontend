@@ -4,6 +4,7 @@
 @import '~@gtms/styles/scss/mixins/grid.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+@import '~@gtms/styles/scss/mixins/pagebg.scss';
 
 .pageWrapper {
   @include pageWrapper();
@@ -81,7 +82,6 @@
           @include buttonSizeDefault();
           @include buttonShapeDefault();
           @include buttonWithIcon('left');
-          @include buttonWithSpinnerAndLabel();
           @include buttonColorsDefault();
 
           &:hover {

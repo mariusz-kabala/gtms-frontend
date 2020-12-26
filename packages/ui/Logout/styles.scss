@@ -6,7 +6,6 @@
   @include buttonSizeDefault();
   @include buttonShapeDefault();
   @include buttonWithIcon('left');
-  @include buttonWithSpinnerAndLabel();
   @include buttonColorsDefault();
 
   &:hover {
