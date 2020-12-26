@@ -5,6 +5,8 @@ import { useTranslation, Link } from '@gtms/commons/i18n'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
 // ui
+import { IoMdArrowBack } from 'react-icons/io'
+import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
 export const RemindPasswordPage: NextPage<{}> = () => {
@@ -34,9 +36,16 @@ export const RemindPasswordPage: NextPage<{}> = () => {
                 {t('info')}
               </p>
             )}
-            <div className={styles.btn}>
-              <Link href={`/login`}>{t('goToLoginPage')}</Link>
-            </div>
+            <Button additionalStyles={styles.btn}>
+              <Link href={`/login`}>
+                <>
+                  <i>
+                    <IoMdArrowBack />
+                  </i>
+                  {t('goToLoginPage')}
+                </>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

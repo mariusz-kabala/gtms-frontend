@@ -32,7 +32,7 @@
       height: 35px;
       min-width: 35px;
       min-height: 35px;
-      margin-right: 10px;
+      margin-right: 5px;
       border-radius: 50%;
 
       &:hover {
@@ -52,7 +52,7 @@
       display: flex;
       align-items: center;
       width: 100%;
-      @include font-size(xs);
+      @include font-size(xxs);
       text-transform: uppercase;
       margin-bottom: 15px; // align it properly in post container
 
@@ -81,7 +81,7 @@
     .message {
       @include font-size(sm);
       margin-top: -15px;
-      text-indent: 45px;
+      text-indent: 40px;
       line-height: 1.25;
       white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
     }

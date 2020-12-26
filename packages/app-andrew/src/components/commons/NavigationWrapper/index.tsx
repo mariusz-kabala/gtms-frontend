@@ -23,10 +23,12 @@ export const NavigationWrapper: FC<{}> = () => {
       className={styles.mainNavigationWrapper}
       data-testid="navigation-wrapper"
     >
-      <img
-        className={styles.logo}
-        src="/images/temp-images/logo-burning-man.png"
-      />
+      <a href="/">
+        <img
+          className={styles.logo}
+          src="/images/temp-images/logo-burning-man.png"
+        />
+      </a>
       <SearchBar
         additionalStyles={styles.searchBar}
         onTagAdd={() => null}
