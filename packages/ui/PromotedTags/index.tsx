@@ -32,7 +32,7 @@ export const PromotedTags: FC<{
   onNoRecordsClick?: () => unknown
   onTagClick?: (promotedTag: IPromotedTag) => unknown
   tags: IPromotedTag[]
-  onFavClick: (tagId: string, checked: boolean) => unknown
+  onFavClick: (tag: IPromotedTag, checked: boolean) => unknown
 }> = ({
   activeTags = [],
   additionalStyles,
@@ -101,7 +101,7 @@ export const PromotedTags: FC<{
               <Fav
                 isChecked={false}
                 onClick={(checked) => {
-                  onFavClick(tag.id, checked)
+                  onFavClick(tag, checked)
                 }}
               />
               {isAdmin && (

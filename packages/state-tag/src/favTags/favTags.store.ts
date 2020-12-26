@@ -17,7 +17,7 @@ export class GroupFavTagsStore extends Store<IFavTagsState> {
     super(
       {},
       {
-        name: 'recentlyViewedTags',
+        name: 'groupFavTags',
       }
     )
   }

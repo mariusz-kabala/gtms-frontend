@@ -1,9 +1,11 @@
 import { FavTagType } from '../enums'
-import { IPromotedTagLogo } from './promotedTag'
+import { IPromotedTag } from './promotedTag'
 
 export interface IFavTag {
   id: string
-  tag: string
+  tag?: string
+  groupTag: IPromotedTag
   type: FavTagType
-  logo?: IPromotedTagLogo
+  createdAt: string
+  updatedAt: string
 }
