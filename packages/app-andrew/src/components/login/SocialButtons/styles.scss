@@ -46,7 +46,11 @@
   }
 
   .google {
+    border-radius: 5px;
+    overflow: hidden;
+
     button {
+      height: 100%;
       > div {
         background: none !important;
       }

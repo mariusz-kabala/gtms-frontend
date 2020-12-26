@@ -18,16 +18,16 @@
 
   .content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     width: 100%;
     padding: 40px;
-    box-shadow: $boxShadowDefault;
 
     > div {
       padding: 20px;
       border-radius: $borderRadius;
       background: $theme1;
+      box-shadow: $boxShadowDefault;
 
       .headerWrapper {
         display: flex;
@@ -101,15 +101,4 @@
   height: 100vh;
   @include imageCover();
   background-image: url('/images/temp-images/login-bg-2.png');
-
-  &:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-    content: '';
-    height: 0;
-    width: 100%;
-    box-shadow: 0px 0px 80px 90px $theme1;
-  }
 }
