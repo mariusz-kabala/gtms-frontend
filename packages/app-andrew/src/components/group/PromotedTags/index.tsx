@@ -1,13 +1,14 @@
 import React, { FC, useState, useEffect, useCallback } from 'react'
 import { PromotedTagNoImage } from 'enums'
 import { IPromotedTag } from '@gtms/commons/models'
-import { FavTagType } from '@gtms/commons/enums'
 // state
 import {
   loadGroupPromotedTags,
   reloadGroupPromotedTagsSilently,
   deletePromotedTag,
   addTagToFavs,
+  deleteFavTag,
+  loadGroupFavTags,
 } from '@gtms/state-tag'
 import {
   IPromotedTagsState,
@@ -61,7 +62,7 @@ export const PromotedTags: FC<{
         return
       }
 
-      addTagToFavs(tag, state.id)
+      checked ? addTagToFavs(tag, state.id) : deleteFavTag(tag, state.id)
     },
     [state.id]
   )
@@ -78,6 +79,10 @@ export const PromotedTags: FC<{
       loadGroupPromotedTags(state.id as string)
     }
 
+    if (state.id) {
+      loadGroupFavTags(state.id)
+    }
+
     return () => {
       sub && !sub.closed && sub.unsubscribe()
     }
@@ -92,6 +97,7 @@ export const PromotedTags: FC<{
         (state.tags.length > 0 && (
           <PromotedTagsUI
             onFavClick={onFavClick}
+            favs={state.favTags}
             activeTags={state.activeTags}
             isAdmin={state.isAdmin}
             isLoading={state.isLoading}

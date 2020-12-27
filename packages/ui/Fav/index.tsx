@@ -1,4 +1,4 @@
-import React, { FC, useState, useCallback } from 'react'
+import React, { FC, useState, useCallback, useEffect } from 'react'
 import { IoMdStar, IoMdStarOutline } from 'react-icons/io'
 import styles from './styles.scss'
 
@@ -17,6 +17,8 @@ export const Fav: FC<{
     },
     [checked]
   )
+
+  useEffect(() => setChecked(isChecked), [isChecked])
 
   return (
     <div

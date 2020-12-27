@@ -1,4 +1,4 @@
-import { fetchJSON, makeApiUrl } from '@gtms/api-common'
+import { fetchJSON, makeApiUrl, deleteRequest } from '@gtms/api-common'
 import { IFavTag } from '@gtms/commons/models'
 
 export interface IAddTagToFavsPayload {
@@ -9,11 +9,17 @@ export interface IAddTagToFavsPayload {
 
 export const addTagToFavsAPI = (
   payload: IAddTagToFavsPayload
-): Promise<void> => {
-  return fetchJSON<IAddTagToFavsPayload, void>(makeApiUrl('tags/favs'), {
-    values: payload,
-  })
+): Promise<Partial<IFavTag>> => {
+  return fetchJSON<IAddTagToFavsPayload, Partial<IFavTag>>(
+    makeApiUrl('tags/favs'),
+    {
+      values: payload,
+    }
+  )
 }
 
 export const fetchGroupFavTagsAPI = (groupId: string) =>
   fetchJSON<void, IFavTag[]>(makeApiUrl(`tags/favs/group/${groupId}`))
+
+export const deleteGroupFavTagAPI = (id: string) =>
+  deleteRequest(makeApiUrl(`tags/favs/${id}`))

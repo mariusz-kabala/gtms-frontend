@@ -9,7 +9,6 @@ import {
   IGroupFavTags,
 } from '@gtms/state-tag'
 import { groupQuery } from '@gtms/state-group'
-import { favGroupsQuery } from '@gtms/state-user'
 
 export interface ITagsBarState {
   groupId?: string
@@ -57,7 +56,7 @@ export const tagsBarState = (): ITagsBarState => {
 }
 
 export const tagsBarState$: Observable<ITagsBarState> = combineLatest([
-  favGroupsQuery.select(),
+  groupFavTagsQuery.allState$,
   promotedTagsQuery.selectAll(),
   recentlyViewedTagsQuery.select(),
 ]).pipe(map(() => tagsBarState()))

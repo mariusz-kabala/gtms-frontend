@@ -60,7 +60,7 @@ export const createNewComment = async (payload: ICreateCommentData) => {
     } else if (postCommentsQuery.hasEntity(payload.parent)) {
       const parentComment = postCommentsQuery.getEntity(payload.parent)
 
-      const subComments = parentComment.subComments || []
+      const subComments = (parentComment && parentComment.subComments) || []
       const newComment = {
         ...comment.subComments.pop(),
         owner: userQuery.accountDetails(),

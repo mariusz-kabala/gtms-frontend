@@ -12,6 +12,8 @@ export class GroupFavTagsQuery extends Query<IFavTagsState> {
     super(store)
   }
 
+  public allState$ = this.select()
+
   public getForGroup = (
     groupId: string,
     values = this.getValue()

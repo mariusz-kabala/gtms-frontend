@@ -33,6 +33,7 @@ export const PromotedTags: FC<{
   onTagClick?: (promotedTag: IPromotedTag) => unknown
   tags: IPromotedTag[]
   onFavClick: (tag: IPromotedTag, checked: boolean) => unknown
+  favs: string[]
 }> = ({
   activeTags = [],
   additionalStyles,
@@ -45,11 +46,13 @@ export const PromotedTags: FC<{
   onTagClick,
   onFavClick,
   tags,
+  favs,
 }) => {
   const [TagToDelete, setTagToDelete] = useState<IPromotedTag | null>(null)
   const onClick = useCallback(() => {
     onNoRecordsClick && onNoRecordsClick()
   }, [onNoRecordsClick])
+
   return (
     <div className={additionalStyles} data-testid="promoted-tags">
       {isLoading && <Spinner />}
@@ -99,7 +102,7 @@ export const PromotedTags: FC<{
               key={`promoted-${tag.id}`}
             >
               <Fav
-                isChecked={false}
+                isChecked={favs.includes(tag.tag)}
                 onClick={(checked) => {
                   onFavClick(tag, checked)
                 }}

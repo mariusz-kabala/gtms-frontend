@@ -239,7 +239,7 @@ export const TagsBar: FC<{
                         size={'35x35'}
                       />
                       <div className={styles.desc}>
-                        <h4>#{tag.tag}</h4>
+                        <h4>#{tag.groupTag.tag}</h4>
                         <span>
                           {truncateString(tag.groupTag.description, 28)}
                         </span>

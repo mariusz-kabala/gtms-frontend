@@ -105,6 +105,10 @@ export const addErrorNotification = (text: string) => {
 export const markAsRead = (id: number | string) => {
   const notification = notificationsQuery.getEntity(id)
 
+  if (!notification) {
+    return
+  }
+
   notificationsStore.upsert(id, {
     ...notification,
     data: {

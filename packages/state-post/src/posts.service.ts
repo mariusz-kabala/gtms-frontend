@@ -141,7 +141,7 @@ export const addPostCommentIfNeeded = (postId: string, comment: IComment) => {
 
   const post = postsQuery.getEntity(postId)
 
-  const firstComments = post.firstComments || []
+  const firstComments = (post && post.firstComments) || []
 
   if (firstComments.length < POST_FIRST_COMMENTS_LIMIT) {
     postsStore.upsert(postId, {
