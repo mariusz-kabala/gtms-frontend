@@ -5,6 +5,8 @@ import {
   promotedTagsQuery,
   IGroupRecentlyViewedTags,
   recentlyViewedTagsQuery,
+  groupFavTagsQuery,
+  IGroupFavTags,
 } from '@gtms/state-tag'
 import { groupQuery } from '@gtms/state-group'
 
@@ -18,6 +20,7 @@ export interface ITagsBarState {
     tags: IPromotedTag[]
   }
   recentlyViewed: IGroupRecentlyViewedTags
+  fav: IGroupFavTags
 }
 
 export const tagsBarState = (): ITagsBarState => {
@@ -41,10 +44,19 @@ export const tagsBarState = (): ITagsBarState => {
           errorOccured: false,
           tags: [],
         },
+    fav: groupId
+      ? groupFavTagsQuery.getForGroup(groupId)
+      : {
+          isLoading: false,
+          isLoaded: false,
+          errorOccured: false,
+          tags: [],
+        },
   }
 }
 
-export const tagsBarState$: Observable<ITagsBarState> = combineLatest(
+export const tagsBarState$: Observable<ITagsBarState> = combineLatest([
+  groupFavTagsQuery.allState$,
   promotedTagsQuery.selectAll(),
-  recentlyViewedTagsQuery.select()
-).pipe(map(() => tagsBarState()))
+  recentlyViewedTagsQuery.select(),
+]).pipe(map(() => tagsBarState()))
