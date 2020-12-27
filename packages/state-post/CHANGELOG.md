@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.15.1...@gtms/state-post@0.16.0) (2020-12-27)
+
+
+### Features
+
+* GEOT-734 add to favs ([#957](https://github.com/gtms-org/gtms-frontend/issues/957)) ([771cb8d](https://github.com/gtms-org/gtms-frontend/commit/771cb8d2bae65c06e4121b3ec4db8d0ff504356e))
+
+
+
+
+
 ## [0.15.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.15.0...@gtms/state-post@0.15.1) (2020-12-25)
 
 **Note:** Version bump only for package @gtms/state-post

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.16.0...@gtms/api-post@0.16.1) (2020-12-27)
+
+**Note:** Version bump only for package @gtms/api-post
+
+
+
+
+
 # [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.15.3...@gtms/api-post@0.16.0) (2020-12-25)
 
 
