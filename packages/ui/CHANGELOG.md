@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.76.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.76.4...@gtms/ui@0.76.5) (2020-12-25)
+
+
+### Bug Fixes
+
+* GEOT-735: restyle notifications ([#955](https://github.com/gtms-org/gtms-frontend/issues/955)) ([aad9229](https://github.com/gtms-org/gtms-frontend/commit/aad9229350a51890ed9a1cea662172cfa27098d8))
+
+
+
+
+
 ## [0.76.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.76.3...@gtms/ui@0.76.4) (2020-12-20)
 
 

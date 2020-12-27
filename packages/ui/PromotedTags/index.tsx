@@ -162,7 +162,7 @@ export const PromotedTags: FC<{
         data-testid="show-more-tags-button"
       >
         <Spinner size="sm" />
-        Show more...
+        show more...
       </Button>
     </div>
   )
