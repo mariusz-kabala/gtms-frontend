@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.98.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.98.0...@gtms/app-andrew@0.98.1) (2020-12-28)
+
+
+### Bug Fixes
+
+* GEOT-743: migrate to store hooks ([#958](https://github.com/gtms-org/gtms-frontend/issues/958)) ([9fac1d5](https://github.com/gtms-org/gtms-frontend/commit/9fac1d55746457d9cb22d70642891e8d230a4b35))
+
+
+
+
+
 # [0.98.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.97.6...@gtms/app-andrew@0.98.0) (2020-12-27)
 
 
