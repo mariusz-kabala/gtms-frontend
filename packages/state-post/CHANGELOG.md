@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.16.0...@gtms/state-post@0.16.1) (2020-12-28)
+
+
+### Bug Fixes
+
+* GEOT-743: migrate to store hooks ([#958](https://github.com/gtms-org/gtms-frontend/issues/958)) ([9fac1d5](https://github.com/gtms-org/gtms-frontend/commit/9fac1d55746457d9cb22d70642891e8d230a4b35))
+
+
+
+
+
 # [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.15.1...@gtms/state-post@0.16.0) (2020-12-27)
 
 
