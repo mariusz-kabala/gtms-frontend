@@ -17,10 +17,10 @@ export class UserQuery extends Query<IUserStore> {
     typeof values.email === 'string' &&
     values.email !== ''
 
-  public isActive$: Observable<boolean> = combineLatest(
+  public isActive$: Observable<boolean> = combineLatest([
     this.hasData$,
-    this.select((values) => values.isActive)
-  ).pipe(map(([hasData, isActive]) => !!(hasData && isActive)))
+    this.select((values) => values.isActive),
+  ]).pipe(map(([hasData, isActive]) => !!(hasData && isActive)))
 
   public isActive = (values = this.getValue()): boolean =>
     this.hasData(values) && values.isActive

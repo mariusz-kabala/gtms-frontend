@@ -11,10 +11,10 @@ export class UIQuery extends Query<IUI> {
     return values.isLoginModalOpen && !this.userQuery.isLogged()
   }
 
-  public isLoginModalOpen$: Observable<boolean> = combineLatest(
+  public isLoginModalOpen$: Observable<boolean> = combineLatest([
     this.select(),
-    this.userQuery.isLogged$
-  ).pipe(
+    this.userQuery.isLogged$,
+  ]).pipe(
     map(([{ isLoginModalOpen }, isLogged]: any): boolean => {
       return !isLogged && isLoginModalOpen
     })

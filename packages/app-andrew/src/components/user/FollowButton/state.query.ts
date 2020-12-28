@@ -22,6 +22,7 @@ export const followButtonState = (userId: string): IFollowButtonState => {
 export const followButtonState$ = (
   groupId: string
 ): Observable<IFollowButtonState> =>
-  combineLatest(notificationsSettingsQuery.select(), userQuery.isLogged$).pipe(
-    map(() => followButtonState(groupId))
-  )
+  combineLatest([
+    notificationsSettingsQuery.select(),
+    userQuery.isLogged$,
+  ]).pipe(map(() => followButtonState(groupId)))

@@ -100,11 +100,11 @@ export const groupPageState = (): IGroupPageState => {
   }
 }
 
-export const groupPageState$: Observable<IGroupPageState> = combineLatest(
+export const groupPageState$: Observable<IGroupPageState> = combineLatest([
   groupQuery.allState$,
   postsQuery.selectAll(),
   userQuery.accountDetails$,
   groupMembersQuery.selectAll(),
   postCommentsQuery.selectAll(),
-  uiQuery.select()
-).pipe(map(() => groupPageState()))
+  uiQuery.select(),
+]).pipe(map(() => groupPageState()))

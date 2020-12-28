@@ -9,13 +9,11 @@ import {
   addSuccessNotification,
   addErrorNotification,
 } from '@gtms/state-notification'
-import { IPost, IPostImage, IComment } from '@gtms/commons/models'
+import { IPost, IComment } from '@gtms/commons/models'
 import { postsStore, IPostsState } from './posts.store'
 import { postsQuery } from './posts.query'
-import { parsePostOwnersAvatar } from './helpers'
 import { userQuery } from '@gtms/state-user'
 import { applyTransaction } from '@datorama/akita'
-import { FileStatus, parseFiles } from '@gtms/commons'
 
 const POST_FIRST_COMMENTS_LIMIT = 5
 
@@ -98,27 +96,7 @@ export const getGroupPosts = async ({
     })
 
     applyTransaction(() => {
-      postsStore.upsertMany(
-        docs.map((post) => {
-          post = parsePostOwnersAvatar(post)
-
-          if (Array.isArray(post.images)) {
-            post.images = post.images
-              .map((img) => {
-                if (img.status !== FileStatus.ready) {
-                  return null
-                }
-
-                img.files = parseFiles(img.files as string[])
-
-                return img
-              })
-              .filter((img) => img) as IPostImage[]
-          }
-
-          return post
-        })
-      )
+      postsStore.upsertMany(docs)
       postsStore.update({
         offset,
         total,

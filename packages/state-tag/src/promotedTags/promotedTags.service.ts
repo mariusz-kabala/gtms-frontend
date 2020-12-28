@@ -7,8 +7,6 @@ import {
 } from '@gtms/api-tags'
 import { promotedTagsStore, IPromotedTagsState } from './promotedTags.store'
 import { promotedTagsQuery } from './promotedTags.query'
-import { parseFiles } from '@gtms/commons/helpers'
-import { FileStatus } from '@gtms/commons/enums'
 import {
   addSuccessNotification,
   addErrorNotification,
@@ -22,15 +20,7 @@ export const initPromoted = (data: IPromotedTagsState) => {
 export const reloadGroupPromotedTagsSilently = async (id: string) => {
   try {
     const promoted = await fetchPromotedTagsAPI(id)
-    promotedTagsStore.upsertMany(
-      promoted.map((p) => {
-        if (p.logo?.status === FileStatus.ready) {
-          p.logo.files = parseFiles((p.logo.files as any) || [])
-        }
-
-        return p
-      })
-    )
+    promotedTagsStore.upsertMany(promoted)
   } catch {
     promotedTagsStore.setError(true)
   }
@@ -46,15 +36,7 @@ export const loadGroupPromotedTags = async (id: string) => {
   try {
     const promoted = await fetchPromotedTagsAPI(id)
     applyTransaction(() => {
-      promotedTagsStore.upsertMany(
-        promoted.map((p) => {
-          if (p.logo?.status === FileStatus.ready) {
-            p.logo.files = parseFiles((p.logo.files as any) || [])
-          }
-
-          return p
-        })
-      )
+      promotedTagsStore.upsertMany(promoted)
       promotedTagsStore.setLoading(false)
       promotedTagsStore.update({
         isLoaded: true,
