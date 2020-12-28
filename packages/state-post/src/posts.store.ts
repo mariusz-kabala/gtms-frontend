@@ -32,7 +32,7 @@ export class PostsStore extends EntityStore<IPostsState> {
     )
   }
 
-  akitaPreAddEntity = (post: IPost) => {
+  private parseFiles(post: IPost): IPost {
     post = parsePostOwnersAvatar(post)
 
     if (Array.isArray(post.images)) {
@@ -52,6 +52,14 @@ export class PostsStore extends EntityStore<IPostsState> {
     }
 
     return post
+  }
+
+  akitaPreAddEntity = (post: IPost) => {
+    return this.parseFiles(post)
+  }
+
+  akitaPreUpdateEntity = (post: IPost) => {
+    return this.parseFiles(post)
   }
 }
 

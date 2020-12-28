@@ -28,6 +28,15 @@ export class MyGroupsStore extends Store<IMyGroupsStore> {
         isLoading: false,
         errorOccurred: false,
         isLoaded: false,
+        admin: [],
+        owner: [],
+        member: [],
+        favs: {
+          docs: [],
+          limit: -1,
+          offset: -1,
+          total: -1,
+        },
       },
       {
         resettable: true,
@@ -37,17 +46,15 @@ export class MyGroupsStore extends Store<IMyGroupsStore> {
   }
 
   akitaPreUpdate = (_: IMyGroupsStore, nextState: IMyGroupsStore) => {
-    const {
-      admin,
-      owner,
-      member,
-      favs: { docs },
-    } = nextState
+    const { admin, owner, member, favs: { docs } = {} } = nextState
 
     nextState.admin = admin.map(parseGroupAvatars)
     nextState.member = member.map(parseGroupAvatars)
     nextState.owner = owner.map(parseGroupAvatars)
-    nextState.favs.docs = docs.map(parseGroupAvatars)
+    nextState.favs = {
+      ...nextState.favs,
+      docs: (docs ?? []).map(parseGroupAvatars),
+    }
 
     return nextState
   }

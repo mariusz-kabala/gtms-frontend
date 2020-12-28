@@ -16,7 +16,7 @@ export class GroupsListStore extends EntityStore<GroupsListState> {
     })
   }
 
-  akitaPreAddEntity = (group: IGroup) => {
+  private parseFiles(group: IGroup): IGroup {
     if (
       group.avatar?.status === FileStatus.ready &&
       Array.isArray(group.avatar.files)
@@ -25,6 +25,14 @@ export class GroupsListStore extends EntityStore<GroupsListState> {
     }
 
     return group
+  }
+
+  akitaPreAddEntity = (group: IGroup) => {
+    return this.parseFiles(group)
+  }
+
+  akitaPreUpdateEntity = (group: IGroup) => {
+    return this.parseFiles(group)
   }
 }
 

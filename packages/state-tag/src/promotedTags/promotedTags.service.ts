@@ -35,6 +35,7 @@ export const loadGroupPromotedTags = async (id: string) => {
 
   try {
     const promoted = await fetchPromotedTagsAPI(id)
+
     applyTransaction(() => {
       promotedTagsStore.upsertMany(promoted)
       promotedTagsStore.setLoading(false)

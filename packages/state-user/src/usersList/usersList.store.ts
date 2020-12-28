@@ -16,7 +16,7 @@ export class UsersListStore extends EntityStore<UsersListState> {
     })
   }
 
-  akitaPreAddEntity = (user: IUser) => {
+  private parseFiles(user: IUser): IUser {
     if (
       user.avatar?.status === FileStatus.ready &&
       Array.isArray(user.avatar?.files)
@@ -25,6 +25,14 @@ export class UsersListStore extends EntityStore<UsersListState> {
     }
 
     return user
+  }
+
+  akitaPreAddEntity = (user: IUser) => {
+    return this.parseFiles(user)
+  }
+
+  akitaPreUpdateEntity = (user: IUser) => {
+    return this.parseFiles(user)
   }
 }
 

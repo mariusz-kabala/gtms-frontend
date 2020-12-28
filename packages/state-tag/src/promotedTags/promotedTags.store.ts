@@ -21,7 +21,7 @@ export class PromotedTagsStore extends EntityStore<IPromotedTagsState> {
     )
   }
 
-  akitaPreAddEntity = (tag: IPromotedTag) => {
+  private parseFiles(tag: IPromotedTag): IPromotedTag {
     if (
       tag.logo?.status === FileStatus.ready &&
       Array.isArray(tag.logo.files)
@@ -30,6 +30,14 @@ export class PromotedTagsStore extends EntityStore<IPromotedTagsState> {
     }
 
     return tag
+  }
+
+  akitaPreAddEntity = (tag: IPromotedTag) => {
+    return this.parseFiles(tag)
+  }
+
+  akitaPreUpdateEntity = (tag: IPromotedTag) => {
+    return this.parseFiles(tag)
   }
 }
 
