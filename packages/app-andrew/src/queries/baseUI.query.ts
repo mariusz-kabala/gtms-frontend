@@ -69,11 +69,11 @@ export class BaseUIQuery {
 
   public notificationsSidebar$: Observable<
     INotificationsSidebarProps
-  > = combineLatest(
+  > = combineLatest([
     this.userQuery.isLogged$,
     this.uiQuery.isNotificationsBarOpen$,
-    this.notificationsQuery.select()
-  ).pipe(map(() => this.notificationsSidebar()))
+    this.notificationsQuery.select(),
+  ]).pipe(map(() => this.notificationsSidebar()))
 
   public navigationDots = (): INavigationDotsProps => {
     const status = this.myGroupsQuery.status()
@@ -91,11 +91,11 @@ export class BaseUIQuery {
     }
   }
 
-  public navigationDots$: Observable<INavigationDotsProps> = combineLatest(
+  public navigationDots$: Observable<INavigationDotsProps> = combineLatest([
     this.userQuery.isLogged$,
     this.myGroupsQuery.status$,
-    this.myGroupsQuery.favGroups$
-  ).pipe(map(() => this.navigationDots()))
+    this.myGroupsQuery.favGroups$,
+  ]).pipe(map(() => this.navigationDots()))
 }
 //
 export const baseUIQuery = new BaseUIQuery(

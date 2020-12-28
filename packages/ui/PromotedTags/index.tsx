@@ -15,6 +15,7 @@ import { Button } from '../Button'
 import { Modal } from '../Modal'
 import { Spinner } from '../Spinner'
 import { Image } from '../Image'
+import { Fav } from '../Fav'
 // style
 import styles from './styles.scss'
 
@@ -31,6 +32,8 @@ export const PromotedTags: FC<{
   onNoRecordsClick?: () => unknown
   onTagClick?: (promotedTag: IPromotedTag) => unknown
   tags: IPromotedTag[]
+  onFavClick: (tag: IPromotedTag, checked: boolean) => unknown
+  favs: string[]
 }> = ({
   activeTags = [],
   additionalStyles,
@@ -41,12 +44,15 @@ export const PromotedTags: FC<{
   onEditRecordClick,
   onNoRecordsClick,
   onTagClick,
+  onFavClick,
   tags,
+  favs,
 }) => {
   const [TagToDelete, setTagToDelete] = useState<IPromotedTag | null>(null)
   const onClick = useCallback(() => {
     onNoRecordsClick && onNoRecordsClick()
   }, [onNoRecordsClick])
+
   return (
     <div className={additionalStyles} data-testid="promoted-tags">
       {isLoading && <Spinner />}
@@ -95,6 +101,12 @@ export const PromotedTags: FC<{
               })}
               key={`promoted-${tag.id}`}
             >
+              <Fav
+                isChecked={favs.includes(tag.tag)}
+                onClick={(checked) => {
+                  onFavClick(tag, checked)
+                }}
+              />
               {isAdmin && (
                 <div className={styles.adminPanel}>
                   <ul>

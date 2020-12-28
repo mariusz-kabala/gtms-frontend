@@ -24,6 +24,5 @@ export const notificationsSettingsState = (): INotificationsSettingsState => {
 }
 
 export const notificationsSettingsState$: Observable<INotificationsSettingsState> = combineLatest(
-  wpnQuery.select(),
-  notificationsSettingsQuery.select()
+  [wpnQuery.select(), notificationsSettingsQuery.select()]
 ).pipe(map(() => notificationsSettingsState()))

@@ -1,23 +1,11 @@
 import {
   fetchRecentUsers,
-  IResponseUser,
   fetchTaggedUsers,
   IRecentUsersResponse,
   ITagUsersResponse,
 } from '@gtms/api-auth'
 import { usersListStore } from './usersList.store'
-import { parseFiles } from '@gtms/commons/helpers'
-import { FileStatus } from '@gtms/commons/enums'
 import { applyTransaction } from '@datorama/akita'
-
-const parseResponse = (users: IResponseUser[]) =>
-  users.map((user) => {
-    if (user.avatar?.status === FileStatus.ready) {
-      user.avatar.files = parseFiles(user.avatar?.files || [])
-    }
-
-    return user
-  })
 
 export const initUsersList = (
   data: IRecentUsersResponse | ITagUsersResponse
@@ -32,7 +20,7 @@ export const initUsersList = (
       loading: false,
       error: false,
     })
-    usersListStore.upsertMany(parseResponse(docs))
+    usersListStore.upsertMany(docs)
   })
 }
 
@@ -44,7 +32,7 @@ export async function getRecentUsers(requestedOffset = 0, requestedLimit = 10) {
     const { docs } = await fetchRecentUsers(requestedOffset, requestedLimit)
 
     applyTransaction(() => {
-      usersListStore.upsertMany(parseResponse(docs))
+      usersListStore.upsertMany(docs)
       usersListStore.setLoading(false)
     })
   } catch (err) {
@@ -75,7 +63,7 @@ export async function findByTags(
       requestedLimit
     )
     applyTransaction(() => {
-      usersListStore.upsertMany(parseResponse(docs))
+      usersListStore.upsertMany(docs)
       usersListStore.setLoading(false)
     })
   } catch {

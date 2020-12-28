@@ -1,22 +1,10 @@
 import {
   fetchRecentGroups,
   fetchTaggedGroups,
-  IResponseGroup,
   IRecentGroupsResponse,
 } from '@gtms/api-group'
 import { groupsListStore } from './groupsList.store'
-import { parseFiles } from '@gtms/commons/helpers'
-import { FileStatus } from '@gtms/commons/enums'
 import { applyTransaction } from '@datorama/akita'
-
-const parseResponse = (groups: IResponseGroup[]) =>
-  groups.map((group) => {
-    if (group.avatar?.status === FileStatus.ready) {
-      group.avatar.files = parseFiles(group.avatar.files || [])
-    }
-
-    return group
-  })
 
 export const initGroupsList = (data: IRecentGroupsResponse) => {
   const { docs, limit, offset } = data
@@ -29,7 +17,7 @@ export const initGroupsList = (data: IRecentGroupsResponse) => {
       loading: false,
       error: false,
     })
-    groupsListStore.upsertMany(parseResponse(docs))
+    groupsListStore.upsertMany(docs)
   })
 }
 
@@ -46,7 +34,7 @@ export async function getRecentGroups(
     const { docs } = await fetchRecentGroups(requestedOffset, requestedLimit)
 
     applyTransaction(() => {
-      groupsListStore.upsertMany(parseResponse(docs))
+      groupsListStore.upsertMany(docs)
       groupsListStore.setLoading(false)
     })
   } catch {
@@ -78,7 +66,7 @@ export async function findByTags(
       requestedLimit
     )
     applyTransaction(() => {
-      groupsListStore.upsertMany(parseResponse(docs))
+      groupsListStore.upsertMany(docs)
       groupsListStore.setLoading(false)
     })
   } catch {
