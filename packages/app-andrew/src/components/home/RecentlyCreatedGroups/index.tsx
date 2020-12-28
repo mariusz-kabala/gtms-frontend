@@ -35,6 +35,31 @@ export const RecentlyCreatedGroups: FC<{
     groupsToRender.splice(groups.length / 2, 0, null)
   }
 
+  const images = [
+    { jpg: '/images/temp-images/group_bg_4.png' },
+    { jpg: '/images/temp-images/logo-wioska-2.png' },
+    { jpg: '/images/temp-images/logo-wioska-3.png' },
+    { jpg: '/images/temp-images/logo-wioska-4.png' },
+    { jpg: '/images/temp-images/logo-wioska-5.png' },
+    { jpg: '/images/temp-images/logo-wioska-6.png' },
+    { jpg: '/images/temp-images/group_bg.png' },
+    { jpg: '/images/temp-images/group_bg_2.png' },
+    { jpg: '/images/temp-images/group_bg_3.png' },
+    { jpg: '/images/temp-images/logo-wioska-1.png' },
+    { jpg: '/images/temp-images/group_bg_5.png' },
+    { jpg: '/images/temp-images/group_bg_4.png' },
+    { jpg: '/images/temp-images/logo-wioska-2.png' },
+    { jpg: '/images/temp-images/logo-wioska-3.png' },
+    { jpg: '/images/temp-images/logo-wioska-4.png' },
+    { jpg: '/images/temp-images/logo-wioska-5.png' },
+    { jpg: '/images/temp-images/logo-wioska-6.png' },
+    { jpg: '/images/temp-images/group_bg.png' },
+    { jpg: '/images/temp-images/group_bg_2.png' },
+    { jpg: '/images/temp-images/group_bg_3.png' },
+    { jpg: '/images/temp-images/logo-wioska-1.png' },
+    { jpg: '/images/temp-images/group_bg_5.png' },
+  ]
+
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -69,7 +94,7 @@ export const RecentlyCreatedGroups: FC<{
       )}
       {groupsToRender && groupsToRender.length > 0 && (
         <ul className={styles.items}>
-          {groupsToRender.map((group) => {
+          {groupsToRender.map((group, index) => {
             if (group === null) {
               return (
                 <li key="createYourOwnGroupButton">
@@ -77,13 +102,13 @@ export const RecentlyCreatedGroups: FC<{
                 </li>
               )
             }
-
             return (
               <li key={`recent-group-${group.id}`}>
                 <GridCard
                   additionalStyles={styles.gridCard}
                   desc={group.description}
-                  image={getImage('200x200', group.avatar, GroupAvatarNoImage)}
+                  image={images[index]}
+                  // image={getImage('200x200'}, group.avatar, GroupAvatarNoImage)}
                   name={group.name}
                   onClick={async () => {
                     setGroupCard({
