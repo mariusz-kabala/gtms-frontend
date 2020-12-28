@@ -32,7 +32,5 @@ export const groupSidebarContentState = (): IGroupSidebarContentState => {
 }
 
 export const groupSidebarContentState$: Observable<IGroupSidebarContentState> = combineLatest(
-  groupQuery.allState$,
-  postsQuery.selectAll(),
-  groupMembersQuery.selectAll()
+  [groupQuery.allState$, postsQuery.selectAll(), groupMembersQuery.selectAll()]
 ).pipe(map(() => groupSidebarContentState()))

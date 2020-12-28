@@ -36,7 +36,5 @@ export const groupSettingsPageState = (): IGroupSettingsPageState => {
 }
 
 export const groupSettingsPageState$: Observable<IGroupSettingsPageState> = combineLatest(
-  groupQuery.allState$,
-  groupMembersQuery.selectAll(),
-  uiQuery.select()
+  [groupQuery.allState$, groupMembersQuery.selectAll(), uiQuery.select()]
 ).pipe(map(() => groupSettingsPageState()))

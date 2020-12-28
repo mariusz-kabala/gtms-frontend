@@ -33,8 +33,10 @@ export const promotedTagsState = (): IPromotedTagsState => {
 }
 
 export const promotedTagsState$: Observable<IPromotedTagsState> = combineLatest(
-  promotedTagsQuery.selectAll(),
-  postsQuery.selectAll(),
-  groupQuery.allState$,
-  groupFavTagsQuery.allState$
+  [
+    promotedTagsQuery.selectAll(),
+    postsQuery.selectAll(),
+    groupQuery.allState$,
+    groupFavTagsQuery.allState$,
+  ]
 ).pipe(map(() => promotedTagsState()))

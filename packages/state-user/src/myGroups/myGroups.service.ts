@@ -7,22 +7,11 @@ import {
 import { joinGroupAPI, leaveGroupAPI } from '@gtms/api-group'
 import { myGroupsStore } from './myGroups.store'
 import { myFavGroupsStore } from '../favs/favs.store'
-import { parseFiles, IGroup, FileStatus } from '@gtms/commons'
+import { IGroup } from '@gtms/commons/models'
 import {
   addSuccessNotification,
   addErrorNotification,
 } from '@gtms/state-notification'
-
-const parseGroupAvatars = (group: IGroup) => {
-  if (
-    Array.isArray(group.avatar?.files) &&
-    group.avatar?.status === FileStatus.ready
-  ) {
-    group.avatar.files = parseFiles(group.avatar.files)
-  }
-
-  return group
-}
 
 export const markMyGroupsAsLoading = () =>
   myGroupsStore.update({
@@ -44,11 +33,6 @@ export const loadMyGroups = async (force = false) => {
 
   try {
     const myGroups = await fetchMyGroups()
-
-    myGroups.admin = myGroups.admin.map(parseGroupAvatars)
-    myGroups.member = myGroups.member.map(parseGroupAvatars)
-    myGroups.owner = myGroups.owner.map(parseGroupAvatars)
-    myGroups.favs.docs = myGroups.favs.docs.map(parseGroupAvatars)
 
     myGroupsStore.update({
       ...myGroups,
