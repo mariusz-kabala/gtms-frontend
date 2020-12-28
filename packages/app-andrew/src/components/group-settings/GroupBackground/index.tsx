@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useState } from 'react'
 import { IGroup } from '@gtms/commons/models'
+import cx from 'classnames'
 import { updateGroup } from '@gtms/state-group'
 import { uploadGroupBg } from '@gtms/api-group'
 // ui
@@ -74,6 +75,8 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
     changePageBackground(name)
   }, [])
 
+  const bg = BACKGROUNDS_GALLERY.filter((bg) => bg.name === group.bgType)[0]
+
   return (
     <div
       data-testid="group-settings-background-image"
@@ -99,10 +102,15 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
         />
       </FullScreenGallery>
       <div
-        className={styles.btnWrapperWithBg}
-        style={{
-          backgroundImage: `url('/images/temp-images/logo-wioska-4.png')`,
-        }}
+        data-loaded="true"
+        className={cx(styles.btnWrapperWithBg, bg?.className)}
+        style={
+          group.bgType === 'file' && group.bg?.files.mini
+            ? {
+                backgroundImage: `url(${group.bg?.files.mini.jpg})`,
+              }
+            : {}
+        }
       >
         <div>
           {' '}
