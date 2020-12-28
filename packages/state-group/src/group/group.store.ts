@@ -46,6 +46,15 @@ export class GroupsStore extends Store<IGroupState> {
       group.cover.files = parseFiles(group.cover.files)
     }
 
+    if (
+      group &&
+      group.bgType === 'file' &&
+      Array.isArray(group.bg?.files) &&
+      group.bg?.status === FileStatus.ready
+    ) {
+      group.bg.files = parseFiles(group.bg.files)
+    }
+
     return nextState
   }
 }
