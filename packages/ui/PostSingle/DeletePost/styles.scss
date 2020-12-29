@@ -33,11 +33,13 @@
   }
 
   .buttons {
+    width: 100%;
     @include gridTwoButtons();
-    margin-top: 20px;
+    margin-top: 15px;
 
     .btn {
       @include buttonWithIcon('left');
+      width: 100%;
 
       &:hover {
         @include buttonColorsPrimary();

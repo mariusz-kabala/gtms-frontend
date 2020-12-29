@@ -17,6 +17,7 @@ import { GroupAvatar } from 'components/group/GroupAvatar'
 import { GroupSidebarContent } from './GroupSidebarContent'
 // import { GroupDescription } from 'components/group/GroupDescription'
 // ui
+import useKey from 'use-key-hook'
 import { FaUsers } from 'react-icons/fa'
 import { BsFillGridFill } from 'react-icons/bs'
 import { Button } from '@gtms/ui/Button'
@@ -27,6 +28,17 @@ export const GroupSidebar: FC<{}> = () => {
     groupSidebarContentState()
   )
   const { t } = useTranslation('groupPage')
+
+  useKey(
+    () => {
+      if (state.group && state.showPromoted) {
+        togglePromotedTagsInGroup(state.group.id)
+      }
+    },
+    {
+      detectKeys: [27],
+    }
+  )
 
   useEffect(() => {
     const sub = groupSidebarContentState$.subscribe((value) => {

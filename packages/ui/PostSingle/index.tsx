@@ -2,7 +2,6 @@ import React, { FC, useState, useRef, useCallback } from 'react'
 import cx from 'classnames'
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
-import Lightbox from 'react-image-lightbox'
 // commons
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import {
@@ -14,6 +13,8 @@ import {
 } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
 // ui
+import useKey from 'use-key-hook'
+import Lightbox from 'react-image-lightbox'
 import { IoMdSend } from 'react-icons/io'
 import { Button } from '../Button'
 import { DeletePost } from './DeletePost'
@@ -95,6 +96,18 @@ export const PostSingle: FC<{
   }, [onUserClick, owner])
   const [value, setValue] = useState<string>('')
   const [showSendButton, setShowSendButton] = useState<boolean>(false)
+
+  useKey(
+    () => {
+      setLightboxState({
+        isOpen: false,
+        current: 0,
+      })
+    },
+    {
+      detectKeys: [27],
+    }
+  )
 
   return (
     <div

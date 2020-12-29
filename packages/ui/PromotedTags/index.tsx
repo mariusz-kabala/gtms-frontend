@@ -102,6 +102,7 @@ export const PromotedTags: FC<{
               key={`promoted-${tag.id}`}
             >
               <Fav
+                additionalStyles={styles.favButton}
                 isChecked={favs.includes(tag.tag)}
                 onClick={(checked) => {
                   onFavClick(tag, checked)

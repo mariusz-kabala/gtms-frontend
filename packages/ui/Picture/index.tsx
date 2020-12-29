@@ -5,11 +5,12 @@ import cx from 'classnames'
 export const Picture: FC<{
   additionalStyles?: string
   alt?: string
-  jpg?: string
-  webp?: string
   coverImage?: boolean
+  jpg?: string
+  onClick?: () => unknown
   onError?: () => unknown
-}> = ({ additionalStyles, alt, coverImage, jpg, webp, onError }) => {
+  webp?: string
+}> = ({ additionalStyles, alt, coverImage, jpg, onClick, onError, webp }) => {
   const [hide, setHide] = useState<boolean>(false)
 
   const onErrorCallback = useCallback(() => {
@@ -34,7 +35,12 @@ export const Picture: FC<{
   }
 
   return (
-    <picture className={additionalStyles}>
+    <picture
+      className={cx(additionalStyles, {
+        [styles.isClickable]: onClick,
+      })}
+      onClick={onClick}
+    >
       {webp && <source srcSet={webp} type="image/webp" />}
       <source srcSet={jpg} type="image/jpeg" />
       <img
