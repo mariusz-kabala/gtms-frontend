@@ -33,6 +33,15 @@
     }
   }
 
+  .header,
+  .description {
+    cursor: pointer;
+
+    &:hover {
+      color: $theme4;
+    }
+  }
+
   .header {
     @include font-size(lg);
     @include font-weight(semiBold);

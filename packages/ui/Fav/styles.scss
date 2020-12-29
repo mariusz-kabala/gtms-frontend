@@ -5,17 +5,24 @@
   left: 10px;
   top: 10px;
 
+  &.checked,
+  &.hover {
+    a {
+      background-color: $theme4;
+      color: $theme0;
+    }
+  }
+
   a {
     display: block;
     padding: 5px;
     text-align: center;
     border-radius: 50%;
-    background-color: $theme0;
+    background-color: $theme9;
 
     svg {
       width: 25px;
       height: 25px;
-      fill: $theme4;
     }
   }
 }

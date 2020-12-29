@@ -1,21 +1,18 @@
 import React from 'react'
 import { NextPage, NextPageContext } from 'next'
+// ui
+import { InternalError } from '@gtms/ui/InternalError'
 import { FourHundredFour } from '@gtms/ui/FourHundredFour'
 
 export const ErrorPage: NextPage<{ statusCode: number | undefined }> = ({
   statusCode,
 }) => {
   if (statusCode === 404) {
+    return <InternalError statusCode={statusCode} />
     return <FourHundredFour />
   }
 
-  return (
-    <p data-testid="internal-error">
-      {statusCode
-        ? `An error ${statusCode} occurred on server`
-        : 'An error occurred on client'}
-    </p>
-  )
+  return <InternalError statusCode={statusCode} />
 }
 
 ErrorPage.getInitialProps = async (ctx: NextPageContext) => {

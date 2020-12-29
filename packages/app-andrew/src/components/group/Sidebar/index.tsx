@@ -1,10 +1,11 @@
 import React, { FC, useState, useEffect } from 'react'
+import cx from 'classnames'
+import useKey from 'use-key-hook'
 import { useTranslation } from '@gtms/commons/i18n'
 import { getImage } from '@gtms/commons/helpers'
 import { FileStatus } from '@gtms/commons'
 import { Link } from '@gtms/commons/i18n'
 import { GroupAvatarNoImage } from 'enums'
-import cx from 'classnames'
 // state
 import {
   IGroupSidebarContentState,
@@ -17,27 +18,15 @@ import { GroupAvatar } from 'components/group/GroupAvatar'
 import { GroupSidebarContent } from './GroupSidebarContent'
 // import { GroupDescription } from 'components/group/GroupDescription'
 // ui
-import useKey from 'use-key-hook'
 import { FaUsers } from 'react-icons/fa'
 import { BsFillGridFill } from 'react-icons/bs'
 import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
 export const GroupSidebar: FC<{}> = () => {
+  const { t } = useTranslation('groupPage')
   const [state, setState] = useState<IGroupSidebarContentState>(
     groupSidebarContentState()
-  )
-  const { t } = useTranslation('groupPage')
-
-  useKey(
-    () => {
-      if (state.group && state.showPromoted) {
-        togglePromotedTagsInGroup(state.group.id)
-      }
-    },
-    {
-      detectKeys: [27],
-    }
   )
 
   useEffect(() => {
@@ -49,6 +38,15 @@ export const GroupSidebar: FC<{}> = () => {
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
+
+  useKey(
+    () => {
+      state.group?.id && togglePromotedTagsInGroup(state.group.id)
+    },
+    {
+      detectKeys: [27],
+    }
+  )
 
   if (!state.group) {
     return null
@@ -105,9 +103,9 @@ export const GroupSidebar: FC<{}> = () => {
         }
       /> */}
       <Button
-        onClick={() =>
+        onClick={() => {
           state.group?.id && togglePromotedTagsInGroup(state.group.id)
-        }
+        }}
         additionalStyles={cx(styles.tagsbutton, {
           [styles.active]: state.showPromoted,
         })}

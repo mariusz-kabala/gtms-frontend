@@ -24,7 +24,9 @@ export const Fav: FC<{
 
   return (
     <div
-      className={cx(styles.favIcon, additionalStyles)}
+      className={cx(styles.favIcon, additionalStyles, {
+        [styles.checked]: checked,
+      })}
       onMouseEnter={onHover}
       onMouseLeave={onHover}
     >
