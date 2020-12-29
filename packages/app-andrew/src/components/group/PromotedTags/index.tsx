@@ -15,6 +15,7 @@ import {
   promotedTagsState,
   promotedTagsState$,
 } from './state.query'
+import { openLoginModal } from 'state'
 // components
 import { PromotedTagsForm } from 'components/group-settings/PromotedTagForm'
 // ui
@@ -58,13 +59,17 @@ export const PromotedTags: FC<{
 
   const onFavClick = useCallback(
     (tag: IPromotedTag, checked: boolean) => {
+      if (!state.isLogged) {
+        return openLoginModal()
+      }
+
       if (!state.id) {
         return
       }
 
       checked ? addTagToFavs(tag, state.id) : deleteFavTag(tag, state.id)
     },
-    [state.id]
+    [state.id, state.isLogged]
   )
 
   useEffect(() => {
@@ -79,7 +84,7 @@ export const PromotedTags: FC<{
       loadGroupPromotedTags(state.id as string)
     }
 
-    if (state.id) {
+    if (state.id && state.isLogged) {
       loadGroupFavTags(state.id)
     }
 
