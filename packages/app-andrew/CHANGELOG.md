@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.98.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.98.2...@gtms/app-andrew@0.98.3) (2020-12-29)
+
+
+### Bug Fixes
+
+* GEOT-744: proper support not logged user with fav tags, noti ([#960](https://github.com/gtms-org/gtms-frontend/issues/960)) ([46a254b](https://github.com/gtms-org/gtms-frontend/commit/46a254b8c22174c1bde2c359583a5c653cdb27a0))
+* GEOT-745: fix login modal window state ([#961](https://github.com/gtms-org/gtms-frontend/issues/961)) ([a0b92e4](https://github.com/gtms-org/gtms-frontend/commit/a0b92e495488b1b818b46b9936f6229e15b4c8a8))
+
+
+
+
+
 ## [0.98.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.98.1...@gtms/app-andrew@0.98.2) (2020-12-28)
 
 

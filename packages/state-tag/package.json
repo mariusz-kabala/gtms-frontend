@@ -1,6 +1,6 @@
 {
   "name": "@gtms/state-tag",
-  "version": "0.13.2",
+  "version": "0.13.3",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
@@ -8,8 +8,8 @@
   "dependencies": {
     "@gtms/api-tags": "0.11.0",
     "@gtms/commons": "0.34.1",
-    "@gtms/state-user": "0.21.3",
-    "@gtms/state-notification": "*"
+    "@gtms/state-notification": "*",
+    "@gtms/state-user": "0.21.3"
   },
   "scripts": {
     "build": "exit 0",
