@@ -7,7 +7,7 @@ $fontWeight: (
 );
 
 @function fontWeight($key) {
-  @return map-get($font-weight, $key);
+  @return map-get($fontWeight, $key);
 }
 
 @mixin fontWeight($key) {
