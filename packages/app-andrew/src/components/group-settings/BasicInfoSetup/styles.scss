@@ -43,12 +43,12 @@
   }
 
   .header {
-    @include font-size(lg);
-    @include font-weight(semiBold);
+    @include fontSize(lg);
+    @include fontWeight(semiBold);
   }
 
   .description {
-    @include font-size(xdefault);
+    @include fontSize(xdefault);
   }
 }
 

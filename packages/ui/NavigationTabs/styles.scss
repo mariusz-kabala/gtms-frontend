@@ -10,15 +10,16 @@
   h2 {
     display: flex;
     align-items: center;
-    @include font-size('sm');
-    @include font-weight(semiBold);
+    @include fontSize('sm');
+    @include fontWeight(semiBold);
     text-transform: uppercase;
     padding: 5px;
     margin-right: 5px;
     border-radius: $borderRadius;
     color: $theme0;
 
-    &:hover, &:first-child {
+    &:hover,
+    &:first-child {
       color: $theme0;
       background: $theme4;
     }

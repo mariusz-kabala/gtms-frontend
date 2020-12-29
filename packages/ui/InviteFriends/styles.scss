@@ -20,14 +20,14 @@
     }
 
     .header {
-      @include font-size(xlg);
-      @include font-weight(semiBold);
+      @include fontSize(xlg);
+      @include fontWeight(semiBold);
       text-transform: uppercase;
     }
 
     .subheader {
-      @include font-size(lg);
-      @include font-weight(semiBold);
+      @include fontSize(lg);
+      @include fontWeight(semiBold);
       display: block;
       margin-top: 10px;
       margin-bottom: 15px;

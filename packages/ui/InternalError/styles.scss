@@ -12,8 +12,8 @@
   align-items: center;
 
   h2 {
-    @include font-size(md);
-    @include font-weight(semiBold);
+    @include fontSize(md);
+    @include fontWeight(semiBold);
   }
 
   .btn {

@@ -17,7 +17,7 @@
     height: 100%;
     cursor: pointer;
     text-align: center;
-    @include font-weight(semiBold);
+    @include fontWeight(semiBold);
 
     > i,
     .text {
@@ -25,11 +25,11 @@
     }
 
     > i {
-      @include font-size(xxlg);
+      @include fontSize(xxlg);
     }
 
     .text {
-      @include font-size(xdefault);
+      @include fontSize(xdefault);
     }
 
     &:active,

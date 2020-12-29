@@ -42,8 +42,8 @@
       display: inline-block;
       display: none; // @todo temporary hidden;
       margin-top: 10px;
-      @include font-weight(semiBold);
-      @include font-size(md);
+      @include fontWeight(semiBold);
+      @include fontSize(md);
     }
 
     &:hover {

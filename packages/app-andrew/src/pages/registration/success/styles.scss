@@ -28,7 +28,7 @@
     i {
       display: block;
       text-align: center;
-      @include font-size(xxlg);
+      @include fontSize(xxlg);
     }
 
     h3 {

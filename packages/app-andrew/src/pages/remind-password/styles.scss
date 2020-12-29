@@ -27,7 +27,7 @@
 
     .header {
       @include header(h2, uppercase);
-      @include font-weight(semiBold);
+      @include fontWeight(semiBold);
       margin-bottom: 10px;
 
       & + p {

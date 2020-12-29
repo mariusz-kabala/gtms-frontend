@@ -17,7 +17,7 @@
       padding: 5px 10px;
       border: 2px solid $theme9;
       border-radius: $borderRadius;
-      @include font-weight(semiBold);
+      @include fontWeight(semiBold);
       cursor: pointer;
 
       .icon {

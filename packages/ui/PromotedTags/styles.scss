@@ -60,8 +60,8 @@
         color: $theme0;
 
         h3 {
-          @include font-size(md);
-          @include font-weight(semiBold);
+          @include fontSize(md);
+          @include fontWeight(semiBold);
         }
       }
 
@@ -127,7 +127,7 @@
 
   i {
     margin-right: 5px;
-    @include font-size(xlg);
+    @include fontSize(xlg);
     line-height: 0;
   }
 }
@@ -148,13 +148,13 @@
 
 .deleteTagModal {
   .header {
-    @include font-weight(semiBold);
-    @include font-size(lg);
+    @include fontWeight(semiBold);
+    @include fontSize(lg);
   }
 
   .desc {
     margin-top: 5px;
-    @include font-size(xdefault);
+    @include fontSize(xdefault);
   }
 
   .buttons {

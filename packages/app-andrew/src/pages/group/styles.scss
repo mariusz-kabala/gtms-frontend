@@ -40,7 +40,7 @@
 
     > div {
       max-width: $tempWidth;
-      @include font-size(xxxlg);
+      @include fontSize(xxxlg);
 
       h2,
       p {
@@ -48,11 +48,11 @@
       }
 
       h2 {
-        @include font-weight(semiBold);
+        @include fontWeight(semiBold);
       }
 
       p {
-        @include font-size(lg);
+        @include fontSize(lg);
       }
     }
   }
@@ -160,12 +160,12 @@
         }
 
         .header {
-          @include font-weight(semiNormal);
-          @include font-size(lg);
+          @include fontWeight(semiNormal);
+          @include fontSize(lg);
           margin-bottom: 20px;
 
           span {
-            @include font-weight(semiBold);
+            @include fontWeight(semiBold);
           }
         }
       }

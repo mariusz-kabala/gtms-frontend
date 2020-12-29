@@ -3,7 +3,7 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .noComments {
-  @include font-size(sm);
+  @include fontSize(sm);
   font-style: italic;
 }
 

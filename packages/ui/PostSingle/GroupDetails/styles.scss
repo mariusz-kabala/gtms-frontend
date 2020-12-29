@@ -28,18 +28,18 @@
     gap: 5px;
 
     .name {
-      @include font-size(sm);
-      @include font-weight(semiBold);
+      @include fontSize(sm);
+      @include fontWeight(semiBold);
     }
 
     .stats {
       display: flex;
       gap: 5px;
-      @include font-size(xs);
+      @include fontSize(xs);
 
       li {
         span {
-          @include font-weight(semiBold);
+          @include fontWeight(semiBold);
         }
       }
     }

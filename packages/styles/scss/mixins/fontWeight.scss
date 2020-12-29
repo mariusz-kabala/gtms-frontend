@@ -1,4 +1,4 @@
-$font-weight: (
+$fontWeight: (
   light: 200,
   semiNormal: 300,
   normal: 400,
@@ -6,10 +6,10 @@ $font-weight: (
   bold: 600,
 );
 
-@function font-weight($key) {
+@function fontWeight($key) {
   @return map-get($font-weight, $key);
 }
 
-@mixin font-weight($key) {
-  font-weight: font-weight($key);
+@mixin fontWeight($key) {
+  font-weight: fontWeight($key);
 }

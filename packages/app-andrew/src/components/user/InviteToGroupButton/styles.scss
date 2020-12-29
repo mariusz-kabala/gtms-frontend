@@ -35,8 +35,8 @@
 
   .content {
     .noGroupsFound {
-      @include font-size(lg);
-      @include font-weight(semiBold);
+      @include fontSize(lg);
+      @include fontWeight(semiBold);
       margin: auto;
     }
 
@@ -70,8 +70,8 @@
           margin: 10px;
           width: 100%;
           color: $theme0;
-          @include font-size(md);
-          @include font-weight(semiBold);
+          @include fontSize(md);
+          @include fontWeight(semiBold);
         }
 
         .image {
@@ -114,8 +114,8 @@
         margin: 10px;
         width: 100%;
         color: $theme0;
-        @include font-size(md);
-        @include font-weight(semiBold);
+        @include fontSize(md);
+        @include fontWeight(semiBold);
       }
 
       .image {

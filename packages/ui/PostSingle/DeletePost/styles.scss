@@ -22,14 +22,14 @@
 
 .modalContent {
   .header {
-    @include font-weight(semiBold);
-    @include font-size(lg);
+    @include fontWeight(semiBold);
+    @include fontSize(lg);
     text-align: center;
   }
 
   .desc {
     margin-top: 5px;
-    @include font-size(xdefault);
+    @include fontSize(xdefault);
   }
 
   .buttons {

@@ -191,8 +191,8 @@ $mockDataSize1: 55px;
     color: $mockDataColor2;
     border-radius: $borderRadius;
     text-align: center;
-    @include font-size(xmd);
-    @include font-weight(semiBold);
+    @include fontSize(xmd);
+    @include fontWeight(semiBold);
 
     &.clickable {
       cursor: pointer;
@@ -208,7 +208,7 @@ $mockDataSize1: 55px;
       display: inline-block;
       line-height: 0;
       margin-right: 20px;
-      @include font-size(xxxlg);
+      @include fontSize(xxxlg);
     }
   }
 }

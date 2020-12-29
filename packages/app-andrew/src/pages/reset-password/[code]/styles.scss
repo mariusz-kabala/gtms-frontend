@@ -31,12 +31,12 @@
       display: flex;
       align-items: center;
       @include header(h2, uppercase);
-      @include font-weight(semiBold);
+      @include fontWeight(semiBold);
       margin-bottom: 10px;
 
       i {
         line-height: 0;
-        @include font-size(lg);
+        @include fontSize(lg);
         margin-right: 3px;
       }
     }
