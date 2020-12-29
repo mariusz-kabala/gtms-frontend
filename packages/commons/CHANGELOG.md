@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.34.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.34.0...@gtms/commons@0.34.1) (2020-12-28)
+
+
+### Bug Fixes
+
+* GEOT-737: real bg in group bg settings button ([#959](https://github.com/gtms-org/gtms-frontend/issues/959)) ([c8a1d99](https://github.com/gtms-org/gtms-frontend/commit/c8a1d99109134421bd72a88563435ed8b13ac652))
+
+
+
+
+
 # [0.34.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.33.0...@gtms/commons@0.34.0) (2020-12-27)
 
 

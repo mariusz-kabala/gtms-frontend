@@ -1,6 +1,6 @@
 {
   "name": "@gtms/commons",
-  "version": "0.34.0",
+  "version": "0.34.1",
   "source": "./index.ts",
   "module": "./index.ts",
   "main": "./index.ts",

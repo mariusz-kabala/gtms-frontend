@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.13.2...@gtms/state-tag@0.13.3) (2020-12-29)
+
+
+### Bug Fixes
+
+* GEOT-744: proper support not logged user with fav tags, noti ([#960](https://github.com/gtms-org/gtms-frontend/issues/960)) ([46a254b](https://github.com/gtms-org/gtms-frontend/commit/46a254b8c22174c1bde2c359583a5c653cdb27a0))
+
+
+
+
+
+## [0.13.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.13.1...@gtms/state-tag@0.13.2) (2020-12-28)
+
+**Note:** Version bump only for package @gtms/state-tag
+
+
+
+
+
 ## [0.13.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-tag@0.13.0...@gtms/state-tag@0.13.1) (2020-12-28)
 
 
