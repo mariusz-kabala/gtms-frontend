@@ -8,7 +8,6 @@ export const ErrorPage: NextPage<{ statusCode: number | undefined }> = ({
   statusCode,
 }) => {
   if (statusCode === 404) {
-    return <InternalError statusCode={statusCode} />
     return <FourHundredFour />
   }
 
