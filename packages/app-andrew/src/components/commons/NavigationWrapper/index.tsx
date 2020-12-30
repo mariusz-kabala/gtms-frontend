@@ -34,6 +34,7 @@ export const NavigationWrapper: FC<{}> = () => {
         onLoadSuggestion={() => null}
         onQueryChange={() => null}
         onLoadSuggestionCancel={() => null}
+        onUserRemove={() => null}
       />
       {isLogged && (
         <div className={styles.right}>

@@ -23,6 +23,7 @@ export const SearchBar: FC<{
   onLoadSuggestion: (text: string, type: keyof typeof SuggestionTypes) => void
   onLoadSuggestionCancel: () => void
   onQueryChange: (text: string) => void
+  onUserRemove: (user: string) => void
 }> = (params) => {
   const {
     additionalStyles,
@@ -37,6 +38,7 @@ export const SearchBar: FC<{
     onTagRemove,
     onLoadSuggestion,
     onLoadSuggestionCancel,
+    onUserRemove,
     inlineTagsLimit = 9999,
     suggestionMinLength = 3,
   } = params
@@ -95,6 +97,7 @@ export const SearchBar: FC<{
                     key={`user-${user}`}
                     type="button"
                     title="click to remove"
+                    onClick={() => onUserRemove(user)}
                   >
                     @{user}
                   </button>
