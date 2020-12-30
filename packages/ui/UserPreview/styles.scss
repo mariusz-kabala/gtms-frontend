@@ -18,7 +18,7 @@
   }
 
   .headerSection {
-    @include font-size(sm);
+    @include fontSize(sm);
     text-transform: uppercase;
   }
 
@@ -51,8 +51,8 @@
 
   .content {
     .header {
-      @include font-size(lg);
-      @include font-weight(semiBold);
+      @include fontSize(lg);
+      @include fontWeight(semiBold);
       margin-bottom: 5px;
       margin-top: 10px;
     }

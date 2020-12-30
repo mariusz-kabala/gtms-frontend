@@ -26,8 +26,8 @@
     padding: 50px;
 
     .header {
-      @include font-weight(semiBold);
-      @include font-size(xlg);
+      @include fontWeight(semiBold);
+      @include fontSize(xlg);
       margin-top: 20px;
       text-transform: uppercase;
     }
@@ -36,7 +36,7 @@
       margin-top: 5px;
       margin-bottom: 20px;
       line-height: 1.3em;
-      @include font-weight(semiNormal);
+      @include fontWeight(semiNormal);
     }
   }
 }

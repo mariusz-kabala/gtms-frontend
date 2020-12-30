@@ -28,7 +28,7 @@
     }
 
     i {
-      @include font-size(xlg);
+      @include fontSize(xlg);
     }
 
     .header,
@@ -37,12 +37,12 @@
     }
 
     .header {
-      @include font-weight(normal);
-      @include font-size(md);
+      @include fontWeight(normal);
+      @include fontSize(md);
     }
 
     .desc {
-      @include font-weight(normal);
+      @include fontWeight(normal);
     }
   }
 

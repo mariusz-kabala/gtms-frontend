@@ -58,8 +58,8 @@
     word-break: break-all;
 
     .header {
-      @include font-size(md);
-      @include font-weight(semiBold);
+      @include fontSize(md);
+      @include fontWeight(semiBold);
     }
   }
 }

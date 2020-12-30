@@ -52,20 +52,20 @@
       display: flex;
       align-items: center;
       width: 100%;
-      @include font-size(xs);
+      @include fontSize(xs);
       text-transform: uppercase;
       margin-bottom: 15px; // align it properly in post container
 
       .date {
         margin-left: 5px;
-        @include font-size(xxs);
-        @include font-weight(semiNormal);
+        @include fontSize(xxs);
+        @include fontWeight(semiNormal);
       }
     }
 
     .deleteBtn {
-      @include font-size(xxs);
-      @include font-weight(semiNormal);
+      @include fontSize(xxs);
+      @include fontWeight(semiNormal);
       opacity: 0;
       margin-top: 2px;
       margin-left: auto;
@@ -79,7 +79,7 @@
     }
 
     .message {
-      @include font-size(sm);
+      @include fontSize(sm);
       margin-top: -15px;
       text-indent: 45px;
       line-height: 1.25;

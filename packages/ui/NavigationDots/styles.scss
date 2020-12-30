@@ -84,7 +84,7 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
         i {
           line-height: 0;
           display: block;
-          @include font-size(md);
+          @include fontSize(md);
         }
 
         &:hover,
