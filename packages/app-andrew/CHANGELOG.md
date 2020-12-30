@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.101.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.101.0...@gtms/app-andrew@0.101.1) (2020-12-30)
+
+
+### Bug Fixes
+
+* GEOT-755: internal error component ([#967](https://github.com/gtms-org/gtms-frontend/issues/967)) ([5dd8c6e](https://github.com/gtms-org/gtms-frontend/commit/5dd8c6e34daab3cfe77522ee6c55f76933da1f3b))
+
+
+
+
+
 # [0.101.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.100.0...@gtms/app-andrew@0.101.0) (2020-12-30)
 
 
