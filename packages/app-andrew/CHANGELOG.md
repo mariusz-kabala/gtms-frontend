@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.99.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.98.5...@gtms/app-andrew@0.99.0) (2020-12-30)
+
+
+### Features
+
+* GEOT-752: better group create ([#964](https://github.com/gtms-org/gtms-frontend/issues/964)) ([5b74191](https://github.com/gtms-org/gtms-frontend/commit/5b7419144ca60a741c74eabf2d42c2e49a0ed721))
+
+
+
+
+
 ## [0.98.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.98.4...@gtms/app-andrew@0.98.5) (2020-12-30)
 
 
