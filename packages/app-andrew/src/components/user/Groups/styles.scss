@@ -52,7 +52,7 @@
     cursor: pointer;
 
     &:hover {
-      @include effectOne();
+      @include effectColorTransparentOverlay();
     }
 
     &:before {

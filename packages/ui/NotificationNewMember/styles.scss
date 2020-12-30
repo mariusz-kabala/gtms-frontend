@@ -28,7 +28,7 @@
       color: $theme4;
 
       .avatar {
-        @include effectOne('circle');
+        @include effectColorTransparentOverlay('circle');
       }
 
       span {
@@ -45,7 +45,7 @@
 
       &:hover {
         .avatar {
-          @include effectOne('defaultRadius');
+          @include effectColorTransparentOverlay('defaultRadius');
         }
       }
     }

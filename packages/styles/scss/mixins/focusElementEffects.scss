@@ -1,4 +1,4 @@
-@mixin effectOne($radius: null, $borderWidth: null) {
+@mixin effectColorTransparentOverlay($radius: null, $borderWidth: null) {
   position: relative;
   &:after {
     content: '';

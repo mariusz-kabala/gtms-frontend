@@ -38,7 +38,7 @@
       background: $theme1;
 
       &:hover {
-        @include effectOne('defaultRadius', 4px);
+        @include effectColorTransparentOverlay('defaultRadius', 4px);
       }
 
       &:before {

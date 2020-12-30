@@ -3,6 +3,10 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .noComments {
+  position: relative;
+  border-top: 2px solid $theme1;
+  border-radius: $borderRadius;
+  margin: 10px;
   @include fontSize(sm);
   font-style: italic;
 }

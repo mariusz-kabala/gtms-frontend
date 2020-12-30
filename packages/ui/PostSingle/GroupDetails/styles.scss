@@ -15,10 +15,7 @@
     border-radius: $borderRadius;
 
     &:hover {
-      a {
-        display: block;
-        @include effectOne();
-      }
+      @include effectColorTransparentOverlay();
     }
   }
 

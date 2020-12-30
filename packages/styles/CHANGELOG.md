@@ -3,50 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.28.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.2...@gtms/styles@0.28.3) (2020-12-25)
-
+## [0.28.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.4...@gtms/styles@0.28.5) (2020-12-30)
 
 ### Bug Fixes
 
-* GEOT-735: restyle notifications ([#955](https://github.com/gtms-org/gtms-frontend/issues/955)) ([aad9229](https://github.com/gtms-org/gtms-frontend/commit/aad9229350a51890ed9a1cea662172cfa27098d8))
+- GEOT-751: use mixin for hover not repeated code ([#963](https://github.com/gtms-org/gtms-frontend/issues/963)) ([4be4cda](https://github.com/gtms-org/gtms-frontend/commit/4be4cda50a85682d3cb36d9a8458eaf64e86ecba))
 
+## [0.28.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.3...@gtms/styles@0.28.4) (2020-12-30)
 
+### Bug Fixes
 
+- GEOT-750: GEOT-750: unify font size font weight mixins ([#962](https://github.com/gtms-org/gtms-frontend/issues/962)) ([86d4f9e](https://github.com/gtms-org/gtms-frontend/commit/86d4f9ed3b27c867742572198b118eddc483b826))
 
+## [0.28.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.2...@gtms/styles@0.28.3) (2020-12-25)
+
+### Bug Fixes
+
+- GEOT-735: restyle notifications ([#955](https://github.com/gtms-org/gtms-frontend/issues/955)) ([aad9229](https://github.com/gtms-org/gtms-frontend/commit/aad9229350a51890ed9a1cea662172cfa27098d8))
 
 ## [0.28.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.1...@gtms/styles@0.28.2) (2020-12-19)
 
-
 ### Bug Fixes
 
-* GEOT-717: check css errors in group ([#951](https://github.com/gtms-org/gtms-frontend/issues/951)) ([87739a3](https://github.com/gtms-org/gtms-frontend/commit/87739a35d2a1843bb200e7e46e83bc26042ac8ca))
-
-
-
-
+- GEOT-717: check css errors in group ([#951](https://github.com/gtms-org/gtms-frontend/issues/951)) ([87739a3](https://github.com/gtms-org/gtms-frontend/commit/87739a35d2a1843bb200e7e46e83bc26042ac8ca))
 
 ## [0.28.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.0...@gtms/styles@0.28.1) (2020-12-16)
 
-
 ### Bug Fixes
 
-* GEOT-713: spinner inside buttons and other small changes ([#949](https://github.com/gtms-org/gtms-frontend/issues/949)) ([0f96d21](https://github.com/gtms-org/gtms-frontend/commit/0f96d212b28001a88488c10358f81a4aa92ae0f9))
-
-
-
-
+- GEOT-713: spinner inside buttons and other small changes ([#949](https://github.com/gtms-org/gtms-frontend/issues/949)) ([0f96d21](https://github.com/gtms-org/gtms-frontend/commit/0f96d212b28001a88488c10358f81a4aa92ae0f9))
 
 # [0.28.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.27.0...@gtms/styles@0.28.0) (2020-12-15)
 
-
 ### Features
 
-* GEOT-699: user card on main page ([#927](https://github.com/gtms-org/gtms-frontend/issues/927)) ([0b4d2ba](https://github.com/gtms-org/gtms-frontend/commit/0b4d2ba9f89ac8a9ddddd7841bd7da2eec257edc))
-* GEOT-711: styles for different small elements ([#947](https://github.com/gtms-org/gtms-frontend/issues/947)) ([5fb2446](https://github.com/gtms-org/gtms-frontend/commit/5fb2446c5a13aec6a4637954aefe8f97b883de45))
-
-
-
-
+- GEOT-699: user card on main page ([#927](https://github.com/gtms-org/gtms-frontend/issues/927)) ([0b4d2ba](https://github.com/gtms-org/gtms-frontend/commit/0b4d2ba9f89ac8a9ddddd7841bd7da2eec257edc))
+- GEOT-711: styles for different small elements ([#947](https://github.com/gtms-org/gtms-frontend/issues/947)) ([5fb2446](https://github.com/gtms-org/gtms-frontend/commit/5fb2446c5a13aec6a4637954aefe8f97b883de45))
 
 # [0.27.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.26.1...@gtms/styles@0.27.0) (2020-12-10)
 

@@ -26,7 +26,7 @@
 
       &:hover {
         .avatar {
-          @include effectOne('circle');
+          @include effectColorTransparentOverlay('circle');
         }
       }
 

@@ -36,7 +36,7 @@
       border-radius: 50%;
 
       &:hover {
-        @include effectOne('circle');
+        @include effectColorTransparentOverlay('circle');
       }
     }
 
@@ -52,7 +52,7 @@
       display: flex;
       align-items: center;
       width: 100%;
-      @include fontSize(xxs);
+      @include fontSize(xs);
       text-transform: uppercase;
       margin-bottom: 15px; // align it properly in post container
 
@@ -100,7 +100,7 @@
         border-radius: $borderRadius;
 
         &:hover {
-          @include effectOne();
+          @include effectColorTransparentOverlay();
         }
       }
     }

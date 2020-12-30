@@ -19,7 +19,7 @@ const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
 
 export const PostsList: FC<{
   isAdmin: boolean
-  onUserPostsClick: (user: IUser) => unknown
+  onUserPostsClick?: (user: IUser) => unknown
   posts: IPost[]
   renderPost: (
     post: IPost & {

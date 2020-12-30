@@ -68,7 +68,7 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
         @include imageCover();
 
         &:hover {
-          @include effectOne();
+          @include effectColorTransparentOverlay();
         }
       }
 
