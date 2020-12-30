@@ -25,9 +25,9 @@ export const ResetPasswordPage: NextPage<{}> = () => {
         setIsLoading(false)
       })
       .catch(() => {
-        // router.push({
-        //   pathname: '/login',
-        // })
+        router.push({
+          pathname: '/login',
+        })
       })
   }, [code])
 
