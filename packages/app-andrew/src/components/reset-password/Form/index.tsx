@@ -1,11 +1,13 @@
 import React, { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Input } from '@gtms/ui/Forms/Input'
-import { Button } from '@gtms/ui/Button'
 import { useTranslation } from '@gtms/commons/i18n'
 import { resetPasswordReq } from '@gtms/api-auth'
-import { Error } from '@gtms/ui/Forms/Error'
 import { validatePassword } from '@gtms/state-user'
+// ui
+import { Button } from '@gtms/ui/Button'
+import { Error } from '@gtms/ui/Forms/Error'
+import { Input } from '@gtms/ui/Forms/Input'
+import styles from './styles.scss'
 
 export interface IResetPasswordFormData {
   password: string
@@ -96,7 +98,11 @@ export const ResetPasswordForm: FC<{
         <Error text={t('form.validation.confirmPassword.notEqual')} />
       )}
 
-      <Button type="submit" disabled={isMakingRequest}>
+      <Button
+        additionalStyles={styles.btn}
+        disabled={isMakingRequest}
+        type="submit"
+      >
         {t('form.submitButton')}
       </Button>
     </form>

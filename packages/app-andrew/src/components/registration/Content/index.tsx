@@ -9,6 +9,7 @@ import { SocialButtons } from '../../login/SocialButtons'
 // ui
 import { IoMdLogIn } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
+import { Modal } from '@gtms/ui/Modal'
 // styles
 import styles from './styles.scss'
 
@@ -31,49 +32,62 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
   }, [])
 
   return (
-    <div className={styles.pageWrapper} data-testid="registration-page">
-      <div className={styles.wrapper}>
-        <div className={styles.content}>
-          <div>
-            {error && <div data-testid="login-page-error">{t(error)}</div>}
-            <div className={styles.headerWrapper}>
-              <div>
+    <>
+      <div className={styles.pageWrapper} data-testid="registration-page">
+        {error && (
+          <Modal onClose={() => setError(undefined)}>
+            <div
+              className={styles.modalError}
+              data-testid="registration-page-error"
+            >
+              <h2 className={styles.header}>Title</h2>
+              <p className={styles.desc}>{t(error)}</p>
+              <Button additionalStyles={styles.btn} onClick={() => null}>
+                ok
+              </Button>
+            </div>
+          </Modal>
+        )}
+        <div className={styles.wrapper}>
+          <div className={styles.content}>
+            <div>
+              {' '}
+              {/* for centering vertically */}
+              <div className={styles.headerWrapper}>
                 <h2 className={styles.header}>Sign up</h2>
                 <p>
                   Sunt sint deserunt occaecat reprehenderit est fugiat ex sunt
                   quis nulla deserunt sit culpa.
                 </p>
               </div>
-            </div>
-            <SocialButtons
-              additionalStyles={styles.socialButtons}
-              onFailure={() => setError('socialMediaRegistrationFailed')}
-            />
-            <div className={styles.or}>
-              <span>or</span>
-            </div>
-            {error && (
-              <div data-testid="registration-page-error">{t(error)}</div>
-            )}
-            <RegistrationForm
-              additionalStyles={styles.form}
-              onError={() => setError('registrationFailed')}
-            />
-            <div className={styles.actionButtons}>
-              <Link href={loginLink}>
-                <Button additionalStyles={styles.btn}>
-                  <i>
-                    <IoMdLogIn />
-                  </i>
-                  {t('goToLogin')}
-                </Button>
-              </Link>
+              <SocialButtons
+                additionalStyles={styles.socialButtons}
+                onFailure={() => setError('socialMediaRegistrationFailed')}
+              />
+              <div className={styles.or}>
+                <span>or</span>
+              </div>
+              <RegistrationForm
+                additionalStyles={styles.form}
+                onError={() => setError('registrationFailed')}
+              />
+              <div className={styles.actionButtons}>
+                <a onClick={() => setError('registrationFailed')}>asdfasdfas</a>
+                <Link href={loginLink}>
+                  <Button additionalStyles={styles.btn}>
+                    <i>
+                      <IoMdLogIn />
+                    </i>
+                    {t('goToLogin')}
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
+        {children}
       </div>
-      {children}
       <div className={styles.pageBg} />
-    </div>
+    </>
   )
 }

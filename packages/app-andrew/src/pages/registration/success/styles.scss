@@ -1,5 +1,9 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/pageBg.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
@@ -7,29 +11,43 @@
 }
 
 .wrapper {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
 
-  > div {
-    width: 80%;
-    text-align: center;
+  .centerIt {
+    max-width: 500px;
+    background: $theme1;
+    padding: 20px;
+    border-radius: $borderRadius;
+
+    i {
+      display: block;
+      text-align: center;
+      @include fontSize(xxlg);
+    }
 
     h3 {
-      @include header(h3, textUppercase);
+      @include header(h3);
     }
 
     a {
-      display: block;
+      display: flex;
+      justify-content: center;
+      margin: 15px;
       margin-top: 20px;
-      text-decoration: none;
-      @include header(h4, textUppercase);
 
       &:hover {
         color: $theme4;
       }
     }
   }
+}
+
+.pageBg {
+  @include pageBg();
 }

@@ -1,6 +1,10 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/header.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/pageBg.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
@@ -8,20 +12,54 @@
 }
 
 .wrapper {
+  position: relative;
+  z-index: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
+  justify-content: center;
   height: 100vh;
 
-  > div {
+  .centerIt {
     text-align: center;
+    max-width: 500px;
+    background: $theme1;
+    padding: 20px;
+    border-radius: $borderRadius;
 
     .header {
-      // @todo make mixin of that
-      font-size: 3em;
-      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      @include header(h2, uppercase);
       @include fontWeight(semiBold);
+      margin-bottom: 10px;
+
+      i {
+        line-height: 0;
+        @include fontSize(lg);
+        margin-right: 3px;
+      }
+    }
+
+    .spinner {
+      margin: 20px auto;
+    }
+
+    .btn {
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapeDefault();
+      @include buttonColorsDefault();
+      width: 100%;
+      margin-top: 10px;
+
+      &:hover {
+        @include buttonColorsPrimary();
+      }
     }
   }
+}
+
+.pageBg {
+  @include pageBg();
 }
