@@ -15,8 +15,8 @@
     }
 
     h2 {
-      @include font-size(xmd);
-      @include font-weight(semiBold);
+      @include fontSize(xmd);
+      @include fontWeight(semiBold);
     }
   }
 

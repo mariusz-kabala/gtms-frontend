@@ -13,15 +13,15 @@
     cursor: pointer;
 
     .header {
-      @include font-weight(semiBold);
+      @include fontWeight(semiBold);
       text-transform: uppercase;
-      @include font-size(xmd);
+      @include fontSize(xmd);
     }
 
     .items {
       display: flex;
       align-items: center;
-      @include font-size(xdefault);
+      @include fontSize(xdefault);
 
       .item {
         margin-left: 10px;
@@ -82,8 +82,8 @@
       color: $theme0;
 
       .header {
-        @include font-size(md);
-        @include font-weight(semiBold);
+        @include fontSize(md);
+        @include fontWeight(semiBold);
       }
     }
   }

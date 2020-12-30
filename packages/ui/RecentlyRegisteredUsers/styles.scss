@@ -29,8 +29,10 @@
 
     .nameAndSurname {
       display: inline-block;
+      display: none; // @todo temporary hidden;
+      margin-top: 10px;
       @include fontWeight(semiBold);
-      margin-left: 8px;
+      @include fontSize(md);
     }
 
     &:hover {

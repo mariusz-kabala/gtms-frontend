@@ -12,8 +12,8 @@
     }
 
     label {
-      @include font-weight(semiBold);
-      @include font-size(xdefault);
+      @include fontWeight(semiBold);
+      @include fontSize(xdefault);
       margin-left: 5px;
     }
 

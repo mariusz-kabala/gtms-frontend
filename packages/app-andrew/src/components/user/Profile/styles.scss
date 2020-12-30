@@ -20,12 +20,12 @@
       margin-left: 20px;
 
       .header {
-        @include font-size(lg);
-        @include font-weight(semiBold);
+        @include fontSize(lg);
+        @include fontWeight(semiBold);
       }
 
       .desc {
-        @include font-size(xdefault);
+        @include fontSize(xdefault);
         word-break: break-all;
       }
     }
@@ -35,8 +35,8 @@
     margin: 20px 0;
 
     .header {
-      @include font-size(lg);
-      @include font-weight(semiBold);
+      @include fontSize(lg);
+      @include fontWeight(semiBold);
       margin-bottom: 5px;
     }
   }
