@@ -46,50 +46,49 @@ export const GroupCard: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="group-card"
     >
-      <Picture additionalStyles={styles.avatar} {...logo} />
       <div className={styles.cover} />
       <div className={styles.content}>
         <div className={styles.leftColumn}>
-          <h2 className={styles.header}>{name}</h2>
-          {description && <p className={styles.desc}>{description}</p>}
-          <div className={styles.tags}>
-            {Array.isArray(tags) && tags.length > 0 ? (
-              <>
-                <h3 className={styles.headerSection}>{t('groupTags')}:</h3>
-                {tags.map((tag) => (
-                  <Tag
-                    additionalStyles={styles.tag}
-                    key={`tag-${tag}`}
-                    label={tag}
-                  />
-                ))}
-              </>
-            ) : (
-              <p>{t('tags-not-added-yet')}</p>
-            )}
+          <Picture additionalStyles={styles.avatar} {...logo} />
+          <div>
+            <h2 className={styles.header}>{name}</h2>
+            {description && <p className={styles.desc}>{description}</p>}
+            <div className={styles.tags}>
+              {Array.isArray(tags) && tags.length > 0 ? (
+                <>
+                  <h3 className={styles.headerSection}>{t('groupTags')}:</h3>
+                  {tags.map((tag) => (
+                    <Tag
+                      additionalStyles={styles.tag}
+                      key={`tag-${tag}`}
+                      label={tag}
+                    />
+                  ))}
+                </>
+              ) : (
+                <p>{t('tags-not-added-yet')}</p>
+              )}
+            </div>
           </div>
         </div>
-        <div className={cx(styles.users)}>
-          <h3 className={styles.headerSection}>{t('groupsMembers')}</h3>
-          {!isLoading &&
-            Array.isArray(members) &&
-            members &&
-            members.length > 0 && (
-              <ul
-                className={styles.items}
-                data-testid="recently-registered-users"
-              >
-                {members.map((member) => (
-                  <li className={styles.user} key={`member-${member.id}`}>
-                    <UserAvatar
-                      image={getImage('50x50', member.avatar, noUserAvatar)}
-                      additionalStyles={styles.userAvatar}
-                    />
-                  </li>
-                ))}
-              </ul>
-            )}
-        </div>
+        {!isLoading && Array.isArray(members) && members && members.length > 0 && (
+          <div className={cx(styles.users)}>
+            <h3 className={styles.headerSection}>{t('groupsMembers')}</h3>
+            <ul
+              className={styles.items}
+              data-testid="recently-registered-users"
+            >
+              {members.map((member) => (
+                <li className={styles.user} key={`member-${member.id}`}>
+                  <UserAvatar
+                    image={getImage('50x50', member.avatar, noUserAvatar)}
+                    additionalStyles={styles.userAvatar}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       <div className={styles.btnWrapper}>
         <Link href={`/group/${slug}`}>
