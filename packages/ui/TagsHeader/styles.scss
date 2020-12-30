@@ -10,12 +10,12 @@
     align-items: baseline;
 
     .header {
-      @include font-size(xxlg);
+      @include fontSize(xxlg);
     }
 
     a {
-      @include font-size(xxlg);
-      @include font-weight(semiBold);
+      @include fontSize(xxlg);
+      @include fontWeight(semiBold);
       margin-left: 10px;
       cursor: pointer;
     }

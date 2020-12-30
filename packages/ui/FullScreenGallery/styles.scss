@@ -21,7 +21,7 @@
   .iconClose {
     background: $theme1;
     padding: 10px;
-    @include font-size(lg);
+    @include fontSize(lg);
   }
 
   .canvas {

@@ -16,8 +16,8 @@
   border-right: 1px solid rgba($theme0, 0.15);
 
   .header {
-    @include font-size(lg);
-    @include font-weight(semiBold);
+    @include fontSize(lg);
+    @include fontWeight(semiBold);
     margin-bottom: 15px;
   }
 
@@ -52,13 +52,13 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          @include font-size(md);
+          @include fontSize(md);
         }
       }
 
       &.current {
         a {
-          @include font-weight(semiBold);
+          @include fontWeight(semiBold);
           color: $theme0;
         }
       }
@@ -120,12 +120,12 @@
         }
 
         h2 {
-          @include font-size(md);
-          @include font-weight(semiBold);
+          @include fontSize(md);
+          @include fontWeight(semiBold);
         }
 
         p {
-          @include font-weight(semiNormal);
+          @include fontWeight(semiNormal);
         }
       }
     }

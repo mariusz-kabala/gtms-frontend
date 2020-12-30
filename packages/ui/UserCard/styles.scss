@@ -31,13 +31,13 @@
     }
 
     > h2 {
-      @include font-weight(semibold);
-      @include font-size(lg);
+      @include fontWeight(semibold);
+      @include fontSize(lg);
     }
 
     > h3 {
       margin-top: 15px;
-      @include font-size(md);
+      @include fontSize(md);
     }
 
     p {

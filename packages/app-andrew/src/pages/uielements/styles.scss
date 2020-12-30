@@ -13,12 +13,12 @@
   h2 {
     margin-top: 25px;
     margin-bottom: 5px;
-    @include font-weight(semiBold);
-    @include font-size(lg);
+    @include fontWeight(semiBold);
+    @include fontSize(lg);
   }
 
   h3 {
-    @include font-size(md);
+    @include fontSize(md);
     margin-top: 10px;
     margin-bottom: 5px;
   }
@@ -34,7 +34,7 @@
       background: $theme9;
 
       i {
-        @include font-size(lg);
+        @include fontSize(lg);
         line-height: 0;
       }
 

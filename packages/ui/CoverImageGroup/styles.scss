@@ -11,12 +11,12 @@
   background: $theme1;
 
   .header {
-    @include font-weight(semiBold);
-    @include font-size(xlg);
+    @include fontWeight(semiBold);
+    @include fontSize(xlg);
   }
 
   .text {
-    @include font-size(md);
+    @include fontSize(md);
     color: $theme9;
   }
 
@@ -89,8 +89,8 @@
 
       .header,
       .text {
-        @include font-weight(semiBold);
-        @include font-size(lg);
+        @include fontWeight(semiBold);
+        @include fontSize(lg);
       }
 
       &.active {
