@@ -6,6 +6,7 @@ import { UserEmail } from 'components/account/UserEmail'
 import { UserName } from 'components/account/UserName'
 import { Navigation, Tabs } from 'components/account/Navigation'
 import { UserDescription } from 'components/account/UserDescription'
+import { MyPosts } from 'components/account/MyPosts'
 import {
   userQuery,
   markAsLoading,
@@ -24,11 +25,11 @@ import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { ImageEditor } from '@gtms/ui/ImageEditor'
-import { MockData } from '@gtms/ui/MockData'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 import { TagsBar } from '@gtms/ui/TagsBar'
 import { UserGroups } from '@gtms/ui/UserGroups'
+// styles
 import styles from './styles.scss'
 
 type AccountPageProps = {
@@ -228,14 +229,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                   noImage={GroupAvatarNoImage}
                 />
               </div>
-              <div className={styles.userLastPosts}>
-                <span>My last posts:</span>
-                <div className={styles.noRecords}>
-                  <MockData />
-                  <MockData onClick={() => null} text="No posts, create some" />
-                  <MockData numberOfElements={4} />
-                </div>
-              </div>
+              <MyPosts />
             </div>
           </>
         )}
