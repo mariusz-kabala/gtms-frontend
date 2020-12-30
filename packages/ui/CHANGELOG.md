@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.77.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.77.2...@gtms/ui@0.77.3) (2020-12-30)
+
+
+### Bug Fixes
+
+* GEOT-750: GEOT-750: unify font size font weight mixins ([#962](https://github.com/gtms-org/gtms-frontend/issues/962)) ([86d4f9e](https://github.com/gtms-org/gtms-frontend/commit/86d4f9ed3b27c867742572198b118eddc483b826))
+
+
+
+
+
 ## [0.77.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.77.1...@gtms/ui@0.77.2) (2020-12-28)
 
 **Note:** Version bump only for package @gtms/ui
