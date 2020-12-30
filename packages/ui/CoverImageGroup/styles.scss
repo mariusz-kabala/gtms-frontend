@@ -1,7 +1,8 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
-@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
@@ -11,12 +12,12 @@
   background: $theme1;
 
   .header {
-    @include font-weight(semiBold);
-    @include font-size(xlg);
+    @include fontWeight(semiBold);
+    @include fontSize(xlg);
   }
 
   .text {
-    @include font-size(md);
+    @include fontSize(md);
     color: $theme9;
   }
 
@@ -52,7 +53,7 @@
           @include buttonDefault();
           @include buttonSizeSm();
           @include buttonShapeDefault();
-          @include buttonColorsSecondary();
+          @include buttonColorsDefault();
           @include buttonWithIcon('left');
 
           &:hover {
@@ -89,8 +90,8 @@
 
       .header,
       .text {
-        @include font-weight(semiBold);
-        @include font-size(lg);
+        @include fontWeight(semiBold);
+        @include fontSize(lg);
       }
 
       &.active {
@@ -119,7 +120,7 @@
           @include buttonSizeSm();
           @include buttonShapeDefault();
           @include buttonWithIcon('left');
-          @include buttonColorsSecondary();
+          @include buttonColorsDefault();
           margin-right: 10px;
 
           &:hover {
@@ -136,6 +137,7 @@
     visibility: hidden;
     transition: 2s ease;
     height: 0;
+    padding: 10px;
 
     &.active {
       visibility: visible;
@@ -169,39 +171,25 @@
         cursor: pointer;
         @include imageCover();
 
-        // @todo create mixin for that
-        position: relative;
-        overflow: hidden;
-        &:after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border: 4px solid $theme4;
-          background: rgba($theme4, 0.2);
-          opacity: 0;
-        }
         &:hover,
         &.active {
-          &:after {
-            opacity: 1;
-          }
+          @include effectOne('defaultRadius', 4px);
         }
       }
 
       .noCover {
         text-align: center;
+        padding: 5px;
+
         i {
           display: block;
           margin: 5px auto;
+
           svg {
             width: 2.5em;
             height: 2.5em;
           }
         }
-        padding: 5px;
       }
     }
   }
