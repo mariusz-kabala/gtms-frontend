@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/zindex.scss';
@@ -86,27 +87,9 @@
         @include imageCover();
         overflow: hidden;
 
-        // @todo create mixin
-        position: relative;
-        &:after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border: 4px solid $theme4;
-          background: rgba($theme4, 0.2);
-          border-radius: $borderRadius;
-          opacity: 0;
-          cursor: pointer;
-        }
-
         &:hover,
         &.active {
-          &:after {
-            opacity: 1;
-          }
+          @include effectOne('defaultRadius', 4px);
         }
       }
     }

@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react'
-import cx from 'classnames'
 import { IUser } from '@gtms/commons/models'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
@@ -11,10 +10,9 @@ import { UserPreview } from '@gtms/ui/UserPreview'
 import styles from './styles.scss'
 
 export const RecentlyRegisteredUsers: FC<{
-  additionalStyles?: string
   users: IUser[]
   noImage: { [key: string]: IImage }
-}> = ({ additionalStyles, users, noImage }) => {
+}> = ({ users, noImage }) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
 
   return (
@@ -28,10 +26,7 @@ export const RecentlyRegisteredUsers: FC<{
           />
         </Modal>
       )}
-      <ul
-        className={cx(styles.users, additionalStyles)}
-        data-testid="recently-registered-users"
-      >
+      <ul className={styles.users} data-testid="recently-registered-users">
         {users.map((user) => (
           <li
             className={styles.user}
@@ -41,9 +36,13 @@ export const RecentlyRegisteredUsers: FC<{
             <UserAvatar
               additionalStyles={styles.userAvatar}
               image={getImage('200x200', user.avatar, noImage)}
-              size="md"
+              size="sm"
             />
-            {(user.name || user.surname) && <span>{getDisplayName(user)}</span>}
+            {(user.name || user.surname) && (
+              <span className={styles.nameAndSurname}>
+                {getDisplayName(user)}
+              </span>
+            )}
           </li>
         ))}
       </ul>

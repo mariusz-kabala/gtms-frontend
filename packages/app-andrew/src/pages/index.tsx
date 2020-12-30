@@ -18,11 +18,7 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
   return (
     <>
       <div data-testid="home-page" className={styles.pageWrapper}>
-        {/* <RecentlyRegisteredUsers
-          noImage={UserAvatarNoImage}
-          additionalStyles={styles.recentlyRegisteredUsers}
-          users={users}
-        /> */}
+        <RecentlyRegisteredUsers noImage={UserAvatarNoImage} users={users} />
         <RecentlyCreatedGroups
           additionalStyles={styles.recentlyCreatedGroups}
           createYourOwnGroup={true}
