@@ -11,6 +11,32 @@
   margin: initial; // clear pageWrapper() margin
 }
 
+.modalError {
+  .header {
+    @include fontSize(lg);
+    @include fontWeight(semiBold);
+  }
+
+  .desc {
+    margin-bottom: 5px;
+    @include fontSize(md);
+  }
+
+  .btn {
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapeDefault();
+    @include buttonColorsDefault();
+    @include buttonWithIcon('left');
+    width: 100%;
+    margin-top: 30px;
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+  }
+}
+
 .wrapper {
   position: relative;
   display: flex;

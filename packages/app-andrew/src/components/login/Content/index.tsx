@@ -8,6 +8,7 @@ import { SocialButtons } from '../SocialButtons'
 import { AiOutlineForm } from 'react-icons/ai'
 import { MdSettingsBackupRestore } from 'react-icons/md'
 import { Button } from '@gtms/ui/Button'
+import { Modal } from '@gtms/ui/Modal'
 // styles
 import styles from './styles.scss'
 
@@ -41,9 +42,21 @@ export const LoginContent: FC<{ registrationLink?: string }> = ({
     <>
       <div className={styles.pageWrapper} data-testid="login-page">
         {error && <div data-testid="login-page-error">{t(error)}</div>}
+        {error && (
+          <Modal onClose={() => setError(undefined)}>
+            <div className={styles.modalError} data-testid="login-page-error">
+              <h2 className={styles.header}>Title</h2>
+              <p className={styles.desc}>{t(error)}</p>
+              <Button additionalStyles={styles.btn} onClick={() => null}>
+                ok
+              </Button>
+            </div>
+          </Modal>
+        )}
         <div className={styles.wrapper}>
           <div className={styles.content}>
             <div>
+              {' '}
               {/* for centering vertically */}
               <div className={styles.headerWrapper}>
                 <h2 className={styles.header}>Sign in</h2>

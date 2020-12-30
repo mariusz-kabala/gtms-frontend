@@ -34,9 +34,18 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
   return (
     <>
       <div className={styles.pageWrapper} data-testid="registration-page">
-        {!error && (
-          <Modal onClose={() => null}>
-            <div data-testid="registration-page-error">{t(error)}</div>
+        {error && (
+          <Modal onClose={() => setError(undefined)}>
+            <div
+              className={styles.modalError}
+              data-testid="registration-page-error"
+            >
+              <h2 className={styles.header}>Title</h2>
+              <p className={styles.desc}>{t(error)}</p>
+              <Button additionalStyles={styles.btn} onClick={() => null}>
+                ok
+              </Button>
+            </div>
           </Modal>
         )}
         <div className={styles.wrapper}>
@@ -63,6 +72,7 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
                 onError={() => setError('registrationFailed')}
               />
               <div className={styles.actionButtons}>
+                <a onClick={() => setError('registrationFailed')}>asdfasdfas</a>
                 <Link href={loginLink}>
                   <Button additionalStyles={styles.btn}>
                     <i>
