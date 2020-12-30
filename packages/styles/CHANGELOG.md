@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.28.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.4...@gtms/styles@0.28.5) (2020-12-30)
+
+
+### Bug Fixes
+
+* GEOT-751: use mixin for hover not repeated code ([#963](https://github.com/gtms-org/gtms-frontend/issues/963)) ([4be4cda](https://github.com/gtms-org/gtms-frontend/commit/4be4cda50a85682d3cb36d9a8458eaf64e86ecba))
+
+
+
+
+
 ## [0.28.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.3...@gtms/styles@0.28.4) (2020-12-30)
 
 
