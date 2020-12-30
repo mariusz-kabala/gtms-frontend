@@ -67,6 +67,7 @@ export const TagsBar: FC<{
 
     if (
       currentTab === Tabs.favorites &&
+      state.isLogged &&
       !state.fav.isLoading &&
       !state.fav.isLoaded &&
       !state.fav.errorOccured &&
@@ -80,6 +81,7 @@ export const TagsBar: FC<{
     state.promoted,
     state.fav,
     state.groupId,
+    state.isLogged,
   ])
 
   // @todo this can be done better
@@ -106,14 +108,16 @@ export const TagsBar: FC<{
           </i>
           Tags
         </li>
-        <li
-          onClick={() => setCurrentTab(Tabs.favorites)}
-          className={cx({
-            [styles.active]: currentTab === Tabs.favorites,
-          })}
-        >
-          Favorites
-        </li>
+        {state.isLogged && (
+          <li
+            onClick={() => setCurrentTab(Tabs.favorites)}
+            className={cx({
+              [styles.active]: currentTab === Tabs.favorites,
+            })}
+          >
+            Favorites
+          </li>
+        )}
         <li
           className={cx({
             [styles.active]: currentTab === Tabs.recentlyViewed,
@@ -200,6 +204,7 @@ export const TagsBar: FC<{
         )}
 
       {currentTab === Tabs.favorites &&
+        state.isLogged &&
         !state.fav.isLoading &&
         !state.fav.errorOccured &&
         state.fav.tags.length > 0 && (

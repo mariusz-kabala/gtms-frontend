@@ -22,14 +22,14 @@
     margin-right: 5px;
 
     .header {
-      @include font-weight(normal);
+      @include fontWeight(normal);
       margin-bottom: 3px;
     }
 
     span {
       margin: 0 3px;
-      @include font-weight(light);
-      @include font-size(xs);
+      @include fontWeight(light);
+      @include fontSize(xs);
       text-transform: uppercase;
     }
 
@@ -37,7 +37,7 @@
       color: $theme4;
 
       .avatar {
-        @include effectOne('circle');
+        @include effectColorTransparentOverlay('circle');
       }
 
       span {
@@ -51,8 +51,8 @@
     align-items: center;
 
     .header {
-      @include font-weight(semiBold);
-      @include font-size(xs);
+      @include fontWeight(semiBold);
+      @include fontSize(xs);
       text-transform: uppercase;
     }
 
@@ -60,13 +60,13 @@
       color: $theme4;
 
       .avatar {
-        @include effectOne('defaultRadius');
+        @include effectColorTransparentOverlay('defaultRadius');
       }
     }
   }
 }
 
 .text {
-  @include font-size(sm);
-  @include font-weight(semiNormal);
+  @include fontSize(sm);
+  @include fontWeight(semiNormal);
 }

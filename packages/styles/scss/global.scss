@@ -49,8 +49,8 @@ button {
 
 body {
   width: 100%;
-  @include font-size(default);
-  @include font-weight(semiNormal);
+  @include fontSize(default);
+  @include fontWeight(semiNormal);
   line-height: normal;
   background-color: $theme1;
 }
@@ -71,8 +71,8 @@ img {
 
 button,
 a {
-  @include font-size(default);
-  @include font-weight(normal);
+  @include fontSize(default);
+  @include fontWeight(normal);
 }
 
 a {

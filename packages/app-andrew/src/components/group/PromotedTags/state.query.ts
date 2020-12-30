@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators'
 import { promotedTagsQuery, groupFavTagsQuery } from '@gtms/state-tag'
 import { postsQuery } from '@gtms/state-post'
 import { groupQuery } from '@gtms/state-group'
+import { userQuery } from '@gtms/state-user'
 import { IPromotedTag } from '@gtms/commons/models'
 
 export interface IPromotedTagsState {
@@ -13,6 +14,7 @@ export interface IPromotedTagsState {
   isAdmin: boolean
   id?: string
   favTags: string[]
+  isLogged: boolean
 }
 
 export const promotedTagsState = (): IPromotedTagsState => {
@@ -26,6 +28,7 @@ export const promotedTagsState = (): IPromotedTagsState => {
     errorOccured: promotedTagsState.error,
     isAdmin: groupQuery.hasAdminRights(),
     id,
+    isLogged: userQuery.isLogged(),
     favTags: id
       ? groupFavTagsQuery.getForGroup(id).tags.map((t) => t.groupTag.tag)
       : [],

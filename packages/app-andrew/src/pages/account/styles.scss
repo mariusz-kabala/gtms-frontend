@@ -25,11 +25,11 @@
     border-radius: $borderRadius;
     background: $theme9;
     color: $theme0;
-    @include font-weight(semiBold);
+    @include fontWeight(semiBold);
 
     span {
-      @include font-size(sm);
-      @include font-weight(light);
+      @include fontSize(sm);
+      @include fontWeight(light);
       display: block;
       margin-top: 2px;
       opacity: 0.9;
@@ -76,13 +76,13 @@
     }
 
     .userNameSurnameLogin {
-      @include font-size(md);
-      @include font-weight(semiBold);
+      @include fontSize(md);
+      @include fontWeight(semiBold);
       margin-left: 15px;
 
       .login {
         display: block;
-        @include font-size(md);
+        @include fontSize(md);
         color: $theme0;
       }
     }
@@ -95,7 +95,7 @@
       .aboutMeLabel {
         font-style: initial;
         text-transform: uppercase;
-        @include font-size(sm);
+        @include fontSize(sm);
       }
     }
   }
@@ -131,7 +131,7 @@
     span {
       // @todo create mixin of that
       display: inline-block;
-      @include font-size(xxs);
+      @include fontSize(xxs);
       text-transform: uppercase;
       margin-bottom: 3px;
     }
@@ -147,8 +147,8 @@
 
       span {
         display: block;
-        @include font-size(xdefault);
-        @include font-weight(semiBold);
+        @include fontSize(xdefault);
+        @include fontWeight(semiBold);
       }
 
       &:hover {
@@ -161,7 +161,7 @@
     span {
       // @todo create mixin of that
       display: inline-block;
-      @include font-size(xxs);
+      @include fontSize(xxs);
       text-transform: uppercase;
       margin-bottom: 3px;
     }

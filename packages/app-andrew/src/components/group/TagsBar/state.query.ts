@@ -9,6 +9,7 @@ import {
   IGroupFavTags,
 } from '@gtms/state-tag'
 import { groupQuery } from '@gtms/state-group'
+import { userQuery } from '@gtms/state-user'
 
 export interface ITagsBarState {
   groupId?: string
@@ -21,6 +22,7 @@ export interface ITagsBarState {
   }
   recentlyViewed: IGroupRecentlyViewedTags
   fav: IGroupFavTags
+  isLogged: boolean
 }
 
 export const tagsBarState = (): ITagsBarState => {
@@ -52,6 +54,7 @@ export const tagsBarState = (): ITagsBarState => {
           errorOccured: false,
           tags: [],
         },
+    isLogged: userQuery.isLogged(),
   }
 }
 

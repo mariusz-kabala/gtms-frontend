@@ -8,14 +8,14 @@
   align-items: center;
   flex-direction: row-reverse;
   gap: 5px;
-  @include font-size(md);
+  @include fontSize(md);
   cursor: pointer;
 
   .avatar {
     position: relative;
 
     &:hover {
-      @include effectOne('circle');
+      @include effectColorTransparentOverlay('circle');
     }
   }
 
@@ -44,7 +44,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          @include font-size(md);
+          @include fontSize(md);
         }
       }
 

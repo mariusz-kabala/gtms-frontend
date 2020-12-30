@@ -7,7 +7,7 @@
   border-top: 2px solid $theme1;
   border-radius: $borderRadius;
   margin: 10px;
-  @include font-size(sm);
+  @include fontSize(sm);
   font-style: italic;
   background-color: $theme1;
 

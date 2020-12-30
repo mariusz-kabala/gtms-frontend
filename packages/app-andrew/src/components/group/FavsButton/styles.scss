@@ -7,7 +7,7 @@
   @include buttonShapeDefault();
   @include buttonWithSpinnerAndLabel();
   @include buttonColorsDefault();
-  @include font-size(xmd);
+  @include fontSize(xmd);
   width: 100%;
   color: $theme0;
 

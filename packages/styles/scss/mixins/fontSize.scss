@@ -1,4 +1,4 @@
-$font-size: (
+$fontSize: (
   small: 9px,
   xs: 11px,
   xxs: 12px,
@@ -14,9 +14,9 @@ $font-size: (
 );
 
 @function getFontSize($key) {
-  @return map-get($font-size, $key);
+  @return map-get($fontSize, $key);
 }
 
-@mixin font-size($key) {
+@mixin fontSize($key) {
   font-size: getFontSize($key);
 }

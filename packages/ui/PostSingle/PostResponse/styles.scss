@@ -16,7 +16,7 @@
   .header {
     display: flex;
     align-items: center;
-    @include font-weight(semiBold);
+    @include fontWeight(semiBold);
 
     .user {
       display: flex;
@@ -29,7 +29,7 @@
         min-height: 35px;
 
         &:hover {
-          @include effectOne('circle');
+          @include effectColorTransparentOverlay('circle');
         }
       }
     }

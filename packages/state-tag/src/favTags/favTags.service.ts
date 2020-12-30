@@ -5,6 +5,10 @@ import {
   fetchGroupFavTagsAPI,
   deleteGroupFavTagAPI,
 } from '@gtms/api-tags'
+import {
+  addSuccessNotification,
+  addErrorNotification,
+} from '@gtms/state-notification'
 import { IPromotedTag, IFavTag } from '@gtms/commons/models'
 import { FavTagType } from '@gtms/commons/enums'
 
@@ -28,7 +32,11 @@ export async function addTagToFavs(tag: IPromotedTag, groupId: string) {
         ...groupState,
       },
     })
-  } catch {}
+
+    addSuccessNotification('Tag has been added to your favs!')
+  } catch {
+    addErrorNotification('Error occured, please try again later')
+  }
 }
 
 export async function deleteFavTag(tag: IPromotedTag, groupId: string) {
@@ -40,6 +48,7 @@ export async function deleteFavTag(tag: IPromotedTag, groupId: string) {
     try {
       await deleteGroupFavTagAPI(groupState.tags[index].id)
     } catch {
+      addErrorNotification('Error occured, please try again later')
       return
     }
     groupState.tags.splice(index, 1)
@@ -49,6 +58,8 @@ export async function deleteFavTag(tag: IPromotedTag, groupId: string) {
         ...groupState,
       },
     })
+
+    addSuccessNotification('Tag has been removed from your favs')
   }
 }
 

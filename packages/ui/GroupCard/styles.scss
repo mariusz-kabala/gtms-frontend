@@ -23,7 +23,7 @@
   box-shadow: $boxShadowDefault;
 
   .headerSection {
-    @include font-size(sm);
+    @include fontSize(sm);
     text-transform: uppercase;
   }
 
@@ -62,8 +62,8 @@
       width: 100%;
 
       .header {
-        @include font-size(lg);
-        @include font-weight(semiBold);
+        @include fontSize(lg);
+        @include fontWeight(semiBold);
         margin-bottom: 5px;
       }
 
@@ -103,7 +103,7 @@
           max-width: 80px;
 
           &:hover {
-            @include effectOne('circle');
+            @include effectColorTransparentOverlay('circle');
           }
 
           img {
@@ -113,8 +113,8 @@
 
         span {
           display: block;
-          @include font-size(md);
-          @include font-weight(bold);
+          @include fontSize(md);
+          @include fontWeight(bold);
           margin-top: 10px;
           text-align: center;
         }
