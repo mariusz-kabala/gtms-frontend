@@ -24,7 +24,7 @@
     }
 
     &:hover {
-      @include effectOne(defaultRadius);
+      @include effectColorTransparentOverlay(defaultRadius);
     }
   }
 
