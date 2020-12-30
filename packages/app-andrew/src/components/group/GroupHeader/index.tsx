@@ -46,6 +46,7 @@ export const GroupHeader: FC<{ additionalStyles?: string }> = ({
         onLoadSuggestion={() => null}
         onQueryChange={() => null}
         onLoadSuggestionCancel={() => null}
+        onUserRemove={() => null}
         tags={state.activeTags || []}
         users={state.activeUsers}
       />

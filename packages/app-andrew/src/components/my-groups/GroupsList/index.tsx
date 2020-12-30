@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import cx from 'classnames'
+// commons
 import { IGroup } from '@gtms/commons'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
@@ -8,6 +9,7 @@ import { GroupAvatarNoImage } from 'enums'
 import { Picture } from '@gtms/ui/Picture'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { Tag } from '@gtms/ui/Tag'
+// styles
 import styles from './styles.scss'
 
 export const GroupsList: FC<{

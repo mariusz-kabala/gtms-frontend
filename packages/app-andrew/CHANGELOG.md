@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.101.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.100.0...@gtms/app-andrew@0.101.0) (2020-12-30)
+
+
+### Features
+
+* GEOT-753: add filter on my post (account page) ([#966](https://github.com/gtms-org/gtms-frontend/issues/966)) ([025b011](https://github.com/gtms-org/gtms-frontend/commit/025b011bcfaf067547231b0b7d7dad5ffa04a8b9))
+
+
+
+
+
 # [0.100.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.99.0...@gtms/app-andrew@0.100.0) (2020-12-30)
 
 ### Features
