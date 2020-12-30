@@ -450,6 +450,7 @@ export const SearchPage: FC<{
           onQueryChange={() => null}
           onTagAdd={onTagAdd}
           onTagRemove={onTagRemove}
+          onUserRemove={() => null}
           suggestions={state.suggestions.records}
           tags={state.search.tags}
         />
