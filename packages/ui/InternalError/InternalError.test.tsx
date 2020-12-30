@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { InternalError } from 'packages/ui/InternalError'
+import { InternalError } from './index'
 
 describe('<InternalError />', () => {
   it('Should be on the page', () => {
