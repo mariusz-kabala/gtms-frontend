@@ -40,18 +40,17 @@ export const LoginContent: FC<{ registrationLink?: string }> = ({
   return (
     <>
       <div className={styles.pageWrapper} data-testid="login-page">
+        {error && <div data-testid="login-page-error">{t(error)}</div>}
         <div className={styles.wrapper}>
           <div className={styles.content}>
             <div>
-              {error && <div data-testid="login-page-error">{t(error)}</div>}
+              {/* for centering vertically */}
               <div className={styles.headerWrapper}>
-                <div>
-                  <h2 className={styles.header}>Sign in</h2>
-                  <p>
-                    Sunt sint deserunt occaecat reprehenderit est fugiat ex sunt
-                    quis nulla deserunt sit culpa.
-                  </p>
-                </div>
+                <h2 className={styles.header}>Sign in</h2>
+                <p>
+                  Sunt sint deserunt occaecat reprehenderit est fugiat ex sunt
+                  quis nulla deserunt sit culpa.
+                </p>
               </div>
               <SocialButtons
                 additionalStyles={styles.socialButtons}

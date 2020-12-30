@@ -7,16 +7,16 @@ import { UIStore, uiStore } from './ui.store'
 import { BACKGROUNDS_GALLERY } from 'enums'
 
 export class UIQuery extends Query<IUI> {
-  public isLoginModalOpen = (values = this.getValue()) => {
-    return values.isLoginModalOpen && !this.userQuery.isLogged()
+  public isRegisterLoginModalOpen = (values = this.getValue()) => {
+    return values.isRegisterLoginModalOpen && !this.userQuery.isLogged()
   }
 
-  public isLoginModalOpen$: Observable<boolean> = combineLatest([
+  public isRegisterLoginModalOpen$: Observable<boolean> = combineLatest([
     this.select(),
     this.userQuery.isLogged$,
   ]).pipe(
-    map(([{ isLoginModalOpen }, isLogged]: any): boolean => {
-      return !isLogged && isLoginModalOpen
+    map(([{ isRegisterLoginModalOpen }, isLogged]: any): boolean => {
+      return !isLogged && isRegisterLoginModalOpen
     })
   )
 

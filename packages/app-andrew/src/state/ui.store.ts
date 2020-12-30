@@ -6,7 +6,7 @@ import { BACKGROUNDS_GALLERY } from 'enums'
 export class UIStore extends Store<IUI> {
   constructor() {
     super({
-      isLoginModalOpen: false,
+      isRegisterLoginModalOpen: false,
       isNotificationsBarOpen: false,
       background: BACKGROUNDS_GALLERY[0].className,
       groups: {},

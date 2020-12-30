@@ -9,6 +9,7 @@ import { SocialButtons } from '../../login/SocialButtons'
 // ui
 import { IoMdLogIn } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
+import { Modal } from '@gtms/ui/Modal'
 // styles
 import styles from './styles.scss'
 
@@ -33,18 +34,22 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
   return (
     <>
       <div className={styles.pageWrapper} data-testid="registration-page">
+        {!error && (
+          <Modal onClose={() => null}>
+            <div data-testid="registration-page-error">{t(error)}</div>
+          </Modal>
+        )}
         <div className={styles.wrapper}>
           <div className={styles.content}>
             <div>
-              {error && <div data-testid="login-page-error">{t(error)}</div>}
+              {' '}
+              {/* for centering vertically */}
               <div className={styles.headerWrapper}>
-                <div>
-                  <h2 className={styles.header}>Sign up</h2>
-                  <p>
-                    Sunt sint deserunt occaecat reprehenderit est fugiat ex sunt
-                    quis nulla deserunt sit culpa.
-                  </p>
-                </div>
+                <h2 className={styles.header}>Sign up</h2>
+                <p>
+                  Sunt sint deserunt occaecat reprehenderit est fugiat ex sunt
+                  quis nulla deserunt sit culpa.
+                </p>
               </div>
               <SocialButtons
                 additionalStyles={styles.socialButtons}
@@ -53,9 +58,6 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
               <div className={styles.or}>
                 <span>or</span>
               </div>
-              {error && (
-                <div data-testid="registration-page-error">{t(error)}</div>
-              )}
               <RegistrationForm
                 additionalStyles={styles.form}
                 onError={() => setError('registrationFailed')}

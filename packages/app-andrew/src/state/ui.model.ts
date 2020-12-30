@@ -4,7 +4,7 @@ export interface IGroupUI {
 }
 
 export interface IUI {
-  isLoginModalOpen: boolean
+  isRegisterLoginModalOpen: boolean
   isNotificationsBarOpen: boolean
   background: string
   backgroundImage?: {

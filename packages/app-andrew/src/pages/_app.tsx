@@ -8,7 +8,7 @@ import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
-import { LoginWindow } from 'components/commons/LoginWindow'
+import { RegisterLoginWindow } from 'components/commons/RegisterLoginWindow'
 import { uiQuery } from 'state'
 
 import '@gtms/styles/scss/global.scss'
@@ -102,7 +102,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <LoginWindow />
+        <RegisterLoginWindow />
         <NotificationsActive />
         <NotificationsSidebar />
         <NavigationWrapper />
