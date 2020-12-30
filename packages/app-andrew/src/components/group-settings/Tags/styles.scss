@@ -5,7 +5,7 @@
 
 .wrapper {
   .noRecords {
-    @include font-size(md);
+    @include fontSize(md);
     text-align: center;
   }
 
@@ -13,8 +13,8 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    @include font-size(md);
-    @include font-weight('semiBold');
+    @include fontSize(md);
+    @include fontWeight('semiBold');
     text-transform: uppercase;
 
     .btn {

@@ -7,8 +7,8 @@
 
 .wrapper {
   > .header {
-    @include font-weight(normal);
-    @include font-size(md);
+    @include fontWeight(normal);
+    @include fontSize(md);
     margin-bottom: 10px;
   }
 
@@ -22,7 +22,7 @@
     }
 
     .header {
-      @include font-weight(normal);
+      @include fontWeight(normal);
     }
 
     .item {

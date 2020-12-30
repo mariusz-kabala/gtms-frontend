@@ -28,8 +28,8 @@
 
       .name {
         display: inline-block;
-        @include font-size(md);
-        @include font-weight(semiBold);
+        @include fontSize(md);
+        @include fontWeight(semiBold);
         margin-top: 5px;
         display: none; //@todo show it in hover tooltip
       }
@@ -56,7 +56,7 @@
 
       i {
         position: relative;
-        @include font-size(lg);
+        @include fontSize(lg);
         line-height: 0;
         color: $theme0;
       }
@@ -65,7 +65,7 @@
         position: absolute;
         bottom: -27px; // because of line height of text
         color: $defaultTextColor;
-        @include font-size(md);
+        @include fontSize(md);
       }
 
       &:hover {

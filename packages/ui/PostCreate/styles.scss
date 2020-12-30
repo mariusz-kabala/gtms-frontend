@@ -55,7 +55,7 @@
 
     .otherTagsSuggestions {
       .header {
-        @include font-size(sm);
+        @include fontSize(sm);
         text-transform: uppercase;
         padding: 5px 0;
       }
@@ -71,7 +71,7 @@
       margin-right: 5px;
       background: $theme1;
       border-radius: $borderRadius;
-      @include font-weight(semiBold);
+      @include fontWeight(semiBold);
 
       &:hover {
         color: $theme0;

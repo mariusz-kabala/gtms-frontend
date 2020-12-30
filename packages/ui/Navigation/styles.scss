@@ -8,7 +8,7 @@
   align-items: center;
   flex-direction: row-reverse;
   gap: 5px;
-  @include font-size(md);
+  @include fontSize(md);
   cursor: pointer;
 
   .avatar {
@@ -44,7 +44,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          @include font-size(md);
+          @include fontSize(md);
         }
       }
 

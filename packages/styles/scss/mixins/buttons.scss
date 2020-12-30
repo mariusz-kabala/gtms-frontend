@@ -81,7 +81,7 @@
 @mixin buttonSizeSm() {
   padding: 5px;
   line-height: 1;
-  @include font-size(sm);
+  @include fontSize(sm);
 }
 
 // SHAPES

@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  @include font-size(sm);
+  @include fontSize(sm);
   border-radius: $borderRadius;
   background: $theme1;
   cursor: pointer;
@@ -37,7 +37,7 @@
       position: absolute;
       color: $theme9;
       display: flex;
-      @include font-size(md);
+      @include fontSize(md);
     }
 
     .circularProgressbar {

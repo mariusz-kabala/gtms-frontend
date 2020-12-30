@@ -21,8 +21,8 @@
     }
 
     .header {
-      @include font-size(lg);
-      @include font-weight(semiBold);
+      @include fontSize(lg);
+      @include fontWeight(semiBold);
     }
   }
 

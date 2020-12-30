@@ -6,8 +6,8 @@
 
 .wrapper {
   > .header {
-    @include font-weight(normal);
-    @include font-size(md);
+    @include fontWeight(normal);
+    @include fontSize(md);
     margin: 10px 0;
   }
 
@@ -30,7 +30,7 @@
       }
 
       .header {
-        @include font-weight(normal);
+        @include fontWeight(normal);
       }
 
       > div {

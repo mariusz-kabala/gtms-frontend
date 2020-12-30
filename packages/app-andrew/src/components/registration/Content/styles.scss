@@ -37,7 +37,7 @@
           // @todo make mixin of that
           font-size: 2em;
           text-transform: uppercase;
-          @include font-weight(semiBold);
+          @include fontWeight(semiBold);
         }
       }
 

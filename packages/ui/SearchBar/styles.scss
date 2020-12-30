@@ -20,7 +20,7 @@
     height: 34px;
 
     i {
-      @include font-size(lg);
+      @include fontSize(lg);
       position: absolute;
       top: 6px;
       left: 6px;
@@ -35,8 +35,8 @@
       border-radius: $borderRadius;
       box-shadow: $boxShadowDefault;
       background: $theme0;
-      @include font-size(xdefault);
-      @include font-weight(light);
+      @include fontSize(xdefault);
+      @include fontWeight(light);
 
       &::placeholder {
         color: $theme1;
