@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.28.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.3...@gtms/styles@0.28.4) (2020-12-30)
+
+
+### Bug Fixes
+
+* GEOT-750: GEOT-750: unify font size font weight mixins ([#962](https://github.com/gtms-org/gtms-frontend/issues/962)) ([86d4f9e](https://github.com/gtms-org/gtms-frontend/commit/86d4f9ed3b27c867742572198b118eddc483b826))
+
+
+
+
+
 ## [0.28.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.2...@gtms/styles@0.28.3) (2020-12-25)
 
 
