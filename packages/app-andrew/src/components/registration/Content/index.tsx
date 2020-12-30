@@ -51,7 +51,6 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
         <div className={styles.wrapper}>
           <div className={styles.content}>
             <div>
-              {' '}
               {/* for centering vertically */}
               <div className={styles.headerWrapper}>
                 <h2 className={styles.header}>Sign up</h2>
