@@ -36,7 +36,7 @@
       border-radius: 50%;
 
       &:hover {
-        @include effectOne('circle');
+        @include effectColorTransparentOverlay('circle');
       }
     }
 
@@ -100,7 +100,7 @@
         border-radius: $borderRadius;
 
         &:hover {
-          @include effectOne();
+          @include effectColorTransparentOverlay();
         }
       }
     }

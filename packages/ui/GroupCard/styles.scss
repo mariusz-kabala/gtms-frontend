@@ -103,7 +103,7 @@
           max-width: 80px;
 
           &:hover {
-            @include effectOne('circle');
+            @include effectColorTransparentOverlay('circle');
           }
 
           img {

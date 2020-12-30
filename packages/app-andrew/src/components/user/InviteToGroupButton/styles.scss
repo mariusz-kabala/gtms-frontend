@@ -50,7 +50,7 @@
         cursor: pointer;
 
         &:hover {
-          @include effectOne('defaultRadius');
+          @include effectColorTransparentOverlay('defaultRadius');
         }
 
         &:before {
@@ -94,7 +94,7 @@
       margin-bottom: 15px;
 
       &:hover {
-        @include effectOne('defaultRadius');
+        @include effectColorTransparentOverlay('defaultRadius');
       }
 
       &:before {

@@ -18,7 +18,7 @@
         display: block;
 
         &:hover {
-          @include effectOne('circle');
+          @include effectColorTransparentOverlay('circle');
         }
       }
 

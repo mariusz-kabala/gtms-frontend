@@ -89,7 +89,7 @@
 
         &:hover,
         &.active {
-          @include effectOne('defaultRadius', 4px);
+          @include effectColorTransparentOverlay('defaultRadius', 4px);
         }
       }
     }
