@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.16.2...@gtms/api-post@0.17.0) (2020-12-30)
+
+
+### Features
+
+* GEOT-753: show posts on account page ([#965](https://github.com/gtms-org/gtms-frontend/issues/965)) ([e4f1f97](https://github.com/gtms-org/gtms-frontend/commit/e4f1f972c069577358314f2ab7117bd7bc8c5b21))
+
+
+
+
+
 ## [0.16.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.16.1...@gtms/api-post@0.16.2) (2020-12-28)
 
 **Note:** Version bump only for package @gtms/api-post

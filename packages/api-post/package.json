@@ -1,6 +1,6 @@
 {
   "name": "@gtms/api-post",
-  "version": "0.16.2",
+  "version": "0.17.0",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",

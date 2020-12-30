@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.100.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.99.0...@gtms/app-andrew@0.100.0) (2020-12-30)
+
+
+### Features
+
+* GEOT-753: show posts on account page ([#965](https://github.com/gtms-org/gtms-frontend/issues/965)) ([e4f1f97](https://github.com/gtms-org/gtms-frontend/commit/e4f1f972c069577358314f2ab7117bd7bc8c5b21))
+
+
+
+
+
 # [0.99.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.98.5...@gtms/app-andrew@0.99.0) (2020-12-30)
 
 
