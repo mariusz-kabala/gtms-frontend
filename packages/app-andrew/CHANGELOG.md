@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.101.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.101.1...@gtms/app-andrew@0.101.2) (2020-12-30)
+
+
+### Bug Fixes
+
+* GEOT-756: login reg remind reset password styles ([#968](https://github.com/gtms-org/gtms-frontend/issues/968)) ([7c72100](https://github.com/gtms-org/gtms-frontend/commit/7c72100c401db1857e974f153bca959d7249243c))
+
+
+
+
+
 ## [0.101.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.101.0...@gtms/app-andrew@0.101.1) (2020-12-30)
 
 
