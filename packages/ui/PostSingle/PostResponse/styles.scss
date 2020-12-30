@@ -29,7 +29,7 @@
         min-height: 35px;
 
         &:hover {
-          @include effectOne('circle');
+          @include effectColorTransparentOverlay('circle');
         }
       }
     }
