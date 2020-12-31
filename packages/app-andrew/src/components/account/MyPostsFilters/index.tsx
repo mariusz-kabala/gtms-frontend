@@ -5,6 +5,8 @@ import { fetchMyPostDetails, IMyPostsDetailsResponse } from '@gtms/api-post'
 // commons
 import { getImage } from '@gtms/commons/helpers'
 import { GroupAvatarNoImage } from 'enums'
+//state
+import { showGroupPreview } from 'state/groupPreview'
 // ui
 import { Spinner } from '@gtms/ui/Spinner'
 import { Picture } from '@gtms/ui/Picture'
@@ -55,7 +57,7 @@ export const MyPostsFilters: FC<{
               })}
             >
               <div>
-                <a>
+                <a onClick={() => showGroupPreview(group)}>
                   <Picture
                     {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
                   />
