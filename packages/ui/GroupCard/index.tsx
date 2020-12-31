@@ -18,6 +18,7 @@ export const GroupCard: FC<{
   additionalStyles?: string
   description?: string
   isLoading: boolean
+  isLoadingMembers: boolean
   logo: IImage
   members?: IUser[]
   name: string
@@ -28,6 +29,7 @@ export const GroupCard: FC<{
   additionalStyles,
   description,
   isLoading,
+  isLoadingMembers,
   logo,
   members,
   name,
@@ -72,6 +74,7 @@ export const GroupCard: FC<{
         <div className={cx(styles.users)}>
           <h3 className={styles.headerSection}>{t('groupsMembers')}</h3>
           {!isLoading &&
+            !isLoadingMembers &&
             Array.isArray(members) &&
             members &&
             members.length > 0 && (
@@ -88,6 +91,12 @@ export const GroupCard: FC<{
                   </li>
                 ))}
               </ul>
+            )}
+          {isLoadingMembers && <Spinner />}
+          {!isLoading &&
+            !isLoadingMembers &&
+            (!Array.isArray(members) || members.length === 0) && (
+              <p>group has no members, join now!</p>
             )}
         </div>
       </div>
