@@ -18,6 +18,7 @@ export const GroupCard: FC<{
   additionalStyles?: string
   description?: string
   isLoading: boolean
+  isLoadingMembers: boolean
   logo: IImage
   members?: IUser[]
   name: string
@@ -28,6 +29,7 @@ export const GroupCard: FC<{
   additionalStyles,
   description,
   isLoading,
+  isLoadingMembers,
   logo,
   members,
   name,
@@ -49,27 +51,52 @@ export const GroupCard: FC<{
       <div className={styles.cover} />
       <div className={styles.content}>
         <div className={styles.leftColumn}>
-          <Picture additionalStyles={styles.avatar} {...logo} />
-          <div>
-            <h2 className={styles.header}>{name}</h2>
-            {description && <p className={styles.desc}>{description}</p>}
-            <div className={styles.tags}>
-              {Array.isArray(tags) && tags.length > 0 ? (
-                <>
-                  <h3 className={styles.headerSection}>{t('groupTags')}:</h3>
-                  {tags.map((tag) => (
-                    <Tag
-                      additionalStyles={styles.tag}
-                      key={`tag-${tag}`}
-                      label={tag}
-                    />
-                  ))}
-                </>
-              ) : (
-                <p>{t('tags-not-added-yet')}</p>
-              )}
-            </div>
+          <h2 className={styles.header}>{name}</h2>
+          {description && <p className={styles.desc}>{description}</p>}
+          <div className={styles.tags}>
+            {Array.isArray(tags) && tags.length > 0 ? (
+              <>
+                <h3 className={styles.headerSection}>{t('groupTags')}:</h3>
+                {tags.map((tag) => (
+                  <Tag
+                    additionalStyles={styles.tag}
+                    key={`tag-${tag}`}
+                    label={tag}
+                  />
+                ))}
+              </>
+            ) : (
+              <p>{t('tags-not-added-yet')}</p>
+            )}
           </div>
+        </div>
+        <div className={cx(styles.users)}>
+          <h3 className={styles.headerSection}>{t('groupsMembers')}</h3>
+          {!isLoading &&
+            !isLoadingMembers &&
+            Array.isArray(members) &&
+            members &&
+            members.length > 0 && (
+              <ul
+                className={styles.items}
+                data-testid="recently-registered-users"
+              >
+                {members.map((member) => (
+                  <li className={styles.user} key={`member-${member.id}`}>
+                    <UserAvatar
+                      image={getImage('50x50', member.avatar, noUserAvatar)}
+                      additionalStyles={styles.userAvatar}
+                    />
+                  </li>
+                ))}
+              </ul>
+            )}
+          {isLoadingMembers && <Spinner />}
+          {!isLoading &&
+            !isLoadingMembers &&
+            (!Array.isArray(members) || members.length === 0) && (
+              <p>group has no members, join now!</p>
+            )}
         </div>
         {!isLoading && Array.isArray(members) && members && members.length > 0 && (
           <div className={cx(styles.users)}>

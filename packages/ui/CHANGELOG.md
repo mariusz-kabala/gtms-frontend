@@ -3,36 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.79.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.78.2...@gtms/ui@0.79.0) (2020-12-31)
+
+### Features
+
+- GEOT-758: common way to display group preview ([#969](https://github.com/gtms-org/gtms-frontend/issues/969)) ([d70b4d1](https://github.com/gtms-org/gtms-frontend/commit/d70b4d1165413a57ef82047cecdfbc19b4b8ab2c))
+
 ## [0.78.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.78.1...@gtms/ui@0.78.2) (2020-12-30)
 
 **Note:** Version bump only for package @gtms/ui
 
-
-
-
-
 ## [0.78.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.78.0...@gtms/ui@0.78.1) (2020-12-30)
-
 
 ### Bug Fixes
 
-* GEOT-755: internal error component ([#967](https://github.com/gtms-org/gtms-frontend/issues/967)) ([5dd8c6e](https://github.com/gtms-org/gtms-frontend/commit/5dd8c6e34daab3cfe77522ee6c55f76933da1f3b))
-
-
-
-
+- GEOT-755: internal error component ([#967](https://github.com/gtms-org/gtms-frontend/issues/967)) ([5dd8c6e](https://github.com/gtms-org/gtms-frontend/commit/5dd8c6e34daab3cfe77522ee6c55f76933da1f3b))
 
 # [0.78.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.77.4...@gtms/ui@0.78.0) (2020-12-30)
 
-
 ### Features
 
-* GEOT-753: add filter on my post (account page) ([#966](https://github.com/gtms-org/gtms-frontend/issues/966)) ([025b011](https://github.com/gtms-org/gtms-frontend/commit/025b011bcfaf067547231b0b7d7dad5ffa04a8b9))
-* GEOT-753: show posts on account page ([#965](https://github.com/gtms-org/gtms-frontend/issues/965)) ([e4f1f97](https://github.com/gtms-org/gtms-frontend/commit/e4f1f972c069577358314f2ab7117bd7bc8c5b21))
-
-
-
-
+- GEOT-753: add filter on my post (account page) ([#966](https://github.com/gtms-org/gtms-frontend/issues/966)) ([025b011](https://github.com/gtms-org/gtms-frontend/commit/025b011bcfaf067547231b0b7d7dad5ffa04a8b9))
+- GEOT-753: show posts on account page ([#965](https://github.com/gtms-org/gtms-frontend/issues/965)) ([e4f1f97](https://github.com/gtms-org/gtms-frontend/commit/e4f1f972c069577358314f2ab7117bd7bc8c5b21))
 
 ## [0.77.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.77.3...@gtms/ui@0.77.4) (2020-12-30)
 

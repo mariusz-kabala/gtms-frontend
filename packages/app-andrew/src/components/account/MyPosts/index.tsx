@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect, useCallback } from 'react'
 // commons
 import { UserAvatarNoImage } from 'enums'
 // api
-import { fetchMyPosts, IMyPostsResponse } from '@gtms/api-post'
+import { fetchMyPosts, IMyPostsResponse, IMyPostsRequest } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // state
@@ -30,26 +30,61 @@ export const MyPosts: FC = () => {
     errorOccured: false,
     docs: [],
     total: -1,
-    limit: -1,
-    offset: -1,
+    limit: 50,
+    offset: 0,
   })
   const [state, setState] = useState<IMyPostsState>(myPostsState())
   const [showFilters, setShowFilters] = useState<boolean>(false)
   const [search, setSearch] = useState<{
-    groups: string[]
+    groups: { id: string; name: string }[]
     tags: string[]
   }>({
     groups: [],
     tags: [],
   })
+  const makeSearch = () => {
+    setData((state) => ({
+      ...state,
+      isLoading: true,
+      errorOccured: false,
+    }))
+
+    const query: IMyPostsRequest = { limit: data.limit, offset: data.offset }
+
+    if (search.groups.length > 0) {
+      query.groups = search.groups.map((r) => r.id)
+    }
+
+    fetchMyPosts(query)
+      .then((result) => {
+        setData({
+          isLoading: false,
+          errorOccured: false,
+          ...result,
+        })
+      })
+      .catch(() =>
+        setData((state) => ({
+          ...state,
+          isLoading: false,
+          errorOccured: true,
+        }))
+      )
+  }
   const onFilterGroupClick = useCallback(
-    (groupName: string) => {
-      const index = search.groups.indexOf(groupName)
+    (groupName: string, groupId: string) => {
+      const index = search.groups.findIndex((r) => r.id === groupId)
 
       if (index === -1) {
         setSearch((value) => ({
           ...value,
-          groups: [...value.groups, groupName],
+          groups: [
+            ...value.groups,
+            {
+              id: groupId,
+              name: groupName,
+            },
+          ],
         }))
       } else {
         search.groups.splice(index, 1)
@@ -61,7 +96,7 @@ export const MyPosts: FC = () => {
 
   const onFilterGroupRemove = useCallback(
     (groupName: string) => {
-      const index = search.groups.indexOf(groupName)
+      const index = search.groups.findIndex((r) => r.name === groupName)
       if (index === -1) {
         return
       }
@@ -75,13 +110,7 @@ export const MyPosts: FC = () => {
   )
 
   useEffect(() => {
-    fetchMyPosts({ limit: 50, offset: 0 }).then((result) => {
-      setData({
-        isLoading: false,
-        errorOccured: false,
-        ...result,
-      })
-    })
+    makeSearch()
 
     const sub = myPostsState$.subscribe((value) => {
       setState(value)
@@ -91,6 +120,10 @@ export const MyPosts: FC = () => {
       sub && !sub.closed && sub.unsubscribe()
     }
   }, [])
+
+  useEffect(makeSearch, [search])
+
+  const groupNames = search.groups.map((r) => r.name)
 
   return (
     <div className={styles.userLastPosts}>
@@ -112,7 +145,7 @@ export const MyPosts: FC = () => {
             onQueryChange={() => null}
             onLoadSuggestionCancel={() => null}
             tags={search.tags}
-            users={search.groups}
+            users={groupNames}
             onUserRemove={onFilterGroupRemove}
           />
           <div className={styles.filters}>
@@ -122,7 +155,7 @@ export const MyPosts: FC = () => {
           </div>
           {showFilters && (
             <MyPostsFilters
-              active={search.groups}
+              active={groupNames}
               onGroupClick={onFilterGroupClick}
             />
           )}

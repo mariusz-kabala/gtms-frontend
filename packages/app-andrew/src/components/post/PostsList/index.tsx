@@ -1,17 +1,15 @@
 import React, { FC, useCallback, useState } from 'react'
 import { IPost, IUser, IGroup } from '@gtms/commons/models'
-import { getImage } from '@gtms/commons/helpers'
 import { addErrorNotification } from '@gtms/state-notification'
-import { GroupAvatarNoImage, UserAvatarNoImage } from 'enums'
+import { showGroupPreview as showGroupPreviewFunc } from 'state/groupPreview'
+import { UserAvatarNoImage } from 'enums'
 // api
 import { createAbuseReportAPI } from '@gtms/api-abuse'
-import { fetchGroupMembers } from '@gtms/api-group'
 // components
 import { PostAdmin } from 'components/post/Admin'
 import { Favs } from 'components/post/Favs'
 // ui
 import { AbuseReportForm, VIEW } from '@gtms/ui/AbuseReportForm'
-import { GroupCard } from '@gtms/ui/GroupCard'
 import { Modal } from '@gtms/ui/Modal'
 import { UserPreview } from '@gtms/ui/UserPreview'
 
@@ -31,47 +29,6 @@ export const PostsList: FC<{
   ) => JSX.Element
 }> = ({ isAdmin, onUserPostsClick, posts, renderPost }) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
-  const [groupPreview, setGroupCard] = useState<{
-    isOpen: boolean
-    isLoading: boolean
-    current?: IGroup
-    users: IUser[]
-  }>({
-    isOpen: false,
-    isLoading: false,
-    users: [],
-  })
-  const onOpenGroupPreview = useCallback(async (group: IGroup) => {
-    setGroupCard({
-      isOpen: true,
-      isLoading: true,
-      current: group,
-      users: [],
-    })
-
-    try {
-      const { docs } = await fetchGroupMembers(group.slug, 0, 6)
-
-      setGroupCard((state) => ({
-        ...state,
-        isLoading: false,
-        users: docs,
-      }))
-    } catch {
-      setGroupCard((state) => ({
-        ...state,
-        isLoading: false,
-      }))
-    }
-  }, [])
-  const onCloseGroupPreview = useCallback(() => {
-    setGroupCard({
-      isLoading: false,
-      isOpen: false,
-      users: [],
-      current: undefined,
-    })
-  }, [])
   const onUserClick = useCallback((user: IUser) => {
     setUserPreview(user)
   }, [])
@@ -160,7 +117,7 @@ export const PostsList: FC<{
           renderMenu: renderPostMenu,
           renderFavs,
           onUserClick,
-          onOpenGroupPreview,
+          onOpenGroupPreview: showGroupPreviewFunc,
         })
       )}
 
@@ -179,24 +136,6 @@ export const PostsList: FC<{
             noUserAvatar={UserAvatarNoImage}
             onUserPostsClick={onUserPostsClick}
             user={userPreview}
-          />
-        </Modal>
-      )}
-      {groupPreview.current && (
-        <Modal onClose={onCloseGroupPreview}>
-          <GroupCard
-            description={groupPreview.current.description}
-            isLoading={groupPreview.isLoading}
-            logo={getImage(
-              '200x200',
-              groupPreview.current.avatar,
-              GroupAvatarNoImage
-            )}
-            members={groupPreview.users}
-            name={groupPreview.current.name}
-            noUserAvatar={UserAvatarNoImage}
-            slug={groupPreview.current.slug}
-            tags={groupPreview.current.tags || []}
           />
         </Modal>
       )}

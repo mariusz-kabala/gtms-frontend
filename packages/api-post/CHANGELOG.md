@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.17.0...@gtms/api-post@0.18.0) (2020-12-31)
+
+### Features
+
+- GEOT-753: working post filters by group on my account page ([#971](https://github.com/gtms-org/gtms-frontend/issues/971)) ([d290eb8](https://github.com/gtms-org/gtms-frontend/commit/d290eb8f851c73ec8df73425db987eaf23daa26f))
+
 # [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.16.2...@gtms/api-post@0.17.0) (2020-12-30)
 
 ### Features

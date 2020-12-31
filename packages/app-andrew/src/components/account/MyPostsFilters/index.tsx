@@ -5,6 +5,8 @@ import { fetchMyPostDetails, IMyPostsDetailsResponse } from '@gtms/api-post'
 // commons
 import { getImage } from '@gtms/commons/helpers'
 import { GroupAvatarNoImage } from 'enums'
+//state
+import { showGroupPreview } from 'state/groupPreview'
 // ui
 import { Spinner } from '@gtms/ui/Spinner'
 import { Picture } from '@gtms/ui/Picture'
@@ -12,7 +14,7 @@ import { Picture } from '@gtms/ui/Picture'
 import styles from './styles.scss'
 
 export const MyPostsFilters: FC<{
-  onGroupClick: (groupName: string) => void
+  onGroupClick: (groupName: string, groupId: string) => void
   active?: string[]
 }> = ({ onGroupClick, active = [] }) => {
   const [data, setData] = useState<{
@@ -55,7 +57,7 @@ export const MyPostsFilters: FC<{
               })}
             >
               <div>
-                <a>
+                <a onClick={() => showGroupPreview(group)}>
                   <Picture
                     {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
                   />
@@ -63,7 +65,9 @@ export const MyPostsFilters: FC<{
               </div>
               <div>
                 <h3>
-                  <a onClick={() => onGroupClick(group.name)}>{group.name}</a>
+                  <a onClick={() => onGroupClick(group.name, group.id)}>
+                    {group.name}
+                  </a>
                 </h3>
                 <p>
                   <span>{group.count}</span> posts created
