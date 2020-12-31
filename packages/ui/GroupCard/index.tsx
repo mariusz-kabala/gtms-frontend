@@ -48,6 +48,7 @@ export const GroupCard: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="group-card"
     >
+      <Picture additionalStyles={styles.avatar} {...logo} />
       <div className={styles.cover} />
       <div className={styles.content}>
         <div className={styles.leftColumn}>
@@ -98,24 +99,6 @@ export const GroupCard: FC<{
               <p>group has no members, join now!</p>
             )}
         </div>
-        {!isLoading && Array.isArray(members) && members && members.length > 0 && (
-          <div className={cx(styles.users)}>
-            <h3 className={styles.headerSection}>{t('groupsMembers')}</h3>
-            <ul
-              className={styles.items}
-              data-testid="recently-registered-users"
-            >
-              {members.map((member) => (
-                <li className={styles.user} key={`member-${member.id}`}>
-                  <UserAvatar
-                    image={getImage('50x50', member.avatar, noUserAvatar)}
-                    additionalStyles={styles.userAvatar}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
       <div className={styles.btnWrapper}>
         <Link href={`/group/${slug}`}>
