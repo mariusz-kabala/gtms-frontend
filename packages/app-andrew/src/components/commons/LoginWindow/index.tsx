@@ -8,12 +8,10 @@ import { Modal } from '@gtms/ui/Modal'
 import styles from './styles.scss'
 
 export const LoginWindow: FC<{}> = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(
-    uiQuery.isRegisterLoginModalOpen()
-  )
+  const [isOpen, setIsOpen] = useState<boolean>(uiQuery.isLoginModalOpen())
 
   useEffect(() => {
-    const sub = uiQuery.isRegisterLoginModalOpen$.subscribe((value: boolean) =>
+    const sub = uiQuery.isLoginModalOpen$.subscribe((value: boolean) =>
       setIsOpen(value)
     )
 

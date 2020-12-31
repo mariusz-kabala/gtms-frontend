@@ -4,17 +4,17 @@ import { BACKGROUNDS_GALLERY } from 'enums'
 
 export const openLoginModal = () =>
   uiStore.update({
-    isRegisterLoginModalOpen: true,
+    isLoginModalOpen: true,
   })
 
 export const closeLoginModal = () =>
   uiStore.update({
-    isRegisterLoginModalOpen: false,
+    isLoginModalOpen: false,
   })
 
 export const toggleLoginModal = () =>
   uiStore.update((values) => ({
-    isRegisterLoginModalOpen: !values.isRegisterLoginModalOpen,
+    isLoginModalOpen: !values.isLoginModalOpen,
   }))
 
 export const openSidebarNotifications = () =>
