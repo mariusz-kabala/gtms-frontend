@@ -1,6 +1,9 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/header.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/pageBg.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
@@ -8,39 +11,50 @@
 }
 
 .wrapper {
+  position: relative;
+  z-index: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 100%;
-  padding: 0 20px;
 
-  > div {
+  .centerIt {
+    max-width: 500px;
+    background: $theme1;
+    padding: 20px;
+    border-radius: $borderRadius;
+
     .header {
-      // @todo make mixin of that
-      font-size: 3em;
-      text-transform: uppercase;
+      @include header(h2, uppercase);
       @include fontWeight(semiBold);
-    }
+      margin-bottom: 10px;
 
-    .form {
-      margin-top: 20px;
+      & + p {
+        margin: 10px 0;
+      }
     }
   }
 
   .btn {
-    width: 100%;
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapeDefault();
+    @include buttonWithIcon();
+    @include buttonColorsDefault();
     margin-top: 10px;
+    width: 100%;
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+
     > a {
       width: 100%;
-      @include buttonDefault();
-      @include buttonSizeDefault();
-      @include buttonShapeDefault();
-      @include buttonColorsDefault();
-
-      &:hover {
-        @include buttonColorsPrimary();
-      }
     }
   }
+}
+
+.pageBg {
+  @include pageBg();
 }
