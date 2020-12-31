@@ -18,6 +18,7 @@ export const SearchBar: FC<{
   isLoading?: boolean
   suggestionMinLength?: number
   inlineTagsLimit?: number
+  disabled?: boolean
   onTagAdd: (tag: string) => void
   onTagRemove: (tag: string) => void
   onLoadSuggestion: (text: string, type: keyof typeof SuggestionTypes) => void
@@ -41,6 +42,7 @@ export const SearchBar: FC<{
     onUserRemove,
     inlineTagsLimit = 9999,
     suggestionMinLength = 3,
+    disabled = false,
   } = params
   const [value, setValue] = useState<string>(query)
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false)
@@ -115,6 +117,7 @@ export const SearchBar: FC<{
             type="text"
             placeholder="search..."
             value={value}
+            disabled={disabled}
             onChange={(e) => {
               setValue(e.target.value)
             }}

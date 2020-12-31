@@ -12,6 +12,7 @@ export interface IMyPostsRequest {
   limit: number
   offset: number
   groups?: string[]
+  tags?: string[]
 }
 
 export interface IMyPostsDetailsResponse extends IGroup {
@@ -24,5 +25,7 @@ export const fetchMyPosts = (payload: IMyPostsRequest) => {
   })
 }
 
-export const fetchMyPostDetails = () =>
-  fetchJSON<void, IMyPostsDetailsResponse[]>(makeApiUrl('posts/my/details'))
+export const fetchMyPostDetails = (signal?: AbortSignal) =>
+  fetchJSON<void, IMyPostsDetailsResponse[]>(makeApiUrl('posts/my/details'), {
+    signal,
+  })
