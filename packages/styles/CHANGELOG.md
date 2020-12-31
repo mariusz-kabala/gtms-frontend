@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.5...@gtms/styles@0.29.0) (2020-12-30)
+
+
+### Bug Fixes
+
+* GEOT-756: login reg remind reset password styles ([#968](https://github.com/gtms-org/gtms-frontend/issues/968)) ([7c72100](https://github.com/gtms-org/gtms-frontend/commit/7c72100c401db1857e974f153bca959d7249243c))
+
+
+### Features
+
+* GEOT-753: show posts on account page ([#965](https://github.com/gtms-org/gtms-frontend/issues/965)) ([e4f1f97](https://github.com/gtms-org/gtms-frontend/commit/e4f1f972c069577358314f2ab7117bd7bc8c5b21))
+
+
+
+
+
 ## [0.28.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.28.4...@gtms/styles@0.28.5) (2020-12-30)
 
 ### Bug Fixes

@@ -37,11 +37,6 @@ RegistrationSuccessPage.getInitialProps = async (ctx: NextPageContext) => {
     redirect('/', ctx)
   }
 
-  // @todo this should remain commented?
-  // if (!userQuery.hasData()) {
-  //   redirect('/registration', ctx)
-  // }
-
   return Promise.resolve({ namespacesRequired: ['registration'] })
 }
 
