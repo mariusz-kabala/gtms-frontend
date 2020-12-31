@@ -34,14 +34,14 @@ export const UserPreview: FC<{
           </div>
         </div>
         {user.tags.length > 0 && (
-          <>
+          <div className={styles.tags}>
             <h3 className={styles.headerSection}>Tags:</h3>
-            <TagGroup additionalStyles={styles.tags}>
+            <TagGroup>
               {user.tags.map((tag) => (
                 <Tag label={tag} key={`user-tag-${tag}`} />
               ))}
             </TagGroup>
-          </>
+          </div>
         )}
       </div>
       <div className={styles.btnsWrapper}>

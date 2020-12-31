@@ -13,7 +13,7 @@ import { closeSidebarNotifications } from 'state'
 import { INotification } from '@gtms/commons/models'
 // ui
 import useKey from 'use-key-hook'
-import { IoMdArrowForward, IoIosNotifications } from 'react-icons/io'
+import { IoIosNotifications } from 'react-icons/io'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { Notification } from '@gtms/ui/Notification'
 import { Button } from '@gtms/ui/Button'
@@ -25,7 +25,6 @@ import styles from './styles.scss'
 export const NotificationsSidebar: FC<{
   additionalStyles?: string
 }> = ({ additionalStyles }) => {
-  const [isPartiallyVisible, setIsPartiallyVisible] = useState(false)
   const [state, setState] = useState<INotificationsSidebarProps>(
     baseUIQuery.notificationsSidebar()
   )
@@ -55,35 +54,14 @@ export const NotificationsSidebar: FC<{
     }
   )
 
-  const closeSidebar = () => {
-    // setIsPartiallyVisible(false)
-    closeSidebarNotifications()
-  }
-
   return (
     <div
       data-testid={'notifications-sidebar'}
       className={cx(styles.wrapper, additionalStyles, {
         [styles.opened]: state.isOpen,
-        [styles.partiallyVisible]: state.isOpen && isPartiallyVisible,
       })}
     >
-      <i
-        className={cx(styles.iconArrow, {
-          [styles.rotate180]: state.isOpen && isPartiallyVisible,
-        })}
-      >
-        <IoMdArrowForward />
-      </i>
-      <div
-        className={styles.content}
-        // onMouseEnter={() => {
-        //   if (state.isOpen) {
-        //     setIsPartiallyVisible(false)
-        //   }
-        // }}
-        // onMouseLeave={() => setIsPartiallyVisible(true)}
-      >
+      <div className={styles.content}>
         <Scrollbars style={{ width: '100%', height: '100%' }}>
           <div className={styles.navigation}>
             <h2 className={styles.header}>
@@ -97,7 +75,7 @@ export const NotificationsSidebar: FC<{
               <li className={styles.navitem}>Latest</li>
               <li className={styles.navitem}>By groups</li>
             </ul>
-            <CloseIcon onClick={closeSidebar} />
+            <CloseIcon onClick={closeSidebarNotifications} />
           </div>
           <ul className={styles.notifications}>
             {state.notifications.map((notification: INotificationRecord) => {
@@ -136,13 +114,11 @@ export const NotificationsSidebar: FC<{
           </Button>
         </Scrollbars>
       </div>
-      {!isPartiallyVisible && (
-        <Overlay
-          additionalStyles={styles.overlay}
-          onClick={() => closeSidebar()}
-          opacity={0.4}
-        />
-      )}
+      <Overlay
+        additionalStyles={styles.overlay}
+        onClick={() => closeSidebarNotifications()}
+        opacity={0.4}
+      />
     </div>
   )
 }

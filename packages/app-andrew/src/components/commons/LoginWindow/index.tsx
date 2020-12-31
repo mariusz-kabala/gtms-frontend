@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
 import { LoginForm } from 'components/login/Form'
-import { RegistrationForm } from 'components/registration/Form'
 import { SocialButtons } from 'components/login/SocialButtons'
 import { uiQuery, closeLoginModal } from 'state'
 import { Link } from '@gtms/commons/i18n'
@@ -8,8 +7,7 @@ import { Link } from '@gtms/commons/i18n'
 import { Modal } from '@gtms/ui/Modal'
 import styles from './styles.scss'
 
-export const RegisterLoginWindow: FC<{}> = () => {
-  const [isLoginActive, setIsLoginActive] = useState<boolean>(false)
+export const LoginWindow: FC<{}> = () => {
   const [isOpen, setIsOpen] = useState<boolean>(
     uiQuery.isRegisterLoginModalOpen()
   )
@@ -31,7 +29,7 @@ export const RegisterLoginWindow: FC<{}> = () => {
   return (
     <Modal additionalStyles={styles.modalContent} onClose={closeLoginModal}>
       <h2 className={styles.header}>Login</h2>
-      {isLoginActive ? <LoginForm /> : <RegistrationForm />}
+      <LoginForm />
       <SocialButtons onFailure={() => null} />
       <Link href="/registration">
         <a className={styles.registrationLink}>

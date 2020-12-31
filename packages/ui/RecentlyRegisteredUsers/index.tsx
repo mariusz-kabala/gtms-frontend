@@ -15,8 +15,15 @@ export const RecentlyRegisteredUsers: FC<{
 }> = ({ users, noImage }) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
 
+  const moreUsers = [...users, ...users, ...users, ...users]
+
   return (
     <>
+      <style global jsx>{`
+        body {
+          padding-right: 200px;
+        }
+      `}</style>
       {userPreview && (
         <Modal onClose={() => setUserPreview(undefined)}>
           <UserPreview
@@ -27,7 +34,7 @@ export const RecentlyRegisteredUsers: FC<{
         </Modal>
       )}
       <ul className={styles.users} data-testid="recently-registered-users">
-        {users.map((user) => (
+        {moreUsers.map((user) => (
           <li
             className={styles.user}
             key={`recent-user-${user.id}`}
