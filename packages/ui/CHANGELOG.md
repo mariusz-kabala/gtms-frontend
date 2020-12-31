@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.79.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.78.2...@gtms/ui@0.79.0) (2020-12-31)
+
+
+### Features
+
+* GEOT-758: common way to display group preview ([#969](https://github.com/gtms-org/gtms-frontend/issues/969)) ([d70b4d1](https://github.com/gtms-org/gtms-frontend/commit/d70b4d1165413a57ef82047cecdfbc19b4b8ab2c))
+
+
+
+
+
 ## [0.78.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.78.1...@gtms/ui@0.78.2) (2020-12-30)
 
 **Note:** Version bump only for package @gtms/ui
