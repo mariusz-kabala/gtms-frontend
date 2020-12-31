@@ -14,7 +14,7 @@ import { Picture } from '@gtms/ui/Picture'
 import styles from './styles.scss'
 
 export const MyPostsFilters: FC<{
-  onGroupClick: (groupName: string) => void
+  onGroupClick: (groupName: string, groupId: string) => void
   active?: string[]
 }> = ({ onGroupClick, active = [] }) => {
   const [data, setData] = useState<{
@@ -65,7 +65,9 @@ export const MyPostsFilters: FC<{
               </div>
               <div>
                 <h3>
-                  <a onClick={() => onGroupClick(group.name)}>{group.name}</a>
+                  <a onClick={() => onGroupClick(group.name, group.id)}>
+                    {group.name}
+                  </a>
                 </h3>
                 <p>
                   <span>{group.count}</span> posts created
