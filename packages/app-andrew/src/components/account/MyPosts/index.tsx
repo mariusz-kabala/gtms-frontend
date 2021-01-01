@@ -1,8 +1,14 @@
-import React, { FC, useState, useEffect, useCallback } from 'react'
+import React, { FC, useState, useEffect, useCallback, useRef } from 'react'
 // commons
 import { UserAvatarNoImage } from 'enums'
 // api
-import { fetchMyPosts, IMyPostsResponse, IMyPostsRequest } from '@gtms/api-post'
+import {
+  fetchMyPosts,
+  IMyPostsResponse,
+  IMyPostsRequest,
+  IMyPostsDetailsResponse,
+  fetchMyPostDetails,
+} from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // state
@@ -15,7 +21,7 @@ import { MyPostsFilters } from 'components/account/MyPostsFilters'
 // ui
 import { MockData } from '@gtms/ui/MockData'
 import { PostSingle } from '@gtms/ui/PostSingle'
-import { SearchBar } from '@gtms/ui/SearchBar'
+import { SearchBar, SuggestionTypes } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
 
@@ -42,6 +48,117 @@ export const MyPosts: FC = () => {
     groups: [],
     tags: [],
   })
+  const [suggestions, setSuggestions] = useState<{
+    isLoading: boolean
+    records: string[]
+    type: keyof typeof SuggestionTypes
+  }>({
+    isLoading: false,
+    records: [],
+    type: SuggestionTypes.tags as keyof typeof SuggestionTypes,
+  })
+
+  const tagsSuggestionsAbortController = useRef<AbortController>()
+  const myPostsDetails = useRef<IMyPostsDetailsResponse[]>()
+
+  const getMyPostDetails = useCallback(
+    (signal?: AbortSignal) => {
+      if (myPostsDetails.current) {
+        return Promise.resolve(myPostsDetails.current)
+      }
+
+      return fetchMyPostDetails(signal).then((response) => {
+        myPostsDetails.current = response
+
+        return response
+      })
+    },
+    [myPostsDetails]
+  )
+
+  const onFindTags = useCallback(
+    (text: string, type: keyof typeof SuggestionTypes) => {
+      setSuggestions({
+        isLoading: true,
+        records: [],
+        type,
+      })
+
+      const controller = new AbortController()
+      const { signal } = controller
+
+      tagsSuggestionsAbortController.current = controller
+
+      switch (type) {
+        case SuggestionTypes.tags:
+          findTagsAPI(text, signal).then((records: string[]) => {
+            setSuggestions({
+              isLoading: false,
+              records,
+              type,
+            })
+          })
+          break
+
+        case SuggestionTypes.users:
+          getMyPostDetails(signal).then((response) => {
+            setSuggestions({
+              isLoading: false,
+              records: response
+                .filter((group) =>
+                  group.name.toLowerCase().includes(text.toLocaleLowerCase())
+                )
+                .map((group) => group.name),
+              type,
+            })
+          })
+          break
+      }
+    },
+    []
+  )
+
+  const onTagAdd = useCallback(
+    (tag: string) => {
+      switch (suggestions.type) {
+        case SuggestionTypes.tags:
+          return setSearch((state) => ({
+            ...state,
+            tags: [...state.tags, tag],
+          }))
+        case SuggestionTypes.users:
+          getMyPostDetails().then((myPostsDetails) => {
+            const group = myPostsDetails.find((group) => group.name === tag)
+
+            if (group) {
+              setSearch((state) => ({
+                ...state,
+                groups: [...state.groups, { id: group.id, name: group.name }],
+              }))
+            }
+          })
+      }
+    },
+    [suggestions.type]
+  )
+
+  const onTagRemove = useCallback((tag: string) => {
+    setSearch((state) => {
+      const index = state.tags.indexOf(tag)
+
+      if (index > -1) {
+        state.tags.splice(index, 1)
+
+        return {
+          ...state,
+          tags: [...state.tags],
+        }
+      }
+
+      return state
+    })
+  }, [])
+
   const makeSearch = () => {
     setData((state) => ({
       ...state,
@@ -53,6 +170,10 @@ export const MyPosts: FC = () => {
 
     if (search.groups.length > 0) {
       query.groups = search.groups.map((r) => r.id)
+    }
+
+    if (search.tags.length > 0) {
+      query.tags = search.tags
     }
 
     fetchMyPosts(query)
@@ -125,9 +246,28 @@ export const MyPosts: FC = () => {
 
   const groupNames = search.groups.map((r) => r.name)
 
+  const onLoadSuggestionCancel = useCallback(() => {
+    tagsSuggestionsAbortController.current &&
+      tagsSuggestionsAbortController.current.abort()
+  }, [tagsSuggestionsAbortController])
+
   return (
     <div className={styles.userLastPosts}>
       <span>My last posts:</span>
+      <SearchBar
+        disabled={data.isLoading}
+        additionalStyles={styles.search}
+        onTagAdd={onTagAdd}
+        onTagRemove={onTagRemove}
+        onLoadSuggestion={onFindTags}
+        suggestions={suggestions.records}
+        suggestionsType={suggestions.type}
+        onQueryChange={() => null}
+        onLoadSuggestionCancel={onLoadSuggestionCancel}
+        tags={search.tags}
+        users={groupNames}
+        onUserRemove={onFilterGroupRemove}
+      />
       {data.isLoading && (
         <div className={styles.noRecords}>
           <MockData />
@@ -137,17 +277,6 @@ export const MyPosts: FC = () => {
       )}
       {!data.isLoading && data.docs.length > 0 && !data.errorOccured && (
         <>
-          <SearchBar
-            additionalStyles={styles.search}
-            onTagAdd={() => null}
-            onTagRemove={() => null}
-            onLoadSuggestion={() => null}
-            onQueryChange={() => null}
-            onLoadSuggestionCancel={() => null}
-            tags={search.tags}
-            users={groupNames}
-            onUserRemove={onFilterGroupRemove}
-          />
           <div className={styles.filters}>
             <a onClick={() => setShowFilters((value) => !value)}>
               {!showFilters ? 'Show filters' : 'Hide filters'}
@@ -174,7 +303,7 @@ export const MyPosts: FC = () => {
                 noImage={UserAvatarNoImage}
                 onClick={() => null}
                 onLoginRequest={openLoginModal}
-                onTagClick={() => null}
+                onTagClick={onTagAdd}
                 user={state.user}
                 {...post}
               />
