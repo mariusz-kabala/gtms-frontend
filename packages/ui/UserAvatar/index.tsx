@@ -8,7 +8,7 @@ export const UserAvatar: FC<{
   additionalStyles?: string
   alt?: string
   image: IImage
-  onClick?: () => unknown
+  onClick?: () => void
   size?: string
 }> = ({ additionalStyles, alt, image, onClick, size }) => (
   <div

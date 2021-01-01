@@ -382,9 +382,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                           />
                           <PostsList
                             posts={state.posts.posts}
-                            onUserPostsClick={(user) =>
-                              onClick({ user: user.username })
-                            }
                             isAdmin={groupQuery.hasAdminRights()}
                             renderPost={(post) => (
                               <PostSingle

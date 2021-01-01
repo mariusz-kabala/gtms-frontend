@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import cx from 'classnames'
 import { DeletePost } from '../DeletePost'
 import { formatDistance } from 'date-fns'
@@ -6,10 +6,10 @@ import { pl } from 'date-fns/locale'
 import { IImage } from '@gtms/commons/types/image'
 import { IAccountDetails, IUser } from '@gtms/commons/models'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
+import { showUserPreview } from 'state/userPreview'
 // ui
-import { Modal } from '@gtms/ui/Modal'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
-import { UserPreview } from '@gtms/ui/UserPreview'
+// styles
 import styles from './styles.scss'
 
 export const PostResponse: FC<{
@@ -20,24 +20,17 @@ export const PostResponse: FC<{
   noImage: { [key: string]: IImage }
   user: IAccountDetails | null
 }> = ({ additionalStyles, html, createdAt, owner, noImage, user }) => {
-  const [userPreview, setUserPreview] = useState(false)
-
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="post-single"
     >
-      {userPreview && (
-        <Modal onClose={() => setUserPreview(false)}>
-          <UserPreview user={owner} noUserAvatar={noImage} />
-        </Modal>
-      )}
       <div className={styles.header}>
         <div className={styles.user}>
           <UserAvatar
             additionalStyles={styles.userAvatar}
             image={getImage('35x35', owner.avatar, noImage)}
-            onClick={() => setUserPreview(true)}
+            onClick={() => showUserPreview(owner)}
           />
           <span>{getDisplayName(owner)}</span>
         </div>

@@ -7,6 +7,7 @@ import { NavigationWrapper } from 'components/commons/NavigationWrapper'
 import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
 import { NotificationsActive } from 'components/commons/NotificationsActive'
 import { GroupPreview } from 'components/commons/GroupPreview'
+import { UserPreview } from 'components/commons/UserPreview'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from 'components/commons/LoginWindow'
@@ -108,6 +109,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <NotificationsSidebar />
         <NavigationWrapper />
         <GroupPreview />
+        <UserPreview />
         <Component {...pageProps} />
         <div
           className={cx(

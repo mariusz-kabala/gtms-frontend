@@ -49,7 +49,6 @@ export const PostResults: FC<{
         <>
           <PostsList
             isAdmin={false}
-            onUserPostsClick={() => null}
             posts={docs}
             renderPost={(post) => (
               <PostSingle

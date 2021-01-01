@@ -2,7 +2,7 @@ import React, { FC, useCallback, useState } from 'react'
 import { IPost, IUser, IGroup } from '@gtms/commons/models'
 import { addErrorNotification } from '@gtms/state-notification'
 import { showGroupPreview as showGroupPreviewFunc } from 'state/groupPreview'
-import { UserAvatarNoImage } from 'enums'
+import { showUserPreview } from 'state/userPreview'
 // api
 import { createAbuseReportAPI } from '@gtms/api-abuse'
 // components
@@ -11,13 +11,11 @@ import { Favs } from 'components/post/Favs'
 // ui
 import { AbuseReportForm, VIEW } from '@gtms/ui/AbuseReportForm'
 import { Modal } from '@gtms/ui/Modal'
-import { UserPreview } from '@gtms/ui/UserPreview'
 
 const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
 
 export const PostsList: FC<{
   isAdmin: boolean
-  onUserPostsClick?: (user: IUser) => unknown
   posts: IPost[]
   renderPost: (
     post: IPost & {
@@ -27,15 +25,7 @@ export const PostsList: FC<{
       onOpenGroupPreview?: (group: IGroup) => unknown
     }
   ) => JSX.Element
-}> = ({ isAdmin, onUserPostsClick, posts, renderPost }) => {
-  const [userPreview, setUserPreview] = useState<IUser | undefined>()
-  const onUserClick = useCallback((user: IUser) => {
-    setUserPreview(user)
-  }, [])
-  const onCloseUserPreview = useCallback(() => {
-    setUserPreview(undefined)
-  }, [])
-
+}> = ({ isAdmin, posts, renderPost }) => {
   const [abuseReportState, setAbuseReportState] = useState<{
     postId: null | string
     isOpen: boolean
@@ -116,7 +106,7 @@ export const PostsList: FC<{
           ...post,
           renderMenu: renderPostMenu,
           renderFavs,
-          onUserClick,
+          onUserClick: showUserPreview,
           onOpenGroupPreview: showGroupPreviewFunc,
         })
       )}
@@ -127,15 +117,6 @@ export const PostsList: FC<{
             onSubmit={onAbuseReportSubmit}
             view={abuseReportState.view}
             isMakingRequest={abuseReportState.isMakingRequest}
-          />
-        </Modal>
-      )}
-      {userPreview && (
-        <Modal onClose={onCloseUserPreview}>
-          <UserPreview
-            noUserAvatar={UserAvatarNoImage}
-            onUserPostsClick={onUserPostsClick}
-            user={userPreview}
           />
         </Modal>
       )}
