@@ -1,4 +1,5 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
 
 .pageWrapper {
   display: flex;
@@ -7,12 +8,9 @@
   width: 100%;
   min-height: 100%;
 
-  .recentlyRegisteredUsers {
-    margin: 15px;
-    margin-bottom: 0;
-  }
-
   .recentlyCreatedGroups {
-    margin: 0 15px;
+    position: relative;
+    z-index: 1;
+    margin: 15px;
   }
 }

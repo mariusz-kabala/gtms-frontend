@@ -10,7 +10,7 @@ $size: (
   @return map-get($size, $key);
 }
 
-@mixin header($key, $textUppercase: 'initial') {
+@mixin header($key, $textUppercase: null) {
   font-size: header($key);
 
   @if $textUppercase {

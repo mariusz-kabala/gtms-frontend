@@ -558,7 +558,7 @@ export const UiElements: NextPage<{}> = () => {
 }
 
 UiElements.getInitialProps = () => {
-  return Promise.resolve({ namespacesRequired: ['groupMembers', 'userCard'] })
+  return Promise.resolve({ namespacesRequired: ['groupMembers'] })
 }
 
 export default UiElements

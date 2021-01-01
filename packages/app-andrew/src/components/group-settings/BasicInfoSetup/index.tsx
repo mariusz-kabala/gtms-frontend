@@ -158,8 +158,8 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
         <Modal onClose={onFormModalClose}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            method="post"
             data-testid="group-basic-info-setup-form"
+            method="post"
           >
             <Input
               type="text"

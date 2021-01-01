@@ -7,9 +7,9 @@ import { UserAvatarNoImage } from 'enums'
 // state
 import { getGroupMembers } from '@gtms/state-group'
 // ui
-import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'

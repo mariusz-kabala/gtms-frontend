@@ -16,18 +16,17 @@ type HomePageProps = {
 
 export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
   return (
-    <div data-testid="home-page" className={styles.pageWrapper}>
-      <RecentlyRegisteredUsers
-        noImage={UserAvatarNoImage}
-        additionalStyles={styles.recentlyRegisteredUsers}
-        users={users}
-      />
-      <RecentlyCreatedGroups
-        additionalStyles={styles.recentlyCreatedGroups}
-        createYourOwnGroup={true}
-        groups={groups}
-      />
-    </div>
+    <>
+      <div data-testid="home-page" className={styles.pageWrapper}>
+        <RecentlyRegisteredUsers noImage={UserAvatarNoImage} users={users} />
+        <RecentlyCreatedGroups
+          additionalStyles={styles.recentlyCreatedGroups}
+          createYourOwnGroup={true}
+          groups={groups}
+        />
+      </div>
+      <div className={styles.pageBg} />
+    </>
   )
 }
 

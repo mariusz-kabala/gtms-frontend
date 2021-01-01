@@ -16,80 +16,45 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.103.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.102.0...@gtms/app-andrew@0.103.0) (2020-12-31)
 
-
 ### Features
 
-* GEOT-753: working post filters by group on my account page ([#971](https://github.com/gtms-org/gtms-frontend/issues/971)) ([d290eb8](https://github.com/gtms-org/gtms-frontend/commit/d290eb8f851c73ec8df73425db987eaf23daa26f))
-
-
-
-
+- GEOT-753: working post filters by group on my account page ([#971](https://github.com/gtms-org/gtms-frontend/issues/971)) ([d290eb8](https://github.com/gtms-org/gtms-frontend/commit/d290eb8f851c73ec8df73425db987eaf23daa26f))
 
 # [0.102.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.101.2...@gtms/app-andrew@0.102.0) (2020-12-31)
 
-
 ### Features
 
-* GEOT-758: common way to display group preview ([#969](https://github.com/gtms-org/gtms-frontend/issues/969)) ([d70b4d1](https://github.com/gtms-org/gtms-frontend/commit/d70b4d1165413a57ef82047cecdfbc19b4b8ab2c))
-
-
-
-
+- GEOT-758: common way to display group preview ([#969](https://github.com/gtms-org/gtms-frontend/issues/969)) ([d70b4d1](https://github.com/gtms-org/gtms-frontend/commit/d70b4d1165413a57ef82047cecdfbc19b4b8ab2c))
 
 ## [0.101.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.101.1...@gtms/app-andrew@0.101.2) (2020-12-30)
 
-
 ### Bug Fixes
 
-* GEOT-756: login reg remind reset password styles ([#968](https://github.com/gtms-org/gtms-frontend/issues/968)) ([7c72100](https://github.com/gtms-org/gtms-frontend/commit/7c72100c401db1857e974f153bca959d7249243c))
-
-
-
-
+- GEOT-756: login reg remind reset password styles ([#968](https://github.com/gtms-org/gtms-frontend/issues/968)) ([7c72100](https://github.com/gtms-org/gtms-frontend/commit/7c72100c401db1857e974f153bca959d7249243c))
 
 ## [0.101.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.101.0...@gtms/app-andrew@0.101.1) (2020-12-30)
 
-
 ### Bug Fixes
 
-* GEOT-755: internal error component ([#967](https://github.com/gtms-org/gtms-frontend/issues/967)) ([5dd8c6e](https://github.com/gtms-org/gtms-frontend/commit/5dd8c6e34daab3cfe77522ee6c55f76933da1f3b))
-
-
-
-
+- GEOT-755: internal error component ([#967](https://github.com/gtms-org/gtms-frontend/issues/967)) ([5dd8c6e](https://github.com/gtms-org/gtms-frontend/commit/5dd8c6e34daab3cfe77522ee6c55f76933da1f3b))
 
 # [0.101.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.100.0...@gtms/app-andrew@0.101.0) (2020-12-30)
 
-
 ### Features
 
-* GEOT-753: add filter on my post (account page) ([#966](https://github.com/gtms-org/gtms-frontend/issues/966)) ([025b011](https://github.com/gtms-org/gtms-frontend/commit/025b011bcfaf067547231b0b7d7dad5ffa04a8b9))
-
-
-
-
+- GEOT-753: add filter on my post (account page) ([#966](https://github.com/gtms-org/gtms-frontend/issues/966)) ([025b011](https://github.com/gtms-org/gtms-frontend/commit/025b011bcfaf067547231b0b7d7dad5ffa04a8b9))
 
 # [0.100.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.99.0...@gtms/app-andrew@0.100.0) (2020-12-30)
 
-
 ### Features
 
-* GEOT-753: show posts on account page ([#965](https://github.com/gtms-org/gtms-frontend/issues/965)) ([e4f1f97](https://github.com/gtms-org/gtms-frontend/commit/e4f1f972c069577358314f2ab7117bd7bc8c5b21))
-
-
-
-
+- GEOT-753: show posts on account page ([#965](https://github.com/gtms-org/gtms-frontend/issues/965)) ([e4f1f97](https://github.com/gtms-org/gtms-frontend/commit/e4f1f972c069577358314f2ab7117bd7bc8c5b21))
 
 # [0.99.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.98.5...@gtms/app-andrew@0.99.0) (2020-12-30)
 
-
 ### Features
 
-* GEOT-752: better group create ([#964](https://github.com/gtms-org/gtms-frontend/issues/964)) ([5b74191](https://github.com/gtms-org/gtms-frontend/commit/5b7419144ca60a741c74eabf2d42c2e49a0ed721))
-
-
-
-
+- GEOT-752: better group create ([#964](https://github.com/gtms-org/gtms-frontend/issues/964)) ([5b74191](https://github.com/gtms-org/gtms-frontend/commit/5b7419144ca60a741c74eabf2d42c2e49a0ed721))
 
 ## [0.98.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.98.4...@gtms/app-andrew@0.98.5) (2020-12-30)
 

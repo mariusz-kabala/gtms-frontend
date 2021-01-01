@@ -8,8 +8,9 @@
   }
 
   .header {
-    font-size: 3em;
+    // create a mixin of that
     text-transform: uppercase;
+    @include fontSize(xlg);
     @include fontWeight(semiBold);
     margin-bottom: 10px;
   }

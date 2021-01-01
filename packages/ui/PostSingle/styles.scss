@@ -32,7 +32,7 @@
       height: 35px;
       min-width: 35px;
       min-height: 35px;
-      margin-right: 10px;
+      margin-right: 5px;
       border-radius: 50%;
 
       &:hover {
@@ -81,7 +81,7 @@
     .message {
       @include fontSize(sm);
       margin-top: -15px;
-      text-indent: 45px;
+      text-indent: 40px;
       line-height: 1.25;
       white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
     }

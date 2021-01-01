@@ -15,63 +15,33 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @gtms/state-comment
 
-
-
-
-
 ## [0.7.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.7.2...@gtms/state-comment@0.7.3) (2020-12-30)
 
 **Note:** Version bump only for package @gtms/state-comment
-
-
-
-
 
 ## [0.7.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.7.1...@gtms/state-comment@0.7.2) (2020-12-28)
 
 **Note:** Version bump only for package @gtms/state-comment
 
-
-
-
-
 ## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.7.0...@gtms/state-comment@0.7.1) (2020-12-28)
 
 **Note:** Version bump only for package @gtms/state-comment
 
-
-
-
-
 # [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.6.1...@gtms/state-comment@0.7.0) (2020-12-27)
-
 
 ### Features
 
-* GEOT-734 add to favs ([#957](https://github.com/gtms-org/gtms-frontend/issues/957)) ([771cb8d](https://github.com/gtms-org/gtms-frontend/commit/771cb8d2bae65c06e4121b3ec4db8d0ff504356e))
-
-
-
-
+- GEOT-734 add to favs ([#957](https://github.com/gtms-org/gtms-frontend/issues/957)) ([771cb8d](https://github.com/gtms-org/gtms-frontend/commit/771cb8d2bae65c06e4121b3ec4db8d0ff504356e))
 
 ## [0.6.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.6.0...@gtms/state-comment@0.6.1) (2020-12-25)
 
 **Note:** Version bump only for package @gtms/state-comment
 
-
-
-
-
 # [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.5.3...@gtms/state-comment@0.6.0) (2020-12-20)
-
 
 ### Features
 
-* GEOT-699: user card on main page ([#927](https://github.com/gtms-org/gtms-frontend/issues/927)) ([0b4d2ba](https://github.com/gtms-org/gtms-frontend/commit/0b4d2ba9f89ac8a9ddddd7841bd7da2eec257edc))
-
-
-
-
+- GEOT-699: user card on main page ([#927](https://github.com/gtms-org/gtms-frontend/issues/927)) ([0b4d2ba](https://github.com/gtms-org/gtms-frontend/commit/0b4d2ba9f89ac8a9ddddd7841bd7da2eec257edc))
 
 ## [0.5.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.5.2...@gtms/state-comment@0.5.3) (2020-12-11)
 

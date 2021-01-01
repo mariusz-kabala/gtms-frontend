@@ -22,21 +22,6 @@
     text-transform: uppercase;
   }
 
-  .avatar {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: -25px;
-
-    img {
-      overflow: hidden;
-      border-radius: $borderRadius;
-      max-width: 100px;
-      max-height: 100px;
-    }
-  }
-
   .cover {
     display: flex;
     justify-content: center;
@@ -50,11 +35,29 @@
   }
 
   .content {
+    .row {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    .avatar {
+      display: flex;
+      justify-content: center;
+
+      img {
+        overflow: hidden;
+        border-radius: $borderRadius;
+        max-width: 100px;
+        max-height: 100px;
+      }
+    }
+
     .header {
       @include fontSize(lg);
       @include fontWeight(semiBold);
       margin-bottom: 5px;
       margin-top: 10px;
+      margin-left: 10px;
     }
 
     .tags {
@@ -62,7 +65,7 @@
       flex-wrap: wrap;
       gap: 5px;
       align-items: center;
-      margin-top: 5px;
+      margin-top: 10px;
       margin-bottom: 5px;
 
       .tag {

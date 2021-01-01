@@ -4,16 +4,16 @@
 @mixin buttonDefault() {
   display: flex;
   align-items: center;
-  background: none;
   border-color: $theme0;
   border: none;
   outline: none;
   justify-content: center;
-  padding: 0px;
+  padding: 0px 10px;
   white-space: nowrap;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  background: none;
   cursor: pointer;
 
   &:active,
@@ -74,7 +74,6 @@
 
 // SIZES
 @mixin buttonSizeDefault() {
-  padding: 8px;
   min-height: 40px;
 }
 

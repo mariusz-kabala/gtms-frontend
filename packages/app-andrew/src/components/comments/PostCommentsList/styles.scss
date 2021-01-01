@@ -9,19 +9,6 @@
   margin: 10px;
   @include fontSize(sm);
   font-style: italic;
-  background-color: $theme1;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 5px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 10px 10px 10px;
-    border-color: transparent transparent $theme1 transparent;
-  }
 }
 
 .respondButton {

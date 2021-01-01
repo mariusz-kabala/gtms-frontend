@@ -102,6 +102,7 @@ export const PromotedTags: FC<{
               key={`promoted-${tag.id}`}
             >
               <Fav
+                additionalStyles={styles.favButton}
                 isChecked={favs.includes(tag.tag)}
                 onClick={(checked) => {
                   onFavClick(tag, checked)
@@ -161,7 +162,7 @@ export const PromotedTags: FC<{
         additionalStyles={styles.btnShowMore}
         data-testid="show-more-tags-button"
       >
-        <Spinner size="sm" />
+        <Spinner size="xsm" />
         show more...
       </Button>
     </div>

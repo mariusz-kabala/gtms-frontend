@@ -27,6 +27,8 @@
     cursor: pointer;
 
     li {
+      display: flex;
+      align-items: center;
       text-transform: uppercase;
       @include fontSize(xs);
       cursor: pointer;
@@ -37,11 +39,7 @@
         display: inline;
       }
 
-      &.active {
-        display: flex;
-        align-items: center;
-      }
-
+      &.active,
       &:hover {
         color: $theme4;
       }

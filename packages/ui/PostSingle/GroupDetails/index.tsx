@@ -32,7 +32,7 @@ export const GroupDetails: FC<{
       data-testid="group-details"
       className={cx(styles.wrapper, additionalStyles)}
     >
-      <div className={styles.image}>
+      <div className={styles.groupAvatar}>
         <Link href={`/group/${group.slug}`}>
           <a onClick={onClick}>
             <Picture {...getImage('50x50', group.avatar)} alt={name} />

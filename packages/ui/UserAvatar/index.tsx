@@ -13,6 +13,7 @@ export const UserAvatar: FC<{
 }> = ({ additionalStyles, alt, image, onClick, size }) => (
   <div
     className={cx(styles.wrapper, additionalStyles, {
+      [styles.sm]: size === 'sm',
       [styles.md]: size === 'md',
       [styles.percent100]: size === '100percent',
     })}

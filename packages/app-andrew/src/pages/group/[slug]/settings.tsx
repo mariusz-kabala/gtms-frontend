@@ -30,9 +30,10 @@ import {
   Tabs,
 } from 'components/group/GroupSettingsSidebar'
 import { AdminsSettings } from 'components/group-settings/Admins'
-import { BasicSettings } from 'components/group-settings/Basic'
+import { BasicInfoSetup } from 'components/group-settings/BasicInfoSetup'
 import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
 import { GroupMembers } from 'components/group/GroupMembers'
+import { PermissionsSetup } from 'components/group-settings/PermissionsSetup'
 // sections
 import { InvitationsSettings } from 'components/group-settings/Invitations'
 import { MembersSettings } from 'components/group-settings/Members'
@@ -136,48 +137,53 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
           <h2>Can not fetch group details, try again later</h2>
         </ErrorWrapper>
       )}
-      {!group.isLoading && !group.errorOccured && (
-        <div className={styles.columns}>
-          <GroupSettingsSidebar
-            additionalStyles={styles.sidebar}
-            tab={tab}
-            setTab={setTab}
-          />
-          <div className={styles.content}>
-            {tab === Tabs.general && (
-              <>
-                {group.group && <GroupBackgroundSettings group={group.group} />}
-                {group.group && <BasicSettings group={group.group} />}
-                <div className={styles.btnDeleteWrapper}>
-                  <GroupDeleteGroup
-                    additionalStyles={styles.btnDelete}
-                    onConfirm={() => null}
-                  />
-                </div>
-              </>
-            )}
+      {!group.isLoading &&
+        !group.errorOccured &&
+        !(state.showPromoted || state.showUsers) && (
+          <div className={styles.columns}>
+            <GroupSettingsSidebar
+              additionalStyles={styles.sidebar}
+              tab={tab}
+              setTab={setTab}
+            />
+            <div className={styles.content}>
+              {tab === Tabs.general && (
+                <>
+                  {group.group && <BasicInfoSetup group={group.group} />}
+                  {group.group && (
+                    <GroupBackgroundSettings group={group.group} />
+                  )}
+                  {group.group && <PermissionsSetup group={group.group} />}
+                  <div className={styles.btnDeleteWrapper}>
+                    <GroupDeleteGroup
+                      additionalStyles={styles.btnDelete}
+                      onConfirm={() => null}
+                    />
+                  </div>
+                </>
+              )}
 
-            {tab === Tabs.tags && (
-              <TagsSettings
-                id={group.group?.id || ''}
-                tags={group.group?.tags || []}
-              />
-            )}
+              {tab === Tabs.tags && (
+                <TagsSettings
+                  id={group.group?.id || ''}
+                  tags={group.group?.tags || []}
+                />
+              )}
 
-            {tab === Tabs.invitations && (
-              <InvitationsSettings group={group.group as IGroup} />
-            )}
+              {tab === Tabs.invitations && (
+                <InvitationsSettings group={group.group as IGroup} />
+              )}
 
-            {tab === Tabs.admins && (
-              <AdminsSettings group={group.group as IGroup} />
-            )}
+              {tab === Tabs.admins && (
+                <AdminsSettings group={group.group as IGroup} />
+              )}
 
-            {tab === Tabs.members && (
-              <MembersSettings group={group.group as IGroup} />
-            )}
+              {tab === Tabs.members && (
+                <MembersSettings group={group.group as IGroup} />
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { InviteToGroupButton } from '../InviteToGroupButton'
 import { IUser, IAccountDetails } from '@gtms/commons/models'
 import { userQuery } from '@gtms/state-user'
 // ui
+import { Modal } from '@gtms/ui/Modal'
 import { Picture } from '@gtms/ui/Picture'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
@@ -17,6 +18,7 @@ export const Profile: FC<{
   const [state, setState] = useState<IAccountDetails>(
     userQuery.accountDetails()
   )
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   useEffect(() => {
     const sub = userQuery.accountDetails$.subscribe((value) => setState(value))
@@ -29,9 +31,18 @@ export const Profile: FC<{
   return (
     <div className={styles.wrapper} data-testid="user-profile">
       <div className={styles.header}>
+        {isModalOpen && (
+          <Modal onClose={() => setIsModalOpen(false)}>
+            <Picture
+              additionalStyles={styles.image}
+              {...getImage('200x200', user.avatar, UserAvatarNoImage)}
+            />
+          </Modal>
+        )}
         <Picture
           additionalStyles={styles.image}
-          {...getImage('200x200', user.avatar, UserAvatarNoImage)}
+          onClick={() => setIsModalOpen(true)}
+          {...getImage('800x800', user.avatar, UserAvatarNoImage)}
         />
         <div className={styles.headerAndDesc}>
           <h2 className={styles.header}>{getDisplayName(user)}</h2>

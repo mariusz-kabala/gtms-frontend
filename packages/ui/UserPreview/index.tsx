@@ -19,23 +19,29 @@ export const UserPreview: FC<{
 }> = ({ noUserAvatar, onUserPostsClick, user }) => {
   return (
     <div className={styles.wrapper} data-testid="user-preview">
-      <UserAvatar
-        additionalStyles={styles.avatar}
-        image={getImage('200x200', user.avatar, noUserAvatar)}
-      />
       <div className={styles.cover} />
       <div className={styles.content}>
-        <h2 className={styles.header}>{getDisplayName(user)}</h2>
-        {user.description && <p className={styles.desc}>{user.description}</p>}
+        <div className={styles.row}>
+          <UserAvatar
+            additionalStyles={styles.avatar}
+            image={getImage('200x200', user.avatar, noUserAvatar)}
+          />
+          <div>
+            <h2 className={styles.header}>{getDisplayName(user)}</h2>
+            {user.description && (
+              <p className={styles.desc}>{user.description}</p>
+            )}
+          </div>
+        </div>
         {user.tags.length > 0 && (
-          <>
+          <div className={styles.tags}>
             <h3 className={styles.headerSection}>Tags:</h3>
-            <TagGroup additionalStyles={styles.tags}>
+            <TagGroup>
               {user.tags.map((tag) => (
                 <Tag label={tag} key={`user-tag-${tag}`} />
               ))}
             </TagGroup>
-          </>
+          </div>
         )}
       </div>
       <div className={styles.btnsWrapper}>
