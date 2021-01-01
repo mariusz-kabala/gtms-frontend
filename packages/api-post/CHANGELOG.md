@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.18.0...@gtms/api-post@0.19.0) (2021-01-01)
+
+
+### Features
+
+* GEOT-753: working search bar on my account page ([#972](https://github.com/gtms-org/gtms-frontend/issues/972)) ([26837e1](https://github.com/gtms-org/gtms-frontend/commit/26837e16441440ef4be3e46cbfbd058bccb71dd2))
+
+
+
+
+
 # [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.17.0...@gtms/api-post@0.18.0) (2020-12-31)
 
 

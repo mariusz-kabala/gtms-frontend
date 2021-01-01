@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.16.4...@gtms/state-post@0.16.5) (2021-01-01)
+
+**Note:** Version bump only for package @gtms/state-post
+
+
+
+
+
 ## [0.16.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-post@0.16.3...@gtms/state-post@0.16.4) (2020-12-31)
 
 **Note:** Version bump only for package @gtms/state-post
