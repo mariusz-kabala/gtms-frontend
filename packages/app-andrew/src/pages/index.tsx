@@ -3,9 +3,9 @@ import { NextPage } from 'next'
 import { IUser, IGroup } from '@gtms/commons/models'
 import { getRecentUsers, usersListQuery } from '@gtms/state-user'
 import { getRecentGroups, groupsListQuery } from '@gtms/state-group'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // ui
-import { RecentlyCreatedGroups } from 'components/home/RecentlyCreatedGroups'
+import { RecentlyCreatedGroups } from '@app/components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
 import styles from './indexstyles.scss'
 

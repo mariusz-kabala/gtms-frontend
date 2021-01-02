@@ -12,7 +12,8 @@
     "dev:qa-stable": "cross-env NODE_ENV=development API_URL=https://geotags.pl FE_API_URL=/api USE_PROXY_SSL=1 nodemon",
     "start": "cross-env NODE_ENV=production node dist/app-andrew/src/server.js",
     "setup:ts": "cp-cli tsconfig.json.example tsconfig.json",
-    "check:ts": "tsc --noEmit -p ./tsconfig.json"
+    "check:ts": "tsc --noEmit -p ./tsconfig.json",
+    "test": "jest"
   },
   "dependencies": {
     "@gtms/api-abuse": "0.4.2",

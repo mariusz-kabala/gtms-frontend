@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, useCallback, useRef } from 'react'
 // commons
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // api
 import {
   fetchMyPosts,
