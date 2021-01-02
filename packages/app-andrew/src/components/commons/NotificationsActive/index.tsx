@@ -8,7 +8,7 @@ import {
   IInternalNotification,
   markAsRead,
 } from '@gtms/state-notification'
-import { NotificationIcons } from 'enums'
+import { NotificationIcons } from '@app/enums'
 
 export const NotificationsActive: FC<{
   additionalStyles?: string

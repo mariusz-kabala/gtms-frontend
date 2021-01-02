@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { useForm } from 'react-hook-form'
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 import { userQuery, loadMyGroups } from '@gtms/state-user'
 import { inviteToGroup } from '@gtms/state-group'
 import {
@@ -10,7 +10,7 @@ import {
   inviteToGroupButtonState,
   inviteToGroupButtonState$,
 } from './state.query'
-import { GroupAvatarNoImage } from 'enums'
+import { GroupAvatarNoImage } from '@app/enums'
 // ui
 import { AiOutlineUserAdd } from 'react-icons/ai'
 import { Button } from '@gtms/ui/Button'
@@ -19,6 +19,7 @@ import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
 import { Modal } from '@gtms/ui/Modal'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
+// styles
 import styles from './styles.scss'
 
 const GroupsList: FC<{

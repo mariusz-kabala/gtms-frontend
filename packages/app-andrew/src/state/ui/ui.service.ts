@@ -1,6 +1,6 @@
 import { uiStore } from './ui.store'
 import { uiQuery } from './ui.query'
-import { BACKGROUNDS_GALLERY } from 'enums'
+import { BACKGROUNDS_GALLERY } from '@app/enums'
 
 export const openLoginModal = () =>
   uiStore.update({

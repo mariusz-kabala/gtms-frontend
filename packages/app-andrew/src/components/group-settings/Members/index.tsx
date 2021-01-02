@@ -13,6 +13,7 @@ import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
+// styles
 import styles from './styles.scss'
 
 const RECORDS_PER_PAGE = 25

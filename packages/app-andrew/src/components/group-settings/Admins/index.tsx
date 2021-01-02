@@ -1,9 +1,11 @@
 import React, { FC, useState, useEffect } from 'react'
+// state
 import {
   IGroupAdmins,
   groupAdminsQuery,
   getGroupAdmins,
 } from '@gtms/state-group'
+// commons
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { IGroup } from '@gtms/commons/models'
 import { Link } from '@gtms/commons/i18n'
@@ -13,6 +15,7 @@ import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
+// styles
 import styles from './styles.scss'
 
 export const AdminsSettings: FC<{ group: IGroup }> = ({ group }) => {

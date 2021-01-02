@@ -1,13 +1,13 @@
 import React, { FC, useState, useEffect } from 'react'
 // commons
 import { getImage } from '@gtms/commons/helpers'
-import { GroupAvatarNoImage, UserAvatarNoImage } from 'enums'
+import { GroupAvatarNoImage, UserAvatarNoImage } from '@app/enums'
 // state
 import {
   IGroupPreviewState,
   groupPreviewQuery,
   hideGroupPreview,
-} from 'state/groupPreview'
+} from '@app/state/groupPreview'
 // ui
 import { Modal } from '@gtms/ui/Modal'
 import { GroupCard } from '@gtms/ui/GroupCard'

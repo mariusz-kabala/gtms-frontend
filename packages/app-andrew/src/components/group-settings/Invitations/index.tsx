@@ -9,7 +9,7 @@ import {
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 import { getImage, getDisplayName } from '@gtms/commons/helpers'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // ui
 import { IoIosCloseCircle, IoIosCheckbox } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'

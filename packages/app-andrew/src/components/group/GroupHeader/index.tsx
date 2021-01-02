@@ -3,7 +3,7 @@ import cx from 'classnames'
 // state
 import { postsQuery } from '@gtms/state-post'
 // ui
-import { GroupSidebar } from 'components/group/Sidebar'
+import { GroupSidebar } from '@app/components/group/Sidebar'
 import { SearchBar } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'

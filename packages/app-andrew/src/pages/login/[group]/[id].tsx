@@ -12,7 +12,7 @@ import {
   IPromotedTagsState,
 } from '@gtms/state-tag'
 // components
-import { LoginContent } from '../../../components/login/Content'
+import { LoginContent } from '@app/components/login/Content'
 // ui
 import { TagsGrid } from '@gtms/ui/TagsGrid'
 // styles

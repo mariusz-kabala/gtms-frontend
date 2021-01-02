@@ -3,11 +3,12 @@ import cx from 'classnames'
 import { IPost, IAccountDetails, IComment } from '@gtms/commons/models'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 import { createNewComment } from '@gtms/state-post'
 import { PostCommentsList } from '../../comments/PostCommentsList'
 // ui
 import { PostSingle } from '@gtms/ui/PostSingle'
+// styles
 import styles from './styles.scss'
 
 export const PostDetails: FC<{

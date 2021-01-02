@@ -6,8 +6,8 @@ import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { IComment, IUser, IAccountDetails } from '@gtms/commons/models'
 import { SubCommentsList } from '../SubCommentsList'
-import { UserAvatarNoImage } from 'enums'
-import { openLoginModal } from 'state'
+import { UserAvatarNoImage } from '@app/enums'
+import { openLoginModal } from '@app/state'
 import {
   IPostCommentsListState,
   postCommentsListState,

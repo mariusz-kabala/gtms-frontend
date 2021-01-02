@@ -7,6 +7,7 @@ import getConfig from 'next/config'
 // ui
 import { FaFacebookF } from 'react-icons/fa'
 import { Spinner } from '@gtms/ui/Spinner'
+// styles
 import styles from './styles.scss'
 
 export const SocialButtons: FC<{

@@ -3,6 +3,7 @@ import { IGroup } from '@gtms/commons/models'
 // ui
 import { Spinner } from '@gtms/ui/Spinner'
 import { MockData } from '@gtms/ui/MockData'
+// styles
 import styles from './styles.scss'
 
 export const GroupsList: FC<{ records: IGroup[]; isLoading: boolean }> = ({

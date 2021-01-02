@@ -3,7 +3,7 @@ import { Sorting } from '@gtms/api-post'
 import { groupQuery, groupMembersQuery } from '@gtms/state-group'
 import { postCommentsQuery } from '@gtms/state-comment'
 import { postsQuery } from '@gtms/state-post'
-import { uiQuery } from 'state'
+import { uiQuery } from '@app/state'
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
 import {

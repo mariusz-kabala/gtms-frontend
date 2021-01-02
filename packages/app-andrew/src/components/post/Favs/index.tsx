@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect, useCallback } from 'react'
 import { IFavsState, favsState, favsState$ } from './state.query'
 import { addPostToFavs, removeFromFavs, getPostFavs } from '@gtms/api-post'
 import { getDisplayName } from '@gtms/commons/helpers'
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 import { addErrorNotification } from '@gtms/state-notification'
 import { Tooltip } from 'react-tippy'
 // ui

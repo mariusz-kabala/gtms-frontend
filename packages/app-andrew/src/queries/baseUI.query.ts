@@ -10,7 +10,7 @@ import {
   INotificationRecord,
 } from '@gtms/state-notification'
 import { IGroup } from '@gtms/commons/models'
-import { uiQuery, UIQuery } from 'state'
+import { uiQuery, UIQuery } from '@app/state'
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { IImage } from '@gtms/commons/types/image'

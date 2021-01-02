@@ -5,16 +5,16 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { getImage } from '@gtms/commons/helpers'
 import { FileStatus } from '@gtms/commons'
 import { Link } from '@gtms/commons/i18n'
-import { GroupAvatarNoImage } from 'enums'
+import { GroupAvatarNoImage } from '@app/enums'
 // state
 import {
   IGroupSidebarContentState,
   groupSidebarContentState,
   groupSidebarContentState$,
 } from './state.query'
-import { toggleGroupUsers, togglePromotedTagsInGroup } from 'state'
+import { toggleGroupUsers, togglePromotedTagsInGroup } from '@app/state'
 // components
-import { GroupAvatar } from 'components/group/GroupAvatar'
+import { GroupAvatar } from '@app/components/group/GroupAvatar'
 import { GroupSidebarContent } from './GroupSidebarContent'
 // import { GroupDescription } from 'components/group/GroupDescription'
 // ui

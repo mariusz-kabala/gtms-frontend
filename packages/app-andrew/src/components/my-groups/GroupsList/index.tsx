@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { IGroup } from '@gtms/commons'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
-import { GroupAvatarNoImage } from 'enums'
+import { GroupAvatarNoImage } from '@app/enums'
 // ui
 import { Picture } from '@gtms/ui/Picture'
 import { TagGroup } from '@gtms/ui/TagGroup'

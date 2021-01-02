@@ -4,8 +4,8 @@ import {
   INavigationProps,
   baseUIQuery,
   INotificationsSidebarProps,
-} from 'queries'
-import { toggleSidebarNotifications } from 'state'
+} from '@app/queries'
+import { toggleSidebarNotifications } from '@app/state'
 import { logoutUser } from '@gtms/state-user'
 // ui
 import { IoIosAddCircle, IoIosNotifications, IoIosSearch } from 'react-icons/io'

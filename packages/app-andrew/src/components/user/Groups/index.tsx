@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import cx from 'classnames'
 import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
-import { GroupAvatarNoImage } from 'enums'
+import { GroupAvatarNoImage } from '@app/enums'
 // ui
 import { Picture } from '@gtms/ui/Picture'
 import styles from './styles.scss'

@@ -3,7 +3,7 @@ import { NextPage, NextPageContext } from 'next'
 import { hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 // components
-import { RegistrationContent } from '../../components/registration/Content'
+import { RegistrationContent } from '@app/components/registration/Content'
 
 export const RegistrationPage: NextPage<{}> = () => {
   return <RegistrationContent />

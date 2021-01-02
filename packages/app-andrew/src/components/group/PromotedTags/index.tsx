@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, useCallback } from 'react'
-import { PromotedTagNoImage } from 'enums'
+import { PromotedTagNoImage } from '@app/enums'
 import { IPromotedTag } from '@gtms/commons/models'
 // state
 import {
@@ -15,9 +15,9 @@ import {
   promotedTagsState,
   promotedTagsState$,
 } from './state.query'
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 // components
-import { PromotedTagsForm } from 'components/group-settings/PromotedTagForm'
+import { PromotedTagsForm } from '@app/components/group-settings/PromotedTagForm'
 // ui
 import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
 import { Modal } from '@gtms/ui/Modal'

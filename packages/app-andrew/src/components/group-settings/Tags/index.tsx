@@ -1,15 +1,17 @@
 import React, { FC, useState, useCallback } from 'react'
-import { TagsBar } from '@gtms/ui/TagsBar'
 import { findTagsAPI } from '@gtms/api-tags'
 import { loadGroupPromotedTags, promotedTagsQuery } from '@gtms/state-tag'
 import { IPromotedTag } from '@gtms/commons/models'
+// components
+import { PromotedTagsForm } from '../PromotedTagForm'
+import { PromotedTags } from '@app/components/group/PromotedTags'
 // ui
+import { TagsBar } from '@gtms/ui/TagsBar'
 import { AiOutlineForm } from 'react-icons/ai'
 import { Modal } from '@gtms/ui/Modal'
-import { PromotedTagsForm } from '../PromotedTagForm'
-import { PromotedTags } from 'components/group/PromotedTags'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { Tag } from '@gtms/ui/Tag'
+// styles
 import styles from './styles.scss'
 
 export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {

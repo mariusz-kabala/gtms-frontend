@@ -1,13 +1,13 @@
 import React, { FC, useCallback, useState } from 'react'
 import { IPost, IUser, IGroup } from '@gtms/commons/models'
 import { addErrorNotification } from '@gtms/state-notification'
-import { showGroupPreview as showGroupPreviewFunc } from 'state/groupPreview'
-import { UserAvatarNoImage } from 'enums'
+import { showGroupPreview as showGroupPreviewFunc } from '@app/state/groupPreview'
+import { UserAvatarNoImage } from '@app/enums'
 // api
 import { createAbuseReportAPI } from '@gtms/api-abuse'
 // components
-import { PostAdmin } from 'components/post/Admin'
-import { Favs } from 'components/post/Favs'
+import { PostAdmin } from '@app/components/post/Admin'
+import { Favs } from '@app/components/post/Favs'
 // ui
 import { AbuseReportForm, VIEW } from '@gtms/ui/AbuseReportForm'
 import { Modal } from '@gtms/ui/Modal'

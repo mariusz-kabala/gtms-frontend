@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
-import { GroupCreate } from '../../components/group/GroupCreate'
+import { GroupCreate } from '@app/components/group/GroupCreate'
 import { hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 // styles

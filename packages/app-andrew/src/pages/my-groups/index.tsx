@@ -14,20 +14,21 @@ import {
   myGroupsPageState,
   myGroupsPageState$,
   IMyGroupsPageState,
-} from 'queries'
+} from '@app/queries'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { Link } from '@gtms/commons/i18n'
-import { GroupsList } from 'components/my-groups/GroupsList'
-import { FavsButton } from 'components/group/FavsButton'
-import { FollowButton } from 'components/group/FollowButton'
-import { SettingsButton } from 'components/group/SettingsButton'
-import { AddFavToMenuButton } from 'components/my-groups/AddFavToMenuButton'
+import { GroupsList } from '@app/components/my-groups/GroupsList'
+import { FavsButton } from '@app/components/group/FavsButton'
+import { FollowButton } from '@app/components/group/FollowButton'
+import { SettingsButton } from '@app/components/group/SettingsButton'
+import { AddFavToMenuButton } from '@app/components/my-groups/AddFavToMenuButton'
 import { useInitState } from '@gtms/commons/hooks'
 import { FAVS_GROUPS_MENU_LIMIT } from '@gtms/commons/consts'
 // ui
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Spinner } from '@gtms/ui/Spinner'
+// styles
 import styles from './styles.scss'
 
 type MyGroupsPageProps = {

@@ -1,7 +1,7 @@
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { groupQuery, IGroupState } from '@gtms/state-group'
-import { uiQuery } from 'state'
+import { uiQuery } from '@app/state'
 import { FileStatus } from '@gtms/commons'
 
 export interface IGroupSidebarContentState extends IGroupState {

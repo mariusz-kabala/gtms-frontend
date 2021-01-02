@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { InviteToGroupButton } from '../InviteToGroupButton'
 import { IUser, IAccountDetails } from '@gtms/commons/models'

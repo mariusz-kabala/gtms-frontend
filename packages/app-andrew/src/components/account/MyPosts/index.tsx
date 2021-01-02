@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, useCallback, useRef } from 'react'
 // commons
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // api
 import {
   fetchMyPosts,
@@ -13,11 +13,11 @@ import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // state
 import { createNewComment } from '@gtms/state-post'
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 import { IMyPostsState, myPostsState, myPostsState$ } from './state.query'
 // components
-import { PostsList } from 'components/post/PostsList'
-import { MyPostsFilters } from 'components/account/MyPostsFilters'
+import { PostsList } from '@app/components/post/PostsList'
+import { MyPostsFilters } from '@app/components/account/MyPostsFilters'
 // ui
 import { MockData } from '@gtms/ui/MockData'
 import { PostSingle } from '@gtms/ui/PostSingle'

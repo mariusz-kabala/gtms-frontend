@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 import { getImage, onlyUnique } from '@gtms/commons/helpers'
 import { useInitState } from '@gtms/commons/hooks'
 import { IPost } from '@gtms/commons/models'
@@ -11,23 +11,23 @@ import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
-import { GroupCover } from 'components/group/GroupCover'
-import { GroupHeader } from 'components/group/GroupHeader'
-import { GroupMembers } from 'components/group/GroupMembers'
-import { GroupNoAccess } from 'components/group/GroupNoAccess'
-import { GroupNotFound } from 'components/group/GroupNotFound'
-import { PostCreate } from 'components/post/PostCreate'
-import { PostDetails } from 'components/post/PostDetails'
-import { PostsList } from 'components/post/PostsList'
-import { PromotedTags } from 'components/group/PromotedTags'
-import { TagsBar } from 'components/group/TagsBar'
+import { GroupCover } from '@app/components/group/GroupCover'
+import { GroupHeader } from '@app/components/group/GroupHeader'
+import { GroupMembers } from '@app/components/group/GroupMembers'
+import { GroupNoAccess } from '@app/components/group/GroupNoAccess'
+import { GroupNotFound } from '@app/components/group/GroupNotFound'
+import { PostCreate } from '@app/components/post/PostCreate'
+import { PostDetails } from '@app/components/post/PostDetails'
+import { PostsList } from '@app/components/post/PostsList'
+import { PromotedTags } from '@app/components/group/PromotedTags'
+import { TagsBar } from '@app/components/group/TagsBar'
 // state
 import {
   IGroupPageState,
   groupPageState,
   groupPageState$,
-} from 'queries/groupPage.query'
-import { openLoginModal } from 'state'
+} from '@app/queries/groupPage.query'
+import { openLoginModal } from '@app/state'
 import { groupQuery, IGroupState, getGroup, initGroup } from '@gtms/state-group'
 import { checkGroupsFavStatus } from '@gtms/state-user'
 import {
@@ -48,7 +48,7 @@ import {
   changePageBackground,
   changePageBackgroundImage,
   clearPageBackground,
-} from 'state'
+} from '@app/state'
 // ui
 import { IoMdGrid } from 'react-icons/io'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'

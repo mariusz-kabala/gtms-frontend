@@ -4,8 +4,8 @@ import { findTagsAPI, fetchSuggestedTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 import { uploadPostImage } from '@gtms/api-post'
 import { deleteTmpFileAPI } from '@gtms/api-file'
-import { UserAvatarNoImage } from 'enums'
-import { openLoginModal } from 'state'
+import { UserAvatarNoImage } from '@app/enums'
+import { openLoginModal } from '@app/state'
 import {
   IPostCreateState,
   postCreateState,

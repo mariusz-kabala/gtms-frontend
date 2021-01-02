@@ -6,6 +6,7 @@ import { redirect } from '@gtms/commons/helpers/redirect'
 // ui
 import { IoMdCheckmark } from 'react-icons/io'
 import { Logout } from '@gtms/ui/Logout'
+// styles
 import styles from './styles.scss'
 
 export const RegistrationSuccessPage: NextPage<{}> = () => {
