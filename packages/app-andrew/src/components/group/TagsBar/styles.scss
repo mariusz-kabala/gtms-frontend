@@ -21,16 +21,20 @@
   .nav {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 8px;
+    gap: 5px;
+    margin-bottom: 8px;
     @include fontWeight(semiBold);
     cursor: pointer;
 
     li {
       display: flex;
       align-items: center;
+      padding: 5px;
+      border-radius: $borderRadius;
       text-transform: uppercase;
       @include fontSize(xs);
+      background: $theme2;
+      color: $theme0;
       cursor: pointer;
 
       i {
@@ -41,7 +45,7 @@
 
       &.active,
       &:hover {
-        color: $theme4;
+        background: $theme4;
       }
     }
   }
@@ -50,9 +54,11 @@
     .item {
       a {
         display: flex;
-        margin: 5px;
-        border: 3px solid $theme1;
+        align-items: center;
+        padding: 5px;
+        margin-top: 5px;
         border-radius: $borderRadius;
+        background: $theme2;
         cursor: pointer;
 
         img {
@@ -79,7 +85,7 @@
         }
 
         &:hover {
-          border-color: $theme4;
+          background: $theme4;
 
           .desc {
             opacity: 1;

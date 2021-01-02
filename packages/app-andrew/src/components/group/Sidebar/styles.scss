@@ -8,18 +8,21 @@
   display: flex;
   grid-gap: 8px;
 
-  .groupAvatar {
-    width: 40px;
-    height: 40px;
-
-    picture {
-      border-radius: $borderRadius;
-      box-shadow: $boxShadowDefault;
-      overflow: hidden;
-    }
-  }
-
   .avatarAndName {
+    // temporary hidden
+    display: none;
+
+    .groupAvatar {
+      width: 40px;
+      height: 40px;
+
+      picture {
+        border-radius: $borderRadius;
+        box-shadow: $boxShadowDefault;
+        overflow: hidden;
+      }
+    }
+
     .header {
       width: 100%;
       margin-left: 8px;

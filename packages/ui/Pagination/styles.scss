@@ -15,9 +15,10 @@
       min-width: 30px;
       min-height: 30px;
       padding: 5px 10px;
-      border: 2px solid $theme9;
+      border: 2px solid $theme2;
       border-radius: $borderRadius;
       @include fontWeight(semiBold);
+      background: $theme2;
       cursor: pointer;
 
       .icon {

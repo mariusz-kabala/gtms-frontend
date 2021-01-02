@@ -16,6 +16,7 @@ import { UserPreview } from '@gtms/ui/UserPreview'
 const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
 
 export const PostsList: FC<{
+  additionalStyles?: string
   isAdmin: boolean
   onUserPostsClick?: (user: IUser) => unknown
   posts: IPost[]
@@ -27,7 +28,7 @@ export const PostsList: FC<{
       onOpenGroupPreview?: (group: IGroup) => unknown
     }
   ) => JSX.Element
-}> = ({ isAdmin, onUserPostsClick, posts, renderPost }) => {
+}> = ({ additionalStyles, isAdmin, onUserPostsClick, posts, renderPost }) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const onUserClick = useCallback((user: IUser) => {
     setUserPreview(user)
@@ -110,7 +111,7 @@ export const PostsList: FC<{
   )
 
   return (
-    <div data-testid="posts-list">
+    <div className={additionalStyles} data-testid="posts-list">
       {posts.map((post) =>
         renderPost({
           ...post,

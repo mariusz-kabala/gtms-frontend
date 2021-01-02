@@ -1,9 +1,13 @@
-@mixin pageBg() {
+@mixin pageBg($bg: null) {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   @include imageCover();
+
   background-image: url('/images/temp-images/login-bg-2.png');
+  @if $bg {
+    background-image: url($bg);
+  }
 }

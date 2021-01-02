@@ -7,7 +7,7 @@
 .wrapper {
   position: fixed;
   top: 0px;
-  right: -500px;
+  left: -500px;
   @include z-index(sidebar);
   width: 500px;
   height: 100%;
@@ -16,7 +16,7 @@
   transition: right 200ms ease-in;
 
   &.opened {
-    right: 0;
+    left: 0;
 
     .overlay {
       display: initial;
@@ -61,7 +61,7 @@
         padding: 5px 10px;
         margin-right: 5px;
         border-radius: $borderRadius;
-        background: $theme9;
+        background: $theme2;
         color: $theme0;
 
         &:hover {
@@ -73,10 +73,9 @@
 
     i {
       margin-left: auto;
-    }
+      color: $theme0;
 
-    &:hover {
-      i > svg {
+      svg {
         color: $theme0;
       }
     }
@@ -86,9 +85,9 @@
     li {
       padding: 10px;
       margin-top: 10px;
-      background: $theme9;
+      background: $theme2;
       border-radius: $borderRadius;
-      border: 3px solid $theme9;
+      border: 3px solid $theme2;
       opacity: 0.85;
 
       &:hover {

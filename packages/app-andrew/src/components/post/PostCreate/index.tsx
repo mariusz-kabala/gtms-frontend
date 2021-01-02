@@ -217,10 +217,10 @@ export const PostCreate: FC<{
               setValue('')
             }}
           >
+            send
             <i>
               <IoMdSend />
             </i>
-            send
           </Button>
         </div>
       )}

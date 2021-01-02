@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import { GroupCreate } from '../../components/group/GroupCreate'
@@ -23,20 +22,7 @@ export const GroupCreatePage: NextPage<{}> = () => {
         <p className={styles.desc}>{t('subheader')}</p>
         <GroupCreate />
       </div>
-      <ul className={styles.images}>
-        <li className={cx(styles.image, styles.one)} />
-        <li className={cx(styles.image, styles.two)} />
-        <li className={cx(styles.image, styles.three)} />
-        <li className={cx(styles.image, styles.four)} />
-        <li className={cx(styles.image, styles.five)} />
-        <li className={cx(styles.image, styles.six)} />
-        <li className={cx(styles.image, styles.seven)} />
-        <li className={cx(styles.image, styles.eight)} />
-        <li className={cx(styles.image, styles.nine)} />
-        <li className={cx(styles.image, styles.ten)} />
-        <li className={cx(styles.image, styles.eleven)} />
-        <li className={cx(styles.image, styles.twelve)} />
-      </ul>
+      <div className={styles.pageBg} />
     </div>
   )
 }
