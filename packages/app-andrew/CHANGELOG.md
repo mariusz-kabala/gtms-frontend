@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.105.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.104.1...@gtms/app-andrew@0.105.0) (2021-01-02)
+
+
+### Features
+
+* GEOT-765: background image more visible ([#975](https://github.com/gtms-org/gtms-frontend/issues/975)) ([3906707](https://github.com/gtms-org/gtms-frontend/commit/3906707bdcb8cc2f32475acdc315ccb49da6b342))
+
+
+
+
+
 ## [0.104.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.104.0...@gtms/app-andrew@0.104.1) (2021-01-01)
 
 
