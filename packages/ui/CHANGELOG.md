@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.82.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.81.0...@gtms/ui@0.82.0) (2021-01-02)
+
+
+### Features
+
+* GEOT-759: a common way to show user preview popup ([#974](https://github.com/gtms-org/gtms-frontend/issues/974)) ([db73f4d](https://github.com/gtms-org/gtms-frontend/commit/db73f4d60a77fb97af4b69a2ba6b431db88283ba))
+
+
+
+
+
 # [0.81.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.80.1...@gtms/ui@0.81.0) (2021-01-02)
 
 
