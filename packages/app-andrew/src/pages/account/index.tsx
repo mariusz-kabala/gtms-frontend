@@ -147,7 +147,6 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                       state.avatar.status
                     ) && <Spinner />}
                     <Picture
-                      additionalStyles={styles.avatar}
                       {...(userQuery.hasAvatar('200x200')
                         ? userQuery.getAvatar('200x200')
                         : UserAvatarNoImage['200x200'])}

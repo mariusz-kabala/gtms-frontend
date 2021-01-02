@@ -102,9 +102,7 @@ export const AccountSecurityPage: NextPage<IAccountSecurityPageProps> = () => {
         <ChangePassword additionalStyles={styles.changePassword} />
         <UserSessions {...userSession} onDeleteClick={onDeleteSessionClick} />
         <LoginHistory {...loginHistory} />
-        <div className={styles.deleteAccount}>
-          <DeleteAccount onConfirm={() => null} />
-        </div>
+        <DeleteAccount onConfirm={() => null} />
       </div>
     </div>
   )

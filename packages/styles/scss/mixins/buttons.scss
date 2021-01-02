@@ -47,7 +47,7 @@
     line-height: 0;
   }
 
-  @if $position == null {
+  @if $position == 'left' {
     div {
       margin-right: 5px;
     }
@@ -78,6 +78,7 @@
 }
 
 @mixin buttonSizeSm() {
+  min-height: 25px;
   padding: 5px;
   line-height: 1;
   @include fontSize(sm);
@@ -90,7 +91,7 @@
 
 // COLORS
 @mixin buttonColorsDefault() {
-  background: $theme9;
+  background: $theme2;
   color: $theme0;
 }
 

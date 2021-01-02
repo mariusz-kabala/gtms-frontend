@@ -14,8 +14,9 @@
 
   .list {
     padding: 10px;
-    border: 2px solid $theme1;
+    border: 2px solid $theme2;
     border-radius: $borderRadius;
+    background: $theme2;
 
     &:hover {
       border-color: $theme4;

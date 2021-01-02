@@ -438,11 +438,6 @@ export const SearchPage: FC<{
   return (
     <div className={styles.pageWrapper} data-testid="search-page">
       <div className={styles.wrapper}>
-        {/* @todo add text header instead of text on the image below */}
-        <h2 className={styles.header}>
-          {t('searchHeader1')}
-          <span>{t('searchHeader2')}</span>
-        </h2>
         <SearchBar
           isLoading={state.suggestions.isLoading}
           onLoadSuggestion={onFindTags}

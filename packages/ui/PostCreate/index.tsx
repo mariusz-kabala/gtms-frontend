@@ -17,30 +17,30 @@ import styles from './styles.scss'
 
 export const PostCreate: FC<{
   additionalStyles?: string
-  value?: string
-  setValue: any // needs to be fixed later!
+  fetchSuggestedTags?: (tags: string[]) => Promise<string[]>
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   fetchUsers: (query: string, signal: AbortSignal) => Promise<IUser[]>
-  fetchSuggestedTags?: (tags: string[]) => Promise<string[]>
-  isLoading?: boolean
   hintMinLenght?: number
-  user: IAccountDetails | null
+  isLoading?: boolean
   noImage: { [key: string]: IImage }
-  onLoginRequest?: () => unknown
   onFocus?: () => unknown
+  onLoginRequest?: () => unknown
+  setValue: any // needs to be fixed later!
+  user: IAccountDetails | null
+  value?: string
 }> = ({
   additionalStyles,
-  user,
-  noImage,
+  fetchSuggestedTags,
   fetchTags,
   fetchUsers,
-  fetchSuggestedTags,
-  onLoginRequest,
-  onFocus,
-  setValue,
-  value = '',
-  isLoading = false,
   hintMinLenght = 3,
+  isLoading = false,
+  noImage,
+  onFocus,
+  onLoginRequest,
+  setValue,
+  user,
+  value = '',
 }) => {
   const { t } = useTranslation('postCreate')
   const [query, setQuery] = useState<{ type: 'tag' | 'user'; value: string }>({
@@ -192,17 +192,13 @@ export const PostCreate: FC<{
     >
       {isLoading && <Spinner />}
 
-      <div className={styles.avatarAndText}>
-        <div className={styles.user}>
-          <Link href={`/user/${user?.id}`}>
-            <div>
-              <UserAvatar
-                image={getImage('50x50', user?.avatar, noImage)}
-                additionalStyles={styles.userAvatar}
-              />
-            </div>
-          </Link>
-        </div>
+      <div className={styles.avatarAndTextInput}>
+        <Link href={`/user/${user?.id}`}>
+          <UserAvatar
+            size="sm"
+            image={getImage('50x50', user?.avatar, noImage)}
+          />
+        </Link>
         <textarea
           onFocus={() => {
             if (!user && onLoginRequest) {

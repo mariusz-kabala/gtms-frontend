@@ -39,10 +39,10 @@ export const NavigationWrapper: FC<{}> = () => {
         onUserRemove={() => null}
       />
       {isLogged && (
-        <div className={styles.right}>
-          <NavigationDots />
+        <>
           <Navigation />
-        </div>
+          <NavigationDots />
+        </>
       )}
     </div>
   )

@@ -1,8 +1,8 @@
 import React, { FC, useState, useEffect } from 'react'
 import {
+  addToFavs,
   favGroupsQuery,
   IFavRecordStatus,
-  addToFavs,
   removeFromFavs,
   userQuery,
 } from '@gtms/state-user'

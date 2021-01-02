@@ -14,7 +14,7 @@ $columns: (
 
 @mixin gridDefault($key) {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   grid-template-columns: getColumnSize($key);
   list-style-type: none; // in case of <ul> element
 }

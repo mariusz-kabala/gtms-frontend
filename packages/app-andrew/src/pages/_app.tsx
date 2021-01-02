@@ -109,23 +109,30 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <NavigationWrapper />
         <GroupPreview />
         <Component {...pageProps} />
+        {/* <div className={styles.aaaawrapper} data-loaded={backgroundLoaded ? 'true' : 'false'}>
+          <div
+            className={cx(
+              styles.bg,
+              !backgroundImage ? background.className : undefined
+            )}
+            style={
+              backgroundImage
+                ? {
+                    backgroundImage: `url(${
+                      backgroundLoaded
+                        ? backgroundImage.full
+                        : backgroundImage.mini
+                    })`,
+                  }
+                : undefined
+            }
+          />
+        </div> */}
         <div
-          className={cx(
-            styles.bg,
-            !backgroundImage ? background.className : undefined
-          )}
-          data-loaded={backgroundLoaded ? 'true' : 'false'}
-          style={
-            backgroundImage
-              ? {
-                  backgroundImage: `url(${
-                    backgroundLoaded
-                      ? backgroundImage.full
-                      : backgroundImage.mini
-                  })`,
-                }
-              : undefined
-          }
+          className={styles.aaaa}
+          style={{
+            backgroundImage: `url('/images/temp-images/group_bg_3.png')`,
+          }}
         />
       </div>
     )

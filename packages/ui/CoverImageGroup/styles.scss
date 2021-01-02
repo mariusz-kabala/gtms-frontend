@@ -9,7 +9,7 @@
 .wrapper {
   width: 100%;
   @include imageCover();
-  background: $theme1;
+  background: $theme2;
 
   .header {
     @include fontWeight(semiBold);
@@ -18,7 +18,7 @@
 
   .text {
     @include fontSize(md);
-    color: $theme9;
+    color: $theme2;
   }
 
   .steps {
@@ -29,7 +29,8 @@
     min-height: 50px;
 
     &.showCover {
-      min-height: 250px;
+      min-height: 300px;
+      max-height: 300px;
     }
   }
 
@@ -71,7 +72,7 @@
         display: inline-block;
         line-height: 0;
         font-size: 100px;
-        color: $theme9;
+        color: $theme2;
       }
     }
 
@@ -133,7 +134,6 @@
 
   .choosePhoto {
     width: 100%;
-    margin-top: 10px;
     visibility: hidden;
     transition: 2s ease;
     height: 0;
@@ -178,8 +178,9 @@
       }
 
       .noCover {
+        padding: 10px;
+        @include fontSize(sm);
         text-align: center;
-        padding: 5px;
 
         i {
           display: block;

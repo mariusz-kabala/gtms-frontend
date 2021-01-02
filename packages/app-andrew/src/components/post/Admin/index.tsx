@@ -5,12 +5,17 @@ import { useOnClickOutside } from '@gtms/commons/hooks/onClickOutside'
 // ui
 import { AiOutlineForm } from 'react-icons/ai'
 import { FcRemoveImage } from 'react-icons/fc'
-import { IoIosMore } from 'react-icons/io'
-import { IoMdTrash } from 'react-icons/io'
+import {
+  IoIosCheckbox,
+  IoIosCloseCircle,
+  IoIosMore,
+  IoMdTrash,
+} from 'react-icons/io'
 import { RiUserStarLine } from 'react-icons/ri'
+import { Button } from '@gtms/ui/Button'
+import { Modal } from '@gtms/ui/Modal'
 // styles
 import styles from './styles.scss'
-import { Button } from '@gtms/ui'
 
 export const PostAdmin: FC<{
   postId: string
@@ -27,6 +32,9 @@ export const PostAdmin: FC<{
   onBlockUserClick,
   onDropUserFromGroupClick,
 }) => {
+  const [isModalDeletePostOpen, setIsModalDeletePostOpen] = useState<boolean>(
+    false
+  )
   const [isVisible, setIsVisible] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>(null)
   const openMenu = useCallback(() => setIsVisible(true), [])
@@ -70,6 +78,39 @@ export const PostAdmin: FC<{
 
   return (
     <div className={styles.postDropdown} ref={ref}>
+      {isModalDeletePostOpen && (
+        <Modal
+          additionalStyles={styles.postDeleteModal}
+          onClose={() => setIsModalDeletePostOpen(false)}
+        >
+          <h2 className={styles.header}>Are you sure you want delete tag?</h2>
+          <p className={styles.desc}>
+            Eteu in occaecat occaecat consectetur et laboris aliquip.
+          </p>
+          <div className={styles.buttons}>
+            <Button
+              additionalStyles={styles.yes}
+              onClick={() => setIsModalDeletePostOpen(false)}
+            >
+              <i>
+                <IoIosCloseCircle />
+              </i>
+              No
+            </Button>
+            <Button
+              additionalStyles={styles.no}
+              onClick={() => {
+                onDelete()
+              }}
+            >
+              <i>
+                <IoIosCheckbox />
+              </i>
+              Yes
+            </Button>
+          </div>
+        </Modal>
+      )}
       <button onClick={openMenu} className={styles.btnDropdown}>
         <i>
           <IoIosMore />
@@ -86,7 +127,10 @@ export const PostAdmin: FC<{
             </Button>
           </li>
           <li className={styles.item}>
-            <Button additionalStyles={styles.btn} onClick={onDelete}>
+            <Button
+              additionalStyles={styles.btn}
+              onClick={() => setIsModalDeletePostOpen(true)}
+            >
               <i>
                 <IoMdTrash />
               </i>

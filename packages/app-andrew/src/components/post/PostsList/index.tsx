@@ -16,6 +16,7 @@ import { UserPreview } from '@gtms/ui/UserPreview'
 const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
 
 export const PostsList: FC<{
+  additionalStyles?: string
   isAdmin: boolean
   onUserPostsClick?: (user: IUser) => unknown
   posts: IPost[]
@@ -110,7 +111,7 @@ export const PostsList: FC<{
   )
 
   return (
-    <div data-testid="posts-list">
+    <div className={additionalStyles} data-testid="posts-list">
       {posts.map((post) =>
         renderPost({
           ...post,
