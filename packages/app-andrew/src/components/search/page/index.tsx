@@ -438,6 +438,7 @@ export const SearchPage: FC<{
   return (
     <div className={styles.pageWrapper} data-testid="search-page">
       <div className={styles.wrapper}>
+        <span>{t('searchHeader2')}</span>
         <SearchBar
           isLoading={state.suggestions.isLoading}
           onLoadSuggestion={onFindTags}

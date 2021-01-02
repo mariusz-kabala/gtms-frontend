@@ -28,7 +28,7 @@ export const PostsList: FC<{
       onOpenGroupPreview?: (group: IGroup) => unknown
     }
   ) => JSX.Element
-}> = ({ isAdmin, onUserPostsClick, posts, renderPost }) => {
+}> = ({ additionalStyles, isAdmin, onUserPostsClick, posts, renderPost }) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
   const onUserClick = useCallback((user: IUser) => {
     setUserPreview(user)
