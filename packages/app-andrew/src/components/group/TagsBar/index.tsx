@@ -2,9 +2,9 @@ import React, { FC, useState, useEffect } from 'react'
 import { formatDistance } from 'date-fns'
 import cx from 'classnames'
 import { useTranslation, Link } from '@gtms/commons/i18n'
-import { PromotedTagNoImage } from 'enums'
+import { PromotedTagNoImage } from '@app/enums'
 import { truncateString } from '@gtms/commons/helpers'
-import { generateSearchURL } from 'helpers'
+import { generateSearchURL } from '@app/helpers'
 // state
 import { ITagsBarState, tagsBarState, tagsBarState$ } from './state.query'
 import {

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { IUser } from '@gtms/commons/models'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { MockData } from '@gtms/ui/MockData'

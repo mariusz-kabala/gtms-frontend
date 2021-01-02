@@ -4,9 +4,9 @@ import cx from 'classnames'
 import { fetchMyPostDetails, IMyPostsDetailsResponse } from '@gtms/api-post'
 // commons
 import { getImage } from '@gtms/commons/helpers'
-import { GroupAvatarNoImage } from 'enums'
+import { GroupAvatarNoImage } from '@app/enums'
 //state
-import { showGroupPreview } from 'state/groupPreview'
+import { showGroupPreview } from '@app/state/groupPreview'
 // ui
 import { Spinner } from '@gtms/ui/Spinner'
 import { Picture } from '@gtms/ui/Picture'

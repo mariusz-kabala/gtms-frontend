@@ -35,7 +35,7 @@
 
     .iconClose {
       position: absolute;
-      color: $theme9;
+      color: $theme2;
       display: flex;
       @include fontSize(md);
     }
@@ -48,11 +48,11 @@
 
       > * {
         &:nth-child(1) {
-          stroke: $theme9;
+          stroke: $theme2;
         }
 
         &:nth-child(2) {
-          stroke: $theme9;
+          stroke: $theme2;
         }
       }
     }

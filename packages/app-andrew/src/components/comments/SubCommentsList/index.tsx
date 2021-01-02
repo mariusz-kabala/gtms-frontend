@@ -3,7 +3,7 @@ import { ISubComment, IUser, IAccountDetails } from '@gtms/commons/models'
 import { createNewComment } from '@gtms/state-comment'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // ui
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'

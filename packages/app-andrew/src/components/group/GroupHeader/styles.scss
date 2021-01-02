@@ -1,11 +1,19 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
 
 .groupHeader {
   display: flex;
-  padding: 8px;
+  gap: 8px;
   max-width: $tempWidth;
   border-radius: $borderRadius2;
-  background: $theme1;
+
+  .templogo {
+    min-width: 40px;
+    min-height: 40px;
+    background-image: url('/images/temp-images/logo-patrol.png');
+    border-radius: $borderRadius;
+    @include imageCover();
+  }
 
   .search {
     // @todo remove it when search will be finished

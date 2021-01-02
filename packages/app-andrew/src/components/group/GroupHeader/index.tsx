@@ -3,7 +3,7 @@ import cx from 'classnames'
 // state
 import { postsQuery } from '@gtms/state-post'
 // ui
-import { GroupSidebar } from 'components/group/Sidebar'
+import { GroupSidebar } from '@app/components/group/Sidebar'
 import { SearchBar } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
@@ -38,7 +38,7 @@ export const GroupHeader: FC<{ additionalStyles?: string }> = ({
       className={cx(styles.groupHeader, additionalStyles)}
       data-testid="group-header"
     >
-      <GroupSidebar />
+      <div className={styles.templogo} />
       <SearchBar
         additionalStyles={styles.search}
         onTagAdd={() => null}
@@ -50,6 +50,7 @@ export const GroupHeader: FC<{ additionalStyles?: string }> = ({
         tags={state.activeTags || []}
         users={state.activeUsers}
       />
+      <GroupSidebar />
     </div>
   )
 }

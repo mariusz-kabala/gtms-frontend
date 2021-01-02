@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import { userQuery } from '@gtms/state-user'
-import { Navigation } from 'components/commons/Navigation'
-import { NavigationDots } from 'components/commons/NavigationDots'
+import { Navigation } from '@app/components/commons/Navigation'
+import { NavigationDots } from '@app/components/commons/NavigationDots'
 // ui
 import { SearchBar } from '@gtms/ui/SearchBar'
 // styles
@@ -39,10 +39,10 @@ export const NavigationWrapper: FC<{}> = () => {
         onUserRemove={() => null}
       />
       {isLogged && (
-        <div className={styles.right}>
-          <NavigationDots />
+        <>
           <Navigation />
-        </div>
+          <NavigationDots />
+        </>
       )}
     </div>
   )

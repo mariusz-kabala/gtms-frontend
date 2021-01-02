@@ -4,9 +4,9 @@ import {
   IUserPreviewState,
   userPreviewQuery,
   hideUserPreview,
-} from 'state/userPreview'
+} from '@app/state/userPreview'
 // commons
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // ui
 import { Modal } from '@gtms/ui/Modal'
 import { UserPreview as UserPreviewUI } from '@gtms/ui/UserPreview'

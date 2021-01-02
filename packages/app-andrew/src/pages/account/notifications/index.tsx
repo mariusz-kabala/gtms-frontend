@@ -1,9 +1,10 @@
 import React from 'react'
 import { NextPage, NextPageContext } from 'next'
-import { NotificationsSettings } from 'components/account/NotificationsSettings'
-import { Navigation, Tabs } from 'components/account/Navigation'
+import { NotificationsSettings } from '@app/components/account/NotificationsSettings'
+import { Navigation, Tabs } from '@app/components/account/Navigation'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { hasAuthSessionCookies } from '@gtms/state-user'
+// styles
 import styles from './styles.scss'
 
 type IAccountNotificationsPageProps = {

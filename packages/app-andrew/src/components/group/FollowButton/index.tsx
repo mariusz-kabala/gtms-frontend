@@ -12,7 +12,7 @@ import {
   unfollowGroup,
 } from '@gtms/state-notification'
 import { AiOutlineRead, AiFillRead } from 'react-icons/ai'
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 import styles from './styles.scss'
 
 export const FollowButton: FC<{

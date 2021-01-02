@@ -16,14 +16,15 @@ import {
   ITagPageState,
   tagPageState,
   tagPageState$,
-} from 'queries/tagPage.query'
+} from '@app/queries/tagPage.query'
+// components
+import { GroupsList } from '@app/components/tag/GroupsList'
+import { PostsList } from '@app/components/tag/PostsList'
+import { UsersList } from '@app/components/tag/UsersList'
 // ui
 import { FourHundredFour } from '@gtms/ui/FourHundredFour'
-import { GroupsList } from 'components/tag/GroupsList'
 import { MockData } from '@gtms/ui/MockData'
-import { PostsList } from 'components/tag/PostsList'
 import { TagsHeader } from '@gtms/ui/TagsHeader'
-import { UsersList } from 'components/tag/UsersList'
 // styles
 import styles from './styles.scss'
 

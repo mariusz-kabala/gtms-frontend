@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators'
 import { userQuery, UserQuery } from '@gtms/state-user'
 import { IUI, IGroupUI } from './ui.model'
 import { UIStore, uiStore } from './ui.store'
-import { BACKGROUNDS_GALLERY } from 'enums'
+import { BACKGROUNDS_GALLERY } from '@app/enums'
 
 export class UIQuery extends Query<IUI> {
   public isLoginModalOpen = (values = this.getValue()) => {

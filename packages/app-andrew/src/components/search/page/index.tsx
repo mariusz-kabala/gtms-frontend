@@ -4,16 +4,16 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { IPost, IUser, IGroup } from '@gtms/commons/models'
 import { parseFiles } from '@gtms/commons/helpers'
 import { FileStatus } from '@gtms/commons/enums'
-import { generateSearchURL } from 'helpers/url'
+import { generateSearchURL } from '@app/helpers/url'
 // api
 import { findTagsAPI } from '@gtms/api-tags'
 import { findPostsAPI } from '@gtms/api-post'
 import { fetchTaggedGroups } from '@gtms/api-group'
 import { fetchTaggedUsers, findbyUsernameAPI } from '@gtms/api-auth'
 // components
-import { GroupResults } from 'components/search/GroupResults'
-import { PostResults } from 'components/search/PostResults'
-import { UserResults } from 'components/search/UserResults'
+import { GroupResults } from '@app/components/search/GroupResults'
+import { PostResults } from '@app/components/search/PostResults'
+import { UserResults } from '@app/components/search/UserResults'
 // ui
 import { FaUsers } from 'react-icons/fa'
 import { IoIosListBox, IoIosKeypad } from 'react-icons/io'
@@ -438,11 +438,7 @@ export const SearchPage: FC<{
   return (
     <div className={styles.pageWrapper} data-testid="search-page">
       <div className={styles.wrapper}>
-        {/* @todo add text header instead of text on the image below */}
-        <h2 className={styles.header}>
-          {t('searchHeader1')}
-          <span>{t('searchHeader2')}</span>
-        </h2>
+        <span>{t('searchHeader2')}</span>
         <SearchBar
           isLoading={state.suggestions.isLoading}
           onLoadSuggestion={onFindTags}

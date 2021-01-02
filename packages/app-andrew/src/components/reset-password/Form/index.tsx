@@ -7,6 +7,7 @@ import { validatePassword } from '@gtms/state-user'
 import { Button } from '@gtms/ui/Button'
 import { Error } from '@gtms/ui/Forms/Error'
 import { Input } from '@gtms/ui/Forms/Input'
+// styles
 import styles from './styles.scss'
 
 export interface IResetPasswordFormData {

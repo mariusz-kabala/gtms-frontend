@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
-import { RemindPasswordForm } from '../../components/remind-password/Form'
+import { RemindPasswordForm } from '@app/components/remind-password/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { hasAuthSessionCookies } from '@gtms/state-user/src/helpers'
 // ui
 import { IoMdArrowBack } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
+// styles
 import styles from './styles.scss'
 
 export const RemindPasswordPage: NextPage<{}> = () => {

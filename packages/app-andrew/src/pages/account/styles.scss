@@ -1,11 +1,13 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
   @include pageWrapper(width700);
+  background: none;
 }
 
 .wrapper {
@@ -23,7 +25,7 @@
     padding: 10px;
     margin-bottom: 15px;
     border-radius: $borderRadius;
-    background: $theme9;
+    background: $theme2;
     color: $theme0;
     @include fontWeight(semiBold);
 
@@ -44,7 +46,7 @@
       height: 0;
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
-      border-top: 10px solid $theme9;
+      border-top: 10px solid $theme2;
     }
 
     &:hover {
@@ -69,9 +71,10 @@
       height: 100px;
       border-radius: 50%;
       overflow: hidden;
+      cursor: pointer;
 
-      .avatar {
-        cursor: pointer;
+      &:hover {
+        @include effectColorTransparentOverlay('circle');
       }
     }
 

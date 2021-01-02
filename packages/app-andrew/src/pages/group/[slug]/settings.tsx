@@ -11,7 +11,7 @@ import {
   changePageBackground,
   clearPageBackground,
   changePageBackgroundImage,
-} from 'state'
+} from '@app/state'
 import { redirect, getImage } from '@gtms/commons/helpers'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
@@ -20,24 +20,24 @@ import {
   IGroupSettingsPageState,
   groupSettingsPageState,
   groupSettingsPageState$,
-} from 'queries/groupSettingsPage.query'
+} from '@app/queries/groupSettingsPage.query'
 // components
-import { GroupHeader } from 'components/group/GroupHeader'
-import { PromotedTags } from 'components/group/PromotedTags'
-import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
+import { GroupHeader } from '@app/components/group/GroupHeader'
+import { PromotedTags } from '@app/components/group/PromotedTags'
+import { GroupDeleteGroup } from '@app/components/group/GroupDeleteGroup'
 import {
   GroupSettingsSidebar,
   Tabs,
-} from 'components/group/GroupSettingsSidebar'
-import { AdminsSettings } from 'components/group-settings/Admins'
-import { BasicInfoSetup } from 'components/group-settings/BasicInfoSetup'
-import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
-import { GroupMembers } from 'components/group/GroupMembers'
-import { PermissionsSetup } from 'components/group-settings/PermissionsSetup'
+} from '@app/components/group/GroupSettingsSidebar'
+import { AdminsSettings } from '@app/components/group-settings/Admins'
+import { BasicInfoSetup } from '@app/components/group-settings/BasicInfoSetup'
+import { GroupBackgroundSettings } from '@app/components/group-settings/GroupBackground'
+import { GroupMembers } from '@app/components/group/GroupMembers'
+import { PermissionsSetup } from '@app/components/group-settings/PermissionsSetup'
 // sections
-import { InvitationsSettings } from 'components/group-settings/Invitations'
-import { MembersSettings } from 'components/group-settings/Members'
-import { TagsSettings } from 'components/group-settings/Tags'
+import { InvitationsSettings } from '@app/components/group-settings/Invitations'
+import { MembersSettings } from '@app/components/group-settings/Members'
+import { TagsSettings } from '@app/components/group-settings/Tags'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Spinner } from '@gtms/ui/Spinner'

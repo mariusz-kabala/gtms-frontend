@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // state
 import { getGroupMembers } from '@gtms/state-group'
 // ui

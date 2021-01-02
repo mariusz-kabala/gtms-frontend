@@ -10,9 +10,10 @@ import {
   followButtonState$,
   IFollowButtonState,
 } from './state.query'
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 // ui
 import { SwitchWrapper } from '@gtms/ui/SwitchWrapper'
+// styles
 import styles from './styles.scss'
 
 export const FollowButton: FC<{ user: IUser }> = ({ user }) => {

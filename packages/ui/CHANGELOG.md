@@ -3,16 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.80.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.79.0...@gtms/ui@0.80.0) (2021-01-01)
+## [0.80.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.80.0...@gtms/ui@0.80.1) (2021-01-01)
 
+### Bug Fixes
+
+- GEOT-736: different small changes ([#956](https://github.com/gtms-org/gtms-frontend/issues/956)) ([2fdbe0b](https://github.com/gtms-org/gtms-frontend/commit/2fdbe0b31eb511f08d56667a68d84cbd912d86ab))
+
+# [0.80.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.79.0...@gtms/ui@0.80.0) (2021-01-01)
 
 ### Features
 
-* GEOT-753: working search bar on my account page ([#972](https://github.com/gtms-org/gtms-frontend/issues/972)) ([26837e1](https://github.com/gtms-org/gtms-frontend/commit/26837e16441440ef4be3e46cbfbd058bccb71dd2))
-
-
-
-
+- GEOT-753: working search bar on my account page ([#972](https://github.com/gtms-org/gtms-frontend/issues/972)) ([26837e1](https://github.com/gtms-org/gtms-frontend/commit/26837e16441440ef4be3e46cbfbd058bccb71dd2))
 
 # [0.79.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.78.2...@gtms/ui@0.79.0) (2020-12-31)
 

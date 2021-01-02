@@ -1,13 +1,13 @@
 import React, { FC, useState, useEffect } from 'react'
 import {
+  addToFavs,
   favGroupsQuery,
   IFavRecordStatus,
-  addToFavs,
   removeFromFavs,
   userQuery,
 } from '@gtms/state-user'
 import cx from 'classnames'
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
 //ui

@@ -16,17 +16,6 @@
     @include buttonColorsPrimary();
   }
 
-  &.isLoading {
-    padding-left: 55px;
-    position: relative;
-
-    .loader {
-      position: absolute;
-      width: 45px;
-      left: 5px;
-    }
-  }
-
   span {
     display: none;
   }

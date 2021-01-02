@@ -2,13 +2,13 @@ import React, { FC } from 'react'
 import { IPost, IAccountDetails } from '@gtms/commons/models'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
-import { UserAvatarNoImage } from 'enums'
-import { openLoginModal } from 'state'
-
+import { UserAvatarNoImage } from '@app/enums'
+import { openLoginModal } from '@app/state'
 // ui
 import { MockData } from '@gtms/ui/MockData'
 import { PostSingle } from '@gtms/ui/PostSingle'
 import { Spinner } from '@gtms/ui/Spinner'
+// styles
 import styles from './styles.scss'
 
 export const PostsList: FC<{

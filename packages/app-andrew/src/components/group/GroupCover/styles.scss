@@ -3,9 +3,13 @@
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
 .wrapper {
+  border-radius: $borderRadius;
+  overflow: hidden;
+
   .cover {
     @include imageCover();
-    min-height: 250px;
+    min-height: 300px;
+    max-height: 300px;
     padding: 10px;
 
     .btn {

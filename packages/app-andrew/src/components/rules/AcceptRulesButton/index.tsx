@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
-import css from './styles.scss'
 import { useTranslation } from '@gtms/commons/i18n'
+// styles
+import css from './styles.scss'
 
 export const AcceptRulesButton: FC<{}> = () => {
   const { t } = useTranslation('rules')

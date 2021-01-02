@@ -8,11 +8,12 @@ import {
   joinGroup,
   leaveGroup,
 } from '@gtms/state-user'
-import { openLoginModal } from '../../../state'
+import { openLoginModal } from '@app/state'
 // ui
 import { IoIosHeart } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
+// styles
 import styles from './styles.scss'
 
 export const JoinLeaveButton: FC<{

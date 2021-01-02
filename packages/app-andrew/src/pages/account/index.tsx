@@ -2,11 +2,11 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import { FileStatus } from '@gtms/commons/enums'
-import { UserEmail } from 'components/account/UserEmail'
-import { UserName } from 'components/account/UserName'
-import { Navigation, Tabs } from 'components/account/Navigation'
-import { UserDescription } from 'components/account/UserDescription'
-import { MyPosts } from 'components/account/MyPosts'
+import { UserEmail } from '@app/components/account/UserEmail'
+import { UserName } from '@app/components/account/UserName'
+import { Navigation, Tabs } from '@app/components/account/Navigation'
+import { UserDescription } from '@app/components/account/UserDescription'
+import { MyPosts } from '@app/components/account/MyPosts'
 import {
   userQuery,
   markAsLoading,
@@ -18,8 +18,12 @@ import {
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { useInitState } from '@gtms/commons/hooks'
 import { findTagsAPI } from '@gtms/api-tags'
-import { UserAvatarNoImage, GroupAvatarNoImage } from 'enums'
-import { accountPageState, accountPageState$, IAccountPageState } from 'queries'
+import { UserAvatarNoImage, GroupAvatarNoImage } from '@app/enums'
+import {
+  accountPageState,
+  accountPageState$,
+  IAccountPageState,
+} from '@app/queries'
 // ui
 import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
@@ -147,7 +151,6 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                       state.avatar.status
                     ) && <Spinner />}
                     <Picture
-                      additionalStyles={styles.avatar}
                       {...(userQuery.hasAvatar('200x200')
                         ? userQuery.getAvatar('200x200')
                         : UserAvatarNoImage['200x200'])}

@@ -163,6 +163,7 @@
 
     .yes,
     .no {
+      width: 100%;
       @include buttonWithIcon('left');
     }
   }

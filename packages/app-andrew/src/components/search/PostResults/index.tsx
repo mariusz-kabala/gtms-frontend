@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 import { IPost } from '@gtms/commons/models'
 // api
 import { findTagsAPI } from '@gtms/api-tags'
 // state
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 // components
-import { PostsList } from 'components/post/PostsList'
+import { PostsList } from '@app/components/post/PostsList'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { MockData } from '@gtms/ui/MockData'

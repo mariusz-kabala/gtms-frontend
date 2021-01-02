@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
-import { ResetPasswordForm } from '../../../components/reset-password/Form'
+import { ResetPasswordForm } from '@app/components/reset-password/Form'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { checkCodeReq } from '@gtms/api-auth'
 import { redirect } from '@gtms/commons/helpers/redirect'
@@ -10,6 +10,7 @@ import { IoMdCheckmark } from 'react-icons/io'
 // ui
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
+// styles
 import styles from './styles.scss'
 
 export const ResetPasswordPage: NextPage<{}> = () => {

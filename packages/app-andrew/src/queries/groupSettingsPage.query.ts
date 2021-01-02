@@ -1,4 +1,4 @@
-import { uiQuery } from 'state'
+import { uiQuery } from '@app/state'
 import { groupMembersQuery, groupQuery } from '@gtms/state-group'
 import { IUser } from '@gtms/commons/models'
 import { Observable, combineLatest } from 'rxjs'

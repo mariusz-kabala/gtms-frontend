@@ -8,7 +8,8 @@
 
   .uploadWrapper {
     position: relative;
-    margin-top: 10px;
+    margin: 8px;
+    margin-top: 0;
 
     .close {
       position: absolute;
@@ -18,7 +19,7 @@
       cursor: pointer;
 
       svg {
-        color: $theme9;
+        color: $theme0;
       }
 
       &:hover {
@@ -73,7 +74,8 @@
   .buttons {
     display: flex;
     gap: 10px;
-    margin-top: 10px;
+    margin: 8px;
+    margin-top: 0;
 
     .btn {
       @include buttonDefault();
@@ -81,7 +83,6 @@
       @include buttonShapeDefault();
       @include buttonColorsDefault();
       @include buttonWithIcon('left');
-      margin-top: 5px;
       width: 100%;
 
       &.btnImages {
@@ -94,6 +95,10 @@
 
       &:hover {
         @include buttonColorsPrimary();
+      }
+
+      &:nth-child(2) {
+        @include buttonWithIcon('right');
       }
     }
   }

@@ -6,10 +6,10 @@ import {
   groupSidebarContentState$,
 } from './state.query'
 // components
-import { FavsButton } from 'components/group/FavsButton'
-import { FollowButton } from 'components/group/FollowButton'
-import { JoinLeaveButton } from 'components/group/JoinLeaveButton'
-import { SettingsButton } from 'components/group/SettingsButton'
+import { FavsButton } from '@app/components/group/FavsButton'
+import { FollowButton } from '@app/components/group/FollowButton'
+import { JoinLeaveButton } from '@app/components/group/JoinLeaveButton'
+import { SettingsButton } from '@app/components/group/SettingsButton'
 // styles
 import styles from './styles.scss'
 

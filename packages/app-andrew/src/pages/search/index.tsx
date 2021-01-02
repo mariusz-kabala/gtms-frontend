@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchPage as SearchPageComponent } from 'components/search/page'
+import { SearchPage as SearchPageComponent } from '@app/components/search/page'
 import { NextPage } from 'next'
 
 export const SearchPage: NextPage<{}> = () => {

@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { useTranslation, Link } from '@gtms/commons/i18n'
 import { userQuery } from '@gtms/state-user'
+// components
 import { LoginForm } from '../Form'
 import { SocialButtons } from '../SocialButtons'
 // ui

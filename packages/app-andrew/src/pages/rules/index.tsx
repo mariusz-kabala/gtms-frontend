@@ -1,8 +1,10 @@
 import React from 'react'
 import { NextPage } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
+// components
+import { AcceptRulesButton } from '@app/components/rules/AcceptRulesButton'
+// styles
 import styles from './styles.scss'
-import { AcceptRulesButton } from '../../components/rules/AcceptRulesButton'
 
 export const RulesPage: NextPage<{}> = () => {
   const { t } = useTranslation('rulesPage')

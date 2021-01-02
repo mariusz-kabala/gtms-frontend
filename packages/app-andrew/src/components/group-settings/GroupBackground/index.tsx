@@ -1,8 +1,11 @@
 import React, { FC, useCallback, useState } from 'react'
 import { IGroup } from '@gtms/commons/models'
 import cx from 'classnames'
-import { updateGroup } from '@gtms/state-group'
 import { uploadGroupBg } from '@gtms/api-group'
+import { BACKGROUNDS_GALLERY } from '@app/enums'
+// state
+import { updateGroup } from '@gtms/state-group'
+import { changePageBackground } from '@app/state'
 // ui
 import { GoSettings } from 'react-icons/go'
 import { Button } from '@gtms/ui/Button'
@@ -10,8 +13,6 @@ import { FullScreenGallery } from '@gtms/ui/FullScreenGallery'
 import { UploadFile } from '@gtms/ui/UploadFile'
 // styles
 import styles from './styles.scss'
-import { BACKGROUNDS_GALLERY } from 'enums'
-import { changePageBackground } from 'state'
 
 export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
   const [isFullScreenGalleryOpen, setIsFullScreenGalleryOpen] = useState<

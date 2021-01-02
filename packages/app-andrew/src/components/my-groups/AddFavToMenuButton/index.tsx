@@ -3,6 +3,7 @@ import { IGroup } from '@gtms/commons/models'
 // ui
 import { IoMdCheckmark, IoMdClose } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
+// styles
 import styles from './styles.scss'
 
 export const AddFavToMenuButton: FC<{

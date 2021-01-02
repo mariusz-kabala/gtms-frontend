@@ -16,6 +16,7 @@ import { Spinner } from '@gtms/ui'
 import { Tag } from '@gtms/ui/Tag'
 import { TagGroup } from '@gtms/ui/TagGroup'
 import { UploadFile } from '@gtms/ui/UploadFile'
+// styles
 import styles from './styles.scss'
 
 const readFile = (file: File): Promise<string | undefined> =>

@@ -1,6 +1,6 @@
 {
   "name": "@gtms/styles",
-  "version": "0.29.0",
+  "version": "0.29.1",
   "sass": "./scss/index.scss",
   "license": "ISC",
   "scripts": {

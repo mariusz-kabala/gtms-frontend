@@ -1,5 +1,8 @@
 import React from 'react'
-import { SearchPage as SearchPageComponent, Tabs } from 'components/search/page'
+import {
+  SearchPage as SearchPageComponent,
+  Tabs,
+} from '@app/components/search/page'
 import { NextPage, NextPageContext } from 'next'
 
 type IParsedParamsResult = {

@@ -3,9 +3,9 @@ import { NextPage, NextPageContext } from 'next'
 import { hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { ILoginHistory, IActiveSession } from '@gtms/commons/models'
-import { ChangePassword } from 'components/account/ChangePassword'
-import { DeleteAccount } from 'components/account/DeleteAccount'
-import { Navigation, Tabs } from 'components/account/Navigation'
+import { ChangePassword } from '@app/components/account/ChangePassword'
+import { DeleteAccount } from '@app/components/account/DeleteAccount'
+import { Navigation, Tabs } from '@app/components/account/Navigation'
 import {
   fetchLoginHistoryAPI,
   fetchActiveSessionsAPI,
@@ -15,6 +15,7 @@ import { addErrorNotification } from '@gtms/state-notification'
 // ui
 import { LoginHistory } from '@gtms/ui/LoginHistory'
 import { UserSessions } from '@gtms/ui/UserSessions'
+// styles
 import styles from './styles.scss'
 
 type IAccountSecurityPageProps = {
@@ -102,9 +103,7 @@ export const AccountSecurityPage: NextPage<IAccountSecurityPageProps> = () => {
         <ChangePassword additionalStyles={styles.changePassword} />
         <UserSessions {...userSession} onDeleteClick={onDeleteSessionClick} />
         <LoginHistory {...loginHistory} />
-        <div className={styles.deleteAccount}>
-          <DeleteAccount onConfirm={() => null} />
-        </div>
+        <DeleteAccount onConfirm={() => null} />
       </div>
     </div>
   )

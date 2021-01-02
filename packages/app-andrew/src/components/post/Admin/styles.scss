@@ -1,5 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
 
 .postDropdown {
   position: relative;
@@ -23,16 +25,15 @@
     top: 40px;
     right: 0px;
     min-width: 140px;
-    padding: 5px;
-    border: 1px solid $theme9;
+    padding: 10px;
+    border: 1px solid $theme2;
     border-radius: $borderRadius;
     background-color: $theme1;
     cursor: pointer;
 
     .item {
-      padding: 5px;
       border-radius: $borderRadius;
-      margin-top: 5px;
+      margin-top: 10px;
 
       &:first-child {
         margin-top: 0;
@@ -40,7 +41,6 @@
 
       .btn {
         @include buttonDefault();
-        @include buttonSizeDefault();
         @include buttonSizeSm();
         @include buttonShapeDefault();
         @include buttonWithIcon('left');
@@ -53,6 +53,29 @@
           @include buttonColorsPrimary();
         }
       }
+    }
+  }
+}
+
+.postDeleteModal {
+  .header {
+    @include fontWeight(semiBold);
+    @include fontSize(lg);
+  }
+
+  .desc {
+    margin-top: 5px;
+    @include fontSize(xdefault);
+  }
+
+  .buttons {
+    @include gridTwoButtons();
+    margin-top: 20px;
+
+    .yes,
+    .no {
+      width: 100%;
+      @include buttonWithIcon('left');
     }
   }
 }

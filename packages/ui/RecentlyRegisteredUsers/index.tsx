@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { IUser } from '@gtms/commons/models'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
 import { IImage } from '@gtms/commons/types/image'
-import { showUserPreview } from 'state/userPreview'
+// import { showUserPreview } from 'state/userPreview'
 // ui
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 // styles
@@ -26,7 +26,7 @@ export const RecentlyRegisteredUsers: FC<{
           <li
             className={styles.user}
             key={`recent-user-${user.id}`}
-            onClick={() => showUserPreview(user)}
+            // onClick={() => showUserPreview(user)}
           >
             <UserAvatar
               additionalStyles={styles.userAvatar}

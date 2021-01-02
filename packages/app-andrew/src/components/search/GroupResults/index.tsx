@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { IGroup } from '@gtms/commons/models'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { GroupSingle } from '@gtms/ui/GroupSingle'

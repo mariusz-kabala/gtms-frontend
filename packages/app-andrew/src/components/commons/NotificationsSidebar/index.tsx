@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import cx from 'classnames'
-import { INotificationsSidebarProps, baseUIQuery } from 'queries'
-import { NotificationIcons } from 'enums'
+import { INotificationsSidebarProps, baseUIQuery } from '@app/queries'
+import { NotificationIcons } from '@app/enums'
 import {
   INotificationRecord,
   IInternalNotification,
@@ -9,7 +9,7 @@ import {
   loadRecentNotifications,
 } from '@gtms/state-notification'
 import { NotificationAPI } from '../NotificationAPI'
-import { closeSidebarNotifications } from 'state'
+import { closeSidebarNotifications } from '@app/state'
 import { INotification } from '@gtms/commons/models'
 // ui
 import useKey from 'use-key-hook'

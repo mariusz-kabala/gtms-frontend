@@ -1,7 +1,7 @@
 import React, { FC, useState, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { updateGroup, updateGroupAvatar } from '@gtms/state-group'
-import { GroupAvatarNoImage } from 'enums'
+import { GroupAvatarNoImage } from '@app/enums'
 import { useRouter } from 'next/router'
 // commons
 import { IGroup } from '@gtms/commons/models'
