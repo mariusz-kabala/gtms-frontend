@@ -13,6 +13,7 @@ import {
   postCommentsListState,
   postCommentsListState$,
 } from './state.query'
+import { showUserPreview } from '@app/state/userPreview'
 import { createNewComment } from '@gtms/state-comment'
 // ui
 import { IoMdSend } from 'react-icons/io'
@@ -94,6 +95,7 @@ export const PostCommentsList: FC<{
             owner={comment.owner as IUser}
             user={user}
             noImage={UserAvatarNoImage}
+            onUserPreviewClick={showUserPreview}
           />
           <SubCommentsList
             parentComment={comment.id}

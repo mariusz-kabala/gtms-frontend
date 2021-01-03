@@ -6,7 +6,6 @@ import { pl } from 'date-fns/locale'
 import { IImage } from '@gtms/commons/types/image'
 import { IAccountDetails, IUser } from '@gtms/commons/models'
 import { getDisplayName, getImage } from '@gtms/commons/helpers'
-// import { showUserPreview } from '@app/state/userPreview'
 // ui
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 // styles
@@ -19,7 +18,16 @@ export const PostResponse: FC<{
   owner: IUser
   noImage: { [key: string]: IImage }
   user: IAccountDetails | null
-}> = ({ additionalStyles, html, createdAt, owner, noImage, user }) => {
+  onUserPreviewClick?: (user: IUser) => void
+}> = ({
+  additionalStyles,
+  html,
+  createdAt,
+  owner,
+  noImage,
+  user,
+  onUserPreviewClick,
+}) => {
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -30,7 +38,7 @@ export const PostResponse: FC<{
           <UserAvatar
             additionalStyles={styles.userAvatar}
             image={getImage('35x35', owner.avatar, noImage)}
-            // onClick={() => showUserPreview(owner)}
+            onClick={() => onUserPreviewClick && onUserPreviewClick(owner)}
           />
           <span>{getDisplayName(owner)}</span>
         </div>

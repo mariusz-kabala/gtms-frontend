@@ -4,6 +4,7 @@ import { createNewComment } from '@gtms/state-comment'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 import { UserAvatarNoImage } from '@app/enums'
+import { showUserPreview } from '@app/state/userPreview'
 // ui
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
@@ -35,6 +36,7 @@ export const SubCommentsList: FC<{
               owner={subComment.owner as IUser}
               user={user}
               noImage={UserAvatarNoImage}
+              onUserPreviewClick={showUserPreview}
             />
           ))}
         </div>

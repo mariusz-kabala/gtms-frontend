@@ -53,6 +53,7 @@ export const PostSingle: FC<{
   renderMenu?: (postId: string) => JSX.Element | null
   tags: string[]
   user: IAccountDetails | null
+  onUserPreviewClick?: (user: IUser) => void
 }> = ({
   activeTags = [],
   additionalStyles,
@@ -78,6 +79,7 @@ export const PostSingle: FC<{
   renderMenu,
   tags,
   user,
+  onUserPreviewClick,
 }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const [lightboxState, setLightboxState] = useState<{
@@ -231,6 +233,7 @@ export const PostSingle: FC<{
               noImage={noImage}
               owner={comment.owner as IUser}
               user={user}
+              onUserPreviewClick={onUserPreviewClick}
             />
           ))}
         {isAnswerFormOpen && allowToRespond && (
