@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.106.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.106.0...@gtms/app-andrew@0.106.1) (2021-01-03)
+
+
+### Bug Fixes
+
+* master: user preview fixes ([3753919](https://github.com/gtms-org/gtms-frontend/commit/3753919d0a79b929c2250c67bec88d8e2993554a))
+
+
+
+
+
 # [0.106.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.105.0...@gtms/app-andrew@0.106.0) (2021-01-02)
 
 
