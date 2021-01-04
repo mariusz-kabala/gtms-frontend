@@ -26,7 +26,7 @@ export const NavigationWrapper: FC<{}> = () => {
       <a href="/">
         <img
           className={styles.logo}
-          src="/images/temp-images/logo-burning-man.png"
+          src="/images/theme-images/logo-burning-man.png"
         />
       </a>
       <SearchBar

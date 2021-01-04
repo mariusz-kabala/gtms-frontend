@@ -16,7 +16,7 @@ export const FourHundredFour: FC<{ additionalStyles?: string }> = ({
     >
       <Picture
         additionalStyles={styles.image}
-        jpg={'/images/white-theme/image404.png'}
+        jpg={'/images/theme-images/image404.png'}
       />
       <Button additionalStyles={styles.btn}>
         <i>

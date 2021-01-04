@@ -25,7 +25,7 @@ export const DeleteAccount: FC<{
         >
           <Picture
             additionalStyles={styles.ohnoimage}
-            jpg={'/images/white-theme/ohno.png'}
+            jpg={'/images/theme-images/ohno.png'}
           />
           <div className={styles.buttons}>
             <Button

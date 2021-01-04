@@ -10,7 +10,7 @@
   .templogo {
     min-width: 40px;
     min-height: 40px;
-    background-image: url('/images/temp-images/logo-patrol.png');
+    background-image: url('/images/theme-images/logo-patrol.png');
     border-radius: $borderRadius;
     @include imageCover();
   }

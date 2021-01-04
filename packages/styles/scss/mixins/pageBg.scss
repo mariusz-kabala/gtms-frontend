@@ -6,7 +6,7 @@
   height: 100vh;
   @include imageCover();
 
-  background-image: url('/images/temp-images/login-bg-2.png');
+  background-image: url('/images/theme-images/login-bg-2.png');
   @if $bg {
     background-image: url($bg);
   }

@@ -18,7 +18,7 @@ export const ErrorWrapper: FC<{
       data-testid="error-wrapper"
     >
       <div className={styles.content}>
-        <Picture jpg={'/images/white-theme/oops-robot.png'} />
+        <Picture jpg={'/images/theme-images/oops-robot.png'} />
         <div>{children}</div>
       </div>
       {buttons}

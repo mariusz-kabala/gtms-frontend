@@ -85,7 +85,7 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
     >
       <FullScreenGallery
         currentBg={group.bgType}
-        onBgChange={onBgChange}
+        file={fileUploadState.file}
         gallery={
           BACKGROUNDS_GALLERY.filter((item) => item.name !== null) as {
             name: string
@@ -93,8 +93,8 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
           }[]
         }
         isActive={isFullScreenGalleryOpen}
+        onBgChange={onBgChange}
         onClose={() => setIsFullScreenGalleryOpen(false)}
-        file={fileUploadState.file}
       >
         <UploadFile
           onDrop={onImageDrop}
