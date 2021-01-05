@@ -32,7 +32,6 @@ export const FullScreenGallery: FC<{
   useKey(() => onClose(), {
     detectKeys: [27],
   })
-
   const [isImageWrapperActive, setIsImageWrapperActive] = useState<boolean>(
     true
   )

@@ -16,7 +16,7 @@ export const GroupCreatePage: NextPage<{}> = () => {
       <div className={styles.form}>
         <Picture
           additionalStyles={styles.image}
-          jpg={'/images/white-theme/group-create.png'}
+          jpg={'/images/theme-images/group-create.png'}
         />
         <h2 className={styles.header}>{t('header')}</h2>
         <p className={styles.desc}>{t('subheader')}</p>

@@ -19,7 +19,7 @@ export const InternalError: FC<{
       {/* @todo find proper image GEOT-748 */}
       {/* <Picture
         additionalStyles={styles.image}
-        jpg={'/images/white-theme/image404.png'}
+        jpg={'/images/theme-images/image404.png'}
       /> */}
       <h2>
         {statusCode
