@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.30.0...@gtms/styles@0.31.0) (2021-01-05)
+
+
+### Features
+
+* GEOT-759: a common way to show user preview popup ([#974](https://github.com/gtms-org/gtms-frontend/issues/974)) ([db73f4d](https://github.com/gtms-org/gtms-frontend/commit/db73f4d60a77fb97af4b69a2ba6b431db88283ba))
+* GEOT-766: GEOT-766: cleanup images a bit ([#976](https://github.com/gtms-org/gtms-frontend/issues/976)) ([8ff7697](https://github.com/gtms-org/gtms-frontend/commit/8ff76972cb87b81c4c8659e3b84dcd3610928811))
+
+
+
+
+
 # [0.30.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.29.1...@gtms/styles@0.30.0) (2021-01-02)
 
 

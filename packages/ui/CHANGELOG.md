@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.83.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.82.1...@gtms/ui@0.83.0) (2021-01-05)
+
+
+### Features
+
+* GEOT-766: GEOT-766: cleanup images a bit ([#976](https://github.com/gtms-org/gtms-frontend/issues/976)) ([8ff7697](https://github.com/gtms-org/gtms-frontend/commit/8ff76972cb87b81c4c8659e3b84dcd3610928811))
+
+
+
+
+
 ## [0.82.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.82.0...@gtms/ui@0.82.1) (2021-01-03)
 
 

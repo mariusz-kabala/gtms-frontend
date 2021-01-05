@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.107.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.106.1...@gtms/app-andrew@0.107.0) (2021-01-05)
+
+
+### Features
+
+* GEOT-766: GEOT-766: cleanup images a bit ([#976](https://github.com/gtms-org/gtms-frontend/issues/976)) ([8ff7697](https://github.com/gtms-org/gtms-frontend/commit/8ff76972cb87b81c4c8659e3b84dcd3610928811))
+
+
+
+
+
 ## [0.106.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.106.0...@gtms/app-andrew@0.106.1) (2021-01-03)
 
 
