@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.31.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.31.0...@gtms/styles@0.31.1) (2021-01-06)
+
+
+### Bug Fixes
+
+* GEOT-768: GEOT-768: home page and other fixes ([#977](https://github.com/gtms-org/gtms-frontend/issues/977)) ([12955a3](https://github.com/gtms-org/gtms-frontend/commit/12955a300ee372ca85aa6b2854456dbb88b4475d))
+
+
+
+
+
 # [0.31.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.30.0...@gtms/styles@0.31.0) (2021-01-05)
 
 
