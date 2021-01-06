@@ -16,8 +16,8 @@
     z-index: 1;
     width: 35%;
     padding: 30px;
+    border-radius: $borderRadius;
     background: rgba($theme2, 0.9);
-    border-radius: $borderRadius2;
 
     .image img {
       display: flex;

@@ -4,8 +4,8 @@
   @include buttonDefault();
   @include buttonShapeDefault();
   @include buttonSizeDefault();
-  @include buttonWithSpinnerAndLabel();
-  @include buttonColorsDefault();
+  @include buttonWithSpinnerAndLabel(left);
+  @include buttonColorsSecondary();
   width: 100%;
 
   &:hover {

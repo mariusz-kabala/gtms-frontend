@@ -7,10 +7,12 @@
 
   .bg {
     position: fixed;
+    right: 0;
     top: 0;
-    z-index: -2;
+    z-index: -1;
     height: 100%;
     width: 100%;
+    width: calc(100% - 780px);
     @include imageCover();
     background-position: fixed;
     background-attachment: fixed;
@@ -19,26 +21,19 @@
       filter: blur(55px);
     }
   }
-}
 
-.aaaawrapper {
-  position: fixed;
-  z-index: -1;
-  display: flex;
-}
+  .bluredImage {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -2;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 
-.aaaa {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  height: 100%;
-  width: calc(100% - 795px);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-
-  width: 100%;
-  // filter: blur(55px);
+    width: 100%;
+    filter: blur(45px);
+  }
 }

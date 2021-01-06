@@ -48,12 +48,16 @@ export const GroupCard: FC<{
       className={cx(styles.wrapper, additionalStyles)}
       data-testid="group-card"
     >
-      <Picture additionalStyles={styles.avatar} {...logo} />
       <div className={styles.cover} />
       <div className={styles.content}>
         <div className={styles.leftColumn}>
-          <h2 className={styles.header}>{name}</h2>
-          {description && <p className={styles.desc}>{description}</p>}
+          <div className={styles.row}>
+            <Picture additionalStyles={styles.avatar} {...logo} />
+            <div>
+              <h2 className={styles.header}>{name}</h2>
+              {description && <p className={styles.desc}>{description}</p>}
+            </div>
+          </div>
           <div className={styles.tags}>
             {Array.isArray(tags) && tags.length > 0 ? (
               <>

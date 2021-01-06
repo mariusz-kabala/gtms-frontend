@@ -15,7 +15,10 @@
 
   .noRecords {
     padding: 10px;
+    @include fontSize(xs);
     text-align: center;
+    border-radius: $borderRadius;
+    background: $theme2;
   }
 
   .nav {
@@ -65,13 +68,13 @@
           min-width: 40px;
           max-width: 40px;
           min-height: 40px;
+          margin-right: 5px;
           height: 40px;
           border-radius: $borderRadius;
         }
 
         .desc {
           margin: 0;
-          margin-left: 5px;
           opacity: 0.9;
 
           span {

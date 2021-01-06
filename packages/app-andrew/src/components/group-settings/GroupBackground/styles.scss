@@ -29,7 +29,7 @@
       @include buttonSizeDefault();
       @include buttonShapeDefault();
       @include buttonWithIcon('left');
-      @include buttonColorsDefault();
+      @include buttonColorsSecondary();
       margin: auto;
       margin-bottom: 10px;
 

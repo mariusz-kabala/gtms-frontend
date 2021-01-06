@@ -1,0 +1,12 @@
+@import '~@gtms/styles/scss/variables.scss';
+
+.errorOccured {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: $borderRadius;
+  margin-bottom: 10px;
+  color: $theme0;
+  background-color: red;
+}

@@ -12,21 +12,21 @@ import { UserAvatar } from '@gtms/ui/UserAvatar'
 import styles from './styles.scss'
 
 export const PostResponse: FC<{
-  html: string
-  createdAt: string
   additionalStyles?: string
-  owner: IUser
+  createdAt: string
+  html: string
   noImage: { [key: string]: IImage }
-  user: IAccountDetails | null
   onUserPreviewClick?: (user: IUser) => void
+  owner: IUser
+  user: IAccountDetails | null
 }> = ({
   additionalStyles,
-  html,
   createdAt,
-  owner,
+  html,
   noImage,
-  user,
   onUserPreviewClick,
+  owner,
+  user,
 }) => {
   return (
     <div

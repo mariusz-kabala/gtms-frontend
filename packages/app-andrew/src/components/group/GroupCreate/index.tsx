@@ -3,6 +3,8 @@ import { NextPage } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import { GroupCreateForm } from './Form'
 import { useRouter } from 'next/router'
+// styles
+import styles from './styles.scss'
 
 export const GroupCreate: NextPage<{}> = () => {
   const { t } = useTranslation('groupCreate')
@@ -12,18 +14,12 @@ export const GroupCreate: NextPage<{}> = () => {
   return (
     <div data-testid="group-create">
       {errorOccured && (
-        <div
+        <span
+          className={styles.errorOccured}
           data-testid="group-create-error-indicator"
-          style={{
-            color: '#fff',
-            fontWeight: 800,
-            textAlign: 'center',
-            backgroundColor: 'red',
-            padding: '10px',
-          }}
         >
           {t('errorOccured')}
-        </div>
+        </span>
       )}
       <GroupCreateForm
         onError={() => setErrorOccured(true)}

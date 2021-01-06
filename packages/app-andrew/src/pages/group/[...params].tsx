@@ -280,6 +280,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               [styles.widthMax]: !state.showPromoted && state.activePost,
             })}
           />
+          <div className={styles.divider} />
           {state.showPromoted && (
             <PromotedTags
               additionalStyles={styles.promotedTags}
