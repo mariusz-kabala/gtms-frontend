@@ -72,7 +72,6 @@ export const RegistrationContent: FC<{ loginLink?: string }> = ({
                 onError={() => setError('registrationFailed')}
               />
               <div className={styles.actionButtons}>
-                <a onClick={() => setError('registrationFailed')}>asdfasdfas</a>
                 <Link href={loginLink}>
                   <Button additionalStyles={styles.btn}>
                     <i>

@@ -15,6 +15,8 @@
   flex-direction: column;
   padding: 15px;
   min-height: 100%;
+  border-radius: $borderRadius;
+  background: $theme2;
 
   .spinner {
     margin: auto;

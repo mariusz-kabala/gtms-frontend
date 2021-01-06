@@ -27,7 +27,7 @@
     justify-content: center;
     width: 100%;
     height: 300px;
-    background-image: url('/images/theme-images/logo-wioska-8.png');
+    background-image: url('/images/covers/cover5.png');
     @include imageCover();
     overflow: hidden;
     border-top-left-radius: $borderRadius;
@@ -60,6 +60,10 @@
       margin-left: 10px;
     }
 
+    .desc {
+      margin: 10px 0;
+    }
+
     .tags {
       display: flex;
       flex-wrap: wrap;
@@ -90,7 +94,7 @@
       @include buttonSizeDefault();
       @include buttonShapeDefault();
       @include buttonWithIcon('left');
-      @include buttonColorsDefault();
+      @include buttonColorsSecondary();
       width: 100%;
 
       &:hover {

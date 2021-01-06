@@ -1,16 +1,72 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
 .pageWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
   width: 100%;
-  min-height: 100%;
+  background: $theme3;
+
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 100px;
+    background-image: url('/images/theme-images/mainPageBg.png');
+    @include imageCover();
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($theme2, 0.65);
+    }
+
+    > * {
+      // put everything on top of after pseudoelement
+      position: relative;
+      z-index: 1;
+    }
+
+    .mainHeader {
+      @include fontSize(xxlg);
+      @include fontWeight(semiBold);
+      margin: auto;
+      text-align: center;
+
+      .btn {
+        @include buttonDefault();
+        @include buttonSizeDefault();
+        @include buttonShapeDefault();
+        @include buttonColorsDefault();
+        @include buttonColorsPrimary();
+        min-width: 200px;
+        margin: 20px auto;
+      }
+    }
+
+    .recentlyRegisteredUsers {
+      margin: 20px;
+      padding-top: 100px;
+    }
+
+    .recentlyRegisteredUsers {
+      .header {
+        @include fontSize(sm);
+        text-transform: uppercase;
+        margin: 15px 0;
+      }
+    }
+  }
 
   .recentlyCreatedGroups {
     position: relative;
     z-index: 1;
-    margin: 15px;
+    margin: 20px;
   }
 }

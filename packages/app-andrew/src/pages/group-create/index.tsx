@@ -4,8 +4,8 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { GroupCreate } from '@app/components/group/GroupCreate'
 import { hasAuthSessionCookies } from '@gtms/state-user'
 import { redirect } from '@gtms/commons/helpers/redirect'
-// styles
 import { Picture } from '@gtms/ui/Picture'
+// styles
 import styles from './styles.scss'
 
 export const GroupCreatePage: NextPage<{}> = () => {

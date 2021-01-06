@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
 import { IGroup } from '@gtms/commons/models'
-import { getImage } from '@gtms/commons/helpers'
-import { GroupAvatarNoImage } from '@app/enums'
+// import { getImage } from '@gtms/commons/helpers'
+// import { GroupAvatarNoImage } from '@app/enums'
 import { showGroupPreview } from '@app/state/groupPreview'
 // ui
 import { GridCard } from '@gtms/ui/GridCard'
@@ -22,14 +22,39 @@ export const RecentlyCreatedGroups: FC<{
     groupsToRender.splice(groups.length / 2, 0, null)
   }
 
+  const images = [
+    { jpg: '/images/festival-logos/festivallogo1.png' },
+    { jpg: '/images/festival-logos/festivallogo2.png' },
+    { jpg: '/images/festival-logos/festivallogo3.png' },
+    { jpg: '/images/festival-logos/festivallogo4.png' },
+    { jpg: '/images/festival-logos/festivallogo5.png' },
+    { jpg: '/images/festival-logos/festivallogo6.png' },
+    { jpg: '/images/festival-logos/festivallogo7.png' },
+    { jpg: '/images/festival-logos/festivallogo8.png' },
+    { jpg: '/images/festival-logos/festivallogo9.png' },
+    { jpg: '/images/festival-logos/festivallogo10.png' },
+    { jpg: '/images/festival-logos/festivallogo11.png' },
+    { jpg: '/images/festival-logos/festivallogo12.png' },
+    { jpg: '/images/festival-logos/festivallogo13.png' },
+    { jpg: '/images/festival-logos/festivallogo14.png' },
+    { jpg: '/images/festival-logos/festivallogo15.png' },
+    { jpg: '/images/festival-logos/festivallogo16.png' },
+    { jpg: '/images/festival-logos/festivallogo17.png' },
+    { jpg: '/images/festival-logos/festivallogo18.png' },
+    { jpg: '/images/festival-logos/festivallogo19.png' },
+    { jpg: '/images/festival-logos/festivallogo20.png' },
+    { jpg: '/images/festival-logos/festivallogo21.png' },
+    { jpg: '/images/festival-logos/festivallogo22.png' },
+  ]
+
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles)}
+      className={cx(styles.recentlyCreatedGroups, additionalStyles)}
       data-testid="recently-created-groups"
     >
       {groupsToRender && groupsToRender.length > 0 && (
         <ul className={styles.items}>
-          {groupsToRender.map((group) => {
+          {groupsToRender.map((group, index) => {
             if (group === null) {
               return (
                 <li key="createYourOwnGroupButton">
@@ -43,7 +68,8 @@ export const RecentlyCreatedGroups: FC<{
                 <GridCard
                   additionalStyles={styles.gridCard}
                   desc={group.description}
-                  image={getImage('200x200', group.avatar, GroupAvatarNoImage)}
+                  image={images[index]}
+                  // image={getImage('200x200', group.avatar, GroupAvatarNoImage)}
                   name={group.name}
                   onClick={() => showGroupPreview(group)}
                 />

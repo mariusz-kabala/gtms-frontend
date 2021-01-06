@@ -26,13 +26,9 @@ export const UserPreview: FC<{
             additionalStyles={styles.avatar}
             image={getImage('200x200', user.avatar, noUserAvatar)}
           />
-          <div>
-            <h2 className={styles.header}>{getDisplayName(user)}</h2>
-            {user.description && (
-              <p className={styles.desc}>{user.description}</p>
-            )}
-          </div>
+          <h2 className={styles.header}>{getDisplayName(user)}</h2>
         </div>
+        {user.description && <p className={styles.desc}>{user.description}</p>}
         {user.tags.length > 0 && (
           <div className={styles.tags}>
             <h3 className={styles.headerSection}>Tags:</h3>
