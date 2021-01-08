@@ -1,5 +1,10 @@
+@import '~@gtms/styles/scss/variables.scss';
+
 .noRecords {
   width: 100%;
+  padding: 10px;
+  border-radius: $borderRadius;
+  background: $theme2;
 
   > div {
     margin-bottom: 20px;

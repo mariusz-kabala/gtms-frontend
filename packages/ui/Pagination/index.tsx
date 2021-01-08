@@ -6,12 +6,12 @@ import styles from './styles.scss'
 
 export const Pagination: FC<{
   additionalStyles?: string
+  getCurrentUrl?: (page: number) => string
   limit: number
   offset: number
-  total: number
   onClick: (page: number) => unknown
-  getCurrentUrl?: (page: number) => string
-}> = ({ additionalStyles, limit, offset, total, onClick, getCurrentUrl }) => {
+  total: number
+}> = ({ additionalStyles, getCurrentUrl, limit, offset, onClick, total }) => {
   const pages = new Array(Math.ceil(total / limit)).fill(null)
   const currentPage = offset / limit + 1
   const onGoNextClick = useCallback(() => {
@@ -33,6 +33,10 @@ export const Pagination: FC<{
 
     onClick(prev)
   }, [currentPage])
+
+  if (total <= limit) {
+    return null
+  }
 
   return (
     <div

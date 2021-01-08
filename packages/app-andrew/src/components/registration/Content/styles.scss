@@ -26,10 +26,10 @@
     @include buttonDefault();
     @include buttonSizeDefault();
     @include buttonShapeDefault();
-    @include buttonColorsDefault();
+    @include buttonColorsSecondary();
     @include buttonWithIcon('left');
     width: 100%;
-    margin-top: 30px;
+    margin-top: 10px;
 
     &:hover {
       @include buttonColorsPrimary();
@@ -114,7 +114,8 @@
       }
 
       .socialButtons {
-        @include gridDefault(2);
+        width: 100%;
+        margin: 20px 0;
       }
     }
   }

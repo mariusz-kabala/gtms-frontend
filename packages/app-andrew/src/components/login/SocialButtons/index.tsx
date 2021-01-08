@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react'
 import GoogleLogin, { GoogleLoginResponseOffline } from 'react-google-login'
-import cx from 'classnames'
 import { fbLoginUser, googleLoginUser } from '@gtms/state-user'
 import { useFacebookLogin } from '@gtms/commons/hooks/fbLogin'
 import getConfig from 'next/config'
@@ -38,15 +37,13 @@ export const SocialButtons: FC<{
     },
   })
 
-  return isProcessing || isLoading ? (
-    <Spinner additionalStyles={styles.spinner} />
-  ) : (
-    <div
-      className={cx(styles.wrapper, additionalStyles)}
-      data-testid="social-buttons"
-    >
+  return (
+    <div className={additionalStyles} data-testid="social-buttons">
+      {(isProcessing || isLoading) && (
+        <Spinner additionalStyles={styles.spinner} size="sm" />
+      )}
       {!isProcessing && !isLoading && (
-        <>
+        <div className={styles.buttons}>
           <button
             className={`${styles.button} ${styles.facebook}`}
             data-testid="social-buttons-facebook-button"
@@ -81,7 +78,7 @@ export const SocialButtons: FC<{
               onFailure={onFailure}
             />
           </div>
-        </>
+        </div>
       )}
     </div>
   )

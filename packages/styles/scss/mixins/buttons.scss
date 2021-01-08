@@ -1,5 +1,6 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 @mixin buttonDefault() {
   display: flex;
@@ -8,7 +9,7 @@
   border: none;
   outline: none;
   justify-content: center;
-  padding: 0px 10px;
+  padding: 10px;
   white-space: nowrap;
   text-align: center;
   text-decoration: none;
@@ -72,6 +73,18 @@
   padding: 0;
 }
 
+@mixin buttonWithTwoRows() {
+  flex-direction: column;
+  @include fontSize(lg);
+  @include fontWeight(bold);
+
+  span {
+    margin-top: 2px;
+    @include fontWeight(normal);
+    @include fontSize(default);
+  }
+}
+
 // SIZES
 @mixin buttonSizeDefault() {
   min-height: 40px;
@@ -87,6 +100,12 @@
 // SHAPES
 @mixin buttonShapeDefault() {
   border-radius: $borderRadius;
+}
+
+@mixin buttonShapeRoundedSides() {
+  border-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 // COLORS

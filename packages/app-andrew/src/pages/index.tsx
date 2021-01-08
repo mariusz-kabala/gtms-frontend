@@ -8,6 +8,7 @@ import { UserAvatarNoImage } from '@app/enums'
 import { RecentlyCreatedGroups } from '@app/components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
 // ui
+import { FaUsers, FaUserShield, FaIdBadge } from 'react-icons/fa'
 import { Button } from '@gtms/ui/Button'
 import styles from './indexstyles.scss'
 
@@ -22,12 +23,41 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
       <div data-testid="home-page" className={styles.pageWrapper}>
         <div className={styles.welcome}>
           <div className={styles.mainHeader}>
-            header
-            <Button
-              additionalStyles={styles.btn}
-              // onClick={() => setIsModalOpen(false)}
-            >
+            <h2 className={styles.header}>
+              Szukam<span className={styles.bold}>Andrzeja.pl</span>
+              <span className={styles.subtitle}>
+                Pierwsze festiwalowe spotted!
+              </span>
+            </h2>
+            <ul className={styles.icons}>
+              <li className={styles.element}>
+                <i>
+                  <FaUsers />
+                </i>
+                <span>Cupidatat aute voluptate anim exercitation</span>
+              </li>
+              <li className={styles.element}>
+                <i>
+                  <FaUserShield />
+                </i>
+                <span>Cupidatat aute voluptate anim exercitation</span>
+              </li>
+              <li className={styles.element}>
+                <i>
+                  <FaIdBadge />
+                </i>
+                <span>Cupidatat aute voluptate anim exercitation</span>
+              </li>
+              <li className={styles.element}>
+                <i>
+                  <FaUserShield />
+                </i>
+                <span>Cupidatat aute voluptate anim exercitation</span>
+              </li>
+            </ul>
+            <Button additionalStyles={styles.btn}>
               Dołącz
+              <span>Odnajdźmy razem Andrzeja! :(</span>
             </Button>
           </div>
           <div className={styles.recentlyRegisteredUsers}>

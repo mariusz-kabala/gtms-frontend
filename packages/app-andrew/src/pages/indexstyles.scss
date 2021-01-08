@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-top: 100px;
+    padding-top: 50px;
     background-image: url('/images/theme-images/mainPageBg.png');
     @include imageCover();
 
@@ -34,30 +34,88 @@
     }
 
     .mainHeader {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       @include fontSize(xxlg);
       @include fontWeight(semiBold);
-      margin: auto;
-      text-align: center;
+      margin: 40px auto;
+
+      .header {
+        @include fontSize(xxlg);
+        @include fontWeight(semiBold);
+        text-transform: uppercase;
+
+        .bold {
+          @include fontWeight(bold);
+        }
+
+        .subtitle {
+          display: block;
+          @include fontSize(lg);
+          @include fontWeight(semiBold);
+        }
+      }
+
+      .icons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 15px;
+        grid-template-areas:
+          '. .'
+          '. .';
+
+        max-width: 600px;
+        @include fontSize(default);
+        margin-top: 30px;
+
+        .element {
+          display: flex;
+          align-items: center;
+
+          i {
+            padding: 25px;
+            @include fontSize(lg);
+            margin-right: 15px;
+            border-radius: $borderRadius;
+            line-height: 0;
+            background: $theme2;
+            border: 3px solid $theme2;
+          }
+
+          &:hover {
+            i {
+              border-color: $theme4;
+              color: $theme4;
+            }
+          }
+        }
+      }
 
       .btn {
         @include buttonDefault();
+        @include buttonWithTwoRows();
         @include buttonSizeDefault();
-        @include buttonShapeDefault();
-        @include buttonColorsDefault();
+        @include buttonShapeRoundedSides();
         @include buttonColorsPrimary();
         min-width: 200px;
         margin: 20px auto;
+        opacity: 0.9;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
 
     .recentlyRegisteredUsers {
-      margin: 20px;
-      padding-top: 100px;
+      margin: 0 20px;
     }
 
     .recentlyRegisteredUsers {
       .header {
-        @include fontSize(sm);
+        @include fontWeight(bold);
         text-transform: uppercase;
         margin: 15px 0;
       }

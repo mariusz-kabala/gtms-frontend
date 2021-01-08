@@ -20,7 +20,7 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
       position: relative;
       width: 100%;
       height: 100%;
-      background: $theme2;
+      background: $theme3;
       @include z-index(allMyGroupsSidebar);
 
       & + div {
@@ -42,7 +42,7 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
   .navigationDot {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
     height: 100%;
 
@@ -51,7 +51,7 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
         // because of sortable component
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
       }
     }
 
@@ -80,7 +80,7 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: $theme1;
+        background: $theme3;
         color: $theme0;
 
         i {

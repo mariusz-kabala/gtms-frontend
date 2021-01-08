@@ -6,7 +6,7 @@
 .navigation {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   margin-bottom: 5px;
   @include fontSize(md);
   cursor: pointer;
@@ -22,7 +22,7 @@
   .items {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 
     .item {
       position: relative;
@@ -38,7 +38,7 @@
         padding: 8px;
         text-decoration: none;
         border-radius: $borderRadius;
-        background: $theme1;
+        background: $theme3;
         color: $theme0;
 
         i {

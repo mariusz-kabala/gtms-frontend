@@ -1,5 +1,5 @@
 import React from 'react'
-// import cx from 'classnames'
+import cx from 'classnames'
 import App, { AppContext } from 'next/app'
 import Head from 'next/head'
 import { appWithTranslation } from '@gtms/commons/i18n'
@@ -97,7 +97,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
 
   render() {
     const { Component, pageProps } = this.props
-    // const { background, backgroundImage, backgroundLoaded } = this.state
+    const { background, backgroundImage, backgroundLoaded } = this.state
     return (
       <div className={styles.appWrapper}>
         <Head>
@@ -109,7 +109,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <NavigationWrapper />
         <GroupPreview />
         <Component {...pageProps} />
-        {/* <div
+        <div
           className={cx(
             styles.bg,
             !backgroundImage ? background.className : undefined
@@ -126,7 +126,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
                 }
               : undefined
           }
-        /> */}
+        />
         <div
           className={styles.bluredImage}
           style={{

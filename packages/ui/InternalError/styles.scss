@@ -5,6 +5,8 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
+  position: relative;
+  z-index: 1;
   @include pageWrapper();
   display: flex;
   flex-direction: column;
@@ -23,6 +25,7 @@
     @include buttonSizeDefault();
     @include buttonWithIcon('left');
     @include buttonColorsDefault();
+    margin-top: 10px;
 
     &:hover {
       @include buttonColorsPrimary();

@@ -26,10 +26,10 @@
     @include buttonDefault();
     @include buttonSizeDefault();
     @include buttonShapeDefault();
-    @include buttonColorsDefault();
+    @include buttonColorsSecondary();
     @include buttonWithIcon('left');
     width: 100%;
-    margin-top: 30px;
+    margin-top: 10px;
 
     &:hover {
       @include buttonColorsPrimary();
@@ -57,15 +57,11 @@
       background: $theme3;
       box-shadow: $boxShadowDefault;
 
-      .headerWrapper {
-        margin-bottom: 20px;
-
-        .header {
-          // @todo make mixin of that
-          font-size: 2em;
-          text-transform: uppercase;
-          @include fontWeight(semiBold);
-        }
+      .header {
+        // @todo make mixin of that
+        font-size: 2em;
+        text-transform: uppercase;
+        @include fontWeight(semiBold);
       }
 
       .or {
@@ -116,14 +112,9 @@
         }
       }
 
-      .btn {
-        // @todo create proper mixin for button
-        display: inline-block;
-        width: 220px;
-      }
-
       .socialButtons {
-        @include gridDefault(2);
+        width: 100%;
+        margin: 20px 0;
       }
     }
   }

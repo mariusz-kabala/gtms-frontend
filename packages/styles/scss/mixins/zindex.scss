@@ -4,14 +4,14 @@ $z-index: (
   modal: 8,
   fullScreenGallery: 7,
   allMyGroupsSidebar: 7,
-  overlay: 6,
   mainNavigation: 5,
   groupCard: 4,
   expandingItem: 4,
+  searchBar: 3,
   headerWrapper: 2,
   closeAllMyGroupsSidebar: 2,
   postSingleDeletePost: 1,
-  searchBar: 3,
+  overlay: 0,
 );
 
 @function z-index($key) {

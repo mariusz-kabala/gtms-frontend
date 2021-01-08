@@ -49,15 +49,14 @@ export const GroupResults: FC<{
               noUserAvatar={UserAvatarNoImage}
             />
           ))}
-          <div className={styles.pagination}>
-            <Pagination
-              getCurrentUrl={getCurrentUrl}
-              limit={limit}
-              offset={offset}
-              onClick={onChangePage}
-              total={total}
-            />
-          </div>
+          <Pagination
+            additionalStyles={styles.pagination}
+            getCurrentUrl={getCurrentUrl}
+            limit={limit}
+            offset={offset}
+            onClick={onChangePage}
+            total={total}
+          />
         </>
       )}
       {!isLoading && !isError && docs.length == 0 && <p>No records</p>}
