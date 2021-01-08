@@ -12,13 +12,13 @@
     z-index: -1;
     height: 100%;
     width: 100%;
-    width: calc(100% - 780px);
+    width: calc(100% - 830px);
     @include imageCover();
     background-position: fixed;
     background-attachment: fixed;
 
     &[data-loaded='false'] {
-      filter: blur(55px);
+      filter: blur(35px);
     }
   }
 
@@ -34,6 +34,6 @@
     background-attachment: fixed;
 
     width: 100%;
-    filter: blur(45px);
+    filter: blur(35px);
   }
 }

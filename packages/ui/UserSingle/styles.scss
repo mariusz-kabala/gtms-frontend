@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 
 .wrapper {
   .avatarAndName {
@@ -11,6 +12,10 @@
       img {
         overflow: hidden;
         border-radius: $borderRadius;
+      }
+
+      &:hover {
+        @include effectColorTransparentOverlay('defaultRadius');
       }
     }
 
@@ -28,8 +33,10 @@
 
     .tag {
       border: 1px solid $theme2;
+      background: $theme1;
 
-      &.active {
+      &.active,
+      &:hover {
         background-color: $theme4;
         color: $theme0;
       }

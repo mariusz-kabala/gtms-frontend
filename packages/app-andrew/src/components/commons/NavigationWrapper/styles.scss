@@ -10,8 +10,7 @@
 .mainNavigationWrapper {
   @include z-index(mainNavigation);
   align-items: center;
-  background: $theme2;
-  padding: 5px;
+  padding: 30px;
 
   .logo {
     max-width: 80px;

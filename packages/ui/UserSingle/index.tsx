@@ -12,13 +12,16 @@ import styles from './styles.scss'
 
 export const UserSingle: FC<
   IUser & {
+    additionalStyles?: string
     noUserAvatar: { [key: string]: IImage }
     activeTags?: string[]
   }
 > = ({
+  additionalStyles,
   activeTags = [],
   avatar,
   description,
+  id,
   noUserAvatar,
   surname,
   tags,
@@ -27,15 +30,16 @@ export const UserSingle: FC<
   const { t } = useTranslation('userSingleComponent')
 
   return (
-    <div data-testid="user-single" className={styles.wrapper}>
+    <div
+      data-testid="user-single"
+      className={cx(styles.wrapper, additionalStyles)}
+    >
       <div className={styles.avatarAndName}>
-        <Link href={`/user/${username}`}>
-          <a>
-            <Picture
-              additionalStyles={styles.avatar}
-              {...getImage('50x50', avatar, noUserAvatar)}
-            />
-          </a>
+        <Link href={`/user/${id}`}>
+          <Picture
+            additionalStyles={styles.avatar}
+            {...getImage('50x50', avatar, noUserAvatar)}
+          />
         </Link>
         <div>
           <h2>{getDisplayName({ name, username, surname })}</h2>

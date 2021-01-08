@@ -43,21 +43,21 @@ export const UserResults: FC<{
         <>
           {docs.map((user) => (
             <UserSingle
+              additionalStyles={styles.userSingle}
               activeTags={tags}
               key={`user-${user.id}`}
               noUserAvatar={UserAvatarNoImage}
               {...user}
             />
           ))}
-          <div className={styles.pagination}>
-            <Pagination
-              getCurrentUrl={getCurrentUrl}
-              limit={limit}
-              offset={offset}
-              onClick={onChangePage}
-              total={total}
-            />
-          </div>
+          <Pagination
+            additionalStyles={styles.pagination}
+            getCurrentUrl={getCurrentUrl}
+            limit={limit}
+            offset={offset}
+            onClick={onChangePage}
+            total={total}
+          />
         </>
       )}
       {!isLoading && isError && (
