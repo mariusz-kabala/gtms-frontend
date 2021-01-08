@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.31.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.31.1...@gtms/styles@0.31.2) (2021-01-08)
+
+
+### Bug Fixes
+
+* GEOT-770: GEOT-770: different small changes in css ([#979](https://github.com/gtms-org/gtms-frontend/issues/979)) ([7ffbda9](https://github.com/gtms-org/gtms-frontend/commit/7ffbda9e352fa32ccfbb43b95b29f3607b0327ac))
+
+
+
+
+
 ## [0.31.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.31.0...@gtms/styles@0.31.1) (2021-01-06)
 
 
