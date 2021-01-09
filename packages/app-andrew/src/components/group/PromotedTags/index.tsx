@@ -21,12 +21,14 @@ import { PromotedTagsForm } from '@app/components/group-settings/PromotedTagForm
 // ui
 import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
 import { Modal } from '@gtms/ui/Modal'
-import { PromotedTags as PromotedTagsUI } from '@gtms/ui/PromotedTags'
+import { PromotedTagsList as PromotedTagsUIList } from '@gtms/ui/PromotedTagsList'
+import { PromotedTags as PromotedTagsUIGrid } from '@gtms/ui/PromotedTags'
 
 export const PromotedTags: FC<{
   additionalStyles?: string
   onTagClick?: (tag: IPromotedTag) => unknown
-}> = ({ additionalStyles, onTagClick }) => {
+  type?: string
+}> = ({ additionalStyles, onTagClick, type }) => {
   const [state, setState] = useState<IPromotedTagsState>(promotedTagsState())
   const [promotedTagEditor, setPromotedTagEditor] = useState<{
     isOpen: boolean
@@ -99,21 +101,36 @@ export const PromotedTags: FC<{
         <EmptyPromotedTags onAddClick={onAddTagClick} />
       )}
       {state.isLoading ||
-        (state.tags.length > 0 && (
-          <PromotedTagsUI
-            onFavClick={onFavClick}
-            favs={state.favTags}
-            activeTags={state.activeTags}
-            isAdmin={state.isAdmin}
-            isLoading={state.isLoading}
-            noImage={PromotedTagNoImage}
-            onDeleteRecordClick={onDeleteTagClick}
-            onEditRecordClick={onEditTagClick}
-            onNoRecordsClick={onAddTagClick}
-            onTagClick={onTagClick}
-            tags={state.tags}
-          />
-        ))}
+        (state.tags.length > 0 &&
+          (type === 'typeGrid' ? (
+            <PromotedTagsUIGrid
+              onFavClick={onFavClick}
+              favs={state.favTags}
+              activeTags={state.activeTags}
+              isAdmin={state.isAdmin}
+              isLoading={state.isLoading}
+              noImage={PromotedTagNoImage}
+              onDeleteRecordClick={onDeleteTagClick}
+              onEditRecordClick={onEditTagClick}
+              onNoRecordsClick={onAddTagClick}
+              onTagClick={onTagClick}
+              tags={state.tags}
+            />
+          ) : (
+            <PromotedTagsUIList
+              onFavClick={onFavClick}
+              favs={state.favTags}
+              activeTags={state.activeTags}
+              isAdmin={state.isAdmin}
+              isLoading={state.isLoading}
+              noImage={PromotedTagNoImage}
+              onDeleteRecordClick={onDeleteTagClick}
+              onEditRecordClick={onEditTagClick}
+              onNoRecordsClick={onAddTagClick}
+              onTagClick={onTagClick}
+              tags={state.tags}
+            />
+          )))}
       {promotedTagEditor.isOpen && (
         <Modal
           onClose={() => {
