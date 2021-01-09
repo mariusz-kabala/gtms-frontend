@@ -13,7 +13,7 @@ export const NotificationNewMember: FC<{
 }> = ({ group, member }) => {
   return (
     <li className={styles.wrapper} data-testid={'notification-new-member'}>
-      <Link href={`/member/${member._id}`}>
+      <Link href={`/member/${member.id}`}>
         <a>
           <Picture
             additionalStyles={styles.avatar}
