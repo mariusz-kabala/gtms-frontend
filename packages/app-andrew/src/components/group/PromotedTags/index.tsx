@@ -112,7 +112,6 @@ export const PromotedTags: FC<{
             onNoRecordsClick={onAddTagClick}
             onTagClick={onTagClick}
             tags={state.tags}
-            type="vertical"
           />
         ))}
       {promotedTagEditor.isOpen && (
