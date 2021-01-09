@@ -101,17 +101,18 @@ export const PromotedTags: FC<{
       {state.isLoading ||
         (state.tags.length > 0 && (
           <PromotedTagsUI
-            onFavClick={onFavClick}
-            favs={state.favTags}
             activeTags={state.activeTags}
+            favs={state.favTags}
             isAdmin={state.isAdmin}
             isLoading={state.isLoading}
             noImage={PromotedTagNoImage}
             onDeleteRecordClick={onDeleteTagClick}
             onEditRecordClick={onEditTagClick}
+            onFavClick={onFavClick}
             onNoRecordsClick={onAddTagClick}
             onTagClick={onTagClick}
             tags={state.tags}
+            type="vertical"
           />
         ))}
       {promotedTagEditor.isOpen && (

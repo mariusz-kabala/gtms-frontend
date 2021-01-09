@@ -8,6 +8,7 @@ import styles from './styles.scss'
 // icons
 // ai
 import { AiFillRead } from 'react-icons/ai'
+import { AiOutlineClockCircle } from 'react-icons/ai'
 import { AiOutlineBell } from 'react-icons/ai'
 import { AiOutlineForm } from 'react-icons/ai'
 import { AiOutlineRead } from 'react-icons/ai'

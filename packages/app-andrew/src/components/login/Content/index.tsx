@@ -43,7 +43,7 @@ export const LoginContent: FC<{ registrationLink?: string }> = ({
     <>
       <div className={styles.pageWrapper} data-testid="login-page">
         {error && (
-          <Modal onClose={() => setError(undefined)}>
+          <Modal onClose={() => setError(undefined)} z>
             <div className={styles.modalError} data-testid="login-page-error">
               <h2 className={styles.header}>Title</h2>
               <p className={styles.desc}>{t(error)}</p>

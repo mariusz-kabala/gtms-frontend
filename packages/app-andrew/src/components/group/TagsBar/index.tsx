@@ -15,7 +15,8 @@ import {
 } from '@gtms/state-tag'
 import { getGroupPosts } from '@gtms/state-post'
 // ui
-import { IoMdGrid } from 'react-icons/io'
+import { IoMdGrid, IoIosStar } from 'react-icons/io'
+import { AiOutlineClockCircle } from 'react-icons/ai'
 import { Image } from '@gtms/ui/Image'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
@@ -115,7 +116,10 @@ export const TagsBar: FC<{
               [styles.active]: currentTab === Tabs.favorites,
             })}
           >
-            Favorites
+            <i>
+              <IoIosStar />
+            </i>
+            Favs
           </li>
         )}
         <li
@@ -124,6 +128,9 @@ export const TagsBar: FC<{
           })}
           onClick={() => setCurrentTab(Tabs.recentlyViewed)}
         >
+          <i>
+            <AiOutlineClockCircle />
+          </i>
           last viewed
         </li>
       </ul>
