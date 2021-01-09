@@ -102,8 +102,8 @@ export const PromotedTags: FC<{
       )}
       {state.isLoading ||
         (state.tags.length > 0 &&
-          (type === 'typeGrid' ? (
-            <PromotedTagsUIGrid
+          (type === 'list' ? (
+            <PromotedTagsUIList
               onFavClick={onFavClick}
               favs={state.favTags}
               activeTags={state.activeTags}
@@ -117,7 +117,7 @@ export const PromotedTags: FC<{
               tags={state.tags}
             />
           ) : (
-            <PromotedTagsUIList
+            <PromotedTagsUIGrid
               onFavClick={onFavClick}
               favs={state.favTags}
               activeTags={state.activeTags}

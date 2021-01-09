@@ -12,7 +12,6 @@
   .header {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
     @include fontSize(md);
     @include fontWeight('semiBold');
     text-transform: uppercase;
@@ -29,5 +28,9 @@
         @include buttonColorsPrimary();
       }
     }
+  }
+
+  .promotedTagsList {
+    margin-top: 10px;
   }
 }
