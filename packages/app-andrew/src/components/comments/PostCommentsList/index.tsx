@@ -69,7 +69,7 @@ export const PostCommentsList: FC<{
           No comments, you can add the first one
         </span>
       )}
-      {!hasNoComments && (
+      {hasNoComments && (
         <button
           className={styles.respondButton}
           onClick={(e) => {
@@ -88,7 +88,7 @@ export const PostCommentsList: FC<{
         </button>
       )}
       {comments.map((comment) => (
-        <div key={`comment-${comment.id}`}>
+        <div className={styles.postCommentsList} key={`comment-${comment.id}`}>
           <PostResponse
             html={comment.html}
             createdAt={comment.createdAt}

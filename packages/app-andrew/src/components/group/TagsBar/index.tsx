@@ -115,7 +115,7 @@ export const TagsBar: FC<{
               [styles.active]: currentTab === Tabs.favorites,
             })}
           >
-            Favorites
+            Favs
           </li>
         )}
         <li
@@ -124,7 +124,7 @@ export const TagsBar: FC<{
           })}
           onClick={() => setCurrentTab(Tabs.recentlyViewed)}
         >
-          last viewed
+          Last viewed
         </li>
       </ul>
 

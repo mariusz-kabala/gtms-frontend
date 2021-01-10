@@ -42,6 +42,7 @@ export const PostSingle: FC<{
   html: string
   id: string
   images: IPostImage[]
+  isFullPost?: boolean
   noImage: { [key: string]: IImage }
   onClick?: (id: string) => unknown
   onLoginRequest?: () => unknown
@@ -68,6 +69,7 @@ export const PostSingle: FC<{
   html,
   id,
   images,
+  isFullPost,
   noImage,
   onClick,
   onLoginRequest,
@@ -113,7 +115,10 @@ export const PostSingle: FC<{
 
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles)}
+      className={cx(styles.wrapper, additionalStyles, {
+        [styles.isFullPost]: isFullPost,
+        [styles.isNotFullPost]: !isFullPost,
+      })}
       data-testid="post-single"
     >
       {lightboxState.isOpen && (
@@ -268,30 +273,32 @@ export const PostSingle: FC<{
           </div>
         )}
       </div>
-      <div className={styles.btns}>
-        {allowToRespond && (user || onLoginRequest) && (
-          <button
-            className={styles.respondBtn}
-            onClick={(e) => {
-              e.preventDefault()
+      {!isFullPost && (
+        <div className={styles.btns}>
+          {allowToRespond && (user || onLoginRequest) && (
+            <button
+              className={styles.respondBtn}
+              onClick={(e) => {
+                e.preventDefault()
 
-              if (!user && onLoginRequest) {
-                return onLoginRequest()
-              }
+                if (!user && onLoginRequest) {
+                  return onLoginRequest()
+                }
 
-              setIsAnswerFormOpen(true)
-              if (commentForm.current) {
-                window.scrollTo(0, commentForm.current.offsetTop)
-              }
-            }}
-          >
-            respond...
+                setIsAnswerFormOpen(true)
+                if (commentForm.current) {
+                  window.scrollTo(0, commentForm.current.offsetTop)
+                }
+              }}
+            >
+              respond...
+            </button>
+          )}
+          <button className={styles.readMoreBtn} onClick={onClickCallback}>
+            read more...
           </button>
-        )}
-        <button className={styles.readMoreBtn} onClick={onClickCallback}>
-          read more...
-        </button>
-      </div>
+        </div>
+      )}
     </div>
   )
 }

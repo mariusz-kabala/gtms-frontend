@@ -2,8 +2,6 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 
 .wrapper {
-  margin: 10px;
-
   .btnRespond {
     @include buttonDefault();
     @include buttonSizeSm();

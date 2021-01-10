@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react'
+import cx from 'classnames'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { ILoginData } from '@gtms/api-auth'
@@ -78,10 +79,12 @@ export const LoginForm: FC<{
       <Button
         type="submit"
         testid="login-button"
-        additionalStyles={styles.btnSubmit}
+        additionalStyles={cx(styles.btnSubmit, {
+          [styles.active]: isMakingRequest,
+        })}
         disabled={isMakingRequest}
       >
-        {isMakingRequest && <Spinner size="sm" type="authentication" />}
+        {isMakingRequest && <Spinner size="xsm" type="authentication" />}
         {t('form.submitButton')}
       </Button>
     </form>
