@@ -11,7 +11,7 @@ $z-index: (
   headerWrapper: 2,
   closeAllMyGroupsSidebar: 2,
   postSingleDeletePost: 1,
-  overlay: 0,
+  overlay: 1,
 );
 
 @function z-index($key) {
