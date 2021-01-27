@@ -129,13 +129,13 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
           {...state.members}
         />
       )}
-      {group.isLoading && !group.errorOccured && (
-        <Spinner additionalStyles={styles.spinner} />
-      )}
       {!group.isLoading && group.errorOccured && (
         <ErrorWrapper>
           <h2>Can not fetch group details, try again later</h2>
         </ErrorWrapper>
+      )}
+      {group.isLoading && !group.errorOccured && (
+        <Spinner additionalStyles={styles.spinner} />
       )}
       {!group.isLoading &&
         !group.errorOccured &&

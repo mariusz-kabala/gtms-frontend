@@ -15,6 +15,7 @@
   margin: 0; // reset margin from mixin pageWrapper()
   padding: 0; // reset padding from mixin pageWrapper()
 
+  max-width: $tempWidth;
   margin: 0 50px;
   margin-bottom: 50px;
 
@@ -35,7 +36,6 @@
     position: relative;
     display: flex;
     gap: 10px;
-    max-width: $tempWidth;
     min-height: 500px;
 
     .sidebar {
