@@ -7,12 +7,16 @@
 
 .pageWrapper {
   @include pageWrapper();
+  flex-direction: column;
   background: none; // reset bg from mixin pageWrapper()
   margin: 0; // reset margin from mixin pageWrapper()
+  padding: 0; // reset padding from mixin pageWrapper()
 
-  width: 100%;
   position: relative;
   display: flex;
+  width: 100%;
+  margin: 0 50px;
+  margin-bottom: 50px;
   border-radius: 10px;
 
   .widthMax {
@@ -20,20 +24,8 @@
   }
 
   .groupCover {
-    margin: 10px 0;
+    margin-bottom: 10px;
     max-width: $tempWidth;
-  }
-
-  .groupHeader {
-    position: relative;
-  }
-
-  .divider {
-    width: 100%;
-    max-width: $tempWidth;
-    height: 1px;
-    margin: 10px 0;
-    background: rgba($theme2, 0.25);
   }
 
   .welcomeText {
@@ -69,12 +61,78 @@
     }
   }
 
+  .headroom {
+    position: relative;
+    z-index: 20;
+
+    &:before {
+      position: fixed;
+      z-index: 11;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      transition: opacity 0.5s;
+      opacity: 1;
+    }
+
+    &.overlay {
+      &:before {
+        content: '';
+      }
+    }
+
+    > div {
+      position: relative;
+      z-index: 11 !important;
+
+      &:before {
+        content: '';
+        position: fixed;
+        z-index: 10;
+        top: -300px;
+        left: 0px;
+        width: 100%;
+        height: 1px;
+        box-shadow: 0px 0px 150px 150px rgba(0, 0, 0, 0.85);
+        transition: top 300ms linear;
+      }
+
+      &[class*='headroom--unpinned'],
+      &[class*='headroom--scrolled'] {
+        padding-left: 95px;
+      }
+
+      &[class*='headroom--pinned'] {
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50px;
+          left: 0;
+          z-index: 10;
+          width: 130%;
+          height: 1px;
+          background: white;
+          opacity: 0.4;
+        }
+
+        &:before {
+          top: -50px;
+        }
+      }
+    }
+  }
+
   .wrapper {
     width: 100%;
 
     .promotedTags {
+      position: fixed;
+      z-index: 1;
       width: 100%;
-      margin-top: 25px;
+      padding: 0px 94px;
+      left: 0;
     }
 
     .groupMembers {
@@ -86,9 +144,8 @@
     .content {
       position: relative;
       display: flex;
-      gap: 10px;
+      gap: 8px;
       max-width: $tempWidth;
-      margin-top: 10px;
 
       &.widthMax {
         max-width: 1100px;
@@ -101,7 +158,7 @@
 
       .columns {
         display: flex;
-        gap: 10px;
+        gap: 8px;
 
         .postDetails {
           margin-bottom: 5px;
@@ -113,7 +170,9 @@
         display: flex;
         flex-direction: column;
         gap: 8px;
+        padding: 8px;
         width: 100%;
+        background: $theme2;
         border-radius: $borderRadius;
 
         .loading {
@@ -124,12 +183,6 @@
         .postCreate {
           display: flex;
           border-radius: $borderRadius;
-          border: 2px solid $theme2;
-          background: $theme2;
-
-          &:hover {
-            border-color: $theme4;
-          }
         }
 
         .postsList {
@@ -139,8 +192,7 @@
 
           .post {
             padding: 7px;
-            border: 3px solid $theme2;
-            background: $theme2;
+            border: 3px solid $theme1;
 
             &:hover {
               border-color: $theme4;
@@ -163,7 +215,7 @@
         .header {
           @include fontWeight(semiNormal);
           @include fontSize(lg);
-          margin-bottom: 20px;
+          margin-top: 20px;
 
           span {
             @include fontWeight(semiBold);
@@ -173,7 +225,7 @@
 
       .pagination {
         justify-content: center;
-        margin-top: 20px;
+        margin: 20px 0;
       }
     }
   }

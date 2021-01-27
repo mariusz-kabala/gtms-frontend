@@ -23,27 +23,31 @@ export const NavigationWrapper: FC<{}> = () => {
       className={styles.mainNavigationWrapper}
       data-testid="navigation-wrapper"
     >
-      <a href="/">
-        <img
-          className={styles.logo}
-          src="/images/theme-images/logo-burning-man.png"
+      <div>
+        {' '}
+        {/* for position fixed - css purouse */}
+        <a href="/">
+          <img
+            className={styles.logo}
+            src="/images/theme-images/logo-burning-man.png"
+          />
+        </a>
+        <SearchBar
+          additionalStyles={styles.searchBar}
+          onTagAdd={() => null}
+          onTagRemove={() => null}
+          onLoadSuggestion={() => null}
+          onQueryChange={() => null}
+          onLoadSuggestionCancel={() => null}
+          onUserRemove={() => null}
         />
-      </a>
-      <SearchBar
-        additionalStyles={styles.searchBar}
-        onTagAdd={() => null}
-        onTagRemove={() => null}
-        onLoadSuggestion={() => null}
-        onQueryChange={() => null}
-        onLoadSuggestionCancel={() => null}
-        onUserRemove={() => null}
-      />
-      {isLogged && (
-        <>
-          <Navigation />
-          <NavigationDots />
-        </>
-      )}
+        {isLogged && (
+          <>
+            <Navigation />
+            <NavigationDots />
+          </>
+        )}
+      </div>
     </div>
   )
 }

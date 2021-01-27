@@ -5,14 +5,27 @@
   min-height: 100vh;
   display: flex;
 
-  .bg {
+  .fullPageBg {
     position: fixed;
-    right: 0;
+    left: 0;
     top: 0;
     z-index: -1;
     height: 100%;
     width: 100%;
-    width: calc(100% - 830px);
+    width: calc(100% - 640px);
+    @include imageCover();
+    background-position: fixed;
+    background-attachment: fixed;
+    filter: blur(25px);
+  }
+
+  .bg {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -2;
+    height: 100%;
+    width: 100%;
     @include imageCover();
     background-position: fixed;
     background-attachment: fixed;
@@ -20,20 +33,5 @@
     &[data-loaded='false'] {
       filter: blur(35px);
     }
-  }
-
-  .bluredImage {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: -2;
-    height: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-
-    width: 100%;
-    filter: blur(35px);
   }
 }

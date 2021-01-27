@@ -4,9 +4,7 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/inputs.scss';
 
-.wrapper {
-  margin: 8px;
-
+.postCreateWrapper {
   .avatarAndTextInput {
     display: flex;
     align-items: center;

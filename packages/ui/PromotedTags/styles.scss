@@ -137,7 +137,7 @@
   @include buttonSizeDefault();
   @include buttonShapeDefault();
   @include buttonWithIcon('left');
-  @include buttonWithSpinnerAndLabel();
+  @include buttonWithSpinnerAndLabel(left);
   @include buttonColorsDefault();
   margin: 8px auto;
 

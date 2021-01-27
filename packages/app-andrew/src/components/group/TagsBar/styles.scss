@@ -3,6 +3,12 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .wrapper {
+  > div {
+    position: fixed;
+    position: sticky;
+    top: 10px;
+  }
+
   &:hover {
     .items {
       border-color: $theme4;

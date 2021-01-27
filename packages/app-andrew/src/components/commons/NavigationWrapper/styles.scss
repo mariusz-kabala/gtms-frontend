@@ -10,7 +10,13 @@
 .mainNavigationWrapper {
   @include z-index(mainNavigation);
   align-items: center;
-  padding: 30px;
+  padding: 5px;
+  background: $theme2;
+  min-width: 44px;
+
+  > div {
+    position: fixed;
+  }
 
   .logo {
     max-width: 80px;
