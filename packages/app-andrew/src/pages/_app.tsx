@@ -11,7 +11,9 @@ import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from '@app/components/commons/LoginWindow'
 import { uiQuery } from '@app/state'
-
+// ui
+import { CookiePolicy } from '@gtms/ui/CookiePolicy'
+// styles
 import '@gtms/styles/scss/global.scss'
 import './tooltip.scss'
 import './lightbox.scss'
@@ -103,6 +105,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>
+        <CookiePolicy />
         <LoginWindow />
         <NotificationsActive />
         <NotificationsSidebar />

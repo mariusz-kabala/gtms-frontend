@@ -1,23 +1,143 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
 
-.cookiePolicy {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
+.gdprWrapper {
+  position: fixed;
+  bottom: -300px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 9;
+  width: 750px;
+  height: 70vh;
+  border-radius: $borderRadius;
+  background: $theme3;
+  transition: bottom 0.2s ease-in-out;
 
-  .cookie {
-    display: flex;
+  &.active {
+    bottom: 100px;
+  }
+
+  &.hidden {
+    bottom: -500px;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 20px;
+    border: 3px solid $theme4;
+    border-radius: $borderRadius;
+
+    i {
+      line-height: 0;
+    }
+  
+    .switcherWrapper {
+      margin-bottom: 10px;
+      
+      .switcher {
+        display: flex;
+        align-items: center;
+        @include fontSize(xdefault);
+        @include fontWeight(semiBold);
+      }
+    }
+
+    .scrollableWrapper {
+      height: 100%;
+
+      .content {
+        display: flex;
+        flex-direction: column;
+  
+        .header {
+          @include fontSize(xlg);
+          margin: 20px auto;
+          
+          span {
+            @include fontWeight(bold);
+          }
+        }
+    
+        .list {
+          margin: 10px 0;
+    
+          .item {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+    
+            i {
+              @include fontSize(md);
+              margin-right: 5px;
+            }
+          }
+        }
+        
+        .subHeader {
+          @include fontSize(xmd);
+        }
+  
+        .expandingHeader {
+          display: flex;
+          align-items: center;
+          @include fontSize(xdefault);
+          @include fontWeight(semiBold);
+          cursor: pointer;
+  
+          i {
+            margin-left: 5px;
+          }
+        }
+  
+        .list.expanding {
+          margin-top: 5px;
+  
+          .item {
+            &:before {
+              content: '';
+              width: 5px;
+              height: 5px;
+              border-radius: 50%;
+              background: $theme0;
+              margin: 10px;
+            }
+          }
+        }
+  
+        .text {
+          margin-top: 10px;
+          p {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .buttons {
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+    @include gridTwoButtons();
     width: 100%;
-    background: $theme1;
-    border-bottom: 1px solid $theme4;
 
-    p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 90%;
+    .btn {
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapeDefault();
+      @include buttonWithIcon('left');
+      @include buttonColorsDefault();
+      width: 100%;
+
+      &:hover {
+        @include buttonColorsPrimary();
+      }
     }
   }
 }
