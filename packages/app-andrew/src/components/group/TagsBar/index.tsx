@@ -178,7 +178,6 @@ export const TagsBar: FC<{
               })}
             </ul>
           )}
-
         {currentTab === Tabs.recentlyViewed &&
           !state.recentlyViewed.isLoading &&
           !state.recentlyViewed.errorOccured &&

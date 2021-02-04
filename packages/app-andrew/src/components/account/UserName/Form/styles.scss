@@ -9,6 +9,7 @@
     @include buttonSizeDefault();
     @include buttonShapeDefault();
     @include buttonColorsDefault();
+
     &:hover {
       @include buttonColorsPrimary();
     }

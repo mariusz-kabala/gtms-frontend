@@ -134,58 +134,56 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
           <h2>Can not fetch group details, try again later</h2>
         </ErrorWrapper>
       )}
-      {!group.errorOccured && !(state.showPromoted || state.showUsers) && (
-        <div className={styles.columns}>
-          {group.isLoading && !group.errorOccured && (
-            <Spinner additionalStyles={styles.spinner} />
-          )}
-          {!group.isLoading && (
-            <>
-              <GroupSettingsSidebar
-                additionalStyles={styles.sidebar}
-                tab={tab}
-                setTab={setTab}
-              />
-              <div className={styles.content}>
-                {tab === Tabs.general && (
-                  <>
-                    {group.group && <BasicInfoSetup group={group.group} />}
-                    {group.group && (
-                      <GroupBackgroundSettings group={group.group} />
-                    )}
-                    {group.group && <PermissionsSetup group={group.group} />}
-                    <div className={styles.btnDeleteWrapper}>
-                      <GroupDeleteGroup
-                        additionalStyles={styles.btnDelete}
-                        onConfirm={() => null}
-                      />
-                    </div>
-                  </>
-                )}
-
-                {tab === Tabs.tags && (
-                  <TagsSettings
-                    id={group.group?.id || ''}
-                    tags={group.group?.tags || []}
-                  />
-                )}
-
-                {tab === Tabs.invitations && (
-                  <InvitationsSettings group={group.group as IGroup} />
-                )}
-
-                {tab === Tabs.admins && (
-                  <AdminsSettings group={group.group as IGroup} />
-                )}
-
-                {tab === Tabs.members && (
-                  <MembersSettings group={group.group as IGroup} />
-                )}
-              </div>
-            </>
-          )}
-        </div>
+      {group.isLoading && !group.errorOccured && (
+        <Spinner additionalStyles={styles.spinner} />
       )}
+      {!group.isLoading &&
+        !group.errorOccured &&
+        !(state.showPromoted || state.showUsers) && (
+          <div className={styles.columns}>
+            <GroupSettingsSidebar
+              additionalStyles={styles.sidebar}
+              tab={tab}
+              setTab={setTab}
+            />
+            <div className={styles.content}>
+              {tab === Tabs.general && (
+                <>
+                  {group.group && <BasicInfoSetup group={group.group} />}
+                  {group.group && (
+                    <GroupBackgroundSettings group={group.group} />
+                  )}
+                  {group.group && <PermissionsSetup group={group.group} />}
+                  <div className={styles.btnDeleteWrapper}>
+                    <GroupDeleteGroup
+                      additionalStyles={styles.btnDelete}
+                      onConfirm={() => null}
+                    />
+                  </div>
+                </>
+              )}
+
+              {tab === Tabs.tags && (
+                <TagsSettings
+                  id={group.group?.id || ''}
+                  tags={group.group?.tags || []}
+                />
+              )}
+
+              {tab === Tabs.invitations && (
+                <InvitationsSettings group={group.group as IGroup} />
+              )}
+
+              {tab === Tabs.admins && (
+                <AdminsSettings group={group.group as IGroup} />
+              )}
+
+              {tab === Tabs.members && (
+                <MembersSettings group={group.group as IGroup} />
+              )}
+            </div>
+          </div>
+        )}
     </div>
   )
 }
