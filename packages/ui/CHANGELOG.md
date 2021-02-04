@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.83.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.83.3...@gtms/ui@0.83.4) (2021-02-04)
+
+
+### Bug Fixes
+
+* GEOT-777: small changes css ([#980](https://github.com/gtms-org/gtms-frontend/issues/980)) ([0c9f57b](https://github.com/gtms-org/gtms-frontend/commit/0c9f57bae07e68e182cfb2489257e93673c6924a))
+
+
+
+
+
 ## [0.83.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.83.2...@gtms/ui@0.83.3) (2021-02-04)
 
 
