@@ -75,108 +75,104 @@ export const TagsSettings: FC<{ id: string; tags: string[] }> = (props) => {
 
   return (
     <div data-testid="group-settings-tags" className={styles.wrapper}>
-      <div>
-        <h3 className={styles.header}>
-          {/* @todo add translation here */}
-          Tags{' '}
-          <button
-            onClick={() => setIsInEditMode(!isInEditMode)}
-            className={styles.btn}
-          >
-            <i>
-              <AiOutlineForm />
-            </i>
-            {isInEditMode ? 'close' : 'edit'}
-          </button>
-        </h3>
-        {!isInEditMode && (
-          <>
-            {/* @todo add translation here */}
-            <p>Click on tag to add to promoted</p>
-            {tags.length > 0 && (
-              <TagGroup>
-                {tags.map((tag) => (
-                  <Tag
-                    onClick={() => {
-                      if (
-                        promotedTagsQuery.hasEntity(
-                          (promoted: IPromotedTag) => promoted.tag === tag
-                        )
-                      ) {
-                        // add a message here later
-                        return
-                      }
+      <h3 className={styles.header}>
+        {/* @todo add translation here */}
+        Tags{' '}
+        <button
+          onClick={() => setIsInEditMode(!isInEditMode)}
+          className={styles.btn}
+        >
+          <i>
+            <AiOutlineForm />
+          </i>
+          {isInEditMode ? 'close' : 'edit'}
+        </button>
+      </h3>
+      {!isInEditMode && (
+        <>
+          {tags.length > 0 && (
+            <TagGroup>
+              {tags.map((tag) => (
+                <Tag
+                  onClick={() => {
+                    if (
+                      promotedTagsQuery.hasEntity(
+                        (promoted: IPromotedTag) => promoted.tag === tag
+                      )
+                    ) {
+                      // add a message here later
+                      return
+                    }
 
-                      setPromotedTagEditor({
-                        isOpen: true,
-                        tag,
-                      })
-                    }}
-                    label={tag}
-                    key={`tag-${tag}`}
-                  />
-                ))}
-              </TagGroup>
-            )}
-            {tags.length === 0 && (
-              <div className={styles.noRecords}>
-                <p>
-                  {/* @todo add translation */}
-                  no promoted tags yet, create some
-                </p>
-              </div>
-            )}
-          </>
-        )}
-        {isInEditMode && (
-          <TagsBar
-            editMode={true}
-            isLoading={tagsHints.isLoading}
-            isSaving={false}
-            onLoadSuggestion={onLoadTagsHints}
-            onLoadSuggestionCancel={() => null}
-            onSave={() => {
-              setIsInEditMode(false)
-              return Promise.resolve()
-            }}
-            onTagAdd={onTagAdd}
-            onTagRemove={onTagRemove}
-            suggestions={tagsHints.tags}
-            tags={tags}
-          />
-        )}
-      </div>
-      <div>
+                    setPromotedTagEditor({
+                      isOpen: true,
+                      tag,
+                    })
+                  }}
+                  label={tag}
+                  key={`tag-${tag}`}
+                />
+              ))}
+            </TagGroup>
+          )}
+          {tags.length === 0 && (
+            <div className={styles.noRecords}>
+              <p>
+                {/* @todo add translation */}
+                no promoted tags yet, create some
+              </p>
+            </div>
+          )}
+        </>
+      )}
+      {isInEditMode && (
+        <TagsBar
+          editMode={true}
+          isLoading={tagsHints.isLoading}
+          isSaving={false}
+          onLoadSuggestion={onLoadTagsHints}
+          onLoadSuggestionCancel={() => null}
+          onSave={() => {
+            setIsInEditMode(false)
+            return Promise.resolve()
+          }}
+          onTagAdd={onTagAdd}
+          onTagRemove={onTagRemove}
+          suggestions={tagsHints.tags}
+          tags={tags}
+        />
+      )}
+      <div className={styles.promotedTagsList}>
         <h3 className={styles.header}>
           {/* @todo add translation */}
           Promoted tags
         </h3>
-        <PromotedTags onTagClick={() => null} />
-      </div>
-      {promotedTagEditor.isOpen && (
-        <Modal
-          onClose={() => {
-            setPromotedTagEditor({
-              tag: '',
-              isOpen: false,
-            })
-          }}
-        >
-          <PromotedTagsForm
-            description={promotedTagEditor.description}
-            groupId={props.id}
-            id={promotedTagEditor.id}
-            onSuccess={() => {
+        <PromotedTags type="list" onTagClick={() => null} />
+        {promotedTagEditor.isOpen && (
+          <Modal
+            onClose={() => {
               setPromotedTagEditor({
                 tag: '',
                 isOpen: false,
               })
-              loadGroupPromotedTags(props.id)
             }}
-            tag={promotedTagEditor.tag}
-          />
-        </Modal>
-      )}
+          >
+            <PromotedTagsForm
+              description={promotedTagEditor.description}
+              groupId={props.id}
+              id={promotedTagEditor.id}
+              onSuccess={() => {
+                setPromotedTagEditor({
+                  tag: '',
+                  isOpen: false,
+                })
+                loadGroupPromotedTags(props.id)
+              }}
+              tag={promotedTagEditor.tag}
+            />
+          </Modal>
+        )}
+      </div>
     </div>
   )
 }
