@@ -19,3 +19,11 @@
 .check {
   @include fontSize(xmd);
 }
+
+.description {
+  cursor: pointer;
+
+  &:hover {
+    color: $theme4;
+  }
+}

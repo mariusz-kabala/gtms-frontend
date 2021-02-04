@@ -12,26 +12,39 @@ import styles from './styles.scss'
 export const UserDescription: FC<{
   description?: string
 }> = ({ description }) => {
-  const [isInEditMode, setIsInEditMode] = useState<boolean>(false)
-  const [isSaving, setIsSaving] = useState<boolean>(false)
-  const [isSuccess, setIsSuccess] = useState<boolean>(false)
+  enum Status {
+    isEditNotStarted,
+    isError,
+    isInEditMode,
+    isSaving,
+    isSuccess,
+  }
+  const [status, setStatus] = useState<Status | null>()
   const { register, handleSubmit } = useForm<{ description?: string }>()
   const onSubmit = (data: { description?: string }) => {
-    setIsSaving(true)
-    updateAccountDetails(data).finally(() => {
-      setIsSaving(false)
-      setIsSuccess(true)
-      setTimeout(() => {
-        setIsInEditMode(false)
-        setIsSuccess(false)
-      }, 1000)
-    })
+    setStatus(Status.isSaving)
+    updateAccountDetails(data)
+      .then(() => {
+        setStatus(Status.isSuccess)
+        setTimeout(() => {
+          setStatus(Status.isEditNotStarted)
+        }, 1000)
+      })
+      .catch(() => {
+        setStatus(Status.isError)
+        setTimeout(() => {
+          setStatus(Status.isEditNotStarted)
+        }, 1000)
+      })
   }
 
   return (
     <>
-      {isInEditMode && (
-        <Modal onClose={() => setIsInEditMode(false)}>
+      {(status === Status.isError ||
+        status === Status.isInEditMode ||
+        status === Status.isSaving ||
+        status === Status.isSuccess) && (
+        <Modal onClose={() => setStatus(Status.isSaving)}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <ExpandingTextarea
               additionalStyles={styles.textarea}
@@ -45,23 +58,28 @@ export const UserDescription: FC<{
               type="submit"
               disabled={false}
             >
-              {isSuccess && (
-                <i className={styles.check}>
-                  <IoIosCheckbox />
-                </i>
+              {status === Status.isSuccess && (
+                <>
+                  <i className={styles.check}>
+                    <IoIosCheckbox />
+                  </i>
+                  Saved!
+                </>
               )}
-              {isSaving && <Spinner size="xsm" />}
-              Save
+              {status === Status.isSaving && <Spinner size="xsm" />}
+              {status === Status.isError && <>Error occured</>}
+              {status === Status.isInEditMode && <>Save</>}
             </Button>
           </form>
         </Modal>
       )}
-      {!isInEditMode && (
-        <p onClick={() => setIsInEditMode(true)}>
-          {description ||
-            'You dont have any description yet. Click here to add it'}
-        </p>
-      )}
+      <p
+        className={styles.description}
+        onClick={() => setStatus(Status.isInEditMode)}
+      >
+        {description ||
+          'You dont have any description yet. Click here to add it'}
+      </p>
     </>
   )
 }
