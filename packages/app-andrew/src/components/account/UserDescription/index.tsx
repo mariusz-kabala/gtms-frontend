@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { updateAccountDetails } from '@gtms/state-user'
 // ui
@@ -26,17 +26,19 @@ export const UserDescription: FC<{
     updateAccountDetails(data)
       .then(() => {
         setStatus(Status.isSuccess)
-        setTimeout(() => {
-          setStatus(Status.isEditNotStarted)
-        }, 1000)
       })
       .catch(() => {
         setStatus(Status.isError)
-        setTimeout(() => {
-          setStatus(Status.isEditNotStarted)
-        }, 2000)
       })
   }
+
+  useEffect(() => {
+    if ([Status.isSuccess, Status.isError].includes(status)) {
+      setTimeout(() => {
+        setStatus(Status.isEditNotStarted)
+      }, 1500)
+    }
+  }, [status])
 
   return (
     <>
