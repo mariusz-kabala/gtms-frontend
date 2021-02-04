@@ -15,8 +15,7 @@ import {
 } from '@gtms/state-tag'
 import { getGroupPosts } from '@gtms/state-post'
 // ui
-import { IoMdGrid, IoIosStar } from 'react-icons/io'
-import { AiOutlineClockCircle } from 'react-icons/ai'
+import { IoMdGrid } from 'react-icons/io'
 import { Image } from '@gtms/ui/Image'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
