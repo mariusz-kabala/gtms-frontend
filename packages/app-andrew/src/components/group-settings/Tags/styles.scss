@@ -12,7 +12,6 @@
   .header {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
     @include fontSize(md);
     @include fontWeight('semiBold');
     text-transform: uppercase;
@@ -31,7 +30,7 @@
     }
   }
 
-  p {
-    margin: 5px 0;
+  .promotedTagsList {
+    margin-top: 10px;
   }
 }
