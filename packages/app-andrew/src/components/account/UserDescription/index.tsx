@@ -34,7 +34,7 @@ export const UserDescription: FC<{
         setStatus(Status.isError)
         setTimeout(() => {
           setStatus(Status.isEditNotStarted)
-        }, 1000)
+        }, 2000)
       })
   }
 
