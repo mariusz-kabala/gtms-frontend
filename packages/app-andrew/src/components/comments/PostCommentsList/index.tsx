@@ -64,11 +64,9 @@ export const PostCommentsList: FC<{
 
   return (
     <>
-      {hasNoComments && (
-        <span className={styles.noComments}>
-          No comments, you can add the first one
-        </span>
-      )}
+      <span className={styles.noComments}>
+        No comments, you can add the first one
+      </span>
       {hasNoComments && (
         <button
           className={styles.respondButton}
