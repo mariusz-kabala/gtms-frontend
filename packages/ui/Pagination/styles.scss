@@ -18,7 +18,7 @@
       border: 2px solid $theme2;
       border-radius: $borderRadius;
       @include fontWeight(semiBold);
-      background: $theme2;
+      background: $theme1;
       cursor: pointer;
 
       .icon {

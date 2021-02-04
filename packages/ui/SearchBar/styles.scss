@@ -18,10 +18,10 @@
     height: 34px;
 
     i {
-      @include fontSize(lg);
+      @include fontSize(md);
       position: absolute;
-      top: 6px;
-      left: 6px;
+      top: 10px;
+      left: 8px;
       line-height: 0;
       color: $theme1;
     }
@@ -33,7 +33,6 @@
       border-radius: $borderRadius;
       box-shadow: $boxShadowDefault;
       background: $theme0;
-      @include fontSize(xdefault);
       @include fontWeight(light);
 
       &::placeholder {
