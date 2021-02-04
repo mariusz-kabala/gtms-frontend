@@ -19,7 +19,7 @@ export const UserDescription: FC<{
     isSaving,
     isSuccess,
   }
-  const [status, setStatus] = useState<Status | undefined | null>()
+  const [status, setStatus] = useState<Status>(Status.isEditNotStarted)
   const { register, handleSubmit } = useForm<{ description?: string }>()
   const onSubmit = (data: { description?: string }) => {
     setStatus(Status.isSaving)
