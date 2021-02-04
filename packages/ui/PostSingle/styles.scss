@@ -109,7 +109,7 @@
       @include buttonDefault();
       @include buttonSizeSm();
       @include buttonShapeDefault();
-      @include buttonColorsDefault();
+      @include buttonColorsSecondary();
       @include buttonWithIcon(right);
       width: 100%;
       margin-top: 15px;
@@ -137,7 +137,7 @@
     @include buttonDefault();
     @include buttonShapeDefault();
     @include buttonSizeSm();
-    @include buttonColorsDefault();
+    @include buttonColorsSecondary();
     margin-right: auto;
 
     &:hover {
@@ -149,7 +149,7 @@
     @include buttonDefault();
     @include buttonShapeDefault();
     @include buttonSizeSm();
-    @include buttonColorsDefault();
+    @include buttonColorsSecondary();
 
     &:hover {
       @include buttonColorsPrimary();

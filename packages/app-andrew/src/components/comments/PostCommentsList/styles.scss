@@ -16,7 +16,7 @@
   @include buttonDefault();
   @include buttonShapeDefault();
   @include buttonSizeSm();
-  @include buttonColorsDefault();
+  @include buttonColorsSecondary();
 
   &:hover {
     @include buttonColorsPrimary();

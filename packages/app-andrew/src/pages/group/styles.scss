@@ -215,7 +215,7 @@
         .header {
           @include fontWeight(semiNormal);
           @include fontSize(lg);
-          margin-top: 20px;
+          margin-bottom: 15px;
 
           span {
             @include fontWeight(semiBold);

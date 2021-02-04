@@ -148,7 +148,7 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
           </i>
         </Button>
       </div>
-      <div onClick={onFormModalOpen}>
+      <div className={styles.headerAndDesc} onClick={onFormModalOpen}>
         <h2 className={styles.header}>{group.name}</h2>
         <p className={styles.description}>
           {group.description || 'no group description'}
@@ -177,12 +177,12 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
               defaultValue={group.description}
               reference={register({ required: false })}
             />
-            {formState.isSaving && <Spinner />}
             <Button
               additionalStyles={styles.btnSave}
               disabled={formState.isSaving}
               type="submit"
             >
+              {formState.isSaving && <Spinner size="xsm" />}
               Save
             </Button>
           </form>

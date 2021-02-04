@@ -15,7 +15,8 @@ import {
 } from '@gtms/state-tag'
 import { getGroupPosts } from '@gtms/state-post'
 // ui
-import { IoMdGrid } from 'react-icons/io'
+import { IoMdGrid, IoIosStar } from 'react-icons/io'
+import { AiOutlineClockCircle } from 'react-icons/ai'
 import { Image } from '@gtms/ui/Image'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
@@ -128,7 +129,6 @@ export const TagsBar: FC<{
             last viewed
           </li>
         </ul>
-
         {currentTab === Tabs.promoted &&
           !state.promoted.isLoading &&
           !state.promoted.errorOccured &&

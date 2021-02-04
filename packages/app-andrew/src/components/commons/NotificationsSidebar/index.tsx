@@ -75,7 +75,9 @@ export const NotificationsSidebar: FC<{
               <li className={styles.navitem}>Latest</li>
               <li className={styles.navitem}>By groups</li>
             </ul>
-            <CloseIcon onClick={closeSidebarNotifications} />
+            <i className={styles.closeIcon}>
+              <CloseIcon onClick={closeSidebarNotifications} />
+            </i>
           </div>
           <ul className={styles.notifications}>
             {state.notifications.map((notification: INotificationRecord) => {

@@ -73,12 +73,12 @@
 
   .buttons {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     margin-top: 8px;
 
     .btn {
       @include buttonDefault();
-      @include buttonSizeDefault();
+      @include buttonSizeMd();
       @include buttonShapeDefault();
       @include buttonColorsSecondary();
       @include buttonWithIcon('left');
