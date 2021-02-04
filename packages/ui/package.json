@@ -12,7 +12,6 @@
     "@gtms/commons": "0.34.1",
     "@gtms/state-user": "0.21.3",
     "@gtms/styles": "0.31.2",
-    "@types/react-headroom": "^2.2.1",
     "react-avatar-editor": "^12.0.0-beta.0",
     "react-circular-progressbar": "^2.0.3",
     "react-custom-scrollbars": "^4.2.1",
