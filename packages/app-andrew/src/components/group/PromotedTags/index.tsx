@@ -23,6 +23,7 @@ import { EmptyPromotedTags } from '@gtms/ui/EmptyPromotedTags'
 import { Modal } from '@gtms/ui/Modal'
 import { PromotedTagsList as PromotedTagsUIList } from '@gtms/ui/PromotedTagsList'
 import { PromotedTags as PromotedTagsUIGrid } from '@gtms/ui/PromotedTags'
+import { Spinner } from '@gtms/ui/Spinner'
 
 export const PromotedTags: FC<{
   additionalStyles?: string
@@ -97,10 +98,11 @@ export const PromotedTags: FC<{
 
   return (
     <div className={additionalStyles}>
+      {state.isLoading && <Spinner />}
       {state.isAdmin && !state.isLoading && state.tags.length === 0 && (
         <EmptyPromotedTags onAddClick={onAddTagClick} />
       )}
-      {state.isLoading ||
+      {!state.isLoading ||
         (state.tags.length > 0 &&
           (type === 'list' ? (
             <PromotedTagsUIList
