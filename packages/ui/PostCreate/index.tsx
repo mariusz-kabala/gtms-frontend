@@ -187,7 +187,7 @@ export const PostCreate: FC<{
 
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles)}
+      className={cx(styles.postCreateWrapper, additionalStyles)}
       data-testid="postCreate"
     >
       {isLoading && <Spinner />}

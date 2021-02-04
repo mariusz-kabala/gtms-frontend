@@ -33,7 +33,7 @@
     display: flex;
 
     &:hover {
-      i svg {
+      .closeIcon svg {
         color: $theme4;
       }
     }
@@ -67,7 +67,7 @@
         padding: 5px 10px;
         margin-right: 5px;
         border-radius: $borderRadius;
-        background: $theme2;
+        background: $theme1;
         color: $theme0;
 
         &:hover {

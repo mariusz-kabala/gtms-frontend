@@ -127,6 +127,7 @@
           border-radius: $borderRadius;
           border: 2px solid $theme2;
           background: $theme2;
+          padding: 8px;
 
           &:hover {
             border-color: $theme4;
@@ -154,7 +155,7 @@
         .header {
           @include fontWeight(semiNormal);
           @include fontSize(lg);
-          margin-bottom: 20px;
+          margin-bottom: 15px;
 
           span {
             @include fontWeight(semiBold);
