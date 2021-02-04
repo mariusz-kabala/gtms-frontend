@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.85.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.84.0...@gtms/ui@0.85.0) (2021-02-04)
+
+
+### Features
+
+* GEOT-785: styles for inviting users ([#988](https://github.com/gtms-org/gtms-frontend/issues/988)) ([bbc5d86](https://github.com/gtms-org/gtms-frontend/commit/bbc5d867c17294d949dccc013f89f45083b6c28c))
+
+
+
+
+
 # [0.84.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.83.5...@gtms/ui@0.84.0) (2021-02-04)
 
 
