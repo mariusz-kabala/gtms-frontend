@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.108.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.5...@gtms/app-andrew@0.108.0) (2021-02-04)
+
+
+### Features
+
+* GEOT-784: header changes ([#987](https://github.com/gtms-org/gtms-frontend/issues/987)) ([6feb8b8](https://github.com/gtms-org/gtms-frontend/commit/6feb8b8a2cfdb754d65774630b020e71a62e610e))
+
+
+
+
+
 ## [0.107.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.4...@gtms/app-andrew@0.107.5) (2021-02-04)
 
 
