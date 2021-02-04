@@ -8,11 +8,15 @@
 .wrapper {
   position: relative;
   padding: 10px;
-  border: 2px solid $theme2;
   border-radius: $borderRadius;
+  border: 3px solid rgba(0, 0, 0, 0);
 
-  &:hover {
-    border-color: $theme4;
+  &.isNotFullPost {
+    background: $theme2;
+
+    &:hover {
+      border-color: $theme4;
+    }
   }
 
   .groupDetails {

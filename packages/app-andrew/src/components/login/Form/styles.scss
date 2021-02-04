@@ -8,7 +8,8 @@
   @include buttonColorsSecondary();
   width: 100%;
 
-  &:hover {
+  &:hover,
+  &.active {
     @include buttonColorsPrimary();
   }
 }
