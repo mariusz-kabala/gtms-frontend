@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.107.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.4...@gtms/app-andrew@0.107.5) (2021-02-04)
+
+
+### Bug Fixes
+
+* GEOT-782: css changes ([#982](https://github.com/gtms-org/gtms-frontend/issues/982)) ([f62c813](https://github.com/gtms-org/gtms-frontend/commit/f62c8137f768b149819a9297ec288cf82b004a58))
+
+
+
+
+
 ## [0.107.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.3...@gtms/app-andrew@0.107.4) (2021-02-04)
 
 
