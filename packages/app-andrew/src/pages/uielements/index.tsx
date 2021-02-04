@@ -15,6 +15,7 @@ import { AiOutlineRotateLeft } from 'react-icons/ai'
 import { AiOutlineRotateRight } from 'react-icons/ai'
 import { AiOutlineTags } from 'react-icons/ai'
 import { AiOutlineUserAdd } from 'react-icons/ai'
+import { AiOutlineClockCircle } from 'react-icons/ai'
 //bs
 import { BsArrow90DegUp } from 'react-icons/bs'
 import { BsCardImage } from 'react-icons/bs'
@@ -137,6 +138,12 @@ export const UiElements: NextPage<{}> = () => {
           8
           <i>
             <AiOutlineUserAdd />
+          </i>
+        </li>
+        <li>
+          9
+          <i>
+            <AiOutlineClockCircle />
           </i>
         </li>
       </ul>

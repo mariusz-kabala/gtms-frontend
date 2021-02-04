@@ -83,7 +83,9 @@ export const PostAdmin: FC<{
           additionalStyles={styles.postDeleteModal}
           onClose={() => setIsModalDeletePostOpen(false)}
         >
-          <h2 className={styles.header}>Are you sure you want delete tag?</h2>
+          <h2 className={styles.header}>
+            Are you sure you want delete this post?
+          </h2>
           <p className={styles.desc}>
             Eteu in occaecat occaecat consectetur et laboris aliquip.
           </p>
