@@ -42,17 +42,18 @@
     width: 100%;
 
     &.one {
+      padding: 20px;
       text-align: center;
 
       .buttons {
         display: flex;
         justify-content: center;
         @include gridTwoButtons();
-        margin-top: 20px;
+        margin-top: 10px;
 
         .btn {
           @include buttonDefault();
-          @include buttonSizeSm();
+          @include buttonSizeDefault();
           @include buttonShapeDefault();
           @include buttonColorsSecondary();
           @include buttonWithIcon('left');

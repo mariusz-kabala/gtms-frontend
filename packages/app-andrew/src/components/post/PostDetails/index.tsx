@@ -38,6 +38,7 @@ export const PostDetails: FC<{
         html={post.html}
         id={post.id}
         images={post.images}
+        isFullPost={true}
         noImage={UserAvatarNoImage}
         owner={post.owner}
         tags={post.tags}

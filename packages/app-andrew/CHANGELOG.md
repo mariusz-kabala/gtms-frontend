@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.108.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.5...@gtms/app-andrew@0.108.0) (2021-02-04)
+
+
+### Features
+
+* GEOT-784: header changes ([#987](https://github.com/gtms-org/gtms-frontend/issues/987)) ([6feb8b8](https://github.com/gtms-org/gtms-frontend/commit/6feb8b8a2cfdb754d65774630b020e71a62e610e))
+
+
+
+
+
+## [0.107.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.4...@gtms/app-andrew@0.107.5) (2021-02-04)
+
+
+### Bug Fixes
+
+* GEOT-782: css changes ([#982](https://github.com/gtms-org/gtms-frontend/issues/982)) ([f62c813](https://github.com/gtms-org/gtms-frontend/commit/f62c8137f768b149819a9297ec288cf82b004a58))
+
+
+
+
+
+## [0.107.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.3...@gtms/app-andrew@0.107.4) (2021-02-04)
+
+
+### Bug Fixes
+
+* GEOT-777: small changes css ([#980](https://github.com/gtms-org/gtms-frontend/issues/980)) ([0c9f57b](https://github.com/gtms-org/gtms-frontend/commit/0c9f57bae07e68e182cfb2489257e93673c6924a))
+
+
+
+
+
+## [0.107.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.2...@gtms/app-andrew@0.107.3) (2021-02-04)
+
+
+### Bug Fixes
+
+* GEOT-778: vertical promoted tags ([#981](https://github.com/gtms-org/gtms-frontend/issues/981)) ([842ada1](https://github.com/gtms-org/gtms-frontend/commit/842ada1f33278975e5e6bc10594b60ce9f211096))
+
+
+
+
+
 ## [0.107.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.1...@gtms/app-andrew@0.107.2) (2021-01-08)
 
 

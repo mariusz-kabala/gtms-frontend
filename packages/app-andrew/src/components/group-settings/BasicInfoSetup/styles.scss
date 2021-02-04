@@ -33,22 +33,21 @@
     }
   }
 
-  .header,
-  .description {
+  .headerAndDesc {
     cursor: pointer;
 
     &:hover {
       color: $theme4;
     }
-  }
 
-  .header {
-    @include fontSize(lg);
-    @include fontWeight(semiBold);
-  }
+    .header {
+      @include fontSize(lg);
+      @include fontWeight(semiBold);
+    }
 
-  .description {
-    @include fontSize(xdefault);
+    .description {
+      @include fontSize(xdefault);
+    }
   }
 }
 
@@ -57,7 +56,9 @@
   @include buttonSizeDefault();
   @include buttonShapeDefault();
   @include buttonColorsSecondary();
+  @include buttonWithSpinnerAndLabel(left);
   width: 100%;
+  margin-top: 8px;
 
   &:hover {
     @include buttonColorsPrimary();

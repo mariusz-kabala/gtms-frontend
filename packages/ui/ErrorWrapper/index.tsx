@@ -1,7 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import cx from 'classnames'
 // ui
-import { Overlay } from '@gtms/ui/Overlay'
 import { Picture } from '@gtms/ui/Picture'
 import styles from './styles.scss'
 
@@ -25,7 +24,6 @@ export const ErrorWrapper: FC<{
         </div>
         {buttons}
       </div>
-      <Overlay />
     </>
   )
 }

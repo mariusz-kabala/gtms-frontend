@@ -11,12 +11,16 @@
   font-style: italic;
 }
 
+.postCommentsList {
+  margin: 10px;
+}
+
 .respondButton {
   text-align: right;
   @include buttonDefault();
   @include buttonShapeDefault();
   @include buttonSizeSm();
-  @include buttonColorsDefault();
+  @include buttonColorsSecondary();
 
   &:hover {
     @include buttonColorsPrimary();

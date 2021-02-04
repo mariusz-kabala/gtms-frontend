@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.32.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.31.3...@gtms/styles@0.32.0) (2021-02-04)
+
+
+### Features
+
+* GEOT-784: header changes ([#987](https://github.com/gtms-org/gtms-frontend/issues/987)) ([6feb8b8](https://github.com/gtms-org/gtms-frontend/commit/6feb8b8a2cfdb754d65774630b020e71a62e610e))
+
+
+
+
+
+## [0.31.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.31.2...@gtms/styles@0.31.3) (2021-02-04)
+
+
+### Bug Fixes
+
+* GEOT-777: small changes css ([#980](https://github.com/gtms-org/gtms-frontend/issues/980)) ([0c9f57b](https://github.com/gtms-org/gtms-frontend/commit/0c9f57bae07e68e182cfb2489257e93673c6924a))
+
+
+
+
+
 ## [0.31.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.31.1...@gtms/styles@0.31.2) (2021-01-08)
 
 

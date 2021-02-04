@@ -9,7 +9,8 @@
   @include buttonWithSpinnerAndLabel(left);
   @include buttonColorsSecondary();
 
-  &:hover {
+  &:hover,
+  &.active {
     @include buttonColorsPrimary();
   }
 }

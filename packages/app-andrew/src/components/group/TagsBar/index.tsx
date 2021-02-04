@@ -128,7 +128,6 @@ export const TagsBar: FC<{
             last viewed
           </li>
         </ul>
-
         {currentTab === Tabs.promoted &&
           !state.promoted.isLoading &&
           !state.promoted.errorOccured &&
@@ -179,7 +178,6 @@ export const TagsBar: FC<{
               })}
             </ul>
           )}
-
         {currentTab === Tabs.recentlyViewed &&
           !state.recentlyViewed.isLoading &&
           !state.recentlyViewed.errorOccured &&
