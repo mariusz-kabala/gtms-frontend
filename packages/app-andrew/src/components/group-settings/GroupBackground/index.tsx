@@ -1,7 +1,11 @@
 import React, { FC, useCallback, useState } from 'react'
 import { IGroup } from '@gtms/commons/models'
-import { updateGroup } from '@gtms/state-group'
+import cx from 'classnames'
 import { uploadGroupBg } from '@gtms/api-group'
+import { BACKGROUNDS_GALLERY } from '@app/enums'
+// state
+import { updateGroup } from '@gtms/state-group'
+import { changePageBackground } from '@app/state'
 // ui
 import { GoSettings } from 'react-icons/go'
 import { Button } from '@gtms/ui/Button'
@@ -9,8 +13,6 @@ import { FullScreenGallery } from '@gtms/ui/FullScreenGallery'
 import { UploadFile } from '@gtms/ui/UploadFile'
 // styles
 import styles from './styles.scss'
-import { BACKGROUNDS_GALLERY } from 'enums'
-import { changePageBackground } from 'state'
 
 export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
   const [isFullScreenGalleryOpen, setIsFullScreenGalleryOpen] = useState<
@@ -74,6 +76,8 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
     changePageBackground(name)
   }, [])
 
+  const bg = BACKGROUNDS_GALLERY.filter((bg) => bg.name === group.bgType)[0]
+
   return (
     <div
       data-testid="group-settings-background-image"
@@ -81,11 +85,16 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
     >
       <FullScreenGallery
         currentBg={group.bgType}
-        onBgChange={onBgChange}
-        gallery={BACKGROUNDS_GALLERY}
-        isActive={isFullScreenGalleryOpen}
-        onClose={() => setIsFullScreenGalleryOpen(false)}
         file={fileUploadState.file}
+        gallery={
+          BACKGROUNDS_GALLERY.filter((item) => item.name !== null) as {
+            name: string
+            className: string
+          }[]
+        }
+        isActive={isFullScreenGalleryOpen}
+        onBgChange={onBgChange}
+        onClose={() => setIsFullScreenGalleryOpen(false)}
       >
         <UploadFile
           onDrop={onImageDrop}
@@ -93,15 +102,31 @@ export const GroupBackgroundSettings: FC<{ group: IGroup }> = ({ group }) => {
           isError={fileUploadState.isError}
         />
       </FullScreenGallery>
-      <Button
-        onClick={() => setIsFullScreenGalleryOpen(true)}
-        additionalStyles={styles.btn}
+      <div
+        data-loaded="true"
+        className={cx(styles.btnWrapperWithBg, bg?.className)}
+        style={
+          group.bgType === 'file' && group.bg?.files.mini
+            ? {
+                backgroundImage: `url(${group.bg?.files.mini.jpg})`,
+              }
+            : {}
+        }
       >
-        <i>
-          <GoSettings />
-        </i>
-        Change group page background
-      </Button>
+        <div>
+          {' '}
+          {/* this div prevents streetching button by display flex */}
+          <Button
+            onClick={() => setIsFullScreenGalleryOpen(true)}
+            additionalStyles={styles.btn}
+          >
+            <i>
+              <GoSettings />
+            </i>
+            Change group page background
+          </Button>
+        </div>
+      </div>
     </div>
   )
 }

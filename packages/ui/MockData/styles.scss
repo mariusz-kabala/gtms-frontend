@@ -39,7 +39,7 @@ $mockDataSize1: 55px;
     }
 
     &.lg {
-      height: 15px;
+      height: 10px;
       background: $mockDataColor2;
     }
 
@@ -148,6 +148,7 @@ $mockDataSize1: 55px;
       flex-direction: column;
       justify-content: space-between;
       width: 100%;
+      margin: 4px 0;
       margin-left: 10px;
     }
   }
@@ -190,8 +191,8 @@ $mockDataSize1: 55px;
     color: $mockDataColor2;
     border-radius: $borderRadius;
     text-align: center;
-    @include font-size(xmd);
-    @include font-weight(semiBold);
+    @include fontSize(xmd);
+    @include fontWeight(semiBold);
 
     &.clickable {
       cursor: pointer;
@@ -207,7 +208,7 @@ $mockDataSize1: 55px;
       display: inline-block;
       line-height: 0;
       margin-right: 20px;
-      @include font-size(xxxlg);
+      @include fontSize(xxxlg);
     }
   }
 }

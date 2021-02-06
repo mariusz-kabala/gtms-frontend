@@ -1,48 +1,59 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .wrapper {
-  position: relative;
-  z-index: 1;
-  width: 0px;
-  min-height: 100;
-  background: $theme1;
-  transition: width 0.25s;
+  position: fixed;
+  top: 0px;
+  left: -500px;
+  @include z-index(sidebar);
+  width: 500px;
+  height: 100%;
+  padding: 10px;
+  background: $theme3;
+  transition: right 200ms ease-in;
 
   &.opened {
-    min-width: 400px;
+    left: 0;
 
-    .content {
-      opacity: 1;
-      left: 0;
+    .overlay {
+      display: initial;
     }
   }
 
   .content {
-    position: fixed;
-    left: -3000px;
-    min-width: 400px;
-    opacity: 0;
-    padding: 10px;
-    transition: opacity 1s;
-    transition-delay: opacity 1s;
+    position: relative;
+    height: 100%;
+    @include z-index(sidebar);
   }
 
   .navigation {
     display: flex;
 
+    &:hover {
+      .closeIcon svg {
+        color: $theme4;
+      }
+    }
+
     .header {
       display: flex;
       align-items: center;
-      @include font-weight(semiBold);
-      @include font-size(xdefault);
+      @include fontWeight(semiBold);
+      @include fontSize(xdefault);
       text-transform: uppercase;
+
+      i {
+        margin-right: 5px;
+        line-height: 0;
+      }
 
       span {
         margin-left: 5px;
-        @include font-weight(normal);
-        @include font-size(sm);
+        @include fontWeight(normal);
+        @include fontSize(sm);
       }
     }
 
@@ -57,7 +68,7 @@
         margin-right: 5px;
         border-radius: $borderRadius;
         background: $theme1;
-        color: $theme9;
+        color: $theme0;
 
         &:hover {
           background: $theme4;
@@ -68,18 +79,46 @@
 
     i {
       margin-left: auto;
-    }
+      color: $theme0;
 
-    &:hover {
-      i > svg {
-        color: $theme4;
+      svg {
+        color: $theme0;
       }
     }
   }
 
   .notifications {
     li {
+      padding: 10px;
       margin-top: 10px;
+      background: $theme1;
+      border-radius: $borderRadius;
+      border: 3px solid $theme1;
+      opacity: 0.85;
+
+      &:hover {
+        border-color: $theme4;
+        opacity: 1;
+      }
     }
+  }
+
+  .btnShowMore {
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapeDefault();
+    @include buttonWithIcon('left');
+    @include buttonWithSpinnerAndLabel(left);
+    @include buttonColorsSecondary();
+    width: 100%;
+    margin-top: 10px;
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+  }
+
+  .overlay {
+    display: none;
   }
 }

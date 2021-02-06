@@ -2,7 +2,6 @@ import { notificationsSettingsQuery } from '@gtms/state-notification'
 import { userQuery } from '@gtms/state-user'
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
-
 export interface IFollowButtonState {
   userId?: string
   isFollowing: boolean
@@ -22,6 +21,7 @@ export const followButtonState = (userId: string): IFollowButtonState => {
 export const followButtonState$ = (
   groupId: string
 ): Observable<IFollowButtonState> =>
-  combineLatest(notificationsSettingsQuery.select(), userQuery.isLogged$).pipe(
-    map(() => followButtonState(groupId))
-  )
+  combineLatest([
+    notificationsSettingsQuery.select(),
+    userQuery.isLogged$,
+  ]).pipe(map(() => followButtonState(groupId)))

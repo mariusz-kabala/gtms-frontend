@@ -3,7 +3,6 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
-@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .btnDeleteGroup {
   @include buttonDefault();
@@ -17,26 +16,29 @@
 }
 
 .modal {
-  @include modalContent('bgnone');
+  background: none;
 
   .ohnoimage {
-    padding: 20px;
+    width: 100%;
     padding-bottom: 0;
-    border-radius: $borderRadius;
-    background: $theme1;
 
     img {
-      max-width: 300px;
+      max-width: 400px;
+      padding: 20px;
+      padding-bottom: 0px;
+      border-radius: $borderRadius;
+      background: $theme2;
     }
   }
 
   .buttons {
+    margin-top: 20px;
     @include gridTwoButtons();
     width: 100%;
-    margin-top: 20px;
 
     .btn {
       width: 100%;
+      @include buttonWithIcon('left');
     }
   }
 }

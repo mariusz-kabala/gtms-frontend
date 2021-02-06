@@ -8,9 +8,9 @@
     @include buttonDefault();
     @include buttonSizeSm();
     @include buttonShapeDefault();
-    @include buttonWithSpinner();
+    @include buttonWithIcon();
     @include buttonColorsDefault();
-    @include font-size(xmd);
+    @include fontSize(xmd);
     width: 100%;
     color: $theme0;
 

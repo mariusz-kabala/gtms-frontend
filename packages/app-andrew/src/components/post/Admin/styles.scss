@@ -1,43 +1,88 @@
-@import '@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
 
-.wrapper {
+.postDropdown {
   position: relative;
+  z-index: 1;
 
-  .btn {
+  .btnDropdown {
     @include buttonDefault();
-    @include buttonSizeDefault();
+    @include buttonSizeSm();
     @include buttonShapeDefault();
-    @include buttonWithoutPadding();
-    @include buttonWithoutBackground();
-    margin-left: 10px;
+    @include buttonWithIcon();
 
     &:hover,
     &:focus,
     &:active {
-      @include buttonColorBlue();
+      @include buttonColorsPrimary();
     }
   }
 
   .items {
     position: absolute;
-    top: 0;
-    right: 5px;
+    top: 30px;
+    right: 0px;
     min-width: 140px;
-    border: 1px solid $theme9;
+    padding: 10px;
+    border: 2px solid $theme4;
     border-radius: $borderRadius;
+    background-color: $theme1;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      background: rgba($theme3, 0.2);
+      width: 100%;
+      height: 100%;
+    }
 
     .item {
-      padding: 2.5px;
-      background-color: $theme0;
+      border-radius: $borderRadius;
+      margin-top: 10px;
 
-      &:hover {
-        background-color: $theme4;
+      &:first-child {
+        margin-top: 0;
+      }
 
-        a {
-          color: $theme0;
+      .btn {
+        @include buttonDefault();
+        @include buttonSizeSm();
+        @include buttonShapeDefault();
+        @include buttonWithIcon('left');
+        width: 100%;
+        justify-content: flex-start;
+
+        &:hover,
+        &:focus,
+        &:active {
+          @include buttonColorsPrimary();
         }
       }
+    }
+  }
+}
+
+.postDeleteModal {
+  .header {
+    @include fontWeight(semiBold);
+    @include fontSize(lg);
+  }
+
+  .desc {
+    margin-top: 5px;
+    @include fontSize(xdefault);
+  }
+
+  .buttons {
+    @include gridTwoButtons();
+    margin-top: 20px;
+
+    .yes,
+    .no {
+      width: 100%;
+      @include buttonWithIcon('left');
     }
   }
 }

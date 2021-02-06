@@ -4,6 +4,33 @@
   cursor: pointer;
   height: 40px;
   width: 40px;
+  // for display flex
+  min-height: 40px;
+  min-width: 40px;
+
+  &.sm {
+    height: 35px;
+    width: 35px;
+    // for display flex
+    min-height: 35px;
+    min-width: 35px;
+  }
+
+  &.md {
+    height: 55px;
+    width: 55px;
+    // for display flex
+    min-height: 55px;
+    min-width: 55px;
+  }
+
+  &.percent100 {
+    height: 100%;
+    width: 100%;
+    // for display flex
+    min-height: 100%;
+    min-width: 100%;
+  }
 
   img {
     width: 100%;

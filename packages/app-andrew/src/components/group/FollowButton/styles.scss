@@ -6,10 +6,9 @@
   @include buttonDefault();
   @include buttonSizeSm();
   @include buttonShapeDefault();
-  @include buttonWithIcon('withoutText');
-  @include buttonWithSpinner();
+  @include buttonWithSpinnerAndLabel();
   @include buttonColorsDefault();
-  @include font-size(md);
+  @include fontSize(md);
   width: 100%;
   color: $theme0;
 

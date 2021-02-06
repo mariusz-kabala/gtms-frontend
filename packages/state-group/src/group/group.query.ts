@@ -20,6 +20,10 @@ export class GroupQuery extends Query<IGroupState> {
     return values.group?.id
   }
 
+  public getSlug = (values = this.getValue()) => {
+    return values.group?.slug
+  }
+
   public getAvatarFileStatus = (values = this.getValue()): FileStatus => {
     return values.group?.avatar?.status || FileStatus.notExists
   }

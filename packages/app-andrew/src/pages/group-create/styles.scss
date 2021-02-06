@@ -2,32 +2,33 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/pageBg.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper('bgdefault');
-  max-width: 500px;
-}
-
-.wrapper {
+  @include pageWrapper();
   display: flex;
-  justify-content: center;
-  height: 100%;
-  @include imageCover();
+  align-items: center;
+  padding: 40px;
 
-  .image img {
-    display: flex;
-    margin: auto;
-    max-width: 300px;
-    margin-top: 20px;
-  }
-  
-  > div {
-    padding: 50px;
-    
+  .form {
+    position: relative;
+    z-index: 1;
+    width: 35%;
+    padding: 30px;
+    border-radius: $borderRadius;
+    background: rgba($theme2, 0.9);
+
+    .image img {
+      display: flex;
+      margin: auto;
+      max-width: 300px;
+      margin-top: 20px;
+    }
+
     .header {
-      @include font-weight(bold);
-      @include font-size(xlg);
+      @include fontWeight(semiBold);
+      @include fontSize(xlg);
       margin-top: 20px;
       text-transform: uppercase;
     }
@@ -36,7 +37,11 @@
       margin-top: 5px;
       margin-bottom: 20px;
       line-height: 1.3em;
-      @include font-weight(semiNormal);
+      @include fontWeight(semiNormal);
     }
+  }
+
+  .pageBg {
+    @include pageBg('/images/theme-images/create-group-bg.png');
   }
 }

@@ -1,14 +1,11 @@
-@mixin pageWrapper($bg: null) {
+@mixin pageWrapper($width: null) {
   position: relative;
-  width: 600px;
-  margin: 15px;
+  width: 100%;
+  padding: 25px;
   border-radius: $borderRadius;
 
-  @if $bg == 'bgdefault' {
-    background: $theme1;
-  }
-
-  @if $bg == 'loginRegister' {
-    margin: initial;
+  @if $width == 'width700' {
+    width: 750px;
+    max-width: 750px;
   }
 }

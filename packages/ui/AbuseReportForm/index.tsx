@@ -5,7 +5,6 @@ import { useTranslation } from '@gtms/commons/i18n'
 import { Textarea } from '../Forms/Textarea'
 import { Spinner } from '../Spinner'
 import { Button } from '../Button'
-import { Modal } from '../Modal'
 // styles
 import styles from './styles.scss'
 
@@ -20,18 +19,10 @@ export enum VIEW {
 }
 
 export const AbuseReportForm: FC<{
-  isOpen: boolean
   isMakingRequest: boolean
   view?: VIEW
-  onClose: () => unknown
   onSubmit: (data: IAbuseReportData) => unknown
-}> = ({
-  isOpen,
-  onClose,
-  onSubmit,
-  view = VIEW.form,
-  isMakingRequest = false,
-}) => {
+}> = ({ onSubmit, view = VIEW.form, isMakingRequest = false }) => {
   const { register, handleSubmit } = useForm<IAbuseReportData>()
 
   const { t } = useTranslation('abuseReportForm')
@@ -42,15 +33,11 @@ export const AbuseReportForm: FC<{
     [onSubmit]
   )
 
-  if (!isOpen) {
-    return null
-  }
-
   return (
-    <Modal onClose={onClose}>
+    <>
       {view === VIEW.form && (
         <div data-testid="abuse-report-form" className={styles.wrapper}>
-          <h2>Report abuse</h2>
+          <h2 className={styles.header}>Report abuse</h2>
           <form method="post" onSubmit={handleSubmit(onSubmitCallback)}>
             <div className={styles.item}>
               <label>Reason:</label>
@@ -86,11 +73,8 @@ export const AbuseReportForm: FC<{
             Thank you for submiting the report. We will look into it as soon as
             possible
           </p>
-          <p className={styles.close}>
-            <a onClick={onClose}>Close</a>
-          </p>
         </div>
       )}
-    </Modal>
+    </>
   )
 }

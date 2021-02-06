@@ -1,6 +1,6 @@
 {
   "name": "@gtms/app-andrew",
-  "version": "0.87.0",
+  "version": "0.109.0",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
@@ -12,22 +12,23 @@
     "dev:qa-stable": "cross-env NODE_ENV=development API_URL=https://geotags.pl FE_API_URL=/api USE_PROXY_SSL=1 nodemon",
     "start": "cross-env NODE_ENV=production node dist/app-andrew/src/server.js",
     "setup:ts": "cp-cli tsconfig.json.example tsconfig.json",
-    "check:ts": "tsc --noEmit -p ./tsconfig.json"
+    "check:ts": "tsc --noEmit -p ./tsconfig.json",
+    "test": "jest"
   },
   "dependencies": {
-    "@gtms/api-abuse": "0.3.0",
-    "@gtms/api-auth": "0.14.0",
-    "@gtms/api-file": "0.3.0",
-    "@gtms/api-group": "0.17.0",
-    "@gtms/api-tags": "0.8.0",
-    "@gtms/commons": "0.30.0",
-    "@gtms/state-comment": "0.5.0",
-    "@gtms/state-group": "0.19.1",
-    "@gtms/state-notification": "0.10.2",
-    "@gtms/state-post": "0.14.0",
-    "@gtms/state-tag": "0.10.0",
-    "@gtms/state-user": "0.20.0",
-    "@gtms/styles": "0.23.0",
-    "@gtms/ui": "0.67.0"
+    "@gtms/api-abuse": "0.4.2",
+    "@gtms/api-auth": "0.15.2",
+    "@gtms/api-file": "0.4.2",
+    "@gtms/api-group": "0.18.2",
+    "@gtms/api-tags": "0.11.0",
+    "@gtms/commons": "0.34.1",
+    "@gtms/state-comment": "0.7.5",
+    "@gtms/state-group": "0.20.4",
+    "@gtms/state-notification": "0.12.1",
+    "@gtms/state-post": "0.16.5",
+    "@gtms/state-tag": "0.13.3",
+    "@gtms/state-user": "0.21.3",
+    "@gtms/styles": "0.32.0",
+    "@gtms/ui": "0.85.0"
   }
 }

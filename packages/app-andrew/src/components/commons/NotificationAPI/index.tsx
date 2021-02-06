@@ -20,7 +20,12 @@ export const NotificationAPI: FC<INotification> = ({
         />
       )
     case NotificationType.newGroupMember:
-      return <NotificationNewMember group={payload.group as IGroup} />
+      return (
+        <NotificationNewMember
+          group={relatedRecord as IGroup}
+          member={payload as IUser}
+        />
+      )
   }
 
   return <div>{notificationType} is not yet supported; fix this!</div>

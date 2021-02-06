@@ -1,19 +1,20 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 @mixin buttonDefault() {
   display: flex;
   align-items: center;
-  background: none;
   border-color: $theme0;
   border: none;
   outline: none;
   justify-content: center;
-  padding: 0px;
+  padding: 10px;
   white-space: nowrap;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  background: none;
   cursor: pointer;
 
   &:active,
@@ -25,7 +26,7 @@
 }
 
 // TYPES
-@mixin buttonWithIcon($position: 'left') {
+@mixin buttonWithIcon($position: null) {
   display: flex;
   align-items: center;
   line-height: 0;
@@ -40,12 +41,13 @@
       margin-left: 3px;
     }
   }
-  @if $position == 'withoutText' {
-    // i is without margin
-  }
 }
 
-@mixin buttonWithSpinner($position: 'left') {
+@mixin buttonWithSpinnerAndLabel($position: null) {
+  i {
+    line-height: 0;
+  }
+
   @if $position == 'left' {
     div {
       margin-right: 5px;
@@ -71,16 +73,35 @@
   padding: 0;
 }
 
+@mixin buttonWithTwoRows() {
+  flex-direction: column;
+  @include fontSize(lg);
+  @include fontWeight(bold);
+
+  span {
+    margin-top: 2px;
+    @include fontWeight(normal);
+    @include fontSize(default);
+  }
+}
+
 // SIZES
 @mixin buttonSizeDefault() {
-  padding: 8px;
   min-height: 40px;
 }
 
 @mixin buttonSizeSm() {
+  min-height: 25px;
   padding: 5px;
   line-height: 1;
-  @include font-size(sm);
+  @include fontSize(sm);
+}
+
+@mixin buttonSizeMd() {
+  min-height: 25px;
+  padding: 10px;
+  line-height: 1;
+  @include fontSize(sm);
 }
 
 // SHAPES
@@ -88,9 +109,15 @@
   border-radius: $borderRadius;
 }
 
+@mixin buttonShapeRoundedSides() {
+  border-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 // COLORS
 @mixin buttonColorsDefault() {
-  background: $theme9;
+  background: $theme2;
   color: $theme0;
 }
 
@@ -100,24 +127,14 @@
 }
 
 @mixin buttonColorsSecondary() {
-  background: $theme9;
-  color: $theme1;
-}
-
-@mixin buttonColorsTertiary() {
   background: $theme1;
   color: $theme0;
 }
 
-@mixin buttonColorsQuaternary() {
-  background: $theme0;
-  color: $theme9;
-}
-
-@mixin buttonColorBlue() {
-  color: $theme4;
-}
-
 @mixin buttonColorRed() {
   background: $theme6;
+}
+
+@mixin buttonColorBlueText() {
+  color: $theme4;
 }

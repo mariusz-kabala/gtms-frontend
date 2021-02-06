@@ -1,0 +1,53 @@
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/variables.scss';
+
+.userLastPosts {
+  span {
+    // @todo create mixin of that
+    display: inline-block;
+    @include fontSize(xxs);
+    text-transform: uppercase;
+    margin: 10px 0;
+  }
+
+  .noRecords {
+    width: 100%;
+
+    > div {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.post {
+  padding: 7px;
+  margin: 10px;
+  border: 3px solid $theme2;
+  background: $theme2;
+
+  > div {
+    z-index: 1;
+    opacity: 0.9;
+  }
+
+  &:hover {
+    border-color: $theme4;
+
+    > div {
+      opacity: 1;
+    }
+  }
+}
+
+.filters {
+  padding: 10px;
+  text-align: right;
+
+  a {
+    cursor: pointer;
+  }
+}

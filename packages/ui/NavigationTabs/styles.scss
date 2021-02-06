@@ -4,22 +4,23 @@
 
 .wrapper {
   display: flex;
-  margin: 10px;
+  @include fontSize(xs);
+  text-transform: uppercase;
   cursor: pointer;
+  color: $theme0;
 
   h2 {
     display: flex;
     align-items: center;
-    @include font-size('sm');
-    @include font-weight(semiBold);
-    text-transform: uppercase;
+    @include fontWeight(semiBold);
     padding: 5px;
     margin-right: 5px;
     border-radius: $borderRadius;
     color: $theme0;
+    background: $theme2;
 
-    &:hover, &:first-child {
-      color: $theme0;
+    &:hover,
+    &:first-child {
       background: $theme4;
     }
 
@@ -32,13 +33,24 @@
   ul {
     display: flex;
     align-items: center;
-    padding: 5px 0;
+    margin-left: auto;
 
     li {
-      margin-left: 10px;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      margin-left: 8px;
+      border-radius: $borderRadius;
+      background: $theme1;
+      color: $theme0;
+
+      i {
+        line-height: 0;
+        margin-right: 3px;
+      }
 
       &:hover {
-        color: $theme4;
+        background: $theme4;
       }
     }
   }

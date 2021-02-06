@@ -1,4 +1,4 @@
-@import '@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 
@@ -11,10 +11,9 @@
   overflow: hidden;
 
   .inputWrapper {
-    display: flex;
     position: relative;
+    display: flex;
     justify-content: space-between;
-    flex-direction: row;
 
     input[type='text'] {
       flex: 1;
@@ -23,7 +22,7 @@
       margin-right: 5px;
       border: none;
       background: none;
-      border-bottom: 2px solid $theme9;
+      border-bottom: 2px solid $theme2;
 
       &:active,
       &:focus,
@@ -61,7 +60,7 @@
 
     a.actionButton {
       display: block;
-      background-color: $theme9;
+      background-color: $theme2;
       padding: 5px;
       cursor: pointer;
       line-height: 20px;

@@ -1,16 +1,17 @@
 import React, { FC } from 'react'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 import { IPost } from '@gtms/commons/models'
 // api
 import { findTagsAPI } from '@gtms/api-tags'
 // state
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 // components
-import { PostsList } from 'components/post/PostsList'
+import { PostsList } from '@app/components/post/PostsList'
 // ui
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { MockData } from '@gtms/ui/MockData'
-import { PostSingle } from '@gtms/ui/PostSingle'
 import { Pagination } from '@gtms/ui/Pagination'
+import { PostSingle } from '@gtms/ui/PostSingle'
 // styles
 import styles from './styles.scss'
 
@@ -47,39 +48,49 @@ export const PostResults: FC<{
       {!isLoading && !isError && (
         <>
           <PostsList
-            posts={docs}
-            showGroupPreview={true}
             isAdmin={false}
-            onUserPostsClick={() => null}
+            posts={docs}
             renderPost={(post) => (
               <PostSingle
-                key={`post-${post.id}`}
+                {...post}
+                additionalStyles={styles.postSingle}
+                activeTags={tags}
                 allowToRespond={false}
-                onClick={() => null}
-                onTagClick={() => null}
+                createComment={() => null}
                 fetchTags={findTagsAPI}
                 fetchUsers={() => Promise.resolve([])} //{findbyUsernameAPI}
-                createComment={() => null}
-                user={null}
-                {...post}
+                key={`post-${post.id}`}
                 noImage={UserAvatarNoImage}
+                onClick={() => null}
                 onLoginRequest={openLoginModal}
-                activeTags={tags}
+                onTagClick={() => null}
+                user={null}
               />
             )}
           />
-          <div className={styles.pagination}>
-            <Pagination
-              limit={limit}
-              offset={offset}
-              total={total}
-              onClick={onChangePage}
-              getCurrentUrl={getCurrentUrl}
-            />
-          </div>
+          <Pagination
+            additionalStyles={styles.pagination}
+            getCurrentUrl={getCurrentUrl}
+            limit={limit}
+            offset={offset}
+            onClick={onChangePage}
+            total={total}
+          />
         </>
       )}
-      {!isLoading && isError && <div>ERROR STATE, SHOW SOMETHING HERE</div>}
+      {!isLoading && isError && (
+        <ErrorWrapper>
+          <h2 data-testid="notifications-settings">
+            {/* @todo add proper error msg with translation */}
+            Error Lorem ipsum dolor
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+            minima quasi eaque molestiae cupiditate ab deserunt magnam veritatis
+            rem
+          </p>
+        </ErrorWrapper>
+      )}
     </div>
   )
 }

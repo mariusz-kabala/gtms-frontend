@@ -25,7 +25,7 @@ describe('<Modal />', () => {
     expect(container.querySelector('.testingClass')).toBeInTheDocument()
   })
 
-  it('Should trigger onClick callback when clicking on overlay', () => {
+  it('Should trigger onClick callback when clicking on modal wrapper (overlay)', () => {
     const onClose = jest.fn()
 
     const { getByTestId } = render(

@@ -3,7 +3,7 @@ import { Sorting } from '@gtms/api-post'
 import { groupQuery, groupMembersQuery } from '@gtms/state-group'
 import { postCommentsQuery } from '@gtms/state-comment'
 import { postsQuery } from '@gtms/state-post'
-import { uiQuery } from 'state'
+import { uiQuery } from '@app/state'
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
 import {
@@ -20,7 +20,11 @@ export interface IGroupPageState {
   notFound: boolean
   errorOccured: boolean
   group: IGroup | null
-  posts: IPost[]
+  posts: {
+    isLoading: boolean
+    posts: IPost[]
+    errorOccured: boolean
+  }
   postsSorting: Sorting
   activeTags?: string[]
   activeUsers?: string[]
@@ -57,7 +61,11 @@ export const groupPageState = (): IGroupPageState => {
 
   return {
     ...group,
-    posts: postsQuery.getAll(),
+    posts: {
+      posts: postsQuery.getAll(),
+      isLoading: postsState.loading || false,
+      errorOccured: postsState.error || false,
+    },
     postsSorting: postsState.sort,
     activeTags: postsState.tags || [],
     activeUsers: postsState.users || [],
@@ -92,11 +100,11 @@ export const groupPageState = (): IGroupPageState => {
   }
 }
 
-export const groupPageState$: Observable<IGroupPageState> = combineLatest(
+export const groupPageState$: Observable<IGroupPageState> = combineLatest([
   groupQuery.allState$,
   postsQuery.selectAll(),
   userQuery.accountDetails$,
   groupMembersQuery.selectAll(),
   postCommentsQuery.selectAll(),
-  uiQuery.select()
-).pipe(map(() => groupPageState()))
+  uiQuery.select(),
+]).pipe(map(() => groupPageState()))

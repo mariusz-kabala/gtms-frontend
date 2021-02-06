@@ -1,10 +1,11 @@
 import { Store } from '@datorama/akita'
+import { IRecentlyViewedTag } from '@gtms/commons/models'
 
 export interface IGroupRecentlyViewedTags {
   isLoading: boolean
   isLoaded: boolean
   errorOccured: boolean
-  tags: string[]
+  tags: IRecentlyViewedTag[]
 }
 
 export interface IRecentlyViewedTagsState {

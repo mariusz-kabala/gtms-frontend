@@ -3,24 +3,67 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.4.4...@gtms/state-comment@0.5.0) (2020-12-05)
-
-
-### Features
-
-* GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
-
-
-
-
-
-## [0.4.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.4.3...@gtms/state-comment@0.4.4) (2020-10-13)
+## [0.7.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.7.4...@gtms/state-comment@0.7.5) (2021-01-01)
 
 **Note:** Version bump only for package @gtms/state-comment
 
 
 
 
+
+## [0.7.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.7.3...@gtms/state-comment@0.7.4) (2020-12-31)
+
+**Note:** Version bump only for package @gtms/state-comment
+
+## [0.7.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.7.2...@gtms/state-comment@0.7.3) (2020-12-30)
+
+**Note:** Version bump only for package @gtms/state-comment
+
+## [0.7.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.7.1...@gtms/state-comment@0.7.2) (2020-12-28)
+
+**Note:** Version bump only for package @gtms/state-comment
+
+## [0.7.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.7.0...@gtms/state-comment@0.7.1) (2020-12-28)
+
+**Note:** Version bump only for package @gtms/state-comment
+
+# [0.7.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.6.1...@gtms/state-comment@0.7.0) (2020-12-27)
+
+### Features
+
+- GEOT-734 add to favs ([#957](https://github.com/gtms-org/gtms-frontend/issues/957)) ([771cb8d](https://github.com/gtms-org/gtms-frontend/commit/771cb8d2bae65c06e4121b3ec4db8d0ff504356e))
+
+## [0.6.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.6.0...@gtms/state-comment@0.6.1) (2020-12-25)
+
+**Note:** Version bump only for package @gtms/state-comment
+
+# [0.6.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.5.3...@gtms/state-comment@0.6.0) (2020-12-20)
+
+### Features
+
+- GEOT-699: user card on main page ([#927](https://github.com/gtms-org/gtms-frontend/issues/927)) ([0b4d2ba](https://github.com/gtms-org/gtms-frontend/commit/0b4d2ba9f89ac8a9ddddd7841bd7da2eec257edc))
+
+## [0.5.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.5.2...@gtms/state-comment@0.5.3) (2020-12-11)
+
+**Note:** Version bump only for package @gtms/state-comment
+
+## [0.5.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.5.1...@gtms/state-comment@0.5.2) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/state-comment
+
+## [0.5.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.5.0...@gtms/state-comment@0.5.1) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/state-comment
+
+# [0.5.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.4.4...@gtms/state-comment@0.5.0) (2020-12-05)
+
+### Features
+
+- GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
+
+## [0.4.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.4.3...@gtms/state-comment@0.4.4) (2020-10-13)
+
+**Note:** Version bump only for package @gtms/state-comment
 
 ## [0.4.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-comment@0.4.2...@gtms/state-comment@0.4.3) (2020-10-10)
 

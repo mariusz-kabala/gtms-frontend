@@ -1,4 +1,5 @@
 import React, { useState, FC, useRef } from 'react'
+import cx from 'classnames'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from '@gtms/commons/i18n'
 import { registerUserAccount } from '@gtms/state-user'
@@ -178,13 +179,17 @@ export const RegistrationForm: FC<{
 
       <Button
         type="submit"
-        additionalStyles={styles.btnSubmit}
+        additionalStyles={cx(styles.btnSubmit, {
+          [styles.active]: isMakingRequest,
+        })}
         disabled={isMakingRequest || usernameStatus.isValid === false}
       >
-        {usernameStatus.isChecking && <Spinner size="sm" />}
-        <i>
-          <AiOutlineForm />
-        </i>
+        {usernameStatus.isChecking && <Spinner size="xsm" />}
+        {!usernameStatus.isChecking && (
+          <i>
+            <AiOutlineForm />
+          </i>
+        )}
         {t('form.submitButton')}
       </Button>
     </form>

@@ -9,10 +9,12 @@ import {
 import { formatDistance } from 'date-fns'
 import { pl } from 'date-fns/locale'
 import { getImage, getDisplayName } from '@gtms/commons/helpers'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // ui
+import { IoIosCloseCircle, IoIosCheckbox } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 // styles
@@ -24,6 +26,7 @@ export const InvitationsSettings: FC<{ group: IGroup }> = ({ group }) => {
   const [state, setState] = useState<IGroupInvitations>(
     groupInvitationsQuery.getGroupInvitations()
   )
+  const [isShowModal, setIsShowModal] = useState<boolean>(false)
 
   useEffect(() => {
     getGroupInvitations(group.slug, 0, RECORDS_PER_PAGE)
@@ -37,8 +40,8 @@ export const InvitationsSettings: FC<{ group: IGroup }> = ({ group }) => {
   }, [])
 
   return (
-    <div className={styles.wrapper} data-testid="group-invitation-settings">
-      {state.isLoading && <Spinner />}
+    <div data-testid="group-invitation-settings">
+      {state.isLoading && <Spinner additionalStyles={styles.spinner} />}
       {!state.isLoading && state.errorOccured && (
         <ErrorWrapper>
           <h2>Can not fetch invitations, try later</h2>
@@ -50,51 +53,102 @@ export const InvitationsSettings: FC<{ group: IGroup }> = ({ group }) => {
         </ErrorWrapper>
       )}
       {!state.isLoading && state.records.length > 0 && (
-        <ul>
-          {state.records.map((invitation) => (
-            <div key={`invitation-${invitation.id}`}>
-              <div>
-                <h3>
-                  Sent at:{' '}
-                  {formatDistance(new Date(invitation.createdAt), new Date(), {
-                    locale: pl,
-                  })}
-                </h3>
-              </div>
-              {invitation.from && (
-                <div>
-                  <h3>From:</h3>
-                  <UserAvatar
-                    image={getImage(
-                      '50x50',
-                      invitation.from.avatar,
-                      UserAvatarNoImage
-                    )}
-                  />
-                  <h4>{getDisplayName(invitation.from)}</h4>
+        <>
+          <h2 className={styles.mainHeader}>Invitations</h2>
+          <ul className={styles.list}>
+            {state.records.map((invitation) => (
+              <li
+                className={styles.invitation}
+                key={`invitation-${invitation.id}`}
+              >
+                <div className={styles.when}>
+                  <h3>
+                    Sent at:{' '}
+                    {formatDistance(
+                      new Date(invitation.createdAt),
+                      new Date(),
+                      {
+                        locale: pl,
+                      }
+                    )}{' '}
+                    to:
+                  </h3>
+                  <div className={styles.user}>
+                    <UserAvatar
+                      additionalStyles={styles.userAvatar}
+                      image={getImage(
+                        '50x50',
+                        invitation.user.avatar,
+                        UserAvatarNoImage
+                      )}
+                    />
+                    <h4>{getDisplayName(invitation.user)}</h4>
+                  </div>
                 </div>
-              )}
-              <div>
-                <h3>To:</h3>
-                <UserAvatar
-                  image={getImage(
-                    '50x50',
-                    invitation.user.avatar,
-                    UserAvatarNoImage
+                <div>
+                  {invitation.from && (
+                    <div className={styles.user}>
+                      <UserAvatar
+                        additionalStyles={styles.userAvatar}
+                        image={getImage(
+                          '50x50',
+                          invitation.from.avatar,
+                          UserAvatarNoImage
+                        )}
+                      />
+                      <div>
+                        <h4>{getDisplayName(invitation.from)}</h4>
+                        <p className={styles.msg}>
+                          {invitation.description || 'No message'}
+                        </p>
+                      </div>
+                    </div>
                   )}
-                />
-                <h4>{getDisplayName(invitation.user)}</h4>
-              </div>
-              <div>
-                <p>{invitation.description || 'No message'}</p>
-              </div>
-              <Button onClick={() => deleteGroupInvitation(invitation.id)}>
-                {/* add here a confirmation popup */}
-                remove invitation
-              </Button>
-            </div>
-          ))}
-        </ul>
+                </div>
+                <Button
+                  additionalStyles={styles.btn}
+                  onClick={() => setIsShowModal(true)}
+                >
+                  remove invitation
+                </Button>
+
+                {isShowModal && (
+                  <Modal
+                    additionalStyles={styles.modalContent}
+                    onClose={() => setIsShowModal(false)}
+                  >
+                    <h2 className={styles.header}>header</h2>
+                    <p className={styles.desc}>
+                      Eteu in occaecat occaecat consectetur et laboris aliquip.
+                    </p>
+                    <div className={styles.buttons}>
+                      <Button
+                        additionalStyles={styles.btn}
+                        onClick={() => setIsShowModal(false)}
+                        testid="post-single-delete-post-canel"
+                      >
+                        <i>
+                          <IoIosCloseCircle />
+                        </i>
+                        noBtn
+                      </Button>
+                      <Button
+                        additionalStyles={styles.btn}
+                        onClick={() => deleteGroupInvitation(invitation.id)}
+                        testid="delete-account-confirm"
+                      >
+                        <i>
+                          <IoIosCheckbox />
+                        </i>
+                        yesBtn
+                      </Button>
+                    </div>
+                  </Modal>
+                )}
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   )

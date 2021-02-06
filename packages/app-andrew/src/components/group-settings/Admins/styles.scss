@@ -5,6 +5,10 @@
 @import '~@gtms/styles/scss/mixins/grid.scss';
 
 .wrapper {
+  .spinner {
+    margin: 40px auto;
+  }
+
   .adminsList {
     @include gridDefault(7);
 
@@ -14,18 +18,20 @@
       width: 100px;
       height: 100px;
 
-      // avatar
-      > div {
+      a {
+        display: block;
+
         &:hover {
-          @include effectOne('circle');
+          @include effectColorTransparentOverlay('circle');
         }
       }
 
       .name {
         display: inline-block;
-        @include font-size(md);
-        @include font-weight(semiBold);
+        @include fontSize(md);
+        @include fontWeight(semiBold);
         margin-top: 5px;
+        display: none; //@todo show it in hover tooltip
       }
     }
 
@@ -36,8 +42,8 @@
       align-items: center;
       justify-content: center;
       border: none;
-      min-width: 100px;
-      min-height: 100px;
+      min-width: 100%;
+      min-height: 100%;
       border-radius: 50%;
       background: $theme1;
       cursor: pointer;
@@ -50,16 +56,16 @@
 
       i {
         position: relative;
-        @include font-size(lg);
+        @include fontSize(lg);
         line-height: 0;
-        color: $theme9;
+        color: $theme0;
       }
 
       span {
         position: absolute;
         bottom: -27px; // because of line height of text
         color: $defaultTextColor;
-        @include font-size(md);
+        @include fontSize(md);
       }
 
       &:hover {

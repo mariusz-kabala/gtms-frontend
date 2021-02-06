@@ -1,18 +1,52 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/header.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 @import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .mainNavigationWrapper {
-  min-width: 40px;
-  margin-left: 10px;
   @include z-index(mainNavigation);
-  cursor: pointer;
+  align-items: center;
+  padding: 5px;
+  background: $theme2;
+  min-width: 44px;
 
-  .centerIt {
+  > div {
     position: fixed;
-    height: 100%;
+  }
+
+  .logo {
+    max-width: 80px;
+    padding: 5px;
+    display: none;
+  }
+
+  .searchBar {
+    max-width: 450px;
+    display: none;
+
+    // @todo remove it when search will be finished
+    [class*='inputWrapper'] {
+      input {
+        background: $theme2;
+        border-bottom: 3px solid $theme2;
+        border-radius: 0;
+
+        &::placeholder {
+          color: rgb(107, 107, 107);
+        }
+      }
+    }
+  }
+
+  .right {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    gap: 5px;
+    width: 50%;
+    margin-left: auto;
   }
 }

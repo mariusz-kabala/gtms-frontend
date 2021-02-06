@@ -6,26 +6,14 @@
   @include buttonDefault();
   @include buttonSizeSm();
   @include buttonShapeDefault();
-  @include buttonWithIcon('withoutText');
-  @include buttonWithSpinner();
+  @include buttonWithSpinnerAndLabel();
   @include buttonColorsDefault();
-  @include font-size(sm);
+  @include fontSize(md);
   width: 100%;
   color: $theme0;
 
   &:hover {
     @include buttonColorsPrimary();
-  }
-
-  &.isLoading {
-    padding-left: 55px;
-    position: relative;
-
-    .loader {
-      position: absolute;
-      width: 45px;
-      left: 5px;
-    }
   }
 
   span {

@@ -10,15 +10,15 @@
 
     .item {
       padding: 5px 10px;
-      @include font-size(sm);
-      background: $theme9;
+      @include fontSize(sm);
+      background: $theme2;
       margin-right: 5px;
     }
   }
 
   > i {
     display: flex;
-    @include font-size(lg);
+    @include fontSize(lg);
     margin-left: auto;
     padding: 10px;
     cursor: pointer;

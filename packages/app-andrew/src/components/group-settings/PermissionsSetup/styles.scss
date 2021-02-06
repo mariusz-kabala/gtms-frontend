@@ -4,7 +4,11 @@
 
 .checkboxes {
   .item {
-    margin-top: 15px;
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     > div {
       display: flex;
@@ -12,9 +16,9 @@
     }
 
     label {
-      @include font-weight(semiBold);
-      @include font-size(xdefault);
-      margin-left: 5px;
+      @include fontWeight(semiBold);
+      @include fontSize(xdefault);
+      margin-left: 8px;
     }
 
     span {
@@ -31,7 +35,8 @@
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapeDefault();
-  @include buttonColorsDefault();
+  @include buttonColorsSecondary();
+
   &:hover {
     @include buttonColorsPrimary();
   }

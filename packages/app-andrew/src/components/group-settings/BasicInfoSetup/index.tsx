@@ -1,13 +1,14 @@
 import React, { FC, useState, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { updateGroup, updateGroupAvatar } from '@gtms/state-group'
-import { GroupAvatarNoImage } from 'enums'
-import { IoIosSettings } from 'react-icons/io'
+import { GroupAvatarNoImage } from '@app/enums'
+import { useRouter } from 'next/router'
 // commons
 import { IGroup } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { useTranslation } from '@gtms/commons/i18n'
 // ui
+import { IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { Error } from '@gtms/ui/Forms/Error'
 import { ExpandingTextarea } from '@gtms/ui/Forms/ExpandingTextarea'
@@ -43,6 +44,7 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
     isSaving: false,
   })
   const { register, handleSubmit, errors, setError } = useForm<IFormData>()
+  const router = useRouter()
 
   const onFormModalClose = useCallback(
     () => setFormState({ isOpen: false, isSaving: false }),
@@ -96,7 +98,11 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
     })
 
     try {
-      await updateGroup(data, group.slug)
+      const result = await updateGroup(data, group.slug)
+
+      if (result && result.slug !== group.slug) {
+        router.push(`/group/${result.slug}/settings`)
+      }
     } finally {
       setFormState({
         isOpen: false,
@@ -142,21 +148,18 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
           </i>
         </Button>
       </div>
-      <div onClick={onFormModalOpen}>
+      <div className={styles.headerAndDesc} onClick={onFormModalOpen}>
         <h2 className={styles.header}>{group.name}</h2>
         <p className={styles.description}>
           {group.description || 'no group description'}
         </p>
       </div>
       {formState.isOpen && (
-        <Modal
-          additionalStyles={styles.formModalContent}
-          onClose={onFormModalClose}
-        >
+        <Modal onClose={onFormModalClose}>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            method="post"
             data-testid="group-basic-info-setup-form"
+            method="post"
           >
             <Input
               type="text"
@@ -174,22 +177,19 @@ export const BasicInfoSetup: FC<{ group: IGroup }> = ({ group }) => {
               defaultValue={group.description}
               reference={register({ required: false })}
             />
-            {formState.isSaving && <Spinner />}
             <Button
               additionalStyles={styles.btnSave}
               disabled={formState.isSaving}
               type="submit"
             >
+              {formState.isSaving && <Spinner size="xsm" />}
               Save
             </Button>
           </form>
         </Modal>
       )}
       {fileUploadState.isOpen && (
-        <Modal
-          additionalStyles={styles.fileUploadModalContent}
-          onClose={onUploadFileModalClose}
-        >
+        <Modal onClose={onUploadFileModalClose}>
           <UploadFile
             additionalStyles={styles.uploadFile}
             isError={fileUploadState.isError}

@@ -3,16 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.15.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.14.0...@gtms/api-post@0.15.0) (2020-12-05)
+# [0.19.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.18.0...@gtms/api-post@0.19.0) (2021-01-01)
 
 
 ### Features
 
-* GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
+* GEOT-753: working search bar on my account page ([#972](https://github.com/gtms-org/gtms-frontend/issues/972)) ([26837e1](https://github.com/gtms-org/gtms-frontend/commit/26837e16441440ef4be3e46cbfbd058bccb71dd2))
 
 
 
 
+
+# [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.17.0...@gtms/api-post@0.18.0) (2020-12-31)
+
+### Features
+
+- GEOT-753: working post filters by group on my account page ([#971](https://github.com/gtms-org/gtms-frontend/issues/971)) ([d290eb8](https://github.com/gtms-org/gtms-frontend/commit/d290eb8f851c73ec8df73425db987eaf23daa26f))
+
+# [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.16.2...@gtms/api-post@0.17.0) (2020-12-30)
+
+### Features
+
+- GEOT-753: show posts on account page ([#965](https://github.com/gtms-org/gtms-frontend/issues/965)) ([e4f1f97](https://github.com/gtms-org/gtms-frontend/commit/e4f1f972c069577358314f2ab7117bd7bc8c5b21))
+
+## [0.16.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.16.1...@gtms/api-post@0.16.2) (2020-12-28)
+
+**Note:** Version bump only for package @gtms/api-post
+
+## [0.16.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.16.0...@gtms/api-post@0.16.1) (2020-12-27)
+
+**Note:** Version bump only for package @gtms/api-post
+
+# [0.16.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.15.3...@gtms/api-post@0.16.0) (2020-12-25)
+
+### Features
+
+- GEOT-699: user card on main page ([#927](https://github.com/gtms-org/gtms-frontend/issues/927)) ([0b4d2ba](https://github.com/gtms-org/gtms-frontend/commit/0b4d2ba9f89ac8a9ddddd7841bd7da2eec257edc))
+
+## [0.15.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.15.2...@gtms/api-post@0.15.3) (2020-12-11)
+
+**Note:** Version bump only for package @gtms/api-post
+
+## [0.15.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.15.1...@gtms/api-post@0.15.2) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/api-post
+
+## [0.15.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.15.0...@gtms/api-post@0.15.1) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/api-post
+
+# [0.15.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.14.0...@gtms/api-post@0.15.0) (2020-12-05)
+
+### Features
+
+- GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
 
 # [0.14.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.13.0...@gtms/api-post@0.14.0) (2020-10-10)
 

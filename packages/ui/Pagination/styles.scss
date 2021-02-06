@@ -15,9 +15,9 @@
       min-width: 30px;
       min-height: 30px;
       padding: 5px 10px;
-      border: 2px solid $theme9;
       border-radius: $borderRadius;
-      @include font-weight(semiBold);
+      @include fontWeight(semiBold);
+      background: $theme1;
       cursor: pointer;
 
       .icon {
@@ -27,7 +27,6 @@
       &:hover,
       &.active {
         background: $theme4;
-        border-color: $theme4;
         color: $theme0;
         a {
           color: $theme0;

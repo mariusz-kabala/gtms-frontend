@@ -3,10 +3,14 @@ import { ISubComment, IUser, IAccountDetails } from '@gtms/commons/models'
 import { createNewComment } from '@gtms/state-comment'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
+import { showUserPreview } from '@app/state/userPreview'
 // ui
 import { PostCreate } from '@gtms/ui/PostCreate'
 import { PostResponse } from '@gtms/ui/PostSingle/PostResponse'
+import { Button } from '@gtms/ui/Button'
+import { IoMdSend } from 'react-icons/io'
+// styles
 import styles from './styles.scss'
 
 export const SubCommentsList: FC<{
@@ -17,6 +21,8 @@ export const SubCommentsList: FC<{
 }> = ({ subComments, user, parentComment, postId }) => {
   const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const commentForm = useRef<HTMLDivElement>(null)
+  const [value, setValue] = useState<string>('')
+  const [showSendButton, setShowSendButton] = useState<boolean>(false)
 
   return (
     <div className={styles.wrapper}>
@@ -30,6 +36,7 @@ export const SubCommentsList: FC<{
               owner={subComment.owner as IUser}
               user={user}
               noImage={UserAvatarNoImage}
+              onUserPreviewClick={showUserPreview}
             />
           ))}
         </div>
@@ -37,6 +44,7 @@ export const SubCommentsList: FC<{
 
       {!isAnswerFormOpen && (
         <button
+          className={styles.btnRespond}
           onClick={(e) => {
             e.preventDefault()
 
@@ -52,21 +60,34 @@ export const SubCommentsList: FC<{
       )}
 
       {isAnswerFormOpen && (
-        <div ref={commentForm}>
+        <div ref={commentForm} onClick={() => setShowSendButton(true)}>
           <PostCreate
-            additionalStyles={styles.postResponseCreate}
-            onSubmit={(text) => {
-              createNewComment({
-                post: postId,
-                text,
-                parent: parentComment,
-              })
-            }}
+            value={value}
+            setValue={setValue}
             fetchTags={findTagsAPI}
             fetchUsers={findbyUsernameAPI}
             user={user}
             noImage={UserAvatarNoImage}
           />
+          {showSendButton && (
+            <Button
+              disabled={value === ''}
+              onClick={() => {
+                createNewComment({
+                  post: postId,
+                  text: value,
+                  parent: parentComment,
+                })
+
+                setValue('')
+              }}
+            >
+              send
+              <i>
+                <IoMdSend />
+              </i>
+            </Button>
+          )}
         </div>
       )}
     </div>

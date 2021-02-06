@@ -55,27 +55,29 @@ export const NavigationDots: FC<{
             <IoIosKeypad />
           </i>
         </div>
-        <ReactSortable
-          list={sortedGroups}
-          setList={setSortedGroups}
-          onEnd={() => {
-            onOrderChange && onOrderChange(sortedGroups)
-          }}
-        >
-          {sortedGroups.map((value, index) => (
-            <div className={styles.item} key={index}>
-              <Link href={`/group/${value.slug}`}>
-                <div
-                  style={{
-                    backgroundImage: `url(${
-                      getImage('50x50', value.avatar, noImage).jpg
-                    })`,
-                  }}
-                />
-              </Link>
-            </div>
-          ))}
-        </ReactSortable>
+        <div className={styles.myGroups}>
+          <ReactSortable
+            list={sortedGroups}
+            setList={setSortedGroups}
+            onEnd={() => {
+              onOrderChange && onOrderChange(sortedGroups)
+            }}
+          >
+            {sortedGroups.map((value, index) => (
+              <div className={styles.item} key={index}>
+                <Link href={`/group/${value.slug}`}>
+                  <div
+                    style={{
+                      backgroundImage: `url(${
+                        getImage('50x50', value.avatar, noImage).jpg
+                      })`,
+                    }}
+                  />
+                </Link>
+              </div>
+            ))}
+          </ReactSortable>
+        </div>
       </div>
       <div
         className={cx(styles.fullView, {

@@ -1,29 +1,44 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .wrapper {
   display: flex;
-  flex-direction: row;
-}
-.image {
-  margin-right: 5px;
-}
-.details {
-  display: flex;
-  flex-direction: column;
-}
+  align-items: center;
 
-.name {
-  @include font-size(sm);
-  @include font-weight(bold);
-  margin-bottom: 5px;
-}
+  .groupAvatar {
+    overflow: hidden;
+    max-height: 30px;
+    max-width: 30px;
+    margin-right: 5px;
+    border-radius: $borderRadius;
 
-.stats {
-  @include font-size(xs);
-  li {
-    span {
-      @include font-weight(bold);
+    &:hover {
+      @include effectColorTransparentOverlay();
+    }
+  }
+
+  .details {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    .name {
+      @include fontSize(sm);
+      @include fontWeight(semiBold);
+    }
+
+    .stats {
+      display: flex;
+      gap: 5px;
+      @include fontSize(xs);
+
+      li {
+        span {
+          @include fontWeight(semiBold);
+        }
+      }
     }
   }
 }

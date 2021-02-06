@@ -3,16 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.16.1...@gtms/api-group@0.17.0) (2020-12-05)
+## [0.18.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.18.1...@gtms/api-group@0.18.2) (2020-12-28)
+
+**Note:** Version bump only for package @gtms/api-group
+
+
+
+
+
+## [0.18.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.18.0...@gtms/api-group@0.18.1) (2020-12-27)
+
+**Note:** Version bump only for package @gtms/api-group
+
+
+
+
+
+# [0.18.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.17.3...@gtms/api-group@0.18.0) (2020-12-25)
 
 
 ### Features
 
-* GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
+* GEOT-699: user card on main page ([#927](https://github.com/gtms-org/gtms-frontend/issues/927)) ([0b4d2ba](https://github.com/gtms-org/gtms-frontend/commit/0b4d2ba9f89ac8a9ddddd7841bd7da2eec257edc))
 
 
 
 
+
+## [0.17.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.17.2...@gtms/api-group@0.17.3) (2020-12-11)
+
+**Note:** Version bump only for package @gtms/api-group
+
+## [0.17.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.17.1...@gtms/api-group@0.17.2) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/api-group
+
+## [0.17.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.17.0...@gtms/api-group@0.17.1) (2020-12-10)
+
+**Note:** Version bump only for package @gtms/api-group
+
+# [0.17.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.16.1...@gtms/api-group@0.17.0) (2020-12-05)
+
+### Features
+
+- GEOT-470: EPIC NEW UI ([#889](https://github.com/gtms-org/gtms-frontend/issues/889)) ([59986a7](https://github.com/gtms-org/gtms-frontend/commit/59986a738e2e38537d35c12b1d1a4aa5cfbd458d)), closes [#891](https://github.com/gtms-org/gtms-frontend/issues/891) [#904](https://github.com/gtms-org/gtms-frontend/issues/904) [#905](https://github.com/gtms-org/gtms-frontend/issues/905) [#911](https://github.com/gtms-org/gtms-frontend/issues/911) [#910](https://github.com/gtms-org/gtms-frontend/issues/910) [#913](https://github.com/gtms-org/gtms-frontend/issues/913) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#918](https://github.com/gtms-org/gtms-frontend/issues/918) [#917](https://github.com/gtms-org/gtms-frontend/issues/917) [#919](https://github.com/gtms-org/gtms-frontend/issues/919) [#920](https://github.com/gtms-org/gtms-frontend/issues/920)
 
 ## [0.16.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-group@0.16.0...@gtms/api-group@0.16.1) (2020-10-10)
 

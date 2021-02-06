@@ -1,12 +1,12 @@
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { groupQuery, IGroupState } from '@gtms/state-group'
-import { uiQuery } from 'state'
+import { uiQuery } from '@app/state'
 import { FileStatus } from '@gtms/commons'
 
 export interface IGroupSidebarContentState extends IGroupState {
-  hasAdminRights: boolean
   avatarFileStatus: FileStatus
+  hasAdminRights: boolean
   showPromoted: boolean
   showUsers: boolean
 }
@@ -28,6 +28,5 @@ export const groupSidebarContentState = (): IGroupSidebarContentState => {
 }
 
 export const groupSidebarContentState$: Observable<IGroupSidebarContentState> = combineLatest(
-  groupQuery.allState$,
-  uiQuery.select()
+  [groupQuery.allState$, uiQuery.select()]
 ).pipe(map(() => groupSidebarContentState()))

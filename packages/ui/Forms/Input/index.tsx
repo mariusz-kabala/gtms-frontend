@@ -7,8 +7,8 @@ export const Input: FC<{
   defaultValue?: string
   maxLength?: number
   name?: string
-  onClick?: () => unknown
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onClick?: () => unknown
   placeholder?: string
   reference?: (
     ref: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null
@@ -17,12 +17,12 @@ export const Input: FC<{
 }> = ({
   additionalStyles,
   defaultValue,
-  name,
-  placeholder,
-  onClick,
-  onChange,
-  reference,
   maxLength,
+  name,
+  onChange,
+  onClick,
+  placeholder,
+  reference,
   type = 'text',
 }) => (
   <input

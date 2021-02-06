@@ -5,11 +5,12 @@
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapeDefault();
-  @include buttonWithIcon();
-  @include buttonWithSpinner();
-  @include buttonColorsDefault();
+  @include buttonWithIcon('left');
+  @include buttonWithSpinnerAndLabel(left);
+  @include buttonColorsSecondary();
 
-  &:hover {
+  &:hover,
+  &.active {
     @include buttonColorsPrimary();
   }
 }

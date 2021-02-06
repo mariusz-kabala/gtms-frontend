@@ -6,35 +6,60 @@
 
 .pageWrapper {
   @include pageWrapper();
-  width: 100%;
   position: relative;
-  margin: 40px;
-  display: flex;
-  border-radius: 10px;
-}
-
-.wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  border-radius: 10px;
+
+  background: none; // reset bg from mixin pageWrapper()
+  margin: 0; // reset margin from mixin pageWrapper()
+  padding: 0; // reset padding from mixin pageWrapper()
+
+  max-width: $tempWidth;
+  margin: 0 50px;
+  margin-bottom: 50px;
 
   .spinner {
-    margin: auto;
+    margin: 40px auto;
   }
-}
 
-.content {
-  display: flex;
-  max-width: 700px;
-  min-height: 800px;
-  background: $theme1;
-}
+  .groupHeader {
+    position: relative;
+  }
 
-.rightColumn {
-  padding: 5px;
-}
+  .promotedTags {
+    width: 100%;
+    margin-top: 10px;
+  }
 
-.btnDelete {
-  margin-top: 15px;
-  width: 100%;
+  .columns {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    max-width: $tempWidth;
+    min-height: 500px;
+
+    .sidebar {
+      min-width: 140px;
+    }
+
+    .content {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      width: 100%;
+      padding: 10px;
+      border-radius: $borderRadius;
+      background: $theme2;
+
+      .btnDeleteWrapper {
+        margin-top: auto;
+
+        .btnDelete {
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+    }
+  }
 }

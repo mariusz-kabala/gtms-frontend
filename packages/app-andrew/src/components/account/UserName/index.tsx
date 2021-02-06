@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react'
 import { UserNameChangeForm } from './Form'
 // ui
 import { Modal } from '@gtms/ui/Modal'
-import styles from './styles.scss'
 
 export const UserName: FC<{
   name?: string
@@ -23,17 +22,12 @@ export const UserName: FC<{
     >
       <span>{getName()}</span>
       {isEditModeActive && (
-        <Modal
-          additionalStyles={styles.modal}
-          onClose={() => {
-            setIsEditModeActive(false)
-          }}
-        >
+        <Modal onClose={() => setIsEditModeActive(false)}>
           <UserNameChangeForm
             name={name}
-            surname={surname}
-            onSaveSuccess={() => setIsEditModeActive(false)}
             onSaveFail={() => setIsEditModeActive(false)}
+            onSaveSuccess={() => setIsEditModeActive(false)}
+            surname={surname}
           />
         </Modal>
       )}

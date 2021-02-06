@@ -11,37 +11,42 @@ import {
   IoMdTrash,
   IoIosSettings,
 } from 'react-icons/io'
-import { Button } from '@gtms/ui/Button'
-import { Modal } from '@gtms/ui/Modal'
+import { Button } from '../Button'
+import { Modal } from '../Modal'
 import { Spinner } from '../Spinner'
 import { Image } from '../Image'
+import { Fav } from '../Fav'
 // style
 import styles from './styles.scss'
 
 export const PromotedTags: FC<{
+  activeTags?: string[]
   additionalStyles?: string
-  isLoading: boolean
   isAdmin?: boolean
-  tags: IPromotedTag[]
+  isLoading: boolean
   noImage: {
     '200x200': IImage
   }
-  activeTags?: string[]
-  onNoRecordsClick?: () => unknown
-  onEditRecordClick?: (promotedTag: IPromotedTag) => unknown
   onDeleteRecordClick?: (promotedTag: IPromotedTag) => unknown
+  onEditRecordClick?: (promotedTag: IPromotedTag) => unknown
+  onNoRecordsClick?: () => unknown
   onTagClick?: (promotedTag: IPromotedTag) => unknown
+  tags: IPromotedTag[]
+  onFavClick: (tag: IPromotedTag, checked: boolean) => unknown
+  favs: string[]
 }> = ({
-  additionalStyles,
-  isLoading,
-  tags,
-  noImage,
-  onNoRecordsClick,
-  onEditRecordClick,
-  onDeleteRecordClick,
-  onTagClick,
-  isAdmin = false,
   activeTags = [],
+  additionalStyles,
+  isAdmin = false,
+  isLoading,
+  noImage,
+  onDeleteRecordClick,
+  onEditRecordClick,
+  onNoRecordsClick,
+  onTagClick,
+  onFavClick,
+  tags,
+  favs,
 }) => {
   const [TagToDelete, setTagToDelete] = useState<IPromotedTag | null>(null)
   const onClick = useCallback(() => {
@@ -96,10 +101,12 @@ export const PromotedTags: FC<{
               })}
               key={`promoted-${tag.id}`}
             >
-              <Image
-                size={'200x200'}
-                {...(tag.logo as any)}
-                noImage={noImage}
+              <Fav
+                additionalStyles={styles.favButton}
+                isChecked={favs.includes(tag.tag)}
+                onClick={(checked) => {
+                  onFavClick(tag, checked)
+                }}
               />
               {isAdmin && (
                 <div className={styles.adminPanel}>
@@ -129,12 +136,21 @@ export const PromotedTags: FC<{
                   <h3>#{tag.tag}</h3>
                   <p>{tag.description}</p>
                 </div>
+                <Image
+                  {...(tag.logo as any)}
+                  noImage={noImage}
+                  size={'200x200'}
+                />
               </div>
             </div>
           ))}
 
         {tags.length > 0 && isAdmin && (
-          <button className={styles.addTag} onClick={onClick}>
+          <button
+            className={styles.addTag}
+            onClick={onClick}
+            data-testid="add-more-tags-button"
+          >
             <i>
               <IoIosAddCircle />
             </i>
@@ -142,9 +158,12 @@ export const PromotedTags: FC<{
           </button>
         )}
       </div>
-      <Button additionalStyles={styles.btnShowMore}>
-        <Spinner size="sm" />
-        Show more...
+      <Button
+        additionalStyles={styles.btnShowMore}
+        data-testid="show-more-tags-button"
+      >
+        <Spinner size="xsm" />
+        show more...
       </Button>
     </div>
   )

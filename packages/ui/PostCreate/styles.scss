@@ -4,38 +4,20 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/inputs.scss';
 
-.wrapper {
-  width: 100%;
-
-  .avatarAndText {
+.postCreateWrapper {
+  .avatarAndTextInput {
     display: flex;
+    align-items: center;
     width: 100%;
-
-    .user {
-      display: flex;
-      margin-right: 10px;
-
-      .userAvatar {
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-      }
-
-      span {
-        position: absolute;
-        color: $theme9;
-        margin-top: 8px;
-        margin-left: 45px;
-      }
-    }
 
     .textarea {
       display: block;
       width: 100%;
       border: none;
-      border: 2px solid $theme9;
+      border: 2px solid $theme1;
       border-radius: $borderRadius;
       padding: 10px;
+      margin-left: 10px;
       background: $theme1;
       @include placeholderFocus;
 
@@ -55,7 +37,7 @@
 
     .otherTagsSuggestions {
       .header {
-        @include font-size(sm);
+        @include fontSize(sm);
         text-transform: uppercase;
         padding: 5px 0;
       }
@@ -71,7 +53,7 @@
       margin-right: 5px;
       background: $theme1;
       border-radius: $borderRadius;
-      @include font-weight(semiBold);
+      @include fontWeight(semiBold);
 
       &:hover {
         color: $theme0;
@@ -83,28 +65,13 @@
       @include buttonDefault();
       @include buttonSizeDefault();
       @include buttonShapeDefault();
-      @include buttonColorsDefault();
+      @include buttonColorsSecondary();
       @include buttonWithIcon('right');
       padding: 5px;
 
       &:hover {
         @include buttonColorsPrimary();
       }
-    }
-  }
-
-  .btn {
-    @include buttonDefault();
-    @include buttonSizeDefault();
-    @include buttonShapeDefault();
-    @include buttonColorsDefault();
-    @include buttonWithIcon('right');
-    width: 100%;
-    margin-top: 10px;
-    display: none;
-
-    &:hover {
-      @include buttonColorsPrimary();
     }
   }
 }

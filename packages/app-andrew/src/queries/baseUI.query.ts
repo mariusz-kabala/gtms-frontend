@@ -10,7 +10,7 @@ import {
   INotificationRecord,
 } from '@gtms/state-notification'
 import { IGroup } from '@gtms/commons/models'
-import { uiQuery, UIQuery } from 'state'
+import { uiQuery, UIQuery } from '@app/state'
 import { Observable, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { IImage } from '@gtms/commons/types/image'
@@ -25,6 +25,7 @@ export interface INotificationsSidebarProps {
   notifications: INotificationRecord[]
   unreadCount: number
   isLogged: boolean
+  isLoaded: boolean
 }
 
 export interface INavigationDotsProps {
@@ -61,17 +62,18 @@ export class BaseUIQuery {
         this.userQuery.isLogged() && this.uiQuery.isNotificationsBarOpen(),
       notifications: this.notificationsQuery.getAll(),
       unreadCount: this.notificationsQuery.unread().length,
+      isLoaded: this.notificationsQuery.getValue().isLoaded,
       isLogged: this.userQuery.isLogged(),
     }
   }
 
   public notificationsSidebar$: Observable<
     INotificationsSidebarProps
-  > = combineLatest(
+  > = combineLatest([
     this.userQuery.isLogged$,
     this.uiQuery.isNotificationsBarOpen$,
-    this.notificationsQuery.select()
-  ).pipe(map(() => this.notificationsSidebar()))
+    this.notificationsQuery.select(),
+  ]).pipe(map(() => this.notificationsSidebar()))
 
   public navigationDots = (): INavigationDotsProps => {
     const status = this.myGroupsQuery.status()
@@ -89,11 +91,11 @@ export class BaseUIQuery {
     }
   }
 
-  public navigationDots$: Observable<INavigationDotsProps> = combineLatest(
+  public navigationDots$: Observable<INavigationDotsProps> = combineLatest([
     this.userQuery.isLogged$,
     this.myGroupsQuery.status$,
-    this.myGroupsQuery.favGroups$
-  ).pipe(map(() => this.navigationDots()))
+    this.myGroupsQuery.favGroups$,
+  ]).pipe(map(() => this.navigationDots()))
 }
 //
 export const baseUIQuery = new BaseUIQuery(

@@ -5,16 +5,15 @@
 
 .wrapper {
   .noRecords {
-    @include font-size(md);
+    @include fontSize(md);
     text-align: center;
   }
 
   .header {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    @include font-size(md);
-    @include font-weight('semiBold');
+    @include fontSize(md);
+    @include fontWeight('semiBold');
     text-transform: uppercase;
 
     .btn {
@@ -22,8 +21,8 @@
       @include buttonDefault();
       @include buttonSizeSm();
       @include buttonShapeDefault();
-      @include buttonWithIcon();
-      @include buttonColorsDefault();
+      @include buttonWithIcon('left');
+      @include buttonColorsSecondary();
 
       &:hover {
         @include buttonColorsPrimary();
@@ -31,7 +30,7 @@
     }
   }
 
-  p {
-    margin: 5px 0;
+  .promotedTagsList {
+    margin-top: 10px;
   }
 }

@@ -4,6 +4,7 @@ import { getDisplayName } from '@gtms/commons/helpers'
 // ui
 import { MockData } from '@gtms/ui/MockData'
 import { Spinner } from '@gtms/ui/Spinner'
+// styles
 import styles from './styles.scss'
 
 export const UsersList: FC<{ records: IUser[]; isLoading: boolean }> = ({

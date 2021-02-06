@@ -8,42 +8,45 @@
   display: flex;
   grid-gap: 8px;
 
-  .groupAvatar {
-    width: 40px;
-    height: 40px;
-
-    picture {
-      border-radius: $borderRadius;
-      box-shadow: $boxShadowDefault;
-      overflow: hidden;
-    }
-  }
-
   .avatarAndName {
+    // temporary hidden
+    display: none;
+
+    .groupAvatar {
+      width: 40px;
+      height: 40px;
+
+      picture {
+        border-radius: $borderRadius;
+        box-shadow: $boxShadowDefault;
+        overflow: hidden;
+      }
+    }
+
     .header {
       width: 100%;
       margin-left: 8px;
-      @include font-size(xdefault);
-      @include font-weight(semiBold);
+      @include fontSize(xdefault);
+      @include fontWeight(semiBold);
       color: $theme0;
       display: none;
     }
 
     .desc {
       margin-top: 5px;
-      @include font-size(sm);
+      @include fontSize(sm);
       display: none;
     }
   }
 
   .tagsbutton {
     @include buttonDefault();
-    @include buttonSizeDefault();
+    @include buttonSizeSm();
     @include buttonShapeDefault();
     @include buttonColorsDefault();
     width: 100%;
-    min-width: 40px;
-    height: 40px;
+    min-width: 35px;
+    height: 35px;
 
     &:hover,
     &.active {
@@ -56,7 +59,7 @@
 
     i {
       line-height: 0;
-      @include font-size(lg);
+      @include fontSize(md);
     }
   }
 }

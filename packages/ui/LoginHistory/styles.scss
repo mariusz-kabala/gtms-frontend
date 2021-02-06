@@ -6,8 +6,8 @@
 
 .wrapper {
   > .header {
-    @include font-weight(normal);
-    @include font-size(md);
+    @include fontWeight(normal);
+    @include fontSize(md);
     margin: 10px 0;
   }
 
@@ -16,8 +16,8 @@
 
     .item {
       padding: 10px;
-      background: $theme9;
-      border: 2px solid $theme1;
+      background: $theme2;
+      border: 2px solid $theme2;
       border-radius: $borderRadius;
       margin-bottom: 10px;
 
@@ -30,7 +30,7 @@
       }
 
       .header {
-        @include font-weight(normal);
+        @include fontWeight(normal);
       }
 
       > div {

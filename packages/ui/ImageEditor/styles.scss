@@ -3,14 +3,10 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
-@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .wrapper {
-  @include modalContent();
-
   .editor {
     display: flex;
-    flex-direction: row;
 
     .tools {
       display: flex;
@@ -50,7 +46,7 @@
       @include buttonDefault();
       @include buttonSizeDefault();
       @include buttonShapeDefault();
-      @include buttonWithIcon();
+      @include buttonWithIcon('left');
       @include buttonColorsDefault();
 
       &:hover {

@@ -8,15 +8,15 @@
   flex-direction: column;
   align-content: center;
   padding: 10px;
-  @include font-size(sm);
-  @include font-weight(normal);
+  @include fontSize(sm);
+  @include fontWeight(normal);
   border-top: 1px solid $theme6;
   margin-top: -14px;
   margin-bottom: 10px;
   border-bottom-left-radius: $borderRadius;
   border-bottom-right-radius: $borderRadius;
   background: $theme6;
-  color: $theme1;
+  color: $theme0;
 
   &:before {
     content: '';

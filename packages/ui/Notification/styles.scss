@@ -6,9 +6,9 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  @include font-size(sm);
+  @include fontSize(sm);
   border-radius: $borderRadius;
-  background: $theme1;
+  background: $theme2;
   cursor: pointer;
 
   .notificationIcon {
@@ -35,9 +35,9 @@
 
     .iconClose {
       position: absolute;
-      color: $theme9;
+      color: $theme2;
       display: flex;
-      @include font-size(md);
+      @include fontSize(md);
     }
 
     .circularProgressbar {
@@ -48,11 +48,11 @@
 
       > * {
         &:nth-child(1) {
-          stroke: $theme9;
+          stroke: $theme2;
         }
 
         &:nth-child(2) {
-          stroke: $theme9;
+          stroke: $theme2;
         }
       }
     }

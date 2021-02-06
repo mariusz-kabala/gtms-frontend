@@ -44,18 +44,17 @@ describe('<UserName />', () => {
     expect(queryByTestId('overlay')).toBeNull()
   })
 
-  // @todo this should be fixed?
-  it.skip('Should close edit mode when user cancel editing by clicking on Overlay', () => {
+  it('Should close edit mode when user cancel editing by clicking on Overlay', () => {
     const { getByTestId, queryByTestId } = render(<UserName />)
 
     fireEvent.click(getByTestId('user-name'))
 
     expect(getByTestId('user-name-change-form')).toBeInTheDocument()
-    expect(getByTestId('overlay')).toBeInTheDocument()
+    expect(getByTestId('modal')).toBeInTheDocument()
 
     fireEvent.click(getByTestId('overlay'))
 
     expect(queryByTestId('user-name-change-form')).toBeNull()
-    expect(queryByTestId('overlay')).toBeNull()
+    expect(queryByTestId('modal')).toBeNull()
   })
 })

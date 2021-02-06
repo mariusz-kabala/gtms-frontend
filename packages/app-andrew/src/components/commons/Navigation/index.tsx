@@ -1,14 +1,15 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { Navigation as NavigationUI } from '@gtms/ui/Navigation'
 import {
   INavigationProps,
   baseUIQuery,
   INotificationsSidebarProps,
-} from 'queries'
-import { toggleSidebarNotifications } from 'state'
+} from '@app/queries'
+import { toggleSidebarNotifications } from '@app/state'
 import { logoutUser } from '@gtms/state-user'
+// ui
 import { IoIosAddCircle, IoIosNotifications, IoIosSearch } from 'react-icons/io'
+import { Navigation as NavigationUI } from '@gtms/ui/Navigation'
 
 const MENU_ITEMS = [
   {
@@ -57,10 +58,10 @@ export const Navigation: FC<{}> = () => {
 
   return (
     <NavigationUI
-      menu={MENU_ITEMS}
-      onLogout={logoutUser}
       active={active}
       avatar={state.userAvatar}
+      menu={MENU_ITEMS}
+      onLogout={logoutUser}
     />
   )
 }

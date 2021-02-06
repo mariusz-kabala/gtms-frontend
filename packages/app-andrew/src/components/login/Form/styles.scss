@@ -4,11 +4,12 @@
   @include buttonDefault();
   @include buttonShapeDefault();
   @include buttonSizeDefault();
-  @include buttonWithSpinner();
-  @include buttonColorsDefault();
+  @include buttonWithSpinnerAndLabel(left);
+  @include buttonColorsSecondary();
   width: 100%;
 
-  &:hover {
+  &:hover,
+  &.active {
     @include buttonColorsPrimary();
   }
 }

@@ -1,28 +1,25 @@
 import React, { FC, useCallback, useState } from 'react'
-import cx from 'classnames'
 import { IPost, IUser, IGroup } from '@gtms/commons/models'
-import { getImage } from '@gtms/commons/helpers'
 import { addErrorNotification } from '@gtms/state-notification'
-import { GroupAvatarNoImage, UserAvatarNoImage } from 'enums'
+import { showGroupPreview as showGroupPreviewFunc } from '@app/state/groupPreview'
+import { UserAvatarNoImage } from '@app/enums'
 // api
 import { createAbuseReportAPI } from '@gtms/api-abuse'
-import { fetchGroupMembers } from '@gtms/api-group'
 // components
-import { PostAdmin } from 'components/post/Admin'
-import { Favs } from 'components/post/Favs'
+import { PostAdmin } from '@app/components/post/Admin'
+import { Favs } from '@app/components/post/Favs'
 // ui
 import { AbuseReportForm, VIEW } from '@gtms/ui/AbuseReportForm'
+import { Modal } from '@gtms/ui/Modal'
 import { UserPreview } from '@gtms/ui/UserPreview'
-import { GroupCard } from '@gtms/ui/GroupCard'
-// styles
-import styles from './styles.scss'
 
 const renderFavs = (favs: string[], id: string) => <Favs id={id} favs={favs} />
 
 export const PostsList: FC<{
+  additionalStyles?: string
   isAdmin: boolean
+  onUserPostsClick?: (user: IUser) => unknown
   posts: IPost[]
-  onUserPostsClick: (user: IUser) => unknown
   renderPost: (
     post: IPost & {
       renderMenu: (postId: string) => JSX.Element | null
@@ -31,56 +28,8 @@ export const PostsList: FC<{
       onOpenGroupPreview?: (group: IGroup) => unknown
     }
   ) => JSX.Element
-  showGroupPreview?: boolean
-}> = ({
-  renderPost,
-  posts,
-  isAdmin,
-  onUserPostsClick,
-  showGroupPreview = false,
-}) => {
+}> = ({ additionalStyles, isAdmin, onUserPostsClick, posts, renderPost }) => {
   const [userPreview, setUserPreview] = useState<IUser | undefined>()
-  const [groupPreview, setGroupCard] = useState<{
-    isOpen: boolean
-    isLoading: boolean
-    current?: IGroup
-    users: IUser[]
-  }>({
-    isOpen: false,
-    isLoading: false,
-    users: [],
-  })
-  const onOpenGroupPreview = useCallback(async (group: IGroup) => {
-    setGroupCard({
-      isOpen: true,
-      isLoading: true,
-      current: group,
-      users: [],
-    })
-
-    try {
-      const { docs } = await fetchGroupMembers(group.slug, 0, 6)
-
-      setGroupCard((state) => ({
-        ...state,
-        isLoading: false,
-        users: docs,
-      }))
-    } catch {
-      setGroupCard((state) => ({
-        ...state,
-        isLoading: false,
-      }))
-    }
-  }, [])
-  const onCloseGroupPreview = useCallback(() => {
-    setGroupCard({
-      isLoading: false,
-      isOpen: false,
-      users: [],
-      current: undefined,
-    })
-  }, [])
   const onUserClick = useCallback((user: IUser) => {
     setUserPreview(user)
   }, [])
@@ -162,75 +111,34 @@ export const PostsList: FC<{
   )
 
   return (
-    <div data-testid="posts-list">
+    <div className={additionalStyles} data-testid="posts-list">
       {posts.map((post) =>
         renderPost({
           ...post,
           renderMenu: renderPostMenu,
           renderFavs,
           onUserClick,
-          onOpenGroupPreview,
+          onOpenGroupPreview: showGroupPreviewFunc,
         })
       )}
-      <AbuseReportForm
-        onSubmit={onAbuseReportSubmit}
-        view={abuseReportState.view}
-        isMakingRequest={abuseReportState.isMakingRequest}
-        isOpen={abuseReportState.isOpen}
-        onClose={onCloseReportAbuse}
-      />
-      {userPreview && (
-        <>
-          <style global jsx>{`
-            body {
-              padding-bottom: 150px;
-            }
-          `}</style>
-          <div
-            className={cx(styles.userPreviewWrapper, {
-              [styles.active]: userPreview,
-            })}
-          >
-            <UserPreview
-              user={userPreview}
-              noUserAvatar={UserAvatarNoImage}
-              onUserPostsClick={onUserPostsClick}
-              onClose={onCloseUserPreview}
-            />
-          </div>
-        </>
+
+      {abuseReportState.isOpen && (
+        <Modal onClose={onCloseReportAbuse}>
+          <AbuseReportForm
+            onSubmit={onAbuseReportSubmit}
+            view={abuseReportState.view}
+            isMakingRequest={abuseReportState.isMakingRequest}
+          />
+        </Modal>
       )}
-      {showGroupPreview && (
-        <div
-          className={cx(styles.groupPreviewWrapper, {
-            [styles.active]: groupPreview.isOpen,
-          })}
-        >
-          {groupPreview.current && (
-            <>
-              <style global jsx>{`
-                body {
-                  padding-bottom: 150px;
-                }
-              `}</style>
-              <GroupCard
-                isLoading={groupPreview.isLoading}
-                onClose={onCloseGroupPreview}
-                members={groupPreview.users}
-                name={groupPreview.current.name}
-                description={groupPreview.current.description}
-                tags={groupPreview.current.tags || []}
-                slug={groupPreview.current.slug}
-                noUserAvatar={UserAvatarNoImage}
-                logo={getImage(
-                  '200x200',
-                  groupPreview.current.avatar,
-                  GroupAvatarNoImage
-                )}
-              />
-            </>
-          )}
-        </div>
+      {userPreview && (
+        <Modal onClose={onCloseUserPreview}>
+          <UserPreview
+            noUserAvatar={UserAvatarNoImage}
+            onUserPostsClick={onUserPostsClick}
+            user={userPreview}
+          />
+        </Modal>
       )}
     </div>
   )

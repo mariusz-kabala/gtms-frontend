@@ -1,4 +1,3 @@
-export * from './ui.model'
-export * from './ui.query'
-export * from './ui.service'
-export * from './ui.store'
+export * from './ui'
+export * from './groupPreview'
+export * from './userPreview'

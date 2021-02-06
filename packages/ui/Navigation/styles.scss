@@ -4,36 +4,41 @@
 @import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 
 .navigation {
-  align-items: center;
-  @include font-size(md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 5px;
+  @include fontSize(md);
   cursor: pointer;
 
   .avatar {
     position: relative;
-    margin-bottom: 5px;
 
     &:hover {
-      @include effectOne('circle');
+      @include effectColorTransparentOverlay('circle');
     }
   }
 
   .items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
     .item {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: $borderRadius;
-      margin-bottom: 5px;
-      background: $theme9;
 
       a {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 10px 11px;
+        padding: 8px;
         text-decoration: none;
+        border-radius: $borderRadius;
+        background: $theme3;
         color: $theme0;
 
         i {
@@ -41,17 +46,15 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          @include font-size(md);
+          @include fontSize(md);
         }
       }
 
       &:hover,
       &:focus,
       &.active {
-        border-color: $theme4;
-        background: $theme4;
-
         a {
+          background: $theme4;
           color: $theme0;
         }
       }

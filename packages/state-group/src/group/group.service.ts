@@ -12,13 +12,8 @@ import {
 } from '@gtms/api-group'
 import { groupStore, IGroupState } from './group.store'
 import { groupQuery } from './group.query'
-import {
-  IGroup,
-  GroupType,
-  GroupVisibility,
-  FileStatus,
-  parseFiles,
-} from '@gtms/commons'
+import { IGroup } from '@gtms/commons/models'
+import { GroupType, GroupVisibility, FileStatus } from '@gtms/commons/enums'
 import {
   addSuccessNotification,
   addErrorNotification,
@@ -59,20 +54,6 @@ export const getGroup = async (slug: string) => {
   try {
     const group = (await fetchGroupDetails(slug)) as IGroupDetailsResponse
 
-    if (
-      Array.isArray(group.avatar?.files) &&
-      group.avatar?.status === FileStatus.ready
-    ) {
-      group.avatar.files = parseFiles(group.avatar.files)
-    }
-
-    if (
-      Array.isArray(group.cover?.files) &&
-      group.cover?.status === FileStatus.ready
-    ) {
-      group.cover.files = parseFiles(group.cover.files)
-    }
-
     groupStore.update({
       isLoading: false,
       group: (group as unknown) as IGroup,
@@ -103,22 +84,20 @@ export const getGroup = async (slug: string) => {
   }
 }
 
-export const updateGroup = async (data: IGroupData, slug: string) => {
+export const updateGroup = async (
+  data: IGroupData,
+  slug: string
+): Promise<IGroupDetailsResponse | undefined> => {
   try {
     const group = (await updateGroupAPI(data, slug)) as IGroupDetailsResponse
 
     addSuccessNotification(`Group settings has been updated`)
 
-    if (
-      Array.isArray(group.avatar?.files) &&
-      group.avatar?.status === FileStatus.ready
-    ) {
-      group.avatar.files = parseFiles(group.avatar.files)
-    }
-
     groupStore.update({
       group: (group as unknown) as IGroup,
     })
+
+    return group
   } catch {
     addErrorNotification('Error occured, try again later')
   }

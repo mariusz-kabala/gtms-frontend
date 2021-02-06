@@ -2,18 +2,30 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
   @include pageWrapper();
-  width: 100%;
+  flex-direction: column;
+  background: none; // reset bg from mixin pageWrapper()
+  margin: 0; // reset margin from mixin pageWrapper()
+  padding: 0; // reset padding from mixin pageWrapper()
+
   position: relative;
-  margin: 40px;
   display: flex;
+  width: 100%;
+  margin: 0 50px;
+  margin-bottom: 50px;
   border-radius: 10px;
 
+  .widthMax {
+    max-width: 1100px;
+  }
+
   .groupCover {
-    max-width: 700px;
+    margin-bottom: 10px;
+    max-width: $tempWidth;
   }
 
   .welcomeText {
@@ -21,18 +33,18 @@
     top: 0;
     left: 0;
     z-index: -1;
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
 
     // @todo uncomment this when welcome text show hide logic will be implemented
     display: none;
 
     > div {
-      max-width: 700px;
-      @include font-size(xxxlg);
+      max-width: $tempWidth;
+      @include fontSize(xxxlg);
 
       h2,
       p {
@@ -40,80 +52,161 @@
       }
 
       h2 {
-        @include font-weight(semiBold);
+        @include fontWeight(semiBold);
       }
 
       p {
-        @include font-size(lg);
+        @include fontSize(lg);
+      }
+    }
+  }
+
+  .headroom {
+    position: relative;
+    z-index: 20;
+
+    &:before {
+      position: fixed;
+      z-index: 11;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      transition: opacity 0.5s;
+      opacity: 1;
+    }
+
+    &.overlay {
+      &:before {
+        content: '';
+      }
+    }
+
+    > div {
+      position: relative;
+      z-index: 11 !important;
+
+      &:before {
+        content: '';
+        position: fixed;
+        z-index: 10;
+        top: -300px;
+        left: 0px;
+        width: 100%;
+        height: 1px;
+        box-shadow: 0px 0px 150px 150px rgba(0, 0, 0, 0.85);
+        transition: top 300ms linear;
+      }
+
+      &[class*='headroom--unpinned'],
+      &[class*='headroom--scrolled'] {
+        padding-left: 95px;
+      }
+
+      &[class*='headroom--pinned'] {
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50px;
+          left: 0;
+          z-index: 10;
+          width: 130%;
+          height: 1px;
+          background: white;
+          opacity: 0.4;
+        }
+
+        &:before {
+          top: -50px;
+        }
       }
     }
   }
 
   .wrapper {
     width: 100%;
-    display: flex;
 
-    .tags {
+    .promotedTags {
+      position: fixed;
+      z-index: 1;
       width: 100%;
+      padding: 0px 94px;
+      left: 0;
+    }
+
+    .groupMembers {
       margin-top: 10px;
+      padding: 10px;
+      border-radius: $borderRadius;
     }
 
     .content {
+      position: relative;
       display: flex;
-      max-width: 700px;
-      background: $theme1;
+      gap: 8px;
+      max-width: $tempWidth;
 
-      .column {
-        min-width: 200px;
-        min-height: 100%;
-        border-right: 1px solid $theme9;
+      &.widthMax {
+        max-width: 1100px;
       }
 
-      .groupMembers {
-        margin-top: 10px;
-        padding: 10px;
-        border-radius: $borderRadius;
+      .tagsColumn {
+        min-width: 200px;
+        min-height: 100%;
+      }
+
+      .columns {
+        display: flex;
+        gap: 8px;
+
+        .postDetails {
+          width: 100%;
+          margin-bottom: 5px;
+          border-radius: $borderRadius;
+        }
       }
 
       .posts {
         display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px;
+        width: 100%;
+        background: $theme2;
         border-radius: $borderRadius;
+
+        .loading {
+          width: 60px;
+          margin: 25px auto;
+        }
 
         .postCreate {
           display: flex;
-          margin: 10px;
           border-radius: $borderRadius;
-          background: $theme9;
-          padding: 7px;
-          border: 3px solid $theme9;
-
-          &:hover {
-            border-color: $theme4;
-          }
         }
 
-        .post {
-          padding: 7px;
-          border: 3px solid $theme9;
-          background: $theme9;
+        .postsList {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          
+          .post {
+            padding: 7px;
+            border: 3px solid $theme1;
 
-          > div {
-            opacity: 0.9;
-          }
-
-          &:hover {
-            border-color: $theme4;
-
-            > div {
-              opacity: 1;
+            &:hover {
+              border-color: $theme4;
             }
           }
         }
       }
 
       .noPostsFound {
-        padding: 20px;
+        width: 100%;
+        padding: 10px;
         border-radius: $borderRadius;
+        background: $theme2;
 
         .postCreate {
           padding: 10px;
@@ -121,22 +214,19 @@
         }
 
         .header {
-          @include font-weight(semiNormal);
-          @include font-size(lg);
-          margin-bottom: 20px;
+          @include fontWeight(semiNormal);
+          @include fontSize(lg);
+          margin-bottom: 15px;
 
           span {
-            @include font-weight(semiBold);
+            @include fontWeight(semiBold);
           }
         }
       }
 
       .pagination {
         justify-content: center;
-        margin: 30px 0;
-      }
-
-      .postDetails {
+        margin: 20px 0;
       }
     }
   }

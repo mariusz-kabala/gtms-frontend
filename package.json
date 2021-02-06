@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@datorama/akita": "^4.19.2",
+    "@datorama/akita": "^5.3.0",
     "@zeit/next-sass": "^1.0.1",
     "atob": "^2.1.2",
     "classnames": "^2.2.6",
@@ -25,8 +25,7 @@
     "react-sortablejs": "^2.0.11",
     "react-switch": "^5.0.1",
     "react-tippy": "^1.4.0",
-    "react-transition-group": "^4.4.1",
-    "rxjs": "^6.5.4",
+    "rxjs": "^6.6.3",
     "use-key-hook": "^1.5.0",
     "yup": "^0.29.1"
   },
@@ -56,7 +55,6 @@
     "@types/react-dom": "^16.9.5",
     "@types/react-facebook-login": "^4.1.1",
     "@types/react-test-renderer": "^16.9.2",
-    "@types/react-transition-group": "^4.4.0",
     "@types/testing-library__dom": "^7.0.0",
     "@types/testing-library__jest-dom": "^5.0.1",
     "@types/testing-library__react": "^10.0.0",

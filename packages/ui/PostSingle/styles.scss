@@ -1,4 +1,4 @@
-@import '@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
@@ -7,13 +7,29 @@
 
 .wrapper {
   position: relative;
-  margin: 10px;
+  padding: 10px;
   border-radius: $borderRadius;
-  cursor: pointer;
+  border: 3px solid rgba(0, 0, 0, 0);
 
-  .bbb {
+  &.isNotFullPost {
+    background: $theme2;
+
+    &:hover {
+      border-color: $theme4;
+    }
+  }
+
+  .groupDetails {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $theme1;
+    cursor: pointer;
+  }
+
+  .postHeader {
     position: relative;
     display: flex;
+    align-items: center;
 
     .userAvatar {
       width: 35px;
@@ -22,58 +38,94 @@
       min-height: 35px;
       margin-right: 5px;
       border-radius: 50%;
+
+      &:hover {
+        @include effectColorTransparentOverlay('circle');
+      }
     }
 
     .actionButtons {
-      // @todo this needs to be done better position absolute is quite lame
-      position: absolute;
-      top: -15px;
-      right: 0;
       display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px; // align it properly in post container
     }
 
-    .userName {
-      display: inline-block;
-      margin-top: 5px;
-      @include font-size(xs);
+    .userNameAndDate {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      @include fontSize(xs);
       text-transform: uppercase;
+      margin-bottom: 15px; // align it properly in post container
+
+      .date {
+        margin-left: 5px;
+        @include fontSize(xxs);
+        @include fontWeight(semiNormal);
+      }
     }
 
-    .date,
     .deleteBtn {
-      margin-top: 4px;
-      margin-left: 5px;
-      @include font-size(xxs);
-      @include font-weight(semiNormal);
-    }
-
-    .deleteBtn {
+      @include fontSize(xxs);
+      @include fontWeight(semiNormal);
       opacity: 0;
+      margin-top: 2px;
       margin-left: auto;
     }
   }
 
   .content {
-    margin-top: -15px;
-
-    .message {
-      @include font-size(xxs);
-      margin-top: 2px;
-      text-indent: 40px;
-      line-height: 1.25;
+    .tagGroup {
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
-    .text {
-      margin-top: 5px;
+    .message {
+      @include fontSize(sm);
+      margin-top: -15px;
+      text-indent: 40px;
+      line-height: 1.25;
+      white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
+    }
 
-      > * {
-        white-space: pre-wrap; // it helps to avoid overwidth of element with code inside
+    .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      grid-gap: 10px;
+      margin-top: 15px;
+
+      .item a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: $borderRadius;
+
+        &:hover {
+          @include effectColorTransparentOverlay();
+        }
+      }
+    }
+
+    .btn {
+      @include buttonDefault();
+      @include buttonSizeSm();
+      @include buttonShapeDefault();
+      @include buttonColorsSecondary();
+      @include buttonWithIcon(right);
+      width: 100%;
+      margin-top: 15px;
+
+      &:hover {
+        @include buttonColorsPrimary();
       }
     }
   }
 
   &:hover {
-    .bbb {
+    .postHeader {
       .deleteBtn {
         opacity: 1;
       }
@@ -89,7 +141,7 @@
     @include buttonDefault();
     @include buttonShapeDefault();
     @include buttonSizeSm();
-    @include buttonColorsDefault();
+    @include buttonColorsSecondary();
     margin-right: auto;
 
     &:hover {
@@ -101,29 +153,10 @@
     @include buttonDefault();
     @include buttonShapeDefault();
     @include buttonSizeSm();
-    @include buttonColorsDefault();
+    @include buttonColorsSecondary();
 
     &:hover {
       @include buttonColorsPrimary();
-    }
-  }
-}
-
-.images {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  grid-gap: 10px;
-  margin: 15px 0;
-
-  .item a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: $borderRadius;
-
-    &:hover {
-      @include effectOne();
     }
   }
 }

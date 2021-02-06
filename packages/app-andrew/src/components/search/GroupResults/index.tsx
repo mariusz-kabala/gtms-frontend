@@ -1,33 +1,34 @@
 import React, { FC } from 'react'
 import { IGroup } from '@gtms/commons/models'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // ui
-import { MockData } from '@gtms/ui/MockData'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { GroupSingle } from '@gtms/ui/GroupSingle'
+import { MockData } from '@gtms/ui/MockData'
 import { Pagination } from '@gtms/ui/Pagination'
 // styles
 import styles from './styles.scss'
 
 export const GroupResults: FC<{
-  isLoading: boolean
-  isError: boolean
   docs: IGroup[]
-  tags: string[]
+  getCurrentUrl?: (page: number) => string
+  isError: boolean
+  isLoading: boolean
   limit: number
   offset: number
-  total: number
-  getCurrentUrl?: (page: number) => string
   onChangePage: (page: number) => unknown
+  tags: string[]
+  total: number
 }> = ({
-  isLoading,
-  isError,
   docs,
-  tags,
+  getCurrentUrl,
+  isError,
+  isLoading,
   limit,
   offset,
-  total,
-  getCurrentUrl,
   onChangePage,
+  tags,
+  total,
 }) => {
   return (
     <div data-testid="search-group-results">
@@ -42,25 +43,36 @@ export const GroupResults: FC<{
         <>
           {docs.map((group) => (
             <GroupSingle
-              noUserAvatar={UserAvatarNoImage}
-              key={`group-${group.id}`}
               {...group}
               activeTags={tags}
+              key={`group-${group.id}`}
+              noUserAvatar={UserAvatarNoImage}
             />
           ))}
-          <div className={styles.pagination}>
-            <Pagination
-              limit={limit}
-              offset={offset}
-              total={total}
-              onClick={onChangePage}
-              getCurrentUrl={getCurrentUrl}
-            />
-          </div>
+          <Pagination
+            additionalStyles={styles.pagination}
+            getCurrentUrl={getCurrentUrl}
+            limit={limit}
+            offset={offset}
+            onClick={onChangePage}
+            total={total}
+          />
         </>
       )}
       {!isLoading && !isError && docs.length == 0 && <p>No records</p>}
-      {!isLoading && isError && <div>ERROR STATE, SHOW SOMETHING HERE</div>}
+      {!isLoading && isError && (
+        <ErrorWrapper>
+          <h2 data-testid="notifications-settings">
+            {/* @todo add proper error msg with translation */}
+            Error Lorem ipsum dolor
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+            minima quasi eaque molestiae cupiditate ab deserunt magnam veritatis
+            rem
+          </p>
+        </ErrorWrapper>
+      )}
     </div>
   )
 }

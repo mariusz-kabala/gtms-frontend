@@ -59,8 +59,8 @@ export const tagPageState = (): ITagPageState => {
   }
 }
 
-export const tagPageState$: Observable<ITagPageState> = combineLatest(
+export const tagPageState$: Observable<ITagPageState> = combineLatest([
   groupsListQuery.selectAll(),
   usersListQuery.selectAll(),
-  postsSearchQuery.selectAll()
-).pipe(map(() => tagPageState()))
+  postsSearchQuery.selectAll(),
+]).pipe(map(() => tagPageState()))

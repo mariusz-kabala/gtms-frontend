@@ -4,8 +4,8 @@ import { findTagsAPI, fetchSuggestedTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 import { uploadPostImage } from '@gtms/api-post'
 import { deleteTmpFileAPI } from '@gtms/api-file'
-import { UserAvatarNoImage } from 'enums'
-import { openLoginModal } from 'state'
+import { UserAvatarNoImage } from '@app/enums'
+import { openLoginModal } from '@app/state'
 import {
   IPostCreateState,
   postCreateState,
@@ -17,6 +17,7 @@ import { PostCreate as PostCreateUI } from '@gtms/ui/PostCreate'
 import { Button } from '@gtms/ui/Button'
 import { UploadFile } from '@gtms/ui/UploadFile'
 import { IoIosCloseCircle, IoMdSend } from 'react-icons/io'
+import { BsFillImageFill } from 'react-icons/bs'
 // styles
 import styles from './styles.scss'
 
@@ -25,6 +26,7 @@ export const PostCreate: FC<{
   groupId: string
 }> = ({ additionalStyles, groupId }) => {
   const [state, setState] = useState<IPostCreateState>(postCreateState())
+  const [value, setValue] = useState<string>('')
   const [showSendButton, setShowSendButton] = useState<boolean>(false)
   const [fileUploadState, setfileUploadState] = useState<{
     isVisible: boolean
@@ -128,32 +130,18 @@ export const PostCreate: FC<{
   }, [])
   return (
     <div
-      onClick={() => (showSendButton ? null : setShowSendButton(true))}
+      onClick={() => setShowSendButton(true)}
       className={cx(styles.wrapper, additionalStyles)}
     >
       <PostCreateUI
+        fetchSuggestedTags={fetchSuggestedTagsAPI}
         fetchTags={findTagsAPI}
         fetchUsers={findbyUsernameAPI}
-        fetchSuggestedTags={fetchSuggestedTagsAPI}
-        onFocus={() =>
-          setfileUploadState((state) => ({
-            ...state,
-            isVisible: true,
-          }))
-        }
-        user={state.user}
         noImage={UserAvatarNoImage}
-        onSubmit={(text: string) => {
-          createNewPost({
-            group: groupId,
-            text,
-            files: fileUploadState.files.map((file) => ({
-              id: file.id,
-              url: file.url,
-            })),
-          })
-        }}
         onLoginRequest={openLoginModal}
+        setValue={setValue}
+        user={state.user}
+        value={value}
       />
 
       {fileUploadState.isVisible && fileUploadState.files.length < 5 && (
@@ -192,12 +180,49 @@ export const PostCreate: FC<{
       )}
 
       {showSendButton && (
-        <Button additionalStyles={styles.btnSubmit} type="submit">
-          send
-          <i>
-            <IoMdSend />
-          </i>
-        </Button>
+        <div className={styles.buttons}>
+          <Button
+            additionalStyles={cx(styles.btn, styles.btnImages)}
+            type="submit"
+            onClick={() =>
+              setfileUploadState((state) => ({
+                ...state,
+                isVisible: !state.isVisible,
+              }))
+            }
+          >
+            <i>
+              <BsFillImageFill />
+            </i>
+            add images
+          </Button>
+          <Button
+            additionalStyles={styles.btn}
+            type="submit"
+            disabled={value === ''}
+            onClick={() => {
+              if (!state.user) {
+                openLoginModal()
+                return
+              }
+
+              createNewPost({
+                group: groupId,
+                text: value,
+                files: fileUploadState.files.map((file) => ({
+                  id: file.id,
+                  url: file.url,
+                })),
+              })
+              setValue('')
+            }}
+          >
+            send
+            <i>
+              <IoMdSend />
+            </i>
+          </Button>
+        </div>
       )}
     </div>
   )

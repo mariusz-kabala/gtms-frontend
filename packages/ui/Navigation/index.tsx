@@ -24,7 +24,11 @@ export const Navigation: FC<{
       {avatar && (
         <Link href="/account">
           <a>
-            <UserAvatar additionalStyles={styles.avatar} image={avatar} />
+            <UserAvatar
+              additionalStyles={styles.avatar}
+              image={avatar}
+              size="sm"
+            />
           </a>
         </Link>
       )}
@@ -36,6 +40,7 @@ export const Navigation: FC<{
                 [styles.active]: active.includes(value.id),
               })}
               key={index}
+              data-testid={`navigation-item-${value.id}`}
             >
               {value?.onClick && (
                 <a

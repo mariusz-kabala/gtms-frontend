@@ -18,7 +18,8 @@ export interface IGroupAvatar {
 export interface IGroupBg {
   status: FileStatus
   files: {
-    '200x200'?: IImage
+    mini?: IImage
+    origin?: IImage
   }
 }
 

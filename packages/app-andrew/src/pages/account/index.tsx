@@ -2,10 +2,11 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
 import { useTranslation } from '@gtms/commons/i18n'
 import { FileStatus } from '@gtms/commons/enums'
-import { UserEmail } from 'components/account/UserEmail'
-import { UserName } from 'components/account/UserName'
-import { Navigation, Tabs } from 'components/account/Navigation'
-import { UserDescription } from 'components/account/UserDescription'
+import { UserEmail } from '@app/components/account/UserEmail'
+import { UserName } from '@app/components/account/UserName'
+import { Navigation, Tabs } from '@app/components/account/Navigation'
+import { UserDescription } from '@app/components/account/UserDescription'
+import { MyPosts } from '@app/components/account/MyPosts'
 import {
   userQuery,
   markAsLoading,
@@ -17,18 +18,22 @@ import {
 import { redirect } from '@gtms/commons/helpers/redirect'
 import { useInitState } from '@gtms/commons/hooks'
 import { findTagsAPI } from '@gtms/api-tags'
-import { UserAvatarNoImage, GroupAvatarNoImage } from 'enums'
-import { accountPageState, accountPageState$, IAccountPageState } from 'queries'
+import { UserAvatarNoImage, GroupAvatarNoImage } from '@app/enums'
+import {
+  accountPageState,
+  accountPageState$,
+  IAccountPageState,
+} from '@app/queries'
 // ui
 import { IoIosAddCircle, IoMdTrash, IoIosSettings } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { ImageEditor } from '@gtms/ui/ImageEditor'
-import { MockData } from '@gtms/ui/MockData'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 import { TagsBar } from '@gtms/ui/TagsBar'
 import { UserGroups } from '@gtms/ui/UserGroups'
+// styles
 import styles from './styles.scss'
 
 type AccountPageProps = {
@@ -146,7 +151,6 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                       state.avatar.status
                     ) && <Spinner />}
                     <Picture
-                      additionalStyles={styles.avatar}
                       {...(userQuery.hasAvatar('200x200')
                         ? userQuery.getAvatar('200x200')
                         : UserAvatarNoImage['200x200'])}
@@ -228,14 +232,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                   noImage={GroupAvatarNoImage}
                 />
               </div>
-              <div className={styles.userLastPosts}>
-                <span>My last posts:</span>
-                <div className={styles.noRecords}>
-                  <MockData />
-                  <MockData onClick={() => null} text="No posts, create some" />
-                  <MockData numberOfElements={4} />
-                </div>
-              </div>
+              <MyPosts />
             </div>
           </>
         )}

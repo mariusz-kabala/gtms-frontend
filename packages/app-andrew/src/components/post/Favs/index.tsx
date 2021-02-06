@@ -1,12 +1,12 @@
 import React, { FC, useState, useEffect, useCallback } from 'react'
-import { IoIosStarOutline, IoIosStar } from 'react-icons/io'
 import { IFavsState, favsState, favsState$ } from './state.query'
 import { addPostToFavs, removeFromFavs, getPostFavs } from '@gtms/api-post'
 import { getDisplayName } from '@gtms/commons/helpers'
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 import { addErrorNotification } from '@gtms/state-notification'
 import { Tooltip } from 'react-tippy'
 // ui
+import { IoIosStarOutline, IoIosStar } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
@@ -69,6 +69,7 @@ export const Favs: FC<{
 
   return (
     <Button
+      additionalStyles={styles.btn}
       onClick={() => {
         if (!state.isLogged) {
           return openLoginModal()
@@ -95,7 +96,6 @@ export const Favs: FC<{
           )
       }}
       testid="post-favs"
-      additionalStyles={styles.btn}
     >
       <Tooltip
         onShow={onTooltipShow}

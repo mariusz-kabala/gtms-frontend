@@ -6,38 +6,18 @@
 .wrapper {
   position: relative;
   width: 100%;
-  @include gridDefault(6);
 
-  .emptyBox {
-    width: 100%;
-    height: 150px;
-    background: $theme9;
-    border-radius: $borderRadius;
-  }
+  .addButton {
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapeDefault();
+    @include buttonWithIcon('left');
+    @include buttonColorsDefault();
+    height: 200px;
+    margin-bottom: 10px; // to avoid cut left edge of parent with big border radius
 
-  .btnWrapper {
-    width: 100%;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: $borderRadius;
-    background: $theme9;
-
-    .addButton {
-      @include buttonDefault();
-      @include buttonSizeDefault();
-      @include buttonShapeDefault();
-      @include buttonWithIcon();
-      @include buttonColorsSecondary();
-
-      i {
-        margin-right: 3px;
-      }
-
-      &:hover {
-        @include buttonColorsPrimary();
-      }
+    &:hover {
+      @include buttonColorsPrimary();
     }
   }
 }

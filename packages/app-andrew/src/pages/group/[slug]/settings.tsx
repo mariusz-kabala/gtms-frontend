@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { NextPage, NextPageContext } from 'next'
-import { useTranslation } from '@gtms/commons/i18n'
 import {
   groupQuery,
   IGroupState,
@@ -8,8 +7,12 @@ import {
   markAsLoading,
 } from '@gtms/state-group'
 import { hasAuthSessionCookies } from '@gtms/state-user'
-import { changePageBackground } from 'state'
-import { redirect } from '@gtms/commons/helpers/redirect'
+import {
+  changePageBackground,
+  clearPageBackground,
+  changePageBackgroundImage,
+} from '@app/state'
+import { redirect, getImage } from '@gtms/commons/helpers'
 import { IGroup } from '@gtms/commons/models'
 import { useInitState } from '@gtms/commons/hooks'
 // state
@@ -17,23 +20,24 @@ import {
   IGroupSettingsPageState,
   groupSettingsPageState,
   groupSettingsPageState$,
-} from 'queries/groupSettingsPage.query'
+} from '@app/queries/groupSettingsPage.query'
 // components
-import { GroupHeader } from 'components/group/GroupHeader'
-import { PromotedTags } from 'components/group/PromotedTags'
-import { GroupDeleteGroup } from 'components/group/GroupDeleteGroup'
+import { GroupHeader } from '@app/components/group/GroupHeader'
+import { PromotedTags } from '@app/components/group/PromotedTags'
+import { GroupDeleteGroup } from '@app/components/group/GroupDeleteGroup'
 import {
   GroupSettingsSidebar,
   Tabs,
-} from 'components/group/GroupSettingsSidebar'
-import { GroupMembers } from 'components/group/GroupMembers'
-import { AdminsSettings } from 'components/group-settings/Admins'
-import { BasicSettings } from 'components/group-settings/Basic'
-import { GroupBackgroundSettings } from 'components/group-settings/GroupBackground'
-
-import { InvitationsSettings } from 'components/group-settings/Invitations'
-import { MembersSettings } from 'components/group-settings/Members'
-import { TagsSettings } from 'components/group-settings/Tags'
+} from '@app/components/group/GroupSettingsSidebar'
+import { AdminsSettings } from '@app/components/group-settings/Admins'
+import { BasicInfoSetup } from '@app/components/group-settings/BasicInfoSetup'
+import { GroupBackgroundSettings } from '@app/components/group-settings/GroupBackground'
+import { GroupMembers } from '@app/components/group/GroupMembers'
+import { PermissionsSetup } from '@app/components/group-settings/PermissionsSetup'
+// sections
+import { InvitationsSettings } from '@app/components/group-settings/Invitations'
+import { MembersSettings } from '@app/components/group-settings/Members'
+import { TagsSettings } from '@app/components/group-settings/Tags'
 // ui
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -61,7 +65,6 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
 }) => {
   useInitState(markAsLoading)
 
-  const { t } = useTranslation('groupSettingsPage')
   const [group, setGroup] = useState<IGroupState>(groupQuery.getValue())
   const [tab, setTab] = useState<Tabs>(Tabs.general)
   const [state, setState] = useState<IGroupSettingsPageState>(
@@ -78,7 +81,14 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
       }
 
       if (value.group?.bgType) {
-        changePageBackground(value.group?.bgType)
+        if (value.group?.bgType === 'file') {
+          changePageBackgroundImage(
+            getImage('origin', value.group.bg).jpg,
+            getImage('mini', value.group.bg).jpg
+          )
+        } else {
+          changePageBackground(value.group?.bgType)
+        }
       }
 
       setGroup(value)
@@ -89,6 +99,7 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
     })
 
     return () => {
+      clearPageBackground()
       groupSub && !groupSub.closed && groupSub.unsubscribe()
       sub && !sub.closed && sub.unsubscribe()
     }
@@ -96,54 +107,59 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
 
   if (group.notFound) {
     return (
-      // @todo add translation
-      <p>Group not found</p>
+      <ErrorWrapper>
+        <h2>Group not found</h2>
+      </ErrorWrapper>
     )
   }
 
   return (
-    <div className={styles.pageWrapper}>
-      <div className={styles.wrapper} data-testid="group-settings-page">
-        <GroupHeader />
-        {state.showPromoted && (
-          <PromotedTags
-            additionalStyles={styles.tags}
-            onTagClick={() => null}
-          />
-        )}
-        {state.showUsers && (
-          <GroupMembers
-            additionalStyles={styles.groupMembers}
-            slug={state.groupSlug}
-            {...state.members}
-          />
-        )}
-        {group.isLoading && !group.errorOccured && (
-          <Spinner additionalStyles={styles.spinner} />
-        )}
-        {!group.isLoading && group.errorOccured && (
-          <ErrorWrapper>
-            <h2>Can not fetch group details, try again later</h2>
-          </ErrorWrapper>
-        )}
-        {!group.isLoading && !group.errorOccured && (
-          <div className={styles.content}>
-            <GroupSettingsSidebar tab={tab} setTab={setTab} />
-            <div className={styles.rightColumn}>
-              <div className={styles.navigationWrapper}>
-                <h2 className={styles.header}>{t('header')}</h2>
-              </div>
-
+    <div className={styles.pageWrapper} data-testid="group-settings-page">
+      <GroupHeader additionalStyles={styles.groupHeader} />
+      {state.showPromoted && (
+        <PromotedTags
+          additionalStyles={styles.promotedTags}
+          onTagClick={() => null}
+        />
+      )}
+      {state.showUsers && (
+        <GroupMembers
+          additionalStyles={styles.groupMembers}
+          slug={state.groupSlug}
+          {...state.members}
+        />
+      )}
+      {!group.isLoading && group.errorOccured && (
+        <ErrorWrapper>
+          <h2>Can not fetch group details, try again later</h2>
+        </ErrorWrapper>
+      )}
+      {group.isLoading && !group.errorOccured && (
+        <Spinner additionalStyles={styles.spinner} />
+      )}
+      {!group.isLoading &&
+        !group.errorOccured &&
+        !(state.showPromoted || state.showUsers) && (
+          <div className={styles.columns}>
+            <GroupSettingsSidebar
+              additionalStyles={styles.sidebar}
+              tab={tab}
+              setTab={setTab}
+            />
+            <div className={styles.content}>
               {tab === Tabs.general && (
                 <>
+                  {group.group && <BasicInfoSetup group={group.group} />}
                   {group.group && (
                     <GroupBackgroundSettings group={group.group} />
                   )}
-                  {group.group && <BasicSettings group={group.group} />}
-                  <GroupDeleteGroup
-                    additionalStyles={styles.btnDelete}
-                    onConfirm={() => null}
-                  />
+                  {group.group && <PermissionsSetup group={group.group} />}
+                  <div className={styles.btnDeleteWrapper}>
+                    <GroupDeleteGroup
+                      additionalStyles={styles.btnDelete}
+                      onConfirm={() => null}
+                    />
+                  </div>
                 </>
               )}
 
@@ -168,7 +184,6 @@ export const GroupSettingsPage: NextPage<GroupSettingsPageProps> = ({
             </div>
           </div>
         )}
-      </div>
     </div>
   )
 }

@@ -23,6 +23,5 @@ export const myGroupsPageState = (): IMyGroupsPageState => ({
 })
 
 export const myGroupsPageState$: Observable<IMyGroupsPageState> = combineLatest(
-  myGroupsQuery.groups$,
-  myGroupsQuery.status$
+  [myGroupsQuery.groups$, myGroupsQuery.status$]
 ).pipe(map(() => myGroupsPageState()))

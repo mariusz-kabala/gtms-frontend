@@ -3,16 +3,15 @@ import cx from 'classnames'
 import App, { AppContext } from 'next/app'
 import Head from 'next/head'
 import { appWithTranslation } from '@gtms/commons/i18n'
-import { NavigationWrapper } from 'components/commons/NavigationWrapper'
-import { NotificationsSidebar } from 'components/commons/NotificationsSidebar'
-import { NotificationsActive } from 'components/commons/NotificationsActive'
+import { NavigationWrapper } from '@app/components/commons/NavigationWrapper'
+import { NotificationsSidebar } from '@app/components/commons/NotificationsSidebar'
+import { NotificationsActive } from '@app/components/commons/NotificationsActive'
+import { GroupPreview } from '@app/components/commons/GroupPreview'
 import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
-import { LoginWindow } from 'components/commons/LoginWindow'
-import { uiQuery } from 'state'
-// ui
 import { CookiePolicy } from '@gtms/ui/CookiePolicy'
-// styles
+import { LoginWindow } from '@app/components/commons/LoginWindow'
+import { uiQuery } from '@app/state'
 import '@gtms/styles/scss/global.scss'
 import './tooltip.scss'
 import './lightbox.scss'
@@ -29,10 +28,11 @@ interface GTMSAppProps {
 
 interface GTMSAppState {
   background: {
-    name: string
+    name: string | null
     className: string
   }
-  backgroundImage?: string
+  backgroundImage?: { mini: string; full: string }
+  backgroundLoaded: boolean
 }
 
 class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
@@ -43,17 +43,40 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
 
     this.state = {
       ...uiQuery.pageBackgrounds(),
+      backgroundLoaded: false,
     }
   }
+
+  onBgLoad = () =>
+    this.setState({
+      backgroundLoaded: true,
+    })
 
   componentDidMount() {
     const { auth } = this.props
 
-    this.subscription = uiQuery.pageBackground$.subscribe((value) =>
-      this.setState({
-        background: value,
-      })
-    )
+    this.subscription = uiQuery.pageBackgrounds$.subscribe((value) => {
+      this.setState(value)
+
+      let full: string | undefined = undefined
+
+      if (value.backgroundImage) {
+        full = value.backgroundImage.full
+      } else if (value.background.full) {
+        full = value.background.full
+      }
+
+      if (full) {
+        const img = new Image()
+        img.src = full
+
+        if (img.complete) {
+          this.onBgLoad()
+        } else {
+          img.onload = this.onBgLoad
+        }
+      }
+    })
 
     if (auth?.accessToken && auth.refreshToken) {
       init(
@@ -74,8 +97,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
 
   render() {
     const { Component, pageProps } = this.props
-    const { background, backgroundImage } = this.state
-
+    const { background, backgroundImage, backgroundLoaded } = this.state
     return (
       <div className={styles.appWrapper}>
         <Head>
@@ -86,16 +108,40 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <NotificationsActive />
         <NotificationsSidebar />
         <NavigationWrapper />
+        <GroupPreview />
         <Component {...pageProps} />
+        <div
+          className={cx(
+            styles.fullPageBg,
+            !backgroundImage ? background.className : undefined
+          )}
+          data-loaded={backgroundLoaded ? 'true' : 'false'}
+          style={
+            backgroundImage
+              ? {
+                  backgroundImage: `url(${
+                    backgroundLoaded
+                      ? backgroundImage.full
+                      : backgroundImage.mini
+                  })`,
+                }
+              : undefined
+          }
+        />
         <div
           className={cx(
             styles.bg,
             !backgroundImage ? background.className : undefined
           )}
+          data-loaded={backgroundLoaded ? 'true' : 'false'}
           style={
             backgroundImage
               ? {
-                  background: `url(${backgroundImage}) no-repeat`,
+                  backgroundImage: `url(${
+                    backgroundLoaded
+                      ? backgroundImage.full
+                      : backgroundImage.mini
+                  })`,
                 }
               : undefined
           }

@@ -5,6 +5,7 @@ $columns: (
   5: 1fr 1fr 1fr 1fr 1fr,
   6: 1fr 1fr 1fr 1fr 1fr 1fr,
   7: 1fr 1fr 1fr 1fr 1fr 1fr 1fr,
+  10: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr,
 );
 
 @function getColumnSize($key) {
@@ -13,7 +14,7 @@ $columns: (
 
 @mixin gridDefault($key) {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   grid-template-columns: getColumnSize($key);
   list-style-type: none; // in case of <ul> element
 }
@@ -24,7 +25,7 @@ $columns: (
   grid-template-columns: 1fr 1fr;
 
   > * {
-    margin-right: 15px;
+    margin-right: 10px;
     @include buttonDefault();
     @include buttonSizeDefault();
     @include buttonShapeDefault();

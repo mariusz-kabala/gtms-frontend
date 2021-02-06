@@ -1,22 +1,17 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
-@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .modalContent {
-  @include modalContent();
-  > div {
-    min-width: auto; // to overwrite include modal()
-  }
-
   button[type='submit'] {
     margin-bottom: 20px;
   }
 
   .header {
-    font-size: 3em;
+    // create a mixin of that
     text-transform: uppercase;
-    @include font-weight(bold);
+    @include fontSize(xlg);
+    @include fontWeight(semiBold);
     margin-bottom: 10px;
   }
 }
@@ -28,7 +23,7 @@
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapeDefault();
-  @include buttonColorsDefault();
+  @include buttonColorsSecondary();
 
   &:hover {
     @include buttonColorsPrimary();

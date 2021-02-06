@@ -7,22 +7,23 @@
 
 .wrapper {
   > .header {
-    @include font-weight(normal);
-    @include font-size(md);
+    @include fontWeight(normal);
+    @include fontSize(md);
     margin-bottom: 10px;
   }
 
   .list {
     padding: 10px;
-    border: 2px solid $theme1;
+    border: 2px solid $theme2;
     border-radius: $borderRadius;
+    background: $theme2;
 
     &:hover {
       border-color: $theme4;
     }
 
     .header {
-      @include font-weight(normal);
+      @include fontWeight(normal);
     }
 
     .item {
@@ -41,7 +42,7 @@
     @include buttonSizeDefault();
     @include buttonShapeDefault();
     @include buttonColorsDefault();
-    @include buttonWithIcon();
+    @include buttonWithIcon('left');
     margin-top: 5px;
     margin-left: auto;
 

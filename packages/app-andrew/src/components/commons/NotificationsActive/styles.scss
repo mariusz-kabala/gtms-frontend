@@ -2,13 +2,12 @@
 
 .wrapper {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 15px;
+  right: 15px;
   height: 100%;
 
   .notification {
-    max-width: 300px;
-    margin-top: 10px;
-    margin-right: 10px;
+    max-width: 350px;
+    margin-bottom: 15px; // for more than one notificaiton in column
   }
 }

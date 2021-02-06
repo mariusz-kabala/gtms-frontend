@@ -1,7 +1,6 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
-@import '~@gtms/styles/scss/mixins/modal.scss';
 
 .wrapper {
   display: flex;
@@ -34,27 +33,32 @@
     }
   }
 
-  .header {
-    @include font-size(lg);
-    @include font-weight(semiBold);
-  }
+  .headerAndDesc {
+    cursor: pointer;
 
-  .description {
-    @include font-size(xdefault);
-  }
-}
+    &:hover {
+      color: $theme4;
+    }
 
-.formModalContent,
-.fileUploadModalContent {
-  @include modalContent();
+    .header {
+      @include fontSize(lg);
+      @include fontWeight(semiBold);
+    }
+
+    .description {
+      @include fontSize(xdefault);
+    }
+  }
 }
 
 .btnSave {
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapeDefault();
-  @include buttonColorsDefault();
+  @include buttonColorsSecondary();
+  @include buttonWithSpinnerAndLabel(left);
   width: 100%;
+  margin-top: 8px;
 
   &:hover {
     @include buttonColorsPrimary();

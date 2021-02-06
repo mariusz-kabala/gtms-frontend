@@ -1,4 +1,4 @@
-@mixin effectOne($radius: null) {
+@mixin effectColorTransparentOverlay($radius: null, $borderWidth: null) {
   position: relative;
   &:after {
     content: '';
@@ -11,15 +11,21 @@
     border: 2px solid $theme4;
   }
 
+  @if $radius == 'defaultRadius' {
+    &:after {
+      border-radius: 5px;
+    }
+  }
+
   @if $radius == 'circle' {
     &:after {
       border-radius: 50%;
     }
   }
 
-  @if $radius == 'defaultRadius' {
+  @if $borderWidth {
     &:after {
-      border-radius: 5px;
+      border-width: $borderWidth;
     }
   }
 }

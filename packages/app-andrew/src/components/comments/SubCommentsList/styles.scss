@@ -1,3 +1,16 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
+
 .wrapper {
-  margin-left: 15px;
+  .btnRespond {
+    @include buttonDefault();
+    @include buttonSizeSm();
+    @include buttonShapeDefault();
+    @include buttonColorsSecondary();
+    width: 100%;
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
+  }
 }

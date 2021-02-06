@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
-import { LoginForm } from 'components/login/Form'
-import { SocialButtons } from 'components/login/SocialButtons'
-import { uiQuery } from 'state'
+import { LoginForm } from '@app/components/login/Form'
+import { SocialButtons } from '@app/components/login/SocialButtons'
+import { uiQuery, closeLoginModal } from '@app/state'
 import { Link } from '@gtms/commons/i18n'
 // ui
 import { Modal } from '@gtms/ui/Modal'
@@ -25,10 +25,7 @@ export const LoginWindow: FC<{}> = () => {
   }
 
   return (
-    <Modal
-      additionalStyles={styles.modalContent}
-      onClose={() => setIsOpen(false)}
-    >
+    <Modal additionalStyles={styles.modalContent} onClose={closeLoginModal}>
       <h2 className={styles.header}>Login</h2>
       <LoginForm />
       <SocialButtons onFailure={() => null} />

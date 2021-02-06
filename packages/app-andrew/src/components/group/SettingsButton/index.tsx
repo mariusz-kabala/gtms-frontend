@@ -6,6 +6,7 @@ import { myGroupsQuery, userQuery } from '@gtms/state-user'
 import { useRouter } from 'next/router'
 // ui
 import { GoSettings } from 'react-icons/go'
+// styles
 import styles from './styles.scss'
 
 export const SettingsButton: FC<{

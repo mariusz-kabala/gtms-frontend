@@ -1,8 +1,9 @@
 import React, { FC, useState, useEffect } from 'react'
+import cx from 'classnames'
 // state
 import { postsQuery } from '@gtms/state-post'
 // ui
-import { GroupSidebar } from 'components/group/Sidebar'
+import { GroupSidebar } from '@app/components/group/Sidebar'
 import { SearchBar } from '@gtms/ui/SearchBar'
 // styles
 import styles from './styles.scss'
@@ -17,7 +18,10 @@ const getState = (value = postsQuery.getValue()) => ({
   activeUsers: value.users || [],
 })
 
-export const GroupHeader: FC<{}> = () => {
+export const GroupHeader: FC<{
+  additionalStyles?: string
+  setIsOverlayVisible?: (param: boolean) => void
+}> = ({ additionalStyles, setIsOverlayVisible }) => {
   const [state, setState] = useState<IGroupHeaderState>(getState)
 
   useEffect(() => {
@@ -31,17 +35,24 @@ export const GroupHeader: FC<{}> = () => {
   }, [])
 
   return (
-    <div className={styles.mainHeader} data-testid="group-header">
-      <GroupSidebar />
+    <div
+      className={cx(styles.groupHeaderComponent, additionalStyles)}
+      data-testid="group-header"
+    >
+      <div className={styles.templogo} />
       <SearchBar
+        additionalStyles={styles.search}
         onTagAdd={() => null}
         onTagRemove={() => null}
         onLoadSuggestion={() => null}
         onQueryChange={() => null}
         onLoadSuggestionCancel={() => null}
+        onUserRemove={() => null}
         tags={state.activeTags || []}
         users={state.activeUsers}
+        setIsOverlayVisible={setIsOverlayVisible}
       />
+      <GroupSidebar />
     </div>
   )
 }

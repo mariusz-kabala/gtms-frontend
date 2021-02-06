@@ -3,14 +3,13 @@ import cx from 'classnames'
 import { IUser } from '@gtms/commons/models'
 import { getImage } from '@gtms/commons/helpers'
 import { Link } from '@gtms/commons/i18n'
-import { UserAvatarNoImage } from 'enums'
+import { UserAvatarNoImage } from '@app/enums'
 // state
 import { getGroupMembers } from '@gtms/state-group'
 // ui
-import { IoMdArrowForward } from 'react-icons/io'
-import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Button } from '@gtms/ui/Button'
-import { MockUsers } from '@gtms/ui/MockData'
+import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
+import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
@@ -38,57 +37,52 @@ export const GroupMembers: FC<{
       className={cx(styles.wrapper, additionalStyles)}
     >
       {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
+        <Modal
+          additionalStyles={styles.modal}
+          onClose={() => setIsModalOpen(false)}
+        >
           <InviteFriends />
         </Modal>
       )}
 
       {isLoading && <Spinner size="sm" />}
 
-      {errorOccured && <p>Sorry we can not show you groups members now</p>}
+      {errorOccured && (
+        <ErrorWrapper>
+          <h2>Sorry we can not show you groups members now</h2>
+        </ErrorWrapper>
+      )}
 
       {users.length > 0 && (
-        <>
-          <h2 className={styles.header}>Recently joined</h2>
-          <ul className={styles.items}>
-            {users.map((user) => (
-              <li className={styles.item} key={`group-member-${user.id}`}>
-                <Link href={`/user/${user.id}`}>
-                  <a>
-                    <UserAvatar
-                      additionalStyles={styles.avatar}
-                      image={getImage('50x50', user.avatar, UserAvatarNoImage)}
-                    />
-                  </a>
-                </Link>
-              </li>
-            ))}
-            <li
-              className={cx(styles.item, styles.invite)}
-              key={`group-member-invite}`}
-            >
-              <Button
-                additionalStyles={styles.btnInvite}
-                onClick={() => setIsModalOpen(true)}
-              >
-                +
-              </Button>
+        <ul className={styles.items}>
+          {users.map((user) => (
+            <li className={styles.item} key={`group-member-${user.id}`}>
+              <Link href={`/user/${user.id}`}>
+                <a>
+                  <UserAvatar
+                    additionalStyles={styles.avatar}
+                    size="100percent"
+                    image={getImage('50x50', user.avatar, UserAvatarNoImage)}
+                  />
+                </a>
+              </Link>
             </li>
-          </ul>
-          <Link href={`/group-members`}>
-            <button className={styles.btn}>
-              show all users
-              <i>
-                <IoMdArrowForward />
-              </i>
-            </button>
-          </Link>
-        </>
+          ))}
+          <li
+            className={cx(styles.item, styles.invite)}
+            key={`group-member-invite}`}
+          >
+            <Button
+              additionalStyles={styles.btnInvite}
+              onClick={() => setIsModalOpen(true)}
+            >
+              +
+            </Button>
+          </li>
+        </ul>
       )}
 
-      {users.length === 0 && !isLoading && !errorOccured && (
-        <MockUsers additionalStyles={styles.mock} numberOfElements={4} />
-      )}
+      {users.length === 0 && !isLoading && !errorOccured && <Spinner />}
     </div>
   )
 }

@@ -2,7 +2,11 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
 
-.wrapper {
+.spinner {
+  margin: 28px auto;
+}
+
+.buttons {
   @include gridDefault(2);
   width: 100%;
 
@@ -42,8 +46,13 @@
   }
 
   .google {
+    border-radius: 5px;
+    overflow: hidden;
+
     button {
+      height: 100%;
       > div {
+        margin-right: 0 !important;
         background: none !important;
       }
     }
@@ -62,10 +71,5 @@
         }
       }
     }
-  }
-
-  .spinner {
-    display: flex;
-    justify-content: center;
   }
 }

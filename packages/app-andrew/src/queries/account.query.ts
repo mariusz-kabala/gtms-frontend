@@ -27,7 +27,7 @@ export const accountPageState = (): IAccountPageState => {
   }
 }
 
-export const accountPageState$: Observable<IAccountPageState> = combineLatest(
+export const accountPageState$: Observable<IAccountPageState> = combineLatest([
   userQuery.select(),
-  myGroupsQuery.select()
-).pipe(map(() => accountPageState()))
+  myGroupsQuery.select(),
+]).pipe(map(() => accountPageState()))

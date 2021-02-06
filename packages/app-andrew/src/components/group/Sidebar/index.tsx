@@ -1,17 +1,20 @@
 import React, { FC, useState, useEffect } from 'react'
+import cx from 'classnames'
+import useKey from 'use-key-hook'
 import { useTranslation } from '@gtms/commons/i18n'
 import { getImage } from '@gtms/commons/helpers'
-import { GroupAvatarNoImage } from 'enums'
-import cx from 'classnames'
+import { FileStatus } from '@gtms/commons'
+import { Link } from '@gtms/commons/i18n'
+import { GroupAvatarNoImage } from '@app/enums'
 // state
 import {
   IGroupSidebarContentState,
   groupSidebarContentState,
   groupSidebarContentState$,
 } from './state.query'
-import { toggleGroupUsers, togglePromotedTagsInGroup } from 'state'
+import { toggleGroupUsers, togglePromotedTagsInGroup } from '@app/state'
 // components
-import { GroupAvatar } from 'components/group/GroupAvatar'
+import { GroupAvatar } from '@app/components/group/GroupAvatar'
 import { GroupSidebarContent } from './GroupSidebarContent'
 // import { GroupDescription } from 'components/group/GroupDescription'
 // ui
@@ -21,10 +24,10 @@ import { Button } from '@gtms/ui/Button'
 import styles from './styles.scss'
 
 export const GroupSidebar: FC<{}> = () => {
+  const { t } = useTranslation('groupPage')
   const [state, setState] = useState<IGroupSidebarContentState>(
     groupSidebarContentState()
   )
-  const { t } = useTranslation('groupPage')
 
   useEffect(() => {
     const sub = groupSidebarContentState$.subscribe((value) => {
@@ -36,6 +39,15 @@ export const GroupSidebar: FC<{}> = () => {
     }
   }, [])
 
+  useKey(
+    () => {
+      state.group?.id && togglePromotedTagsInGroup(state.group.id)
+    },
+    {
+      detectKeys: [27],
+    }
+  )
+
   if (!state.group) {
     return null
   }
@@ -43,12 +55,33 @@ export const GroupSidebar: FC<{}> = () => {
   return (
     <div className={styles.groupSidebar}>
       <div className={styles.avatarAndName}>
-        <GroupAvatar
-          additionalStyles={styles.groupAvatar}
-          files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
-          filesStatus={state.avatarFileStatus}
-          isEditAllowed={state.hasAdminRights}
-        />
+        {state.hasAdminRights &&
+          state.avatarFileStatus === FileStatus.notExists && (
+            <GroupAvatar
+              additionalStyles={styles.groupAvatar}
+              files={getImage('50x50', state.group.avatar, GroupAvatarNoImage)}
+              filesStatus={state.avatarFileStatus}
+              isEditAllowed={true}
+            />
+          )}
+        {((state.hasAdminRights &&
+          state.avatarFileStatus !== FileStatus.notExists) ||
+          !state.hasAdminRights) && (
+          <Link href={`/group/${state.group.slug}`}>
+            <a>
+              <GroupAvatar
+                additionalStyles={styles.groupAvatar}
+                files={getImage(
+                  '50x50',
+                  state.group.avatar,
+                  GroupAvatarNoImage
+                )}
+                filesStatus={state.avatarFileStatus}
+                isEditAllowed={false}
+              />
+            </a>
+          </Link>
+        )}
         <h2
           className={styles.header}
           data-tip={t('click-here-to-edit')}
@@ -70,9 +103,9 @@ export const GroupSidebar: FC<{}> = () => {
         }
       /> */}
       <Button
-        onClick={() =>
+        onClick={() => {
           state.group?.id && togglePromotedTagsInGroup(state.group.id)
-        }
+        }}
         additionalStyles={cx(styles.tagsbutton, {
           [styles.active]: state.showPromoted,
         })}

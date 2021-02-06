@@ -1,13 +1,13 @@
 import React, { FC, useState, useEffect } from 'react'
 import {
+  addToFavs,
   favGroupsQuery,
   IFavRecordStatus,
-  addToFavs,
   removeFromFavs,
   userQuery,
 } from '@gtms/state-user'
 import cx from 'classnames'
-import { openLoginModal } from 'state'
+import { openLoginModal } from '@app/state'
 import { useTranslation } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
 //ui
@@ -64,8 +64,8 @@ export const FavsButton: FC<{
     >
       {status.isLoading && userQuery.isLogged() && (
         <>
-          <Spinner size="xsm" type="withoutIcon" />
-          {t('favs')}
+          <Spinner size="xsm" />
+          <span>{t('favs')}</span>
         </>
       )}
       {((!status.isLoading && !status.isInFavs) || !userQuery.isLogged()) && (

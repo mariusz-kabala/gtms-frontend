@@ -12,26 +12,27 @@ export const NotificationNewPost: FC<{
   group: IGroup
 }> = ({ group, postOwner, post }) => {
   return (
-    <li className={styles.wrapper} data-testid={'notification-new-post'}>
+    <li data-testid={'notification-new-post'}>
       <Link href={`/group/${group.id}/post/${post.id}`}>
         <a>
-          <div className={styles.group}>
-            <Picture
-              additionalStyles={styles.groupAvatar}
-              {...getImage('200x200', group.avatar)}
-            />
-            <h2 className={styles.header}>New post in {group.name}</h2>
-          </div>
-          <div className={styles.notification}>
-            <Picture
-              additionalStyles={styles.avatar}
-              {...getImage('50x50', postOwner.avatar)}
-            />
-            <div className={styles.desc}>
+          <div className={styles.notificationHeader}>
+            <div className={styles.user}>
+              <Picture
+                additionalStyles={styles.avatar}
+                {...getImage('50x50', postOwner.avatar)}
+              />
               <h3 className={styles.header}>{getDisplayName(postOwner)}</h3>
-              <p className={styles.text}>{post.text}</p>
+              <span>wrote in:</span>
+            </div>
+            <div className={styles.group}>
+              <Picture
+                additionalStyles={styles.avatar}
+                {...getImage('200x200', group.avatar)}
+              />
+              <h2 className={styles.header}>{group.name}</h2>
             </div>
           </div>
+          <p className={styles.text}>{post.text}</p>
         </a>
       </Link>
     </li>

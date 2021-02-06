@@ -9,7 +9,6 @@ import { IImage } from '@gtms/commons/types/image'
 import { Link } from '@gtms/commons/i18n'
 import { IAccountDetails, IUser } from '@gtms/commons/models'
 // ui
-import { Button } from '../Button'
 import { UserAvatar } from '../UserAvatar'
 import { Spinner } from '../Spinner'
 import { Tag } from '../Tag'
@@ -18,31 +17,32 @@ import styles from './styles.scss'
 
 export const PostCreate: FC<{
   additionalStyles?: string
-  onSubmit: (text: string) => unknown
+  fetchSuggestedTags?: (tags: string[]) => Promise<string[]>
   fetchTags: (query: string, signal: AbortSignal) => Promise<string[]>
   fetchUsers: (query: string, signal: AbortSignal) => Promise<IUser[]>
-  fetchSuggestedTags?: (tags: string[]) => Promise<string[]>
-  isLoading?: boolean
   hintMinLenght?: number
-  user: IAccountDetails | null
+  isLoading?: boolean
   noImage: { [key: string]: IImage }
-  onLoginRequest?: () => unknown
   onFocus?: () => unknown
+  onLoginRequest?: () => unknown
+  setValue: any // needs to be fixed later!
+  user: IAccountDetails | null
+  value?: string
 }> = ({
   additionalStyles,
-  onSubmit,
-  user,
-  noImage,
+  fetchSuggestedTags,
   fetchTags,
   fetchUsers,
-  fetchSuggestedTags,
-  onLoginRequest,
-  onFocus,
-  isLoading = false,
   hintMinLenght = 3,
+  isLoading = false,
+  noImage,
+  onFocus,
+  onLoginRequest,
+  setValue,
+  user,
+  value = '',
 }) => {
   const { t } = useTranslation('postCreate')
-  const [value, setValue] = useState<string>('')
   const [query, setQuery] = useState<{ type: 'tag' | 'user'; value: string }>({
     value: '',
     type: 'tag',
@@ -97,7 +97,7 @@ export const PostCreate: FC<{
   }, [value])
 
   const addSuggestedTag = useCallback((tag: string) => {
-    setValue((value) => `${value} #${tag}`)
+    setValue((value: string) => `${value} #${tag}`)
     setSuggestedTags((state) => {
       const suggested = state.tags
       const index = suggested.indexOf(tag)
@@ -115,7 +115,7 @@ export const PostCreate: FC<{
 
   const addAllSuggestedTags = useCallback(() => {
     setValue(
-      (value) =>
+      (value: string) =>
         `${value} ${suggestedTags.tags.map((tag) => `#${tag}`).join(' ')}`
     )
     setSuggestedTags({
@@ -142,7 +142,7 @@ export const PostCreate: FC<{
             .then((users: IUser[]) => {
               setTagsHints({
                 isLoading: false,
-                tags: users.map((user) => user.username),
+                tags: users,
               })
             })
             .catch(() => {
@@ -187,22 +187,18 @@ export const PostCreate: FC<{
 
   return (
     <div
-      className={cx(styles.wrapper, additionalStyles)}
+      className={cx(styles.postCreateWrapper, additionalStyles)}
       data-testid="postCreate"
     >
       {isLoading && <Spinner />}
 
-      <div className={styles.avatarAndText}>
-        <div className={styles.user}>
-          <Link href={`/user/${user?.id}`}>
-            <div>
-              <UserAvatar
-                image={getImage('50x50', user?.avatar, noImage)}
-                additionalStyles={styles.userAvatar}
-              />
-            </div>
-          </Link>
-        </div>
+      <div className={styles.avatarAndTextInput}>
+        <Link href={`/user/${user?.id}`}>
+          <UserAvatar
+            size="sm"
+            image={getImage('50x50', user?.avatar, noImage)}
+          />
+        </Link>
         <textarea
           onFocus={() => {
             if (!user && onLoginRequest) {
@@ -350,25 +346,6 @@ export const PostCreate: FC<{
           </div>
         )}
       </div>
-
-      <Button
-        additionalStyles={styles.btn}
-        disabled={false}
-        onClick={() => {
-          if (!user) {
-            if (onLoginRequest) {
-              onLoginRequest()
-            }
-
-            return
-          }
-          onSubmit(value)
-          setValue('')
-        }}
-        type="submit"
-      >
-        button to be removed
-      </Button>
     </div>
   )
 }

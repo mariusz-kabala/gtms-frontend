@@ -8,7 +8,7 @@ import {
 import { Link } from '@gtms/commons/i18n'
 import { getImage } from '@gtms/commons/helpers'
 import { IGroup } from '@gtms/commons/models'
-import { GroupAvatarNoImage } from 'enums'
+import { GroupAvatarNoImage } from '@app/enums'
 // ui
 import { IoIosHeart, IoIosSettings } from 'react-icons/io'
 import { FaUsers, FaUserShield, FaIdBadge } from 'react-icons/fa'
