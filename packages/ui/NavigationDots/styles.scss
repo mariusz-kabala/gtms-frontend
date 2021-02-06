@@ -4,11 +4,9 @@
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/zindex.scss';
 
-$navigationDotAllMyGroupsSidebarWidth: 45%;
+$navigationDotAllMyGroupsSidebarWidth: 500px;
 
 .wrapper {
-  display: none;
-
   .fullView {
     position: fixed;
     top: 0;
@@ -17,6 +15,7 @@ $navigationDotAllMyGroupsSidebarWidth: 45%;
     width: $navigationDotAllMyGroupsSidebarWidth;
     height: 100%;
     transition: left 0.1s ease-in-out;
+    background: $theme1;
 
     .content {
       position: relative;
