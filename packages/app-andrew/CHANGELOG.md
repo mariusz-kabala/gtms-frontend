@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.110.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.109.0...@gtms/app-andrew@0.110.0) (2021-02-07)
+
+
+### Features
+
+* GEOT-698: better cookie component ([#926](https://github.com/gtms-org/gtms-frontend/issues/926)) ([40abcf1](https://github.com/gtms-org/gtms-frontend/commit/40abcf1a12dbbe28d3d30386e6ba9fe49ef28bf6))
+
+
+
+
+
 # [0.109.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.108.0...@gtms/app-andrew@0.109.0) (2021-02-04)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.86.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.85.0...@gtms/ui@0.86.0) (2021-02-07)
+
+
+### Features
+
+* GEOT-698: better cookie component ([#926](https://github.com/gtms-org/gtms-frontend/issues/926)) ([40abcf1](https://github.com/gtms-org/gtms-frontend/commit/40abcf1a12dbbe28d3d30386e6ba9fe49ef28bf6))
+
+
+
+
+
 # [0.85.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/ui@0.84.0...@gtms/ui@0.85.0) (2021-02-04)
 
 
