@@ -71,7 +71,6 @@ export const CookiePolicy: FC = () => {
         <div className={styles.scrollableWrapper}>
           <Scrollbars style={{ width: '100%', height: '100%' }}>
             <div className={styles.content}>
-              {renderSwitchers(10)}
               <h2 className={styles.header}>
                 <span>Festiwale</span>Muzyczne.pl
               </h2>
@@ -140,6 +139,7 @@ export const CookiePolicy: FC = () => {
                   wycofać swoją zgodę na naszej stronie z Polityką prywatności.
                 </p>
               </div>
+              {renderSwitchers(10)}
             </div>
           </Scrollbars>
         </div>
@@ -158,7 +158,7 @@ export const CookiePolicy: FC = () => {
           Options
         </Button>
         <Button
-          testid="action-button"
+          testid="cookie-accept-button"
           additionalStyles={styles.btn}
           onClick={() => {
             setIsHiddenCompletely(true)

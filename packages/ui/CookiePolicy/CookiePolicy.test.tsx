@@ -46,7 +46,7 @@ describe('<CookiePolicy />', () => {
       </CookiePolicy>
     )
 
-    fireEvent.click(getByTestId('action-button'))
+    fireEvent.click(getByTestId('cookie-accept-button'))
 
     expect(setItem).toBeCalled()
     expect(setItem).toBeCalledTimes(1)
