@@ -1,23 +1,50 @@
 @import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/buttons.scss';
 
-.cookiePolicy {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
+.wrapper {
+  position: fixed;
+  bottom: -300px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 9;
+  width: 800px;
+  height: 400px;
+  border-radius: $borderRadius;
+  background: $theme2;
+  transition: bottom 0.2s ease-in-out;
 
-  .cookie {
+  &.active {
+    bottom: 100px;
+  }
+
+  &.hidden {
+    bottom: -500px;
+  }
+
+  .content {
     display: flex;
-    width: 100%;
-    background: $theme1;
-    border-bottom: 1px solid $theme4;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
 
-    p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 90%;
+    .text {
+      p {
+        margin-bottom: 10px;
+      }
+    }
+
+    .btn {
+      @include buttonDefault();
+      @include buttonSizeDefault();
+      @include buttonShapeDefault();
+      @include buttonColorsDefault();
+      margin-top: auto;
+      width: 100%;
+
+      &:hover {
+        @include buttonColorsPrimary();
+      }
     }
   }
 }
