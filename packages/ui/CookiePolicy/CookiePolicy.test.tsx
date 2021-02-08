@@ -11,6 +11,32 @@ jest.mock('@gtms/commons/helpers/localStorage', () => {
 })
 
 describe('<CookiePolicy />', () => {
+  it('Should render cookie rules info as policy was not accepted', () => {
+    ;(getItem as jest.Mock).mockReturnValue('false')
+
+    const { getByTestId } = render(
+      <CookiePolicy>
+        <div>actual content</div>
+      </CookiePolicy>
+    )
+
+    expect(getByTestId('cookie-policy')).toBeInTheDocument()
+    expect(getItem).toBeCalled()
+    expect(getItem).toBeCalledTimes(1)
+  })
+
+  it('Should render actual content when cookie is accepted', () => {
+    ;(getItem as jest.Mock).mockReturnValue('true')
+
+    const { queryByTestId } = render(
+      <CookiePolicy>
+        <div data-testid="content">actual content</div>
+      </CookiePolicy>
+    )
+
+    expect(queryByTestId('cookie-policy')).toBeNull()
+  })
+
   it('Should set cookie when click on accept button', () => {
     ;(getItem as jest.Mock).mockReturnValue('false')
 
@@ -20,7 +46,7 @@ describe('<CookiePolicy />', () => {
       </CookiePolicy>
     )
 
-    fireEvent.click(getByTestId('cookie-accept-button'))
+    fireEvent.click(getByTestId('action-button'))
 
     expect(setItem).toBeCalled()
     expect(setItem).toBeCalledTimes(1)
