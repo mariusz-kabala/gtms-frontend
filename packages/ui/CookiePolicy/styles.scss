@@ -6,7 +6,8 @@
 
 .gdprWrapper {
   position: fixed;
-  bottom: -300px;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
@@ -16,14 +17,6 @@
   border-radius: $borderRadius;
   background: $theme3;
   transition: bottom 0.2s ease-in-out;
-
-  &.active {
-    bottom: 100px;
-  }
-
-  &.hidden {
-    bottom: -500px;
-  }
 
   .wrapper {
     position: relative;
@@ -36,10 +29,10 @@
     i {
       line-height: 0;
     }
-  
+
     .switcherWrapper {
       margin-bottom: 10px;
-      
+
       .switcher {
         display: flex;
         align-items: center;
@@ -54,50 +47,50 @@
       .content {
         display: flex;
         flex-direction: column;
-  
+
         .header {
           @include fontSize(xlg);
           margin: 20px auto;
-          
+
           span {
             @include fontWeight(bold);
           }
         }
-    
+
         .list {
           margin: 10px 0;
-    
+
           .item {
             display: flex;
             align-items: center;
             margin-top: 5px;
-    
+
             i {
               @include fontSize(md);
               margin-right: 5px;
             }
           }
         }
-        
+
         .subHeader {
           @include fontSize(xmd);
         }
-  
+
         .expandingHeader {
           display: flex;
           align-items: center;
           @include fontSize(xdefault);
           @include fontWeight(semiBold);
           cursor: pointer;
-  
+
           i {
             margin-left: 5px;
           }
         }
-  
+
         .list.expanding {
           margin-top: 5px;
-  
+
           .item {
             &:before {
               content: '';
@@ -109,9 +102,10 @@
             }
           }
         }
-  
+
         .text {
           margin-top: 10px;
+
           p {
             margin-bottom: 10px;
           }
