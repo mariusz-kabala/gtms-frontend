@@ -11,7 +11,6 @@ import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from '@app/components/commons/LoginWindow'
 import { uiQuery } from '@app/state'
-// ui
 import { CookiePolicy } from '@gtms/ui/CookiePolicy'
 // styles
 import '@gtms/styles/scss/global.scss'
@@ -114,7 +113,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <Component {...pageProps} />
         <div
           className={cx(
-            styles.bg,
+            styles.fullPageBg,
             !backgroundImage ? background.className : undefined
           )}
           data-loaded={backgroundLoaded ? 'true' : 'false'}
@@ -131,10 +130,22 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
           }
         />
         <div
-          className={styles.bluredImage}
-          style={{
-            backgroundImage: `url('/images/bg-images/group_bg_3.png')`,
-          }}
+          className={cx(
+            styles.bg,
+            !backgroundImage ? background.className : undefined
+          )}
+          data-loaded={backgroundLoaded ? 'true' : 'false'}
+          style={
+            backgroundImage
+              ? {
+                  backgroundImage: `url(${
+                    backgroundLoaded
+                      ? backgroundImage.full
+                      : backgroundImage.mini
+                  })`,
+                }
+              : undefined
+          }
         />
       </div>
     )

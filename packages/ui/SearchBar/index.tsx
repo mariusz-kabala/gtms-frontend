@@ -10,39 +10,41 @@ export const SuggestionTypes = Object.freeze({
 
 export const SearchBar: FC<{
   additionalStyles?: string
-  tags?: string[]
-  users?: string[]
-  query?: string
-  suggestions?: string[]
-  suggestionsType?: keyof typeof SuggestionTypes
-  isLoading?: boolean
-  suggestionMinLength?: number
-  inlineTagsLimit?: number
   disabled?: boolean
-  onTagAdd: (tag: string) => void
-  onTagRemove: (tag: string) => void
+  inlineTagsLimit?: number
+  isLoading?: boolean
   onLoadSuggestion: (text: string, type: keyof typeof SuggestionTypes) => void
   onLoadSuggestionCancel: () => void
   onQueryChange: (text: string) => void
+  onTagAdd: (tag: string) => void
+  onTagRemove: (tag: string) => void
   onUserRemove: (user: string) => void
+  query?: string
+  setIsOverlayVisible?: (param: boolean) => void
+  suggestionMinLength?: number
+  suggestions?: string[]
+  suggestionsType?: keyof typeof SuggestionTypes
+  tags?: string[]
+  users?: string[]
 }> = (params) => {
   const {
     additionalStyles,
-    tags = [],
-    users = [],
-    query = '',
-    suggestions = [],
-    suggestionsType = SuggestionTypes.tags,
-    onTagAdd,
+    disabled = false,
+    inlineTagsLimit = 9999,
     isLoading,
-    onQueryChange,
-    onTagRemove,
     onLoadSuggestion,
     onLoadSuggestionCancel,
+    onQueryChange,
+    onTagAdd,
+    onTagRemove,
     onUserRemove,
-    inlineTagsLimit = 9999,
+    query = '',
+    setIsOverlayVisible,
     suggestionMinLength = 3,
-    disabled = false,
+    suggestions = [],
+    suggestionsType = SuggestionTypes.tags,
+    tags = [],
+    users = [],
   } = params
   const [value, setValue] = useState<string>(query)
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false)
@@ -75,6 +77,12 @@ export const SearchBar: FC<{
       <div
         data-testid="searchBar"
         className={cx(styles.searchBar, additionalStyles)}
+        onMouseEnter={() =>
+          setIsOverlayVisible ? setIsOverlayVisible(true) : null
+        }
+        onMouseLeave={() =>
+          setIsOverlayVisible ? setIsOverlayVisible(false) : null
+        }
       >
         {query === '' && !noInlineTags && (
           <>

@@ -3,6 +3,7 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
+@import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .gdprWrapper {
   position: fixed;
@@ -11,7 +12,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  z-index: 9;
+  @include z-index(cookieComponent);
   width: 750px;
   height: 70vh;
   border-radius: $borderRadius;
@@ -19,8 +20,6 @@
   transition: bottom 0.2s ease-in-out;
 
   .wrapper {
-    position: relative;
-    z-index: 1;
     height: 100%;
     padding: 20px;
     border: 3px solid $theme4;

@@ -41,12 +41,12 @@
 
   .tagsbutton {
     @include buttonDefault();
-    @include buttonSizeDefault();
+    @include buttonSizeSm();
     @include buttonShapeDefault();
     @include buttonColorsDefault();
     width: 100%;
-    min-width: 40px;
-    height: 40px;
+    min-width: 35px;
+    height: 35px;
 
     &:hover,
     &.active {
@@ -59,7 +59,7 @@
 
     i {
       line-height: 0;
-      @include fontSize(lg);
+      @include fontSize(md);
     }
   }
 }

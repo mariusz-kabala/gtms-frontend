@@ -97,6 +97,13 @@
   @include fontSize(sm);
 }
 
+@mixin buttonSizeMd() {
+  min-height: 25px;
+  padding: 10px;
+  line-height: 1;
+  @include fontSize(sm);
+}
+
 // SHAPES
 @mixin buttonShapeDefault() {
   border-radius: $borderRadius;

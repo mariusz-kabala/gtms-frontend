@@ -10,7 +10,14 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  background: none;
+
+  background: none; // reset bg from mixin pageWrapper()
+  margin: 0; // reset margin from mixin pageWrapper()
+  padding: 0; // reset padding from mixin pageWrapper()
+
+  max-width: $tempWidth;
+  margin: 0 50px;
+  margin-bottom: 50px;
 
   .spinner {
     margin: 40px auto;
@@ -18,15 +25,6 @@
 
   .groupHeader {
     position: relative;
-
-    &::before {
-      position: absolute;
-      bottom: -13px;
-      content: '';
-      width: 100%;
-      height: 1px;
-      background: rgba($theme2, 0.25);
-    }
   }
 
   .promotedTags {
@@ -38,9 +36,8 @@
     position: relative;
     display: flex;
     gap: 10px;
-    margin-top: 25px;
-    max-width: 700px;
-    min-height: 800px;
+    max-width: $tempWidth;
+    min-height: 500px;
 
     .sidebar {
       min-width: 140px;

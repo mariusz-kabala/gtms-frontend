@@ -1,13 +1,29 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .btn {
-  width: 100%;
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapeDefault();
-  @include buttonColorsDefault();
+  @include buttonWithIcon(left);
+  @include buttonWithSpinnerAndLabel(left);
+  @include buttonColorsSecondary();
+  margin-top: 8px;
+  width: 100%;
 
   &:hover {
     @include buttonColorsPrimary();
+  }
+}
+
+.check {
+  @include fontSize(xmd);
+}
+
+.description {
+  cursor: pointer;
+
+  &:hover {
+    color: $theme4;
   }
 }

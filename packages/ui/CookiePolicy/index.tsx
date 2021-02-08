@@ -54,113 +54,119 @@ export const CookiePolicy: FC = () => {
 
   if (show) {
     return (
-      <div data-testid="cookie-policy" className={styles.gdprWrapper}>
-        <div className={styles.wrapper}>
-          <div className={styles.scrollableWrapper}>
-            <Scrollbars style={{ width: '100%', height: '100%' }}>
-              <div className={styles.content}>
-                <h2 className={styles.header}>
-                  <span>Festiwale</span>Muzyczne.pl
-                </h2>
-                <span className={styles.subHeader}>
-                  FestiwaleMuzyczne.pl prosi Cię o zgodę na wykorzystanie Twoich
-                  danych osobowych w następujących celach:
-                </span>
-                <ul className={styles.list}>
-                  <li className={styles.item}>
-                    <i>
-                      <FaIdCard />
-                    </i>
-                    Labore mollit enim qui magna id elit nisi aliqua in.
-                  </li>
-                  <li className={styles.item}>
-                    <i>
-                      <FaIdCard />
-                    </i>
-                    Labore mollit enim qui magna id elit nisi aliqua in.
-                  </li>
-                </ul>
-                <h3
-                  className={styles.expandingHeader}
-                  onClick={() => setIsExpanded(!isExpanded)}
-                >
-                  More info
-                  {isExpanded && (
-                    <i>
-                      <IoIosArrowDown />
-                    </i>
-                  )}
-                  {!isExpanded && (
-                    <i>
-                      <IoIosArrowForward />
-                    </i>
-                  )}
-                </h3>
-                {isExpanded && (
-                  <ul className={cx(styles.list, styles.expanding)}>
+      <>
+        <div data-testid="cookie-policy" className={styles.gdprWrapper}>
+          <div className={styles.wrapper}>
+            <div className={styles.scrollableWrapper}>
+              <Scrollbars style={{ width: '100%', height: '100%' }}>
+                <div className={styles.content}>
+                  <h2 className={styles.header}>
+                    <span>Festiwale</span>Muzyczne.pl
+                  </h2>
+                  <span className={styles.subHeader}>
+                    FestiwaleMuzyczne.pl prosi Cię o zgodę na wykorzystanie
+                    Twoich danych osobowych w następujących celach:
+                  </span>
+                  <ul className={styles.list}>
                     <li className={styles.item}>
-                      Do elit proident culpa laboris cillum irure magna veniam.
+                      <i>
+                        <FaIdCard />
+                      </i>
+                      Labore mollit enim qui magna id elit nisi aliqua in.
                     </li>
                     <li className={styles.item}>
-                      Do elit proident culpa laboris cillum irure magna veniam.
-                    </li>
-                    <li className={styles.item}>
-                      Do elit proident culpa laboris cillum irure magna veniam.
-                    </li>
-                    <li className={styles.item}>
-                      Do elit proident culpa laboris cillum irure magna veniam.
+                      <i>
+                        <FaIdCard />
+                      </i>
+                      Labore mollit enim qui magna id elit nisi aliqua in.
                     </li>
                   </ul>
-                )}
-                <div className={styles.text}>
-                  <p>
-                    Twoje dane osobowe będą przetwarzane, a informacje z Twojego
-                    urządzenia (pliki cookie, unikalne identyfikatory itp.) mogą
-                    być wyświetlane i zapisywane przez zewnętrznych dostawców
-                    lub im udostępniane. Mogą też być wykorzystywane przez tę
-                    witrynę lub aplikację.
-                  </p>
-                  <p>
-                    Niektórzy dostawcy mogą przetwarzać Twoje dane osobowe na
-                    podstawie uzasadnionego interesu. Możesz się na to nie
-                    zgodzić, zmieniając opcje poniżej. W każdej chwili możesz
-                    wycofać swoją zgodę na naszej stronie z Polityką
-                    prywatności.
-                  </p>
+                  <h3
+                    className={styles.expandingHeader}
+                    onClick={() => setIsExpanded(!isExpanded)}
+                  >
+                    More info
+                    {isExpanded && (
+                      <i>
+                        <IoIosArrowDown />
+                      </i>
+                    )}
+                    {!isExpanded && (
+                      <i>
+                        <IoIosArrowForward />
+                      </i>
+                    )}
+                  </h3>
+                  {isExpanded && (
+                    <ul className={cx(styles.list, styles.expanding)}>
+                      <li className={styles.item}>
+                        Do elit proident culpa laboris cillum irure magna
+                        veniam.
+                      </li>
+                      <li className={styles.item}>
+                        Do elit proident culpa laboris cillum irure magna
+                        veniam.
+                      </li>
+                      <li className={styles.item}>
+                        Do elit proident culpa laboris cillum irure magna
+                        veniam.
+                      </li>
+                      <li className={styles.item}>
+                        Do elit proident culpa laboris cillum irure magna
+                        veniam.
+                      </li>
+                    </ul>
+                  )}
+                  <div className={styles.text}>
+                    <p>
+                      Twoje dane osobowe będą przetwarzane, a informacje z
+                      Twojego urządzenia (pliki cookie, unikalne identyfikatory
+                      itp.) mogą być wyświetlane i zapisywane przez zewnętrznych
+                      dostawców lub im udostępniane. Mogą też być wykorzystywane
+                      przez tę witrynę lub aplikację.
+                    </p>
+                    <p>
+                      Niektórzy dostawcy mogą przetwarzać Twoje dane osobowe na
+                      podstawie uzasadnionego interesu. Możesz się na to nie
+                      zgodzić, zmieniając opcje poniżej. W każdej chwili możesz
+                      wycofać swoją zgodę na naszej stronie z Polityką
+                      prywatności.
+                    </p>
+                  </div>
+                  {renderSwitchers(10)}
                 </div>
-                {renderSwitchers(10)}
-              </div>
-            </Scrollbars>
+              </Scrollbars>
+            </div>
+          </div>
+          <div className={styles.buttons}>
+            <Button
+              additionalStyles={styles.btn}
+              onClick={() => {
+                setItem('isCookieAccepted', 'true')
+              }}
+            >
+              <i>
+                <IoIosCloseCircle />
+              </i>
+              Options
+            </Button>
+            <Button
+              testid="cookie-accept-button"
+              additionalStyles={styles.btn}
+              onClick={() => {
+                setItem('isCookieAccepted', 'true')
+                setShow(false)
+              }}
+            >
+              <i>
+                <IoIosCheckbox />
+              </i>
+              Accept
+            </Button>
           </div>
         </div>
-        <div className={styles.buttons}>
-          <Button
-            additionalStyles={styles.btn}
-            onClick={() => {
-              setItem('isCookieAccepted', 'true')
-            }}
-          >
-            <i>
-              <IoIosCloseCircle />
-            </i>
-            Options
-          </Button>
-          <Button
-            testid="cookie-accept-button"
-            additionalStyles={styles.btn}
-            onClick={() => {
-              setItem('isCookieAccepted', 'true')
-              setShow(false)
-            }}
-          >
-            <i>
-              <IoIosCheckbox />
-            </i>
-            Accept
-          </Button>
-        </div>
         <Overlay />
-      </div>
+      </>
     )
   }
 

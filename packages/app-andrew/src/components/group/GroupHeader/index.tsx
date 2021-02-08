@@ -18,9 +18,10 @@ const getState = (value = postsQuery.getValue()) => ({
   activeUsers: value.users || [],
 })
 
-export const GroupHeader: FC<{ additionalStyles?: string }> = ({
-  additionalStyles,
-}) => {
+export const GroupHeader: FC<{
+  additionalStyles?: string
+  setIsOverlayVisible?: (param: boolean) => void
+}> = ({ additionalStyles, setIsOverlayVisible }) => {
   const [state, setState] = useState<IGroupHeaderState>(getState)
 
   useEffect(() => {
@@ -35,7 +36,7 @@ export const GroupHeader: FC<{ additionalStyles?: string }> = ({
 
   return (
     <div
-      className={cx(styles.groupHeader, additionalStyles)}
+      className={cx(styles.groupHeaderComponent, additionalStyles)}
       data-testid="group-header"
     >
       <div className={styles.templogo} />
@@ -49,6 +50,7 @@ export const GroupHeader: FC<{ additionalStyles?: string }> = ({
         onUserRemove={() => null}
         tags={state.activeTags || []}
         users={state.activeUsers}
+        setIsOverlayVisible={setIsOverlayVisible}
       />
       <GroupSidebar />
     </div>

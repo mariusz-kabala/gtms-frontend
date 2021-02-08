@@ -1,17 +1,18 @@
 $z-index: (
+  cookieComponent: 23,
   notification: 9,
   sidebar: 9,
   modal: 8,
   fullScreenGallery: 7,
-  allMyGroupsSidebar: 7,
-  mainNavigation: 5,
+  allMyGroupsSidebar: 22,
+  mainNavigation: 21,
   groupCard: 4,
   expandingItem: 4,
   searchBar: 3,
   headerWrapper: 2,
-  closeAllMyGroupsSidebar: 2,
+  closeAllMyGroupsSidebar: 13,
   postSingleDeletePost: 1,
-  overlay: 0,
+  overlay: 1,
 );
 
 @function z-index($key) {

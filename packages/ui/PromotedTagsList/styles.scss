@@ -8,75 +8,51 @@
 @import '~@gtms/styles/scss/mixins/shadows';
 
 .items {
-  @include gridDefault(6);
-
   .item {
     position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 200px;
-    overflow: hidden;
+    margin-top: 10px;
+    padding: 5px;
+    border: 2px solid $theme1;
     border-radius: $borderRadius;
-    box-shadow: $boxShadowDefault;
     cursor: pointer;
 
-    .favButton {
-      display: none;
-      z-index: 4;
+    &:hover {
+      border-color: $theme4;
     }
 
-    &:hover {
-      .favButton {
-        display: block;
-      }
+    .favButton {
+      z-index: 4;
+      display: none;
     }
 
     .content {
-      @include imageCover();
+      display: flex;
+      align-items: center;
       width: 100%;
       height: 100%;
-      background: $theme1;
 
-      &:hover {
-        @include effectColorTransparentOverlay('defaultRadius', 4px);
-      }
-
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        @include shadowBoxWithDescription();
-      }
-
-      .desc {
-        position: absolute;
-        z-index: 1;
-        bottom: 0;
-        padding: 10px;
-        width: 100%;
-        color: $theme0;
-
-        h3 {
-          @include fontSize(md);
-          @include fontWeight(semiBold);
+      picture {
+        img {
+          display: block;
+          border-radius: $borderRadius;
+          max-width: 50px;
+          margin-right: 10px;
         }
       }
 
-      img {
-        display: block;
-        object-fit: cover;
+      .desc {
         width: 100%;
+        color: $theme0;
+        @include fontSize(sm);
+
+        h3 {
+          @include fontSize(xdefault);
+          @include fontWeight(semiBold);
+        }
       }
     }
 
     .adminPanel {
-      position: absolute;
-      top: 10px;
-      right: 5px;
-      z-index: 1;
       display: none;
 
       ul {
@@ -101,45 +77,21 @@
         }
       }
     }
-
-    &:hover {
-      .adminPanel {
-        display: block;
-      }
-    }
   }
 }
 
-.addTag {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 10px 0;
-  border: none;
-  border-radius: $borderRadius;
-  background: $theme3;
-  cursor: pointer;
-
-  &:hover {
-    background: $theme4;
-  }
-
-  i {
-    margin-right: 5px;
-    @include fontSize(xlg);
-    line-height: 0;
-  }
-}
-
+.addTag,
 .btnShowMore {
   @include buttonDefault();
   @include buttonSizeDefault();
   @include buttonShapeDefault();
   @include buttonWithIcon('left');
   @include buttonWithSpinnerAndLabel(left);
-  @include buttonColorsDefault();
-  margin: 8px auto;
+  @include buttonColorsSecondary();
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
 
   &:hover {
     @include buttonColorsPrimary();
@@ -153,7 +105,6 @@
   }
 
   .desc {
-    margin-top: 5px;
     @include fontSize(xdefault);
   }
 
