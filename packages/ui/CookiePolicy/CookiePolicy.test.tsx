@@ -3,6 +3,13 @@ import { render, fireEvent } from '@testing-library/react'
 import { CookiePolicy } from './index'
 import { getItem, setItem } from '@gtms/commons/helpers/localStorage'
 
+jest.mock('@gtms/commons/helpers/localStorage', () => {
+  return {
+    getItem: jest.fn(),
+    setItem: jest.fn(),
+  }
+})
+
 describe('<CookiePolicy />', () => {
   it('Should set cookie when click on accept button', () => {
     ;(getItem as jest.Mock).mockReturnValue('false')
