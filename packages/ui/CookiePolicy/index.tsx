@@ -47,8 +47,10 @@ export const CookiePolicy: FC = () => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   useEffect(() => {
-    setShow(true)
-  }, [isCookieAccepted === null])
+    if (isCookieAccepted === null) {
+      setShow(true)
+    }
+  }, [isCookieAccepted])
 
   if (show) {
     return (
