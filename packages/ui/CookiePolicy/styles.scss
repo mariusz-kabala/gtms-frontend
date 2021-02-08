@@ -1,45 +1,131 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/grid.scss';
+@import '~@gtms/styles/scss/mixins/zindex.scss';
 
-.wrapper {
+.gdprWrapper {
   position: fixed;
-  bottom: -300px;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
-  z-index: 9;
-  width: 800px;
-  height: 400px;
+  @include z-index(cookieComponent);
+  width: 750px;
+  height: 70vh;
   border-radius: $borderRadius;
-  background: $theme2;
+  background: $theme3;
   transition: bottom 0.2s ease-in-out;
 
-  &.active {
-    bottom: 100px;
-  }
-
-  &.hidden {
-    bottom: -500px;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
+  .wrapper {
     height: 100%;
     padding: 20px;
+    border: 3px solid $theme4;
+    border-radius: $borderRadius;
 
-    .text {
-      p {
-        margin-bottom: 10px;
+    i {
+      line-height: 0;
+    }
+
+    .switcherWrapper {
+      margin-bottom: 10px;
+
+      .switcher {
+        display: flex;
+        align-items: center;
+        @include fontSize(xdefault);
+        @include fontWeight(semiBold);
       }
     }
+
+    .scrollableWrapper {
+      height: 100%;
+
+      .content {
+        display: flex;
+        flex-direction: column;
+
+        .header {
+          @include fontSize(xlg);
+          margin: 20px auto;
+
+          span {
+            @include fontWeight(bold);
+          }
+        }
+
+        .list {
+          margin: 10px 0;
+
+          .item {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+
+            i {
+              @include fontSize(md);
+              margin-right: 5px;
+            }
+          }
+        }
+
+        .subHeader {
+          @include fontSize(xmd);
+        }
+
+        .expandingHeader {
+          display: flex;
+          align-items: center;
+          @include fontSize(xdefault);
+          @include fontWeight(semiBold);
+          cursor: pointer;
+
+          i {
+            margin-left: 5px;
+          }
+        }
+
+        .list.expanding {
+          margin-top: 5px;
+
+          .item {
+            &:before {
+              content: '';
+              width: 5px;
+              height: 5px;
+              border-radius: 50%;
+              background: $theme0;
+              margin: 10px;
+            }
+          }
+        }
+
+        .text {
+          margin-top: 10px;
+
+          p {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .buttons {
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+    @include gridTwoButtons();
+    width: 100%;
 
     .btn {
       @include buttonDefault();
       @include buttonSizeDefault();
       @include buttonShapeDefault();
+      @include buttonWithIcon('left');
       @include buttonColorsDefault();
-      margin-top: auto;
       width: 100%;
 
       &:hover {

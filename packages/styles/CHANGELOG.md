@@ -5,70 +5,40 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.32.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.31.3...@gtms/styles@0.32.0) (2021-02-04)
 
-
 ### Features
 
-* GEOT-784: header changes ([#987](https://github.com/gtms-org/gtms-frontend/issues/987)) ([6feb8b8](https://github.com/gtms-org/gtms-frontend/commit/6feb8b8a2cfdb754d65774630b020e71a62e610e))
-
-
-
-
+- GEOT-784: header changes ([#987](https://github.com/gtms-org/gtms-frontend/issues/987)) ([6feb8b8](https://github.com/gtms-org/gtms-frontend/commit/6feb8b8a2cfdb754d65774630b020e71a62e610e))
 
 ## [0.31.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.31.2...@gtms/styles@0.31.3) (2021-02-04)
 
-
 ### Bug Fixes
 
-* GEOT-777: small changes css ([#980](https://github.com/gtms-org/gtms-frontend/issues/980)) ([0c9f57b](https://github.com/gtms-org/gtms-frontend/commit/0c9f57bae07e68e182cfb2489257e93673c6924a))
-
-
-
-
+- GEOT-777: small changes css ([#980](https://github.com/gtms-org/gtms-frontend/issues/980)) ([0c9f57b](https://github.com/gtms-org/gtms-frontend/commit/0c9f57bae07e68e182cfb2489257e93673c6924a))
 
 ## [0.31.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.31.1...@gtms/styles@0.31.2) (2021-01-08)
 
-
 ### Bug Fixes
 
-* GEOT-770: GEOT-770: different small changes in css ([#979](https://github.com/gtms-org/gtms-frontend/issues/979)) ([7ffbda9](https://github.com/gtms-org/gtms-frontend/commit/7ffbda9e352fa32ccfbb43b95b29f3607b0327ac))
-
-
-
-
+- GEOT-770: GEOT-770: different small changes in css ([#979](https://github.com/gtms-org/gtms-frontend/issues/979)) ([7ffbda9](https://github.com/gtms-org/gtms-frontend/commit/7ffbda9e352fa32ccfbb43b95b29f3607b0327ac))
 
 ## [0.31.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.31.0...@gtms/styles@0.31.1) (2021-01-06)
 
-
 ### Bug Fixes
 
-* GEOT-768: GEOT-768: home page and other fixes ([#977](https://github.com/gtms-org/gtms-frontend/issues/977)) ([12955a3](https://github.com/gtms-org/gtms-frontend/commit/12955a300ee372ca85aa6b2854456dbb88b4475d))
-
-
-
-
+- GEOT-768: GEOT-768: home page and other fixes ([#977](https://github.com/gtms-org/gtms-frontend/issues/977)) ([12955a3](https://github.com/gtms-org/gtms-frontend/commit/12955a300ee372ca85aa6b2854456dbb88b4475d))
 
 # [0.31.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.30.0...@gtms/styles@0.31.0) (2021-01-05)
 
-
 ### Features
 
-* GEOT-759: a common way to show user preview popup ([#974](https://github.com/gtms-org/gtms-frontend/issues/974)) ([db73f4d](https://github.com/gtms-org/gtms-frontend/commit/db73f4d60a77fb97af4b69a2ba6b431db88283ba))
-* GEOT-766: GEOT-766: cleanup images a bit ([#976](https://github.com/gtms-org/gtms-frontend/issues/976)) ([8ff7697](https://github.com/gtms-org/gtms-frontend/commit/8ff76972cb87b81c4c8659e3b84dcd3610928811))
-
-
-
-
+- GEOT-759: a common way to show user preview popup ([#974](https://github.com/gtms-org/gtms-frontend/issues/974)) ([db73f4d](https://github.com/gtms-org/gtms-frontend/commit/db73f4d60a77fb97af4b69a2ba6b431db88283ba))
+- GEOT-766: GEOT-766: cleanup images a bit ([#976](https://github.com/gtms-org/gtms-frontend/issues/976)) ([8ff7697](https://github.com/gtms-org/gtms-frontend/commit/8ff76972cb87b81c4c8659e3b84dcd3610928811))
 
 # [0.30.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.29.1...@gtms/styles@0.30.0) (2021-01-02)
 
-
 ### Features
 
-* GEOT-765: background image more visible ([#975](https://github.com/gtms-org/gtms-frontend/issues/975)) ([3906707](https://github.com/gtms-org/gtms-frontend/commit/3906707bdcb8cc2f32475acdc315ccb49da6b342))
-
-
-
-
+- GEOT-765: background image more visible ([#975](https://github.com/gtms-org/gtms-frontend/issues/975)) ([3906707](https://github.com/gtms-org/gtms-frontend/commit/3906707bdcb8cc2f32475acdc315ccb49da6b342))
 
 ## [0.29.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styles@0.29.0...@gtms/styles@0.29.1) (2021-01-01)
 
