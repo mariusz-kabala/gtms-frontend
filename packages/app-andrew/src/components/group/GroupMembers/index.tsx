@@ -11,6 +11,7 @@ import { Button } from '@gtms/ui/Button'
 import { ErrorWrapper } from '@gtms/ui/ErrorWrapper'
 import { InviteFriends } from '@gtms/ui/InviteFriends'
 import { Modal } from '@gtms/ui/Modal'
+import { Overlay } from '@gtms/ui/Overlay'
 import { Spinner } from '@gtms/ui/Spinner'
 import { UserAvatar } from '@gtms/ui/UserAvatar'
 // styles
@@ -32,57 +33,60 @@ export const GroupMembers: FC<{
   }, [])
 
   return (
-    <div
-      data-testid="group-members"
-      className={cx(styles.wrapper, additionalStyles)}
-    >
-      {isModalOpen && (
-        <Modal
-          additionalStyles={styles.modal}
-          onClose={() => setIsModalOpen(false)}
-        >
-          <InviteFriends />
-        </Modal>
-      )}
-
-      {isLoading && <Spinner size="sm" />}
-
-      {errorOccured && (
-        <ErrorWrapper>
-          <h2>Sorry we can not show you groups members now</h2>
-        </ErrorWrapper>
-      )}
-
-      {users.length > 0 && (
-        <ul className={styles.items}>
-          {users.map((user) => (
-            <li className={styles.item} key={`group-member-${user.id}`}>
-              <Link href={`/user/${user.id}`}>
-                <a>
-                  <UserAvatar
-                    additionalStyles={styles.avatar}
-                    size="100percent"
-                    image={getImage('50x50', user.avatar, UserAvatarNoImage)}
-                  />
-                </a>
-              </Link>
-            </li>
-          ))}
-          <li
-            className={cx(styles.item, styles.invite)}
-            key={`group-member-invite}`}
+    <>
+      <div
+        className={cx(styles.wrapper, additionalStyles)}
+        data-testid="group-members"
+      >
+        {isModalOpen && (
+          <Modal
+            additionalStyles={styles.modal}
+            onClose={() => setIsModalOpen(false)}
           >
-            <Button
-              additionalStyles={styles.btnInvite}
-              onClick={() => setIsModalOpen(true)}
-            >
-              +
-            </Button>
-          </li>
-        </ul>
-      )}
+            <InviteFriends />
+          </Modal>
+        )}
 
-      {users.length === 0 && !isLoading && !errorOccured && <Spinner />}
-    </div>
+        {isLoading && <Spinner size="sm" />}
+
+        {errorOccured && (
+          <ErrorWrapper>
+            <h2>Sorry we can not show you groups members now</h2>
+          </ErrorWrapper>
+        )}
+
+        {users.length > 0 && (
+          <ul className={styles.items}>
+            {users.map((user) => (
+              <li className={styles.item} key={`group-member-${user.id}`}>
+                <Link href={`/user/${user.id}`}>
+                  <a>
+                    <UserAvatar
+                      additionalStyles={styles.avatar}
+                      size="100percent"
+                      image={getImage('50x50', user.avatar, UserAvatarNoImage)}
+                    />
+                  </a>
+                </Link>
+              </li>
+            ))}
+            <li
+              className={cx(styles.item, styles.invite)}
+              key={`group-member-invite}`}
+            >
+              <Button
+                additionalStyles={styles.btnInvite}
+                onClick={() => setIsModalOpen(true)}
+              >
+                +
+              </Button>
+            </li>
+          </ul>
+        )}
+
+        {users.length === 0 && !isLoading && !errorOccured && <Spinner />}
+      </div>
+      <Overlay />
+    </>
   )
 }

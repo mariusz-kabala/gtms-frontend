@@ -102,37 +102,37 @@ export const PromotedTags: FC<{
       {state.isAdmin && !state.isLoading && state.tags.length === 0 && (
         <EmptyPromotedTags onAddClick={onAddTagClick} />
       )}
-      {!state.isLoading ||
-        (state.tags.length > 0 &&
-          (type === 'list' ? (
-            <PromotedTagsUIList
-              onFavClick={onFavClick}
-              favs={state.favTags}
-              activeTags={state.activeTags}
-              isAdmin={state.isAdmin}
-              isLoading={state.isLoading}
-              noImage={PromotedTagNoImage}
-              onDeleteRecordClick={onDeleteTagClick}
-              onEditRecordClick={onEditTagClick}
-              onNoRecordsClick={onAddTagClick}
-              onTagClick={onTagClick}
-              tags={state.tags}
-            />
-          ) : (
-            <PromotedTagsUIGrid
-              onFavClick={onFavClick}
-              favs={state.favTags}
-              activeTags={state.activeTags}
-              isAdmin={state.isAdmin}
-              isLoading={state.isLoading}
-              noImage={PromotedTagNoImage}
-              onDeleteRecordClick={onDeleteTagClick}
-              onEditRecordClick={onEditTagClick}
-              onNoRecordsClick={onAddTagClick}
-              onTagClick={onTagClick}
-              tags={state.tags}
-            />
-          )))}
+      {!state.isLoading &&
+        state.tags.length > 0 &&
+        (type === 'list' ? (
+          <PromotedTagsUIList
+            onFavClick={onFavClick}
+            favs={state.favTags}
+            activeTags={state.activeTags}
+            isAdmin={state.isAdmin}
+            isLoading={state.isLoading}
+            noImage={PromotedTagNoImage}
+            onDeleteRecordClick={onDeleteTagClick}
+            onEditRecordClick={onEditTagClick}
+            onNoRecordsClick={onAddTagClick}
+            onTagClick={onTagClick}
+            tags={state.tags}
+          />
+        ) : (
+          <PromotedTagsUIGrid
+            onFavClick={onFavClick}
+            favs={state.favTags}
+            activeTags={state.activeTags}
+            isAdmin={state.isAdmin}
+            isLoading={state.isLoading}
+            noImage={PromotedTagNoImage}
+            onDeleteRecordClick={onDeleteTagClick}
+            onEditRecordClick={onEditTagClick}
+            onNoRecordsClick={onAddTagClick}
+            onTagClick={onTagClick}
+            tags={state.tags}
+          />
+        ))}
       {promotedTagEditor.isOpen && (
         <Modal
           onClose={() => {
