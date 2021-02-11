@@ -20,7 +20,6 @@ export const SearchBar: FC<{
   onTagRemove: (tag: string) => void
   onUserRemove: (user: string) => void
   query?: string
-  setIsOverlayVisible?: (param: boolean) => void
   suggestionMinLength?: number
   suggestions?: string[]
   suggestionsType?: keyof typeof SuggestionTypes
@@ -39,7 +38,6 @@ export const SearchBar: FC<{
     onTagRemove,
     onUserRemove,
     query = '',
-    setIsOverlayVisible,
     suggestionMinLength = 3,
     suggestions = [],
     suggestionsType = SuggestionTypes.tags,
@@ -77,12 +75,6 @@ export const SearchBar: FC<{
       <div
         data-testid="searchBar"
         className={cx(styles.searchBar, additionalStyles)}
-        onMouseEnter={() =>
-          setIsOverlayVisible ? setIsOverlayVisible(true) : null
-        }
-        onMouseLeave={() =>
-          setIsOverlayVisible ? setIsOverlayVisible(false) : null
-        }
       >
         {query === '' && !noInlineTags && (
           <>

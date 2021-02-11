@@ -103,7 +103,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <Head>
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <CookiePolicy />
+        {/* <CookiePolicy /> */}
         <LoginWindow />
         <NotificationsActive />
         <NotificationsSidebar />

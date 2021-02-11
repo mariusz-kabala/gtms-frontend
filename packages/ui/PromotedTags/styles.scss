@@ -7,6 +7,11 @@
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/shadows';
 
+.promotedTags {
+  position: relative;
+  z-index: 2;
+}
+
 .items {
   @include gridDefault(6);
 

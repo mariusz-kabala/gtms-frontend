@@ -248,8 +248,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     }
   }, [])
 
-  const [isOverlayVisible, setIsOverlayVisible] = useState(false)
-
   return (
     <div className={styles.pageWrapper}>
       {state.isLoading && <Spinner />}
@@ -278,14 +276,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
-          <Headroom
-            upTolerance={5}
-            className={cx(styles.headroom, {
-              [styles.overlay]: isOverlayVisible,
-            })}
-          >
+          <Headroom upTolerance={5} className={styles.headroom}>
             <GroupHeader
-              setIsOverlayVisible={setIsOverlayVisible}
               additionalStyles={cx({
                 [styles.widthMax]: !state.showPromoted && state.activePost,
               })}

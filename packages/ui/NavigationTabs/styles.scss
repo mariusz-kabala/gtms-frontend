@@ -33,15 +33,14 @@
   ul {
     display: flex;
     align-items: center;
-    margin-left: auto;
 
     li {
       display: flex;
       align-items: center;
       padding: 5px;
-      margin-left: 8px;
+      margin-right: 8px;
       border-radius: $borderRadius;
-      background: $theme1;
+      background: $theme3;
       color: $theme0;
 
       i {

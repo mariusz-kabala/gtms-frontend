@@ -5,10 +5,10 @@
   position: relative;
   z-index: 10;
   display: flex;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
   max-width: $tempWidth;
-  padding: 8px 0px;
+  padding: 10px 0px;
   transition: top 200ms linear;
 
   .templogo {

@@ -20,8 +20,7 @@ const getState = (value = postsQuery.getValue()) => ({
 
 export const GroupHeader: FC<{
   additionalStyles?: string
-  setIsOverlayVisible?: (param: boolean) => void
-}> = ({ additionalStyles, setIsOverlayVisible }) => {
+}> = ({ additionalStyles }) => {
   const [state, setState] = useState<IGroupHeaderState>(getState)
 
   useEffect(() => {
@@ -42,15 +41,14 @@ export const GroupHeader: FC<{
       <div className={styles.templogo} />
       <SearchBar
         additionalStyles={styles.search}
+        onLoadSuggestion={() => null}
+        onLoadSuggestionCancel={() => null}
+        onQueryChange={() => null}
         onTagAdd={() => null}
         onTagRemove={() => null}
-        onLoadSuggestion={() => null}
-        onQueryChange={() => null}
-        onLoadSuggestionCancel={() => null}
         onUserRemove={() => null}
         tags={state.activeTags || []}
         users={state.activeUsers}
-        setIsOverlayVisible={setIsOverlayVisible}
       />
       <GroupSidebar />
     </div>
