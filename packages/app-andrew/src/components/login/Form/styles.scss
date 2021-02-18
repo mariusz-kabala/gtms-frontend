@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 
 .btnSubmit {
+  position: relative;
   @include buttonDefault();
   @include buttonShapeDefault();
   @include buttonSizeDefault();
@@ -11,5 +12,14 @@
   &:hover,
   &.active {
     @include buttonColorsPrimary();
+  }
+
+  &:after {
+    position: absolute;
+    top: 49px;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: $theme1;
   }
 }

@@ -5,7 +5,7 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  border: 2px solid $theme2;
+  border: 2px solid $theme3;
   border-radius: $borderRadius;
   padding: 5px;
 
@@ -79,7 +79,7 @@
     margin-top: 10px;
 
     .tag {
-      border: 1px solid $theme2;
+      border: 1px solid $theme3;
 
       .active {
         background-color: $theme4;
