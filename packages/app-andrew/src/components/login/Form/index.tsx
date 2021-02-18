@@ -51,9 +51,9 @@ export const LoginForm: FC<{
   return (
     <form
       className={additionalStyles}
+      data-testid="login-form"
       method="post"
       onSubmit={handleSubmit(onSubmit)}
-      data-testid="login-form"
     >
       <Input
         type="email"
@@ -77,12 +77,12 @@ export const LoginForm: FC<{
         <Error text={t('form.validation.password.isRequired')} />
       )}
       <Button
-        type="submit"
-        testid="login-button"
         additionalStyles={cx(styles.btnSubmit, {
           [styles.active]: isMakingRequest,
         })}
         disabled={isMakingRequest}
+        testid="login-button"
+        type="submit"
       >
         {isMakingRequest && <Spinner size="xsm" type="authentication" />}
         {t('form.submitButton')}

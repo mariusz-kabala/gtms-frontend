@@ -28,20 +28,20 @@ export const LoginPage: NextPage<{
     }
   })
   const [state, setState] = useState<{
-    isLoading: boolean
     errorOccured: boolean
+    isLoading: boolean
     tags: IPromotedTag[]
   }>({
-    isLoading: promotedTagsQuery.getValue().loading || false,
     errorOccured: promotedTagsQuery.getValue().error || false,
+    isLoading: promotedTagsQuery.getValue().loading || false,
     tags: promotedTagsQuery.getAll(),
   })
 
   useEffect(() => {
     const sub = promotedTagsQuery.select().subscribe((value) => {
       setState({
-        isLoading: value.loading || false,
         errorOccured: value.error || false,
+        isLoading: value.loading || false,
         tags: promotedTagsQuery.getAll(),
       })
     })

@@ -24,7 +24,7 @@
       z-index: 0;
       width: 100%;
       height: 100%;
-      background: rgba($theme2, 0.65);
+      background: rgba($theme3, 0.65);
     }
 
     > * {
@@ -80,8 +80,8 @@
             margin-right: 15px;
             border-radius: $borderRadius;
             line-height: 0;
-            background: $theme2;
-            border: 3px solid $theme2;
+            background: $theme3;
+            border: 3px solid $theme3;
           }
 
           &:hover {

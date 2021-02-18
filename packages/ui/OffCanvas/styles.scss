@@ -1,0 +1,14 @@
+@import '~@gtms/styles/scss/variables.scss';
+
+.offCanvasWrapper {
+  position: relative;
+  left: 0;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  transition: left 500ms;
+
+  &.isActive {
+    left: 520px;
+  }
+}

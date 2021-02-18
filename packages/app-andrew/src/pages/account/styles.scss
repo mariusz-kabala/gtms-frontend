@@ -16,7 +16,7 @@
   padding: 15px;
   min-height: 100%;
   border-radius: $borderRadius;
-  background: $theme2;
+  background: $theme3;
 
   .spinner {
     margin: auto;
@@ -27,7 +27,7 @@
     padding: 10px;
     margin-bottom: 15px;
     border-radius: $borderRadius;
-    background: $theme2;
+    background: $theme3;
     color: $theme0;
     @include fontWeight(semiBold);
 
@@ -48,7 +48,7 @@
       height: 0;
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
-      border-top: 10px solid $theme2;
+      border-top: 10px solid $theme3;
     }
 
     &:hover {
