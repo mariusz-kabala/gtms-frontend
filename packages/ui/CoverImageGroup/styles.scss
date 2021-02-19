@@ -9,7 +9,7 @@
 .wrapper {
   width: 100%;
   @include imageCover();
-  background: $theme2;
+  background: $theme3;
 
   .header {
     @include fontWeight(semiBold);
@@ -18,7 +18,7 @@
 
   .text {
     @include fontSize(md);
-    color: $theme2;
+    color: $theme3;
   }
 
   .steps {

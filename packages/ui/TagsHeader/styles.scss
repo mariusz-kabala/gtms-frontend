@@ -3,7 +3,7 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 
 .wrapper {
-  color: $theme2;
+  color: $theme3;
 
   header {
     display: flex;
@@ -28,8 +28,8 @@
         min-width: 300px;
         border: none;
         padding: 5px;
-        color: $theme2;
-        border-bottom: 1px solid $theme2;
+        color: $theme3;
+        border-bottom: 1px solid $theme3;
       }
     }
   }

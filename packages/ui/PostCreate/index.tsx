@@ -194,10 +194,12 @@ export const PostCreate: FC<{
 
       <div className={styles.avatarAndTextInput}>
         <Link href={`/user/${user?.id}`}>
-          <UserAvatar
-            size="sm"
-            image={getImage('50x50', user?.avatar, noImage)}
-          />
+          <a>
+            <UserAvatar
+              size="sm"
+              image={getImage('50x50', user?.avatar, noImage)}
+            />
+          </a>
         </Link>
         <textarea
           onFocus={() => {

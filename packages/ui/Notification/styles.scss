@@ -8,7 +8,7 @@
   padding: 10px;
   @include fontSize(sm);
   border-radius: $borderRadius;
-  background: $theme2;
+  background: $theme3;
   cursor: pointer;
 
   .notificationIcon {
@@ -35,7 +35,7 @@
 
     .iconClose {
       position: absolute;
-      color: $theme2;
+      color: $theme3;
       display: flex;
       @include fontSize(md);
     }
@@ -48,11 +48,11 @@
 
       > * {
         &:nth-child(1) {
-          stroke: $theme2;
+          stroke: $theme3;
         }
 
         &:nth-child(2) {
-          stroke: $theme2;
+          stroke: $theme3;
         }
       }
     }

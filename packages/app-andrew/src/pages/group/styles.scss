@@ -82,7 +82,7 @@
 
       &[class*='headroom--unpinned'],
       &[class*='headroom--scrolled'] {
-        padding-left: 95px;
+        padding-left: 94px;
       }
 
       &[class*='headroom--pinned'] {
@@ -126,6 +126,7 @@
 
     .content {
       position: relative;
+      z-index: 0;
       display: flex;
       gap: 8px;
       max-width: $tempWidth;
@@ -188,7 +189,7 @@
         width: 100%;
         padding: 10px;
         border-radius: $borderRadius;
-        background: $theme2;
+        background: $theme3;
 
         .postCreate {
           padding: 10px;
@@ -208,7 +209,7 @@
 
       .pagination {
         justify-content: center;
-        margin: 20px 0;
+        margin-top: 5px;
       }
     }
   }

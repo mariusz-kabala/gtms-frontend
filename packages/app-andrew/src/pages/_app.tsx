@@ -11,6 +11,9 @@ import { init, initAuthSession } from '@gtms/state-user'
 import { init as initWPN } from '@gtms/state-notification'
 import { LoginWindow } from '@app/components/commons/LoginWindow'
 import { uiQuery } from '@app/state'
+import { OffCanvas } from '@gtms/ui/OffCanvas'
+
+// styles
 import '@gtms/styles/scss/global.scss'
 import './tooltip.scss'
 import './lightbox.scss'
@@ -32,6 +35,7 @@ interface GTMSAppState {
   }
   backgroundImage?: { mini: string; full: string }
   backgroundLoaded: boolean
+  isOffCanvasActive: boolean
 }
 
 class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
@@ -43,6 +47,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
     this.state = {
       ...uiQuery.pageBackgrounds(),
       backgroundLoaded: false,
+      isOffCanvasActive: false,
     }
   }
 
@@ -50,6 +55,12 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
     this.setState({
       backgroundLoaded: true,
     })
+
+  toggleIsActive = () => {
+    this.setState({
+      isOffCanvasActive: !this.state.isOffCanvasActive,
+    })
+  }
 
   componentDidMount() {
     const { auth } = this.props
@@ -97,6 +108,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
   render() {
     const { Component, pageProps } = this.props
     const { background, backgroundImage, backgroundLoaded } = this.state
+
     return (
       <div className={styles.appWrapper}>
         <Head>
@@ -105,45 +117,50 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
         <LoginWindow />
         <NotificationsActive />
         <NotificationsSidebar />
-        <NavigationWrapper />
-        <GroupPreview />
-        <Component {...pageProps} />
-        <div
-          className={cx(
-            styles.fullPageBg,
-            !backgroundImage ? background.className : undefined
-          )}
-          data-loaded={backgroundLoaded ? 'true' : 'false'}
-          style={
-            backgroundImage
-              ? {
-                  backgroundImage: `url(${
-                    backgroundLoaded
-                      ? backgroundImage.full
-                      : backgroundImage.mini
-                  })`,
-                }
-              : undefined
-          }
-        />
-        <div
-          className={cx(
-            styles.bg,
-            !backgroundImage ? background.className : undefined
-          )}
-          data-loaded={backgroundLoaded ? 'true' : 'false'}
-          style={
-            backgroundImage
-              ? {
-                  backgroundImage: `url(${
-                    backgroundLoaded
-                      ? backgroundImage.full
-                      : backgroundImage.mini
-                  })`,
-                }
-              : undefined
-          }
-        />
+        <OffCanvas
+          isActive={this.state.isOffCanvasActive}
+          toggleIsActive={() => this.toggleIsActive()}
+        >
+          <NavigationWrapper />
+          <GroupPreview />
+          <Component {...pageProps} />
+          <div
+            className={cx(
+              styles.fullPageBg,
+              !backgroundImage ? background.className : undefined
+            )}
+            data-loaded={backgroundLoaded ? 'true' : 'false'}
+            style={
+              backgroundImage
+                ? {
+                    backgroundImage: `url(${
+                      backgroundLoaded
+                        ? backgroundImage.full
+                        : backgroundImage.mini
+                    })`,
+                  }
+                : undefined
+            }
+          />
+          <div
+            className={cx(
+              styles.bg,
+              !backgroundImage ? background.className : undefined
+            )}
+            data-loaded={backgroundLoaded ? 'true' : 'false'}
+            style={
+              backgroundImage
+                ? {
+                    backgroundImage: `url(${
+                      backgroundLoaded
+                        ? backgroundImage.full
+                        : backgroundImage.mini
+                    })`,
+                  }
+                : undefined
+            }
+          />
+        </OffCanvas>
       </div>
     )
   }
