@@ -125,7 +125,6 @@ export const PostSingle: FC<{
       detectKeys: [27],
     }
   )
-  // console.log(postOffsetTop.current.offsetHeight)
   return (
     <div
       className={cx(styles.wrapper, additionalStyles, {
