@@ -10,6 +10,7 @@
   padding: 10px;
   border-radius: $borderRadius;
   border: 3px solid rgba(0, 0, 0, 0);
+  cursor: pointer;
 
   &.isNotFullPost {
     background: $theme3;
@@ -143,17 +144,6 @@
     @include buttonSizeSm();
     @include buttonColorsSecondary();
     margin-right: auto;
-
-    &:hover {
-      @include buttonColorsPrimary();
-    }
-  }
-
-  .readMoreBtn {
-    @include buttonDefault();
-    @include buttonShapeDefault();
-    @include buttonSizeSm();
-    @include buttonColorsSecondary();
 
     &:hover {
       @include buttonColorsPrimary();

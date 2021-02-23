@@ -72,7 +72,7 @@ export const PostSingle: FC<{
   isFullPost,
   noImage,
   onClick,
-  onLoginRequest,
+  // onLoginRequest,
   onOpenGroupPreview,
   onTagClick,
   onUserClick,
@@ -83,7 +83,8 @@ export const PostSingle: FC<{
   user,
   onUserPreviewClick,
 }) => {
-  const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
+  const [isAnswerFormOpen] = useState<boolean>(false)
+  // const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const [lightboxState, setLightboxState] = useState<{
     isOpen: boolean
     current: number
@@ -92,8 +93,14 @@ export const PostSingle: FC<{
     current: -1,
   })
   const commentForm = useRef<HTMLDivElement>(null)
+  const postOffsetTop = useRef<HTMLDivElement>(null)
   const onClickCallback = useCallback(() => {
-    onClick && onClick(id)
+    window.scrollTo({
+      top: postOffsetTop.current.offsetTop,
+      left: 0,
+      behavior: 'smooth',
+    })
+    // onClick && onClick(id)
   }, [id, onClick])
   const onUserClickCallback = useCallback(() => {
     onUserClick && onUserClick(owner)
@@ -112,7 +119,7 @@ export const PostSingle: FC<{
       detectKeys: [27],
     }
   )
-
+  // console.log(postOffsetTop.current.offsetHeight)
   return (
     <div
       className={cx(styles.wrapper, additionalStyles, {
@@ -120,6 +127,8 @@ export const PostSingle: FC<{
         [styles.isNotFullPost]: !isFullPost,
       })}
       data-testid="post-single"
+      onClick={onClickCallback}
+      ref={postOffsetTop}
     >
       {lightboxState.isOpen && (
         <Lightbox
@@ -273,7 +282,8 @@ export const PostSingle: FC<{
           </div>
         )}
       </div>
-      {!isFullPost && (
+      {/* @todo remove it if it won't be needed anymore*/}
+      {/* {!isFullPost && (
         <div className={styles.btns}>
           {allowToRespond && (user || onLoginRequest) && (
             <button
@@ -294,11 +304,8 @@ export const PostSingle: FC<{
               respond...
             </button>
           )}
-          <button className={styles.readMoreBtn} onClick={onClickCallback}>
-            read more...
-          </button>
         </div>
-      )}
+      )} */}
     </div>
   )
 }
