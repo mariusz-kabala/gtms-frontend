@@ -95,11 +95,17 @@ export const PostSingle: FC<{
   const commentForm = useRef<HTMLDivElement>(null)
   const postOffsetTop = useRef<HTMLDivElement>(null)
   const onClickCallback = useCallback(() => {
-    window.scrollTo({
-      top: postOffsetTop.current.offsetTop,
-      left: 0,
-      behavior: 'smooth',
-    })
+    if (
+      postOffsetTop &&
+      postOffsetTop.current &&
+      postOffsetTop.current.offsetTop
+    ) {
+      window.scrollTo({
+        top: postOffsetTop.current.offsetTop,
+        left: 0,
+        behavior: 'smooth',
+      })
+    }
     // onClick && onClick(id)
   }, [id, onClick])
   const onUserClickCallback = useCallback(() => {
