@@ -5,20 +5,6 @@
   min-height: 100vh;
   display: flex;
 
-  .fullPageBg {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    width: calc(100% - 640px);
-    @include imageCover();
-    background-position: fixed;
-    background-attachment: fixed;
-    filter: blur(25px);
-  }
-
   .bg {
     position: fixed;
     right: 0;

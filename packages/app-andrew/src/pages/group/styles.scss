@@ -15,7 +15,7 @@
   position: relative;
   display: flex;
   width: 100%;
-  margin: 0 50px;
+  margin: 0 100px;
   margin-bottom: 50px;
   border-radius: 10px;
 
@@ -82,7 +82,7 @@
 
       &[class*='headroom--unpinned'],
       &[class*='headroom--scrolled'] {
-        padding-left: 94px;
+        padding-left: 294px;
       }
 
       &[class*='headroom--pinned'] {
@@ -115,6 +115,17 @@
 
     &.widthMax {
       max-width: 1100px;
+    }
+
+    .templogo {
+      margin-top: 10px;
+      min-width: 35px;
+      max-width: 35px;
+      min-height: 35px;
+      max-height: 35px;
+      background-image: url('/images/theme-images/logo-patrol.png');
+      border-radius: $borderRadius;
+      @include imageCover();
     }
 
     .tagsColumn {

@@ -126,24 +126,6 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
           <Component {...pageProps} />
           <div
             className={cx(
-              styles.fullPageBg,
-              !backgroundImage ? background.className : undefined
-            )}
-            data-loaded={backgroundLoaded ? 'true' : 'false'}
-            style={
-              backgroundImage
-                ? {
-                    backgroundImage: `url(${
-                      backgroundLoaded
-                        ? backgroundImage.full
-                        : backgroundImage.mini
-                    })`,
-                  }
-                : undefined
-            }
-          />
-          <div
-            className={cx(
               styles.bg,
               !backgroundImage ? background.className : undefined
             )}

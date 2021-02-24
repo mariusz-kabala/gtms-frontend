@@ -32,7 +32,9 @@
     align-items: center;
     gap: 5px;
     margin-bottom: 8px;
-    @include fontWeight(semiBold);
+    @include fontWeight(semiBold) padding: 7px 6px;
+    border-radius: $borderRadius;
+    background: $theme3;
     cursor: pointer;
 
     li {
