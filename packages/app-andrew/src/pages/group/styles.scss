@@ -82,22 +82,10 @@
 
       &[class*='headroom--unpinned'],
       &[class*='headroom--scrolled'] {
-        padding-left: 294px;
+        padding-left: 395px;
       }
 
       &[class*='headroom--pinned'] {
-        &:after {
-          content: '';
-          position: absolute;
-          top: 50px;
-          left: 0;
-          z-index: 10;
-          width: 130%;
-          height: 1px;
-          background: white;
-          opacity: 0.4;
-        }
-
         &:before {
           top: -50px;
         }
@@ -106,8 +94,6 @@
   }
 
   .wrapper {
-    width: 100%;
-
     z-index: 0;
     display: flex;
     gap: 8px;
@@ -117,18 +103,9 @@
       max-width: 1100px;
     }
 
-    .templogo {
-      margin-top: 10px;
-      min-width: 35px;
-      max-width: 35px;
-      min-height: 35px;
-      max-height: 35px;
-      background-image: url('/images/theme-images/logo-patrol.png');
-      border-radius: $borderRadius;
-      @include imageCover();
-    }
-
     .tagsColumn {
+      position: relative;
+      z-index: 20;
       min-width: 200px;
       min-height: 100%;
     }

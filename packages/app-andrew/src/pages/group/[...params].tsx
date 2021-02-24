@@ -295,7 +295,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
               group={state.group}
               isEditAllowed={groupQuery.hasAdminRights()}
             />
-            <div className={styles.templogo} />
             <TagsBar additionalStyles={styles.tagsColumn} />
             <div>
               <Headroom upTolerance={5} className={styles.headroom}>
