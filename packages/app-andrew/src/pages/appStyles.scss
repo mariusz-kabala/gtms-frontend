@@ -5,6 +5,12 @@
   min-height: 100vh;
   display: flex;
 
+  // temp bg
+  background-image: url('/images/bg-images/group_bg_1.png');
+  @include imageCover();
+  background-position: fixed;
+  background-attachment: fixed;
+
   .bg {
     position: fixed;
     right: 0;

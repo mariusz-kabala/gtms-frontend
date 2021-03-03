@@ -38,7 +38,6 @@ export const GroupHeader: FC<{
       className={cx(styles.groupHeaderComponent, additionalStyles)}
       data-testid="group-header"
     >
-      <div className={styles.templogo} />
       <SearchBar
         additionalStyles={styles.search}
         onLoadSuggestion={() => null}

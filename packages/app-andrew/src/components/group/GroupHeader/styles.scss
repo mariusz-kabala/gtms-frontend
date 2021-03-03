@@ -7,20 +7,8 @@
   display: flex;
   gap: 10px;
   width: 100%;
-  max-width: 449px;
   padding: 10px 0px;
   transition: top 200ms linear;
-
-  .templogo {
-    margin-top: 10px;
-    min-width: 35px;
-    max-width: 35px;
-    min-height: 35px;
-    max-height: 35px;
-    background-image: url('/images/theme-images/logo-patrol.png');
-    border-radius: $borderRadius;
-    @include imageCover();
-  }
 
   .search {
     // @todo remove it when search will be finished

@@ -80,20 +80,23 @@
         transition: top 300ms linear;
       }
 
-      &[class*='headroom--unpinned'],
-      &[class*='headroom--scrolled'] {
-        padding-left: 395px;
-      }
-
       &[class*='headroom--pinned'] {
         &:before {
           top: -50px;
+        }
+      }
+      &[class*='headroom--pinned'],
+      &[class*='headroom--unpinned'] {
+        [class*='searchBar'] {
+          max-width: 491px;
+          margin-left: 288px;
         }
       }
     }
   }
 
   .wrapper {
+    position: relative;
     z-index: 0;
     display: flex;
     gap: 8px;
@@ -103,11 +106,23 @@
       max-width: 1100px;
     }
 
+    .templogo {
+      position: fixed;
+      left: 58px;
+      top: 10px;
+      min-width: 35px;
+      max-width: 35px;
+      min-height: 35px;
+      max-height: 35px;
+      background-image: url('/images/theme-images/logo-patrol.png');
+      border-radius: $borderRadius;
+      @include imageCover();
+    }
+
     .tagsColumn {
-      position: relative;
       z-index: 20;
-      min-width: 200px;
-      min-height: 100%;
+      min-width: 180px;
+      height: 100vh;
     }
 
     .posts {
@@ -158,7 +173,6 @@
       .header {
         @include fontWeight(semiNormal);
         @include fontSize(lg);
-        margin-bottom: 15px;
 
         span {
           @include fontWeight(semiBold);

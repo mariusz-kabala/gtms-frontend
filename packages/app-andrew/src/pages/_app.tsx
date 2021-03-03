@@ -107,7 +107,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
 
   render() {
     const { Component, pageProps } = this.props
-    const { background, backgroundImage, backgroundLoaded } = this.state
+    // const { background, backgroundImage, backgroundLoaded } = this.state
 
     return (
       <div className={styles.appWrapper}>
@@ -124,7 +124,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
           <NavigationWrapper />
           <GroupPreview />
           <Component {...pageProps} />
-          <div
+          {/* <div
             className={cx(
               styles.bg,
               !backgroundImage ? background.className : undefined
@@ -141,7 +141,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
                   }
                 : undefined
             }
-          />
+          /> */}
         </OffCanvas>
       </div>
     )
