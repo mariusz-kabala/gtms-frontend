@@ -1,6 +1,6 @@
 {
   "name": "@gtms/styleguide",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "license": "ISC",
   "scripts": {
     "build": "exit 0",

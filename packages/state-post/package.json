@@ -1,16 +1,16 @@
 {
   "name": "@gtms/state-post",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "source": "src/index.ts",
   "module": "src/index.ts",
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-comment": "*",
-    "@gtms/api-post": "*",
-    "@gtms/commons": "*",
-    "@gtms/state-notification": "*",
-    "@gtms/state-user": "*"
+    "@gtms/api-comment": "0.3.1",
+    "@gtms/api-post": "0.20.1",
+    "@gtms/commons": "0.35.1",
+    "@gtms/state-notification": "0.13.1",
+    "@gtms/state-user": "0.22.1"
   },
   "scripts": {
     "build": "exit 0",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-common@0.9.0...@gtms/api-common@0.10.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* master: update versions ([3f138b2](https://github.com/gtms-org/gtms-frontend/commit/3f138b21a620fd8c44ac30ff692422ea2dc0d3ac))
+
+
+
+
+
 # [0.9.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-common@0.8.0...@gtms/api-common@0.9.0) (2020-07-15)
 
 

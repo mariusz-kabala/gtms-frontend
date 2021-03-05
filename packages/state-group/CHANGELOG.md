@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.20.4...@gtms/state-group@0.21.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* GEOT-794: different changes ([#999](https://github.com/gtms-org/gtms-frontend/issues/999)) ([4df0b5a](https://github.com/gtms-org/gtms-frontend/commit/4df0b5ab4180b12680812c5656f15b1e08048ab8))
+* master: update versions ([3f138b2](https://github.com/gtms-org/gtms-frontend/commit/3f138b21a620fd8c44ac30ff692422ea2dc0d3ac))
+
+
+
+
+
 ## [0.20.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/state-group@0.20.3...@gtms/state-group@0.20.4) (2020-12-28)
 
 

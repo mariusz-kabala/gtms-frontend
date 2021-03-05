@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.35.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.34.1...@gtms/commons@0.35.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* master: update versions ([3f138b2](https://github.com/gtms-org/gtms-frontend/commit/3f138b21a620fd8c44ac30ff692422ea2dc0d3ac))
+
+
+
+
+
 ## [0.34.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/commons@0.34.0...@gtms/commons@0.34.1) (2020-12-28)
 
 

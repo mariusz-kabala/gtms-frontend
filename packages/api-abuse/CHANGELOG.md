@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-abuse@0.4.2...@gtms/api-abuse@0.5.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* GEOT-794: different changes ([#999](https://github.com/gtms-org/gtms-frontend/issues/999)) ([4df0b5a](https://github.com/gtms-org/gtms-frontend/commit/4df0b5ab4180b12680812c5656f15b1e08048ab8))
+* master: update versions ([3f138b2](https://github.com/gtms-org/gtms-frontend/commit/3f138b21a620fd8c44ac30ff692422ea2dc0d3ac))
+
+
+
+
+
 ## [0.4.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-abuse@0.4.1...@gtms/api-abuse@0.4.2) (2020-12-28)
 
 **Note:** Version bump only for package @gtms/api-abuse

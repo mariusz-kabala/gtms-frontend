@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styleguide@0.3.0...@gtms/styleguide@0.4.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* master: update versions ([3f138b2](https://github.com/gtms-org/gtms-frontend/commit/3f138b21a620fd8c44ac30ff692422ea2dc0d3ac))
+
+
+
+
+
 # [0.3.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/styleguide@0.2.0...@gtms/styleguide@0.3.0) (2020-05-21)
 
 

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.113.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.109.0...@gtms/app-andrew@0.113.0) (2021-03-05)
+
+
+### Bug Fixes
+
+* GEOT-794: different changes ([#999](https://github.com/gtms-org/gtms-frontend/issues/999)) ([4df0b5a](https://github.com/gtms-org/gtms-frontend/commit/4df0b5ab4180b12680812c5656f15b1e08048ab8))
+* master: update versions ([3f138b2](https://github.com/gtms-org/gtms-frontend/commit/3f138b21a620fd8c44ac30ff692422ea2dc0d3ac))
+* master: version fix ([9c79e21](https://github.com/gtms-org/gtms-frontend/commit/9c79e211c29aea482b9863af3ac36d3bab21d0d3))
+
+
+### Features
+
+* GEOT-698: better cookie component ([#926](https://github.com/gtms-org/gtms-frontend/issues/926)) ([40abcf1](https://github.com/gtms-org/gtms-frontend/commit/40abcf1a12dbbe28d3d30386e6ba9fe49ef28bf6))
+* GEOT-791: GEOT-791: cleanup html and css ([#990](https://github.com/gtms-org/gtms-frontend/issues/990)) ([08d9c96](https://github.com/gtms-org/gtms-frontend/commit/08d9c96c58f6ed39e089baa524f1cf8624f1022b))
+* GEOT-792: small changes ([#994](https://github.com/gtms-org/gtms-frontend/issues/994)) ([510fa87](https://github.com/gtms-org/gtms-frontend/commit/510fa878da33d0509f31e59b151bd217e223e6f9))
+* GEOT-793: off canvas ([#996](https://github.com/gtms-org/gtms-frontend/issues/996)) ([d4dee89](https://github.com/gtms-org/gtms-frontend/commit/d4dee899d7ec7a1901b35853911c9113e71bed16))
+
+
+
+
+
 # [0.109.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.108.0...@gtms/app-andrew@0.109.0) (2021-02-04)
 
 

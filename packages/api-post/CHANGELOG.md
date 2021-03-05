@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.19.0...@gtms/api-post@0.20.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* GEOT-736: different small changes ([#956](https://github.com/gtms-org/gtms-frontend/issues/956)) ([2fdbe0b](https://github.com/gtms-org/gtms-frontend/commit/2fdbe0b31eb511f08d56667a68d84cbd912d86ab))
+* GEOT-794: different changes ([#999](https://github.com/gtms-org/gtms-frontend/issues/999)) ([4df0b5a](https://github.com/gtms-org/gtms-frontend/commit/4df0b5ab4180b12680812c5656f15b1e08048ab8))
+* master: update versions ([3f138b2](https://github.com/gtms-org/gtms-frontend/commit/3f138b21a620fd8c44ac30ff692422ea2dc0d3ac))
+
+
+
+
+
 # [0.19.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/api-post@0.18.0...@gtms/api-post@0.19.0) (2021-01-01)
 
 
