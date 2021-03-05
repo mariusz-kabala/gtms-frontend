@@ -12,25 +12,25 @@ resource "docker_container" "gtms-frontend" {
   }
 
   labels {
-    label = "traefik.backend"
-    value = "gtms-frontend-${var.env}"
+    label = "traefik.http.routers.GTMSFeApp-${var.env}.rule"
+    value = "Host(`${var.app_domain}`)"
   }
 
   labels {
-    label = "traefik.frontend.rule"
-    value = "Host:${var.app_domain}"
+    label = "traefik.http.routers.GTMSFeApp-${var.env}.tls"
+    value = "true"
   }
 
   labels {
-    label = "traefik.protocol"
-    value = "http"
+    label = "traefik.http.routers.GTMSFeApp-${var.env}.tls.certresolver"
+    value = "myresolver"
   }
 
   labels {
-    label = "traefik.port"
+    label = "traefik.http.services.GTMSFeApp-${var.env}.loadbalancer.server.port"
     value = "80"
   }
-
+  
   env = [
     "NODE_ENV=production",
     "API_URL=https://${var.app_domain}/api",
