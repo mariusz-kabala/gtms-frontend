@@ -15,7 +15,7 @@
   position: relative;
   display: flex;
   width: 100%;
-  margin: 0 50px;
+  margin: 0 100px;
   margin-bottom: 50px;
   border-radius: 10px;
 
@@ -80,33 +80,110 @@
         transition: top 300ms linear;
       }
 
-      &[class*='headroom--unpinned'],
-      &[class*='headroom--scrolled'] {
-        padding-left: 94px;
-      }
-
       &[class*='headroom--pinned'] {
-        &:after {
-          content: '';
-          position: absolute;
-          top: 50px;
-          left: 0;
-          z-index: 10;
-          width: 130%;
-          height: 1px;
-          background: white;
-          opacity: 0.4;
-        }
-
         &:before {
           top: -50px;
+        }
+      }
+      &[class*='headroom--pinned'],
+      &[class*='headroom--unpinned'] {
+        [class*='searchBar'] {
+          max-width: 491px;
+          margin-left: 288px;
         }
       }
     }
   }
 
   .wrapper {
-    width: 100%;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    gap: 8px;
+    max-width: $tempWidth;
+
+    &.widthMax {
+      max-width: 1100px;
+    }
+
+    .templogo {
+      position: fixed;
+      left: 58px;
+      top: 10px;
+      min-width: 35px;
+      max-width: 35px;
+      min-height: 35px;
+      max-height: 35px;
+      background-image: url('/images/theme-images/logo-patrol.png');
+      border-radius: $borderRadius;
+      @include imageCover();
+    }
+
+    .tagsColumn {
+      z-index: 20;
+      min-width: 180px;
+      height: 100vh;
+    }
+
+    .posts {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      border-radius: $borderRadius;
+
+      .loading {
+        width: 60px;
+        margin: 25px auto;
+      }
+
+      .postCreate {
+        display: flex;
+        padding: 8px;
+        background: $theme3;
+        border-radius: $borderRadius;
+      }
+
+      .postsList {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .post {
+          padding: 8px;
+
+          &:hover {
+            border-color: $theme4;
+          }
+        }
+      }
+    }
+
+    .noPostsFound {
+      width: 100%;
+      padding: 10px;
+      border-radius: $borderRadius;
+      background: $theme3;
+
+      .postCreate {
+        padding: 10px;
+        border-radius: $borderRadius;
+      }
+
+      .header {
+        @include fontWeight(semiNormal);
+        @include fontSize(lg);
+
+        span {
+          @include fontWeight(semiBold);
+        }
+      }
+    }
+
+    .pagination {
+      justify-content: center;
+      margin-top: 5px;
+    }
 
     .promotedTags {
       position: sticky;
@@ -122,95 +199,6 @@
       top: 10px;
       left: 0;
       width: 100%;
-    }
-
-    .content {
-      position: relative;
-      z-index: 0;
-      display: flex;
-      gap: 8px;
-      max-width: $tempWidth;
-
-      &.widthMax {
-        max-width: 1100px;
-      }
-
-      .tagsColumn {
-        min-width: 200px;
-        min-height: 100%;
-      }
-
-      .columns {
-        display: flex;
-        gap: 8px;
-
-        .postDetails {
-          width: 100%;
-          margin-bottom: 5px;
-          border-radius: $borderRadius;
-        }
-      }
-
-      .posts {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        width: 100%;
-        border-radius: $borderRadius;
-
-        .loading {
-          width: 60px;
-          margin: 25px auto;
-        }
-
-        .postCreate {
-          display: flex;
-          padding: 8px;
-          background: $theme3;
-          border-radius: $borderRadius;
-        }
-
-        .postsList {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-
-          .post {
-            padding: 8px;
-
-            &:hover {
-              border-color: $theme4;
-            }
-          }
-        }
-      }
-
-      .noPostsFound {
-        width: 100%;
-        padding: 10px;
-        border-radius: $borderRadius;
-        background: $theme3;
-
-        .postCreate {
-          padding: 10px;
-          border-radius: $borderRadius;
-        }
-
-        .header {
-          @include fontWeight(semiNormal);
-          @include fontSize(lg);
-          margin-bottom: 15px;
-
-          span {
-            @include fontWeight(semiBold);
-          }
-        }
-      }
-
-      .pagination {
-        justify-content: center;
-        margin-top: 5px;
-      }
     }
   }
 }

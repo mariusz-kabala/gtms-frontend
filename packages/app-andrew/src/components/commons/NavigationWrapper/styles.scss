@@ -10,8 +10,6 @@
 .mainNavigationWrapper {
   @include z-index(mainNavigation);
   align-items: center;
-  padding: 5px;
-  min-width: 44px;
 
   > div {
     position: fixed;

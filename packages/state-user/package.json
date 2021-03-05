@@ -6,9 +6,9 @@
   "main": "src/index.ts",
   "license": "ISC",
   "dependencies": {
-    "@gtms/api-auth": "0.15.2",
-    "@gtms/api-group": "0.18.2",
-    "@gtms/commons": "0.34.1"
+    "@gtms/api-auth": "*",
+    "@gtms/api-group": "*",
+    "@gtms/commons": "*"
   },
   "scripts": {
     "build": "exit 0",
