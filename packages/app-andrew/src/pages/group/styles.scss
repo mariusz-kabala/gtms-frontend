@@ -4,6 +4,7 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
+@import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .pageWrapper {
   @include pageWrapper();
@@ -28,73 +29,6 @@
     max-width: $tempWidth;
   }
 
-  .welcomeText {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-
-    // @todo uncomment this when welcome text show hide logic will be implemented
-    display: none;
-
-    > div {
-      max-width: $tempWidth;
-      @include fontSize(xxxlg);
-
-      h2,
-      p {
-        text-shadow: 0px 20px 35px rgba(0, 0, 0, 0.7);
-      }
-
-      h2 {
-        @include fontWeight(semiBold);
-      }
-
-      p {
-        @include fontSize(lg);
-      }
-    }
-  }
-
-  .headroom {
-    position: relative;
-
-    > div {
-      position: relative;
-      z-index: 11 !important;
-
-      &:before {
-        content: '';
-        position: fixed;
-        z-index: 10;
-        top: -300px;
-        left: 0px;
-        width: 100%;
-        height: 1px;
-        box-shadow: 0px 0px 150px 150px rgba(0, 0, 0, 0.85);
-        transition: top 300ms linear;
-      }
-
-      &[class*='headroom--pinned'] {
-        &:before {
-          top: -50px;
-        }
-      }
-      &[class*='headroom--pinned'],
-      &[class*='headroom--unpinned'] {
-        [class*='searchBar'] {
-          max-width: 491px;
-          margin-left: 288px;
-        }
-      }
-    }
-  }
-
   .wrapper {
     position: relative;
     z-index: 0;
@@ -110,79 +44,110 @@
       position: fixed;
       left: 58px;
       top: 10px;
-      min-width: 35px;
-      max-width: 35px;
-      min-height: 35px;
-      max-height: 35px;
+      z-index: 11;
+      width: $size1;
+      height: $size1;
       background-image: url('/images/theme-images/logo-patrol.png');
       border-radius: $borderRadius;
       @include imageCover();
     }
 
-    .tagsColumn {
-      z-index: 20;
-      min-width: 180px;
-      height: 100vh;
-    }
-
-    .posts {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .content {
       width: 100%;
-      border-radius: $borderRadius;
 
-      .loading {
-        width: 60px;
-        margin: 25px auto;
-      }
+      .headroom {
+        position: relative;
 
-      .postCreate {
-        display: flex;
-        padding: 8px;
-        background: $theme3;
-        border-radius: $borderRadius;
-      }
+        > div {
+          position: relative;
+          @include z-index(headerWrapper);
+          @include z-index(headerWrapper);
 
-      .postsList {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+          &:before {
+            content: '';
+            position: fixed;
+            top: -300px;
+            left: 0px;
+            width: 100%;
+            height: 1px;
+            box-shadow: 0px 0px 200px 190px rgba(0, 0, 0, 0.9);
+            transition: top 300ms linear;
+          }
 
-        .post {
-          padding: 8px;
-
-          &:hover {
-            border-color: $theme4;
+          &[class*='headroom--pinned'] {
+            &:before {
+              top: -50px;
+            }
+          }
+          &[class*='headroom--pinned'],
+          &[class*='headroom--unpinned'] {
+            [class*='searchBar'] {
+              max-width: 490px;
+              margin-left: 312px;
+            }
           }
         }
       }
-    }
 
-    .noPostsFound {
-      width: 100%;
-      padding: 10px;
-      border-radius: $borderRadius;
-      background: $theme3;
-
-      .postCreate {
-        padding: 10px;
+      .posts {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
         border-radius: $borderRadius;
-      }
 
-      .header {
-        @include fontWeight(semiNormal);
-        @include fontSize(lg);
+        .loading {
+          width: 60px;
+          margin: 25px auto;
+        }
 
-        span {
-          @include fontWeight(semiBold);
+        .postCreate {
+          display: flex;
+          padding: 8px;
+          background: $theme3;
+          border-radius: $borderRadius;
+        }
+
+        .postsList {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .post {
+            padding: 8px;
+
+            &:hover {
+              border-color: $theme4;
+            }
+          }
         }
       }
-    }
 
-    .pagination {
-      justify-content: center;
-      margin-top: 5px;
+      .noPostsFound {
+        width: 100%;
+        padding: 10px;
+        border-radius: $borderRadius;
+        background: $theme3;
+
+        .postCreate {
+          padding: 10px;
+          border-radius: $borderRadius;
+        }
+
+        .header {
+          @include fontWeight(semiNormal);
+          @include fontSize(lg);
+
+          span {
+            @include fontWeight(semiBold);
+          }
+        }
+      }
+
+      .pagination {
+        justify-content: center;
+        margin-top: 5px;
+      }
     }
 
     .promotedTags {

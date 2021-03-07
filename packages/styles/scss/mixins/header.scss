@@ -1,3 +1,5 @@
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+
 $size: (
   h1: 1.802em,
   h2: 1.602em,
@@ -10,10 +12,14 @@ $size: (
   @return map-get($size, $key);
 }
 
-@mixin header($key, $textUppercase: null) {
+@mixin header($key, $textUppercase: null, $bold: null) {
   font-size: header($key);
 
   @if $textUppercase {
     text-transform: uppercase;
+  }
+
+  @if $bold {
+    @include fontWeight(semiBold);
   }
 }

@@ -3,11 +3,7 @@
 
 .userLastPosts {
   span {
-    // @todo create mixin of that
-    display: inline-block;
-    @include fontSize(xxs);
-    text-transform: uppercase;
-    margin: 10px 0;
+    @include header(h1, textUppercase);
   }
 
   .noRecords {
