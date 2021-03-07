@@ -275,7 +275,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
-          {state.showPromoted && (
+          {state.showPromoted && true && (
             <PromotedTags
               additionalStyles={styles.promotedTags}
               onTagClick={(tag) => onClick({ tag: tag.tag })}
