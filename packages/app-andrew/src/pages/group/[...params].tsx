@@ -275,20 +275,20 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
+          {state.showPromoted && (
+            <PromotedTags
+              additionalStyles={styles.promotedTags}
+              onTagClick={(tag) => onClick({ tag: tag.tag })}
+            />
+          )}
+          {state.showUsers && (
+            <GroupMembers
+              additionalStyles={styles.groupMembers}
+              slug={state.group.slug}
+              {...state.members}
+            />
+          )}
           <div className={styles.wrapper} data-testid="group-page">
-            {state.showPromoted && (
-              <PromotedTags
-                additionalStyles={styles.promotedTags}
-                onTagClick={(tag) => onClick({ tag: tag.tag })}
-              />
-            )}
-            {state.showUsers && (
-              <GroupMembers
-                additionalStyles={styles.groupMembers}
-                slug={state.group.slug}
-                {...state.members}
-              />
-            )}
             <GroupCover
               additionalStyles={styles.groupCover}
               group={state.group}
