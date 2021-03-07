@@ -18,8 +18,13 @@
     border-color: $theme4;
   }
 
-  &.withBg {
-    background: $theme3;
+  &.withFullBg {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba($theme3, 0.85);
   }
 
   .content {
@@ -27,10 +32,10 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    max-width: 700px;
+    max-width: $tempWidth;
 
     img {
-      max-width: 250px;
+      max-width: 200px;
       margin-right: 20px;
     }
 

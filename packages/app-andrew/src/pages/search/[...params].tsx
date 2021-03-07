@@ -6,19 +6,19 @@ import {
 import { NextPage, NextPageContext } from 'next'
 
 type IParsedParamsResult = {
-  tag: string[]
-  user: string[]
   page: string[]
   tab: Tabs
+  tag: string[]
+  user: string[]
 }
 const parseParams = (
   params: string[] | string | undefined
 ): IParsedParamsResult => {
   const result: IParsedParamsResult = {
+    page: [],
+    tab: Tabs.posts,
     tag: [],
     user: [],
-    tab: Tabs.posts,
-    page: [],
   }
 
   if (!Array.isArray(params)) {
@@ -51,8 +51,8 @@ const parseParams = (
 
 export const SearchPage: NextPage<{
   initialTab?: Tabs
-  tags?: string[]
   namespacesRequired: readonly string[]
+  tags?: string[]
 }> = (params) => {
   return <SearchPageComponent {...params} />
 }
@@ -61,8 +61,8 @@ SearchPage.getInitialProps = (ctx: NextPageContext) => {
   const { params } = ctx?.query
   const { tag, tab, user } = parseParams(params)
   return Promise.resolve({
-    namespacesRequired: ['searchPage'],
     initialTab: tab,
+    namespacesRequired: ['searchPage'],
     tags: tag,
     users: user,
   })

@@ -103,6 +103,7 @@ export const Favs: FC<{
         arrow={true}
         title={tooltipContent.text}
       >
+        {/* @todo check if div is needed, can be <>? */}
         <div>
           {isInFavs && (
             <i>
