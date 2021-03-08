@@ -6,24 +6,22 @@ import styles from './styles.scss'
 
 export const ErrorWrapper: FC<{
   additionalStyles?: string
-  withBg?: true
   buttons?: ReactNode
   children: ReactNode
-}> = ({ additionalStyles, buttons, children, withBg }) => {
+  withFullBg?: true
+}> = ({ additionalStyles, buttons, children, withFullBg }) => {
   return (
-    <>
-      <div
-        className={cx(styles.wrapper, additionalStyles, {
-          [styles.withBg]: withBg,
-        })}
-        data-testid="error-wrapper"
-      >
-        <div className={styles.content}>
-          <Picture jpg={'/images/theme-images/oops-robot.png'} />
-          <div>{children}</div>
-        </div>
-        {buttons}
+    <div
+      className={cx(styles.wrapper, additionalStyles, {
+        [styles.withFullBg]: withFullBg,
+      })}
+      data-testid="error-wrapper"
+    >
+      <div className={styles.content}>
+        <Picture jpg={'/images/theme-images/oops-robot.png'} />
+        <div>{children}</div>
       </div>
-    </>
+      {buttons}
+    </div>
   )
 }

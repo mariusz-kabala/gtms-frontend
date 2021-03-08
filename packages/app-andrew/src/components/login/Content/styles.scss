@@ -2,13 +2,13 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
+@import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 @import '~@gtms/styles/scss/mixins/pageBg.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
   @include pageWrapper();
-  margin: initial; // clear pageWrapper() margin
 }
 
 .modalError {
@@ -58,10 +58,7 @@
       box-shadow: $boxShadowDefault;
 
       .header {
-        // @todo make mixin of that
-        font-size: 2em;
-        text-transform: uppercase;
-        @include fontWeight(semiBold);
+        @include header(h1, textUppercase, bold);
       }
 
       .or {

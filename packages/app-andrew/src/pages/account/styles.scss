@@ -3,11 +3,11 @@
 @import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/header.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
   @include pageWrapper(width700);
-  background: none;
 }
 
 .wrapper {
@@ -134,11 +134,7 @@
     margin-top: 15px;
 
     span {
-      // @todo create mixin of that
-      display: inline-block;
-      @include fontSize(xxs);
-      text-transform: uppercase;
-      margin-bottom: 3px;
+      @include header(h1, textUppercase);
     }
   }
 
@@ -164,11 +160,7 @@
 
   .userGroups {
     span {
-      // @todo create mixin of that
-      display: inline-block;
-      @include fontSize(xxs);
-      text-transform: uppercase;
-      margin-bottom: 3px;
+      @include header(h1, textUppercase);
     }
   }
 }

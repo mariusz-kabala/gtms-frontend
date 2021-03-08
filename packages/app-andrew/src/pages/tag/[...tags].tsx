@@ -24,25 +24,29 @@ import { UsersList } from '@app/components/tag/UsersList'
 // ui
 import { FourHundredFour } from '@gtms/ui/FourHundredFour'
 import { MockData } from '@gtms/ui/MockData'
+import { Modal } from '@gtms/ui/Modal'
 import { TagsHeader } from '@gtms/ui/TagsHeader'
 // styles
 import styles from './styles.scss'
 
 export interface TagPageProps {
-  namespacesRequired: readonly string[]
-  tags: string[]
   groups: IRecentGroupsResponse | null
-  users: ITagUsersResponse | null
+  namespacesRequired: readonly string[]
   posts: IFindPostsResponse | null
+  tags: string[]
+  users: ITagUsersResponse | null
 }
 
-const TagPage: NextPage<TagPageProps> = ({ groups, users, tags, posts }) => {
+const TagPage: NextPage<TagPageProps> = ({ groups, posts, tags, users }) => {
   useInitState(() => {
     groups && initGroupsList(groups)
     users && initUsersList(users)
     posts && initPostsSearchStore(posts)
   })
   const [state, setState] = useState<ITagPageState>(tagPageState())
+  const [isTagRemovedShowModal, setIsTagRemovedShowModal] = useState<boolean>(
+    false
+  )
   const [tagsHints, setTagsHints] = useState<{
     isLoading: boolean
     tags: string[]
@@ -108,7 +112,7 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags, posts }) => {
   )
 
   const onTagRemove = useCallback(() => {
-    // @todo UI needs to be implemented
+    setIsTagRemovedShowModal(true)
   }, [])
 
   if (groups === null) {
@@ -118,35 +122,40 @@ const TagPage: NextPage<TagPageProps> = ({ groups, users, tags, posts }) => {
 
   return (
     <div data-testid="tag-page" className={styles.pageWrapper}>
+      {isTagRemovedShowModal && (
+        <Modal onClose={() => setIsTagRemovedShowModal(false)}>
+          Tag removed! - success!
+        </Modal>
+      )}
       <div className={styles.wrapper}>
         <TagsHeader
-          tags={tags}
           isLoading={tagsHints.isLoading}
-          suggestions={tagsHints.tags}
           onLoadSuggestion={onLoadSuggestion}
           onLoadSuggestionCancel={onLoadSuggestionCancel}
           onTagAdd={onTagAdd}
           onTagRemove={onTagRemove}
+          suggestions={tagsHints.tags}
+          tags={tags}
         />
 
         <h3 className={styles.header}>Groups</h3>
         <GroupsList
-          records={state.groups.docs}
           isLoading={state.groups.isLoading}
+          records={state.groups.docs}
         />
 
         <h3 className={styles.header}>Users</h3>
         <UsersList
-          records={state.users.docs}
           isLoading={state.users.isLoading}
+          records={state.users.docs}
         />
 
         <h3 className={styles.header}>Posts</h3>
         {state.posts && (
           <PostsList
-            user={null}
-            records={state.posts.docs}
             isLoading={state.posts.isLoading}
+            records={state.posts.docs}
+            user={null}
           />
         )}
         {!state.posts && (
@@ -174,21 +183,21 @@ TagPage.getInitialProps = async (
       const [groups, users, posts] = data
 
       return {
-        namespacesRequired: ['tagPage'],
         groups,
-        users,
-        tags,
+        namespacesRequired: ['tagPage'],
         posts,
+        tags,
+        users,
       }
     })
   }
 
   return {
-    namespacesRequired: ['tagPage'],
-    tags,
     groups: null,
-    users: null,
+    namespacesRequired: ['tagPage'],
     posts: null,
+    tags,
+    users: null,
   }
 }
 

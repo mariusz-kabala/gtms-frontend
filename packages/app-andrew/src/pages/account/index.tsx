@@ -194,7 +194,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                 </li>
               </ul>
               <div className={styles.userTags}>
-                <span>My TAGS:</span>
+                <span># My TAGS:</span>
                 <TagsBar
                   tags={tags}
                   isSaving={isSaving}

@@ -1,6 +1,7 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/header.scss';
 
 .modalContent {
   button[type='submit'] {
@@ -8,10 +9,7 @@
   }
 
   .header {
-    // create a mixin of that
-    text-transform: uppercase;
-    @include fontSize(xlg);
-    @include fontWeight(semiBold);
+    @include header(h1, textUppercase, bold);
     margin-bottom: 10px;
   }
 }
