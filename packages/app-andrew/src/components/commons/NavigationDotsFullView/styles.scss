@@ -56,24 +56,13 @@
         }
       }
 
-      &.current {
+      &.active {
         a {
-          @include fontWeight(semiBold);
+          @include fontWeight(bold);
+          @include fontSize(lg);
           color: $theme0;
         }
       }
-    }
-  }
-}
-
-.noRecords {
-  width: 100%;
-
-  > div {
-    margin-bottom: 20px;
-
-    &:last-child {
-      margin-bottom: 0;
     }
   }
 }
