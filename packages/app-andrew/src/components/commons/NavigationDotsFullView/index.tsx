@@ -5,16 +5,10 @@ import {
   navigationDotsFullViewState,
   navigationDotsFullViewState$,
 } from './state.query'
-import { Link } from '@gtms/commons/i18n'
-import { getImage } from '@gtms/commons/helpers'
-import { IGroup } from '@gtms/commons/models'
-import { GroupAvatarNoImage } from '@app/enums'
 // ui
-import { IoIosHeart, IoIosSettings } from 'react-icons/io'
+import { GroupsList } from './GroupsList'
+import { IoIosHeart } from 'react-icons/io'
 import { FaUsers, FaUserShield, FaIdBadge } from 'react-icons/fa'
-import { MockData } from '@gtms/ui/MockData'
-import { Picture } from '@gtms/ui/Picture'
-import { Spinner } from '@gtms/ui/Spinner'
 import styles from './styles.scss'
 
 enum Tabs {
@@ -24,38 +18,7 @@ enum Tabs {
   admin,
 }
 
-const NoRecords: FC<{ text: string }> = ({ text }) => (
-  <div className={styles.noRecords}>
-    <MockData />
-    <MockData onClick={() => null} text={text} />
-    <MockData numberOfElements={4} />
-  </div>
-)
-
-const GroupsList: FC<{ groups: IGroup[] }> = ({ groups }) => (
-  <ul className={styles.list}>
-    {groups.map((group) => (
-      <li key={`group-${group.id}`} className={styles.item}>
-        <Link href={`/group/${group.slug}`}>
-          <a>
-            <Picture
-              additionalStyles={styles.image}
-              {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
-            />
-            <div className={styles.desc}>
-              <Link href={`/group/${group.slug}`}>
-                <h2>{group.name}</h2>
-              </Link>
-              <p>{group.description || 'No description'}</p>
-            </div>
-          </a>
-        </Link>
-      </li>
-    ))}
-  </ul>
-)
-
-export const NavigationDotsFullView: FC<{}> = () => {
+export const NavigationDotsFullView: FC = () => {
   const [state, setState] = useState<INavigationDotsFullViewState>(
     navigationDotsFullViewState()
   )
@@ -133,16 +96,6 @@ export const NavigationDotsFullView: FC<{}> = () => {
               </span>
             </a>
           </li>
-          <li className={styles.item}>
-            <Link href={'/my-groups'}>
-              <a>
-                <i>
-                  <IoIosSettings />
-                </i>
-                <span>Settings</span>
-              </a>
-            </Link>
-          </li>
         </ul>
       </div>
 
@@ -157,13 +110,11 @@ export const NavigationDotsFullView: FC<{}> = () => {
               [styles.active]: currentTab == Tabs.favs,
             })}
           >
-            {state.isLoading && <Spinner />}
-            {!state.isLoading && state.favs.docs.length === 0 && (
-              <NoRecords text={'No records, add some groups to your favs'} />
-            )}
-            {!state.isLoading && state.favs.docs.length > 0 && (
-              <GroupsList groups={state.favs.docs} />
-            )}
+            <GroupsList
+              noRecordsText={'No records, add your first group to favs!'}
+              groups={state.favs.docs}
+              isLoading={state.isLoading}
+            />
           </div>
 
           <div
@@ -171,13 +122,11 @@ export const NavigationDotsFullView: FC<{}> = () => {
               [styles.active]: currentTab == Tabs.members,
             })}
           >
-            {!state.isLoaded && state.isLoading && <Spinner />}
-            {state.isLoaded && state.member.length === 0 && (
-              <NoRecords text={'No records, join some groups first'} />
-            )}
-            {state.isLoaded && state.member.length > 0 && (
-              <GroupsList groups={state.member} />
-            )}
+            <GroupsList
+              noRecordsText={'No records, join some groups first'}
+              groups={state.member}
+              isLoading={state.isLoading}
+            />
           </div>
 
           <div
@@ -185,13 +134,11 @@ export const NavigationDotsFullView: FC<{}> = () => {
               [styles.active]: currentTab == Tabs.owner,
             })}
           >
-            {!state.isLoaded && state.isLoading && <Spinner />}
-            {state.isLoaded && state.owner.length === 0 && (
-              <NoRecords text={'No records, create your first group now'} />
-            )}
-            {state.isLoaded && state.owner.length > 0 && (
-              <GroupsList groups={state.owner} />
-            )}
+            <GroupsList
+              noRecordsText={'No records, create your first group now'}
+              groups={state.owner}
+              isLoading={state.isLoading}
+            />
           </div>
 
           <div
@@ -199,13 +146,7 @@ export const NavigationDotsFullView: FC<{}> = () => {
               [styles.active]: currentTab == Tabs.admin,
             })}
           >
-            {!state.isLoaded && state.isLoading && <Spinner />}
-            {state.isLoaded && state.admin.length === 0 && (
-              <NoRecords text={'No records'} />
-            )}
-            {state.isLoaded && state.admin.length > 0 && (
-              <GroupsList groups={state.admin} />
-            )}
+            <GroupsList groups={state.admin} noRecordsText={'No records'} />
           </div>
         </>
       )}
