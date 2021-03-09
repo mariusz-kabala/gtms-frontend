@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.114.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.114.0...@gtms/app-andrew@0.114.1) (2021-03-09)
+
+
+### Bug Fixes
+
+* GEOT-712: my groups refacotr ([#1002](https://github.com/gtms-org/gtms-frontend/issues/1002)) ([e530c7d](https://github.com/gtms-org/gtms-frontend/commit/e530c7de5e3f5fd7ba9de3d229710feaaa420ce6))
+
+
+
+
+
 # [0.114.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.113.0...@gtms/app-andrew@0.114.0) (2021-03-08)
 
 
