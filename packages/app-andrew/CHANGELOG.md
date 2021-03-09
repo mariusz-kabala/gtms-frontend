@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.114.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.113.0...@gtms/app-andrew@0.114.0) (2021-03-08)
+
+
+### Features
+
+* GEOT-796: mock first impression of user visiting g ([#1001](https://github.com/gtms-org/gtms-frontend/issues/1001)) ([b74b2fe](https://github.com/gtms-org/gtms-frontend/commit/b74b2fe224af28581d04ad55d4d485d69fa0cbaf))
+
+
+
+
+
 # [0.113.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.109.0...@gtms/app-andrew@0.113.0) (2021-03-05)
 
 
