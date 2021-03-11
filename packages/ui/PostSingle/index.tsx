@@ -108,7 +108,7 @@ export const PostSingle: FC<{
       })
     }
     // onClick && onClick(id)
-    setTempMock(true)
+    setTimeout(() => setTempMock(true), 500)
   }, [id, onClick])
   const onUserClickCallback = useCallback(() => {
     onUserClick && onUserClick(owner)
