@@ -325,7 +325,7 @@ export const PostSingle: FC<{
           />
         </div>
         <Overlay opacity={1} />
-      </div>
+      </>
     }
     </>
   )
