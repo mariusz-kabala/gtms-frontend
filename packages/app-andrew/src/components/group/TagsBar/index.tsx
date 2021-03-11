@@ -101,16 +101,16 @@ export const TagsBar: FC = () => {
         [styles.active]: !isCollapsed,
       })}
     >
-      {isCollapsed && (
-        <Button
-          additionalStyles={styles.btn}
-          onClick={() => setIsCollapsed(!isCollapsed)}
-        >
-          My tags
-        </Button>
-      )}
-      {!isCollapsed && (
-        <div className={styles.fixedWrapper}>
+      <div className={styles.fixedWrapper}>        
+        {!isCollapsed && (
+          <Button
+            additionalStyles={styles.btn}
+            onClick={() => setIsCollapsed(!isCollapsed)}
+          >
+            My tags
+          </Button>
+        )}
+        {!isCollapsed && (
           <Scrollbars style={{ width: '100%', height: '100%' }}>
             <ul className={styles.nav}>
               <li
@@ -303,8 +303,8 @@ export const TagsBar: FC = () => {
               <p className={styles.noRecords}>No records</p>
             )}
           </Scrollbars>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }

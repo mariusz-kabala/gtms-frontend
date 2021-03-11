@@ -275,12 +275,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <>
-          {state.showPromoted && true && (
-            <PromotedTags
-              additionalStyles={styles.promotedTags}
-              onTagClick={(tag) => onClick({ tag: tag.tag })}
-            />
-          )}
           {state.showUsers && (
             <GroupMembers
               additionalStyles={styles.groupMembers}
@@ -306,6 +300,12 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   })}
                 />
               </Headroom>
+              {state.showPromoted && (
+                <PromotedTags
+                  additionalStyles={styles.promotedTags}
+                  onTagClick={(tag) => onClick({ tag: tag.tag })}
+                />
+              )}              
               {!showWelcomeText && (
                 <>
                   {!state.posts.isLoading &&

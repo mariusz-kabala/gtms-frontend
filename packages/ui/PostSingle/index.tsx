@@ -19,6 +19,7 @@ import { IoMdSend } from 'react-icons/io'
 import { Button } from '../Button'
 import { DeletePost } from './DeletePost'
 import { GroupDetails } from './GroupDetails'
+import { Overlay } from '../Overlay'
 import { Picture } from '../Picture'
 import { PostCreate } from '../PostCreate'
 import { PostResponse } from './PostResponse'
@@ -49,12 +50,12 @@ export const PostSingle: FC<{
   onOpenGroupPreview?: (group: IGroup) => unknown
   onTagClick?: (tag: string) => unknown
   onUserClick?: (user: IUser) => unknown
+  onUserPreviewClick?: (user: IUser) => void
   owner: IUser
   renderFavs?: (favs: string[], id: string) => JSX.Element
   renderMenu?: (postId: string) => JSX.Element | null
   tags: string[]
   user: IAccountDetails | null
-  onUserPreviewClick?: (user: IUser) => void
 }> = ({
   activeTags = [],
   additionalStyles,
@@ -72,19 +73,19 @@ export const PostSingle: FC<{
   isFullPost,
   noImage,
   onClick,
-  // onLoginRequest,
+  onLoginRequest,
   onOpenGroupPreview,
   onTagClick,
   onUserClick,
+  onUserPreviewClick,
   owner,
   renderFavs,
   renderMenu,
   tags,
   user,
-  onUserPreviewClick,
 }) => {
-  const [isAnswerFormOpen] = useState<boolean>(false)
-  // const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
+  // const [isAnswerFormOpen] = useState<boolean>(false)
+  const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const [lightboxState, setLightboxState] = useState<{
     isOpen: boolean
     current: number
@@ -107,12 +108,14 @@ export const PostSingle: FC<{
       })
     }
     // onClick && onClick(id)
+    setTempMock(true)
   }, [id, onClick])
   const onUserClickCallback = useCallback(() => {
     onUserClick && onUserClick(owner)
   }, [onUserClick, owner])
   const [value, setValue] = useState<string>('')
   const [showSendButton, setShowSendButton] = useState<boolean>(false)
+  const [tempMock, setTempMock] = useState<boolean>(false)
 
   useKey(
     () => {
@@ -126,6 +129,7 @@ export const PostSingle: FC<{
     }
   )
   return (
+    <>
     <div
       className={cx(styles.wrapper, additionalStyles, {
         [styles.isFullPost]: isFullPost,
@@ -188,7 +192,7 @@ export const PostSingle: FC<{
         />
         <a className={styles.userNameAndDate}>
           <span onClick={onUserClickCallback}>{getDisplayName(owner)}</span>
-          <span className={styles.date} onClick={onClickCallback}>
+          <span>
             {formatDistance(new Date(createdAt), new Date(), {
               locale: pl,
             })}
@@ -288,7 +292,7 @@ export const PostSingle: FC<{
         )}
       </div>
       {/* @todo remove it if it won't be needed anymore*/}
-      {/* {!isFullPost && (
+      {!isFullPost && (
         <div className={styles.btns}>
           {allowToRespond && (user || onLoginRequest) && (
             <button
@@ -310,7 +314,17 @@ export const PostSingle: FC<{
             </button>
           )}
         </div>
-      )} */}
+      )}
     </div>
+    {tempMock &&
+      <>
+        <Picture
+          additionalStyles={styles.fullmock}
+          jpg={'/images/theme-images/mockfullpost.png'}
+        />
+        <Overlay opacity={1} />
+      </>
+    }
+    </>
   )
 }
