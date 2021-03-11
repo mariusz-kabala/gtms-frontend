@@ -318,12 +318,14 @@ export const PostSingle: FC<{
     </div>
     {tempMock &&
       <>
-        <Picture
-          additionalStyles={styles.fullmock}
-          jpg={'/images/theme-images/mockfullpost.png'}
-        />
+        <div onClick={() => setTempMock(false)}>
+          <Picture
+            additionalStyles={styles.fullmock}
+            jpg={'/images/theme-images/mockfullpost.png'}
+          />
+        </div>
         <Overlay opacity={1} />
-      </>
+      </div>
     }
     </>
   )
