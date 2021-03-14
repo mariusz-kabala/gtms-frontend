@@ -1,0 +1,67 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+
+.list {
+  .item {
+    margin-bottom: 15px;
+
+    a {
+      display: flex;
+      cursor: pointer;
+      color: $theme0;
+    }
+
+    img,
+    picture {
+      // @todo create mixin for that
+      overflow: hidden;
+      width: 50px;
+      min-width: 50px;
+      border-radius: $borderRadius;
+    }
+
+    &:last-child {
+      margin-bottom: 0rem;
+    }
+
+    .desc {
+      margin-left: 10px;
+      opacity: 0.9;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      h2 {
+        @include fontSize(md);
+        @include fontWeight(semiBold);
+      }
+
+      p {
+        @include fontWeight(semiNormal);
+      }
+    }
+
+    .tags {
+      margin: 10px 0;
+    }
+
+    .actions {
+      display: flex;
+      gap: 5px;
+      margin: 10px 0;
+
+      > * {
+        display: inline-block;
+        width: auto;
+      }
+    }
+
+    .details {
+      display: flex;
+      gap: 10px;
+      margin: 3px 0;
+    }
+  }
+}
