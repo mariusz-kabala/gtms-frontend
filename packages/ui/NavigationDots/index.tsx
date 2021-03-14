@@ -7,7 +7,6 @@ import { getImage } from '@gtms/commons/helpers'
 import { ReactSortable } from 'react-sortablejs'
 // ui
 import useKey from 'use-key-hook'
-import { Overlay } from '@gtms/ui/Overlay'
 import { IoIosKeypad } from 'react-icons/io'
 import styles from './styles.scss'
 
@@ -85,7 +84,6 @@ export const NavigationDots: FC<{
         })}
       >
         <div className={styles.content}>{children}</div>
-        <Overlay onClick={() => setShowFullView((value) => !value)} />
       </div>
     </div>
   )

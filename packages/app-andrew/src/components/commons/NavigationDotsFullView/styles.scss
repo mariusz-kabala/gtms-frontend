@@ -3,120 +3,73 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .wrapper {
-  display: flex;
   height: 100%;
   color: $theme0;
-}
+  padding: 15px;
 
-.navWrapper {
-  min-width: 200px;
-  height: 100%;
-  padding: 20px;
-  cursor: pointer;
-  border-right: 1px solid rgba($theme0, 0.15);
+  .navWrapper {
+    .header {
+      @include fontSize(lg);
+      @include fontWeight(semiBold);
+      margin-bottom: 15px;
+    }
 
-  .header {
-    @include fontSize(lg);
-    @include fontWeight(semiBold);
-    margin-bottom: 15px;
-  }
+    &:hover {
+      border-color: rgba($theme0, 0.35);
 
-  &:hover {
-    border-color: rgba($theme0, 0.35);
-
-    .nav .item {
-      a {
-        color: rgba($theme0, 0.9);
+      .nav .item {
+        a {
+          color: rgba($theme0, 0.9);
+        }
       }
     }
-  }
 
-  .nav {
-    .item {
-      margin-bottom: 15px;
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
 
-      a {
-        display: flex;
-        align-items: center;
-        color: rgba($theme0, 0.85);
+      .item {
+        margin-bottom: 15px;
 
-        &:hover {
-          color: $theme0;
-        }
-
-        span {
-          margin-left: 5px;
-        }
-
-        i {
+        a {
           display: flex;
           align-items: center;
-          justify-content: center;
-          @include fontSize(md);
-        }
-      }
+          color: rgba($theme0, 0.85);
 
-      &.active {
-        a {
-          @include fontWeight(bold);
-          @include fontSize(lg);
-          color: $theme0;
+          &:hover {
+            color: $theme0;
+          }
+
+          span {
+            margin-left: 5px;
+          }
+
+          i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include fontSize(md);
+          }
+        }
+
+        &.active {
+          a {
+            @include fontWeight(bold);
+            color: $theme0;
+          }
         }
       }
     }
   }
-}
 
-.content {
-  width: 100%;
-  padding: 20px;
-  display: none;
+  .content {
+    width: 100%;
+    display: none;
 
-  &.active {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .list {
-    .item {
-      margin-bottom: 15px;
-
-      a {
-        display: flex;
-        cursor: pointer;
-        color: $theme0;
-      }
-
-      img,
-      picture {
-        // @todo create mixin for that
-        overflow: hidden;
-        width: 50px;
-        min-width: 50px;
-        border-radius: $borderRadius;
-      }
-
-      &:last-child {
-        margin-bottom: 0rem;
-      }
-
-      .desc {
-        margin-left: 10px;
-        opacity: 0.9;
-
-        &:hover {
-          opacity: 1;
-        }
-
-        h2 {
-          @include fontSize(md);
-          @include fontWeight(semiBold);
-        }
-
-        p {
-          @include fontWeight(semiNormal);
-        }
-      }
+    &.active {
+      display: flex;
+      flex-direction: column;
     }
   }
 }
