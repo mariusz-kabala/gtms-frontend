@@ -8,6 +8,7 @@ import { ReactSortable } from 'react-sortablejs'
 // ui
 import useKey from 'use-key-hook'
 import { IoIosKeypad } from 'react-icons/io'
+import { useOnClickOutside } from '@gtms/commons/hooks/onClickOutside'
 import styles from './styles.scss'
 
 export const NavigationDots: FC<{

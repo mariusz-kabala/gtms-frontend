@@ -41,12 +41,12 @@
     }
 
     .templogo {
-      position: fixed;
-      left: 58px;
+      position: absolute;
+      left: -42px;
       top: 10px;
       z-index: 11;
-      width: $size1;
-      height: $size1;
+      min-width: $size1;
+      min-height: $size1;
       background-image: url('/images/theme-images/logo-patrol.png');
       border-radius: $borderRadius;
       @include imageCover();

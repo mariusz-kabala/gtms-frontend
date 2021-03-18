@@ -9,16 +9,16 @@ import { IoIosLogOut } from 'react-icons/io'
 
 export const Navigation: FC<{
   menu: {
+    icon: JSX.Element
     id: string
     label: string
-    icon: JSX.Element
     onClick?: () => unknown
     url?: string
   }[]
   active?: string[]
   onLogout?: () => unknown
   avatar: IImage | null
-}> = ({ menu, onLogout, avatar, active = [] }) => {
+}> = ({ active, avatar, menu, onLogout = [] }) => {
   return (
     <nav className={styles.navigation} data-testid="navigation">
       {avatar && (
