@@ -21,7 +21,6 @@ import { PostDetails } from '@app/components/post/PostDetails'
 import { PostsList } from '@app/components/post/PostsList'
 import { PromotedTags } from '@app/components/group/PromotedTags'
 import { TagsBar } from '@app/components/group/TagsBar'
-import { PostDetailsModal } from '@app/components/group/PostDetailsModal'
 // state
 import {
   IGroupPageState,
@@ -49,6 +48,7 @@ import {
   changePageBackground,
   changePageBackgroundImage,
   clearPageBackground,
+  showPostDetailsModal,
 } from '@app/state'
 // ui
 import Headroom from 'react-headroom'
@@ -137,7 +137,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
-  const [activePost, setActivePost] = useState<string| undefined>(undefined)
   const [showWelcomeText, setShowWelcomeText] = useState<boolean>(true)
   const generateUrl = useCallback(
     ({
@@ -234,9 +233,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
   )
 
   const onPostClick = useCallback((id: string) => {
-    setActivePost(id)
+    showPostDetailsModal(id)
   }, [])
-  const onPostClose = useCallback(() => setActivePost(undefined), [])
   const onTagClick = useCallback((tag: string) => onClick({ tag }), [onClick])
 
   useEffect(() => {
@@ -456,8 +454,6 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           </div>
         </>
       )}
-
-      {activePost && <PostDetailsModal user={state.user} onClose={onPostClose} />}
     </div>
   )
 }

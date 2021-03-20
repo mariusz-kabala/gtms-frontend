@@ -1,5 +1,4 @@
 import { IPost } from '@gtms/commons/models'
-import { IPostCommentsResponse } from '@gtms/api-comment'
 
 export enum Status {
   isLoading,
@@ -10,7 +9,5 @@ export enum Status {
 export interface IPostDetailsState {
   isOpen: boolean
   status: Status
-  commentsStatus: Status
   post?: IPost
-  comments?: IPostCommentsResponse
 }
