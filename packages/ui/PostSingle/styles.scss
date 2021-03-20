@@ -5,14 +5,6 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
-.fullmock {
-  z-index: 1111;
-  width: 100%;
-  position: fixed;
-  left: 0;
-  top: -50px;
-}
-
 .wrapper {
   position: relative;
   padding: 10px;
@@ -26,10 +18,6 @@
     &:hover {
       border-color: $theme4;
     }
-  }
-
-  &.isFullPost {
-
   }
 
   .groupDetails {

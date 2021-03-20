@@ -19,7 +19,6 @@ import { IoMdSend } from 'react-icons/io'
 import { Button } from '../Button'
 import { DeletePost } from './DeletePost'
 import { GroupDetails } from './GroupDetails'
-import { Overlay } from '../Overlay'
 import { Picture } from '../Picture'
 import { PostCreate } from '../PostCreate'
 import { PostResponse } from './PostResponse'
@@ -95,27 +94,12 @@ export const PostSingle: FC<{
   })
   const commentForm = useRef<HTMLDivElement>(null)
   const postOffsetTop = useRef<HTMLDivElement>(null)
-  const onClickCallback = useCallback(() => {
-    if (
-      postOffsetTop &&
-      postOffsetTop.current &&
-      postOffsetTop.current.offsetTop
-    ) {
-      window.scrollTo({
-        top: postOffsetTop.current.offsetTop,
-        left: 0,
-        behavior: 'smooth',
-      })
-    }
-    // onClick && onClick(id)
-    setTimeout(() => setTempMock(true), 500)
-  }, [id, onClick])
+
   const onUserClickCallback = useCallback(() => {
     onUserClick && onUserClick(owner)
   }, [onUserClick, owner])
   const [value, setValue] = useState<string>('')
   const [showSendButton, setShowSendButton] = useState<boolean>(false)
-  const [tempMock, setTempMock] = useState<boolean>(false)
 
   useKey(
     () => {
@@ -129,14 +113,12 @@ export const PostSingle: FC<{
     }
   )
   return (
-    <>
     <div
       className={cx(styles.wrapper, additionalStyles, {
         [styles.isFullPost]: isFullPost,
         [styles.isNotFullPost]: !isFullPost,
       })}
       data-testid="post-single"
-      onClick={onClickCallback}
       ref={postOffsetTop}
     >
       {lightboxState.isOpen && (
@@ -291,7 +273,6 @@ export const PostSingle: FC<{
           </div>
         )}
       </div>
-      {/* @todo remove it if it won't be needed anymore*/}
       {!isFullPost && (
         <div className={styles.btns}>
           {allowToRespond && (user || onLoginRequest) && (
@@ -304,29 +285,14 @@ export const PostSingle: FC<{
                   return onLoginRequest()
                 }
 
-                setIsAnswerFormOpen(true)
-                if (commentForm.current) {
-                  window.scrollTo(0, commentForm.current.offsetTop)
-                }
+                onClick && onClick(id)
               }}
             >
-              respond...
+              open post
             </button>
           )}
         </div>
       )}
     </div>
-    {tempMock &&
-      <>
-        <div onClick={() => setTempMock(false)}>
-          <Picture
-            additionalStyles={styles.fullmock}
-            jpg={'/images/theme-images/mockfullpost.png'}
-          />
-        </div>
-        <Overlay opacity={1} />
-      </>
-    }
-    </>
   )
 }

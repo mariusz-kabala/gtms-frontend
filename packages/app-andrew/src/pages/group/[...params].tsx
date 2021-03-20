@@ -21,6 +21,7 @@ import { PostDetails } from '@app/components/post/PostDetails'
 import { PostsList } from '@app/components/post/PostsList'
 import { PromotedTags } from '@app/components/group/PromotedTags'
 import { TagsBar } from '@app/components/group/TagsBar'
+import { PostDetailsModal } from '@app/components/group/PostDetailsModal'
 // state
 import {
   IGroupPageState,
@@ -136,6 +137,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
   const router = useRouter()
   const [state, setState] = useState<IGroupPageState>(groupPageState())
+  const [activePost, setActivePost] = useState<string| undefined>(undefined)
   const [showWelcomeText, setShowWelcomeText] = useState<boolean>(true)
   const generateUrl = useCallback(
     ({
@@ -231,9 +233,10 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
     [state]
   )
 
-  const onPostClick = useCallback((id: string) => onClick({ post: id }), [
-    onClick,
-  ])
+  const onPostClick = useCallback((id: string) => {
+    setActivePost(id)
+  }, [])
+  const onPostClose = useCallback(() => setActivePost(undefined), [])
   const onTagClick = useCallback((tag: string) => onClick({ tag }), [onClick])
 
   useEffect(() => {
@@ -305,7 +308,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                   additionalStyles={styles.promotedTags}
                   onTagClick={(tag) => onClick({ tag: tag.tag })}
                 />
-              )}              
+              )}
               {!showWelcomeText && (
                 <>
                   {!state.posts.isLoading &&
@@ -453,6 +456,8 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
           </div>
         </>
       )}
+
+      {activePost && <PostDetailsModal user={state.user} onClose={onPostClose} />}
     </div>
   )
 }
