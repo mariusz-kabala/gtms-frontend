@@ -18,7 +18,7 @@ export const Navigation: FC<{
   active?: string[]
   onLogout?: () => unknown
   avatar: IImage | null
-}> = ({ active, avatar, menu, onLogout = [] }) => {
+}> = ({ active = [], avatar, menu, onLogout }) => {
   return (
     <nav className={styles.navigation} data-testid="navigation">
       {avatar && (
