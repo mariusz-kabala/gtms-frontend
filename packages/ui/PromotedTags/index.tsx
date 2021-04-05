@@ -171,7 +171,7 @@ export const PromotedTags: FC<{
           show more...
         </Button>
       </div>
-      {/* <Overlay additionalStyles={styles.overlay} opacity={0.9} /> */}
+      <Overlay additionalStyles={styles.overlay} opacity={0.9} />
     </>
   )
 }

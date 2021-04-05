@@ -63,7 +63,6 @@ export const DeletePost: FC<{
         <i>
           <IoMdTrash />
         </i>
-        {t('btnDeletePost')}
       </Button>
     </>
   )

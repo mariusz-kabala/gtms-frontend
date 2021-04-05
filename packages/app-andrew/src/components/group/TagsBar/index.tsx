@@ -17,7 +17,6 @@ import { getGroupPosts } from '@gtms/state-post'
 // ui
 import { Scrollbars } from 'react-custom-scrollbars'
 import { IoMdGrid } from 'react-icons/io'
-import { Button } from '@gtms/ui/Button'
 import { Image } from '@gtms/ui/Image'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
