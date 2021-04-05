@@ -15,11 +15,13 @@ import {
 import { IPost, IComment } from '@gtms/commons/models'
 import cx from 'classnames'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-import { Overlay } from '@gtms/ui/Overlay'
 import useKey from 'use-key-hook'
 import { hidePostDetailsModal, Status } from '@app/state/postDetails'
+// ui
+import { Overlay } from '@gtms/ui/Overlay'
 import { PostDetails } from '@app/components/post/PostDetails'
 import { Spinner } from '@gtms/ui/Spinner'
+// styles
 import styles from './styles.scss'
 
 export const PostDetailsModal: FC<{
@@ -35,6 +37,7 @@ export const PostDetailsModal: FC<{
   const onCloseModalWindow = useCallback(() => {
     hidePostDetailsModal()
     onClose && onClose()
+    enableBodyScroll(document.body)
   }, [onClose])
 
   useLayoutEffect(() => {
@@ -44,13 +47,10 @@ export const PostDetailsModal: FC<{
   }, [])
 
   useEffect(() => {
-    disableBodyScroll(document.body)
-
     const sub = postDetailsModalState$.subscribe((value) => setState(value))
 
     return () => {
       sub && !sub.closed && sub.unsubscribe()
-      enableBodyScroll(document.body)
     }
   }, [])
 
@@ -65,6 +65,8 @@ export const PostDetailsModal: FC<{
   if (!portalNode.current) {
     return null
   }
+
+  disableBodyScroll(document.body)
 
   return createPortal(
     <>

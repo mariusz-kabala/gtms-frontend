@@ -23,7 +23,7 @@ export const NavigationWrapper: FC<{}> = () => {
       className={styles.mainNavigationWrapper}
       data-testid="navigation-wrapper"
     >
-      <div>
+      <div className={styles.fixed}>
         {' '}
         {/* for position fixed - css purouse */}
         <a href="/">

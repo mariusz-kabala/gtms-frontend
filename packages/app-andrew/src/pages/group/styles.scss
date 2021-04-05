@@ -17,7 +17,6 @@
   display: flex;
   width: 100%;
   margin: 0 100px;
-  margin-bottom: 50px;
   border-radius: 10px;
 
   .widthMax {
@@ -35,6 +34,7 @@
     display: flex;
     gap: 8px;
     max-width: $tempWidth;
+    height: 100%;
 
     &.widthMax {
       max-width: 1100px;
@@ -136,7 +136,7 @@
 
         .header {
           @include fontWeight(semiNormal);
-          @include fontSize(lg);
+          margin: 10px 0;
 
           span {
             @include fontWeight(semiBold);

@@ -11,8 +11,10 @@
   @include z-index(mainNavigation);
   align-items: center;
 
-  > div {
+  .fixed {
     position: fixed;
+    height: 100%;
+    background: $black;
   }
 
   .logo {

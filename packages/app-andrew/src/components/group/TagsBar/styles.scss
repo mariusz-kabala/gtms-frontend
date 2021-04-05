@@ -4,6 +4,9 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .wrapper {
+  min-width: 200px;
+  height: 100%;
+
   .btn {
     @include buttonDefault();
     @include buttonSizeMd();
@@ -26,6 +29,7 @@
 
   .fixedWrapper {
     position: fixed;
+    z-index: 10;
     width: 200px;
     height: 100%;
   }
@@ -54,7 +58,7 @@
     gap: 5px;
     margin-bottom: 8px;
     @include fontWeight(semiBold);
-    padding: 7px 6px;
+    padding: 6px;
     margin-top: 10px;
     border-radius: $borderRadius;
     background: $theme3;
