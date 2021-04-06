@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.115.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.114.1...@gtms/app-andrew@0.115.0) (2021-04-06)
+
+
+### Features
+
+* GEOT-797: cleanup my groups ([#1005](https://github.com/gtms-org/gtms-frontend/issues/1005)) ([81d68db](https://github.com/gtms-org/gtms-frontend/commit/81d68dba13d2089d4f52a7c0a99e90b3c8d4814f))
+
+
+
+
+
 ## [0.114.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.114.0...@gtms/app-andrew@0.114.1) (2021-03-09)
 
 
