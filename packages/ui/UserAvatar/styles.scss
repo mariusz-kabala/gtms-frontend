@@ -8,6 +8,14 @@
   min-height: 40px;
   min-width: 40px;
 
+  &.xs {
+    height: 25px;
+    width: 25px;
+    // for display flex
+    min-height: 25px;
+    min-width: 25px;
+  }
+
   &.sm {
     height: 35px;
     width: 35px;

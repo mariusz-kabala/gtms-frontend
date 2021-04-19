@@ -11,8 +11,7 @@ import { Tag } from '@gtms/ui/Tag'
 import { FavsButton } from '@app/components/group/FavsButton'
 import { FollowButton } from '@app/components/group/FollowButton'
 import { SettingsButton } from '@app/components/group/SettingsButton'
-
-import styles from '../styles.scss'
+import styles from './styles.scss'
 
 export const GroupsList: FC<{
   groups: IGroup[]
@@ -45,9 +44,17 @@ export const GroupsList: FC<{
                 <Link href={`/group/${group.slug}`}>
                   <h2>{group.name}</h2>
                 </Link>
+                <ul className={styles.details}>
+                  <li>
+                    Members: <span>{group.membersCounter}</span>
+                  </li>
+                  <li>
+                    Posts: <span>{group.postsCounter}</span>
+                  </li>
+                </ul>
                 <p>{group.description || 'No description'}</p>
                 {group.tags && group.tags.length > 0 && (
-                  <TagGroup>
+                  <TagGroup additionalStyles={styles.tags}>
                     {group.tags.map((tag) => (
                       <Tag key={`tag-${tag}`} label={tag} />
                     ))}
@@ -57,16 +64,6 @@ export const GroupsList: FC<{
                   <FollowButton group={group} />
                   {showFavsButton && <FavsButton group={group} />}
                   <SettingsButton group={group} />
-                </div>
-                <div className={styles.details}>
-                  <ul>
-                    <li>
-                      Members: <span>{group.membersCounter}</span>
-                    </li>
-                    <li>
-                      Posts: <span>{group.postsCounter}</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </a>

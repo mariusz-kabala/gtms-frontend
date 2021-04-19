@@ -10,106 +10,107 @@
 .promotedTags {
   position: relative;
   z-index: 2;
-}
+  display: none;
 
-.items {
-  @include gridDefault(6);
+  .items {
+    @include gridDefault(6);
 
-  .item {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 200px;
-    overflow: hidden;
-    border-radius: $borderRadius;
-    box-shadow: $boxShadowDefault;
-    cursor: pointer;
-
-    .favButton {
-      display: none;
-      z-index: 4;
-    }
-
-    &:hover {
-      .favButton {
-        display: block;
-      }
-    }
-
-    .content {
-      @include imageCover();
+    .item {
+      position: relative;
       width: 100%;
       height: 100%;
-      background: $theme1;
+      min-height: 200px;
+      overflow: hidden;
+      border-radius: $borderRadius;
+      box-shadow: $boxShadowDefault;
+      cursor: pointer;
+
+      .favButton {
+        display: none;
+        z-index: 4;
+      }
 
       &:hover {
-        @include effectColorTransparentOverlay('defaultRadius', 4px);
+        .favButton {
+          display: block;
+        }
       }
 
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
+      .content {
+        @include imageCover();
         width: 100%;
         height: 100%;
-        @include shadowBoxWithDescription();
-      }
+        background: $theme1;
 
-      .desc {
-        position: absolute;
-        z-index: 1;
-        bottom: 0;
-        padding: 10px;
-        width: 100%;
-        color: $theme0;
+        &:hover {
+          @include effectColorTransparentOverlay('defaultRadius', 4px);
+        }
 
-        h3 {
-          @include fontSize(md);
-          @include fontWeight(semiBold);
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          @include shadowBoxWithDescription();
+        }
+
+        .desc {
+          position: absolute;
+          z-index: 1;
+          bottom: 0;
+          padding: 10px;
+          width: 100%;
+          color: $theme0;
+
+          h3 {
+            @include fontSize(md);
+            @include fontWeight(semiBold);
+          }
+        }
+
+        img {
+          display: block;
+          object-fit: cover;
+          width: 100%;
         }
       }
 
-      img {
-        display: block;
-        object-fit: cover;
-        width: 100%;
-      }
-    }
-
-    .adminPanel {
-      position: absolute;
-      top: 10px;
-      right: 5px;
-      z-index: 1;
-      display: none;
-
-      ul {
-        margin: 0;
-
-        li {
-          display: inline-block;
-          padding: 5px;
-          background: $theme1;
-          border-radius: $borderRadius;
-          overflow: hidden;
-          margin-right: 5px;
-          cursor: pointer;
-
-          &:hover {
-            background: $theme4;
-          }
-
-          i {
-            display: flex;
-          }
-        }
-      }
-    }
-
-    &:hover {
       .adminPanel {
-        display: block;
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        z-index: 1;
+        display: none;
+
+        ul {
+          margin: 0;
+
+          li {
+            display: inline-block;
+            padding: 5px;
+            background: $theme1;
+            border-radius: $borderRadius;
+            overflow: hidden;
+            margin-right: 5px;
+            cursor: pointer;
+
+            &:hover {
+              background: $theme4;
+            }
+
+            i {
+              display: flex;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        .adminPanel {
+          display: block;
+        }
       }
     }
   }

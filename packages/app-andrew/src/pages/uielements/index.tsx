@@ -559,6 +559,9 @@ export const UiElements: NextPage<{}> = () => {
         <Button additionalStyles={cx(styles.btnColors, styles.five)}>
           Button
         </Button>
+        <Button additionalStyles={cx(styles.btnColors, styles.six)}>
+          Button
+        </Button>
       </div>
     </div>
   )

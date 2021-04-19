@@ -3,169 +3,104 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.114.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.114.0...@gtms/app-andrew@0.114.1) (2021-03-09)
+# [0.115.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.114.1...@gtms/app-andrew@0.115.0) (2021-04-06)
 
+### Features
+
+- GEOT-797: cleanup my groups ([#1005](https://github.com/gtms-org/gtms-frontend/issues/1005)) ([81d68db](https://github.com/gtms-org/gtms-frontend/commit/81d68dba13d2089d4f52a7c0a99e90b3c8d4814f))
+
+## [0.114.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.114.0...@gtms/app-andrew@0.114.1) (2021-03-09)
 
 ### Bug Fixes
 
-* GEOT-712: my groups refacotr ([#1002](https://github.com/gtms-org/gtms-frontend/issues/1002)) ([e530c7d](https://github.com/gtms-org/gtms-frontend/commit/e530c7de5e3f5fd7ba9de3d229710feaaa420ce6))
-
-
-
-
+- GEOT-712: my groups refacotr ([#1002](https://github.com/gtms-org/gtms-frontend/issues/1002)) ([e530c7d](https://github.com/gtms-org/gtms-frontend/commit/e530c7de5e3f5fd7ba9de3d229710feaaa420ce6))
 
 # [0.114.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.113.0...@gtms/app-andrew@0.114.0) (2021-03-08)
 
-
 ### Features
 
-* GEOT-796: mock first impression of user visiting g ([#1001](https://github.com/gtms-org/gtms-frontend/issues/1001)) ([b74b2fe](https://github.com/gtms-org/gtms-frontend/commit/b74b2fe224af28581d04ad55d4d485d69fa0cbaf))
-
-
-
-
+- GEOT-796: mock first impression of user visiting g ([#1001](https://github.com/gtms-org/gtms-frontend/issues/1001)) ([b74b2fe](https://github.com/gtms-org/gtms-frontend/commit/b74b2fe224af28581d04ad55d4d485d69fa0cbaf))
 
 # [0.113.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.109.0...@gtms/app-andrew@0.113.0) (2021-03-05)
 
-
 ### Bug Fixes
 
-* GEOT-794: different changes ([#999](https://github.com/gtms-org/gtms-frontend/issues/999)) ([4df0b5a](https://github.com/gtms-org/gtms-frontend/commit/4df0b5ab4180b12680812c5656f15b1e08048ab8))
-* master: update versions ([3f138b2](https://github.com/gtms-org/gtms-frontend/commit/3f138b21a620fd8c44ac30ff692422ea2dc0d3ac))
-* master: version fix ([9c79e21](https://github.com/gtms-org/gtms-frontend/commit/9c79e211c29aea482b9863af3ac36d3bab21d0d3))
-
+- GEOT-794: different changes ([#999](https://github.com/gtms-org/gtms-frontend/issues/999)) ([4df0b5a](https://github.com/gtms-org/gtms-frontend/commit/4df0b5ab4180b12680812c5656f15b1e08048ab8))
+- master: update versions ([3f138b2](https://github.com/gtms-org/gtms-frontend/commit/3f138b21a620fd8c44ac30ff692422ea2dc0d3ac))
+- master: version fix ([9c79e21](https://github.com/gtms-org/gtms-frontend/commit/9c79e211c29aea482b9863af3ac36d3bab21d0d3))
 
 ### Features
 
-* GEOT-698: better cookie component ([#926](https://github.com/gtms-org/gtms-frontend/issues/926)) ([40abcf1](https://github.com/gtms-org/gtms-frontend/commit/40abcf1a12dbbe28d3d30386e6ba9fe49ef28bf6))
-* GEOT-791: GEOT-791: cleanup html and css ([#990](https://github.com/gtms-org/gtms-frontend/issues/990)) ([08d9c96](https://github.com/gtms-org/gtms-frontend/commit/08d9c96c58f6ed39e089baa524f1cf8624f1022b))
-* GEOT-792: small changes ([#994](https://github.com/gtms-org/gtms-frontend/issues/994)) ([510fa87](https://github.com/gtms-org/gtms-frontend/commit/510fa878da33d0509f31e59b151bd217e223e6f9))
-* GEOT-793: off canvas ([#996](https://github.com/gtms-org/gtms-frontend/issues/996)) ([d4dee89](https://github.com/gtms-org/gtms-frontend/commit/d4dee899d7ec7a1901b35853911c9113e71bed16))
-
-
-
-
+- GEOT-698: better cookie component ([#926](https://github.com/gtms-org/gtms-frontend/issues/926)) ([40abcf1](https://github.com/gtms-org/gtms-frontend/commit/40abcf1a12dbbe28d3d30386e6ba9fe49ef28bf6))
+- GEOT-791: GEOT-791: cleanup html and css ([#990](https://github.com/gtms-org/gtms-frontend/issues/990)) ([08d9c96](https://github.com/gtms-org/gtms-frontend/commit/08d9c96c58f6ed39e089baa524f1cf8624f1022b))
+- GEOT-792: small changes ([#994](https://github.com/gtms-org/gtms-frontend/issues/994)) ([510fa87](https://github.com/gtms-org/gtms-frontend/commit/510fa878da33d0509f31e59b151bd217e223e6f9))
+- GEOT-793: off canvas ([#996](https://github.com/gtms-org/gtms-frontend/issues/996)) ([d4dee89](https://github.com/gtms-org/gtms-frontend/commit/d4dee899d7ec7a1901b35853911c9113e71bed16))
 
 # [0.109.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.108.0...@gtms/app-andrew@0.109.0) (2021-02-04)
 
-
 ### Features
 
-* GEOT-785: styles for inviting users ([#988](https://github.com/gtms-org/gtms-frontend/issues/988)) ([bbc5d86](https://github.com/gtms-org/gtms-frontend/commit/bbc5d867c17294d949dccc013f89f45083b6c28c))
-
-
-
-
+- GEOT-785: styles for inviting users ([#988](https://github.com/gtms-org/gtms-frontend/issues/988)) ([bbc5d86](https://github.com/gtms-org/gtms-frontend/commit/bbc5d867c17294d949dccc013f89f45083b6c28c))
 
 # [0.108.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.5...@gtms/app-andrew@0.108.0) (2021-02-04)
 
-
 ### Features
 
-* GEOT-784: header changes ([#987](https://github.com/gtms-org/gtms-frontend/issues/987)) ([6feb8b8](https://github.com/gtms-org/gtms-frontend/commit/6feb8b8a2cfdb754d65774630b020e71a62e610e))
-
-
-
-
+- GEOT-784: header changes ([#987](https://github.com/gtms-org/gtms-frontend/issues/987)) ([6feb8b8](https://github.com/gtms-org/gtms-frontend/commit/6feb8b8a2cfdb754d65774630b020e71a62e610e))
 
 ## [0.107.5](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.4...@gtms/app-andrew@0.107.5) (2021-02-04)
 
-
 ### Bug Fixes
 
-* GEOT-782: css changes ([#982](https://github.com/gtms-org/gtms-frontend/issues/982)) ([f62c813](https://github.com/gtms-org/gtms-frontend/commit/f62c8137f768b149819a9297ec288cf82b004a58))
-
-
-
-
+- GEOT-782: css changes ([#982](https://github.com/gtms-org/gtms-frontend/issues/982)) ([f62c813](https://github.com/gtms-org/gtms-frontend/commit/f62c8137f768b149819a9297ec288cf82b004a58))
 
 ## [0.107.4](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.3...@gtms/app-andrew@0.107.4) (2021-02-04)
 
-
 ### Bug Fixes
 
-* GEOT-777: small changes css ([#980](https://github.com/gtms-org/gtms-frontend/issues/980)) ([0c9f57b](https://github.com/gtms-org/gtms-frontend/commit/0c9f57bae07e68e182cfb2489257e93673c6924a))
-
-
-
-
+- GEOT-777: small changes css ([#980](https://github.com/gtms-org/gtms-frontend/issues/980)) ([0c9f57b](https://github.com/gtms-org/gtms-frontend/commit/0c9f57bae07e68e182cfb2489257e93673c6924a))
 
 ## [0.107.3](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.2...@gtms/app-andrew@0.107.3) (2021-02-04)
 
-
 ### Bug Fixes
 
-* GEOT-778: vertical promoted tags ([#981](https://github.com/gtms-org/gtms-frontend/issues/981)) ([842ada1](https://github.com/gtms-org/gtms-frontend/commit/842ada1f33278975e5e6bc10594b60ce9f211096))
-
-
-
-
+- GEOT-778: vertical promoted tags ([#981](https://github.com/gtms-org/gtms-frontend/issues/981)) ([842ada1](https://github.com/gtms-org/gtms-frontend/commit/842ada1f33278975e5e6bc10594b60ce9f211096))
 
 ## [0.107.2](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.1...@gtms/app-andrew@0.107.2) (2021-01-08)
 
-
 ### Bug Fixes
 
-* GEOT-770: GEOT-770: different small changes in css ([#979](https://github.com/gtms-org/gtms-frontend/issues/979)) ([7ffbda9](https://github.com/gtms-org/gtms-frontend/commit/7ffbda9e352fa32ccfbb43b95b29f3607b0327ac))
-
-
-
-
+- GEOT-770: GEOT-770: different small changes in css ([#979](https://github.com/gtms-org/gtms-frontend/issues/979)) ([7ffbda9](https://github.com/gtms-org/gtms-frontend/commit/7ffbda9e352fa32ccfbb43b95b29f3607b0327ac))
 
 ## [0.107.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.107.0...@gtms/app-andrew@0.107.1) (2021-01-06)
 
-
 ### Bug Fixes
 
-* GEOT-768: GEOT-768: home page and other fixes ([#977](https://github.com/gtms-org/gtms-frontend/issues/977)) ([12955a3](https://github.com/gtms-org/gtms-frontend/commit/12955a300ee372ca85aa6b2854456dbb88b4475d))
-
-
-
-
+- GEOT-768: GEOT-768: home page and other fixes ([#977](https://github.com/gtms-org/gtms-frontend/issues/977)) ([12955a3](https://github.com/gtms-org/gtms-frontend/commit/12955a300ee372ca85aa6b2854456dbb88b4475d))
 
 # [0.107.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.106.1...@gtms/app-andrew@0.107.0) (2021-01-05)
 
-
 ### Features
 
-* GEOT-766: GEOT-766: cleanup images a bit ([#976](https://github.com/gtms-org/gtms-frontend/issues/976)) ([8ff7697](https://github.com/gtms-org/gtms-frontend/commit/8ff76972cb87b81c4c8659e3b84dcd3610928811))
-
-
-
-
+- GEOT-766: GEOT-766: cleanup images a bit ([#976](https://github.com/gtms-org/gtms-frontend/issues/976)) ([8ff7697](https://github.com/gtms-org/gtms-frontend/commit/8ff76972cb87b81c4c8659e3b84dcd3610928811))
 
 ## [0.106.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.106.0...@gtms/app-andrew@0.106.1) (2021-01-03)
 
-
 ### Bug Fixes
 
-* master: user preview fixes ([3753919](https://github.com/gtms-org/gtms-frontend/commit/3753919d0a79b929c2250c67bec88d8e2993554a))
-
-
-
-
+- master: user preview fixes ([3753919](https://github.com/gtms-org/gtms-frontend/commit/3753919d0a79b929c2250c67bec88d8e2993554a))
 
 # [0.106.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.105.0...@gtms/app-andrew@0.106.0) (2021-01-02)
 
-
 ### Features
 
-* GEOT-759: a common way to show user preview popup ([#974](https://github.com/gtms-org/gtms-frontend/issues/974)) ([db73f4d](https://github.com/gtms-org/gtms-frontend/commit/db73f4d60a77fb97af4b69a2ba6b431db88283ba))
-
-
-
-
+- GEOT-759: a common way to show user preview popup ([#974](https://github.com/gtms-org/gtms-frontend/issues/974)) ([db73f4d](https://github.com/gtms-org/gtms-frontend/commit/db73f4d60a77fb97af4b69a2ba6b431db88283ba))
 
 # [0.105.0](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.104.1...@gtms/app-andrew@0.105.0) (2021-01-02)
 
-
 ### Features
 
-* GEOT-765: background image more visible ([#975](https://github.com/gtms-org/gtms-frontend/issues/975)) ([3906707](https://github.com/gtms-org/gtms-frontend/commit/3906707bdcb8cc2f32475acdc315ccb49da6b342))
-
-
-
-
+- GEOT-765: background image more visible ([#975](https://github.com/gtms-org/gtms-frontend/issues/975)) ([3906707](https://github.com/gtms-org/gtms-frontend/commit/3906707bdcb8cc2f32475acdc315ccb49da6b342))
 
 ## [0.104.1](https://github.com/gtms-org/gtms-frontend/compare/@gtms/app-andrew@0.104.0...@gtms/app-andrew@0.104.1) (2021-01-01)
 

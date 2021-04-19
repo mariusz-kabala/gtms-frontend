@@ -8,13 +8,18 @@
 @import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .mainNavigationWrapper {
+  position: fixed;
+  left: 0;
   @include z-index(mainNavigation);
   align-items: center;
 
+  display: none;
+
   .fixed {
     position: fixed;
+    width: 45px;
     height: 100%;
-    background: $black;
+    background: black;
   }
 
   .logo {

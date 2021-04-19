@@ -64,25 +64,8 @@
   background: none;
 }
 
-@mixin buttonWithBorder() {
-  border: 2px solid $theme0;
-  color: $theme0;
-}
-
 @mixin buttonWithoutPadding() {
   padding: 0;
-}
-
-@mixin buttonWithTwoRows() {
-  flex-direction: column;
-  @include fontSize(lg);
-  @include fontWeight(bold);
-
-  span {
-    margin-top: 2px;
-    @include fontWeight(normal);
-    @include fontSize(default);
-  }
 }
 
 // SIZES
@@ -129,6 +112,10 @@
 @mixin buttonColorsSecondary() {
   background: $theme1;
   color: $theme0;
+}
+
+@mixin buttonColorsTertiary() {
+  border: 2px solid $theme4;
 }
 
 @mixin buttonColorRed() {

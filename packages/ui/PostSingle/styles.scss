@@ -133,20 +133,3 @@
     }
   }
 }
-
-.btns {
-  display: flex;
-  margin-top: 10px;
-
-  .respondBtn {
-    @include buttonDefault();
-    @include buttonShapeDefault();
-    @include buttonSizeSm();
-    @include buttonColorsSecondary();
-    margin-right: auto;
-
-    &:hover {
-      @include buttonColorsPrimary();
-    }
-  }
-}

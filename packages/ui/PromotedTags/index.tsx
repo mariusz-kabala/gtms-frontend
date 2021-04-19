@@ -1,8 +1,9 @@
-import React, { FC, useCallback, useState } from 'react'
+import React, { FC, useEffect, useCallback, useState } from 'react'
 import cx from 'classnames'
 // commons
 import { IPromotedTag } from '@gtms/commons/models'
 import { IImage } from '@gtms/commons/types/image'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 // ui
 import {
   IoIosAddCircle,
@@ -53,6 +54,12 @@ export const PromotedTags: FC<{
   const onClick = useCallback(() => {
     onNoRecordsClick && onNoRecordsClick()
   }, [onNoRecordsClick])
+
+  useEffect(() => {
+    disableBodyScroll(document.body)
+
+    return () => enableBodyScroll(document.body)
+  }, [])
 
   return (
     <>
@@ -171,7 +178,7 @@ export const PromotedTags: FC<{
           show more...
         </Button>
       </div>
-      <Overlay additionalStyles={styles.overlay} opacity={0.9} />
+      {/* <Overlay additionalStyles={styles.overlay} opacity={0.9} /> */}
     </>
   )
 }

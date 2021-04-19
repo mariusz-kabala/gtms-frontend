@@ -2,11 +2,23 @@
 @import '~@gtms/styles/scss/mixins/buttons.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
+.btn {
+  @include buttonDefault();
+  @include buttonSizeDefault();
+  @include buttonShapeDefault();
+  @include buttonWithIcon('left');
+  @include buttonColorsSecondary();
+  width: 100%;
+  margin-top: 10px;
+
+  &:hover {
+    @include buttonColorsPrimary();
+  }
+}
+
 .noComments {
   position: relative;
-  border-top: 2px solid $theme1;
-  border-radius: $borderRadius;
-  margin: 10px;
+  border: 1px solid red;
   @include fontSize(sm);
   font-style: italic;
 }

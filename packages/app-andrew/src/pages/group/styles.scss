@@ -41,12 +41,12 @@
     }
 
     .templogo {
-      position: fixed;
-      left: 58px;
+      position: absolute;
+      left: -42px;
       top: 10px;
       z-index: 11;
-      width: $size1;
-      height: $size1;
+      min-width: $size1;
+      min-height: $size1;
       background-image: url('/images/theme-images/logo-patrol.png');
       border-radius: $borderRadius;
       @include imageCover();
@@ -83,7 +83,7 @@
           &[class*='headroom--unpinned'] {
             [class*='searchBar'] {
               max-width: 490px;
-              margin-left: 312px;
+              margin-left: 355px;
             }
           }
         }
@@ -146,16 +146,16 @@
 
       .pagination {
         justify-content: center;
-        margin-top: 5px;
+        margin: 5px 0 15px 0;
       }
     }
 
     .promotedTags {
-      position: sticky;
-      z-index: 1;
+      position: fixed;
+      z-index: 111;
       top: 10px;
       left: 0;
-      width: 100%;
+      margin: 50px 90px;
     }
 
     .groupMembers {

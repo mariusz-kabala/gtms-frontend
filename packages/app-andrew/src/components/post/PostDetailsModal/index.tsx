@@ -12,7 +12,7 @@ import {
   postDetailsModalState,
   postDetailsModalState$,
 } from './state.query'
-import { IPost, IComment } from '@gtms/commons/models'
+import { IPost } from '@gtms/commons/models'
 import cx from 'classnames'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import useKey from 'use-key-hook'
@@ -70,31 +70,75 @@ export const PostDetailsModal: FC<{
 
   return createPortal(
     <>
-      <Overlay />
       <div
         className={cx(styles.wrapper, {
           [styles.loggedIn]: state.user !== null,
         })}
       >
-        {state.status === Status.isLoading && <Spinner />}
-
+        {state.status === Status.isLoading && (
+          <Spinner additionalStyles={styles.spinner} />
+        )}
         {state.status === Status.isError && <div>PROPER ERROR VIEW HERE</div>}
-
         {state.status === Status.isLoaded && (
           <div className={styles.content}>
             <div className={styles.left}>
-              <a onClick={onCloseModalWindow}>CLOSE MODAL BUTTON</a>
+              <a onClick={onCloseModalWindow}>{`< CLOSE MODAL BUTTON`}</a>
             </div>
-
-            <div className={styles.post}>
-              <PostDetails
-                post={state.post as IPost}
-                user={state.user}
-                comments={state.comments}
-              />
+            <PostDetails
+              additionalStyles={styles.post}
+              post={state.post as IPost}
+              user={state.user}
+              comments={state.comments}
+            />
+            <div className={styles.right}>
+              <ul className={styles.tabs}>
+                <li className={cx(styles.tab, styles.active)}>
+                  Recently visited
+                </li>
+                <li className={styles.tab}>New responses</li>
+              </ul>
+              <ul className={styles.items}>
+                <li className={styles.item}>
+                  Fgiat est culpa consectetur veniam nostrud pariatur eiusmod
+                  sint fugiat deserunt.
+                </li>
+                <li className={styles.item}>
+                  Irure sunt exercitation exercitation duis aliqua est ea non
+                  magna ex nostrud sit dolor.
+                </li>
+                <li className={styles.item}>
+                  d officia dolor ad sit amet sunt quis duis. Et aliquip anim
+                  cillum dolore cillum.
+                </li>
+                <li className={styles.item}>
+                  Sunt proident aliquip laborum reprehenderit non aute laborum
+                  deserunt.
+                </li>
+                <li className={styles.item}>
+                  Nisi irure id aliqua sit dolor commodo Lorem sit non. Officia
+                  magna id aute tempor eu.
+                </li>
+                <li className={styles.item}>
+                  Proident officia eiusmod ullamco id incididunt do sit sint
+                  quis .
+                </li>
+                <li className={styles.item}>
+                  Qui ut Lorem ipsum incididunt minim elit deserunt labore
+                  occaecat.
+                </li>
+                <li className={styles.item}>
+                  Id officia dolor ad sit amet sunt quis duis. Et aliquip anim
+                  cillum dolore cillum.
+                </li>
+                <li className={styles.item}>
+                  Consequat cillum minim aliqua fugiat eiusmod minim minim.
+                </li>
+                <li className={styles.item}>
+                  roident officia eiusmod ullamco id incididunt do sit sint quis
+                  enim magna.
+                </li>
+              </ul>
             </div>
-
-            <div className={styles.right}>DIFFERENT SHIT ON THE RIGHT</div>
           </div>
         )}
       </div>

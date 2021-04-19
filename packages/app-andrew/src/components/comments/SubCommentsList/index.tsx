@@ -44,7 +44,7 @@ export const SubCommentsList: FC<{
 
       {!isAnswerFormOpen && (
         <button
-          className={styles.btnRespond}
+          className={styles.btn}
           onClick={(e) => {
             e.preventDefault()
 
@@ -71,6 +71,7 @@ export const SubCommentsList: FC<{
           />
           {showSendButton && (
             <Button
+              className={styles.btn}
               disabled={value === ''}
               onClick={() => {
                 createNewComment({
@@ -82,7 +83,7 @@ export const SubCommentsList: FC<{
                 setValue('')
               }}
             >
-              send
+              senda
               <i>
                 <IoMdSend />
               </i>

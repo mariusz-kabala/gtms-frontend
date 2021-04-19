@@ -1,48 +1,27 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
 
 .pageWrapper {
+  display: flex;
   width: 100%;
-  background: $theme3;
+  background: $theme2;
 
-  .welcome {
-    display: flex;
-    flex-direction: column;
+  .content {
     width: 100%;
-    padding-top: 50px;
-    background-image: url('/images/theme-images/mainPageBg.png');
-    @include imageCover();
+    padding: 30px;
 
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba($theme3, 0.65);
-    }
-
-    > * {
-      // put everything on top of after pseudoelement
-      position: relative;
-      z-index: 1;
-    }
-
-    .mainHeader {
+    .header {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      @include fontSize(xxlg);
       @include fontWeight(semiBold);
-      margin: 40px auto;
+      width: 100%;
 
-      .header {
-        @include fontSize(xxlg);
+      .logo {
+        margin-right: 30px;
+        @include fontSize(lg);
         @include fontWeight(semiBold);
         text-transform: uppercase;
 
@@ -52,79 +31,169 @@
 
         .subtitle {
           display: block;
-          @include fontSize(lg);
+          @include fontSize(default);
           @include fontWeight(semiBold);
         }
       }
 
-      .icons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 15px;
-        grid-template-areas:
-          '. .'
-          '. .';
+      .search {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        width: 100%;
+        height: 40px;
+        padding: 5px 12px;
+        border-radius: $borderRadius3;
+        border: 2px solid $theme7;
+        @include fontSize(md);
+        background: $theme7;
 
-        max-width: 600px;
-        @include fontSize(default);
-        margin-top: 30px;
-
-        .element {
-          display: flex;
-          align-items: center;
-
-          i {
-            padding: 10px;
-            @include fontSize(lg);
-            margin-right: 15px;
-            border-radius: $borderRadius;
-            line-height: 0;
-            background: $theme3;
-            border: 3px solid $theme3;
-          }
-
-          &:hover {
-            i {
-              border-color: $theme4;
-              color: $theme4;
-            }
-          }
+        i {
+          line-height: 0;
         }
-      }
 
-      .btn {
-        @include buttonDefault();
-        @include buttonWithTwoRows();
-        @include buttonSizeDefault();
-        @include buttonShapeRoundedSides();
-        @include buttonColorsPrimary();
-        min-width: 200px;
-        margin: 20px auto;
-        opacity: 0.9;
+        span {
+          margin-left: 5px;
+          @include fontSize(sm);
+          @include fontWeight(semiNormal);
+        }
 
         &:hover {
-          opacity: 1;
+          border-color: $theme4;
+        }
+      }
+
+      .btnJoin {
+        @include buttonDefault();
+        @include buttonSizeDefault();
+        @include buttonShapeRoundedSides();
+        @include buttonColorsTertiary();
+        min-width: 200px;
+        margin-left: 30px;
+        margin-right: auto;
+
+        &:hover {
+          @include buttonColorsPrimary();
         }
       }
     }
 
-    .recentlyRegisteredUsers {
-      margin: 0 20px;
+    .slider {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      min-height: 330px;
+      border-radius: $borderRadius2;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      background: $black;
+      cursor: pointer;
+
+      &:hover {
+        @include effectColorTransparentOverlay('defaultRadius', 4px);
+      }
+
+      .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 45%;
+        padding-left: 50px;
+        padding-right: 30px;
+
+        h2 {
+          @include fontSize(xlg);
+          @include fontWeight(semiBold);
+          margin-bottom: 10px;
+        }
+
+        p {
+          line-height: 1.5em;
+          opacity: 0.8;
+        }
+      }
+
+      .right {
+        width: 55%;
+        min-height: 100%;
+        background-image: url('/images/theme-images/mainPageBg.png');
+        @include imageCover();
+      }
     }
 
-    .recentlyRegisteredUsers {
-      .header {
-        @include fontWeight(bold);
-        text-transform: uppercase;
-        margin: 15px 0;
-      }
+    // .icons {
+    //   display: flex;
+    //   gap: 15px;
+    //   @include fontSize(default);
+    //   margin: 30px 0;
+
+    //   .element {
+    //     display: flex;
+    //     align-items: center;
+
+    //     i {
+    //       padding: 10px;
+    //       @include fontSize(lg);
+    //       margin-right: 15px;
+    //       border-radius: $borderRadius;
+    //       line-height: 0;
+    //       background: $theme3;
+    //       border: 3px solid $theme3;
+    //     }
+
+    //     &:hover {
+    //       i {
+    //         border-color: $theme4;
+    //         color: $theme4;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+
+  .recentlyRegisteredUsers {
+    width: 240px;
+    padding: 30px;
+    border-left: 1px solid $theme7;
+    color: $theme0;
+
+    h3 {
+      @include fontSize(xdefault);
+      @include fontWeight(semiBold);
+    }
+
+    p {
+      margin: 5px 0;
+      margin-bottom: 25px;
+      opacity: 0.8;
+    }
+
+    .users {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
   }
 
-  .recentlyCreatedGroups {
-    position: relative;
-    z-index: 1;
-    margin: 20px;
+  .user {
+    background: $theme3;
+    max-width: 270px;
+
+    display: none;
+
+    .desc {
+      padding: 20px;
+
+      h3 {
+        @include fontSize(lg);
+        @include fontWeight(semiBold);
+        margin-bottom: 5px;
+      }
+
+      p {
+        margin: 10px 0;
+        opacity: 0.8;
+      }
+    }
   }
 }

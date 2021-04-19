@@ -16,10 +16,9 @@ import useKey from 'use-key-hook'
 import { IoIosNotifications } from 'react-icons/io'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { Notification } from '@gtms/ui/Notification'
-import { Button } from '@gtms/ui/Button'
 import { CloseIcon } from '@gtms/ui/ExpandingRow/CloseIcon'
 import { Overlay } from '@gtms/ui/Overlay'
-import { Spinner } from '@gtms/ui/Spinner'
+import { Pagination } from '@gtms/ui/Pagination'
 import styles from './styles.scss'
 
 export const NotificationsSidebar: FC<{
@@ -107,13 +106,14 @@ export const NotificationsSidebar: FC<{
               }
             })}
           </ul>
-          <Button
-            additionalStyles={styles.btnShowMore}
-            data-testid="show-more-tags-button"
-          >
-            <Spinner size="sm" />
-            show more...
-          </Button>
+          <Pagination
+            additionalStyles={styles.pagination}
+            getCurrentUrl={() => null}
+            limit={1}
+            offset={1}
+            onClick={() => null}
+            total={5}
+          />
         </Scrollbars>
       </div>
       <Overlay

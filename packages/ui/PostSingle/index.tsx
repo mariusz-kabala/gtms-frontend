@@ -112,6 +112,7 @@ export const PostSingle: FC<{
       detectKeys: [27],
     }
   )
+
   return (
     <div
       className={cx(styles.wrapper, additionalStyles, {
@@ -120,6 +121,15 @@ export const PostSingle: FC<{
       })}
       data-testid="post-single"
       ref={postOffsetTop}
+      onClick={() => {
+        if (!isFullPost && allowToRespond && (user || onLoginRequest)) {
+          if (!user && onLoginRequest) {
+            return onLoginRequest()
+          }
+
+          onClick && onClick(id)
+        }
+      }}
     >
       {lightboxState.isOpen && (
         <Lightbox
@@ -273,26 +283,6 @@ export const PostSingle: FC<{
           </div>
         )}
       </div>
-      {!isFullPost && (
-        <div className={styles.btns}>
-          {allowToRespond && (user || onLoginRequest) && (
-            <button
-              className={styles.respondBtn}
-              onClick={(e) => {
-                e.preventDefault()
-
-                if (!user && onLoginRequest) {
-                  return onLoginRequest()
-                }
-
-                onClick && onClick(id)
-              }}
-            >
-              open post
-            </button>
-          )}
-        </div>
-      )}
     </div>
   )
 }
