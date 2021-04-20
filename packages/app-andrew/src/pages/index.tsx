@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NextPage } from 'next'
 import { IUser, IGroup } from '@gtms/commons/models'
 import { getRecentUsers, usersListQuery } from '@gtms/state-user'
@@ -7,10 +7,12 @@ import { showUserPreview } from '@app/state/userPreview'
 import { UserAvatarNoImage } from '@app/enums'
 import { RecentlyCreatedGroups } from '@app/components/home/RecentlyCreatedGroups'
 import { RecentlyRegisteredUsers } from '@gtms/ui/RecentlyRegisteredUsers'
+import cx from 'classnames'
 // ui
 import { FaUsers, FaUserShield, FaIdBadge } from 'react-icons/fa'
 import { IoIosSearch } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
+import { Overlay } from '@gtms/ui/Overlay'
 import styles from './indexstyles.scss'
 
 type HomePageProps = {
@@ -19,8 +21,22 @@ type HomePageProps = {
 }
 
 export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
+  const [userDetailsView, setUserDetailsView] = useState<boolean>(false)
+
   return (
-    <div data-testid="home-page" className={styles.pageWrapper}>
+    <div
+      data-testid="home-page"
+      className={cx(styles.pageWrapper, {
+        [styles.offCanvas]: userDetailsView,
+      })}
+    >
+      <Overlay
+        additionalStyles={cx(styles.overlay, {
+          [styles.active]: userDetailsView,
+        })}
+        onClick={() => setUserDetailsView(!userDetailsView)}
+        opacity={0.6}
+      />
       <div className={styles.content}>
         <div className={styles.header}>
           <h2 className={styles.logo}>
@@ -77,7 +93,10 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
         </ul>          */}
         <RecentlyCreatedGroups createYourOwnGroup={true} groups={groups} />
       </div>
-      <div className={styles.recentlyRegisteredUsers}>
+      <div
+        className={styles.recentlyRegisteredUsers}
+        onClick={() => setUserDetailsView(true)}
+      >
         <h3>Recently joined</h3>
         <p>Irure ea aliqua sunt ullamco exercitation.</p>
         <RecentlyRegisteredUsers
@@ -87,7 +106,11 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
           users={users}
         />
       </div>
-      <div className={styles.user}>
+      <div
+        className={cx(styles.user, {
+          [styles.active]: userDetailsView,
+        })}
+      >
         <img src="/images/temp/avatar.png" />
         <div className={styles.desc}>
           <h3>Piotr Nowak</h3>

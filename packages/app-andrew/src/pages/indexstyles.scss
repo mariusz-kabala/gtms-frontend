@@ -9,6 +9,23 @@
   display: flex;
   width: 100%;
   background: $theme2;
+  transition: margin 500ms ease-in-out;
+
+  &.offCanvas {
+    margin-left: -250px;
+  }
+
+  .overlay {
+    z-index: -2;
+    cursor: pointer;
+    margin-left: -220px;
+    transition: margin 500ms ease-in-out;
+
+    &.active {
+      margin-left: -470px;
+      z-index: 2;
+    }
+  }
 
   .content {
     width: 100%;
@@ -33,6 +50,7 @@
           display: block;
           @include fontSize(default);
           @include fontWeight(semiBold);
+          opacity: 0.75;
         }
       }
 
@@ -101,6 +119,12 @@
         padding-left: 50px;
         padding-right: 30px;
 
+        h2,
+        p {
+          position: relative;
+          z-index: 1;
+        }
+
         h2 {
           @include fontSize(xlg);
           @include fontWeight(semiBold);
@@ -152,7 +176,7 @@
   }
 
   .recentlyRegisteredUsers {
-    width: 240px;
+    width: 250px;
     padding: 30px;
     border-left: 1px solid $theme7;
     color: $theme0;
@@ -176,10 +200,16 @@
   }
 
   .user {
+    position: fixed;
+    right: -250px;
+    transition: right 500ms ease-in-out;
     background: $theme3;
-    max-width: 270px;
+    max-width: 250px;
+    height: 100%;
 
-    display: none;
+    &.active {
+      right: 0;
+    }
 
     .desc {
       padding: 20px;
