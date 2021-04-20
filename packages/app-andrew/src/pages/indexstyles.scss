@@ -171,7 +171,7 @@
 
         .btnJoin {
           position: relative;
-          z-index: 2;
+          z-index: 1;
           @include buttonDefault();
           @include buttonSizeDefault();
           @include buttonShapeRoundedSides();
@@ -214,8 +214,8 @@
   .recentlyRegisteredUsers {
     width: 250px;
     padding: 30px;
+    border-left: 1px solid $theme7;
     color: $theme0;
-    background: $theme3;
 
     h3 {
       @include fontSize(xdefault);
@@ -244,7 +244,8 @@
     width: 100%;
     max-width: 250px;
     height: 100%;
-    background: $theme3;
+    border-left: 1px solid $theme7;
+    background: $theme2;
 
     &.active {
       right: 0;
