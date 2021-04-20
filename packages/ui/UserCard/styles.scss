@@ -1,0 +1,11 @@
+@import '~@gtms/styles/scss/variables.scss';
+
+.wrapper {
+  cursor: pointer;
+  border-radius: $borderRadius;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
