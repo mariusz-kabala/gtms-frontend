@@ -4,6 +4,7 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/shadows.scss';
 
 .pageWrapper {
   display: flex;
@@ -80,27 +81,14 @@
           border-color: $theme4;
         }
       }
-
-      .btnJoin {
-        @include buttonDefault();
-        @include buttonSizeDefault();
-        @include buttonShapeRoundedSides();
-        @include buttonColorsTertiary();
-        min-width: 200px;
-        margin-left: 30px;
-        margin-right: auto;
-
-        &:hover {
-          @include buttonColorsPrimary();
-        }
-      }
     }
 
     .slider {
+      position: relative;
       display: flex;
       width: 100%;
       overflow: hidden;
-      min-height: 330px;
+      min-height: 380px;
       border-radius: $borderRadius2;
       margin-top: 30px;
       margin-bottom: 30px;
@@ -115,25 +103,86 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         width: 45%;
         padding-left: 50px;
         padding-right: 30px;
 
-        h2,
-        p {
+        div {
+          h2,
+          p {
+            position: relative;
+            z-index: 1;
+          }
+
+          h2 {
+            @include fontSize(xlg);
+            @include fontWeight(semiBold);
+            margin-bottom: 10px;
+          }
+
+          p {
+            line-height: 1.5em;
+            opacity: 0.8;
+          }
+        }
+
+        .icons {
           position: relative;
           z-index: 1;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          grid-column-gap: 20px;
+          grid-row-gap: 20px;
+          margin-top: 20px;
+          @include fontSize(sm);
+
+          .element {
+            display: flex;
+            align-items: center;
+
+            i {
+              padding: 10px;
+              @include fontSize(md);
+              margin-right: 15px;
+              border-radius: $borderRadius;
+              line-height: 0;
+              background: $theme3;
+              border: 3px solid $theme3;
+            }
+
+            &:hover {
+              i {
+                border-color: $theme4;
+                color: $theme4;
+              }
+
+              span {
+                opacity: 1;
+              }
+            }
+
+            span {
+              opacity: 0.7;
+            }
+          }
         }
 
-        h2 {
-          @include fontSize(xlg);
-          @include fontWeight(semiBold);
-          margin-bottom: 10px;
-        }
+        .btnJoin {
+          position: relative;
+          z-index: 2;
+          @include buttonDefault();
+          @include buttonSizeDefault();
+          @include buttonShapeRoundedSides();
+          @include buttonColorsTertiary();
+          min-width: 200px;
+          margin: auto;
+          margin-top: 20px;
 
-        p {
-          line-height: 1.5em;
-          opacity: 0.8;
+          &:hover {
+            @include buttonColorsPrimary();
+          }
         }
       }
 
@@ -144,42 +193,29 @@
         @include imageCover();
       }
     }
+  }
 
-    // .icons {
-    //   display: flex;
-    //   gap: 15px;
-    //   @include fontSize(default);
-    //   margin: 30px 0;
+  .recentlyCreatedGroups {
+    .header {
+      align-items: flex-end;
+      @include fontSize(xmd);
+      @include fontWeight(semiBold);
+      margin-bottom: 25px;
 
-    //   .element {
-    //     display: flex;
-    //     align-items: center;
-
-    //     i {
-    //       padding: 10px;
-    //       @include fontSize(lg);
-    //       margin-right: 15px;
-    //       border-radius: $borderRadius;
-    //       line-height: 0;
-    //       background: $theme3;
-    //       border: 3px solid $theme3;
-    //     }
-
-    //     &:hover {
-    //       i {
-    //         border-color: $theme4;
-    //         color: $theme4;
-    //       }
-    //     }
-    //   }
-    // }
+      p {
+        @include fontSize(default);
+        @include fontWeight(semiNormal);
+        margin-left: 10px;
+        opacity: 0.7;
+      }
+    }
   }
 
   .recentlyRegisteredUsers {
     width: 250px;
     padding: 30px;
-    border-left: 1px solid $theme7;
     color: $theme0;
+    background: $theme3;
 
     h3 {
       @include fontSize(xdefault);
@@ -202,13 +238,20 @@
   .user {
     position: fixed;
     right: -250px;
+    display: flex;
+    justify-content: center;
     transition: right 500ms ease-in-out;
-    background: $theme3;
+    width: 100%;
     max-width: 250px;
     height: 100%;
+    background: $theme3;
 
     &.active {
       right: 0;
+    }
+
+    .spinner {
+      margin: 20px;
     }
 
     .desc {

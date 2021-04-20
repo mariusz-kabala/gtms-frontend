@@ -12,6 +12,7 @@ import cx from 'classnames'
 import { FaUsers, FaUserShield, FaIdBadge } from 'react-icons/fa'
 import { IoIosSearch } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
+import { Spinner } from '@gtms/ui/Spinner'
 import { Overlay } from '@gtms/ui/Overlay'
 import styles from './indexstyles.scss'
 
@@ -22,6 +23,7 @@ type HomePageProps = {
 
 export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
   const [userDetailsView, setUserDetailsView] = useState<boolean>(false)
+  const [mockSpinner, setMockSpinner] = useState<boolean>(false)
 
   return (
     <div
@@ -51,53 +53,69 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
             </i>
             <span>search...</span>
           </div>
-          <Button additionalStyles={styles.btnJoin}>Dołącz</Button>
         </div>
         <div className={styles.slider}>
           <div className={styles.left}>
-            <h2>W tym roku znajdziemy Andrzeja!</h2>
-            <p>
-              Dolor eiusmod sit adipisicing commodo veniam nisi. Incididunt
-              labore aliquip nostrud deserunt irure. Proident cupidatat aliquip
-              consectetur id. Reprehenderit nostrud enim laborum elit ut elit
-              nulla aliqua.
-            </p>
+            <div>
+              <h2>W tym roku znajdziemy Andrzeja!</h2>
+              <p>
+                Dolor eiusmod sit adipisicing commodo veniam nisi. Incididunt
+                labore aliquip nostrud deserunt irure. Proident cupidatat
+                aliquip consectetur id. Reprehenderit nostrud enim laborum elit
+                ut elit nulla aliqua.
+              </p>
+              <ul className={styles.icons}>
+                <li className={styles.element}>
+                  <i>
+                    <FaUsers />
+                  </i>
+                  <span>Cupidatat aute voluptate anim exercitation</span>
+                </li>
+                <li className={styles.element}>
+                  <i>
+                    <FaUserShield />
+                  </i>
+                  <span>Cupidatat aute voluptate anim exercitation</span>
+                </li>
+                <li className={styles.element}>
+                  <i>
+                    <FaIdBadge />
+                  </i>
+                  <span>Cupidatat aute voluptate anim exercitation</span>
+                </li>
+                <li className={styles.element}>
+                  <i>
+                    <FaUserShield />
+                  </i>
+                  <span>Cupidatat aute voluptate anim exercitation</span>
+                </li>
+              </ul>
+              <Button additionalStyles={styles.btnJoin}>
+                Dołącz do festiwalowego spotted
+              </Button>
+            </div>
           </div>
-          <div className={styles.right}></div>
+          <div className={styles.right} />
         </div>
-        {/* <ul className={styles.icons}>
-          <li className={styles.element}>
-            <i>
-              <FaUsers />
-            </i>
-            <span>Cupidatat aute voluptate anim exercitation</span>
-          </li>
-          <li className={styles.element}>
-            <i>
-              <FaUserShield />
-            </i>
-            <span>Cupidatat aute voluptate anim exercitation</span>
-          </li>
-          <li className={styles.element}>
-            <i>
-              <FaIdBadge />
-            </i>
-            <span>Cupidatat aute voluptate anim exercitation</span>
-          </li>
-          <li className={styles.element}>
-            <i>
-              <FaUserShield />
-            </i>
-            <span>Cupidatat aute voluptate anim exercitation</span>
-          </li>
-        </ul>          */}
-        <RecentlyCreatedGroups createYourOwnGroup={true} groups={groups} />
+        <div className={styles.recentlyCreatedGroups}>
+          <h3 className={styles.header}>
+            Znajdź wirtualną swoją wirtualną wioskę
+            <p className={styles.desc}>
+              Irure ea aliqua sunt ullamco exercitation.
+            </p>
+          </h3>
+          <RecentlyCreatedGroups createYourOwnGroup={true} groups={groups} />
+        </div>
       </div>
       <div
         className={styles.recentlyRegisteredUsers}
-        onClick={() => setUserDetailsView(true)}
+        onClick={() => {
+          setUserDetailsView(true)
+          setMockSpinner(!mockSpinner)
+          setTimeout(() => setMockSpinner(false), 3000)
+        }}
       >
-        <h3>Recently joined</h3>
+        <h3 className={styles.header}>Recently joined</h3>
         <p>Irure ea aliqua sunt ullamco exercitation.</p>
         <RecentlyRegisteredUsers
           additionalStyles={styles.users}
@@ -111,18 +129,23 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
           [styles.active]: userDetailsView,
         })}
       >
-        <img src="/images/temp/avatar.png" />
-        <div className={styles.desc}>
-          <h3>Piotr Nowak</h3>
-          <p>
-            Mollit adipisicing incididunt ipsum commodo non fugiat fugiat sint
-            pariatur officia.
-          </p>
-          <p>
-            Minim commodo enim non ad. Labore magna velit dolor sunt proident
-            amet voluptate ex consectetur labore anim fugiat.
-          </p>
-        </div>
+        {mockSpinner && <Spinner additionalStyles={styles.spinner} />}
+        {!mockSpinner && (
+          <div>
+            <img src="/images/temp/avatar.png" />
+            <div className={styles.desc}>
+              <h3>Piotr Nowak</h3>
+              <p>
+                Mollit adipisicing incididunt ipsum commodo non fugiat fugiat
+                sint pariatur officia.
+              </p>
+              <p>
+                Minim commodo enim non ad. Labore magna velit dolor sunt
+                proident amet voluptate ex consectetur labore anim fugiat.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
