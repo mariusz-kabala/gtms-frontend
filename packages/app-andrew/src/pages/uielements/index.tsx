@@ -27,6 +27,7 @@ import { BsUnlock } from 'react-icons/bs'
 //fa
 import { FaEnvelopeOpenText } from 'react-icons/fa'
 import { FaFacebookF } from 'react-icons/fa'
+import { FaBars } from 'react-icons/fa'
 import { FaIdBadge } from 'react-icons/fa'
 import { FaIdCard } from 'react-icons/fa'
 import { FaRegLightbulb } from 'react-icons/fa'
