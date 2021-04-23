@@ -32,7 +32,6 @@ export const GroupMembers: FC<{
       getGroupMembers(slug, 0, 8)
     }
   }, [])
-
   return (
     <div
       className={cx(styles.wrapper, additionalStyles)}
@@ -68,6 +67,7 @@ export const GroupMembers: FC<{
                   <UserCard
                     additionalStyles={styles.avatar}
                     image={faces[index].jpg}
+                    user={user}
                     // image={getImage('50x50', user.avatar, UserAvatarNoImage)}
                   />
                 </a>

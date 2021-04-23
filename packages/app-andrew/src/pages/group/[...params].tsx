@@ -283,7 +283,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
             isEditAllowed={groupQuery.hasAdminRights()}
           />
           <div className={styles.templogo} />
-          {/* <TagsBar /> */}
+          <TagsBar />
           <div className={styles.content}>
             {' '}
             {/* for aligning horizontally logo tags and content */}
@@ -313,7 +313,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                 <Overlay />
               </>
             )}
-            {!showWelcomeText && false && (
+            {!showWelcomeText && (
               <>
                 <div className={styles.posts}>
                   {state.posts.posts.length === 0 && (

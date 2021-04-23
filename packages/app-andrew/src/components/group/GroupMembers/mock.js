@@ -590,7 +590,7 @@ export const mock = [
     postsCounter: 40,
   },
   {
-    id: '5eb2a862f126703f28eb5bd1b0b',
+    id: '5eb2a862f12s6703f28eb5bd1b0b',
     username: 'Barbara ',
     name: 'Barbara',
     surname: 'Liskov',

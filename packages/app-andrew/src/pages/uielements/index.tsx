@@ -245,6 +245,12 @@ export const UiElements: NextPage<{}> = () => {
             <FaUserShield />
           </i>
         </li>
+        <li>
+          9
+          <i>
+            <FaBars />
+          </i>
+        </li>
       </ul>
 
       <h3>/fi</h3>
