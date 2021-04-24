@@ -177,22 +177,6 @@
             }
           }
         }
-
-        .btnJoin {
-          position: relative;
-          z-index: 1;
-          @include buttonDefault();
-          @include buttonSizeDefault();
-          @include buttonShapeRoundedSides();
-          @include buttonColorsTertiary();
-          min-width: 200px;
-          margin: auto;
-          margin-top: 20px;
-
-          &:hover {
-            @include buttonColorsPrimary();
-          }
-        }
       }
 
       .right {
@@ -264,7 +248,7 @@
     }
 
     .desc {
-      padding: 20px;
+      padding: 20px 20px 0 20px;
 
       h3 {
         @include fontSize(lg);
@@ -277,5 +261,21 @@
         opacity: 0.8;
       }
     }
+  }
+}
+
+.btn {
+  position: relative;
+  z-index: 1;
+  @include buttonDefault();
+  @include buttonSizeDefault();
+  @include buttonShapeRoundedSides();
+  @include buttonColorsTertiary();
+  min-width: 200px;
+  margin: auto;
+  margin-top: 20px;
+
+  &:hover {
+    @include buttonColorsPrimary();
   }
 }

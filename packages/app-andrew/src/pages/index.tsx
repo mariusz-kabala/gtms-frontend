@@ -92,7 +92,7 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
                   <span>Cupidatat aute voluptate anim exercitation</span>
                 </li>
               </ul>
-              <Button additionalStyles={styles.btnJoin}>
+              <Button additionalStyles={styles.btn}>
                 Dołącz do festiwalowego spotted
               </Button>
             </div>
@@ -146,6 +146,7 @@ export const HomePage: NextPage<HomePageProps> = ({ groups, users }) => {
                 proident amet voluptate ex consectetur labore anim fugiat.
               </p>
             </div>
+            <Button additionalStyles={styles.btn}>See full profile</Button>
           </div>
         )}
       </div>

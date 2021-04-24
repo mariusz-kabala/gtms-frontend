@@ -127,15 +127,8 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
           </ErrorWrapper>
         )}
         {!state.isLoading && !state.errorOccured && (
-          <>
-            <Navigation current={Tabs.profile} />
+          <div className={styles.content}>
             <div>
-              <div className={styles.hint}>
-                That is how other people can see your profile
-                <span>
-                  You can edit your profile here, show and hide things
-                </span>
-              </div>
               <div className={styles.userHeader}>
                 <ImageEditor
                   isVisible={isAvatarEditorVisible}
@@ -167,6 +160,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                   <UserDescription description={state.description} />
                 </div>
               </div>
+              <Navigation current={Tabs.profile} />
               <ul className={styles.links}>
                 <li className={styles.item}>
                   <Button additionalStyles={styles.btn}>
@@ -225,6 +219,8 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                   Fav group(s)
                 </li>
               </ul>
+            </div>
+            <div>
               <div className={styles.userGroups}>
                 <span>I am member of groups:</span>
                 <UserGroups
@@ -234,7 +230,7 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
               </div>
               <MyPosts />
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
