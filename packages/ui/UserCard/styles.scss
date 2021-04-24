@@ -19,6 +19,19 @@
     @include shadowBoxWithDescription();
   }
 
+  .status {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+    &.online {
+      background: chartreuse;
+    }
+  }
+
   &:hover {
     @include effectColorTransparentOverlay('defaultRadius', 4px);
   }

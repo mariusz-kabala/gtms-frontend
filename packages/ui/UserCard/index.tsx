@@ -20,6 +20,7 @@ export const UserCard: FC<{
       data-testid="user-avatar"
       onClick={onClick}
     >
+      <span className={cx(styles.status, { [styles.online]: true })} />
       <div className={styles.headerAndDesc}>
         <h2 className={styles.header}>{user.name}</h2>
         {user.surname && <p>{user.surname}</p>}

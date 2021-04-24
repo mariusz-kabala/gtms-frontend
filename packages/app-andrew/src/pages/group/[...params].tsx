@@ -442,6 +442,7 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
                     user={state.user}
                   />
                 )}
+                {/* <Overlay /> */}
               </>
             )}
           </div>

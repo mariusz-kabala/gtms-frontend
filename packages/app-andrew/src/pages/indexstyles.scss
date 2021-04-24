@@ -81,6 +81,15 @@
           border-color: $theme4;
         }
       }
+
+      .socialMedia {
+        margin-left: 20px;
+        opacity: 0.7;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
 
     .slider {
@@ -223,8 +232,7 @@
     }
 
     p {
-      margin: 5px 0;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
       opacity: 0.8;
     }
 
