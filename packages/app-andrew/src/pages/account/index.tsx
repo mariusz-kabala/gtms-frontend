@@ -188,7 +188,6 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
                 </li>
               </ul>
               <div className={styles.userTags}>
-                <span># My TAGS:</span>
                 <TagsBar
                   tags={tags}
                   isSaving={isSaving}
@@ -221,13 +220,10 @@ export const AccountPage: NextPage<AccountPageProps> = () => {
               </ul>
             </div>
             <div>
-              <div className={styles.userGroups}>
-                <span>I am member of groups:</span>
-                <UserGroups
-                  groups={state.groups}
-                  noImage={GroupAvatarNoImage}
-                />
-              </div>
+              {/* <UserGroups
+                groups={state.groups}
+                noImage={GroupAvatarNoImage}
+              /> */}
               <MyPosts />
             </div>
           </div>

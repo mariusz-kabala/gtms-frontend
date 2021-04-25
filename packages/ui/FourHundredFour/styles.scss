@@ -4,6 +4,7 @@
 
 .wrapper {
   @include pageWrapper();
+  background: $theme2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,11 +18,11 @@
 
   .btn {
     @include buttonDefault();
-    @include buttonSizeDefault();
-    @include buttonShapeDefault();
-    @include buttonSizeDefault();
+    @include buttonSizeLg();
+    @include buttonShapeRoundedSides();
+    @include buttonColorsTertiary();
     @include buttonWithIcon('left');
-    @include buttonColorsDefault();
+    margin-top: 50px;
 
     &:hover {
       @include buttonColorsPrimary();
