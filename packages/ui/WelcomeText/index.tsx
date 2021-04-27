@@ -3,7 +3,7 @@ import cx from 'classnames'
 // ui
 import styles from './styles.scss'
 
-export const WelcomeText: FC = () => {
+export const WelcomeText: FC<{ onClick?: () => void }> = ({ onClick }) => {
   return (
     <div
       className={cx(
@@ -12,6 +12,7 @@ export const WelcomeText: FC = () => {
         styles.fadeInUp,
         styles.one
       )}
+      onClick={onClick}
       data-testid="welcome-text"
     >
       <div className={styles.content}>

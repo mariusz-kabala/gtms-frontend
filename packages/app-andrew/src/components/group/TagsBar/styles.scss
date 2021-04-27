@@ -4,6 +4,8 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 
 .wrapper {
+  position: relative;
+  z-index: 22;
   width: auto;
   height: 100%;
 

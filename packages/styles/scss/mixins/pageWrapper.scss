@@ -1,7 +1,6 @@
 @mixin pageWrapper($width: null) {
   position: relative;
   width: 100%;
-  padding: 25px;
 
   @if $width == 'width700' {
     width: 750px;

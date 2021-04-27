@@ -29,7 +29,9 @@ enum Tabs {
   recentlyViewed,
 }
 
-export const TagsBar: FC = () => {
+export const TagsBar: FC<{ additionalStyles?: string }> = ({
+  additionalStyles,
+}) => {
   const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.promoted)
   const [state, setState] = useState<ITagsBarState>(tagsBarState())
   const [isActive, setIsActive] = useState<boolean>(false)
@@ -97,7 +99,7 @@ export const TagsBar: FC = () => {
 
   return (
     <div
-      className={cx(styles.wrapper, {
+      className={cx(styles.wrapper, additionalStyles, {
         [styles.active]: isActive,
       })}
     >
@@ -106,7 +108,7 @@ export const TagsBar: FC = () => {
           <i>
             <IoMdGrid />
           </i>
-          Button
+          My tags
         </Button>
       )}
       {isActive && (
@@ -147,7 +149,7 @@ export const TagsBar: FC = () => {
               </ul>
               <Button
                 additionalStyles={styles.btnClose}
-                onClick={() => setIsActive(true)}
+                onClick={() => setIsActive(false)}
               >
                 <i>
                   <IoMdGrid />
