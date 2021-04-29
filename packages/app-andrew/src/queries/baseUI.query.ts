@@ -96,6 +96,15 @@ export class BaseUIQuery {
     this.myGroupsQuery.status$,
     this.myGroupsQuery.favGroups$,
   ]).pipe(map(() => this.navigationDots()))
+
+  public isOffCanvasOpen = (): boolean => {
+    return this.notificationsSidebar().isOpen
+  }
+
+  public isOffCanvasOpen$: Observable<boolean> = combineLatest([
+    this.notificationsQuery.select(),
+    this.uiQuery.isNotificationsBarOpen$,
+  ]).pipe(map(() => this.isOffCanvasOpen()))
 }
 //
 export const baseUIQuery = new BaseUIQuery(
