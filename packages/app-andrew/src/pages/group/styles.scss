@@ -150,6 +150,7 @@
             border-radius: $borderRadius;
             background: $theme3;
             color: $theme0;
+            cursor: pointer;
 
             i {
               line-height: 0;
@@ -213,7 +214,7 @@
 
       .pagination {
         justify-content: center;
-        margin: 5px 0 15px 0;
+        margin-bottom: 8px;
       }
     }
 
