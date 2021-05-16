@@ -47,8 +47,8 @@ export const MyPostsFilters: FC<{
       {!data.isLoading && data.errorOccured && (
         <p>Error occured, please try later</p>
       )}
-      {data.filters && (
-        <ul>
+      {data.filters && data.filters.length > 0 && (
+        <ul className={styles.items}>
           {data.filters.map((group) => (
             <li
               className={cx(styles.item, {
@@ -61,10 +61,12 @@ export const MyPostsFilters: FC<{
                   {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
                 />
               </a>
-              <a onClick={() => onGroupClick(group.name, group.id)}>
-                {group.name}
-              </a>
-              {group.count} posts created
+              <div>
+                <a onClick={() => onGroupClick(group.name, group.id)}>
+                  {group.name}
+                </a>
+                {group.count} posts created
+              </div>
             </li>
           ))}
         </ul>

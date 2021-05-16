@@ -16,7 +16,7 @@ import {
 import { getGroupPosts } from '@gtms/state-post'
 // ui
 import { Scrollbars } from 'react-custom-scrollbars'
-import { IoMdGrid } from 'react-icons/io'
+import { IoMdClose, IoMdGrid } from 'react-icons/io'
 import { Image } from '@gtms/ui/Image'
 import { Button } from '@gtms/ui/Button'
 import { Spinner } from '@gtms/ui/Spinner'
@@ -152,7 +152,7 @@ export const TagsBar: FC<{ additionalStyles?: string }> = ({
                 onClick={() => setIsActive(false)}
               >
                 <i>
-                  <IoMdGrid />
+                  <IoMdClose />
                 </i>
               </Button>
             </div>

@@ -123,7 +123,7 @@ class GTMSApp extends App<GTMSAppProps, {}, GTMSAppState> {
   render() {
     const { Component, pageProps } = this.props
     // const { background, backgroundImage, backgroundLoaded } = this.state
-
+    
     return (
       <div className={styles.appWrapper}>
         <Head>

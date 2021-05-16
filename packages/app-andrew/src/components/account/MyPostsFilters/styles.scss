@@ -1,15 +1,21 @@
 @import '~@gtms/styles/scss/variables.scss';
 
-.item {
+.items {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 5px;
 
-  &.active {
-    border: 1px solid #fff;
+  .item {
+    display: flex;
     border-radius: 5%;
-  }
-
-  img {
-    margin-right: 10px;
+    
+    &.active {
+      border: 1px solid #fff;
+    }
+    
+    img {
+      margin-right: 10px;
+      border-radius: $borderRadius;
+    }
   }
 }

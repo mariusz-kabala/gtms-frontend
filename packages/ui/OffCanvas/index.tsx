@@ -2,8 +2,7 @@ import React, { FC, ReactNode } from 'react'
 import cx from 'classnames'
 import useKey from 'use-key-hook'
 // ui
-// @todo check if its needed
-// import { Overlay } from '@gtms/ui/Overlay'
+import { Overlay } from '@gtms/ui/Overlay'
 // styles
 import styles from './styles.scss'
 
@@ -31,10 +30,9 @@ export const OffCanvas: FC<{
       })}
     >
       {children}
-      {/* @todo check if its needed */}
-      {/* {isActive && (
+      {isActive && (
         <Overlay isActive={isActive} />
-      )} */}
+      )}
     </div>
   )
 }

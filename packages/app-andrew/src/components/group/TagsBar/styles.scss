@@ -96,7 +96,7 @@
       @include buttonDefault();
       @include buttonSizeMd();
       @include buttonShapeDefault();
-      @include buttonWithIcon('left');
+      @include buttonWithIcon();
       @include buttonColorsDefault();
       margin-left: auto;
 
