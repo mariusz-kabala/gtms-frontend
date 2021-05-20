@@ -5,9 +5,15 @@
 
 .userHeader {
   .avatar {
+    margin:auto;
+    
     &:hover {
       @include effectColorTransparentOverlay('circle');
     }
+  }
+
+  .spinner {
+    margin: auto;
   }
 
   .userNameSurnameLogin {

@@ -1,8 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import {
   userQuery,
-  updateAccountAvatar,
-  updateAccountDetails,
+  updateAccountAvatar
 } from '@gtms/state-user'
 import { IAccountDetails } from '@gtms/commons/models'
 import { FileStatus } from '@gtms/commons/enums'
@@ -45,11 +44,11 @@ export const LoggedUserAccountDetails: FC = () => {
           }}
           onClose={() => setIsAvatarEditorVisible(false)}
         />
-        {[FileStatus.uploaded, FileStatus.processing].includes(state?.avatar?.status) && <Spinner />}
+        {[FileStatus.uploaded, FileStatus.processing].includes(state?.avatar?.status) && <Spinner additionalStyles={styles.spinner} />}
         <UserAvatar
           additionalStyles={styles.avatar}
           onClick={() => setIsAvatarEditorVisible(true)}
-          size="sm"
+          size='xxl'
           image={(userQuery.hasAvatar('200x200')
             ? userQuery.getAvatar('200x200')
             : UserAvatarNoImage['200x200'])

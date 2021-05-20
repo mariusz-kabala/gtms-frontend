@@ -56,11 +56,11 @@ export const MyPostsFilters: FC<{
               })}
               key={`group-filter-${group.id}`}
             >
-              <a onClick={() => showGroupPreview(group)}>
-                <Picture
-                  {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
-                />
-              </a>
+              <Picture
+                additionalStyles={styles.avatar}
+                onClick={() => showGroupPreview(group)}
+                {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
+              />
               <div>
                 <a onClick={() => onGroupClick(group.name, group.id)}>
                   {group.name}
