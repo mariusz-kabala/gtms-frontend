@@ -97,6 +97,11 @@ export const TagsBar: FC<{ additionalStyles?: string }> = ({
     return null
   }
 
+  console.log(!state.recentlyViewed.isLoading)
+  console.log(state.recentlyViewed.tags.length)
+  console.log(!state.recentlyViewed.errorOccured)
+  console.log(state)
+
   return (
     <div
       className={cx(styles.wrapper, additionalStyles, {
@@ -137,15 +142,19 @@ export const TagsBar: FC<{ additionalStyles?: string }> = ({
                     Favorites
                   </li>
                 )}
-                <li
-                  className={cx({
-                    [styles.active]: currentTab === Tabs.recentlyViewed,
-                  })}
-                  onClick={() => setCurrentTab(Tabs.recentlyViewed)}
-                >
-                  last viewed
-                </li>
-                {/* <li>x close</li> */}
+                {
+                  !state.recentlyViewed.isLoading &&
+                  !state.recentlyViewed.errorOccured &&
+                  state.recentlyViewed.tags.length > 0 && 
+                  <li
+                    className={cx({
+                      [styles.active]: currentTab === Tabs.recentlyViewed,
+                    })}
+                    onClick={() => setCurrentTab(Tabs.recentlyViewed)}
+                  >
+                    last viewed
+                  </li>
+                }
               </ul>
               <Button
                 additionalStyles={styles.btnClose}
@@ -221,7 +230,7 @@ export const TagsBar: FC<{ additionalStyles?: string }> = ({
                           <h4>#{tag.tag}</h4>
                           <span>
                             visited{' '}
-                            {formatDistance(
+                            {tag.createdAt && formatDistance(
                               new Date(tag.createdAt),
                               new Date()
                             )}

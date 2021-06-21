@@ -55,26 +55,28 @@
   .navWrapper {
     display: flex;
     align-items: center;
+    border-radius: $borderRadius;
+    padding: 1px 0;
+    margin-top: 10px;
+    background: $theme3;
 
     .nav {
       display: flex;
       align-items: center;
       gap: 5px;
-      margin-bottom: 8px;
+      padding: 5px;
       @include fontWeight(semiBold);
-      padding: 6px;
-      margin-top: 10px;
       border-radius: $borderRadius;
       background: $theme3;
       cursor: pointer;
-
+      
       li {
         display: flex;
         align-items: center;
         padding: 5px;
-        border-radius: $borderRadius;
         text-transform: uppercase;
         @include fontSize(xs);
+        border-radius: $borderRadius;
         background: $theme3;
         color: $theme0;
         cursor: pointer;

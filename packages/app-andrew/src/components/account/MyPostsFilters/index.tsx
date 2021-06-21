@@ -8,15 +8,17 @@ import { GroupAvatarNoImage } from '@app/enums'
 //state
 import { showGroupPreview } from '@app/state/groupPreview'
 // ui
+import { IoMdInformationCircleOutline } from 'react-icons/io'
 import { Picture } from '@gtms/ui/Picture'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
 
 export const MyPostsFilters: FC<{
-  onGroupClick: (groupName: string, groupId: string) => void
   active?: string[]
-}> = ({ onGroupClick, active = [] }) => {
+  additionalStyles?: string
+  onGroupClick: (groupName: string, groupId: string) => void
+}> = ({ active = [], additionalStyles, onGroupClick }) => {
   const [data, setData] = useState<{
     isLoading: boolean
     errorOccured: boolean
@@ -42,8 +44,11 @@ export const MyPostsFilters: FC<{
   }
 
   return (
-    <div data-testid="posts-filters">
-      {data.isLoading && <Spinner />}
+    <div 
+      data-testid="posts-filters"
+      className={cx(styles.wrapper, additionalStyles)}
+      >
+      {data.isLoading && <Spinner additionalStyles={styles.spinner} />}
       {!data.isLoading && data.errorOccured && (
         <p>Error occured, please try later</p>
       )}
@@ -61,12 +66,17 @@ export const MyPostsFilters: FC<{
                 onClick={() => showGroupPreview(group)}
                 {...getImage('50x50', group.avatar, GroupAvatarNoImage)}
               />
-              <div>
+              <div className={styles.desc}>
                 <a onClick={() => onGroupClick(group.name, group.id)}>
                   {group.name}
+                  <span>
+                    {group.count} posts created
+                  </span>
                 </a>
-                {group.count} posts created
               </div>
+              <i className={styles.iconInfo}>
+                <IoMdInformationCircleOutline />
+              </i>
             </li>
           ))}
         </ul>

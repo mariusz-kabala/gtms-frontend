@@ -5,6 +5,7 @@
   min-height: 100vh;
   display: flex;
 
+  // @todo remove it soon
   // temp bg
   background-image: url('/images/bg-images/group_bg_1.png');
   @include imageCover();
