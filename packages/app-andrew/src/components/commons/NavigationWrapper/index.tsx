@@ -32,7 +32,7 @@ export const NavigationWrapper: FC<{}> = () => {
       `}</style>
       <div className={styles.fixed}>
         {' '}
-        {/* for position fixed - css purouse */}
+        {/* for position fixed - css purpouse */}
         <a href="/">
           <img
             className={styles.logo}

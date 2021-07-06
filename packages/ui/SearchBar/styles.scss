@@ -14,7 +14,6 @@
     position: relative;
     display: flex;
     width: 100%;
-    min-height: 40px;
     height: 40px;
 
     i {
@@ -30,7 +29,7 @@
       width: 100%;
       padding-left: 35px;
       border: 0;
-      border-radius: $borderRadius3;
+      border-radius: $borderRadius;
       box-shadow: $boxShadowDefault;
       background: $theme0;
       @include fontWeight(light);

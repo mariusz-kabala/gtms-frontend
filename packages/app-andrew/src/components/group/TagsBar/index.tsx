@@ -15,10 +15,10 @@ import {
 } from '@gtms/state-tag'
 import { getGroupPosts } from '@gtms/state-post'
 // ui
-import { Scrollbars } from 'react-custom-scrollbars'
-import { IoMdClose, IoMdGrid } from 'react-icons/io'
-import { Image } from '@gtms/ui/Image'
 import { Button } from '@gtms/ui/Button'
+import { Image } from '@gtms/ui/Image'
+import { IoMdClose, IoMdGrid } from 'react-icons/io'
+import { Scrollbars } from 'react-custom-scrollbars'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
@@ -97,11 +97,6 @@ export const TagsBar: FC<{ additionalStyles?: string }> = ({
     return null
   }
 
-  console.log(!state.recentlyViewed.isLoading)
-  console.log(state.recentlyViewed.tags.length)
-  console.log(!state.recentlyViewed.errorOccured)
-  console.log(state)
-
   return (
     <div
       className={cx(styles.wrapper, additionalStyles, {
@@ -118,53 +113,53 @@ export const TagsBar: FC<{ additionalStyles?: string }> = ({
       )}
       {isActive && (
         <div className={styles.fixedWrapper}>
-          <Scrollbars style={{ width: '100%', height: '100%' }}>
-            <div className={styles.navWrapper}>
-              <ul className={styles.nav}>
-                <li
-                  className={cx({
-                    [styles.active]: currentTab === Tabs.promoted,
-                  })}
-                  onClick={() => setCurrentTab(Tabs.promoted)}
-                >
-                  <i>
-                    <IoMdGrid />
-                  </i>
-                  Tags
-                </li>
-                {state.isLogged && (
-                  <li
-                    onClick={() => setCurrentTab(Tabs.favorites)}
-                    className={cx({
-                      [styles.active]: currentTab === Tabs.favorites,
-                    })}
-                  >
-                    Favorites
-                  </li>
-                )}
-                {
-                  !state.recentlyViewed.isLoading &&
-                  !state.recentlyViewed.errorOccured &&
-                  state.recentlyViewed.tags.length > 0 && 
-                  <li
-                    className={cx({
-                      [styles.active]: currentTab === Tabs.recentlyViewed,
-                    })}
-                    onClick={() => setCurrentTab(Tabs.recentlyViewed)}
-                  >
-                    last viewed
-                  </li>
-                }
-              </ul>
-              <Button
-                additionalStyles={styles.btnClose}
-                onClick={() => setIsActive(false)}
+          <div className={styles.navWrapper}>
+            <ul className={styles.nav}>
+              <li
+                className={cx({
+                  [styles.active]: currentTab === Tabs.promoted,
+                })}
+                onClick={() => setCurrentTab(Tabs.promoted)}
               >
                 <i>
-                  <IoMdClose />
+                  <IoMdGrid />
                 </i>
-              </Button>
-            </div>
+                Tags
+              </li>
+              {state.isLogged && (
+                <li
+                  onClick={() => setCurrentTab(Tabs.favorites)}
+                  className={cx({
+                    [styles.active]: currentTab === Tabs.favorites,
+                  })}
+                >
+                  Favorites
+                </li>
+              )}
+              {
+                !state.recentlyViewed.isLoading &&
+                !state.recentlyViewed.errorOccured &&
+                state.recentlyViewed.tags.length > 0 && 
+                <li
+                  className={cx({
+                    [styles.active]: currentTab === Tabs.recentlyViewed,
+                  })}
+                  onClick={() => setCurrentTab(Tabs.recentlyViewed)}
+                >
+                  last viewed
+                </li>
+              }
+            </ul>
+            <Button
+              additionalStyles={styles.btnClose}
+              onClick={() => setIsActive(false)}
+            >
+              <i>
+                <IoMdClose />
+              </i>
+            </Button>
+          </div>          
+          <Scrollbars style={{ width: '100%', height: '100%' }}>
             {currentTab === Tabs.promoted &&
               !state.promoted.isLoading &&
               !state.promoted.errorOccured &&
@@ -175,7 +170,9 @@ export const TagsBar: FC<{ additionalStyles?: string }> = ({
                       tag: [tag.tag],
                     })
                     return (
-                      <li className={styles.item} key={`promotedTag-${tag.id}`}>
+                      <li 
+                        className={styles.item} 
+                        key={`promotedTag-${tag.id}`}>
                         <Link href={url}>
                           <a
                             onClick={(e) => {

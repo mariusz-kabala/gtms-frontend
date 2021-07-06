@@ -78,19 +78,21 @@ export const SearchBar: FC<{
       >
         {query === '' && !noInlineTags && (
           <>
-            <div className={styles.tags}>
-              {tags.map((tag, index) => (
-                <button
-                  className={styles.tagBtn}
-                  key={`tag-${tag}-${index}`}
-                  type="button"
-                  title="click to remove"
-                  onClick={() => onTagRemove(tag)}
-                >
-                  #{tag}
-                </button>
-              ))}
-            </div>
+            {tags.length > 0 &&
+              <div className={styles.tags}>
+                {tags.map((tag, index) => (
+                  <button
+                    className={styles.tagBtn}
+                    key={`tag-${tag}-${index}`}
+                    type="button"
+                    title="click to remove"
+                    onClick={() => onTagRemove(tag)}
+                  >
+                    #{tag}
+                  </button>
+                ))}
+              </div>
+            }
             {users.length > 0 && (
               <div className={styles.tags}>
                 {users.map((user: string) => (

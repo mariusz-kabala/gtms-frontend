@@ -11,7 +11,7 @@ import { fetchPost, Sorting } from '@gtms/api-post'
 import { findTagsAPI } from '@gtms/api-tags'
 import { findbyUsernameAPI } from '@gtms/api-auth'
 // components
-import { GroupCover } from '@app/components/group/GroupCover'
+// import { GroupCover } from '@app/components/group/GroupCover'
 import { GroupHeader } from '@app/components/group/GroupHeader'
 import { GroupMembers } from '@app/components/group/GroupMembers'
 import { GroupNoAccess } from '@app/components/group/GroupNoAccess'
@@ -280,16 +280,15 @@ const GroupPage: NextPage<GroupPageProps> = (props) => {
 
       {state.group && (
         <div className={styles.wrapper} data-testid="group-page">
-          <GroupCover
+          {/* <GroupCover
             additionalStyles={styles.groupCover}
             group={state.group}
             isEditAllowed={groupQuery.hasAdminRights()}
-          />
+          /> */}
           <div className={styles.templogo} />
-          <TagsBar additionalStyles={styles.tagsBar} />
+          <TagsBar additionalStyles={styles.tagsFavsBar} />
           <div className={styles.content}>
             <GroupHeader />
-            <br /> {/* for aligning horizontally logo tags and content */}
             {/* <Headroom upTolerance={5} className={styles.headroom}>
               <GroupHeader
                 additionalStyles={cx({

@@ -43,7 +43,7 @@ $navigationDotAllMyGroupsSidebarWidth: 500px;
   .navigationDot {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     align-items: center;
     height: 100%;
 
@@ -52,7 +52,7 @@ $navigationDotAllMyGroupsSidebarWidth: 500px;
         // because of sortable component
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
       }
     }
 

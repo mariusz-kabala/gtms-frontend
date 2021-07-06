@@ -144,26 +144,26 @@ const TagPage: NextPage<TagPageProps> = ({ groups, posts, tags, users }) => {
           <div className={styles.noRecords}>no records</div>
         )}
 
-        {/* <h3 className={styles.header}>Groups</h3>
+        <h3 className={styles.header}>Groups</h3>
         <GroupsList
           isLoading={state.groups.isLoading}
           records={state.groups.docs}
-        /> */}
+        />
 
-        {/* <h3 className={styles.header}>Users</h3>
+        <h3 className={styles.header}>Users</h3>
         <UsersList
           isLoading={state.users.isLoading}
           records={state.users.docs}
-        /> */}
+        />
 
-        {/* <h3 className={styles.header}>Posts</h3>
+        <h3 className={styles.header}>Posts</h3>
         {state.posts && (
           <PostsList
             isLoading={state.posts.isLoading}
             records={state.posts.docs}
             user={null}
           />
-        )} */}
+        )}
       </div>
     </div>
   )
