@@ -15,6 +15,7 @@ import { IImage } from '@gtms/commons/types/image'
 // ui
 import useKey from 'use-key-hook'
 import Lightbox from 'react-image-lightbox'
+import { FaRegClock } from 'react-icons/fa'
 import { IoMdSend } from 'react-icons/io'
 import { Button } from '../Button'
 import { DeletePost } from './DeletePost'
@@ -49,12 +50,12 @@ export const PostSingle: FC<{
   onOpenGroupPreview?: (group: IGroup) => unknown
   onTagClick?: (tag: string) => unknown
   onUserClick?: (user: IUser) => unknown
+  onUserPreviewClick?: (user: IUser) => void
   owner: IUser
   renderFavs?: (favs: string[], id: string) => JSX.Element
   renderMenu?: (postId: string) => JSX.Element | null
   tags: string[]
   user: IAccountDetails | null
-  onUserPreviewClick?: (user: IUser) => void
 }> = ({
   activeTags = [],
   additionalStyles,
@@ -72,19 +73,19 @@ export const PostSingle: FC<{
   isFullPost,
   noImage,
   onClick,
-  // onLoginRequest,
+  onLoginRequest,
   onOpenGroupPreview,
   onTagClick,
   onUserClick,
+  onUserPreviewClick,
   owner,
   renderFavs,
   renderMenu,
   tags,
   user,
-  onUserPreviewClick,
 }) => {
-  const [isAnswerFormOpen] = useState<boolean>(false)
-  // const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
+  // const [isAnswerFormOpen] = useState<boolean>(false)
+  const [isAnswerFormOpen, setIsAnswerFormOpen] = useState<boolean>(false)
   const [lightboxState, setLightboxState] = useState<{
     isOpen: boolean
     current: number
@@ -94,20 +95,7 @@ export const PostSingle: FC<{
   })
   const commentForm = useRef<HTMLDivElement>(null)
   const postOffsetTop = useRef<HTMLDivElement>(null)
-  const onClickCallback = useCallback(() => {
-    if (
-      postOffsetTop &&
-      postOffsetTop.current &&
-      postOffsetTop.current.offsetTop
-    ) {
-      window.scrollTo({
-        top: postOffsetTop.current.offsetTop,
-        left: 0,
-        behavior: 'smooth',
-      })
-    }
-    // onClick && onClick(id)
-  }, [id, onClick])
+
   const onUserClickCallback = useCallback(() => {
     onUserClick && onUserClick(owner)
   }, [onUserClick, owner])
@@ -125,6 +113,7 @@ export const PostSingle: FC<{
       detectKeys: [27],
     }
   )
+
   return (
     <div
       className={cx(styles.wrapper, additionalStyles, {
@@ -132,8 +121,16 @@ export const PostSingle: FC<{
         [styles.isNotFullPost]: !isFullPost,
       })}
       data-testid="post-single"
-      onClick={onClickCallback}
       ref={postOffsetTop}
+      onClick={() => {
+        if (!isFullPost && allowToRespond && (user || onLoginRequest)) {
+          if (!user && onLoginRequest) {
+            return onLoginRequest()
+          }
+
+          onClick && onClick(id)
+        }
+      }}
     >
       {lightboxState.isOpen && (
         <Lightbox
@@ -173,13 +170,6 @@ export const PostSingle: FC<{
           }
         />
       )}
-      {group && typeof group !== 'string' && (
-        <GroupDetails
-          additionalStyles={styles.groupDetails}
-          group={group}
-          onGroupClick={onOpenGroupPreview}
-        />
-      )}
       <div className={styles.postHeader}>
         <UserAvatar
           additionalStyles={styles.userAvatar}
@@ -188,7 +178,10 @@ export const PostSingle: FC<{
         />
         <a className={styles.userNameAndDate}>
           <span onClick={onUserClickCallback}>{getDisplayName(owner)}</span>
-          <span className={styles.date} onClick={onClickCallback}>
+          <span className={styles.date}>
+            <i>
+              <FaRegClock />
+            </i>
             {formatDistance(new Date(createdAt), new Date(), {
               locale: pl,
             })}
@@ -287,30 +280,13 @@ export const PostSingle: FC<{
           </div>
         )}
       </div>
-      {/* @todo remove it if it won't be needed anymore*/}
-      {/* {!isFullPost && (
-        <div className={styles.btns}>
-          {allowToRespond && (user || onLoginRequest) && (
-            <button
-              className={styles.respondBtn}
-              onClick={(e) => {
-                e.preventDefault()
-
-                if (!user && onLoginRequest) {
-                  return onLoginRequest()
-                }
-
-                setIsAnswerFormOpen(true)
-                if (commentForm.current) {
-                  window.scrollTo(0, commentForm.current.offsetTop)
-                }
-              }}
-            >
-              respond...
-            </button>
-          )}
-        </div>
-      )} */}
+      {group && typeof group !== 'string' && (
+        <GroupDetails
+          additionalStyles={styles.groupDetails}
+          group={group}
+          onGroupClick={onOpenGroupPreview}
+        />
+      )}
     </div>
   )
 }

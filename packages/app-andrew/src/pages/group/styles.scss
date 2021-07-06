@@ -3,38 +3,71 @@
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/mediaQueries.scss';
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 @import '~@gtms/styles/scss/mixins/zindex.scss';
 
 .pageWrapper {
   @include pageWrapper();
-  flex-direction: column;
-  background: none; // reset bg from mixin pageWrapper()
-  margin: 0; // reset margin from mixin pageWrapper()
-  padding: 0; // reset padding from mixin pageWrapper()
+  @include for-desktop-only {
+    // @todo remove unneeded shit
+    flex-direction: column;
+    background: none; // reset bg from mixin pageWrapper()
+    margin: 0; // reset margin from mixin pageWrapper()
+    padding: 0; // reset padding from mixin pageWrapper()
 
-  position: relative;
-  display: flex;
-  width: 100%;
-  margin: 0 100px;
-  margin-bottom: 50px;
-  border-radius: 10px;
-
-  .widthMax {
-    max-width: 1100px;
-  }
-
-  .groupCover {
-    margin-bottom: 10px;
-    max-width: $tempWidth;
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin: 0 100px;
+    border-radius: 10px;
   }
 
   .wrapper {
     position: relative;
     z-index: 0;
-    display: flex;
-    gap: 8px;
     max-width: $tempWidth;
+    height: 100%;
+
+    margin-top: 10px;
+    border-radius: 10px;
+    background: $theme2;
+
+    .templogo {
+      display: none;
+    }
+
+    @include for-desktop-only {
+      display: flex;
+
+      .templogo {
+        align-self: flex-start;
+      }
+    }
+
+    .tagsFavsBar {
+      width: 240px;
+
+      // because of fixed wrapper inside for virtual scroll purpouse
+      > div {
+        width: 240px;
+      }
+    }
+
+    @include for-phone-only {
+      .tagsFavsBar {
+        display: none;
+      }
+    }
+
+    // @todo clean up this widthMax
+    .widthMax {
+      max-width: 1100px;
+    }
+  
+    .groupCover {
+      max-width: $tempWidth;
+    }
 
     &.widthMax {
       max-width: 1100px;
@@ -42,9 +75,7 @@
 
     .templogo {
       position: absolute;
-      left: -42px;
-      top: 10px;
-      z-index: 11;
+      padding: 5px;
       min-width: $size1;
       min-height: $size1;
       background-image: url('/images/theme-images/logo-patrol.png');
@@ -54,9 +85,22 @@
 
     .content {
       width: 100%;
+      padding: 5px;
+
+      @include for-phone-only {
+        padding: 10px;
+        background: $theme2;
+      }
 
       .headroom {
         position: relative;
+        z-index: 2;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        @include for-phone-only {
+          display: none;
+        }
 
         > div {
           position: relative;
@@ -83,7 +127,7 @@
           &[class*='headroom--unpinned'] {
             [class*='searchBar'] {
               max-width: 490px;
-              margin-left: 312px;
+              margin-left: 355px;
             }
           }
         }
@@ -94,7 +138,38 @@
         flex-direction: column;
         gap: 8px;
         width: 100%;
+        margin-top: 8px;
         border-radius: $borderRadius;
+
+        @include for-phone-only {
+          display: none;
+        }
+
+        .navigation {
+          display: flex;
+          align-items: center;
+
+          .item {
+            display: flex;
+            align-items: center;
+            padding: 3px;
+            margin-right: 8px;
+            border-radius: $borderRadius;
+            background: $theme3;
+            color: $theme0;
+            cursor: pointer;
+
+            i {
+              line-height: 0;
+              margin-right: 3px;
+            }
+
+            &.active,
+            &:hover {
+              background: $theme4;
+            }
+          }
+        }
 
         .loading {
           width: 60px;
@@ -104,7 +179,7 @@
         .postCreate {
           display: flex;
           padding: 8px;
-          background: $theme3;
+          background: $theme1;
           border-radius: $borderRadius;
         }
 
@@ -115,6 +190,7 @@
 
           .post {
             padding: 8px;
+            background: $theme1;
 
             &:hover {
               border-color: $theme4;
@@ -136,7 +212,7 @@
 
         .header {
           @include fontWeight(semiNormal);
-          @include fontSize(lg);
+          margin: 10px 0;
 
           span {
             @include fontWeight(semiBold);
@@ -146,24 +222,20 @@
 
       .pagination {
         justify-content: center;
-        margin-top: 5px;
+        margin-bottom: 8px;
       }
     }
 
-    .promotedTags {
-      position: sticky;
-      z-index: 1;
-      top: 10px;
-      left: 0;
-      width: 100%;
-    }
-
+    .promotedTags,
     .groupMembers {
-      position: sticky;
-      z-index: 2;
-      top: 10px;
-      left: 0;
-      width: 100%;
+      @include for-desktop-only {
+        position: fixed;
+        z-index: 111;
+        top: 10px;
+        left: 0;
+        padding: 50px 60px;
+        width: 100%;
+      }
     }
   }
 }

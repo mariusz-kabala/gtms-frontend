@@ -1,0 +1,21 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/imageCover.scss';
+
+.groupHeaderComponent {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  transition: top $animationSpeedSlow;
+
+  .search {
+    // @todo remove it when search will be finished
+    [class*='inputWrapper'] {
+      height: 35px;
+
+      i {
+        top: 9px;
+      }
+    }
+  }
+}

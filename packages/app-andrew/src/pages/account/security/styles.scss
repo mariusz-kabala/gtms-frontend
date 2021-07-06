@@ -4,10 +4,13 @@
 @import '~@gtms/styles/scss/mixins/pageWrapper.scss';
 
 .pageWrapper {
-  @include pageWrapper(width700);
+  @include pageWrapper();
+  background: $theme2;
 }
 
 .wrapper {
+  display: flex;
+  gap: 20px;
   padding: 15px;
 
   .changePassword {

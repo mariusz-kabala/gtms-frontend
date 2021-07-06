@@ -13,8 +13,10 @@ export const UserAvatar: FC<{
 }> = ({ additionalStyles, alt, image, onClick, size }) => (
   <div
     className={cx(styles.wrapper, additionalStyles, {
+      [styles.xs]: size === 'xs',
       [styles.sm]: size === 'sm',
       [styles.md]: size === 'md',
+      [styles.xxl]: size === 'xxl',
       [styles.percent100]: size === '100percent',
     })}
     data-testid="user-avatar"

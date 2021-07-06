@@ -23,8 +23,11 @@
 
     span {
       display: block;
-      margin-top: 3px;
+      margin-top: 8px;
+      margin-left: 10px;
+      opacity: 0.8;
       font-style: italic;
+      @include fontSize(sm);
     }
   }
 }
@@ -36,6 +39,7 @@
   @include buttonSizeDefault();
   @include buttonShapeDefault();
   @include buttonColorsSecondary();
+  @include buttonWithSpinnerAndLabel(left);
 
   &:hover {
     @include buttonColorsPrimary();

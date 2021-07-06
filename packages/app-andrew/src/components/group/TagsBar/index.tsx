@@ -15,10 +15,10 @@ import {
 } from '@gtms/state-tag'
 import { getGroupPosts } from '@gtms/state-post'
 // ui
-import { Scrollbars } from 'react-custom-scrollbars'
-import { IoMdGrid } from 'react-icons/io'
 import { Button } from '@gtms/ui/Button'
 import { Image } from '@gtms/ui/Image'
+import { IoMdClose, IoMdGrid } from 'react-icons/io'
+import { Scrollbars } from 'react-custom-scrollbars'
 import { Spinner } from '@gtms/ui/Spinner'
 // styles
 import styles from './styles.scss'
@@ -29,10 +29,12 @@ enum Tabs {
   recentlyViewed,
 }
 
-export const TagsBar: FC = () => {
+export const TagsBar: FC<{ additionalStyles?: string }> = ({
+  additionalStyles,
+}) => {
   const [currentTab, setCurrentTab] = useState<Tabs>(Tabs.promoted)
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(true)
   const [state, setState] = useState<ITagsBarState>(tagsBarState())
+  const [isActive, setIsActive] = useState<boolean>(false)
   const { i18n } = useTranslation('groupPage')
 
   useEffect(() => {
@@ -97,21 +99,21 @@ export const TagsBar: FC = () => {
 
   return (
     <div
-      className={cx(styles.wrapper, {
-        [styles.active]: !isCollapsed,
+      className={cx(styles.wrapper, additionalStyles, {
+        [styles.active]: isActive,
       })}
     >
-      {isCollapsed && (
-        <Button
-          additionalStyles={styles.btn}
-          onClick={() => setIsCollapsed(!isCollapsed)}
-        >
+      {!isActive && (
+        <Button additionalStyles={styles.btn} onClick={() => setIsActive(true)}>
+          <i>
+            <IoMdGrid />
+          </i>
           My tags
         </Button>
       )}
-      {!isCollapsed && (
+      {isActive && (
         <div className={styles.fixedWrapper}>
-          <Scrollbars style={{ width: '100%', height: '100%' }}>
+          <div className={styles.navWrapper}>
             <ul className={styles.nav}>
               <li
                 className={cx({
@@ -134,16 +136,30 @@ export const TagsBar: FC = () => {
                   Favorites
                 </li>
               )}
-              <li
-                className={cx({
-                  [styles.active]: currentTab === Tabs.recentlyViewed,
-                })}
-                onClick={() => setCurrentTab(Tabs.recentlyViewed)}
-              >
-                last viewed
-              </li>
-              <li onClick={() => setIsCollapsed(true)}>x close</li>
+              {
+                !state.recentlyViewed.isLoading &&
+                !state.recentlyViewed.errorOccured &&
+                state.recentlyViewed.tags.length > 0 && 
+                <li
+                  className={cx({
+                    [styles.active]: currentTab === Tabs.recentlyViewed,
+                  })}
+                  onClick={() => setCurrentTab(Tabs.recentlyViewed)}
+                >
+                  last viewed
+                </li>
+              }
             </ul>
+            <Button
+              additionalStyles={styles.btnClose}
+              onClick={() => setIsActive(false)}
+            >
+              <i>
+                <IoMdClose />
+              </i>
+            </Button>
+          </div>          
+          <Scrollbars style={{ width: '100%', height: '100%' }}>
             {currentTab === Tabs.promoted &&
               !state.promoted.isLoading &&
               !state.promoted.errorOccured &&
@@ -154,7 +170,9 @@ export const TagsBar: FC = () => {
                       tag: [tag.tag],
                     })
                     return (
-                      <li className={styles.item} key={`promotedTag-${tag.id}`}>
+                      <li 
+                        className={styles.item} 
+                        key={`promotedTag-${tag.id}`}>
                         <Link href={url}>
                           <a
                             onClick={(e) => {
@@ -209,7 +227,7 @@ export const TagsBar: FC = () => {
                           <h4>#{tag.tag}</h4>
                           <span>
                             visited{' '}
-                            {formatDistance(
+                            {tag.createdAt && formatDistance(
                               new Date(tag.createdAt),
                               new Date()
                             )}
@@ -299,6 +317,7 @@ export const TagsBar: FC = () => {
                 state.recentlyViewed.isLoaded === true &&
                 state.recentlyViewed.tags.length === 0) ||
               (currentTab === Tabs.favorites &&
+                state.fav.isLoading === false &&
                 state.fav.tags.length === 0)) && (
               <p className={styles.noRecords}>No records</p>
             )}

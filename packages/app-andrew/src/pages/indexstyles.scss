@@ -1,50 +1,56 @@
 @import '~@gtms/styles/scss/variables.scss';
 @import '~@gtms/styles/scss/mixins/buttons.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
 @import '~@gtms/styles/scss/mixins/fontSize.scss';
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/mediaQueries.scss';
+@import '~@gtms/styles/scss/mixins/shadows.scss';
 
 .pageWrapper {
+  display: flex;
   width: 100%;
-  background: $theme3;
+  background: $theme2;
+  transition: margin $animationSpeedDefault;
 
-  .welcome {
-    display: flex;
-    flex-direction: column;
+  &.offCanvas {
+    margin-left: -250px;
+  }
+
+  .overlay {
+    z-index: -2;
+    cursor: pointer;
+    margin-left: -220px;
+    transition: margin $animationSpeedDefault;
+
+    &.active {
+      margin-left: -470px;
+      z-index: 2;
+    }
+  }
+
+  .content {
     width: 100%;
-    padding-top: 50px;
-    background-image: url('/images/theme-images/mainPageBg.png');
-    @include imageCover();
+    padding: 0 10px;
 
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba($theme3, 0.65);
-    }
-
-    > * {
-      // put everything on top of after pseudoelement
-      position: relative;
-      z-index: 1;
-    }
-
-    .mainHeader {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      @include fontSize(xxlg);
+    .header {
       @include fontWeight(semiBold);
-      margin: 40px auto;
+      width: 100%;
+      margin-top: 15px;
 
-      .header {
-        @include fontSize(xxlg);
+      @include for-desktop-only {
+        display: flex;
+      }
+
+      .logo {
+        margin-right: 30px;
+        @include fontSize(xlg);
         @include fontWeight(semiBold);
         text-transform: uppercase;
+
+        @include for-desktop-only {
+          @include fontSize(lg);
+        }
 
         .bold {
           @include fontWeight(bold);
@@ -52,79 +58,242 @@
 
         .subtitle {
           display: block;
-          @include fontSize(lg);
+          @include fontSize(xdefault);
           @include fontWeight(semiBold);
+          opacity: 0.75;
+
+          @include for-desktop-only {
+            @include fontSize(default);
+          }
         }
       }
+    }
 
-      .icons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 15px;
-        grid-template-areas:
-          '. .'
-          '. .';
+    .slider {
+      position: relative;
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      min-height: 380px;
+      border-radius: $borderRadius2;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      background: $black;
+      cursor: pointer;
 
-        max-width: 600px;
-        @include fontSize(default);
-        margin-top: 30px;
+      @include for-phone-only {
+        display: none;
+      }
 
-        .element {
-          display: flex;
-          align-items: center;
+      &:hover {
+        @include effectColorTransparentOverlay('defaultRadius', 4px);
+      }
 
-          i {
-            padding: 10px;
-            @include fontSize(lg);
-            margin-right: 15px;
-            border-radius: $borderRadius;
-            line-height: 0;
-            background: $theme3;
-            border: 3px solid $theme3;
+      .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 45%;
+        padding-left: 50px;
+        padding-right: 30px;
+
+        div {
+          h2,
+          p {
+            position: relative;
+            z-index: 1;
           }
 
-          &:hover {
+          h2 {
+            @include fontSize(xlg);
+            @include fontWeight(semiBold);
+            margin-bottom: 10px;
+          }
+
+          p {
+            line-height: 1.5em;
+            opacity: 0.8;
+          }
+        }
+
+        .icons {
+          position: relative;
+          z-index: 1;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          grid-column-gap: 20px;
+          grid-row-gap: 20px;
+          margin-top: 20px;
+          @include fontSize(sm);
+
+          .element {
+            display: flex;
+            align-items: center;
+
             i {
-              border-color: $theme4;
-              color: $theme4;
+              padding: 10px;
+              @include fontSize(md);
+              margin-right: 15px;
+              border-radius: $borderRadius;
+              line-height: 0;
+              background: $theme3;
+              border: 3px solid $theme3;
+            }
+
+            &:hover {
+              i {
+                border-color: $theme4;
+                color: $theme4;
+              }
+
+              span {
+                opacity: 1;
+              }
+            }
+
+            span {
+              opacity: 0.7;
             }
           }
         }
       }
 
-      .btn {
-        @include buttonDefault();
-        @include buttonWithTwoRows();
-        @include buttonSizeDefault();
-        @include buttonShapeRoundedSides();
-        @include buttonColorsPrimary();
-        min-width: 200px;
-        margin: 20px auto;
-        opacity: 0.9;
+      .right {
+        width: 55%;
+        min-height: 100%;
+        background-image: url('/images/theme-images/mainPageBg.png');
+        @include imageCover();
+      }
+    }
+
+    .recentlyCreatedGroups {
+      .search {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 100%;
+        height: 40px;
+        padding: 5px 12px;
+        border-radius: $borderRadius2;
+        border: 2px solid $theme7;
+        @include fontSize(md);
+        background: $theme7;
+
+        i {
+          line-height: 0;
+        }
+
+        span {
+          margin-left: 5px;
+          @include fontSize(sm);
+          @include fontWeight(semiNormal);
+        }
+
+        &:hover {
+          border-color: $theme4;
+        }
+      }
+
+      .socialMedia {
+        margin-left: 20px;
+        opacity: 0.7;
 
         &:hover {
           opacity: 1;
         }
       }
-    }
 
-    .recentlyRegisteredUsers {
-      margin: 0 20px;
-    }
-
-    .recentlyRegisteredUsers {
       .header {
-        @include fontWeight(bold);
-        text-transform: uppercase;
-        margin: 15px 0;
+        @include fontSize(xmd);
+        @include fontWeight(semiBold);
+        margin-bottom: 15px;
+
+        .desc {
+          display: block;
+          @include fontSize(default);
+          @include fontWeight(semiNormal);
+          opacity: 0.7;
+        }
       }
     }
   }
 
-  .recentlyCreatedGroups {
+  .recentlyRegisteredUsers {
+    width: 250px;
+    padding: 30px;
+    border-left: 1px solid $theme7;
+    color: $theme0;
+
+    h3 {
+      @include fontSize(xdefault);
+      @include fontWeight(semiBold);
+    }
+
+    p {
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+
+    .users {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+
+  .user {
+    position: fixed;
+    right: -250px;
+    display: flex;
+    justify-content: center;
+    transition: right $animationSpeedDefault;
+    width: 100%;
+    max-width: 250px;
+    height: 100%;
+    border-left: 1px solid $theme7;
+    background: $theme2;
+
+    &.active {
+      right: 0;
+    }
+
+    .spinner {
+      margin: 20px;
+    }
+
+    .desc {
+      padding: 20px 20px 0 20px;
+
+      h3 {
+        @include fontSize(lg);
+        @include fontWeight(semiBold);
+        margin-bottom: 5px;
+      }
+
+      p {
+        margin: 10px 0;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .btn {
     position: relative;
     z-index: 1;
-    margin: 20px;
+    @include buttonDefault();
+    @include buttonSizeDefault();
+    @include buttonShapeRoundedSides();
+    @include buttonColorsTertiary();
+    min-width: 200px;
+    margin: auto;
+    margin-top: 20px;
+
+    &:hover {
+      @include buttonColorsPrimary();
+    }
   }
 }

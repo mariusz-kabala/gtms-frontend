@@ -40,7 +40,6 @@ export const MyPosts: FC = () => {
     offset: 0,
   })
   const [state, setState] = useState<IMyPostsState>(myPostsState())
-  const [showFilters, setShowFilters] = useState<boolean>(false)
   const [search, setSearch] = useState<{
     groups: { id: string; name: string }[]
     tags: string[]
@@ -252,8 +251,7 @@ export const MyPosts: FC = () => {
   }, [tagsSuggestionsAbortController])
 
   return (
-    <div className={styles.userLastPosts}>
-      <span>My last posts:</span>
+    <div>
       <SearchBar
         disabled={data.isLoading}
         additionalStyles={styles.search}
@@ -277,17 +275,11 @@ export const MyPosts: FC = () => {
       )}
       {!data.isLoading && data.docs.length > 0 && !data.errorOccured && (
         <>
-          <div className={styles.filters}>
-            <a onClick={() => setShowFilters((value) => !value)}>
-              {!showFilters ? 'Show filters' : 'Hide filters'}
-            </a>
-          </div>
-          {showFilters && (
-            <MyPostsFilters
-              active={groupNames}
-              onGroupClick={onFilterGroupClick}
-            />
-          )}
+          <MyPostsFilters
+            active={groupNames}
+            additionalStyles={styles.myPostsFilters}
+            onGroupClick={onFilterGroupClick}
+          />
           <PostsList
             posts={data.docs}
             isAdmin={false}
@@ -313,7 +305,7 @@ export const MyPosts: FC = () => {
       )}
 
       {!data.isLoading && data.docs.length === 0 && !data.errorOccured && (
-        <p>No records :( Add your first post!</p>
+        <p>No records {`:(`} Add your first post!</p>
       )}
 
       {!data.isLoading && data.errorOccured && (

@@ -1,4 +1,4 @@
-import React, { FC, useState, useLayoutEffect } from 'react'
+import React, { FC, useState } from 'react'
 import cx from 'classnames'
 import { Link } from '@gtms/commons/i18n'
 import { IGroup } from '@gtms/commons/models'
@@ -12,25 +12,25 @@ import styles from './styles.scss'
 
 export const NavigationDots: FC<{
   groups: IGroup[]
+  isOpen: boolean
   noImage: { [key: string]: IImage }
+  onClose: () => void
+  onOpen: () => void
   onOrderChange?: (groups: IGroup[]) => unknown
-}> = ({ groups, noImage, children, onOrderChange }) => {
-  const [showFullView, setShowFullView] = useState<boolean>(false)
+}> = ({
+  children,
+  groups,
+  isOpen,
+  noImage,
+  onClose,
+  onOpen,
+  onOrderChange,
+}) => {
   const [sortedGroups, setSortedGroups] = useState<IGroup[]>(groups)
-
-  useLayoutEffect(() => {
-    const body = document.body
-
-    if (showFullView) {
-      body.style.position = 'fixed'
-    } else {
-      body.style.position = ''
-    }
-  }, [showFullView])
 
   useKey(
     () => {
-      setShowFullView(false)
+      onClose()
     },
     {
       detectKeys: [27],
@@ -46,9 +46,11 @@ export const NavigationDots: FC<{
       <div className={styles.navigationDot} data-testid="navigation-dots">
         <div
           className={cx(styles.item, styles.showAllGroups, {
-            [styles.active]: showFullView,
+            [styles.active]: isOpen,
           })}
-          onClick={() => setShowFullView((value) => !value)}
+          onClick={() => {
+            isOpen ? onClose() : onOpen()
+          }}
         >
           <i>
             <IoIosKeypad />
@@ -80,7 +82,7 @@ export const NavigationDots: FC<{
       </div>
       <div
         className={cx(styles.fullView, {
-          [styles.active]: showFullView,
+          [styles.active]: isOpen,
         })}
       >
         <div className={styles.content}>{children}</div>

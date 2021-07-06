@@ -1,0 +1,41 @@
+@import '~@gtms/styles/scss/variables.scss';
+@import '~@gtms/styles/scss/mixins/focusElementEffects.scss';
+@import '~@gtms/styles/scss/mixins/fontSize.scss';
+@import '~@gtms/styles/scss/mixins/fontWeight.scss';
+
+.userHeader {
+  .avatar {
+    margin:auto;
+    
+    &:hover {
+      @include effectColorTransparentOverlay('circle');
+    }
+  }
+
+  .spinner {
+    margin: auto;
+  }
+
+  .userNameSurnameLogin {
+    @include fontSize(xdefault);
+    @include fontWeight(semiBold);
+    margin: 10px 0;
+
+    .login {
+      display: block;
+      color: $theme0;
+    }
+  }
+
+  .desc {
+    font-style: italic;
+    color: $theme0;
+    margin-bottom: 15px;
+
+    .aboutMeLabel {
+      font-style: initial;
+      text-transform: uppercase;
+      @include fontSize(sm);
+    }
+  }
+}

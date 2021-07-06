@@ -1,8 +1,10 @@
 import React, { FC, useState, useEffect } from 'react'
-import { Spinner } from '../Spinner'
-import styles from './styles.scss'
 import { useDebounce } from '@gtms/commons/hooks/useDebounce'
 import { useTranslation } from '@gtms/commons/i18n'
+// ui
+import { Button } from '../Button'
+import { Spinner } from '../Spinner'
+import styles from './styles.scss'
 
 export const TagsBar: FC<{
   tags: string[]
@@ -100,9 +102,7 @@ export const TagsBar: FC<{
               {t('save')}
             </button>
             {isSaving && (
-              <div className={styles.spinner}>
-                <Spinner />
-              </div>
+              <Spinner additionalStyles={styles.spinner} />
             )}
             {showSuggestions && !isLoading && (
               <div className={styles.suggestions}>
@@ -126,43 +126,39 @@ export const TagsBar: FC<{
 
             {isLoading && value !== '' && (
               <div className={styles.suggestions}>
-                <div className={styles.spinner}>
-                  <Spinner />
-                </div>
+                <Spinner additionalStyles={styles.spinner} />
               </div>
             )}
           </div>
           <div className={styles.tagsList}>
             {tags.map((tag) => (
-              <button
-                className={styles.tag}
+              <Button
+                additionalStyles={styles.tag}
                 key={`tag-${tag}`}
                 type="button"
                 title="click to remove"
                 onClick={() => onTagRemove(tag)}
               >
                 #{tag}
-              </button>
+              </Button>
             ))}
           </div>
         </>
       )}
       {!isInEditMode && tags.length === 0 && (
-        <span className={styles.noRecords}>
-          <a
-            className={styles.actionButton}
-            onClick={() => setIsInEditMode(true)}
-          >
-            {t('clickHereToAddNewTag')}
-          </a>
-        </span>
+        <Button
+          additionalStyles={styles.buttonNoRecords}
+          onClick={() => setIsInEditMode(true)}
+        >
+          {t('clickHereToAddNewTag')}
+        </Button>
       )}
       {!isInEditMode && tags.length > 0 && (
         <div className={styles.tagsList}>
           {tags.map((tag) => (
-            <button className={styles.tag} key={`tag-${tag}`} type="button">
+            <Button additionalStyles={styles.tag} key={`tag-${tag}`}>
               #{tag}
-            </button>
+            </Button>
           ))}
           <a
             className={styles.actionButton}

@@ -25,14 +25,25 @@ import { BsFillImageFill } from 'react-icons/bs'
 import { BsFillPlusSquareFill } from 'react-icons/bs'
 import { BsUnlock } from 'react-icons/bs'
 //fa
+import { FaBars } from 'react-icons/fa'
 import { FaEnvelopeOpenText } from 'react-icons/fa'
+import { FaFacebook } from 'react-icons/fa'
 import { FaFacebookF } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
 import { FaIdBadge } from 'react-icons/fa'
 import { FaIdCard } from 'react-icons/fa'
+import { FaInstagram } from 'react-icons/fa'
+import { FaLinkedin } from 'react-icons/fa'
+import { FaMedium } from 'react-icons/fa'
+import { FaRedditSquare } from 'react-icons/fa'
+import { FaRegClock } from 'react-icons/fa'
 import { FaRegLightbulb } from 'react-icons/fa'
 import { FaRegUser } from 'react-icons/fa'
+import { FaTelegram } from 'react-icons/fa'
+import { FaTwitter } from 'react-icons/fa'
 import { FaUsers } from 'react-icons/fa'
 import { FaUserShield } from 'react-icons/fa'
+import { FaWhatsapp } from 'react-icons/fa'
 //fi
 import { FiKey } from 'react-icons/fi'
 import { FiUsers } from 'react-icons/fi'
@@ -78,6 +89,7 @@ import { IoMdSend } from 'react-icons/io'
 import { IoMdStar } from 'react-icons/io'
 import { IoMdStarOutline } from 'react-icons/io'
 import { IoMdTrash } from 'react-icons/io'
+import { IoMdInformationCircleOutline } from 'react-icons/io'
 //md
 import { MdLockOutline } from 'react-icons/md'
 import { MdSecurity } from 'react-icons/md'
@@ -242,6 +254,72 @@ export const UiElements: NextPage<{}> = () => {
           8
           <i>
             <FaUserShield />
+          </i>
+        </li>
+        <li>
+          9
+          <i>
+            <FaBars />
+          </i>
+        </li>
+        <li>
+          10
+          <i>
+            <FaInstagram />
+          </i>
+        </li>
+        <li>
+          11
+          <i>
+            <FaFacebook />
+          </i>
+        </li>
+        <li>
+          12
+          <i>
+            <FaWhatsapp />
+          </i>
+        </li>
+        <li>
+          13
+          <i>
+            <FaTelegram />
+          </i>
+        </li>
+        <li>
+          14
+          <i>
+            <FaTwitter />
+          </i>
+        </li>
+        <li>
+          15
+          <i>
+            <FaGithub />
+          </i>
+        </li>
+        <li>
+          16
+          <i>
+            <FaRedditSquare />
+          </i>
+        </li>
+        <li>
+          17
+          <i>
+            <FaMedium />
+          </i>
+        </li>
+        <li>
+          18
+          <i>
+            <FaLinkedin />
+          </i>
+        </li>
+        <li>
+          19
+          <i>
+            <FaRegClock />
           </i>
         </li>
       </ul>
@@ -508,6 +586,12 @@ export const UiElements: NextPage<{}> = () => {
             <IoMdTrash />
           </i>
         </li>
+        <li>
+          37
+          <i>
+            <IoMdInformationCircleOutline />
+          </i>
+        </li>
       </ul>
 
       <h3>/md</h3>
@@ -557,6 +641,9 @@ export const UiElements: NextPage<{}> = () => {
           Button
         </Button>
         <Button additionalStyles={cx(styles.btnColors, styles.five)}>
+          Button
+        </Button>
+        <Button additionalStyles={cx(styles.btnColors, styles.six)}>
           Button
         </Button>
       </div>

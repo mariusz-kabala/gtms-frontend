@@ -64,26 +64,28 @@ export const PostCommentsList: FC<{
 
   return (
     <>
-      <span className={styles.noComments}>
-        No comments, you can add the first one
-      </span>
       {hasNoComments && (
-        <button
-          className={styles.respondButton}
-          onClick={(e) => {
-            e.preventDefault()
+        <>
+          <button
+            className={styles.respondButton}
+            onClick={(e) => {
+              e.preventDefault()
 
-            if (!state.isLogged) {
-              return openLoginModal()
-            }
+              if (!state.isLogged) {
+                return openLoginModal()
+              }
 
-            if (commentForm.current) {
-              window.scrollTo(0, commentForm.current.offsetTop)
-            }
-          }}
-        >
-          respond....
-        </button>
+              if (commentForm.current) {
+                window.scrollTo(0, commentForm.current.offsetTop)
+              }
+            }}
+          >
+            respond....
+          </button>
+          <span className={styles.noComments}>
+            No comments, you can add the first one
+          </span>
+        </>
       )}
       {comments.map((comment) => (
         <div className={styles.postCommentsList} key={`comment-${comment.id}`}>
@@ -115,6 +117,7 @@ export const PostCommentsList: FC<{
         />
         {showSendButton && (
           <Button
+            additionalStyles={styles.btn}
             disabled={value === ''}
             onClick={() => {
               createNewComment({

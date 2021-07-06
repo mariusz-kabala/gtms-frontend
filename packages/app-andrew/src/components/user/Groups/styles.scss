@@ -4,9 +4,10 @@
 @import '~@gtms/styles/scss/mixins/fontWeight.scss';
 @import '~@gtms/styles/scss/mixins/grid.scss';
 @import '~@gtms/styles/scss/mixins/imageCover.scss';
+@import '~@gtms/styles/scss/mixins/mediaQueries.scss';
 @import '~@gtms/styles/scss/mixins/shadows.scss';
 
-.wrapper {
+.wrapper {  
   .navigation {
     display: flex;
     margin-bottom: 20px;
@@ -31,19 +32,26 @@
           padding: 5px 15px;
           border-radius: $borderRadius;
           background: $theme1;
+        }
 
-          &:hover {
+        &:hover,
+        &.active {
+          a {
             background: $theme4;
             color: $theme0;
           }
         }
       }
     }
-  }
+  } 
 }
 
 .groupItems {
-  @include gridDefault(4);
+  @include gridDefault(2);
+  
+  @include for-desktop-only {
+    @include gridDefault(4);
+  }
 
   .item {
     position: relative;
@@ -51,40 +59,49 @@
     border-radius: $borderRadius;
     cursor: pointer;
 
-    &:hover {
-      @include effectColorTransparentOverlay();
-    }
+    a {
+      display: block;
 
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      @include shadowBoxWithDescription();
-    }
+      &:hover {
+        @include effectColorTransparentOverlay();
+      }
 
-    .image {
-      img {
-        @include imageCover();
+      &:before {
+        content: '';
+        position: absolute;
+        z-index: 0;
+        left: 0;
+        top: 0;
         width: 100%;
+        height: 100%;
         @include shadowBoxWithDescription();
       }
-    }
 
-    .headerAndDesc {
-      position: absolute;
-      z-index: 1;
-      bottom: 0;
-      margin: 10px;
-      width: 100%;
-      color: $theme0;
+      .image {
+        img {
+          @include imageCover();
+          width: 100%;
+          @include shadowBoxWithDescription();
+        }
+      }
 
-      .header {
-        @include fontSize(md);
-        @include fontWeight(semiBold);
+      .headerAndDesc {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        margin: 10px;
+        width: 100%;
+        color: $theme0;
+
+        .header {
+          @include fontSize(md);
+          @include fontWeight(semiBold);
+        }
       }
     }
   }
 }
+
+.pagination {
+  margin-top: 15px;
+} 
