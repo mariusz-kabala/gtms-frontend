@@ -29,7 +29,7 @@ export const UploadFile: FC<{
   accept,
 }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop: (acceptedFiles: File[]) => unknown,
+    onDrop,
     accept,
   })
   const { t } = useTranslation('uploadFileComponent')
