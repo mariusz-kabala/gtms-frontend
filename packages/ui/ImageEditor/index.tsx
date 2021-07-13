@@ -171,7 +171,7 @@ export const ImageEditor: FC<{
 
                   editorRef.current
                     .getImageScaledToCanvas()
-                    .toBlob((blob: string) => {
+                    .toBlob((blob: Blob | null) => {
                       if (!blob) {
                         return
                       }
